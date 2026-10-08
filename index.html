@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FirmsFinder.eu — Portalul</title>
+<meta name="description" content="FirmsFinder.eu: datele despre firme sunt gratuite, plătiți doar inteligența. Web-Om, Web-AI și Web-A2A către clienți, parteneri și distribuitori.">
+<style>
+  :root{
+    --bg:#050a1f; --bg2:#0b1340; --ink:#eaf3ff; --mute:#9fb6d9;
+    --glow:#38c8ff; --glow2:#1f6bff; --stone1:#1a2550; --stone2:#b5612a;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:radial-gradient(ellipse at 50% 35%,var(--bg2) 0%,var(--bg) 70%);color:var(--ink);
+    font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;min-height:100vh;overflow-x:hidden}
+  .stars{position:fixed;inset:0;pointer-events:none;
+    background-image:
+      radial-gradient(1px 1px at 12% 18%,#fff8,transparent),radial-gradient(1px 1px at 78% 12%,#fff9,transparent),
+      radial-gradient(1.5px 1.5px at 88% 40%,#fffa,transparent),radial-gradient(1px 1px at 6% 62%,#fff7,transparent),
+      radial-gradient(1px 1px at 30% 8%,#fff6,transparent),radial-gradient(1.5px 1.5px at 64% 6%,#fff8,transparent),
+      radial-gradient(1px 1px at 94% 78%,#fff7,transparent),radial-gradient(1px 1px at 18% 88%,#fff6,transparent)}
+  .hero{position:relative;max-width:1100px;margin:0 auto;padding:40px 16px 56px;text-align:center}
+  .brand{font-weight:700;letter-spacing:.08em;color:var(--mute);font-size:15px}
+  .brand b{color:var(--glow)}
+  h1{margin:14px 0 6px;font-size:clamp(30px,6vw,64px);line-height:1.02;font-weight:900;letter-spacing:-.01em}
+  h1 .free{color:#fff}
+  h1 .paid{background:linear-gradient(90deg,#7fe3ff,var(--glow2));-webkit-background-clip:text;background-clip:text;color:transparent;
+    filter:drop-shadow(0 0 18px #38c8ff66)}
+  .band{display:inline-flex;gap:14px;flex-wrap:wrap;justify-content:center;margin:14px 0 26px;font-size:14px;color:var(--mute)}
+  .band span{border:1px solid #2a3d7a;border-radius:999px;padding:5px 12px;background:#0b1640aa}
+  .band .ok{color:#7dffb0;border-color:#2f7a55}
+
+  /* PORTAL (gaura de cheie: cerc sus, trunchi îngust jos) */
+  .portal{position:relative;width:min(560px,100%);aspect-ratio:560/640;margin:0 auto}
+  .portal svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+  .gate-glow{filter:drop-shadow(0 0 28px #38c8ffaa)}
+  .content{position:absolute;left:24%;right:24%;top:17%;bottom:38%;
+    display:grid;grid-template-columns:1fr 6% 1fr;align-items:center}
+  .col{display:flex;flex-direction:column;gap:8%;height:100%;justify-content:center;position:relative;z-index:1}
+  .col h3{font-size:clamp(9px,1.9vw,11px);letter-spacing:.12em;text-transform:uppercase;color:#fff;text-shadow:0 1px 6px #000,0 0 12px #03114b;margin-bottom:2px}
+  .chip{background:#03114bd9;border:1px solid #9be6ff66;border-radius:10px;padding:7% 4%;box-shadow:0 0 14px #38c8ff44}
+  .chip b{display:block;font-size:clamp(11px,2.6vw,16px);color:#fff;white-space:nowrap}
+  .chip small{display:block;font-size:clamp(9px,1.9vw,11.5px);color:#bfe6ff;margin-top:2px}
+  .seam{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px}
+  .seam i{width:2px;flex:1;background:linear-gradient(#fff0,#fff,#fff0);box-shadow:0 0 10px #fff}
+  .seam span{font-size:clamp(12px,2.6vw,18px);color:#fff;text-shadow:0 0 10px #38c8ff}
+  @media (max-width:480px){ .chip small{display:none} .col{gap:6%} }
+  .key{margin:30px auto 0;font-size:clamp(18px,3.4vw,26px);font-weight:800;color:#fff;letter-spacing:-.01em}
+  .key .k{color:#7fe3ff;text-shadow:0 0 16px #38c8ff88}
+  .key-en{margin-top:6px;font-size:14px;color:var(--mute);font-style:italic}
+  .lead{max-width:640px;margin:22px auto 0;color:var(--mute);font-size:16px;line-height:1.55}
+  .lead strong{color:var(--ink)}
+  .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:22px}
+  .cta a{text-decoration:none;font-weight:700;border-radius:12px;padding:13px 20px;font-size:15px}
+  .cta .p{background:linear-gradient(90deg,#38c8ff,#1f6bff);color:#021033;box-shadow:0 0 24px #38c8ff66}
+  .cta .s{border:1px solid #38c8ff88;color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="stars"></div>
+<section class="hero">
+  <div class="brand"><b>FirmsFinder</b>.eu</div>
+  <h1><span class="free">DATA IS FREE.</span><br><span class="paid">YOU PAY THE INTELLIGENCE.</span></h1>
+  <div class="band"><span class="ok">🇷🇴 România: disponibil acum</span><span>🇪🇺 Toată UE: în curând</span></div>
+
+  <div class="portal">
+    <svg viewBox="0 0 560 640" aria-hidden="true">
+      <defs>
+        <linearGradient id="stone" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stop-color="#121a42"/><stop offset=".55" stop-color="#1d2a62"/><stop offset="1" stop-color="#c06a2c"/>
+        </linearGradient>
+        <radialGradient id="tint" cx=".5" cy=".38" r=".7">
+          <stop offset="0" stop-color="#9fe6ff" stop-opacity=".35"/><stop offset=".6" stop-color="#1f6bff" stop-opacity=".18"/><stop offset="1" stop-color="#04104a" stop-opacity=".75"/>
+        </radialGradient>
+        <clipPath id="hole"><path d="M165 600 L165 430 A205 205 0 1 1 395 430 L395 600 Z"/></clipPath>
+      </defs>
+      <!-- rama de piatră -->
+      <path fill="url(#stone)" fill-rule="evenodd"
+        d="M95 600 L95 450 A250 250 0 1 1 465 450 L465 600 Z M165 600 L165 430 A205 205 0 1 1 395 430 L395 600 Z"/>
+      <path fill="none" stroke="#ffffff22" stroke-width="2" d="M118 600 L118 445 A228 228 0 1 1 442 445 L442 600"/>
+      <!-- fereastra: harta Europei -->
+      <g class="gate-glow">
+        <g clip-path="url(#hole)">
+          <rect x="75" y="40" width="410" height="560" fill="#0d2a8a"/>
+          <image href="/assets/europa-portal.webp" x="-60" y="40" width="680" height="560" preserveAspectRatio="xMidYMid slice"/>
+          <rect x="75" y="40" width="410" height="560" fill="url(#tint)"/>
+        </g>
+        <path fill="none" stroke="#bff0ff" stroke-opacity=".9" stroke-width="3" d="M165 600 L165 430 A205 205 0 1 1 395 430 L395 600"/>
+      </g>
+      <!-- trepte -->
+      <rect x="70" y="600" width="420" height="16" rx="3" fill="#1c2a66"/>
+      <rect x="45" y="616" width="470" height="18" rx="3" fill="#0e1846"/>
+    </svg>
+    <div class="content">
+      <div class="col">
+        <h3>Sunteți găsit</h3>
+        <div class="chip"><b>Web-Om</b><small>oamenii caută</small></div>
+        <div class="chip"><b>Web-AI</b><small>AI-ul recomandă</small></div>
+        <div class="chip"><b>Web-A2A</b><small>agenții cumpără</small></div>
+      </div>
+      <div class="seam"><i></i><span>⇄</span><i></i></div>
+      <div class="col">
+        <h3>Găsiți</h3>
+        <div class="chip"><b>Clienți</b><small>cumpără de la dvs.</small></div>
+        <div class="chip"><b>Parteneri</b><small>lucrează cu dvs.</small></div>
+        <div class="chip"><b>Distribuitori</b><small>vând pentru dvs.</small></div>
+      </div>
+    </div>
+  </div>
+
+  <p class="key">Datele sunt ușa. <span class="k">Inteligența este cheia.</span></p>
+  <p class="key-en" lang="en">The data is the door. Intelligence is the key.</p>
+
+  <p class="lead"><strong>Gratuit:</strong> toate firmele, cu cifra de afaceri, angajații și evoluția pe 3 ani. Căutați scriind simplu, ca unui om. Fără cont, fără card.<br>
+  <strong>Plătiți doar inteligența:</strong> dacă AI-ul vă recomandă firma, ce lipsește și care firme vă pot deveni clienți, parteneri sau distribuitori.</p>
+  <div class="cta"><a class="p" href="/">Căutați gratuit</a><a class="s" href="/oferta.html">Vedeți ce plătiți</a></div>
+</section>
+</body>
+</html>
