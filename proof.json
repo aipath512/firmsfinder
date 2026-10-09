@@ -1,0 +1,45 @@
+
+{
+  "schema_version": "1.1",
+  "entity": "https://firmsfinder.eu/#organization",
+  "brand": "FirmsFinder AI",
+  "canonical": "https://firmsfinder.eu/",
+  "verification_endpoint": null,
+  "note": "Acest fișier descrie o metodă propusă pentru verificarea integrității documentelor și artefactelor FirmsFinder AI. Nu constituie dovada implementării unui registru de verificare, nu publică amprente ale documentelor clienților și nu certifică exactitatea datelor despre firme.",
+  "method": {
+    "hash": "SHA-256",
+    "computed_on": "reprezentarea canonică a artefactului, definită explicit pentru fiecare tip de document",
+    "timestamping": "OpenTimestamps",
+    "identifier_format": "COD-FIRMA_SLUG-8HEX",
+    "verification_chain": [
+      "IDENTIFY",
+      "CANONICALIZE",
+      "HASH",
+      "TIMESTAMP",
+      "VERIFY"
+    ]
+  },
+  "privacy": {
+    "personal_data_exposed": false,
+    "client_enumeration_possible": false,
+    "lookup": "doar căutare exactă după identificator sau amprentă, dacă serviciul de verificare este implementat"
+  },
+  "scope": {
+    "platform": "FirmsFinder AI",
+    "primary_entity": "COMPANY",
+    "market": "Romania",
+    "applies_to": [
+      "rapoarte de inteligență economică",
+      "artefacte de analiză",
+      "documente de verificare",
+      "rezultate exportate"
+    ]
+  },
+  "limitations": [
+    "SHA-256 demonstrează integritatea unui artefact, nu adevărul factual al conținutului.",
+    "OpenTimestamps poate furniza dovezi temporale numai pentru artefactele efectiv ancorate.",
+    "Acest manifest nu demonstrează existența unui registru operațional.",
+    "Publicarea acestui fișier nu acordă acces la date private."
+  ],
+  "status": "self_declared"
+}
