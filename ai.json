@@ -1,0 +1,133 @@
+
+{
+  "schema": "FIRMSFINDER_AI_DISCOVERY",
+  "version": "1.0",
+  "canonical": "https://firmsfinder.eu/",
+  "language": "ro",
+  "organization": {
+    "id": "E_ORG_AIVENTURE",
+    "legal_name": "AiVenture S.R.L.",
+    "brand": "FirmsFinder AI",
+    "category": "B2B Company Discovery & Economic Intelligence",
+    "website": "https://firmsfinder.eu/"
+  },
+  "positioning": {
+    "headline": "Găsește firme. Descoperă clienți și parteneri relevanți.",
+    "promise": "De la date despre firme la inteligență și acțiune.",
+    "commercial_principle": "DATA IS FREE. SEARCH IS FREE. PAY THE INTELLIGENCE.",
+    "primary_object": "Company",
+    "market_scope": {
+      "current": "Romania",
+      "coverage_claim": "Peste 1 milion de firme",
+      "future": "Extindere europeană"
+    }
+  },
+  "primary_entity": {
+    "id": "E_ENTITY_COMPANY",
+    "type": "EconomicEntity",
+    "definition": "Firmă identificată canonic, descrisă prin atribute, surse, relații și istoric temporal."
+  },
+  "discovery_modes": {
+    "chat": {
+      "label": "CHAT / CAUTĂ",
+      "description": "Căutare și explorare de firme, clienți, furnizori și parteneri."
+    },
+    "work": {
+      "label": "WORK / DELEAGĂ AI",
+      "description": "Delegarea cercetării și analizei către AI, în limitele capabilităților și permisiunilor disponibile."
+    }
+  },
+  "web_layers": [
+    {
+      "id": "HUMAN_WEB",
+      "description": "Oamenii caută și compară firme."
+    },
+    {
+      "id": "AI_WEB",
+      "description": "Sistemele AI interpretează informații despre firme și relații economice."
+    },
+    {
+      "id": "AGENT_WEB",
+      "description": "Agenții utilizează capabilități explicit autorizate."
+    }
+  ],
+  "intelligence_services": [
+    {
+      "id": "DISCOVER_MONITOR",
+      "name": "Discover & Monitor"
+    },
+    {
+      "id": "OBSERVE_IMPROVE",
+      "name": "Observe & Improve"
+    },
+    {
+      "id": "VERIFY_ACT",
+      "name": "Verify & Act"
+    }
+  ],
+  "semantic_architecture": {
+    "concepts": [
+      "Knowledge Graph",
+      "Vector Search",
+      "Hybrid Graph–Vector Search",
+      "GraphRAG",
+      "Neuro-Symbolic AI",
+      "Hybrid Graph–Vector Intelligence"
+    ],
+    "note": "Conceptele descriu arhitectura și direcțiile tehnologice; nu toate sunt confirmate ca implementări complete."
+  },
+  "lifecycle": [
+    "COMPANY",
+    "IDENTIFICATION",
+    "PUBLIC_DATA",
+    "ECONOMIC_CONTEXT",
+    "RELATIONSHIPS",
+    "SEMANTIC_SEARCH",
+    "MATCHING",
+    "INTELLIGENCE",
+    "RECOMMENDATION",
+    "HUMAN_APPROVAL",
+    "ACTION",
+    "EVIDENCE"
+  ],
+  "governance": {
+    "rules": [
+      "No rule → no autonomy.",
+      "Capability ≠ permission.",
+      "Crawl permission ≠ transaction authority.",
+      "Claim ≠ Proof.",
+      "Generated ≠ Deployed.",
+      "Deployed ≠ Valid.",
+      "Valid ≠ Verified."
+    ],
+    "data_states": [
+      "FACT",
+      "INFERENCE",
+      "RECOMMENDATION",
+      "EVIDENCE"
+    ],
+    "human_approval_required_for": "Sensitive or commercially binding actions unless explicitly authorized."
+  },
+  "machine_readable": {
+    "robots": "https://firmsfinder.eu/robots.txt",
+    "llms": "https://firmsfinder.eu/llms.txt",
+    "ai_txt": "https://firmsfinder.eu/ai.txt",
+    "ai_json": "https://firmsfinder.eu/ai.json",
+    "sitemap": "https://firmsfinder.eu/sitemap.xml",
+    "faq_hub": "https://firmsfinder.eu/faq/"
+  },
+  "canonical_pages": [
+    "https://firmsfinder.eu/",
+    "https://firmsfinder.eu/despre/",
+    "https://firmsfinder.eu/intelligence/",
+    "https://firmsfinder.eu/resurse/",
+    "https://firmsfinder.eu/faq/"
+  ],
+  "limitations": [
+    "Nu garantează completitudinea sau actualizarea în timp real a tuturor datelor.",
+    "Nu afirmă acoperire integrală UE.",
+    "Nu garantează citări AI, poziții Google sau rezultate comerciale.",
+    "Nu acordă autoritate tranzacțională prin simpla descoperire."
+  ]
+}
+  
