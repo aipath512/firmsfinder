@@ -1,0 +1,133 @@
+# FirmsFinder AI
+
+> B2B Company Discovery, Economic Intelligence & Agent-Ready Business Infrastructure
+
+Canonical site: https://firmsfinder.eu/
+Language: ro
+Brand: FirmsFinder AI
+Ecosystem: AiVenture S.R.L.
+Scope: Romania — peste 1 milion de firme; extinderea europeană este obiectiv de dezvoltare.
+
+## Canonical positioning
+
+Category: B2B Company Discovery & Economic Intelligence
+
+Headline:
+Găsește firme. Descoperă clienți și parteneri relevanți.
+
+Core promise:
+De la date despre firme la relații economice, oportunități și acțiuni asistate de AI.
+
+Commercial principle:
+DATA IS FREE. SEARCH IS FREE. PAY THE INTELLIGENCE.
+
+## Primary object
+
+Firma este entitatea economică principală.
+
+COMPANY → IDENTIFICATION → PUBLIC DATA → ECONOMIC CONTEXT
+→ RELATIONSHIPS → SEMANTIC SEARCH → MATCHING
+→ INTELLIGENCE → RECOMMENDATION → HUMAN APPROVAL
+→ ACTION → EVIDENCE
+
+## Two user doors
+
+CHAT / CAUTĂ:
+Căutarea și explorarea firmelor, piețelor, clienților, furnizorilor și partenerilor.
+
+WORK / DELEAGĂ AI:
+Delegarea sarcinilor de cercetare și analiză AI, în limitele capabilităților și autorizărilor disponibile.
+
+## Human Web / AI Web / Agent Web
+
+Human Web:
+Oamenii descoperă și compară firme și oportunități economice.
+
+AI Web:
+Sistemele AI interpretează informațiile publice despre firme și relațiile lor.
+
+Agent Web:
+Agenții AI pot utiliza capabilități expuse explicit, sub controlul permisiunilor și al regulilor aprobate.
+
+## Economic intelligence
+
+DISCOVER & MONITOR:
+Descoperire, căutare semantică, identificare de parteneri și monitorizare.
+
+OBSERVE & IMPROVE:
+Observarea vizibilității AI, diagnostic și optimizare bazată pe dovezi.
+
+VERIFY & ACT:
+Verificare, trasabilitate, aprobări umane și acțiuni autorizate.
+
+## Technical concepts
+
+- Knowledge Graph
+- Vector Search
+- Hybrid Graph–Vector Search
+- GraphRAG
+- Neuro-Symbolic AI
+- Hybrid Graph–Vector Intelligence
+
+Conceptele includ arhitectură și direcții de dezvoltare; menționarea lor nu demonstrează implementarea integrală.
+
+## Data and provenance
+
+FACT: informație susținută de surse.
+INFERENCE: concluzie derivată.
+RECOMMENDATION: acțiune propusă.
+EVIDENCE: dovadă asociată.
+
+SHA-256 demonstrează integritatea artefactului, nu adevărul factual.
+
+## Pull and Push
+
+PULL: căutare sau analiză inițiată de utilizator ori agent.
+PUSH: monitorizare și semnalare de schimbări, unde funcția este disponibilă și autorizată.
+
+## Canonical pages
+
+- https://firmsfinder.eu/
+- https://firmsfinder.eu/despre/
+- https://firmsfinder.eu/intelligence/
+- https://firmsfinder.eu/resurse/
+- https://firmsfinder.eu/faq/
+
+## Discovery resources
+
+- https://firmsfinder.eu/robots.txt
+- https://firmsfinder.eu/sitemap.xml
+- https://firmsfinder.eu/llms.txt
+- https://firmsfinder.eu/ai.txt
+
+## FAQ
+
+https://firmsfinder.eu/faq/
+
+50 de întrebări și răspunsuri, organizate în:
+- Date și profiluri de companii
+- Căutare, relații și oportunități
+- AI, vizibilitate și cele trei Web-uri
+- Intelligence, servicii și prețuri
+- Dovezi, conformitate și utilizare responsabilă
+
+## Governance
+
+- No rule → no autonomy.
+- Capability ≠ permission.
+- Crawl permission ≠ transaction authority.
+- Claim ≠ Proof.
+- Generated ≠ Deployed.
+- Deployed ≠ Valid.
+- Valid ≠ Verified.
+- AI observation ≠ independent evidence.
+
+## Negative scope
+
+FirmsFinder AI nu garantează completitudinea sau actualizarea permanentă a datelor, acoperirea integrală a UE, rezultate comerciale, poziții Google, citări AI, conformitate juridică automată ori tranzacții fără autorizare.
+
+## Authority
+
+Acest document este informativ. Nu acordă acces la date private, permisiuni API sau autoritate tranzacțională.
+
+Canonical source: https://firmsfinder.eu/
