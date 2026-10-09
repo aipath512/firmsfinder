@@ -1,0 +1,141 @@
+{
+  "schema": "FIRMSFINDER_AI_ENTITIES",
+  "version": "1.0",
+  "canonical": "https://firmsfinder.eu/entities.json",
+  "language": "ro",
+  "identity_resolution_rule": "Reuse stable entity IDs across HTML, Schema.org JSON-LD, ai.json, entities.json, APIs and evidence where those surfaces exist. Never infer authorization from entity discovery.",
+  "scope": {
+    "market": "Romania",
+    "coverage_statement": "Acces gratuit la peste 1 milion de firme",
+    "european_expansion": "Planned; not a claim of current EU-wide coverage",
+    "note": "This manifest defines platform-level entities, not the individual company records in the underlying dataset."
+  },
+  "entities": [
+    {
+      "id": "E_ORG_AIVENTURE",
+      "type": "Organization",
+      "canonical_uri": "https://aiventure.ro/#organization",
+      "name": "AiVenture S.R.L.",
+      "relationships": {
+        "OWNS_BRAND": ["E_BRAND_FIRMSFINDER_AI"],
+        "PUBLISHES": ["E_WEBSITE_FIRMSFINDER_AI"]
+      }
+    },
+    {
+      "id": "E_BRAND_FIRMSFINDER_AI",
+      "type": "Brand",
+      "canonical_uri": "https://firmsfinder.eu/#brand",
+      "name": "FirmsFinder AI",
+      "relationships": {
+        "OWNED_BY": ["E_ORG_AIVENTURE"],
+        "REPRESENTED_BY": ["E_WEBSITE_FIRMSFINDER_AI"],
+        "OFFERS": ["E_SERVICE_COMPANY_DISCOVERY", "E_SERVICE_ECONOMIC_INTELLIGENCE"]
+      }
+    },
+    {
+      "id": "E_WEBSITE_FIRMSFINDER_AI",
+      "type": "WebSite",
+      "canonical_uri": "https://firmsfinder.eu/#website",
+      "name": "FirmsFinder AI",
+      "relationships": {
+        "PUBLISHED_BY": ["E_ORG_AIVENTURE"],
+        "REPRESENTS_BRAND": ["E_BRAND_FIRMSFINDER_AI"],
+        "HAS_PAGE": ["E_PAGE_HOME", "E_PAGE_ABOUT", "E_PAGE_INTELLIGENCE", "E_PAGE_RESOURCES", "E_PAGE_FAQ"]
+      }
+    },
+    {
+      "id": "E_ENTITY_COMPANY",
+      "type": "EconomicEntityClass",
+      "canonical_uri": "https://firmsfinder.eu/resurse/#company-entity",
+      "name": "Company / Firmă",
+      "definition": "Clasă conceptuală pentru firme cu identitate stabilă, atribute, surse, relații și dimensiune temporală.",
+      "instance_policy": "Individual company instances must use separately resolved identifiers and sourced facts; this class is not a company record.",
+      "relationships": {
+        "DISCOVERED_THROUGH": ["E_SERVICE_COMPANY_DISCOVERY"],
+        "ANALYZED_THROUGH": ["E_SERVICE_ECONOMIC_INTELLIGENCE"]
+      }
+    },
+    {
+      "id": "E_SERVICE_COMPANY_DISCOVERY",
+      "type": "Service",
+      "canonical_uri": "https://firmsfinder.eu/#company-discovery",
+      "name": "Company Discovery & Search",
+      "description": "Descoperirea și căutarea firmelor, clienților, furnizorilor și partenerilor.",
+      "relationships": {
+        "OFFERED_BY": ["E_BRAND_FIRMSFINDER_AI"],
+        "DISCOVERS_CLASS": ["E_ENTITY_COMPANY"],
+        "ACCESSIBLE_FROM": ["E_PAGE_HOME"]
+      }
+    },
+    {
+      "id": "E_SERVICE_ECONOMIC_INTELLIGENCE",
+      "type": "Service",
+      "canonical_uri": "https://firmsfinder.eu/intelligence/#intelligence",
+      "name": "Economic Intelligence",
+      "description": "Analiză economică cu valoare adăugată, monitorizare, evaluare și recomandări, în funcție de serviciile disponibile.",
+      "relationships": {
+        "OFFERED_BY": ["E_BRAND_FIRMSFINDER_AI"],
+        "ANALYZES_CLASS": ["E_ENTITY_COMPANY"],
+        "DESCRIBED_ON": ["E_PAGE_INTELLIGENCE"],
+        "HAS_TRACK": ["E_TRACK_DISCOVER_MONITOR", "E_TRACK_OBSERVE_IMPROVE", "E_TRACK_VERIFY_ACT"]
+      }
+    },
+    {
+      "id": "E_TRACK_DISCOVER_MONITOR",
+      "type": "ServiceCategory",
+      "canonical_uri": "https://firmsfinder.eu/intelligence/#discover-monitor",
+      "name": "Discover & Monitor",
+      "relationships": {"PART_OF": ["E_SERVICE_ECONOMIC_INTELLIGENCE"]}
+    },
+    {
+      "id": "E_TRACK_OBSERVE_IMPROVE",
+      "type": "ServiceCategory",
+      "canonical_uri": "https://firmsfinder.eu/intelligence/#observe-improve",
+      "name": "Observe & Improve",
+      "relationships": {"PART_OF": ["E_SERVICE_ECONOMIC_INTELLIGENCE"]}
+    },
+    {
+      "id": "E_TRACK_VERIFY_ACT",
+      "type": "ServiceCategory",
+      "canonical_uri": "https://firmsfinder.eu/intelligence/#verify-act",
+      "name": "Verify & Act",
+      "relationships": {"PART_OF": ["E_SERVICE_ECONOMIC_INTELLIGENCE"]}
+    },
+    {
+      "id": "E_PAGE_HOME", "type": "WebPage", "canonical_uri": "https://firmsfinder.eu/", "name": "Acasă",
+      "relationships": {"PART_OF": ["E_WEBSITE_FIRMSFINDER_AI"], "DESCRIBES": ["E_SERVICE_COMPANY_DISCOVERY"]}
+    },
+    {
+      "id": "E_PAGE_ABOUT", "type": "AboutPage", "canonical_uri": "https://firmsfinder.eu/despre/", "name": "Despre",
+      "relationships": {"PART_OF": ["E_WEBSITE_FIRMSFINDER_AI"], "DESCRIBES": ["E_BRAND_FIRMSFINDER_AI"]}
+    },
+    {
+      "id": "E_PAGE_INTELLIGENCE", "type": "WebPage", "canonical_uri": "https://firmsfinder.eu/intelligence/", "name": "Intelligence",
+      "relationships": {"PART_OF": ["E_WEBSITE_FIRMSFINDER_AI"], "DESCRIBES": ["E_SERVICE_ECONOMIC_INTELLIGENCE"]}
+    },
+    {
+      "id": "E_PAGE_RESOURCES", "type": "WebPage", "canonical_uri": "https://firmsfinder.eu/resurse/", "name": "Resurse",
+      "relationships": {"PART_OF": ["E_WEBSITE_FIRMSFINDER_AI"], "DESCRIBES": ["E_ENTITY_COMPANY"]}
+    },
+    {
+      "id": "E_PAGE_FAQ", "type": "FAQPage", "canonical_uri": "https://firmsfinder.eu/faq/", "name": "FAQ Hub",
+      "faq_count": 50,
+      "relationships": {"PART_OF": ["E_WEBSITE_FIRMSFINDER_AI"]}
+    }
+  ],
+  "machine_readable": {
+    "ai_json": "https://firmsfinder.eu/ai.json",
+    "ai_txt": "https://firmsfinder.eu/ai.txt",
+    "llms_txt": "https://firmsfinder.eu/llms.txt",
+    "robots_txt": "https://firmsfinder.eu/robots.txt",
+    "sitemap": "https://firmsfinder.eu/sitemap.xml"
+  },
+  "governance": {
+    "claims": "Claim ≠ Proof",
+    "identity": "Entity identity does not establish factual accuracy or transaction authority",
+    "relationship_status": "Platform ontology; not proof that every relationship is available in a live API",
+    "evidence": "Source and timestamp required for factual claims about individual firms"
+  },
+  "metamodel": "FirmsFinder AI economic entity model v1.0",
+  "cross_reference_policy": "Stable IDs, explicit directed relations, and reciprocal links for critical platform relationships. Cardinalities are not asserted until separately defined and validated."
+}
