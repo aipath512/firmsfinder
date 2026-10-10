@@ -77,6 +77,10 @@ header .coverage-badge{font-size:11px!important;padding:4px 11px!important;line-
 .free-access{display:inline-block;margin:0 0 8px;padding:8px 16px;border:1px solid #39876c;border-radius:999px;background:#0e302c;color:#8bf1bf;font-weight:850;font-size:clamp(13px,2vw,18px);letter-spacing:.015em;text-align:center}
 @media(max-width:650px){.free-access{font-size:12px;padding:7px 10px;margin-bottom:5px}}
 .example-answer{border:1px solid #426398;background:#10213d;border-radius:15px;padding:18px 22px;margin:14px 0 20px}.example-answer p{margin:0 0 10px}.example-answer ul{margin:8px 0 14px;padding-left:22px;color:var(--muted)}.example-answer li{margin:5px 0}
+
+.cta-guide{margin:20px auto 0;max-width:880px;text-align:left}.cta-guide table{width:100%;border-collapse:collapse;font-size:14px;line-height:1.55}.cta-guide th,.cta-guide td{padding:12px 14px;border-bottom:1px solid #48648e;vertical-align:top}.cta-guide th{width:220px;color:#eef5ff;text-align:left;font-weight:800}.cta-guide td{color:#c5d5e8}.cta-guide-summary{text-align:center;font-size:16px;color:#eef5ff;margin:15px 0 0}@media(max-width:650px){.cta-guide th,.cta-guide td{padding:10px 6px;font-size:12px}.cta-guide th{width:38%;overflow-wrap:normal}.cta-guide-summary{font-size:14px}}
+
+.hero-actions{display:flex!important;justify-content:center;gap:12px;flex-wrap:wrap}.hero-actions a{min-width:190px}@media(max-width:650px){.hero-actions{display:grid!important;grid-template-columns:1fr!important;gap:8px!important}.hero-actions a{width:100%;min-width:0;padding:13px 12px!important;font-size:13px!important}}
 </style>
 <meta content="Acces gratuit la peste 1 milion de firme. Caută companii, clienți și parteneri; descoperă oportunități cu FirmsFinder AI și AiVenture Intelligence." name="description"/><meta content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" name="robots"/><meta content="AiVenture" name="author"/><meta content="strict-origin-when-cross-origin" name="referrer"/><link href="https://firmsfinder.eu/" rel="canonical"/><meta content="website" property="og:type"/><meta content="FirmsFinder AI" property="og:site_name"/><meta content="ro_RO" property="og:locale"/><meta content="FirmsFinder AI — Caută firme și descoperă oportunități" property="og:title"/><meta content="Acces gratuit la peste 1 milion de firme. Caută companii, clienți și parteneri; descoperă oportunități cu FirmsFinder AI și AiVenture Intelligence." property="og:description"/><meta content="https://firmsfinder.eu/" property="og:url"/><meta content="summary_large_image" name="twitter:card"/><meta content="FirmsFinder AI — Caută firme și descoperă oportunități" name="twitter:title"/><meta content="Acces gratuit la peste 1 milion de firme. Caută companii, clienți și parteneri; descoperă oportunități cu FirmsFinder AI și AiVenture Intelligence." name="twitter:description"/><style>
 /* FirmsFinder AI breadcrumbs and accessible FAQ */
@@ -92,8 +96,11 @@ header .coverage-badge{font-size:11px!important;padding:4px 11px!important;line-
 <a class="free-access" href="https://1clic-ia.eu/">ACCES GRATUIT LA 1+ MILION FIRME ACTIVE</a>
 <h1>Găsește clienți noi.<br/><em>Fă-te găsit de ei.</em></h1>
 <p class="lead">Găsește firme care au nevoie de ce vinzi, furnizori și parteneri. Fă-ți oferta cunoscută oamenilor și sistemelor AI care caută soluții. Începe gratuit.</p>
-<div aria-label="Alege modul de lucru" class="hero-actions"><a class="chat" href="#search" id="cta-chat">CAUTĂ CLIENȚI ȘI PARTENERI →</a><a class="work" href="/intelligence/" id="cta-visibility">FII VIZIBIL PENTRU OAMENI ȘI AI →</a></div><p class="note">CHAT: explorează firme, piețe și relații economice. WORK: deleagă cercetarea pentru oportunități comerciale explicate.</p>
-<p class="note">Disponibilitatea și actualizarea surselor sunt precizate pentru fiecare categorie de date.</p>
+<div aria-label="Alege modul de lucru" class="hero-actions"><a class="chat" href="#search" id="cta-chat">CAUTĂ CLIENȚI →</a><a class="work" href="/intelligence/" id="cta-visibility">FII GĂSIT →</a><a class="work" href="#search" id="cta-work">DELEAGĂ AI-ULUI →</a></div><div class="cta-guide"><table aria-label="Cele trei moduri de utilizare FirmsFinder"><tbody>
+<tr><th scope="row">CAUTĂ CLIENȚI →</th><td>Caută direct potențiali clienți, furnizori și parteneri.</td></tr>
+<tr><th scope="row">FII GĂSIT →</th><td>Își prezintă firma și oferta pentru oameni, sisteme AI și agenți.</td></tr>
+<tr><th scope="row">DELEAGĂ AI-ULUI →</th><td>Stabilește un obiectiv și deleagă cercetarea, păstrând controlul.</td></tr>
+</tbody></table><p class="cta-guide-summary"><strong>Cauți tu. Te găsesc ei. Cauți prin AI.</strong></p></div>
 </section>
 <section aria-label="Moduri FirmsFinder AI" class="workspace" id="search">
 <div class="tabs" role="tablist">
@@ -158,6 +165,7 @@ out.textContent='Demonstrație de interfață. Nu sunt conectate baze de date sa
 s.addEventListener('click',()=>set('search'));
 d.addEventListener('click',()=>set('delegate'));
 document.getElementById('cta-chat').addEventListener('click',()=>set('search'));
+document.getElementById('cta-work').addEventListener('click',()=>set('delegate'));
 
 btn.addEventListener('click',()=>{
 if(!q.value.trim()){out.textContent='Introdu o întrebare sau un obiectiv.';return;}
