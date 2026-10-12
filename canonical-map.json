@@ -1,12 +1,47 @@
 {
-  "pages": [
+  "schema": "FIRMSFINDER_ONSITE_SIGNAL",
+  "version": "1.0",
+  "signal_id": "CANONICAL_MAP",
+  "signal_name": "Canonical URL registry",
+  "site": "https://firmsfinder.eu/",
+  "scope": "ON_SITE",
+  "category": "Discovery",
+  "status": "SPECIFICATION_NOT_RUNTIME_VERIFIED",
+  "purpose": "Canonical URL registry",
+  "publication_note": "Publicarea acestui fișier nu demonstrează că funcția sau controlul este implementat.",
+  "verification": {
+    "check": "GET public URL; validate JSON and verify runtime behavior separately",
+    "result": "NOT_TESTED"
+  },
+  "source_basis": "firmsfinder-main (2).zip; specification regenerated on 2026-10-12",
+  "urls": [
     {
       "path": "/",
       "canonical": "https://firmsfinder.eu/"
     },
     {
-      "path": "/categorii/",
-      "canonical": "https://firmsfinder.eu/categorii/"
+      "path": "/intelligence/",
+      "canonical": "https://firmsfinder.eu/intelligence/"
+    },
+    {
+      "path": "/faq/",
+      "canonical": "https://firmsfinder.eu/faq/"
+    },
+    {
+      "path": "/despre/",
+      "canonical": "https://firmsfinder.eu/despre/"
+    },
+    {
+      "path": "/contact/",
+      "canonical": "https://firmsfinder.eu/contact/"
+    },
+    {
+      "path": "/surse/",
+      "canonical": "https://firmsfinder.eu/surse/"
+    },
+    {
+      "path": "/resurse/",
+      "canonical": "https://firmsfinder.eu/resurse/"
     },
     {
       "path": "/cautare/",
@@ -17,8 +52,8 @@
       "canonical": "https://firmsfinder.eu/comparare/"
     },
     {
-      "path": "/contact/",
-      "canonical": "https://firmsfinder.eu/contact/"
+      "path": "/categorii/",
+      "canonical": "https://firmsfinder.eu/categorii/"
     },
     {
       "path": "/localitati/",
@@ -27,14 +62,6 @@
     {
       "path": "/semnale/",
       "canonical": "https://firmsfinder.eu/semnale/"
-    },
-    {
-      "path": "/surse/",
-      "canonical": "https://firmsfinder.eu/surse/"
     }
-  ],
-  "dynamic_profiles": {
-    "pattern": "/firme/{cui}/",
-    "generator": "backend/onsite.mjs"
-  }
+  ]
 }

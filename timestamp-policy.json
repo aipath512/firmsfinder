@@ -1,10 +1,17 @@
 {
-  "created_at": "2026-10-12T12:40:33.892056+00:00",
-  "time_origin": "local generation clock",
-  "independent_time_proof": false,
-  "opentimestamps": {
-    "status": "NOT_GENERATED",
-    "proof_url": null
+  "schema": "FIRMSFINDER_ONSITE_SIGNAL",
+  "version": "1.0",
+  "signal_id": "TIMESTAMP_POLICY",
+  "signal_name": "Timestamping rules",
+  "site": "https://firmsfinder.eu/",
+  "scope": "ON_SITE",
+  "category": "Evidence",
+  "status": "SPECIFICATION_NOT_RUNTIME_VERIFIED",
+  "purpose": "Timestamping rules",
+  "publication_note": "Publicarea acestui fișier nu demonstrează că funcția sau controlul este implementat.",
+  "verification": {
+    "check": "GET public URL; validate JSON and verify runtime behavior separately",
+    "result": "NOT_TESTED"
   },
-  "hash_is_not_truth": true
+  "source_basis": "firmsfinder-main (2).zip; specification regenerated on 2026-10-12"
 }

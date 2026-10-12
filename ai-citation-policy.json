@@ -1,11 +1,17 @@
 {
-  "version": "1.0.0",
-  "rules": [
-    "Cite the precise source for factual company claims",
-    "Keep source date, version and field",
-    "Missing facts remain unknown",
-    "CAEN is classification, not a confirmed product or need",
-    "Do not treat model consensus as factual evidence"
-  ],
-  "runtime_enforcement": "structured_data_exports; generative_AI_not_added"
+  "schema": "FIRMSFINDER_ONSITE_SIGNAL",
+  "version": "1.0",
+  "signal_id": "AI_CITATION_POLICY",
+  "signal_name": "AI citation guidance",
+  "site": "https://firmsfinder.eu/",
+  "scope": "ON_SITE",
+  "category": "Semantics",
+  "status": "SPECIFICATION_NOT_RUNTIME_VERIFIED",
+  "purpose": "AI citation guidance",
+  "publication_note": "Publicarea acestui fișier nu demonstrează că funcția sau controlul este implementat.",
+  "verification": {
+    "check": "GET public URL; validate JSON and verify runtime behavior separately",
+    "result": "NOT_TESTED"
+  },
+  "source_basis": "firmsfinder-main (2).zip; specification regenerated on 2026-10-12"
 }

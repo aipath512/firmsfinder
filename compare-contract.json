@@ -1,0 +1,17 @@
+{
+  "schema": "FIRMSFINDER_ONSITE_SIGNAL",
+  "version": "1.0",
+  "signal_id": "COMPARE_CONTRACT",
+  "signal_name": "Comparison feature interface status",
+  "site": "https://firmsfinder.eu/",
+  "scope": "ON_SITE",
+  "category": "Offer",
+  "status": "NOT_RUNTIME_VERIFIED",
+  "purpose": "Comparison feature interface status",
+  "publication_note": "Publicarea acestui fișier nu demonstrează că funcția sau controlul este implementat.",
+  "verification": {
+    "check": "GET public URL; validate JSON and verify runtime behavior separately",
+    "result": "NOT_TESTED"
+  },
+  "source_basis": "firmsfinder-main (2).zip; specification regenerated on 2026-10-12"
+}

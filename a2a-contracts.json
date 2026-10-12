@@ -1,39 +1,17 @@
 {
-  "protocol": "A2A 0.3.0",
-  "transport": "JSONRPC",
-  "methods": [
-    "message/send",
-    "tasks/get",
-    "tasks/cancel"
-  ],
-  "task_mode": "synchronous_new_tasks_only",
-  "input": "one DataPart containing operation and parameters",
-  "operations": {
-    "company.search": {
-      "optional": [
-        "q",
-        "caen",
-        "revision",
-        "judet",
-        "localitate",
-        "page",
-        "limit"
-      ],
-      "requirement": "at least one search criterion"
-    },
-    "company.get": {
-      "required": [
-        "cui"
-      ]
-    },
-    "company.compare": {
-      "required": [
-        "ids"
-      ],
-      "min": 2,
-      "max": 4
-    }
+  "schema": "FIRMSFINDER_ONSITE_SIGNAL",
+  "version": "1.0",
+  "signal_id": "A2A_CONTRACTS",
+  "signal_name": "A2A offer contract registry",
+  "site": "https://firmsfinder.eu/",
+  "scope": "ON_SITE",
+  "category": "A2A",
+  "status": "SPECIFICATION_NOT_RUNTIME_VERIFIED",
+  "purpose": "A2A offer contract registry",
+  "publication_note": "Publicarea acestui fișier nu demonstrează că funcția sau controlul este implementat.",
+  "verification": {
+    "check": "GET public URL; validate JSON and verify runtime behavior separately",
+    "result": "NOT_TESTED"
   },
-  "output": "Task completed with DataPart artifact; errors are JSON-RPC error objects",
-  "independent_protocol_validation": "NOT_RUN"
+  "source_basis": "firmsfinder-main (2).zip; specification regenerated on 2026-10-12"
 }

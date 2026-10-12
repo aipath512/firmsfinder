@@ -1,8 +1,35 @@
 {
-  "schema": "FIRMSFINDER_SERVICES",
-  "version": "1.0.0",
-  "status": "BACKEND_REQUIRED",
-  "endpoint": "https://firmsfinder.eu/services.json",
-  "items": [],
-  "notice": "Export al serviciilor documentate. Acest fișier static este un manifest; exportul real este generat de backend când este conectat."
+  "schema": "FIRMSFINDER_ONSITE_SIGNAL",
+  "version": "1.0",
+  "signal_id": "SERVICES",
+  "signal_name": "Declared service offer",
+  "site": "https://firmsfinder.eu/",
+  "scope": "ON_SITE",
+  "category": "Offer",
+  "status": "SPECIFICATION_NOT_RUNTIME_VERIFIED",
+  "purpose": "Declared service offer",
+  "publication_note": "Publicarea acestui fișier nu demonstrează că funcția sau controlul este implementat.",
+  "verification": {
+    "check": "GET public URL; validate JSON and verify runtime behavior separately",
+    "result": "NOT_TESTED"
+  },
+  "source_basis": "firmsfinder-main (2).zip; specification regenerated on 2026-10-12",
+  "service_families": [
+    {
+      "id": "CAUTA",
+      "label": "CAUTĂ",
+      "description": "Descoperire firme și parteneri"
+    },
+    {
+      "id": "FII_GASIT",
+      "label": "FII GĂSIT",
+      "description": "Vizibilitatea ofertei pentru oameni și sisteme AI"
+    },
+    {
+      "id": "DELEAGA_AI_ULUI",
+      "label": "DELEAGĂ AI-ULUI",
+      "description": "Cercetare delegată, cu control uman"
+    }
+  ],
+  "pricing": "NOT_ASSERTED"
 }

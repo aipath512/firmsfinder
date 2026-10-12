@@ -1,0 +1,20 @@
+{
+  "schema": "FIRMSFINDER_ONSITE_SIGNAL",
+  "version": "1.0",
+  "signal_id": "AVAILABILITY_STATUS",
+  "signal_name": "Geographic service availability",
+  "site": "https://firmsfinder.eu/",
+  "scope": "ON_SITE",
+  "category": "Offer",
+  "status": "SPECIFICATION_NOT_RUNTIME_VERIFIED",
+  "purpose": "Geographic service availability",
+  "publication_note": "Publicarea acestui fișier nu demonstrează că funcția sau controlul este implementat.",
+  "verification": {
+    "check": "GET public URL; validate JSON and verify runtime behavior separately",
+    "result": "NOT_TESTED"
+  },
+  "source_basis": "firmsfinder-main (2).zip; specification regenerated on 2026-10-12",
+  "romania": "DECLARED_MARKETING_CLAIM_VERIFY",
+  "eu": "COMING_SOON_NOT_LIVE",
+  "firm_count": "1+ million active firms — VERIFY_DEFINITION_AND_DATE"
+}

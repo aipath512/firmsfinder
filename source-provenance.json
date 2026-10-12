@@ -1,24 +1,32 @@
 {
-  "version": "1.0.0",
+  "schema": "FIRMSFINDER_ONSITE_SIGNAL",
+  "version": "1.0",
+  "signal_id": "SOURCE_PROVENANCE",
+  "signal_name": "Public source provenance",
+  "site": "https://firmsfinder.eu/",
+  "scope": "ON_SITE",
+  "category": "Evidence",
+  "status": "SPECIFICATION_NOT_RUNTIME_VERIFIED",
+  "purpose": "Public source provenance",
+  "publication_note": "Publicarea acestui fișier nu demonstrează că funcția sau controlul este implementat.",
+  "verification": {
+    "check": "GET public URL; validate JSON and verify runtime behavior separately",
+    "result": "NOT_TESTED"
+  },
+  "source_basis": "firmsfinder-main (2).zip; specification regenerated on 2026-10-12",
   "sources": [
     {
-      "id": "ONRC",
-      "portal": "https://data.gov.ro/",
-      "status": "declared_in_prior_code",
-      "exact_dataset_url": null
+      "name": "ONRC",
+      "url": "https://www.onrc.ro/",
+      "role": "Company register public data"
     },
     {
-      "id": "MF-2024",
-      "portal": "https://data.gov.ro/",
-      "status": "declared_in_prior_code",
-      "exact_dataset_url": null
+      "name": "Ministerul Finanțelor",
+      "url": "https://mfinante.gov.ro/",
+      "role": "Published financial statements"
     }
   ],
-  "record_provenance_endpoint": "https://firmsfinder.eu/api/companies/{cui}",
-  "verification": "not_independently_verified",
-  "rules": [
-    "Conserve source, version and field",
-    "Unknown import date remains null",
-    "Do not replace import time with render time"
+  "excluded_unverified": [
+    "ANAF usage without verified dataset"
   ]
 }

@@ -1,8 +1,19 @@
 {
-  "schema": "FIRMSFINDER_DATA_FRESHNESS",
-  "version": "1.0.0",
-  "status": "BACKEND_REQUIRED",
-  "endpoint": "https://firmsfinder.eu/data-freshness.json",
-  "items": [],
-  "notice": "Date reale din registrul importurilor. Acest fișier static este un manifest; exportul real este generat de backend când este conectat."
+  "schema": "FIRMSFINDER_ONSITE_SIGNAL",
+  "version": "1.0",
+  "signal_id": "DATA_FRESHNESS",
+  "signal_name": "Data age and freshness policy",
+  "site": "https://firmsfinder.eu/",
+  "scope": "ON_SITE",
+  "category": "Evidence",
+  "status": "SPECIFICATION_NOT_RUNTIME_VERIFIED",
+  "purpose": "Data age and freshness policy",
+  "publication_note": "Publicarea acestui fișier nu demonstrează că funcția sau controlul este implementat.",
+  "verification": {
+    "check": "GET public URL; validate JSON and verify runtime behavior separately",
+    "result": "NOT_TESTED"
+  },
+  "source_basis": "firmsfinder-main (2).zip; specification regenerated on 2026-10-12",
+  "as_of": "NOT_ASSERTED",
+  "rule": "Always state the fiscal year and last verified import time; no live-data claim"
 }

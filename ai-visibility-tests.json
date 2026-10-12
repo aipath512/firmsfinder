@@ -1,24 +1,17 @@
 {
-  "status": "NOT_RUN",
-  "models": [
-    "ChatGPT",
-    "Claude",
-    "Gemini",
-    "Perplexity"
-  ],
-  "prompts": [
-    "Ce este FirmsFinder.eu? Citează sursa.",
-    "Ce dovedește codul CAEN în FirmsFinder?",
-    "Cum verific datele unei firme găsite în FirmsFinder?"
-  ],
-  "required_result_fields": [
-    "model",
-    "model_version",
-    "timestamp",
-    "prompt",
-    "answer",
-    "citations",
-    "observation_not_evidence"
-  ],
-  "observations": []
+  "schema": "FIRMSFINDER_ONSITE_SIGNAL",
+  "version": "1.0",
+  "signal_id": "AI_VISIBILITY_TESTS",
+  "signal_name": "AI discoverability test plan",
+  "site": "https://firmsfinder.eu/",
+  "scope": "ON_SITE",
+  "category": "Quality",
+  "status": "SPECIFICATION_NOT_RUNTIME_VERIFIED",
+  "purpose": "AI discoverability test plan",
+  "publication_note": "Publicarea acestui fișier nu demonstrează că funcția sau controlul este implementat.",
+  "verification": {
+    "check": "GET public URL; validate JSON and verify runtime behavior separately",
+    "result": "NOT_TESTED"
+  },
+  "source_basis": "firmsfinder-main (2).zip; specification regenerated on 2026-10-12"
 }

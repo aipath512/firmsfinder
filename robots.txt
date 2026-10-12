@@ -1,7 +1,3 @@
 User-agent: *
 Allow: /
-Disallow: /admin/
-Disallow: /a2a
-Disallow: /api/contact
-
 Sitemap: https://firmsfinder.eu/sitemap.xml

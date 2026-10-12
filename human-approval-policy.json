@@ -1,7 +1,23 @@
 {
-  "sensitive_actions_enabled": false,
-  "approval_workflow_implemented": false,
-  "rule": "No commercial execution. order.create always rejected.",
-  "signal_A2A_12": "NOT_IMPLEMENTED; read-only scope does not pretend to supply a HITL workflow",
-  "pending_reject_approve_tests": "not_run"
+  "schema": "FIRMSFINDER_ONSITE_SIGNAL",
+  "version": "1.0",
+  "signal_id": "HUMAN_APPROVAL_POLICY",
+  "signal_name": "Human decision and approval boundaries",
+  "site": "https://firmsfinder.eu/",
+  "scope": "ON_SITE",
+  "category": "Governance",
+  "status": "SPECIFICATION_NOT_RUNTIME_VERIFIED",
+  "purpose": "Human decision and approval boundaries",
+  "publication_note": "Publicarea acestui fișier nu demonstrează că funcția sau controlul este implementat.",
+  "verification": {
+    "check": "GET public URL; validate JSON and verify runtime behavior separately",
+    "result": "NOT_TESTED"
+  },
+  "source_basis": "firmsfinder-main (2).zip; specification regenerated on 2026-10-12",
+  "required_for": [
+    "outreach",
+    "quote_acceptance",
+    "order_creation",
+    "any external write action"
+  ]
 }

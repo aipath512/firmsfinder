@@ -1,14 +1,17 @@
 {
-  "blocks": [
-    {
-      "id": "platforma",
-      "url": "https://firmsfinder.eu/surse/#platforma",
-      "summary": "FirmsFinder sprijină descoperirea firmelor și evaluarea unor potriviri comerciale. O potrivire este un candidat de verificat."
-    },
-    {
-      "id": "limite",
-      "url": "https://firmsfinder.eu/surse/#limite",
-      "summary": "CAEN clasifică activitatea declarată; nu confirmă automat produsele, serviciile, clienții sau interesul de cumpărare."
-    }
-  ]
+  "schema": "FIRMSFINDER_ONSITE_SIGNAL",
+  "version": "1.0",
+  "signal_id": "AI_SUMMARY_BLOCKS",
+  "signal_name": "Extractable answer summaries",
+  "site": "https://firmsfinder.eu/",
+  "scope": "ON_SITE",
+  "category": "Semantics",
+  "status": "SPECIFICATION_NOT_RUNTIME_VERIFIED",
+  "purpose": "Extractable answer summaries",
+  "publication_note": "Publicarea acestui fișier nu demonstrează că funcția sau controlul este implementat.",
+  "verification": {
+    "check": "GET public URL; validate JSON and verify runtime behavior separately",
+    "result": "NOT_TESTED"
+  },
+  "source_basis": "firmsfinder-main (2).zip; specification regenerated on 2026-10-12"
 }

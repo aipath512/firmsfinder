@@ -1,8 +1,27 @@
 {
-  "status": "NOT_SCHEDULED",
-  "runner": "scripts/verify-live.mjs",
-  "proposed_frequency": "daily",
-  "results_dir": "audit-results/",
-  "history": "compare dated JSON reports; false/unknown values retained",
-  "automation_created": false
+  "schema": "FIRMSFINDER_ONSITE_SIGNAL",
+  "version": "1.0",
+  "signal_id": "MONITORING_PLAN",
+  "signal_name": "Monitoring requirements",
+  "site": "https://firmsfinder.eu/",
+  "scope": "ON_SITE",
+  "category": "Operations",
+  "status": "SPECIFICATION_NOT_RUNTIME_VERIFIED",
+  "purpose": "Monitoring requirements",
+  "publication_note": "Publicarea acestui fișier nu demonstrează că funcția sau controlul este implementat.",
+  "verification": {
+    "check": "GET public URL; validate JSON and verify runtime behavior separately",
+    "result": "NOT_TESTED"
+  },
+  "source_basis": "firmsfinder-main (2).zip; specification regenerated on 2026-10-12",
+  "checks": [
+    "robots and sitemap response status",
+    "JSON parse",
+    "intents family counts",
+    "canonical reachability",
+    "no private CUI leakage",
+    "endpoint status",
+    "structured-data parity"
+  ],
+  "cadence": "PROPOSED_NOT_SCHEDULED"
 }

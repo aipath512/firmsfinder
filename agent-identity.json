@@ -1,7 +1,17 @@
 {
-  "id": "https://firmsfinder.eu/#read-only-agent",
-  "operator": "AiVenture S.R.L.",
-  "domain": "https://firmsfinder.eu",
-  "version": "1.0.0",
-  "status": "NOT_DEPLOYED"
+  "schema": "FIRMSFINDER_ONSITE_SIGNAL",
+  "version": "1.0",
+  "signal_id": "AGENT_IDENTITY",
+  "signal_name": "Agent identity declaration",
+  "site": "https://firmsfinder.eu/",
+  "scope": "ON_SITE",
+  "category": "A2A",
+  "status": "SPECIFICATION_NOT_RUNTIME_VERIFIED",
+  "purpose": "Agent identity declaration",
+  "publication_note": "Publicarea acestui fișier nu demonstrează că funcția sau controlul este implementat.",
+  "verification": {
+    "check": "GET public URL; validate JSON and verify runtime behavior separately",
+    "result": "NOT_TESTED"
+  },
+  "source_basis": "firmsfinder-main (2).zip; specification regenerated on 2026-10-12"
 }

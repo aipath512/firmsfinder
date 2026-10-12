@@ -1,19 +1,25 @@
 {
-  "schema": "FIRMSFINDER_DIGITAL_DNA",
-  "version": "1.0.0",
-  "name": "FirmsFinder AI",
-  "url": "https://firmsfinder.eu",
-  "operator": "AiVenture S.R.L.",
-  "language": "ro-RO",
-  "catalog": "https://firmsfinder.eu/signals.json",
-  "capabilities": {
-    "public_pages": "included_in_upload_package",
-    "structured_company_search": "backend_code_not_deployed",
-    "a2a": "read_only_backend_code_not_deployed"
+  "schema": "FIRMSFINDER_ONSITE_SIGNAL",
+  "version": "1.0",
+  "signal_id": "DIGITAL_DNA",
+  "signal_name": "Digital identity metadata",
+  "site": "https://firmsfinder.eu/",
+  "scope": "ON_SITE",
+  "category": "Identity",
+  "status": "SPECIFICATION_NOT_RUNTIME_VERIFIED",
+  "purpose": "Digital identity metadata",
+  "publication_note": "Publicarea acestui fișier nu demonstrează că funcția sau controlul este implementat.",
+  "verification": {
+    "check": "GET public URL; validate JSON and verify runtime behavior separately",
+    "result": "NOT_TESTED"
   },
-  "limits": [
-    "CAEN != confirmed service",
-    "Similarity != commercial relationship",
-    "Generated != deployed != verified"
-  ]
+  "source_basis": "firmsfinder-main (2).zip; specification regenerated on 2026-10-12",
+  "organization": "AiVenture S.R.L.",
+  "brand": "FirmsFinder",
+  "website": "https://firmsfinder.eu/",
+  "language": "ro-RO",
+  "markets": {
+    "romania": "DECLARED",
+    "eu": "PLANNED_NOT_AVAILABLE"
+  }
 }

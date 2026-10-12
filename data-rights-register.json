@@ -1,33 +1,17 @@
 {
-  "status": "LEGAL_REVIEW_REQUIRED",
-  "datasets": [
-    {
-      "id": "ONRC",
-      "exact_resource_url": null,
-      "license_verified": false,
-      "lawful_basis_verified": false
-    },
-    {
-      "id": "MF-2024",
-      "exact_resource_url": null,
-      "license_verified": false,
-      "lawful_basis_verified": false
-    }
-  ],
-  "code_controls": [
-    "exclude top!=1",
-    "exclude persoana_fizica!=0",
-    "respect onrc_excluderi"
-  ],
-  "contact_data": [
-    "name",
-    "email",
-    "message"
-  ],
-  "retention_proposal": {
-    "contact_closed_days": 90,
-    "task_days": 1,
-    "audit_days": 30
+  "schema": "FIRMSFINDER_ONSITE_SIGNAL",
+  "version": "1.0",
+  "signal_id": "DATA_RIGHTS",
+  "signal_name": "Data reuse and attribution policy",
+  "site": "https://firmsfinder.eu/",
+  "scope": "ON_SITE",
+  "category": "Governance",
+  "status": "SPECIFICATION_NOT_RUNTIME_VERIFIED",
+  "purpose": "Data reuse and attribution policy",
+  "publication_note": "Publicarea acestui fișier nu demonstrează că funcția sau controlul este implementat.",
+  "verification": {
+    "check": "GET public URL; validate JSON and verify runtime behavior separately",
+    "result": "NOT_TESTED"
   },
-  "certified_compliant": false
+  "source_basis": "firmsfinder-main (2).zip; specification regenerated on 2026-10-12"
 }

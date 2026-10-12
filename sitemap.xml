@@ -1,2 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://firmsfinder.eu/</loc></url><url><loc>https://firmsfinder.eu/categorii/</loc></url><url><loc>https://firmsfinder.eu/cautare/</loc></url><url><loc>https://firmsfinder.eu/comparare/</loc></url><url><loc>https://firmsfinder.eu/contact/</loc></url><url><loc>https://firmsfinder.eu/localitati/</loc></url><url><loc>https://firmsfinder.eu/semnale/</loc></url><url><loc>https://firmsfinder.eu/surse/</loc></url></urlset>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://firmsfinder.eu/</loc></url>
+  <url><loc>https://firmsfinder.eu/intelligence/</loc></url>
+  <url><loc>https://firmsfinder.eu/faq/</loc></url>
+  <url><loc>https://firmsfinder.eu/despre/</loc></url>
+  <url><loc>https://firmsfinder.eu/contact/</loc></url>
+  <url><loc>https://firmsfinder.eu/surse/</loc></url>
+  <url><loc>https://firmsfinder.eu/resurse/</loc></url>
+  <url><loc>https://firmsfinder.eu/cautare/</loc></url>
+  <url><loc>https://firmsfinder.eu/comparare/</loc></url>
+  <url><loc>https://firmsfinder.eu/categorii/</loc></url>
+  <url><loc>https://firmsfinder.eu/localitati/</loc></url>
+  <url><loc>https://firmsfinder.eu/semnale/</loc></url>
+</urlset>

@@ -1,11 +1,17 @@
 {
-  "targets": {
-    "LCP_ms": 2500,
-    "INP_ms": 200,
-    "CLS": 0.1
+  "schema": "FIRMSFINDER_ONSITE_SIGNAL",
+  "version": "1.0",
+  "signal_id": "PERFORMANCE_BUDGET",
+  "signal_name": "Performance limits",
+  "site": "https://firmsfinder.eu/",
+  "scope": "ON_SITE",
+  "category": "Performance",
+  "status": "SPECIFICATION_NOT_RUNTIME_VERIFIED",
+  "purpose": "Performance limits",
+  "publication_note": "Publicarea acestui fișier nu demonstrează că funcția sau controlul este implementat.",
+  "verification": {
+    "check": "GET public URL; validate JSON and verify runtime behavior separately",
+    "result": "NOT_TESTED"
   },
-  "measurement_status": "NOT_MEASURED",
-  "before": null,
-  "after": null,
-  "note": "Targets are not measured values. Existing page assets retained."
+  "source_basis": "firmsfinder-main (2).zip; specification regenerated on 2026-10-12"
 }

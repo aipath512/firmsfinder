@@ -1,0 +1,610 @@
+{
+  "schema": "FIRMSFINDER_ONSITE_MANIFEST",
+  "version": "1.0",
+  "generated_at": "2026-10-12",
+  "site": "https://firmsfinder.eu/",
+  "count": 60,
+  "status": "GENERATED_NOT_DEPLOYED",
+  "signals": [
+    {
+      "number": 1,
+      "code": "OS-001",
+      "filename": "robots.txt",
+      "purpose": "Crawler access policy",
+      "audience": "Crawlers",
+      "category": "Discovery",
+      "sha256": "a6efaaf4c3fe74a04e6d7306313c23a89cc58be2991d8fe9b83d69d009c940a7",
+      "existing_in_uploaded_repo": true
+    },
+    {
+      "number": 2,
+      "code": "OS-002",
+      "filename": "sitemap.xml",
+      "purpose": "XML URL discovery",
+      "audience": "Search engines",
+      "category": "Discovery",
+      "sha256": "ced50e2f42332452e87b13208b837607f9df5480ffd5e312afab9d0d1555a648",
+      "existing_in_uploaded_repo": true
+    },
+    {
+      "number": 3,
+      "code": "OS-003",
+      "filename": "llms.txt",
+      "purpose": "AI-readable site guide",
+      "audience": "AI systems",
+      "category": "Discovery",
+      "sha256": "be324cbe8d73f4dac218b0b915ae48a790990ee7112f7e91564766cae899c48c",
+      "existing_in_uploaded_repo": true
+    },
+    {
+      "number": 4,
+      "code": "OS-004",
+      "filename": "llms-full.txt",
+      "purpose": "Extended AI content guide",
+      "audience": "AI systems",
+      "category": "Discovery",
+      "sha256": "33874f9b3a0f5eb8d7834481bfb4ecc65c5ad25f005d6362233c27950e9adf43",
+      "existing_in_uploaded_repo": true
+    },
+    {
+      "number": 5,
+      "code": "OS-005",
+      "filename": "ai.json",
+      "purpose": "Machine-readable AI entrypoint",
+      "audience": "AI systems",
+      "category": "Discovery",
+      "sha256": "819560f52250180922437c528515207ec59c5f278d326006f79ae09791c54280",
+      "existing_in_uploaded_repo": true
+    },
+    {
+      "number": 6,
+      "code": "OS-006",
+      "filename": "ai.txt",
+      "purpose": "Plain-text AI site overview",
+      "audience": "AI systems",
+      "category": "Discovery",
+      "sha256": "77bc1b791a3171b6e0e2183be4853a81526a597cccfc5ba2cb69af1613f9a533",
+      "existing_in_uploaded_repo": true
+    },
+    {
+      "number": 7,
+      "code": "OS-007",
+      "filename": "intents.json",
+      "purpose": "Intent catalogue, 50 per family",
+      "audience": "AI systems",
+      "category": "Semantics",
+      "sha256": "595d22ebcbec2c94299931cb84c7695f7a7d00b6a76812e02d0dc6759aa0a12c",
+      "existing_in_uploaded_repo": true
+    },
+    {
+      "number": 8,
+      "code": "OS-008",
+      "filename": "entities.json",
+      "purpose": "Named entity catalogue",
+      "audience": "AI systems",
+      "category": "Semantics",
+      "sha256": "2edc3c033ff3cf2e4a2a26e138ce91df19c602ea28e59ebe7727673ed752f821",
+      "existing_in_uploaded_repo": true
+    },
+    {
+      "number": 9,
+      "code": "OS-009",
+      "filename": "entity-relationships.json",
+      "purpose": "Entity relation types",
+      "audience": "AI systems",
+      "category": "Semantics",
+      "sha256": "5709e94be4f4465ff57e19d6e5bbc2015dbb3a995f0813617d00ab0fc1229ed7",
+      "existing_in_uploaded_repo": true
+    },
+    {
+      "number": 10,
+      "code": "OS-010",
+      "filename": "taxonomy.json",
+      "purpose": "Economic intelligence taxonomy",
+      "audience": "AI systems",
+      "category": "Semantics",
+      "sha256": "12676cca531a8ed5b9eacfaa8988058a3c576d814292aeb7bde4aed16bdf0f2e",
+      "existing_in_uploaded_repo": true
+    },
+    {
+      "number": 11,
+      "code": "OS-011",
+      "filename": "services.json",
+      "purpose": "Declared service offer",
+      "audience": "Buyers and AI",
+      "category": "Offer",
+      "sha256": "5a0174dc25f6ff366a6aec4e12ecf8ebafb81a648dae866dccda74dfddc460e5",
+      "existing_in_uploaded_repo": true
+    },
+    {
+      "number": 12,
+      "code": "OS-012",
+      "filename": "digital-dna.json",
+      "purpose": "Digital identity metadata",
+      "audience": "AI systems",
+      "category": "Identity",
+      "sha256": "b08b98bfddca82b98f941c74352da6fac43bfce08063dcc4c7a70237709fe58d",
+      "existing_in_uploaded_repo": true
+    },
+    {
+      "number": 13,
+      "code": "OS-013",
+      "filename": "canonical-map.json",
+      "purpose": "Canonical URL registry",
+      "audience": "Crawlers",
+      "category": "Discovery",
+      "sha256": "7ef7291c92cea379dd5970fa4012a60bb7f000ef7226605761edd890e639021c",
+      "existing_in_uploaded_repo": true
+    },
+    {
+      "number": 14,
+      "code": "OS-014",
+      "filename": "schema-org.json",
+      "purpose": "Schema.org type registry",
+      "audience": "Search engines",
+      "category": "Semantics",
+      "sha256": "a5a28bf90a6b67cf77f19b851baee21b13ca86208760bc781f66cf17fbde1eb8",
+      "existing_in_uploaded_repo": true
+    },
+    {
+      "number": 15,
+      "code": "OS-015",
+      "filename": "schema-audit.json",
+      "purpose": "Structured-data validation criteria",
+      "audience": "Maintainers",
+      "category": "Quality",
+      "sha256": "44a97258367eb8d8ce4d8f94eacc35aab22cdd7cd30c6782b7b23f901488e1f3",
+      "existing_in_uploaded_repo": true
+    },
+    {
+      "number": 16,
+      "code": "OS-016",
+      "filename": "faq-index.json",
+      "purpose": "FAQ route and topic registry",
+      "audience": "AI systems",
+      "category": "Semantics",
+      "sha256": "ec2530822239b7ebf406d43eff0fffca5913d68faff0cba0593635210a9fe5a3",
+      "existing_in_uploaded_repo": false
+    },
+    {
+      "number": 17,
+      "code": "OS-017",
+      "filename": "source-provenance.json",
+      "purpose": "Public source provenance",
+      "audience": "Users and auditors",
+      "category": "Evidence",
+      "sha256": "5b63aaaadd4e818e0cab896e30efd0938428ccd3fdf0fc31806960273dfb0d35",
+      "existing_in_uploaded_repo": true
+    },
+    {
+      "number": 18,
+      "code": "OS-018",
+      "filename": "data-freshness.json",
+      "purpose": "Data age and freshness policy",
+      "audience": "Users and AI",
+      "category": "Evidence",
+      "sha256": "12677aee10a65af866f221f94cac7d4d8ab3a23b665251e630cf0d418cc22706",
+      "existing_in_uploaded_repo": true
+    },
+    {
+      "number": 19,
+      "code": "OS-019",
+      "filename": "data-rights-register.json",
+      "purpose": "Data reuse and attribution policy",
+      "audience": "Auditors",
+      "category": "Governance",
+      "sha256": "ef99999a4ecb4b3ae1241fc1075613c455a7b9650921b8479d1b58e277523920",
+      "existing_in_uploaded_repo": true
+    },
+    {
+      "number": 20,
+      "code": "OS-020",
+      "filename": "proof.json",
+      "purpose": "Proof and verification status",
+      "audience": "Auditors",
+      "category": "Evidence",
+      "sha256": "6d31bf92cdb8fc7e1bb6dd9bb8a7a2dd12a75e691262eaac2e27d762ad8658d3",
+      "existing_in_uploaded_repo": true
+    },
+    {
+      "number": 21,
+      "code": "OS-021",
+      "filename": "timestamp-policy.json",
+      "purpose": "Timestamping rules",
+      "audience": "Auditors",
+      "category": "Evidence",
+      "sha256": "34b8da6cc1991e5061a4036619fec21dbced8daca7a61fce289b5cca701a6eb9",
+      "existing_in_uploaded_repo": true
+    },
+    {
+      "number": 22,
+      "code": "OS-022",
+      "filename": "audit-policy.json",
+      "purpose": "Audit process and scope",
+      "audience": "Auditors",
+      "category": "Governance",
+      "sha256": "40f17889fbd2df5a5650279a9f81e57b1a590b209ad129a0ef02be36efd32aa8",
+      "existing_in_uploaded_repo": true
+    },
+    {
+      "number": 23,
+      "code": "OS-023",
+      "filename": "independent-validation.json",
+      "purpose": "Independent validation status",
+      "audience": "Auditors",
+      "category": "Evidence",
+      "sha256": "85b326a89dfb29f7c89d0cd583ad22bb6f34abe83616405d8db907412b5a8586",
+      "existing_in_uploaded_repo": true
+    },
+    {
+      "number": 24,
+      "code": "OS-024",
+      "filename": "controls.json",
+      "purpose": "Control register",
+      "audience": "Maintainers",
+      "category": "Governance",
+      "sha256": "3add6ee06dfa676f8c766e1d9778aae270d743fe2b66a24b9ed90bb99646393e",
+      "existing_in_uploaded_repo": true
+    },
+    {
+      "number": 25,
+      "code": "OS-025",
+      "filename": "requirements.json",
+      "purpose": "Requirements register",
+      "audience": "Maintainers",
+      "category": "Governance",
+      "sha256": "ad9883aab0c01557026afb1e3eeeb51ca87924be1ae908fc7f828e769a2d1bfa",
+      "existing_in_uploaded_repo": true
+    },
+    {
+      "number": 26,
+      "code": "OS-026",
+      "filename": "security-controls.json",
+      "purpose": "Security control declaration",
+      "audience": "Security reviewers",
+      "category": "Security",
+      "sha256": "330c674e10de6f7010c16fe8103cec8c02495c447713f650541ea8cc3264082d",
+      "existing_in_uploaded_repo": true
+    },
+    {
+      "number": 27,
+      "code": "OS-027",
+      "filename": "authentication-policy.json",
+      "purpose": "Authentication policy",
+      "audience": "Developers",
+      "category": "Security",
+      "sha256": "13ed009d387df3c1bb276ffe75a10696d7c359b5d3436a8e0b0625787d07bf27",
+      "existing_in_uploaded_repo": true
+    },
+    {
+      "number": 28,
+      "code": "OS-028",
+      "filename": "rate-limit-policy.json",
+      "purpose": "Rate limiting policy",
+      "audience": "Developers",
+      "category": "Security",
+      "sha256": "e3e6bd7d5a5af24b7e4f5d0fb189c52187c21e283415fda79ae7b9400ef7048f",
+      "existing_in_uploaded_repo": true
+    },
+    {
+      "number": 29,
+      "code": "OS-029",
+      "filename": "human-approval-policy.json",
+      "purpose": "Human decision and approval boundaries",
+      "audience": "Buyers and AI",
+      "category": "Governance",
+      "sha256": "d3fb81a56c132a6836cb0dc8782eae260741a6ee3057099b0ce0b796586e6539",
+      "existing_in_uploaded_repo": true
+    },
+    {
+      "number": 30,
+      "code": "OS-030",
+      "filename": "retention-policy.json",
+      "purpose": "Retention and deletion policy",
+      "audience": "Users",
+      "category": "Privacy",
+      "sha256": "814e5a76bb023575bd8108bff77fa1259b705199b8891e626e86c2f295029f27",
+      "existing_in_uploaded_repo": false
+    },
+    {
+      "number": 31,
+      "code": "OS-031",
+      "filename": "privacy-status.json",
+      "purpose": "Privacy document availability",
+      "audience": "Users",
+      "category": "Privacy",
+      "sha256": "cc393aed9a9b3ca15c522e3d6d83faf0e3980811684b0aa9a8a8798e043d58e3",
+      "existing_in_uploaded_repo": false
+    },
+    {
+      "number": 32,
+      "code": "OS-032",
+      "filename": "cookie-status.json",
+      "purpose": "Cookie policy availability",
+      "audience": "Users",
+      "category": "Privacy",
+      "sha256": "981ab7c979ce50c91f4daa3927826e5970e59085125cc29d6cce4b291a3838ba",
+      "existing_in_uploaded_repo": false
+    },
+    {
+      "number": 33,
+      "code": "OS-033",
+      "filename": "terms-status.json",
+      "purpose": "Terms availability",
+      "audience": "Users",
+      "category": "Governance",
+      "sha256": "7089b17a69cbcb82fe1012487c409bfa2a644cbd740e64cca003025eafffa0b1",
+      "existing_in_uploaded_repo": false
+    },
+    {
+      "number": 34,
+      "code": "OS-034",
+      "filename": "agent-identity.json",
+      "purpose": "Agent identity declaration",
+      "audience": "AI agents",
+      "category": "A2A",
+      "sha256": "3fb1ecca999f4d7818dbfde8712e93ed775fdf02509df498499046ed85a88780",
+      "existing_in_uploaded_repo": true
+    },
+    {
+      "number": 35,
+      "code": "OS-035",
+      "filename": "agent-capabilities.json",
+      "purpose": "Agent capabilities declaration",
+      "audience": "AI agents",
+      "category": "A2A",
+      "sha256": "fd361a9f0e523f9dc13cc71ef9e0ce64575bf3863b3a9a10b227cc0e53cfdc6d",
+      "existing_in_uploaded_repo": true
+    },
+    {
+      "number": 36,
+      "code": "OS-036",
+      "filename": "agent-mandate.json",
+      "purpose": "Agent mandate limits",
+      "audience": "AI agents",
+      "category": "A2A",
+      "sha256": "568522ce23f5c686afe3efc5b7053dcf7aeaaeb52f259e01d0c4f39f6115c7c4",
+      "existing_in_uploaded_repo": true
+    },
+    {
+      "number": 37,
+      "code": "OS-037",
+      "filename": "a2a-contracts.json",
+      "purpose": "A2A offer contract registry",
+      "audience": "AI agents",
+      "category": "A2A",
+      "sha256": "34dbf4cbc8fa2cb3b000619004a2cca14d21ef91bd5cba6bb9f54112f8d46f7f",
+      "existing_in_uploaded_repo": true
+    },
+    {
+      "number": 38,
+      "code": "OS-038",
+      "filename": "a2a-input-schema.json",
+      "purpose": "Agent input contract",
+      "audience": "AI agents",
+      "category": "A2A",
+      "sha256": "58aa62b42e54e91a996f4a871135349fca60a9c0f214f526f80123feab002343",
+      "existing_in_uploaded_repo": true
+    },
+    {
+      "number": 39,
+      "code": "OS-039",
+      "filename": "a2a-output-schema.json",
+      "purpose": "Agent output contract",
+      "audience": "AI agents",
+      "category": "A2A",
+      "sha256": "e3208b70146fcad1beba1c5c1f9aedffad976e048411b2b781bec7aa22849ff5",
+      "existing_in_uploaded_repo": true
+    },
+    {
+      "number": 40,
+      "code": "OS-040",
+      "filename": "a2a-status.json",
+      "purpose": "A2A implementation status",
+      "audience": "AI agents",
+      "category": "A2A",
+      "sha256": "f72151376a0c1f8a19eb46979da29bbcef56954b9b89638c684fb81624a7a918",
+      "existing_in_uploaded_repo": true
+    },
+    {
+      "number": 41,
+      "code": "OS-041",
+      "filename": "interop-test-plan.json",
+      "purpose": "Interoperability tests",
+      "audience": "Developers",
+      "category": "Quality",
+      "sha256": "f6808cc62930a3ab5a044eb27fbbba8c0f3b354ed904cb76e18667ac24664800",
+      "existing_in_uploaded_repo": true
+    },
+    {
+      "number": 42,
+      "code": "OS-042",
+      "filename": "contradiction-rules.json",
+      "purpose": "Contradiction detection rules",
+      "audience": "Auditors",
+      "category": "Quality",
+      "sha256": "900087514f5fabce68b2c423c9b40b0d33099d70d5b8e0820f4e83621c5685d3",
+      "existing_in_uploaded_repo": true
+    },
+    {
+      "number": 43,
+      "code": "OS-043",
+      "filename": "ai-citation-policy.json",
+      "purpose": "AI citation guidance",
+      "audience": "AI systems",
+      "category": "Semantics",
+      "sha256": "91f89077d2d2e0a59ad3cf5a96d530c4e3cda0501d7356faec22c0190d9fe03d",
+      "existing_in_uploaded_repo": true
+    },
+    {
+      "number": 44,
+      "code": "OS-044",
+      "filename": "ai-summary-blocks.json",
+      "purpose": "Extractable answer summaries",
+      "audience": "AI systems",
+      "category": "Semantics",
+      "sha256": "1bacc299f679880bb66cffe3a7611df3dae15a684a7170ba3724b50cc27d110c",
+      "existing_in_uploaded_repo": true
+    },
+    {
+      "number": 45,
+      "code": "OS-045",
+      "filename": "rag-chunk-map.json",
+      "purpose": "RAG content segmentation",
+      "audience": "AI systems",
+      "category": "Semantics",
+      "sha256": "ee4fc4700ec8d8669f31e6cf2392444d445ba49f7ef36a3a21be1c57490558f7",
+      "existing_in_uploaded_repo": true
+    },
+    {
+      "number": 46,
+      "code": "OS-046",
+      "filename": "extractable-tables.json",
+      "purpose": "Machine-readable table catalogue",
+      "audience": "AI systems",
+      "category": "Semantics",
+      "sha256": "e208dada94c7626203326e9c7fb75fc09ffb4be223144ba39f1f4e2eeeee3e95",
+      "existing_in_uploaded_repo": true
+    },
+    {
+      "number": 47,
+      "code": "OS-047",
+      "filename": "ai-visibility-tests.json",
+      "purpose": "AI discoverability test plan",
+      "audience": "Maintainers",
+      "category": "Quality",
+      "sha256": "e3697c63d8852193ca532f6add845513bb0f3ae33a832760d17e0429067a497e",
+      "existing_in_uploaded_repo": true
+    },
+    {
+      "number": 48,
+      "code": "OS-048",
+      "filename": "performance-budget.json",
+      "purpose": "Performance limits",
+      "audience": "Developers",
+      "category": "Performance",
+      "sha256": "e05177d48047e23575a985a10654844431702ce460d2d876f161e7cc7dab8382",
+      "existing_in_uploaded_repo": true
+    },
+    {
+      "number": 49,
+      "code": "OS-049",
+      "filename": "monitoring-plan.json",
+      "purpose": "Monitoring requirements",
+      "audience": "Operators",
+      "category": "Operations",
+      "sha256": "a546e1390b602b48d2a9f42de2272a91ef5f914139bc16cd316ed98ee3034811",
+      "existing_in_uploaded_repo": true
+    },
+    {
+      "number": 50,
+      "code": "OS-050",
+      "filename": "availability-status.json",
+      "purpose": "Geographic service availability",
+      "audience": "Users",
+      "category": "Offer",
+      "sha256": "9450c9cd5caa040486d7660a3a84d10f8d6112df10ac05d536fe91926f254eba",
+      "existing_in_uploaded_repo": false
+    },
+    {
+      "number": 51,
+      "code": "OS-051",
+      "filename": "backend-status.json",
+      "purpose": "Backend deployment status",
+      "audience": "Users and developers",
+      "category": "Operations",
+      "sha256": "c793fdde1025c5fe21613056c13b67bd025f2a4c800aa52b668f2c49ca2706ff",
+      "existing_in_uploaded_repo": false
+    },
+    {
+      "number": 52,
+      "code": "OS-052",
+      "filename": "search-contract.json",
+      "purpose": "Search feature interface status",
+      "audience": "Developers",
+      "category": "Offer",
+      "sha256": "d2fa49b002c41e1a5ee8bb239b255dc5625623b9ba25a945108a1809c1393a6a",
+      "existing_in_uploaded_repo": false
+    },
+    {
+      "number": 53,
+      "code": "OS-053",
+      "filename": "compare-contract.json",
+      "purpose": "Comparison feature interface status",
+      "audience": "Developers",
+      "category": "Offer",
+      "sha256": "58c68fa7d58c38de65a32960a0ed81e0a66ceab87d1a4dece1d9c4666f9ce219",
+      "existing_in_uploaded_repo": false
+    },
+    {
+      "number": 54,
+      "code": "OS-054",
+      "filename": "delegation-policy.json",
+      "purpose": "Delegated research boundaries",
+      "audience": "AI agents",
+      "category": "A2A",
+      "sha256": "f6b9f73ed9c54103440b966e755f7e8f46ecff39eb17490a6de371c3b4948f52",
+      "existing_in_uploaded_repo": false
+    },
+    {
+      "number": 55,
+      "code": "OS-055",
+      "filename": "economic-logic.json",
+      "purpose": "Economic signal interpretation rules",
+      "audience": "Users and AI",
+      "category": "Semantics",
+      "sha256": "55772a44bfc1dabd5b74e522a7115664a8771f5eebbe4942711b64d3ca1ac3c3",
+      "existing_in_uploaded_repo": false
+    },
+    {
+      "number": 56,
+      "code": "OS-056",
+      "filename": "qualification-rules.json",
+      "purpose": "Candidate qualification rules",
+      "audience": "Users and AI",
+      "category": "Governance",
+      "sha256": "7551765826051b2c75a8ecf33ccbc2d6edad9d1894f537ea3d75f06ebd617431",
+      "existing_in_uploaded_repo": false
+    },
+    {
+      "number": 57,
+      "code": "OS-057",
+      "filename": "baseline-method.json",
+      "purpose": "Baseline comparison methodology",
+      "audience": "Auditors",
+      "category": "Evidence",
+      "sha256": "e50ebb4227021af5eb8ee4c006d218aeb5d44461b8d12297da3b7d794dc7354e",
+      "existing_in_uploaded_repo": false
+    },
+    {
+      "number": 58,
+      "code": "OS-058",
+      "filename": "evidence-chain.json",
+      "purpose": "Evidence chain registry",
+      "audience": "Auditors",
+      "category": "Evidence",
+      "sha256": "fba65901b0b72c4dea0996f5476f7ca2d06cf7912522baa8b46323a817b39ec0",
+      "existing_in_uploaded_repo": false
+    },
+    {
+      "number": 59,
+      "code": "OS-059",
+      "filename": "release-manifest.json",
+      "purpose": "Release and provenance metadata",
+      "audience": "Operators",
+      "category": "Operations",
+      "sha256": "b63ebd8a37baa1bc50be0c8763a295875a78258c72f556ce911085b27ce78b16",
+      "existing_in_uploaded_repo": false
+    },
+    {
+      "number": 60,
+      "code": "OS-060",
+      "filename": "onsite-index.json",
+      "purpose": "Site-wide signals discovery index",
+      "audience": "AI systems",
+      "category": "Discovery",
+      "sha256": "4b2cc481a55a2e4c519ee98114174b332f7349f396f90aab214bcf440177e1e2",
+      "existing_in_uploaded_repo": false
+    }
+  ]
+}

@@ -1,16 +1,10 @@
-# FirmsFinder AI
+# FirmsFinder
 
-> Descoperirea firmelor și a unor potriviri B2B de verificat.
+> Economic Intelligence: CAUTĂ · FII GĂSIT · DELEAGĂ AI-ULUI.
 
-## Resurse
-- [/](https://firmsfinder.eu/)
-- [/categorii/](https://firmsfinder.eu/categorii/)
-- [/cautare/](https://firmsfinder.eu/cautare/)
-- [/comparare/](https://firmsfinder.eu/comparare/)
-- [/contact/](https://firmsfinder.eu/contact/)
-- [/localitati/](https://firmsfinder.eu/localitati/)
-- [/semnale/](https://firmsfinder.eu/semnale/)
-- [/surse/](https://firmsfinder.eu/surse/)
+- [Acasă](https://firmsfinder.eu/)
+- [Intelligence](https://firmsfinder.eu/intelligence/)
+- [FAQ](https://firmsfinder.eu/faq/)
+- [Surse](https://firmsfinder.eu/surse/)
 
-## Limite
-CAEN nu dovedește serviciul, clientul sau intenția de cumpărare. Date lipsă: necunoscute. Agentul cere configurare și verificare separate.
+Datele publice nu demonstrează nevoia sau intenția de cumpărare. Capabilitățile AI nu sunt confirmate doar prin declarații.

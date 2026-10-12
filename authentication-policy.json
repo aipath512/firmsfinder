@@ -1,12 +1,17 @@
 {
-  "mechanism": "Bearer token",
-  "storage": "SHA-256 token digest in FF_CLIENTS_JSON secret",
-  "client_fields": [
-    "id",
-    "token_sha256",
-    "scopes",
-    "revoked"
-  ],
-  "revocation": "Set revoked=true or remove client; redeploy/update secret",
-  "public_secrets": false
+  "schema": "FIRMSFINDER_ONSITE_SIGNAL",
+  "version": "1.0",
+  "signal_id": "AUTHENTICATION_POLICY",
+  "signal_name": "Authentication policy",
+  "site": "https://firmsfinder.eu/",
+  "scope": "ON_SITE",
+  "category": "Security",
+  "status": "SPECIFICATION_NOT_RUNTIME_VERIFIED",
+  "purpose": "Authentication policy",
+  "publication_note": "Publicarea acestui fișier nu demonstrează că funcția sau controlul este implementat.",
+  "verification": {
+    "check": "GET public URL; validate JSON and verify runtime behavior separately",
+    "result": "NOT_TESTED"
+  },
+  "source_basis": "firmsfinder-main (2).zip; specification regenerated on 2026-10-12"
 }

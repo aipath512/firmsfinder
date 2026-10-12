@@ -1,13 +1,17 @@
 {
-  "status": "NOT_RUN_INDEPENDENTLY",
-  "steps": [
-    "Fetch agent card with independent A2A 0.3.0 client",
-    "Authenticate with read-only token",
-    "Send company.search DataPart",
-    "Get returned task by id",
-    "Attempt order.create and confirm rejection",
-    "Try task from another client and confirm not found",
-    "Archive transcript, versions, UTC and result"
-  ],
-  "report": null
+  "schema": "FIRMSFINDER_ONSITE_SIGNAL",
+  "version": "1.0",
+  "signal_id": "INTEROP_TEST_PLAN",
+  "signal_name": "Interoperability tests",
+  "site": "https://firmsfinder.eu/",
+  "scope": "ON_SITE",
+  "category": "Quality",
+  "status": "SPECIFICATION_NOT_RUNTIME_VERIFIED",
+  "purpose": "Interoperability tests",
+  "publication_note": "Publicarea acestui fișier nu demonstrează că funcția sau controlul este implementat.",
+  "verification": {
+    "check": "GET public URL; validate JSON and verify runtime behavior separately",
+    "result": "NOT_TESTED"
+  },
+  "source_basis": "firmsfinder-main (2).zip; specification regenerated on 2026-10-12"
 }

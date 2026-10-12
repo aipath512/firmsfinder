@@ -1,0 +1,20 @@
+{
+  "schema": "FIRMSFINDER_ONSITE_SIGNAL",
+  "version": "1.0",
+  "signal_id": "FAQ_INDEX",
+  "signal_name": "FAQ route and topic registry",
+  "site": "https://firmsfinder.eu/",
+  "scope": "ON_SITE",
+  "category": "Semantics",
+  "status": "SPECIFICATION_NOT_RUNTIME_VERIFIED",
+  "purpose": "FAQ route and topic registry",
+  "publication_note": "Publicarea acestui fișier nu demonstrează că funcția sau controlul este implementat.",
+  "verification": {
+    "check": "GET public URL; validate JSON and verify runtime behavior separately",
+    "result": "NOT_TESTED"
+  },
+  "source_basis": "firmsfinder-main (2).zip; specification regenerated on 2026-10-12",
+  "faq_page": "https://firmsfinder.eu/faq/",
+  "faq_count": "VERIFY_FROM_HTML",
+  "structured_data_consistency": "MUST_MATCH_VISIBLE_QA"
+}

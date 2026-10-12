@@ -1,21 +1,26 @@
 {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": "https://firmsfinder.eu/#organization",
-      "name": "AiVenture S.R.L.",
-      "url": "https://aiventure.ro/"
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://firmsfinder.eu/#website",
-      "name": "FirmsFinder AI",
-      "url": "https://firmsfinder.eu/",
-      "inLanguage": "ro-RO",
-      "publisher": {
-        "@id": "https://firmsfinder.eu/#organization"
-      }
-    }
-  ]
+  "schema": "FIRMSFINDER_ONSITE_SIGNAL",
+  "version": "1.0",
+  "signal_id": "SCHEMA_ORG",
+  "signal_name": "Schema.org type registry",
+  "site": "https://firmsfinder.eu/",
+  "scope": "ON_SITE",
+  "category": "Semantics",
+  "status": "SPECIFICATION_NOT_RUNTIME_VERIFIED",
+  "purpose": "Schema.org type registry",
+  "publication_note": "Publicarea acestui fișier nu demonstrează că funcția sau controlul este implementat.",
+  "verification": {
+    "check": "GET public URL; validate JSON and verify runtime behavior separately",
+    "result": "NOT_TESTED"
+  },
+  "source_basis": "firmsfinder-main (2).zip; specification regenerated on 2026-10-12",
+  "types": [
+    "WebSite",
+    "Organization",
+    "WebPage",
+    "BreadcrumbList",
+    "FAQPage",
+    "Service"
+  ],
+  "note": "Type catalogue, not proof that every page has valid JSON-LD"
 }

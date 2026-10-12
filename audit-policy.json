@@ -1,16 +1,17 @@
 {
-  "store": "D1 ff_audit",
-  "fields": [
-    "id",
-    "owner",
-    "operation",
-    "task_id",
-    "at",
-    "version",
-    "result_sha256"
-  ],
-  "raw_company_results_in_audit": false,
-  "tasks": "D1 ff_tasks; full artifacts private to owning client, expire after 24h",
-  "tamper_evident_chain": false,
-  "retention_enforced": "requires daily execution of backend/retention.sql"
+  "schema": "FIRMSFINDER_ONSITE_SIGNAL",
+  "version": "1.0",
+  "signal_id": "AUDIT_POLICY",
+  "signal_name": "Audit process and scope",
+  "site": "https://firmsfinder.eu/",
+  "scope": "ON_SITE",
+  "category": "Governance",
+  "status": "SPECIFICATION_NOT_RUNTIME_VERIFIED",
+  "purpose": "Audit process and scope",
+  "publication_note": "Publicarea acestui fișier nu demonstrează că funcția sau controlul este implementat.",
+  "verification": {
+    "check": "GET public URL; validate JSON and verify runtime behavior separately",
+    "result": "NOT_TESTED"
+  },
+  "source_basis": "firmsfinder-main (2).zip; specification regenerated on 2026-10-12"
 }

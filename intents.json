@@ -1,33 +1,1215 @@
 {
-  "version": "1.0.0",
+  "schema": "FIRMSFINDER_INTENTS",
+  "version": "1.0",
+  "site": "https://firmsfinder.eu/",
+  "generated_at": "2026-10-12",
+  "status": "SEMANTIC_DECLARATION_ONLY",
+  "intent_count": 150,
+  "counts": {
+    "CAUTA": 50,
+    "FII_GASIT": 50,
+    "DELEAGA_AI_ULUI": 50
+  },
   "intents": [
     {
-      "verb": "SEARCH",
-      "target": "Company",
-      "endpoint": "https://firmsfinder.eu/api/companies/search",
-      "status": "BACKEND_NOT_DEPLOYED",
-      "example": "Caută firme CAEN Rev.2 1721"
+      "id": "CAUTA-001",
+      "family": "CAUTA",
+      "action": "GASESTE",
+      "target": "firme active din România",
+      "natural_language_query": "Găsește firme active din România.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
     },
     {
-      "verb": "GET",
-      "target": "Company",
-      "endpoint": "https://firmsfinder.eu/api/companies/{cui}",
-      "status": "BACKEND_NOT_DEPLOYED",
-      "example": "Citește profilul firmei cu CUI"
+      "id": "CAUTA-002",
+      "family": "CAUTA",
+      "action": "GASESTE",
+      "target": "producători dintr-un județ",
+      "natural_language_query": "Găsește producători dintr-un județ.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
     },
     {
-      "verb": "COMPARE",
-      "target": "Company",
-      "endpoint": "https://firmsfinder.eu/api/companies/compare",
-      "status": "BACKEND_NOT_DEPLOYED",
-      "example": "Compară 2–4 firme"
-    }
-  ],
-  "discovery": [
+      "id": "CAUTA-003",
+      "family": "CAUTA",
+      "action": "GASESTE",
+      "target": "distribuitori dintr-un sector",
+      "natural_language_query": "Găsește distribuitori dintr-un sector.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
     {
-      "verb": "READ",
-      "target": "SignalCatalog",
-      "url": "https://firmsfinder.eu/semnale/"
+      "id": "CAUTA-004",
+      "family": "CAUTA",
+      "action": "GASESTE",
+      "target": "furnizori pentru un produs",
+      "natural_language_query": "Găsește furnizori pentru un produs.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "CAUTA-005",
+      "family": "CAUTA",
+      "action": "GASESTE",
+      "target": "potențiali clienți pentru servicii B2B",
+      "natural_language_query": "Găsește potențiali clienți pentru servicii B2B.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "CAUTA-006",
+      "family": "CAUTA",
+      "action": "GASESTE",
+      "target": "firme după cod CAEN",
+      "natural_language_query": "Găsește firme după cod CAEN.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "CAUTA-007",
+      "family": "CAUTA",
+      "action": "GASESTE",
+      "target": "firme după localitate",
+      "natural_language_query": "Găsește firme după localitate.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "CAUTA-008",
+      "family": "CAUTA",
+      "action": "GASESTE",
+      "target": "firme după dimensiune",
+      "natural_language_query": "Găsește firme după dimensiune.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "CAUTA-009",
+      "family": "CAUTA",
+      "action": "GASESTE",
+      "target": "firme după număr de salariați",
+      "natural_language_query": "Găsește firme după număr de salariați.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "CAUTA-010",
+      "family": "CAUTA",
+      "action": "GASESTE",
+      "target": "firme după cifra de afaceri",
+      "natural_language_query": "Găsește firme după cifra de afaceri.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "CAUTA-011",
+      "family": "CAUTA",
+      "action": "GASESTE",
+      "target": "firme cu creștere a salariaților",
+      "natural_language_query": "Găsește firme cu creștere a salariaților.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "CAUTA-012",
+      "family": "CAUTA",
+      "action": "GASESTE",
+      "target": "firme cu creștere a cifrei de afaceri",
+      "natural_language_query": "Găsește firme cu creștere a cifrei de afaceri.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "CAUTA-013",
+      "family": "CAUTA",
+      "action": "GASESTE",
+      "target": "firme cu profit raportat",
+      "natural_language_query": "Găsește firme cu profit raportat.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "CAUTA-014",
+      "family": "CAUTA",
+      "action": "GASESTE",
+      "target": "firme cu capitaluri proprii pozitive",
+      "natural_language_query": "Găsește firme cu capitaluri proprii pozitive.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "CAUTA-015",
+      "family": "CAUTA",
+      "action": "GASESTE",
+      "target": "firme cu evoluție economică stabilă",
+      "natural_language_query": "Găsește firme cu evoluție economică stabilă.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "CAUTA-016",
+      "family": "CAUTA",
+      "action": "GASESTE",
+      "target": "firme din construcții",
+      "natural_language_query": "Găsește firme din construcții.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "CAUTA-017",
+      "family": "CAUTA",
+      "action": "GASESTE",
+      "target": "firme din industrie",
+      "natural_language_query": "Găsește firme din industrie.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "CAUTA-018",
+      "family": "CAUTA",
+      "action": "GASESTE",
+      "target": "firme din servicii",
+      "natural_language_query": "Găsește firme din servicii.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "CAUTA-019",
+      "family": "CAUTA",
+      "action": "GASESTE",
+      "target": "firme din comerț",
+      "natural_language_query": "Găsește firme din comerț.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "CAUTA-020",
+      "family": "CAUTA",
+      "action": "GASESTE",
+      "target": "firme de transport",
+      "natural_language_query": "Găsește firme de transport.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "CAUTA-021",
+      "family": "CAUTA",
+      "action": "GASESTE",
+      "target": "firme de logistică",
+      "natural_language_query": "Găsește firme de logistică.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "CAUTA-022",
+      "family": "CAUTA",
+      "action": "GASESTE",
+      "target": "firme din agricultură",
+      "natural_language_query": "Găsește firme din agricultură.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "CAUTA-023",
+      "family": "CAUTA",
+      "action": "GASESTE",
+      "target": "firme din IT",
+      "natural_language_query": "Găsește firme din IT.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "CAUTA-024",
+      "family": "CAUTA",
+      "action": "GASESTE",
+      "target": "firme de consultanță",
+      "natural_language_query": "Găsește firme de consultanță.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "CAUTA-025",
+      "family": "CAUTA",
+      "action": "GASESTE",
+      "target": "firme de contabilitate",
+      "natural_language_query": "Găsește firme de contabilitate.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "CAUTA-026",
+      "family": "CAUTA",
+      "action": "GASESTE",
+      "target": "firme din HR",
+      "natural_language_query": "Găsește firme din HR.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "CAUTA-027",
+      "family": "CAUTA",
+      "action": "GASESTE",
+      "target": "firme de ambalaje",
+      "natural_language_query": "Găsește firme de ambalaje.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "CAUTA-028",
+      "family": "CAUTA",
+      "action": "GASESTE",
+      "target": "firme din industria alimentară",
+      "natural_language_query": "Găsește firme din industria alimentară.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "CAUTA-029",
+      "family": "CAUTA",
+      "action": "GASESTE",
+      "target": "firme din HoReCa",
+      "natural_language_query": "Găsește firme din HoReCa.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "CAUTA-030",
+      "family": "CAUTA",
+      "action": "GASESTE",
+      "target": "firme din sănătate",
+      "natural_language_query": "Găsește firme din sănătate.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "CAUTA-031",
+      "family": "CAUTA",
+      "action": "GASESTE",
+      "target": "firme din educație",
+      "natural_language_query": "Găsește firme din educație.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "CAUTA-032",
+      "family": "CAUTA",
+      "action": "GASESTE",
+      "target": "firme din energie",
+      "natural_language_query": "Găsește firme din energie.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "CAUTA-033",
+      "family": "CAUTA",
+      "action": "GASESTE",
+      "target": "firme din mediu",
+      "natural_language_query": "Găsește firme din mediu.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "CAUTA-034",
+      "family": "CAUTA",
+      "action": "GASESTE",
+      "target": "firme din export",
+      "natural_language_query": "Găsește firme din export.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "CAUTA-035",
+      "family": "CAUTA",
+      "action": "GASESTE",
+      "target": "firme similare cu un profil de referință",
+      "natural_language_query": "Găsește firme similare cu un profil de referință.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "CAUTA-036",
+      "family": "CAUTA",
+      "action": "GASESTE",
+      "target": "firme complementare unui furnizor",
+      "natural_language_query": "Găsește firme complementare unui furnizor.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "CAUTA-037",
+      "family": "CAUTA",
+      "action": "GASESTE",
+      "target": "parteneri într-un lanț valoric",
+      "natural_language_query": "Găsește parteneri într-un lanț valoric.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "CAUTA-038",
+      "family": "CAUTA",
+      "action": "GASESTE",
+      "target": "clienți pentru ambalaje din carton",
+      "natural_language_query": "Găsește clienți pentru ambalaje din carton.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "CAUTA-039",
+      "family": "CAUTA",
+      "action": "GASESTE",
+      "target": "clienți pentru servicii de calculul salariilor",
+      "natural_language_query": "Găsește clienți pentru servicii de calculul salariilor.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "CAUTA-040",
+      "family": "CAUTA",
+      "action": "GASESTE",
+      "target": "clienți pentru software B2B",
+      "natural_language_query": "Găsește clienți pentru software B2B.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "CAUTA-041",
+      "family": "CAUTA",
+      "action": "GASESTE",
+      "target": "clienți pentru mentenanță industrială",
+      "natural_language_query": "Găsește clienți pentru mentenanță industrială.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "CAUTA-042",
+      "family": "CAUTA",
+      "action": "GASESTE",
+      "target": "firme cu activitate compatibilă cu oferta",
+      "natural_language_query": "Găsește firme cu activitate compatibilă cu oferta.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "CAUTA-043",
+      "family": "CAUTA",
+      "action": "GASESTE",
+      "target": "firme cu profil financiar comparabil",
+      "natural_language_query": "Găsește firme cu profil financiar comparabil.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "CAUTA-044",
+      "family": "CAUTA",
+      "action": "GASESTE",
+      "target": "firme cu sediul într-o regiune",
+      "natural_language_query": "Găsește firme cu sediul într-o regiune.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "CAUTA-045",
+      "family": "CAUTA",
+      "action": "GASESTE",
+      "target": "firme cu mai multe activități declarate",
+      "natural_language_query": "Găsește firme cu mai multe activități declarate.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "CAUTA-046",
+      "family": "CAUTA",
+      "action": "GASESTE",
+      "target": "firme cu istoric financiar de trei ani",
+      "natural_language_query": "Găsește firme cu istoric financiar de trei ani.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "CAUTA-047",
+      "family": "CAUTA",
+      "action": "GASESTE",
+      "target": "firme cu bilanțuri publice disponibile",
+      "natural_language_query": "Găsește firme cu bilanțuri publice disponibile.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "CAUTA-048",
+      "family": "CAUTA",
+      "action": "GASESTE",
+      "target": "firme după interval de vechime",
+      "natural_language_query": "Găsește firme după interval de vechime.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "CAUTA-049",
+      "family": "CAUTA",
+      "action": "GASESTE",
+      "target": "firme după criterii combinate",
+      "natural_language_query": "Găsește firme după criterii combinate.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "CAUTA-050",
+      "family": "CAUTA",
+      "action": "GASESTE",
+      "target": "sursele publice pentru o firmă",
+      "natural_language_query": "Găsește sursele publice pentru o firmă.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "GASIT-001",
+      "family": "FII_GASIT",
+      "action": "PREZINTA",
+      "target": "oferta comercială a firmei",
+      "natural_language_query": "Cum pot face vizibile pentru oameni și sisteme AI oferta comercială a firmei?",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "GASIT-002",
+      "family": "FII_GASIT",
+      "action": "PREZINTA",
+      "target": "serviciile și condițiile lor",
+      "natural_language_query": "Cum pot face vizibile pentru oameni și sisteme AI serviciile și condițiile lor?",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "GASIT-003",
+      "family": "FII_GASIT",
+      "action": "PREZINTA",
+      "target": "produsele și categoriile",
+      "natural_language_query": "Cum pot face vizibile pentru oameni și sisteme AI produsele și categoriile?",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "GASIT-004",
+      "family": "FII_GASIT",
+      "action": "PREZINTA",
+      "target": "zonele geografice deservite",
+      "natural_language_query": "Cum pot face vizibile pentru oameni și sisteme AI zonele geografice deservite?",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "GASIT-005",
+      "family": "FII_GASIT",
+      "action": "PREZINTA",
+      "target": "industriile deservite",
+      "natural_language_query": "Cum pot face vizibile pentru oameni și sisteme AI industriile deservite?",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "GASIT-006",
+      "family": "FII_GASIT",
+      "action": "PREZINTA",
+      "target": "profilul clienților potriviți",
+      "natural_language_query": "Cum pot face vizibile pentru oameni și sisteme AI profilul clienților potriviți?",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "GASIT-007",
+      "family": "FII_GASIT",
+      "action": "PREZINTA",
+      "target": "datele publice de contact",
+      "natural_language_query": "Cum pot face vizibile pentru oameni și sisteme AI datele publice de contact?",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "GASIT-008",
+      "family": "FII_GASIT",
+      "action": "PREZINTA",
+      "target": "programul de contact",
+      "natural_language_query": "Cum pot face vizibile pentru oameni și sisteme AI programul de contact?",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "GASIT-009",
+      "family": "FII_GASIT",
+      "action": "PREZINTA",
+      "target": "descrierea serviciului de calculul salariilor",
+      "natural_language_query": "Cum pot face vizibile pentru oameni și sisteme AI descrierea serviciului de calculul salariilor?",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "GASIT-010",
+      "family": "FII_GASIT",
+      "action": "PREZINTA",
+      "target": "serviciile de contabilitate",
+      "natural_language_query": "Cum pot face vizibile pentru oameni și sisteme AI serviciile de contabilitate?",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "GASIT-011",
+      "family": "FII_GASIT",
+      "action": "PREZINTA",
+      "target": "serviciile HR",
+      "natural_language_query": "Cum pot face vizibile pentru oameni și sisteme AI serviciile HR?",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "GASIT-012",
+      "family": "FII_GASIT",
+      "action": "PREZINTA",
+      "target": "serviciile de consultanță",
+      "natural_language_query": "Cum pot face vizibile pentru oameni și sisteme AI serviciile de consultanță?",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "GASIT-013",
+      "family": "FII_GASIT",
+      "action": "PREZINTA",
+      "target": "serviciile IT",
+      "natural_language_query": "Cum pot face vizibile pentru oameni și sisteme AI serviciile IT?",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "GASIT-014",
+      "family": "FII_GASIT",
+      "action": "PREZINTA",
+      "target": "serviciile de securitate cibernetică",
+      "natural_language_query": "Cum pot face vizibile pentru oameni și sisteme AI serviciile de securitate cibernetică?",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "GASIT-015",
+      "family": "FII_GASIT",
+      "action": "PREZINTA",
+      "target": "serviciile de marketing",
+      "natural_language_query": "Cum pot face vizibile pentru oameni și sisteme AI serviciile de marketing?",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "GASIT-016",
+      "family": "FII_GASIT",
+      "action": "PREZINTA",
+      "target": "serviciile de audit",
+      "natural_language_query": "Cum pot face vizibile pentru oameni și sisteme AI serviciile de audit?",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "GASIT-017",
+      "family": "FII_GASIT",
+      "action": "PREZINTA",
+      "target": "serviciile de transport",
+      "natural_language_query": "Cum pot face vizibile pentru oameni și sisteme AI serviciile de transport?",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "GASIT-018",
+      "family": "FII_GASIT",
+      "action": "PREZINTA",
+      "target": "serviciile de logistică",
+      "natural_language_query": "Cum pot face vizibile pentru oameni și sisteme AI serviciile de logistică?",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "GASIT-019",
+      "family": "FII_GASIT",
+      "action": "PREZINTA",
+      "target": "produsele industriale",
+      "natural_language_query": "Cum pot face vizibile pentru oameni și sisteme AI produsele industriale?",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "GASIT-020",
+      "family": "FII_GASIT",
+      "action": "PREZINTA",
+      "target": "ambalajele și materialele",
+      "natural_language_query": "Cum pot face vizibile pentru oameni și sisteme AI ambalajele și materialele?",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "GASIT-021",
+      "family": "FII_GASIT",
+      "action": "PREZINTA",
+      "target": "serviciile de distribuție",
+      "natural_language_query": "Cum pot face vizibile pentru oameni și sisteme AI serviciile de distribuție?",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "GASIT-022",
+      "family": "FII_GASIT",
+      "action": "PREZINTA",
+      "target": "politica de ofertare",
+      "natural_language_query": "Cum pot face vizibile pentru oameni și sisteme AI politica de ofertare?",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "GASIT-023",
+      "family": "FII_GASIT",
+      "action": "PREZINTA",
+      "target": "condițiile de eligibilitate",
+      "natural_language_query": "Cum pot face vizibile pentru oameni și sisteme AI condițiile de eligibilitate?",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "GASIT-024",
+      "family": "FII_GASIT",
+      "action": "PREZINTA",
+      "target": "informațiile necesare unei cereri",
+      "natural_language_query": "Cum pot face vizibile pentru oameni și sisteme AI informațiile necesare unei cereri?",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "GASIT-025",
+      "family": "FII_GASIT",
+      "action": "PREZINTA",
+      "target": "întrebările frecvente",
+      "natural_language_query": "Cum pot face vizibile pentru oameni și sisteme AI întrebările frecvente?",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "GASIT-026",
+      "family": "FII_GASIT",
+      "action": "PREZINTA",
+      "target": "descrierile structurate Schema.org",
+      "natural_language_query": "Cum pot face vizibile pentru oameni și sisteme AI descrierile structurate Schema.org?",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "GASIT-027",
+      "family": "FII_GASIT",
+      "action": "PREZINTA",
+      "target": "datele de identificare ale firmei",
+      "natural_language_query": "Cum pot face vizibile pentru oameni și sisteme AI datele de identificare ale firmei?",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "GASIT-028",
+      "family": "FII_GASIT",
+      "action": "PREZINTA",
+      "target": "sursele și referințele publice",
+      "natural_language_query": "Cum pot face vizibile pentru oameni și sisteme AI sursele și referințele publice?",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "GASIT-029",
+      "family": "FII_GASIT",
+      "action": "PREZINTA",
+      "target": "documentele tehnice",
+      "natural_language_query": "Cum pot face vizibile pentru oameni și sisteme AI documentele tehnice?",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "GASIT-030",
+      "family": "FII_GASIT",
+      "action": "PREZINTA",
+      "target": "exemplele anonimizate",
+      "natural_language_query": "Cum pot face vizibile pentru oameni și sisteme AI exemplele anonimizate?",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "GASIT-031",
+      "family": "FII_GASIT",
+      "action": "PREZINTA",
+      "target": "studiile de caz",
+      "natural_language_query": "Cum pot face vizibile pentru oameni și sisteme AI studiile de caz?",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "GASIT-032",
+      "family": "FII_GASIT",
+      "action": "PREZINTA",
+      "target": "dovezile verificabile",
+      "natural_language_query": "Cum pot face vizibile pentru oameni și sisteme AI dovezile verificabile?",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "GASIT-033",
+      "family": "FII_GASIT",
+      "action": "PREZINTA",
+      "target": "limitele serviciilor",
+      "natural_language_query": "Cum pot face vizibile pentru oameni și sisteme AI limitele serviciilor?",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "GASIT-034",
+      "family": "FII_GASIT",
+      "action": "PREZINTA",
+      "target": "procesul de comandă",
+      "natural_language_query": "Cum pot face vizibile pentru oameni și sisteme AI procesul de comandă?",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "GASIT-035",
+      "family": "FII_GASIT",
+      "action": "PREZINTA",
+      "target": "etapele aprobării umane",
+      "natural_language_query": "Cum pot face vizibile pentru oameni și sisteme AI etapele aprobării umane?",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "GASIT-036",
+      "family": "FII_GASIT",
+      "action": "PREZINTA",
+      "target": "canalele de contact",
+      "natural_language_query": "Cum pot face vizibile pentru oameni și sisteme AI canalele de contact?",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "GASIT-037",
+      "family": "FII_GASIT",
+      "action": "PREZINTA",
+      "target": "limbile disponibile",
+      "natural_language_query": "Cum pot face vizibile pentru oameni și sisteme AI limbile disponibile?",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "GASIT-038",
+      "family": "FII_GASIT",
+      "action": "PREZINTA",
+      "target": "termenele declarate",
+      "natural_language_query": "Cum pot face vizibile pentru oameni și sisteme AI termenele declarate?",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "GASIT-039",
+      "family": "FII_GASIT",
+      "action": "PREZINTA",
+      "target": "aria de acoperire",
+      "natural_language_query": "Cum pot face vizibile pentru oameni și sisteme AI aria de acoperire?",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "GASIT-040",
+      "family": "FII_GASIT",
+      "action": "PREZINTA",
+      "target": "versiunile ofertei",
+      "natural_language_query": "Cum pot face vizibile pentru oameni și sisteme AI versiunile ofertei?",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "GASIT-041",
+      "family": "FII_GASIT",
+      "action": "PREZINTA",
+      "target": "politica de confidențialitate",
+      "natural_language_query": "Cum pot face vizibile pentru oameni și sisteme AI politica de confidențialitate?",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "GASIT-042",
+      "family": "FII_GASIT",
+      "action": "PREZINTA",
+      "target": "politica de utilizare a datelor",
+      "natural_language_query": "Cum pot face vizibile pentru oameni și sisteme AI politica de utilizare a datelor?",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "GASIT-043",
+      "family": "FII_GASIT",
+      "action": "PREZINTA",
+      "target": "metoda de verificare",
+      "natural_language_query": "Cum pot face vizibile pentru oameni și sisteme AI metoda de verificare?",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "GASIT-044",
+      "family": "FII_GASIT",
+      "action": "PREZINTA",
+      "target": "licențele și autorizațiile confirmate",
+      "natural_language_query": "Cum pot face vizibile pentru oameni și sisteme AI licențele și autorizațiile confirmate?",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "GASIT-045",
+      "family": "FII_GASIT",
+      "action": "PREZINTA",
+      "target": "standardele declarate și dovezile",
+      "natural_language_query": "Cum pot face vizibile pentru oameni și sisteme AI standardele declarate și dovezile?",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "GASIT-046",
+      "family": "FII_GASIT",
+      "action": "PREZINTA",
+      "target": "diferențele față de alternative",
+      "natural_language_query": "Cum pot face vizibile pentru oameni și sisteme AI diferențele față de alternative?",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "GASIT-047",
+      "family": "FII_GASIT",
+      "action": "PREZINTA",
+      "target": "întrebările despre prețuri",
+      "natural_language_query": "Cum pot face vizibile pentru oameni și sisteme AI întrebările despre prețuri?",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "GASIT-048",
+      "family": "FII_GASIT",
+      "action": "PREZINTA",
+      "target": "documentația API, dacă există",
+      "natural_language_query": "Cum pot face vizibile pentru oameni și sisteme AI documentația API, dacă există?",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "GASIT-049",
+      "family": "FII_GASIT",
+      "action": "PREZINTA",
+      "target": "capabilitățile pentru agenți, dacă sunt implementate",
+      "natural_language_query": "Cum pot face vizibile pentru oameni și sisteme AI capabilitățile pentru agenți, dacă sunt implementate?",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "GASIT-050",
+      "family": "FII_GASIT",
+      "action": "PREZINTA",
+      "target": "actualizările ofertei",
+      "natural_language_query": "Cum pot face vizibile pentru oameni și sisteme AI actualizările ofertei?",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "DELEAGA-001",
+      "family": "DELEAGA_AI_ULUI",
+      "action": "ANALIZEAZA",
+      "target": "căutarea firmelor după criterii",
+      "natural_language_query": "Delegă AI-ului căutarea firmelor după criterii, cu verificare umană.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "DELEAGA-002",
+      "family": "DELEAGA_AI_ULUI",
+      "action": "ANALIZEAZA",
+      "target": "filtrarea rezultatelor după CAEN",
+      "natural_language_query": "Delegă AI-ului filtrarea rezultatelor după CAEN, cu verificare umană.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "DELEAGA-003",
+      "family": "DELEAGA_AI_ULUI",
+      "action": "ANALIZEAZA",
+      "target": "compararea firmelor după indicatori",
+      "natural_language_query": "Delegă AI-ului compararea firmelor după indicatori, cu verificare umană.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "DELEAGA-004",
+      "family": "DELEAGA_AI_ULUI",
+      "action": "ANALIZEAZA",
+      "target": "analiza evoluției salariaților",
+      "natural_language_query": "Delegă AI-ului analiza evoluției salariaților, cu verificare umană.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "DELEAGA-005",
+      "family": "DELEAGA_AI_ULUI",
+      "action": "ANALIZEAZA",
+      "target": "analiza evoluției cifrei de afaceri",
+      "natural_language_query": "Delegă AI-ului analiza evoluției cifrei de afaceri, cu verificare umană.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "DELEAGA-006",
+      "family": "DELEAGA_AI_ULUI",
+      "action": "ANALIZEAZA",
+      "target": "analiza profitabilității raportate",
+      "natural_language_query": "Delegă AI-ului analiza profitabilității raportate, cu verificare umană.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "DELEAGA-007",
+      "family": "DELEAGA_AI_ULUI",
+      "action": "ANALIZEAZA",
+      "target": "analiza capitalurilor proprii",
+      "natural_language_query": "Delegă AI-ului analiza capitalurilor proprii, cu verificare umană.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "DELEAGA-008",
+      "family": "DELEAGA_AI_ULUI",
+      "action": "ANALIZEAZA",
+      "target": "identificarea furnizorilor",
+      "natural_language_query": "Delegă AI-ului identificarea furnizorilor, cu verificare umană.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "DELEAGA-009",
+      "family": "DELEAGA_AI_ULUI",
+      "action": "ANALIZEAZA",
+      "target": "identificarea distribuitorilor",
+      "natural_language_query": "Delegă AI-ului identificarea distribuitorilor, cu verificare umană.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "DELEAGA-010",
+      "family": "DELEAGA_AI_ULUI",
+      "action": "ANALIZEAZA",
+      "target": "identificarea partenerilor",
+      "natural_language_query": "Delegă AI-ului identificarea partenerilor, cu verificare umană.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "DELEAGA-011",
+      "family": "DELEAGA_AI_ULUI",
+      "action": "ANALIZEAZA",
+      "target": "identificarea concurenților",
+      "natural_language_query": "Delegă AI-ului identificarea concurenților, cu verificare umană.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "DELEAGA-012",
+      "family": "DELEAGA_AI_ULUI",
+      "action": "ANALIZEAZA",
+      "target": "analiza lanțului valoric",
+      "natural_language_query": "Delegă AI-ului analiza lanțului valoric, cu verificare umană.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "DELEAGA-013",
+      "family": "DELEAGA_AI_ULUI",
+      "action": "ANALIZEAZA",
+      "target": "gruparea firmelor după activitate",
+      "natural_language_query": "Delegă AI-ului gruparea firmelor după activitate, cu verificare umană.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "DELEAGA-014",
+      "family": "DELEAGA_AI_ULUI",
+      "action": "ANALIZEAZA",
+      "target": "gruparea firmelor după județ",
+      "natural_language_query": "Delegă AI-ului gruparea firmelor după județ, cu verificare umană.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "DELEAGA-015",
+      "family": "DELEAGA_AI_ULUI",
+      "action": "ANALIZEAZA",
+      "target": "gruparea firmelor după dimensiune",
+      "natural_language_query": "Delegă AI-ului gruparea firmelor după dimensiune, cu verificare umană.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "DELEAGA-016",
+      "family": "DELEAGA_AI_ULUI",
+      "action": "ANALIZEAZA",
+      "target": "identificarea firmelor similare",
+      "natural_language_query": "Delegă AI-ului identificarea firmelor similare, cu verificare umană.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "DELEAGA-017",
+      "family": "DELEAGA_AI_ULUI",
+      "action": "ANALIZEAZA",
+      "target": "compararea cu o firmă de referință",
+      "natural_language_query": "Delegă AI-ului compararea cu o firmă de referință, cu verificare umană.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "DELEAGA-018",
+      "family": "DELEAGA_AI_ULUI",
+      "action": "ANALIZEAZA",
+      "target": "generarea unei liste de candidați",
+      "natural_language_query": "Delegă AI-ului generarea unei liste de candidați, cu verificare umană.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "DELEAGA-019",
+      "family": "DELEAGA_AI_ULUI",
+      "action": "ANALIZEAZA",
+      "target": "explicarea motivelor de potrivire",
+      "natural_language_query": "Delegă AI-ului explicarea motivelor de potrivire, cu verificare umană.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "DELEAGA-020",
+      "family": "DELEAGA_AI_ULUI",
+      "action": "ANALIZEAZA",
+      "target": "identificarea limitelor datelor",
+      "natural_language_query": "Delegă AI-ului identificarea limitelor datelor, cu verificare umană.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "DELEAGA-021",
+      "family": "DELEAGA_AI_ULUI",
+      "action": "ANALIZEAZA",
+      "target": "marcarea datelor lipsă",
+      "natural_language_query": "Delegă AI-ului marcarea datelor lipsă, cu verificare umană.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "DELEAGA-022",
+      "family": "DELEAGA_AI_ULUI",
+      "action": "ANALIZEAZA",
+      "target": "verificarea vechimii bilanțurilor",
+      "natural_language_query": "Delegă AI-ului verificarea vechimii bilanțurilor, cu verificare umană.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "DELEAGA-023",
+      "family": "DELEAGA_AI_ULUI",
+      "action": "ANALIZEAZA",
+      "target": "verificarea surselor oficiale",
+      "natural_language_query": "Delegă AI-ului verificarea surselor oficiale, cu verificare umană.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "DELEAGA-024",
+      "family": "DELEAGA_AI_ULUI",
+      "action": "ANALIZEAZA",
+      "target": "detectarea contradicțiilor",
+      "natural_language_query": "Delegă AI-ului detectarea contradicțiilor, cu verificare umană.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "DELEAGA-025",
+      "family": "DELEAGA_AI_ULUI",
+      "action": "ANALIZEAZA",
+      "target": "calculul unui scor explicabil",
+      "natural_language_query": "Delegă AI-ului calculul unui scor explicabil, cu verificare umană.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "DELEAGA-026",
+      "family": "DELEAGA_AI_ULUI",
+      "action": "ANALIZEAZA",
+      "target": "verificarea regulilor de eligibilitate",
+      "natural_language_query": "Delegă AI-ului verificarea regulilor de eligibilitate, cu verificare umană.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "DELEAGA-027",
+      "family": "DELEAGA_AI_ULUI",
+      "action": "ANALIZEAZA",
+      "target": "separarea semnalelor de intenții",
+      "natural_language_query": "Delegă AI-ului separarea semnalelor de intenții, cu verificare umană.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "DELEAGA-028",
+      "family": "DELEAGA_AI_ULUI",
+      "action": "ANALIZEAZA",
+      "target": "formularea ipotezelor comerciale",
+      "natural_language_query": "Delegă AI-ului formularea ipotezelor comerciale, cu verificare umană.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "DELEAGA-029",
+      "family": "DELEAGA_AI_ULUI",
+      "action": "ANALIZEAZA",
+      "target": "generarea întrebărilor de calificare",
+      "natural_language_query": "Delegă AI-ului generarea întrebărilor de calificare, cu verificare umană.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "DELEAGA-030",
+      "family": "DELEAGA_AI_ULUI",
+      "action": "ANALIZEAZA",
+      "target": "prioritizarea candidaților",
+      "natural_language_query": "Delegă AI-ului prioritizarea candidaților, cu verificare umană.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "DELEAGA-031",
+      "family": "DELEAGA_AI_ULUI",
+      "action": "ANALIZEAZA",
+      "target": "compararea segmentelor regionale",
+      "natural_language_query": "Delegă AI-ului compararea segmentelor regionale, cu verificare umană.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "DELEAGA-032",
+      "family": "DELEAGA_AI_ULUI",
+      "action": "ANALIZEAZA",
+      "target": "compararea cu un baseline național",
+      "natural_language_query": "Delegă AI-ului compararea cu un baseline național, cu verificare umană.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "DELEAGA-033",
+      "family": "DELEAGA_AI_ULUI",
+      "action": "ANALIZEAZA",
+      "target": "pregătirea unei fișe de firmă",
+      "natural_language_query": "Delegă AI-ului pregătirea unei fișe de firmă, cu verificare umană.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "DELEAGA-034",
+      "family": "DELEAGA_AI_ULUI",
+      "action": "ANALIZEAZA",
+      "target": "pregătirea unui rezumat sectorial",
+      "natural_language_query": "Delegă AI-ului pregătirea unui rezumat sectorial, cu verificare umană.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "DELEAGA-035",
+      "family": "DELEAGA_AI_ULUI",
+      "action": "ANALIZEAZA",
+      "target": "pregătirea unui raport de prospectare",
+      "natural_language_query": "Delegă AI-ului pregătirea unui raport de prospectare, cu verificare umană.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "DELEAGA-036",
+      "family": "DELEAGA_AI_ULUI",
+      "action": "ANALIZEAZA",
+      "target": "pregătirea unui tabel de comparație",
+      "natural_language_query": "Delegă AI-ului pregătirea unui tabel de comparație, cu verificare umană.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "DELEAGA-037",
+      "family": "DELEAGA_AI_ULUI",
+      "action": "ANALIZEAZA",
+      "target": "documentarea criteriilor de selecție",
+      "natural_language_query": "Delegă AI-ului documentarea criteriilor de selecție, cu verificare umană.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "DELEAGA-038",
+      "family": "DELEAGA_AI_ULUI",
+      "action": "ANALIZEAZA",
+      "target": "documentarea excluderilor",
+      "natural_language_query": "Delegă AI-ului documentarea excluderilor, cu verificare umană.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "DELEAGA-039",
+      "family": "DELEAGA_AI_ULUI",
+      "action": "ANALIZEAZA",
+      "target": "repetarea unei analize cu alte praguri",
+      "natural_language_query": "Delegă AI-ului repetarea unei analize cu alte praguri, cu verificare umană.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "DELEAGA-040",
+      "family": "DELEAGA_AI_ULUI",
+      "action": "ANALIZEAZA",
+      "target": "evaluarea sensibilității scorului",
+      "natural_language_query": "Delegă AI-ului evaluarea sensibilității scorului, cu verificare umană.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "DELEAGA-041",
+      "family": "DELEAGA_AI_ULUI",
+      "action": "ANALIZEAZA",
+      "target": "pregătirea unei liste pentru verificare umană",
+      "natural_language_query": "Delegă AI-ului pregătirea unei liste pentru verificare umană, cu verificare umană.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "DELEAGA-042",
+      "family": "DELEAGA_AI_ULUI",
+      "action": "ANALIZEAZA",
+      "target": "marcarea informațiilor neconfirmate",
+      "natural_language_query": "Delegă AI-ului marcarea informațiilor neconfirmate, cu verificare umană.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "DELEAGA-043",
+      "family": "DELEAGA_AI_ULUI",
+      "action": "ANALIZEAZA",
+      "target": "propunerea următorului pas comercial",
+      "natural_language_query": "Delegă AI-ului propunerea următorului pas comercial, cu verificare umană.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "DELEAGA-044",
+      "family": "DELEAGA_AI_ULUI",
+      "action": "ANALIZEAZA",
+      "target": "pregătirea unei cereri de aprobare",
+      "natural_language_query": "Delegă AI-ului pregătirea unei cereri de aprobare, cu verificare umană.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "DELEAGA-045",
+      "family": "DELEAGA_AI_ULUI",
+      "action": "ANALIZEAZA",
+      "target": "pregătirea unei cereri de informații",
+      "natural_language_query": "Delegă AI-ului pregătirea unei cereri de informații, cu verificare umană.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "DELEAGA-046",
+      "family": "DELEAGA_AI_ULUI",
+      "action": "ANALIZEAZA",
+      "target": "compararea ofertelor disponibile public",
+      "natural_language_query": "Delegă AI-ului compararea ofertelor disponibile public, cu verificare umană.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "DELEAGA-047",
+      "family": "DELEAGA_AI_ULUI",
+      "action": "ANALIZEAZA",
+      "target": "identificarea dovezilor necesare",
+      "natural_language_query": "Delegă AI-ului identificarea dovezilor necesare, cu verificare umană.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "DELEAGA-048",
+      "family": "DELEAGA_AI_ULUI",
+      "action": "ANALIZEAZA",
+      "target": "generarea unui jurnal al analizei",
+      "natural_language_query": "Delegă AI-ului generarea unui jurnal al analizei, cu verificare umană.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "DELEAGA-049",
+      "family": "DELEAGA_AI_ULUI",
+      "action": "ANALIZEAZA",
+      "target": "actualizarea unui raport cu date noi",
+      "natural_language_query": "Delegă AI-ului actualizarea unui raport cu date noi, cu verificare umană.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
+    },
+    {
+      "id": "DELEAGA-050",
+      "family": "DELEAGA_AI_ULUI",
+      "action": "ANALIZEAZA",
+      "target": "predarea concluziilor pentru decizie umană",
+      "natural_language_query": "Delegă AI-ului predarea concluziilor pentru decizie umană, cu verificare umană.",
+      "capability_status": "INTENT_DECLARED_NOT_IMPLEMENTATION_PROOF"
     }
   ]
 }

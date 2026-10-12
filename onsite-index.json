@@ -1,0 +1,19 @@
+{
+  "schema": "FIRMSFINDER_ONSITE_SIGNAL",
+  "version": "1.0",
+  "signal_id": "ONSITE_INDEX",
+  "signal_name": "Site-wide signals discovery index",
+  "site": "https://firmsfinder.eu/",
+  "scope": "ON_SITE",
+  "category": "Discovery",
+  "status": "DECLARATIONS_NOT_RUNTIME_VERIFIED",
+  "purpose": "Site-wide signals discovery index",
+  "publication_note": "Publicarea acestui fișier nu demonstrează că funcția sau controlul este implementat.",
+  "verification": {
+    "check": "GET public URL; validate JSON and verify runtime behavior separately",
+    "result": "NOT_TESTED"
+  },
+  "source_basis": "firmsfinder-main (2).zip; specification regenerated on 2026-10-12",
+  "signal_count": 60,
+  "catalog_url": "https://firmsfinder.eu/onsite-manifest.json"
+}
