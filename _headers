@@ -1,0 +1,10 @@
+/*.json
+  X-Content-Type-Options: nosniff
+  Cache-Control: public, max-age=300
+/onsite.css
+  Cache-Control: public, max-age=3600
+/onsite-ui.js
+  X-Content-Type-Options: nosniff
+  Cache-Control: public, max-age=300
+/*
+  Referrer-Policy: strict-origin-when-cross-origin
