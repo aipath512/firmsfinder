@@ -1,0 +1,13 @@
+{
+  "status": "NOT_RUN_INDEPENDENTLY",
+  "steps": [
+    "Fetch agent card with independent A2A 0.3.0 client",
+    "Authenticate with read-only token",
+    "Send company.search DataPart",
+    "Get returned task by id",
+    "Attempt order.create and confirm rejection",
+    "Try task from another client and confirm not found",
+    "Archive transcript, versions, UTC and result"
+  ],
+  "report": null
+}

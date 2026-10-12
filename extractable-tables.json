@@ -1,0 +1,51 @@
+{
+  "tables": [
+    {
+      "url": "https://firmsfinder.eu/semnale/#om",
+      "selector": "#om table",
+      "columns": [
+        "ID",
+        "Semnal",
+        "Verdict live"
+      ],
+      "rows": 15
+    },
+    {
+      "url": "https://firmsfinder.eu/semnale/#ai",
+      "selector": "#ai table",
+      "columns": [
+        "ID",
+        "Semnal",
+        "Verdict live"
+      ],
+      "rows": 20
+    },
+    {
+      "url": "https://firmsfinder.eu/semnale/#a2a",
+      "selector": "#a2a table",
+      "columns": [
+        "ID",
+        "Semnal",
+        "Verdict live"
+      ],
+      "rows": 15
+    },
+    {
+      "url": "https://firmsfinder.eu/semnale/#rrvi",
+      "selector": "#rrvi table",
+      "columns": [
+        "ID",
+        "Semnal",
+        "Verdict live"
+      ],
+      "rows": 10
+    }
+  ],
+  "dynamic_profile": {
+    "url_pattern": "https://firmsfinder.eu/firme/{cui}/#identitate",
+    "columns": [
+      "Câmp",
+      "Valoare"
+    ]
+  }
+}

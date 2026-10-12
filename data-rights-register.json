@@ -1,0 +1,33 @@
+{
+  "status": "LEGAL_REVIEW_REQUIRED",
+  "datasets": [
+    {
+      "id": "ONRC",
+      "exact_resource_url": null,
+      "license_verified": false,
+      "lawful_basis_verified": false
+    },
+    {
+      "id": "MF-2024",
+      "exact_resource_url": null,
+      "license_verified": false,
+      "lawful_basis_verified": false
+    }
+  ],
+  "code_controls": [
+    "exclude top!=1",
+    "exclude persoana_fizica!=0",
+    "respect onrc_excluderi"
+  ],
+  "contact_data": [
+    "name",
+    "email",
+    "message"
+  ],
+  "retention_proposal": {
+    "contact_closed_days": 90,
+    "task_days": 1,
+    "audit_days": 30
+  },
+  "certified_compliant": false
+}

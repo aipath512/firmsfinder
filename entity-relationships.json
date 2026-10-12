@@ -1,0 +1,8 @@
+{
+  "schema": "FIRMSFINDER_ENTITY_RELATIONSHIPS",
+  "version": "1.0.0",
+  "status": "BACKEND_REQUIRED",
+  "endpoint": "https://firmsfinder.eu/entity-relationships.json",
+  "items": [],
+  "notice": "Export al relațiilor susținute de date; fără relații comerciale inventate. Acest fișier static este un manifest; exportul real este generat de backend când este conectat."
+}

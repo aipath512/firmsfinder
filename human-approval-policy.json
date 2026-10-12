@@ -1,0 +1,7 @@
+{
+  "sensitive_actions_enabled": false,
+  "approval_workflow_implemented": false,
+  "rule": "No commercial execution. order.create always rejected.",
+  "signal_A2A_12": "NOT_IMPLEMENTED; read-only scope does not pretend to supply a HITL workflow",
+  "pending_reject_approve_tests": "not_run"
+}

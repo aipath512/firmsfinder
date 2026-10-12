@@ -1,45 +1,279 @@
-
 {
-  "schema_version": "1.1",
-  "entity": "https://firmsfinder.eu/#organization",
-  "brand": "FirmsFinder AI",
-  "canonical": "https://firmsfinder.eu/",
-  "verification_endpoint": null,
-  "note": "Acest fișier descrie o metodă propusă pentru verificarea integrității documentelor și artefactelor FirmsFinder AI. Nu constituie dovada implementării unui registru de verificare, nu publică amprente ale documentelor clienților și nu certifică exactitatea datelor despre firme.",
-  "method": {
-    "hash": "SHA-256",
-    "computed_on": "reprezentarea canonică a artefactului, definită explicit pentru fiecare tip de document",
-    "timestamping": "OpenTimestamps",
-    "identifier_format": "COD-FIRMA_SLUG-8HEX",
-    "verification_chain": [
-      "IDENTIFY",
-      "CANONICALIZE",
-      "HASH",
-      "TIMESTAMP",
-      "VERIFY"
-    ]
-  },
-  "privacy": {
-    "personal_data_exposed": false,
-    "client_enumeration_possible": false,
-    "lookup": "doar căutare exactă după identificator sau amprentă, dacă serviciul de verificare este implementat"
-  },
-  "scope": {
-    "platform": "FirmsFinder AI",
-    "primary_entity": "COMPANY",
-    "market": "Romania",
-    "applies_to": [
-      "rapoarte de inteligență economică",
-      "artefacte de analiză",
-      "documente de verificare",
-      "rezultate exportate"
-    ]
-  },
-  "limitations": [
-    "SHA-256 demonstrează integritatea unui artefact, nu adevărul factual al conținutului.",
-    "OpenTimestamps poate furniza dovezi temporale numai pentru artefactele efectiv ancorate.",
-    "Acest manifest nu demonstrează existența unui registru operațional.",
-    "Publicarea acestui fișier nu acordă acces la date private."
-  ],
-  "status": "self_declared"
+  "schema": "FIRMSFINDER_FILE_INTEGRITY",
+  "generated_at": "2026-10-12T12:40:33.892056+00:00",
+  "hash_scope": "exact file bytes",
+  "production_verified": false,
+  "independent_timestamp": false,
+  "files": [
+    {
+      "path": "404.html",
+      "sha256": "c9bb262e85714814eb288968987e75bbb7f60e08d711595fde8e15833b823821",
+      "bytes": 229
+    },
+    {
+      "path": "_headers",
+      "sha256": "2d8ca7ca421cf818227feec2486d05695b1d100de97426b9aa5f120dc7f68918",
+      "bytes": 268
+    },
+    {
+      "path": "a2a-contracts.json",
+      "sha256": "70618b29bf7af51e2185f8a45f5fbae9fba22017ad11869144d907f3bff2aa02",
+      "bytes": 807
+    },
+    {
+      "path": "a2a-input-schema.json",
+      "sha256": "4d757014e1188b0e001133cac70e3491aad8d7d6c27a7a96df8a0a51bd10100d",
+      "bytes": 2471
+    },
+    {
+      "path": "a2a-output-schema.json",
+      "sha256": "9a1e5dba7fc01bcabe36bd388245a1a8c0bffd150137a8162df4377a2ebdbe03",
+      "bytes": 1398
+    },
+    {
+      "path": "a2a-status.json",
+      "sha256": "4e0eb4ba8d6998d34463e5724093caa32dc4bf5acbef64150217f0acdc8b2044",
+      "bytes": 411
+    },
+    {
+      "path": "agent-capabilities.json",
+      "sha256": "3aa157cb80f8d5d99f0d6d404efd8857463337b434f3c68168b5c5af4dc670ad",
+      "bytes": 230
+    },
+    {
+      "path": "agent-identity.json",
+      "sha256": "bd83139205bb9dea4f50fcfa673ffc193048f9e448b151cb77cdc5b05b6a5be5",
+      "bytes": 176
+    },
+    {
+      "path": "agent-mandate.json",
+      "sha256": "2ec948b627995a041e7af0c5f42158282337b8528810331e87857ea5994d381e",
+      "bytes": 240
+    },
+    {
+      "path": "ai-citation-policy.json",
+      "sha256": "8ffce73d222c1290d20f66f7825afbac3e67b2b3629410b25f124a80b5de223e",
+      "bytes": 375
+    },
+    {
+      "path": "ai-summary-blocks.json",
+      "sha256": "5d41ef87a0c5e525deff9c1587edf2bc6b54fcd4ff1729d40d13788dabe047d5",
+      "bytes": 492
+    },
+    {
+      "path": "ai-visibility-tests.json",
+      "sha256": "d85d30fb2df73727c414fe31119132a80c769b9085331835bf6f531be88d99b5",
+      "bytes": 466
+    },
+    {
+      "path": "audit-policy.json",
+      "sha256": "af5bf73583a7be9d8fe9cc09c495e62076a1af965a3564a5629533849910ce00",
+      "bytes": 384
+    },
+    {
+      "path": "authentication-policy.json",
+      "sha256": "424ae7e965624e2122ad53aa0de08b13541485730e78fdc3221a6f7da8bedd1d",
+      "bytes": 285
+    },
+    {
+      "path": "canonical-map.json",
+      "sha256": "b304b69af316029efdf01bccccb278647f7d54e59c18c42bb97b799cec0a9415",
+      "bytes": 857
+    },
+    {
+      "path": "categorii/index.html",
+      "sha256": "705d7a63358d2ec6a625287b292f812afe926d1396c69a5ccf37090d51ebaecd",
+      "bytes": 1544
+    },
+    {
+      "path": "cautare/index.html",
+      "sha256": "c92d24152ebc9dbcef90691fc9a600086dc6808614e6e31512355dc0d0fdcf9d",
+      "bytes": 1706
+    },
+    {
+      "path": "comparare/index.html",
+      "sha256": "959e3e42e5d80f76eab1624f6201c4ed439e54aaee8f5bac920ddd6b40965d8f",
+      "bytes": 1399
+    },
+    {
+      "path": "contact/index.html",
+      "sha256": "958f4629bcd5e88f243b2383bc80e259b7090b809be21850adf51394ff9f7793",
+      "bytes": 2330
+    },
+    {
+      "path": "contradiction-rules.json",
+      "sha256": "91b9653fe9fb985b76a298ec5ea10ea94a08c08c3c867e1870570f98a181f2f3",
+      "bytes": 274
+    },
+    {
+      "path": "controls.json",
+      "sha256": "7fd5fac82a07c285226ad3323df84c431014998507e0af01c7739f7ef6ebaf66",
+      "bytes": 16283
+    },
+    {
+      "path": "data-freshness.json",
+      "sha256": "8987b2365fd71de6907f5d93e84972919d322bb83ae4c715caa2289964c7de50",
+      "bytes": 326
+    },
+    {
+      "path": "data-rights-register.json",
+      "sha256": "d4a7994c59e19bacba17810e47596676f2489996a23b0657ca36190d19750bfe",
+      "bytes": 647
+    },
+    {
+      "path": "digital-dna.json",
+      "sha256": "8543b9f50e42f5e9bfb2381797ff3aa36ff3578c5dbc25861af1756f4bc27551",
+      "bytes": 559
+    },
+    {
+      "path": "entities.json",
+      "sha256": "75ebb530ce24833d6dfc4915f660ca049c671b9539d232a18d1c1a039eda64ee",
+      "bytes": 325
+    },
+    {
+      "path": "entity-relationships.json",
+      "sha256": "75911f5d4fbf8b366ab6bf29530eed5ce242ca5254c54e0c091626621d9d5cba",
+      "bytes": 379
+    },
+    {
+      "path": "extractable-tables.json",
+      "sha256": "9e7c77324a705d2b20a73f1b546c2fee5e93114d20dc7558d84a5b6f76dba278",
+      "bytes": 958
+    },
+    {
+      "path": "homepage-link.html",
+      "sha256": "ce292dd6c62d1285b4dd02895734b4d1dbebdf81b953036b557fbb0dadf3a51f",
+      "bytes": 98
+    },
+    {
+      "path": "human-approval-policy.json",
+      "sha256": "12f27095d4f695538a03f3f72647f87eec522a1d253f3dc2ab6e5f0b038d6e79",
+      "bytes": 294
+    },
+    {
+      "path": "independent-validation.json",
+      "sha256": "a36f5a5979ef1393cdba8754bfdbb3c57191f169b6895ff318645da1f5a437cb",
+      "bytes": 228
+    },
+    {
+      "path": "intents.json",
+      "sha256": "732e551bf606cf384996a023e3957393be184c9fc6cc66463fc8b62087f6d36e",
+      "bytes": 824
+    },
+    {
+      "path": "interop-test-plan.json",
+      "sha256": "7280fbd5b23a1148757735f4e68f08adc9f36371ab5cde0cc07903d18446ce7d",
+      "bytes": 401
+    },
+    {
+      "path": "llms-full.txt",
+      "sha256": "4fec197b1ba16b0cd4315d2563d3af8444c04e870adbfd3545eeb2cdcc20b745",
+      "bytes": 7949
+    },
+    {
+      "path": "llms.txt",
+      "sha256": "93bdccd7106d38b2c620d90360dfcd3ff070792541c3b52d37e43290f6443542",
+      "bytes": 618
+    },
+    {
+      "path": "localitati/index.html",
+      "sha256": "2192aff436d0de0c9fc508e76997818a6b20b4950699f83733dec74d432a5e1e",
+      "bytes": 1381
+    },
+    {
+      "path": "monitoring-plan.json",
+      "sha256": "d1701b927aede4747479f1f36a5723629a20bc1843b38348fc4ac0e5e78738d4",
+      "bytes": 244
+    },
+    {
+      "path": "onsite-ui.js",
+      "sha256": "e2fa2f4588b83b4a99cd55bf60bbf4214a6d5b215862e042356c7badae2cb8b7",
+      "bytes": 4472
+    },
+    {
+      "path": "onsite.css",
+      "sha256": "acf77c231dc5b7abff835eabfaba93c2a6bfa970e7d85e683eb3b8ad0555e434",
+      "bytes": 1291
+    },
+    {
+      "path": "performance-budget.json",
+      "sha256": "c63621388e179e25cf2f0fa863108dfb2906e60fd7549d78b3e49033a2bf9ddc",
+      "bytes": 229
+    },
+    {
+      "path": "rag-chunk-map.json",
+      "sha256": "dfd1756c05f515bd971d900c1922db30fd98aa4303b642c56bf9706a1f67c0c9",
+      "bytes": 22896
+    },
+    {
+      "path": "rate-limit-policy.json",
+      "sha256": "8b05ec89fe89ec75df77b3037eac45078cf70fbdd2154d1544df0afe9a063565",
+      "bytes": 330
+    },
+    {
+      "path": "requirements.json",
+      "sha256": "875e1225ef32c6c4c76e91cdc9c31b75a1eb5d463ce84fb61e82e56dbdda83bb",
+      "bytes": 16804
+    },
+    {
+      "path": "robots.txt",
+      "sha256": "20e08cbb1a62048d8ef261d218d3c2db5ec80c2ccd003cb21a013c435cd26d17",
+      "bytes": 124
+    },
+    {
+      "path": "schema-org.json",
+      "sha256": "ff0b3a2c09110bfb600e38e80693c7df5bf6b2600f9ea08f17d2d1f0b1342ad3",
+      "bytes": 496
+    },
+    {
+      "path": "security-controls.json",
+      "sha256": "e2bf1f1c0d204805ab6bcfd722524f52c1daaf093da4f74b20acfe406c3f33e7",
+      "bytes": 400
+    },
+    {
+      "path": "semnale/index.html",
+      "sha256": "d48be3031d4de95cf0455fa8d8bf14f53f18d2aa2374a4b3f70d95d73c03bf3c",
+      "bytes": 38033
+    },
+    {
+      "path": "services.json",
+      "sha256": "beff24f2ba5d8d597e41970a68f4001d6fae4cc6b8642ae0ceb636cca29d3f86",
+      "bytes": 310
+    },
+    {
+      "path": "signals.json",
+      "sha256": "682f6861985df91e6c3e72bfdd64e31d8d6ea4f0024d759e3f36f1ec4b481c06",
+      "bytes": 36050
+    },
+    {
+      "path": "sitemap.xml",
+      "sha256": "a10a1c000543b2d67d6069829b895d9b4aa7d68c948318886b56a19cded58cbe",
+      "bytes": 530
+    },
+    {
+      "path": "source-provenance.json",
+      "sha256": "a6d581d5c4a292ae260ed340e14401513d684ef7c6610b6fea904f2bd2e6c14a",
+      "bytes": 617
+    },
+    {
+      "path": "surse/index.html",
+      "sha256": "3e0631e6444d807659843652bc02e13f8893797687e08615a557fd27a4a7f0f5",
+      "bytes": 2429
+    },
+    {
+      "path": "taxonomy.json",
+      "sha256": "cc8cc1df0c22ce4b71d20c75da7c5ee6e0e3ac48c52e41766516d9f9ca396534",
+      "bytes": 322
+    },
+    {
+      "path": "timestamp-policy.json",
+      "sha256": "b41b24c36abf1e4f7e6062c58a1473e2fcb822b75d9f7899e3059b5f3bdcba63",
+      "bytes": 242
+    },
+    {
+      "path": "version.json",
+      "sha256": "4a6e74e85dfbe79cdd9547e490051baa99ebcd6eed265367b5b875aee5404427",
+      "bytes": 257
+    }
+  ]
 }

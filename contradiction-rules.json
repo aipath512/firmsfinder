@@ -1,0 +1,11 @@
+{
+  "status": "RULES_CREATED",
+  "key": [
+    "entity_id",
+    "field",
+    "period",
+    "unit"
+  ],
+  "rule": "Distinct normalized values for same key produce unresolved conflict; never overwrite one source with another",
+  "runner": "scripts/detect-contradictions.mjs"
+}

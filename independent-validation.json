@@ -1,0 +1,11 @@
+{
+  "status": "NOT_PERFORMED",
+  "validator": null,
+  "report_url": null,
+  "requirements": [
+    "separate evaluator",
+    "reproducible tests",
+    "exact deployment and dataset versions",
+    "evidence and limitations"
+  ]
+}

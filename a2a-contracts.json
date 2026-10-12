@@ -1,0 +1,39 @@
+{
+  "protocol": "A2A 0.3.0",
+  "transport": "JSONRPC",
+  "methods": [
+    "message/send",
+    "tasks/get",
+    "tasks/cancel"
+  ],
+  "task_mode": "synchronous_new_tasks_only",
+  "input": "one DataPart containing operation and parameters",
+  "operations": {
+    "company.search": {
+      "optional": [
+        "q",
+        "caen",
+        "revision",
+        "judet",
+        "localitate",
+        "page",
+        "limit"
+      ],
+      "requirement": "at least one search criterion"
+    },
+    "company.get": {
+      "required": [
+        "cui"
+      ]
+    },
+    "company.compare": {
+      "required": [
+        "ids"
+      ],
+      "min": 2,
+      "max": 4
+    }
+  },
+  "output": "Task completed with DataPart artifact; errors are JSON-RPC error objects",
+  "independent_protocol_validation": "NOT_RUN"
+}

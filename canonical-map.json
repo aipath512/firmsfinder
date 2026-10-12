@@ -1,0 +1,40 @@
+{
+  "pages": [
+    {
+      "path": "/",
+      "canonical": "https://firmsfinder.eu/"
+    },
+    {
+      "path": "/categorii/",
+      "canonical": "https://firmsfinder.eu/categorii/"
+    },
+    {
+      "path": "/cautare/",
+      "canonical": "https://firmsfinder.eu/cautare/"
+    },
+    {
+      "path": "/comparare/",
+      "canonical": "https://firmsfinder.eu/comparare/"
+    },
+    {
+      "path": "/contact/",
+      "canonical": "https://firmsfinder.eu/contact/"
+    },
+    {
+      "path": "/localitati/",
+      "canonical": "https://firmsfinder.eu/localitati/"
+    },
+    {
+      "path": "/semnale/",
+      "canonical": "https://firmsfinder.eu/semnale/"
+    },
+    {
+      "path": "/surse/",
+      "canonical": "https://firmsfinder.eu/surse/"
+    }
+  ],
+  "dynamic_profiles": {
+    "pattern": "/firme/{cui}/",
+    "generator": "backend/onsite.mjs"
+  }
+}

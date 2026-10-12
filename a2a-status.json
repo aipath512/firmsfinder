@@ -1,0 +1,8 @@
+{
+  "status": "BACKEND_NOT_DEPLOYED",
+  "protocol_version": "0.3.0",
+  "specification": "https://a2a-protocol.org/v0.3.0/specification/",
+  "card_url": "https://firmsfinder.eu/.well-known/agent-card.json",
+  "endpoint": "https://firmsfinder.eu/a2a",
+  "notice": "Cardul este generat numai de backend, după configurare; nu este inclus ca promisiune statică a unui endpoint activ. Nu este declarat A2A v1.0."
+}

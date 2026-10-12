@@ -1,0 +1,8 @@
+{
+  "schema": "FIRMSFINDER_TAXONOMY",
+  "version": "1.0.0",
+  "status": "BACKEND_REQUIRED",
+  "endpoint": "https://firmsfinder.eu/taxonomy.json",
+  "items": [],
+  "notice": "Export al clasificărilor CAEN cu ediția lor. Acest fișier static este un manifest; exportul real este generat de backend când este conectat."
+}

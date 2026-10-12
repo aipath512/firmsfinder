@@ -1,0 +1,8 @@
+{
+  "status": "NOT_SCHEDULED",
+  "runner": "scripts/verify-live.mjs",
+  "proposed_frequency": "daily",
+  "results_dir": "audit-results/",
+  "history": "compare dated JSON reports; false/unknown values retained",
+  "automation_created": false
+}

@@ -1,0 +1,16 @@
+{
+  "store": "D1 ff_audit",
+  "fields": [
+    "id",
+    "owner",
+    "operation",
+    "task_id",
+    "at",
+    "version",
+    "result_sha256"
+  ],
+  "raw_company_results_in_audit": false,
+  "tasks": "D1 ff_tasks; full artifacts private to owning client, expire after 24h",
+  "tamper_evident_chain": false,
+  "retention_enforced": "requires daily execution of backend/retention.sql"
+}

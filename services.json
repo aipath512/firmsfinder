@@ -1,0 +1,8 @@
+{
+  "schema": "FIRMSFINDER_SERVICES",
+  "version": "1.0.0",
+  "status": "BACKEND_REQUIRED",
+  "endpoint": "https://firmsfinder.eu/services.json",
+  "items": [],
+  "notice": "Export al serviciilor documentate. Acest fișier static este un manifest; exportul real este generat de backend când este conectat."
+}

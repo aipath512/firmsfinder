@@ -1,0 +1,13 @@
+{
+  "allowed": [
+    "company.search",
+    "company.get",
+    "company.compare"
+  ],
+  "scope_checked_per_client": true,
+  "commercial_actions_allowed": false,
+  "rules": [
+    "Capability != permission",
+    "No rule -> no autonomy"
+  ]
+}

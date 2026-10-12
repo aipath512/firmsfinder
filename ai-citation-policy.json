@@ -1,0 +1,11 @@
+{
+  "version": "1.0.0",
+  "rules": [
+    "Cite the precise source for factual company claims",
+    "Keep source date, version and field",
+    "Missing facts remain unknown",
+    "CAEN is classification, not a confirmed product or need",
+    "Do not treat model consensus as factual evidence"
+  ],
+  "runtime_enforcement": "structured_data_exports; generative_AI_not_added"
+}

@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "LCP_ms": 2500,
+    "INP_ms": 200,
+    "CLS": 0.1
+  },
+  "measurement_status": "NOT_MEASURED",
+  "before": null,
+  "after": null,
+  "note": "Targets are not measured values. Existing page assets retained."
+}

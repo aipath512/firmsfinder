@@ -1,0 +1,14 @@
+{
+  "implemented_in_code": [
+    "company.search",
+    "company.get",
+    "company.compare"
+  ],
+  "prohibited": [
+    "order.create",
+    "payment.execute",
+    "company.update",
+    "export.bulk"
+  ],
+  "live_verified": false
+}

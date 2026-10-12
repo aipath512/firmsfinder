@@ -1,0 +1,12 @@
+{
+  "mechanism": "Bearer token",
+  "storage": "SHA-256 token digest in FF_CLIENTS_JSON secret",
+  "client_fields": [
+    "id",
+    "token_sha256",
+    "scopes",
+    "revoked"
+  ],
+  "revocation": "Set revoked=true or remove client; redeploy/update secret",
+  "public_secrets": false
+}

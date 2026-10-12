@@ -1,0 +1,24 @@
+{
+  "version": "1.0.0",
+  "sources": [
+    {
+      "id": "ONRC",
+      "portal": "https://data.gov.ro/",
+      "status": "declared_in_prior_code",
+      "exact_dataset_url": null
+    },
+    {
+      "id": "MF-2024",
+      "portal": "https://data.gov.ro/",
+      "status": "declared_in_prior_code",
+      "exact_dataset_url": null
+    }
+  ],
+  "record_provenance_endpoint": "https://firmsfinder.eu/api/companies/{cui}",
+  "verification": "not_independently_verified",
+  "rules": [
+    "Conserve source, version and field",
+    "Unknown import date remains null",
+    "Do not replace import time with render time"
+  ]
+}

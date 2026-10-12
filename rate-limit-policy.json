@@ -1,0 +1,11 @@
+{
+  "public_reads_per_minute": 30,
+  "contact_per_minute": 5,
+  "agent_per_minute": 30,
+  "results_per_page": 25,
+  "max_pages": 20,
+  "max_request_bytes": 16384,
+  "identity_storage": "salted digest; no raw visitor IP saved in extension",
+  "counter": "atomic D1 upsert RETURNING",
+  "missing_configuration": "503 fail closed"
+}

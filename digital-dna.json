@@ -1,0 +1,19 @@
+{
+  "schema": "FIRMSFINDER_DIGITAL_DNA",
+  "version": "1.0.0",
+  "name": "FirmsFinder AI",
+  "url": "https://firmsfinder.eu",
+  "operator": "AiVenture S.R.L.",
+  "language": "ro-RO",
+  "catalog": "https://firmsfinder.eu/signals.json",
+  "capabilities": {
+    "public_pages": "included_in_upload_package",
+    "structured_company_search": "backend_code_not_deployed",
+    "a2a": "read_only_backend_code_not_deployed"
+  },
+  "limits": [
+    "CAEN != confirmed service",
+    "Similarity != commercial relationship",
+    "Generated != deployed != verified"
+  ]
+}

@@ -1,0 +1,1007 @@
+{
+  "schema": "FIRMSFINDER_ONSITE_SIGNALS",
+  "version": "1.0.0",
+  "canonical_base": "https://firmsfinder.eu",
+  "created_at": "2026-10-10T21:52:42.460014+00:00",
+  "source_manual": "FirmsFinder_Manual_60_Semnale_Three_Webs_Dan_Ionescu_AiVenture_2026-10-09.pdf",
+  "source_manual_sha256": "741a3f589f90e866b7365600f47733381fb22bd9f32b7b05e5516cd0a8cf76c1",
+  "counts": {
+    "WEB-OM": 15,
+    "WEB-AI": 20,
+    "WEB-A2A": 15,
+    "RRVI": 10
+  },
+  "signals": [
+    {
+      "id": "OM-01",
+      "name": "Homepage funcțional",
+      "category": "OM",
+      "meaning": "Prima pagină explică platforma și permite inițierea unei căutări.",
+      "required_content": "H1, descriere, căutare, meniu, contact.",
+      "location": "/ și componenta homepage.",
+      "action": "Leagă formularul de motorul de căutare real; nu afișa rezultate fictive.",
+      "acceptance_test": "Testează HTTP 200, telefon, formular și rezultat real.",
+      "files": [
+        "index.html",
+        "cautare/index.html"
+      ],
+      "deployment_status": "NOT_DEPLOYED",
+      "verdict": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "OM-02",
+      "name": "Navigație și breadcrumb",
+      "category": "OM",
+      "meaning": "Vizitatorul știe unde se află și cum se întoarce.",
+      "required_content": "Meniu, linkuri interne, breadcrumb și etichete accesibile.",
+      "location": "Header, pagini interioare, footer.",
+      "action": "Construiește meniu coerent și breadcrumb specific fiecărei pagini.",
+      "acceptance_test": "Testează linkurile și traseul în mobil, inclusiv paginile inexistente.",
+      "files": [
+        "index.html",
+        "semnale/index.html"
+      ],
+      "deployment_status": "NOT_DEPLOYED",
+      "verdict": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "OM-03",
+      "name": "Căutare reală",
+      "category": "OM",
+      "meaning": "Cererea utilizatorului interoghează date reale, nu un demo.",
+      "required_content": "Formular, endpoint, rezultate, erori, paginare.",
+      "location": "/cautare/ și /api/companies/search.",
+      "action": "Conectează API-ul la baza autorizată; normalizează termenii și limitează cererile.",
+      "acceptance_test": "Caută un nume existent, unul absent și un termen ambiguu.",
+      "files": [
+        "cautare/index.html",
+        "backend/onsite.mjs"
+      ],
+      "deployment_status": "NOT_DEPLOYED",
+      "verdict": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "OM-04",
+      "name": "Filtre CAEN și localitate",
+      "category": "OM",
+      "meaning": "Rezultatele pot fi restrânse după criterii explicite.",
+      "required_content": "CAEN cu ediție, județ, localitate, activitate.",
+      "location": "Pagina de rezultate și API.",
+      "action": "Aplică filtre în interogarea bazei; arată filtrele active.",
+      "acceptance_test": "Verifică fiecare rezultat față de criteriile selectate.",
+      "files": [
+        "cautare/index.html",
+        "backend/onsite.mjs"
+      ],
+      "deployment_status": "NOT_DEPLOYED",
+      "verdict": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "OM-05",
+      "name": "Profil individual de firmă",
+      "category": "OM",
+      "meaning": "Fiecare firmă publicabilă are URL stabil și pagină proprie.",
+      "required_content": "Nume, identificator, activitate, surse, actualizare.",
+      "location": "/firme/{id}/ și generatorul de pagini.",
+      "action": "Generează profiluri din baza de date; evită paginile goale.",
+      "acceptance_test": "Deschide direct URL-ul și compară informația cu înregistrarea.",
+      "files": [
+        "backend/onsite.mjs"
+      ],
+      "deployment_status": "NOT_DEPLOYED",
+      "verdict": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "OM-06",
+      "name": "Identitate verificabilă",
+      "category": "OM",
+      "meaning": "Identificatorii firmei provin din surse admise.",
+      "required_content": "Denumire, identificator, stare, adresă, sursă.",
+      "location": "Tabelul companies și profilul HTML.",
+      "action": "Importă doar câmpurile permise; păstrează proveniența.",
+      "acceptance_test": "Compară un eșantion cu sursa originală.",
+      "files": [
+        "backend/onsite.mjs",
+        "source-provenance.json"
+      ],
+      "deployment_status": "NOT_DEPLOYED",
+      "verdict": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "OM-07",
+      "name": "Clasificare CAEN",
+      "category": "OM",
+      "meaning": "Codul activității este legat de ediția sa corectă.",
+      "required_content": "Cod, denumire, revizie, rol principal/secundar.",
+      "location": "Taxonomie și relațiile firmă–activitate.",
+      "action": "Versionează CAEN Rev.2/Rev.3 și mapează explicit schimbările.",
+      "acceptance_test": "Validează codurile și edițiile pe un eșantion.",
+      "files": [
+        "taxonomy.json",
+        "backend/onsite.mjs"
+      ],
+      "deployment_status": "NOT_DEPLOYED",
+      "verdict": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "OM-08",
+      "name": "Servicii documentate",
+      "category": "OM",
+      "meaning": "Nu deducem automat servicii din codul CAEN.",
+      "required_content": "Serviciu, descriere, firmă, sursă, stare.",
+      "location": "Tabelul services și profiluri.",
+      "action": "Publică servicii ca verificate numai cu dovezi suficiente.",
+      "acceptance_test": "Controlează pentru fiecare serviciu linkul la sursă.",
+      "files": [
+        "services.json",
+        "backend/001_onsite.sql"
+      ],
+      "deployment_status": "NOT_DEPLOYED",
+      "verdict": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "OM-09",
+      "name": "Compararea firmelor",
+      "category": "OM",
+      "meaning": "Firmele sunt evaluate după aceleași câmpuri.",
+      "required_content": "Tabel comparativ, valori lipsă și surse.",
+      "location": "/comparare/ și API.",
+      "action": "Construiește aceeași schemă de comparație pentru toate firmele.",
+      "acceptance_test": "Compară două firme și verifică toate câmpurile.",
+      "files": [
+        "comparare/index.html",
+        "backend/onsite.mjs"
+      ],
+      "deployment_status": "NOT_DEPLOYED",
+      "verdict": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "OM-10",
+      "name": "Categorii și localități",
+      "category": "OM",
+      "meaning": "Utilizatorul descoperă firme fără nume exact.",
+      "required_content": "Pagini CAEN, industrie, județ, localitate.",
+      "location": "/categorii/ și /localitati/.",
+      "action": "Generează pagini utile, cu legături spre profiluri.",
+      "acceptance_test": "Testează relevanța și evită paginile fără conținut.",
+      "files": [
+        "categorii/index.html",
+        "localitati/index.html"
+      ],
+      "deployment_status": "NOT_DEPLOYED",
+      "verdict": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "OM-11",
+      "name": "Actualitatea datelor",
+      "category": "OM",
+      "meaning": "Cititorul știe când a fost observată informația.",
+      "required_content": "Data colectării, verificării, versiunii.",
+      "location": "Profiluri și metadate.",
+      "action": "Afișează data reală din pipeline, nu data renderului.",
+      "acceptance_test": "Compară cu jurnalul de import.",
+      "files": [
+        "data-freshness.json",
+        "backend/onsite.mjs"
+      ],
+      "deployment_status": "NOT_DEPLOYED",
+      "verdict": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "OM-12",
+      "name": "Surse vizibile",
+      "category": "OM",
+      "meaning": "Fiecare afirmație importantă poate fi urmărită.",
+      "required_content": "Link, nume sursă, dată consultare, câmp susținut.",
+      "location": "Profiluri și comparații.",
+      "action": "Adaugă referințe lângă faptele relevante.",
+      "acceptance_test": "Deschide sursa și verifică afirmația exactă.",
+      "files": [
+        "surse/index.html",
+        "backend/onsite.mjs"
+      ],
+      "deployment_status": "NOT_DEPLOYED",
+      "verdict": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "OM-13",
+      "name": "Utilizare pe telefon",
+      "category": "OM",
+      "meaning": "Interfața poate fi folosită fără zoom și scroll lateral inutil.",
+      "required_content": "Viewport, CSS responsiv, controale accesibile.",
+      "location": "HTML, CSS și componente UI.",
+      "action": "Adaptează meniul, căutarea și tabelele la mobil.",
+      "acceptance_test": "Testează pe telefon real și cu tastatură.",
+      "files": [
+        "onsite.css"
+      ],
+      "deployment_status": "NOT_DEPLOYED",
+      "verdict": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "OM-14",
+      "name": "Performanță web",
+      "category": "OM",
+      "meaning": "Conținutul apare repede și rămâne stabil.",
+      "required_content": "LCP, INP, CLS, cache, optimizare imagini.",
+      "location": "Frontend și CDN.",
+      "action": "Optimizează resursele și măsoară înainte/după.",
+      "acceptance_test": "PageSpeed Insights și date reale când există.",
+      "files": [
+        "performance-budget.json"
+      ],
+      "deployment_status": "NOT_DEPLOYED",
+      "verdict": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "OM-15",
+      "name": "Contact și conversie",
+      "category": "OM",
+      "meaning": "Vizitatorul poate solicita informații sau corecturi.",
+      "required_content": "Formular, confirmare, protecție antispam, GDPR.",
+      "location": "/contact/ și /api/contact.",
+      "action": "Validează server-side și înregistrează solicitările.",
+      "acceptance_test": "Trimite cerere de test și confirmă recepția.",
+      "files": [
+        "contact/index.html",
+        "backend/onsite.mjs"
+      ],
+      "deployment_status": "NOT_DEPLOYED",
+      "verdict": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "AI-01",
+      "name": "robots.txt",
+      "category": "AI",
+      "meaning": "Reguli publice pentru crawlerele care le respectă.",
+      "required_content": "User-agent, Allow/Disallow, Sitemap.",
+      "location": "/robots.txt.",
+      "action": "Publică reguli coerente cu politica de crawling.",
+      "acceptance_test": "HTTP 200; verifică să nu blocheze profilurile.",
+      "files": [
+        "robots.txt"
+      ],
+      "deployment_status": "NOT_DEPLOYED",
+      "verdict": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "AI-02",
+      "name": "sitemap.xml",
+      "category": "AI",
+      "meaning": "Inventarul URL-urilor canonice publicabile.",
+      "required_content": "Elemente loc și eventual lastmod real.",
+      "location": "/sitemap.xml.",
+      "action": "Generează sitemap din pagini publice, nu manual.",
+      "acceptance_test": "XML valid; fiecare URL este accesibil.",
+      "files": [
+        "sitemap.xml"
+      ],
+      "deployment_status": "NOT_DEPLOYED",
+      "verdict": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "AI-03",
+      "name": "llms.txt",
+      "category": "AI",
+      "meaning": "Ghid opțional în Markdown pentru consumatori AI.",
+      "required_content": "Identitate, descriere, linkuri, limite.",
+      "location": "/llms.txt.",
+      "action": "Elimină trimiteri greșite la alte domenii; descrie datele reale.",
+      "acceptance_test": "HTTP 200; linkuri și afirmații corecte.",
+      "files": [
+        "llms.txt"
+      ],
+      "deployment_status": "NOT_DEPLOYED",
+      "verdict": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "AI-04",
+      "name": "llms-full.txt",
+      "category": "AI",
+      "meaning": "Documentație opțională extinsă a platformei.",
+      "required_content": "Metodologie, date, surse, limite, API-uri.",
+      "location": "/llms-full.txt.",
+      "action": "Scrie documentație consecventă cu funcțiile existente.",
+      "acceptance_test": "Revizie factuală și linkuri valide.",
+      "files": [
+        "llms-full.txt"
+      ],
+      "deployment_status": "NOT_DEPLOYED",
+      "verdict": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "AI-05",
+      "name": "digital-dna.json",
+      "category": "AI",
+      "meaning": "Manifest propriu al identității digitale.",
+      "required_content": "Nume, URL, versiune, capabilități.",
+      "location": "/digital-dna.json.",
+      "action": "Generează din configurația oficială; nu inventa capabilități.",
+      "acceptance_test": "JSON valid și identitate concordantă.",
+      "files": [
+        "digital-dna.json"
+      ],
+      "deployment_status": "NOT_DEPLOYED",
+      "verdict": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "AI-06",
+      "name": "Schema.org / JSON-LD",
+      "category": "AI",
+      "meaning": "Date structurate în paginile HTML.",
+      "required_content": "Organization, WebSite, tipuri potrivite profilurilor.",
+      "location": "În head sau body prin script application/ld+json.",
+      "action": "Alege proprietăți corecte și valori susținute.",
+      "acceptance_test": "Validator Schema.org; concordanță cu pagina.",
+      "files": [
+        "schema-org.json",
+        "semnale/index.html"
+      ],
+      "deployment_status": "NOT_DEPLOYED",
+      "verdict": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "AI-07",
+      "name": "Canonical",
+      "category": "AI",
+      "meaning": "Indică URL-ul preferat al paginii.",
+      "required_content": "Link rel=canonical spre pagina corespunzătoare.",
+      "location": "Head pentru fiecare URL.",
+      "action": "Generează canonical per profil, nu spre homepage.",
+      "acceptance_test": "Verifică URL, redirecționări și indexabilitate.",
+      "files": [
+        "canonical-map.json"
+      ],
+      "deployment_status": "NOT_DEPLOYED",
+      "verdict": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "AI-08",
+      "name": "entities.json",
+      "category": "AI",
+      "meaning": "Export structurat al entităților.",
+      "required_content": "ID, nume, tip, sursă, paginare.",
+      "location": "/entities.json sau API.",
+      "action": "Construiește export din DB; paginează volumele mari.",
+      "acceptance_test": "ID-uri unice și corespondență cu DB.",
+      "files": [
+        "entities.json",
+        "backend/onsite.mjs"
+      ],
+      "deployment_status": "NOT_DEPLOYED",
+      "verdict": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "AI-09",
+      "name": "services.json",
+      "category": "AI",
+      "meaning": "Catalogul serviciilor confirmate sau marcate ca neconfirmate.",
+      "required_content": "ID, nume, firmă, sursă, statut.",
+      "location": "/services.json sau API.",
+      "action": "Leagă serviciile de dovezi, nu doar de CAEN.",
+      "acceptance_test": "Verifică status și sursa fiecărei relații.",
+      "files": [
+        "services.json",
+        "backend/onsite.mjs"
+      ],
+      "deployment_status": "NOT_DEPLOYED",
+      "verdict": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "AI-10",
+      "name": "intents.json",
+      "category": "AI",
+      "meaning": "Acțiuni/intenții pe care sistemul le poate satisface.",
+      "required_content": "Verb, obiect, rută, exemple, stare.",
+      "location": "/intents.json.",
+      "action": "Mapează SEARCH/GET/COMPARE către funcții existente.",
+      "acceptance_test": "Fiecare endpoint declarat răspunde corect.",
+      "files": [
+        "intents.json"
+      ],
+      "deployment_status": "NOT_DEPLOYED",
+      "verdict": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "AI-11",
+      "name": "taxonomy.json",
+      "category": "AI",
+      "meaning": "Clasificări semantice cu versiuni.",
+      "required_content": "CAEN/NACE, revizie, cod, denumire.",
+      "location": "/taxonomy.json și DB.",
+      "action": "Păstrează clasificări și conversii explicite.",
+      "acceptance_test": "Testează coduri valide pentru fiecare ediție.",
+      "files": [
+        "taxonomy.json",
+        "backend/onsite.mjs"
+      ],
+      "deployment_status": "NOT_DEPLOYED",
+      "verdict": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "AI-12",
+      "name": "Relații semantice",
+      "category": "AI",
+      "meaning": "Legături explicite între firme, activități și locuri.",
+      "required_content": "Subiect, relație, obiect, sursă.",
+      "location": "/entity-relationships.json și DB.",
+      "action": "Generează relații numai din câmpuri susținute.",
+      "acceptance_test": "Verifică un eșantion de legături.",
+      "files": [
+        "entity-relationships.json",
+        "backend/onsite.mjs"
+      ],
+      "deployment_status": "NOT_DEPLOYED",
+      "verdict": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "AI-13",
+      "name": "Proveniența surselor",
+      "category": "AI",
+      "meaning": "Fiecare fapt important are origine trasabilă.",
+      "required_content": "Claim ID, source ID/URL, dată, stare.",
+      "location": "/source-provenance.json și DB.",
+      "action": "Înregistrează proveniența la import și modificare.",
+      "acceptance_test": "Reconstituie sursa unui fapt din profil.",
+      "files": [
+        "source-provenance.json"
+      ],
+      "deployment_status": "NOT_DEPLOYED",
+      "verdict": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "AI-14",
+      "name": "Data freshness",
+      "category": "AI",
+      "meaning": "Politica și istoricul actualizării datelor.",
+      "required_content": "Set de date, ultim import reușit, frecvență.",
+      "location": "/data-freshness.json.",
+      "action": "Actualizează metadatele numai după import reușit.",
+      "acceptance_test": "Compară cu logurile pipeline-ului.",
+      "files": [
+        "data-freshness.json",
+        "backend/onsite.mjs"
+      ],
+      "deployment_status": "NOT_DEPLOYED",
+      "verdict": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "AI-15",
+      "name": "AI summary blocks",
+      "category": "AI",
+      "meaning": "Rezumate scurte bazate pe fapte verificabile.",
+      "required_content": "Entitate, rezumat, surse.",
+      "location": "HTML și /ai-summary-blocks.json.",
+      "action": "Generează din date și marchează incertitudinile.",
+      "acceptance_test": "Fiecare propoziție are suport.",
+      "files": [
+        "ai-summary-blocks.json",
+        "surse/index.html"
+      ],
+      "deployment_status": "NOT_DEPLOYED",
+      "verdict": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "AI-16",
+      "name": "Tabele extractibile",
+      "category": "AI",
+      "meaning": "Tabele semantice ușor de interpretat.",
+      "required_content": "thead, tbody, th, td, antete corecte.",
+      "location": "Pagini HTML și /extractable-tables.json opțional.",
+      "action": "Folosește HTML semantic, nu text aliniat vizual.",
+      "acceptance_test": "Parserul extrage rânduri și coloane corect.",
+      "files": [
+        "extractable-tables.json"
+      ],
+      "deployment_status": "NOT_DEPLOYED",
+      "verdict": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "AI-17",
+      "name": "RAG chunk map",
+      "category": "AI",
+      "meaning": "Fragmente identificabile cu sursă și versiune.",
+      "required_content": "Chunk ID, URL, hash, poziție.",
+      "location": "/rag-chunk-map.json sau index intern.",
+      "action": "Segmentează documente și păstrează referințele.",
+      "acceptance_test": "Recuperează chunk și verifică hash/sursă.",
+      "files": [
+        "rag-chunk-map.json",
+        "backend/onsite.mjs"
+      ],
+      "deployment_status": "NOT_DEPLOYED",
+      "verdict": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "AI-18",
+      "name": "Politica de citare",
+      "category": "AI",
+      "meaning": "Reguli de atribuire a afirmațiilor.",
+      "required_content": "Tipuri de afirmații, surse cerute, tratarea lipsei.",
+      "location": "/ai-citation-policy.json și serviciul AI.",
+      "action": "Refuză sau marchează necunoscut faptele nesusținute.",
+      "acceptance_test": "Testează afirmații fără sursă.",
+      "files": [
+        "ai-citation-policy.json"
+      ],
+      "deployment_status": "NOT_DEPLOYED",
+      "verdict": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "AI-19",
+      "name": "Vizibilitate multi-model",
+      "category": "AI",
+      "meaning": "Observă ce răspund și citează modelele AI.",
+      "required_content": "Întrebări, model, dată, răspuns, citări.",
+      "location": "/ai-visibility-tests.json și results.json.",
+      "action": "Execută teste comparabile per model și păstrează rezultate.",
+      "acceptance_test": "Compară observațiile fără a le numi dovadă factuală.",
+      "files": [
+        "ai-visibility-tests.json"
+      ],
+      "deployment_status": "NOT_DEPLOYED",
+      "verdict": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "AI-20",
+      "name": "Detectarea contradicțiilor",
+      "category": "AI",
+      "meaning": "Semnalează valori incompatibile între surse.",
+      "required_content": "Claim ID, surse, valori, stare rezolvare.",
+      "location": "Motorul de audit și raport.",
+      "action": "Compară valori normalizate și escaladează conflictele.",
+      "acceptance_test": "Introdu contradicție controlată într-un test.",
+      "files": [
+        "contradiction-rules.json",
+        "scripts/detect-contradictions.mjs"
+      ],
+      "deployment_status": "NOT_DEPLOYED",
+      "verdict": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "A2A-01",
+      "name": "Agent Card",
+      "category": "A2A",
+      "meaning": "Manifestul de descoperire al agentului A2A.",
+      "required_content": "Identitate, endpoint, skills, securitate, versiune protocol.",
+      "location": "Ruta well-known definită de versiunea A2A.",
+      "action": "Publică Agent Card conform schemei versiunii alese.",
+      "acceptance_test": "Validează schema cu SDK/client independent.",
+      "files": [
+        "a2a-status.json",
+        "backend/onsite.mjs"
+      ],
+      "deployment_status": "NOT_DEPLOYED",
+      "verdict": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "A2A-02",
+      "name": "Identitatea agentului",
+      "category": "A2A",
+      "meaning": "Operatorul și versiunea agentului sunt identificabile.",
+      "required_content": "ID, operator legal, domeniu, versiune.",
+      "location": "Configurația agentului și Agent Card.",
+      "action": "Corelează identitatea tehnică cu operatorul autorizat.",
+      "acceptance_test": "Verifică domeniul, versiunea și datele operatorului.",
+      "files": [
+        "agent-identity.json"
+      ],
+      "deployment_status": "NOT_DEPLOYED",
+      "verdict": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "A2A-03",
+      "name": "Capabilități declarate",
+      "category": "A2A",
+      "meaning": "Agentul promite numai operațiuni implementate.",
+      "required_content": "company.search, company.get, company.compare.",
+      "location": "Agent Card și registrul capabilităților.",
+      "action": "Elimină skillurile care nu funcționează.",
+      "acceptance_test": "Rulează teste pentru fiecare capabilitate.",
+      "files": [
+        "agent-capabilities.json"
+      ],
+      "deployment_status": "NOT_DEPLOYED",
+      "verdict": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "A2A-04",
+      "name": "Skills și contracte",
+      "category": "A2A",
+      "meaning": "Fiecare skill are descriere și exemple precise.",
+      "required_content": "ID, descriere, input, output, exemple.",
+      "location": "Agent Card și contractele API.",
+      "action": "Definește contractele fiecărei funcții.",
+      "acceptance_test": "Rulează exemplele documentate.",
+      "files": [
+        "a2a-contracts.json"
+      ],
+      "deployment_status": "NOT_DEPLOYED",
+      "verdict": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "A2A-05",
+      "name": "Endpoint operațional",
+      "category": "A2A",
+      "meaning": "Serverul primește și răspunde prin protocolul A2A.",
+      "required_content": "HTTPS, transport, metode și răspunsuri conforme.",
+      "location": "Endpoint declarat de Agent Card.",
+      "action": "Implementează transportul A2A, nu doar REST generic.",
+      "acceptance_test": "Client A2A extern trimite cerere validă.",
+      "files": [
+        "backend/onsite.mjs"
+      ],
+      "deployment_status": "NOT_DEPLOYED",
+      "verdict": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "A2A-06",
+      "name": "Descoperire",
+      "category": "A2A",
+      "meaning": "Un client găsește cardul și endpoint-ul.",
+      "required_content": "Rută de discovery, card și adrese corecte.",
+      "location": "/.well-known/ conform versiunii.",
+      "action": "Configurează ruta de descoperire și cache adecvat.",
+      "acceptance_test": "Clientul descarcă și parsează cardul.",
+      "files": [
+        "backend/onsite.mjs"
+      ],
+      "deployment_status": "NOT_DEPLOYED",
+      "verdict": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "A2A-07",
+      "name": "Schema intrărilor",
+      "category": "A2A",
+      "meaning": "Parametrii cererii sunt validați strict.",
+      "required_content": "Tipuri, limite, câmpuri obligatorii.",
+      "location": "Backend și validator JSON Schema.",
+      "action": "Respinge input invalid și limite excesive.",
+      "acceptance_test": "Testează valori lipsă, invalide și extreme.",
+      "files": [
+        "a2a-input-schema.json",
+        "backend/onsite.mjs"
+      ],
+      "deployment_status": "NOT_DEPLOYED",
+      "verdict": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "A2A-08",
+      "name": "Schema ieșirilor",
+      "category": "A2A",
+      "meaning": "Rezultatul are structură previzibilă și surse.",
+      "required_content": "Status, rezultate, proveniență, erori.",
+      "location": "Backend și contracte.",
+      "action": "Construiește răspunsuri conforme cu transportul.",
+      "acceptance_test": "Validatorul acceptă răspunsul complet.",
+      "files": [
+        "a2a-output-schema.json",
+        "backend/onsite.mjs"
+      ],
+      "deployment_status": "NOT_DEPLOYED",
+      "verdict": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "A2A-09",
+      "name": "Autentificare",
+      "category": "A2A",
+      "meaning": "Verifică identitatea clientului pentru acces protejat.",
+      "required_content": "Token/OAuth sau mecanism adecvat; revocare.",
+      "location": "Gateway și backend.",
+      "action": "Configurează autentificarea fără a publica secrete.",
+      "acceptance_test": "Cereri neautorizate sunt respinse.",
+      "files": [
+        "authentication-policy.json",
+        "backend/onsite.mjs"
+      ],
+      "deployment_status": "NOT_DEPLOYED",
+      "verdict": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "A2A-10",
+      "name": "Autorizare și mandat",
+      "category": "A2A",
+      "meaning": "Capabilitatea nu înseamnă permisiune.",
+      "required_content": "Roluri, acțiuni permise/interzise, scop.",
+      "location": "Motorul de politici.",
+      "action": "Aplică control per operațiune și client.",
+      "acceptance_test": "Testează interdicția order.create pentru read-only.",
+      "files": [
+        "agent-mandate.json",
+        "backend/onsite.mjs"
+      ],
+      "deployment_status": "NOT_DEPLOYED",
+      "verdict": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "A2A-11",
+      "name": "Ciclul sarcinilor",
+      "category": "A2A",
+      "meaning": "Sarcinile au ID și tranziții urmărite.",
+      "required_content": "Task ID, status, erori, rezultate.",
+      "location": "Backend A2A și stocarea taskurilor.",
+      "action": "Implementează stările protocolului ales.",
+      "acceptance_test": "Testează tranziții, eșec și anulare.",
+      "files": [
+        "backend/onsite.mjs",
+        "backend/001_onsite.sql"
+      ],
+      "deployment_status": "NOT_DEPLOYED",
+      "verdict": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "A2A-12",
+      "name": "Aprobare umană HITL",
+      "category": "A2A",
+      "meaning": "Acțiunile sensibile așteaptă aprobare.",
+      "required_content": "Cerere, aprobator, decizie, timp.",
+      "location": "Admin UI și motorul de politici.",
+      "action": "Blochează execuția până la aprobare validă.",
+      "acceptance_test": "Testează pending, reject și approve.",
+      "files": [
+        "human-approval-policy.json"
+      ],
+      "deployment_status": "NOT_DEPLOYED",
+      "verdict": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "A2A-13",
+      "name": "Limite și bugete",
+      "category": "A2A",
+      "meaning": "Controlează consumul și abuzul.",
+      "required_content": "Cereri/minut, rezultate, cost, client.",
+      "location": "Gateway/Worker și DB.",
+      "action": "Implementează rate limits și cote.",
+      "acceptance_test": "Depășirea limitei este tratată corect.",
+      "files": [
+        "rate-limit-policy.json",
+        "backend/onsite.mjs"
+      ],
+      "deployment_status": "NOT_DEPLOYED",
+      "verdict": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "A2A-14",
+      "name": "Audit trail",
+      "category": "A2A",
+      "meaning": "Păstrează trasabilitatea interacțiunilor.",
+      "required_content": "Event ID, task, agent, versiune, rezultat.",
+      "location": "Jurnal D1 sau echivalent.",
+      "action": "Înregistrează evenimente fără date excesive.",
+      "acceptance_test": "Reconstituie o cerere și răspunsul.",
+      "files": [
+        "audit-policy.json",
+        "backend/onsite.mjs"
+      ],
+      "deployment_status": "NOT_DEPLOYED",
+      "verdict": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "A2A-15",
+      "name": "Interoperabilitate",
+      "category": "A2A",
+      "meaning": "Un client A2A independent folosește agentul.",
+      "required_content": "Scenariu, transcript, versiuni, rezultat.",
+      "location": "Suita de teste end-to-end.",
+      "action": "Testează cu client extern compatibil.",
+      "acceptance_test": "Păstrează transcript și raport reproductibil.",
+      "files": [
+        "interop-test-plan.json"
+      ],
+      "deployment_status": "NOT_DEPLOYED",
+      "verdict": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "RRVI-01",
+      "name": "Cerință identificabilă",
+      "category": "RRVI",
+      "meaning": "Fiecare obiectiv are ID și acceptanță.",
+      "required_content": "ID, descriere, responsabil, criteriu.",
+      "location": "Registrul de cerințe.",
+      "action": "Asociază cerințe cu teste și controale.",
+      "acceptance_test": "Orice cerință poate fi testată.",
+      "files": [
+        "requirements.json"
+      ],
+      "deployment_status": "NOT_DEPLOYED",
+      "verdict": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "RRVI-02",
+      "name": "Control implementat",
+      "category": "RRVI",
+      "meaning": "O regulă tehnică aplică cerința.",
+      "required_content": "Control ID, cerință, implementare, test.",
+      "location": "Cod, configurație, procedură.",
+      "action": "Implementează și documentează controlul.",
+      "acceptance_test": "Testul confirmă aplicarea regulii.",
+      "files": [
+        "controls.json"
+      ],
+      "deployment_status": "NOT_DEPLOYED",
+      "verdict": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "RRVI-03",
+      "name": "Proveniența afirmațiilor",
+      "category": "RRVI",
+      "meaning": "O afirmație poate fi urmărită la origine.",
+      "required_content": "Claim ID, source ID, dată, stare.",
+      "location": "Registrul de proveniență.",
+      "action": "Leagă afirmația de dovada exactă.",
+      "acceptance_test": "Sursa chiar susține afirmația.",
+      "files": [
+        "source-provenance.json"
+      ],
+      "deployment_status": "NOT_DEPLOYED",
+      "verdict": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "RRVI-04",
+      "name": "Integritate SHA-256",
+      "category": "RRVI",
+      "meaning": "Detectează modificarea octeților unui artefact.",
+      "required_content": "Fișier, hash, versiune.",
+      "location": "Manifest de dovezi.",
+      "action": "Calculează SHA-256 după finalizare.",
+      "acceptance_test": "Recalcularea produce același hash.",
+      "files": [
+        "proof.json"
+      ],
+      "deployment_status": "NOT_DEPLOYED",
+      "verdict": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "RRVI-05",
+      "name": "Dovadă temporală",
+      "category": "RRVI",
+      "meaning": "Documentează existența unui artefact la un moment.",
+      "required_content": "UTC, hash, dovadă OTS dacă există.",
+      "location": "Manifest și timestamp service.",
+      "action": "Ancorează hash-ul când este justificat.",
+      "acceptance_test": "Verifică timestampul și dovada OTS.",
+      "files": [
+        "timestamp-policy.json"
+      ],
+      "deployment_status": "NOT_DEPLOYED",
+      "verdict": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "RRVI-06",
+      "name": "GDPR și drepturi",
+      "category": "RRVI",
+      "meaning": "Datele sunt utilizate conform temeiurilor și licențelor.",
+      "required_content": "Categorii date, surse, temei, retenție.",
+      "location": "Registru de conformitate.",
+      "action": "Evaluează datele personale și drepturile de reutilizare.",
+      "acceptance_test": "Revizie juridică și teste de rectificare.",
+      "files": [
+        "data-rights-register.json"
+      ],
+      "deployment_status": "NOT_DEPLOYED",
+      "verdict": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "RRVI-07",
+      "name": "Securitatea API",
+      "category": "RRVI",
+      "meaning": "Previne accesul și manipularea neautorizate.",
+      "required_content": "AuthN, AuthZ, validare, rate limits, secrete.",
+      "location": "Gateway, Worker, backend.",
+      "action": "Aplică controale și rotește secretele.",
+      "acceptance_test": "Teste negative și scanări de securitate.",
+      "files": [
+        "security-controls.json",
+        "backend/onsite.mjs"
+      ],
+      "deployment_status": "NOT_DEPLOYED",
+      "verdict": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "RRVI-08",
+      "name": "Versionare",
+      "category": "RRVI",
+      "meaning": "Identifică exact codul și datele folosite.",
+      "required_content": "Commit, versiune dataset, API, deployment.",
+      "location": "GitHub și manifest.",
+      "action": "Înregistrează versiunile în fiecare execuție.",
+      "acceptance_test": "Poți reproduce rezultatul din versiuni.",
+      "files": [
+        "version.json"
+      ],
+      "deployment_status": "NOT_DEPLOYED",
+      "verdict": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "RRVI-09",
+      "name": "Monitorizare",
+      "category": "RRVI",
+      "meaning": "Repetă testele și detectează regresii.",
+      "required_content": "Semnal, verdict, timestamp, delta, dovadă.",
+      "location": "Sistem de audit periodic.",
+      "action": "Automatizează execuția și păstrează istoricul.",
+      "acceptance_test": "Compară rapoarte și alerte.",
+      "files": [
+        "monitoring-plan.json",
+        "scripts/verify-live.mjs"
+      ],
+      "deployment_status": "NOT_DEPLOYED",
+      "verdict": "UNKNOWN",
+      "evidence": []
+    },
+    {
+      "id": "RRVI-10",
+      "name": "Verificare independentă",
+      "category": "RRVI",
+      "meaning": "Evaluator separat reproduce testele.",
+      "required_content": "Validator, metodă, rezultate, discrepanțe.",
+      "location": "Registru de validare.",
+      "action": "Solicită reproducerea fără a te baza pe auto-declarații.",
+      "acceptance_test": "Raportul conține probe și limitări.",
+      "files": [
+        "independent-validation.json"
+      ],
+      "deployment_status": "NOT_DEPLOYED",
+      "verdict": "UNKNOWN",
+      "evidence": []
+    }
+  ]
+}

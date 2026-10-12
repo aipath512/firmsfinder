@@ -1,4 +1,16 @@
-Sitemap: https://aiventure.ro/sitemap.xml
-User-agent: *
-Allow: /
-Disallow:
+# FirmsFinder AI
+
+> Descoperirea firmelor și a unor potriviri B2B de verificat.
+
+## Resurse
+- [/](https://firmsfinder.eu/)
+- [/categorii/](https://firmsfinder.eu/categorii/)
+- [/cautare/](https://firmsfinder.eu/cautare/)
+- [/comparare/](https://firmsfinder.eu/comparare/)
+- [/contact/](https://firmsfinder.eu/contact/)
+- [/localitati/](https://firmsfinder.eu/localitati/)
+- [/semnale/](https://firmsfinder.eu/semnale/)
+- [/surse/](https://firmsfinder.eu/surse/)
+
+## Limite
+CAEN nu dovedește serviciul, clientul sau intenția de cumpărare. Date lipsă: necunoscute. Agentul cere configurare și verificare separate.

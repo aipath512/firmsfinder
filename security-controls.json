@@ -1,0 +1,20 @@
+{
+  "implemented_in_code": [
+    "bounded JSON body",
+    "prepared SQL",
+    "strict operation allowlist",
+    "client-scoped tasks",
+    "token SHA-256",
+    "atomic quotas",
+    "output HTML escaping",
+    "no bulk export",
+    "no commercial writes"
+  ],
+  "requires_configuration": [
+    "DB",
+    "FF_RATE_SECRET",
+    "FF_CLIENTS_JSON",
+    "migration"
+  ],
+  "security_audit_passed": false
+}

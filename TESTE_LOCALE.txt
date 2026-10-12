@@ -1,0 +1,5 @@
+Vérification locale / Verificare locală · 12 octombrie 2026
+22 teste backend: 22 PASS, 0 FAIL.
+Node v24.19.0 + Python SQLite cu date sintetice.
+Validare: 60 ID-uri originale, criterii de acceptanță, fișiere mapate, canonical, JSON, XML, 60 hashes de fragmente și manifestul fișierelor.
+Nu s-a testat schema D1 reală, publicarea sau clientul A2A independent.

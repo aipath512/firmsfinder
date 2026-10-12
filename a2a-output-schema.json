@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "jsonrpc",
+    "id"
+  ],
+  "properties": {
+    "jsonrpc": {
+      "const": "2.0"
+    },
+    "id": {
+      "type": [
+        "string",
+        "number",
+        "null"
+      ]
+    },
+    "result": {
+      "type": "object",
+      "required": [
+        "kind",
+        "id",
+        "contextId",
+        "status"
+      ],
+      "properties": {
+        "kind": {
+          "const": "task"
+        },
+        "status": {
+          "type": "object",
+          "required": [
+            "state"
+          ],
+          "properties": {
+            "state": {
+              "enum": [
+                "completed",
+                "failed",
+                "canceled",
+                "input-required",
+                "submitted",
+                "working",
+                "rejected",
+                "auth-required",
+                "unknown"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "error": {
+      "type": "object",
+      "required": [
+        "code",
+        "message"
+      ]
+    }
+  },
+  "oneOf": [
+    {
+      "required": [
+        "result"
+      ],
+      "not": {
+        "required": [
+          "error"
+        ]
+      }
+    },
+    {
+      "required": [
+        "error"
+      ],
+      "not": {
+        "required": [
+          "result"
+        ]
+      }
+    }
+  ]
+}

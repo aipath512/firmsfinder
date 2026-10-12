@@ -1,0 +1,24 @@
+{
+  "status": "NOT_RUN",
+  "models": [
+    "ChatGPT",
+    "Claude",
+    "Gemini",
+    "Perplexity"
+  ],
+  "prompts": [
+    "Ce este FirmsFinder.eu? Citează sursa.",
+    "Ce dovedește codul CAEN în FirmsFinder?",
+    "Cum verific datele unei firme găsite în FirmsFinder?"
+  ],
+  "required_result_fields": [
+    "model",
+    "model_version",
+    "timestamp",
+    "prompt",
+    "answer",
+    "citations",
+    "observation_not_evidence"
+  ],
+  "observations": []
+}

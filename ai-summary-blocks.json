@@ -1,0 +1,14 @@
+{
+  "blocks": [
+    {
+      "id": "platforma",
+      "url": "https://firmsfinder.eu/surse/#platforma",
+      "summary": "FirmsFinder sprijină descoperirea firmelor și evaluarea unor potriviri comerciale. O potrivire este un candidat de verificat."
+    },
+    {
+      "id": "limite",
+      "url": "https://firmsfinder.eu/surse/#limite",
+      "summary": "CAEN clasifică activitatea declarată; nu confirmă automat produsele, serviciile, clienții sau interesul de cumpărare."
+    }
+  ]
+}

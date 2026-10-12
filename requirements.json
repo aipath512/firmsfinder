@@ -1,0 +1,575 @@
+{
+  "requirements": [
+    {
+      "id": "OM-01",
+      "description": "Prima pagină explică platforma și permite inițierea unei căutări.",
+      "acceptance": "Testează HTTP 200, telefon, formular și rezultat real.",
+      "owner": "AiVenture S.R.L.",
+      "files": [
+        "index.html",
+        "cautare/index.html"
+      ]
+    },
+    {
+      "id": "OM-02",
+      "description": "Vizitatorul știe unde se află și cum se întoarce.",
+      "acceptance": "Testează linkurile și traseul în mobil, inclusiv paginile inexistente.",
+      "owner": "AiVenture S.R.L.",
+      "files": [
+        "index.html",
+        "semnale/index.html"
+      ]
+    },
+    {
+      "id": "OM-03",
+      "description": "Cererea utilizatorului interoghează date reale, nu un demo.",
+      "acceptance": "Caută un nume existent, unul absent și un termen ambiguu.",
+      "owner": "AiVenture S.R.L.",
+      "files": [
+        "cautare/index.html",
+        "backend/onsite.mjs"
+      ]
+    },
+    {
+      "id": "OM-04",
+      "description": "Rezultatele pot fi restrânse după criterii explicite.",
+      "acceptance": "Verifică fiecare rezultat față de criteriile selectate.",
+      "owner": "AiVenture S.R.L.",
+      "files": [
+        "cautare/index.html",
+        "backend/onsite.mjs"
+      ]
+    },
+    {
+      "id": "OM-05",
+      "description": "Fiecare firmă publicabilă are URL stabil și pagină proprie.",
+      "acceptance": "Deschide direct URL-ul și compară informația cu înregistrarea.",
+      "owner": "AiVenture S.R.L.",
+      "files": [
+        "backend/onsite.mjs"
+      ]
+    },
+    {
+      "id": "OM-06",
+      "description": "Identificatorii firmei provin din surse admise.",
+      "acceptance": "Compară un eșantion cu sursa originală.",
+      "owner": "AiVenture S.R.L.",
+      "files": [
+        "backend/onsite.mjs",
+        "source-provenance.json"
+      ]
+    },
+    {
+      "id": "OM-07",
+      "description": "Codul activității este legat de ediția sa corectă.",
+      "acceptance": "Validează codurile și edițiile pe un eșantion.",
+      "owner": "AiVenture S.R.L.",
+      "files": [
+        "taxonomy.json",
+        "backend/onsite.mjs"
+      ]
+    },
+    {
+      "id": "OM-08",
+      "description": "Nu deducem automat servicii din codul CAEN.",
+      "acceptance": "Controlează pentru fiecare serviciu linkul la sursă.",
+      "owner": "AiVenture S.R.L.",
+      "files": [
+        "services.json",
+        "backend/001_onsite.sql"
+      ]
+    },
+    {
+      "id": "OM-09",
+      "description": "Firmele sunt evaluate după aceleași câmpuri.",
+      "acceptance": "Compară două firme și verifică toate câmpurile.",
+      "owner": "AiVenture S.R.L.",
+      "files": [
+        "comparare/index.html",
+        "backend/onsite.mjs"
+      ]
+    },
+    {
+      "id": "OM-10",
+      "description": "Utilizatorul descoperă firme fără nume exact.",
+      "acceptance": "Testează relevanța și evită paginile fără conținut.",
+      "owner": "AiVenture S.R.L.",
+      "files": [
+        "categorii/index.html",
+        "localitati/index.html"
+      ]
+    },
+    {
+      "id": "OM-11",
+      "description": "Cititorul știe când a fost observată informația.",
+      "acceptance": "Compară cu jurnalul de import.",
+      "owner": "AiVenture S.R.L.",
+      "files": [
+        "data-freshness.json",
+        "backend/onsite.mjs"
+      ]
+    },
+    {
+      "id": "OM-12",
+      "description": "Fiecare afirmație importantă poate fi urmărită.",
+      "acceptance": "Deschide sursa și verifică afirmația exactă.",
+      "owner": "AiVenture S.R.L.",
+      "files": [
+        "surse/index.html",
+        "backend/onsite.mjs"
+      ]
+    },
+    {
+      "id": "OM-13",
+      "description": "Interfața poate fi folosită fără zoom și scroll lateral inutil.",
+      "acceptance": "Testează pe telefon real și cu tastatură.",
+      "owner": "AiVenture S.R.L.",
+      "files": [
+        "onsite.css"
+      ]
+    },
+    {
+      "id": "OM-14",
+      "description": "Conținutul apare repede și rămâne stabil.",
+      "acceptance": "PageSpeed Insights și date reale când există.",
+      "owner": "AiVenture S.R.L.",
+      "files": [
+        "performance-budget.json"
+      ]
+    },
+    {
+      "id": "OM-15",
+      "description": "Vizitatorul poate solicita informații sau corecturi.",
+      "acceptance": "Trimite cerere de test și confirmă recepția.",
+      "owner": "AiVenture S.R.L.",
+      "files": [
+        "contact/index.html",
+        "backend/onsite.mjs"
+      ]
+    },
+    {
+      "id": "AI-01",
+      "description": "Reguli publice pentru crawlerele care le respectă.",
+      "acceptance": "HTTP 200; verifică să nu blocheze profilurile.",
+      "owner": "AiVenture S.R.L.",
+      "files": [
+        "robots.txt"
+      ]
+    },
+    {
+      "id": "AI-02",
+      "description": "Inventarul URL-urilor canonice publicabile.",
+      "acceptance": "XML valid; fiecare URL este accesibil.",
+      "owner": "AiVenture S.R.L.",
+      "files": [
+        "sitemap.xml"
+      ]
+    },
+    {
+      "id": "AI-03",
+      "description": "Ghid opțional în Markdown pentru consumatori AI.",
+      "acceptance": "HTTP 200; linkuri și afirmații corecte.",
+      "owner": "AiVenture S.R.L.",
+      "files": [
+        "llms.txt"
+      ]
+    },
+    {
+      "id": "AI-04",
+      "description": "Documentație opțională extinsă a platformei.",
+      "acceptance": "Revizie factuală și linkuri valide.",
+      "owner": "AiVenture S.R.L.",
+      "files": [
+        "llms-full.txt"
+      ]
+    },
+    {
+      "id": "AI-05",
+      "description": "Manifest propriu al identității digitale.",
+      "acceptance": "JSON valid și identitate concordantă.",
+      "owner": "AiVenture S.R.L.",
+      "files": [
+        "digital-dna.json"
+      ]
+    },
+    {
+      "id": "AI-06",
+      "description": "Date structurate în paginile HTML.",
+      "acceptance": "Validator Schema.org; concordanță cu pagina.",
+      "owner": "AiVenture S.R.L.",
+      "files": [
+        "schema-org.json",
+        "semnale/index.html"
+      ]
+    },
+    {
+      "id": "AI-07",
+      "description": "Indică URL-ul preferat al paginii.",
+      "acceptance": "Verifică URL, redirecționări și indexabilitate.",
+      "owner": "AiVenture S.R.L.",
+      "files": [
+        "canonical-map.json"
+      ]
+    },
+    {
+      "id": "AI-08",
+      "description": "Export structurat al entităților.",
+      "acceptance": "ID-uri unice și corespondență cu DB.",
+      "owner": "AiVenture S.R.L.",
+      "files": [
+        "entities.json",
+        "backend/onsite.mjs"
+      ]
+    },
+    {
+      "id": "AI-09",
+      "description": "Catalogul serviciilor confirmate sau marcate ca neconfirmate.",
+      "acceptance": "Verifică status și sursa fiecărei relații.",
+      "owner": "AiVenture S.R.L.",
+      "files": [
+        "services.json",
+        "backend/onsite.mjs"
+      ]
+    },
+    {
+      "id": "AI-10",
+      "description": "Acțiuni/intenții pe care sistemul le poate satisface.",
+      "acceptance": "Fiecare endpoint declarat răspunde corect.",
+      "owner": "AiVenture S.R.L.",
+      "files": [
+        "intents.json"
+      ]
+    },
+    {
+      "id": "AI-11",
+      "description": "Clasificări semantice cu versiuni.",
+      "acceptance": "Testează coduri valide pentru fiecare ediție.",
+      "owner": "AiVenture S.R.L.",
+      "files": [
+        "taxonomy.json",
+        "backend/onsite.mjs"
+      ]
+    },
+    {
+      "id": "AI-12",
+      "description": "Legături explicite între firme, activități și locuri.",
+      "acceptance": "Verifică un eșantion de legături.",
+      "owner": "AiVenture S.R.L.",
+      "files": [
+        "entity-relationships.json",
+        "backend/onsite.mjs"
+      ]
+    },
+    {
+      "id": "AI-13",
+      "description": "Fiecare fapt important are origine trasabilă.",
+      "acceptance": "Reconstituie sursa unui fapt din profil.",
+      "owner": "AiVenture S.R.L.",
+      "files": [
+        "source-provenance.json"
+      ]
+    },
+    {
+      "id": "AI-14",
+      "description": "Politica și istoricul actualizării datelor.",
+      "acceptance": "Compară cu logurile pipeline-ului.",
+      "owner": "AiVenture S.R.L.",
+      "files": [
+        "data-freshness.json",
+        "backend/onsite.mjs"
+      ]
+    },
+    {
+      "id": "AI-15",
+      "description": "Rezumate scurte bazate pe fapte verificabile.",
+      "acceptance": "Fiecare propoziție are suport.",
+      "owner": "AiVenture S.R.L.",
+      "files": [
+        "ai-summary-blocks.json",
+        "surse/index.html"
+      ]
+    },
+    {
+      "id": "AI-16",
+      "description": "Tabele semantice ușor de interpretat.",
+      "acceptance": "Parserul extrage rânduri și coloane corect.",
+      "owner": "AiVenture S.R.L.",
+      "files": [
+        "extractable-tables.json"
+      ]
+    },
+    {
+      "id": "AI-17",
+      "description": "Fragmente identificabile cu sursă și versiune.",
+      "acceptance": "Recuperează chunk și verifică hash/sursă.",
+      "owner": "AiVenture S.R.L.",
+      "files": [
+        "rag-chunk-map.json",
+        "backend/onsite.mjs"
+      ]
+    },
+    {
+      "id": "AI-18",
+      "description": "Reguli de atribuire a afirmațiilor.",
+      "acceptance": "Testează afirmații fără sursă.",
+      "owner": "AiVenture S.R.L.",
+      "files": [
+        "ai-citation-policy.json"
+      ]
+    },
+    {
+      "id": "AI-19",
+      "description": "Observă ce răspund și citează modelele AI.",
+      "acceptance": "Compară observațiile fără a le numi dovadă factuală.",
+      "owner": "AiVenture S.R.L.",
+      "files": [
+        "ai-visibility-tests.json"
+      ]
+    },
+    {
+      "id": "AI-20",
+      "description": "Semnalează valori incompatibile între surse.",
+      "acceptance": "Introdu contradicție controlată într-un test.",
+      "owner": "AiVenture S.R.L.",
+      "files": [
+        "contradiction-rules.json",
+        "scripts/detect-contradictions.mjs"
+      ]
+    },
+    {
+      "id": "A2A-01",
+      "description": "Manifestul de descoperire al agentului A2A.",
+      "acceptance": "Validează schema cu SDK/client independent.",
+      "owner": "AiVenture S.R.L.",
+      "files": [
+        "a2a-status.json",
+        "backend/onsite.mjs"
+      ]
+    },
+    {
+      "id": "A2A-02",
+      "description": "Operatorul și versiunea agentului sunt identificabile.",
+      "acceptance": "Verifică domeniul, versiunea și datele operatorului.",
+      "owner": "AiVenture S.R.L.",
+      "files": [
+        "agent-identity.json"
+      ]
+    },
+    {
+      "id": "A2A-03",
+      "description": "Agentul promite numai operațiuni implementate.",
+      "acceptance": "Rulează teste pentru fiecare capabilitate.",
+      "owner": "AiVenture S.R.L.",
+      "files": [
+        "agent-capabilities.json"
+      ]
+    },
+    {
+      "id": "A2A-04",
+      "description": "Fiecare skill are descriere și exemple precise.",
+      "acceptance": "Rulează exemplele documentate.",
+      "owner": "AiVenture S.R.L.",
+      "files": [
+        "a2a-contracts.json"
+      ]
+    },
+    {
+      "id": "A2A-05",
+      "description": "Serverul primește și răspunde prin protocolul A2A.",
+      "acceptance": "Client A2A extern trimite cerere validă.",
+      "owner": "AiVenture S.R.L.",
+      "files": [
+        "backend/onsite.mjs"
+      ]
+    },
+    {
+      "id": "A2A-06",
+      "description": "Un client găsește cardul și endpoint-ul.",
+      "acceptance": "Clientul descarcă și parsează cardul.",
+      "owner": "AiVenture S.R.L.",
+      "files": [
+        "backend/onsite.mjs"
+      ]
+    },
+    {
+      "id": "A2A-07",
+      "description": "Parametrii cererii sunt validați strict.",
+      "acceptance": "Testează valori lipsă, invalide și extreme.",
+      "owner": "AiVenture S.R.L.",
+      "files": [
+        "a2a-input-schema.json",
+        "backend/onsite.mjs"
+      ]
+    },
+    {
+      "id": "A2A-08",
+      "description": "Rezultatul are structură previzibilă și surse.",
+      "acceptance": "Validatorul acceptă răspunsul complet.",
+      "owner": "AiVenture S.R.L.",
+      "files": [
+        "a2a-output-schema.json",
+        "backend/onsite.mjs"
+      ]
+    },
+    {
+      "id": "A2A-09",
+      "description": "Verifică identitatea clientului pentru acces protejat.",
+      "acceptance": "Cereri neautorizate sunt respinse.",
+      "owner": "AiVenture S.R.L.",
+      "files": [
+        "authentication-policy.json",
+        "backend/onsite.mjs"
+      ]
+    },
+    {
+      "id": "A2A-10",
+      "description": "Capabilitatea nu înseamnă permisiune.",
+      "acceptance": "Testează interdicția order.create pentru read-only.",
+      "owner": "AiVenture S.R.L.",
+      "files": [
+        "agent-mandate.json",
+        "backend/onsite.mjs"
+      ]
+    },
+    {
+      "id": "A2A-11",
+      "description": "Sarcinile au ID și tranziții urmărite.",
+      "acceptance": "Testează tranziții, eșec și anulare.",
+      "owner": "AiVenture S.R.L.",
+      "files": [
+        "backend/onsite.mjs",
+        "backend/001_onsite.sql"
+      ]
+    },
+    {
+      "id": "A2A-12",
+      "description": "Acțiunile sensibile așteaptă aprobare.",
+      "acceptance": "Testează pending, reject și approve.",
+      "owner": "AiVenture S.R.L.",
+      "files": [
+        "human-approval-policy.json"
+      ]
+    },
+    {
+      "id": "A2A-13",
+      "description": "Controlează consumul și abuzul.",
+      "acceptance": "Depășirea limitei este tratată corect.",
+      "owner": "AiVenture S.R.L.",
+      "files": [
+        "rate-limit-policy.json",
+        "backend/onsite.mjs"
+      ]
+    },
+    {
+      "id": "A2A-14",
+      "description": "Păstrează trasabilitatea interacțiunilor.",
+      "acceptance": "Reconstituie o cerere și răspunsul.",
+      "owner": "AiVenture S.R.L.",
+      "files": [
+        "audit-policy.json",
+        "backend/onsite.mjs"
+      ]
+    },
+    {
+      "id": "A2A-15",
+      "description": "Un client A2A independent folosește agentul.",
+      "acceptance": "Păstrează transcript și raport reproductibil.",
+      "owner": "AiVenture S.R.L.",
+      "files": [
+        "interop-test-plan.json"
+      ]
+    },
+    {
+      "id": "RRVI-01",
+      "description": "Fiecare obiectiv are ID și acceptanță.",
+      "acceptance": "Orice cerință poate fi testată.",
+      "owner": "AiVenture S.R.L.",
+      "files": [
+        "requirements.json"
+      ]
+    },
+    {
+      "id": "RRVI-02",
+      "description": "O regulă tehnică aplică cerința.",
+      "acceptance": "Testul confirmă aplicarea regulii.",
+      "owner": "AiVenture S.R.L.",
+      "files": [
+        "controls.json"
+      ]
+    },
+    {
+      "id": "RRVI-03",
+      "description": "O afirmație poate fi urmărită la origine.",
+      "acceptance": "Sursa chiar susține afirmația.",
+      "owner": "AiVenture S.R.L.",
+      "files": [
+        "source-provenance.json"
+      ]
+    },
+    {
+      "id": "RRVI-04",
+      "description": "Detectează modificarea octeților unui artefact.",
+      "acceptance": "Recalcularea produce același hash.",
+      "owner": "AiVenture S.R.L.",
+      "files": [
+        "proof.json"
+      ]
+    },
+    {
+      "id": "RRVI-05",
+      "description": "Documentează existența unui artefact la un moment.",
+      "acceptance": "Verifică timestampul și dovada OTS.",
+      "owner": "AiVenture S.R.L.",
+      "files": [
+        "timestamp-policy.json"
+      ]
+    },
+    {
+      "id": "RRVI-06",
+      "description": "Datele sunt utilizate conform temeiurilor și licențelor.",
+      "acceptance": "Revizie juridică și teste de rectificare.",
+      "owner": "AiVenture S.R.L.",
+      "files": [
+        "data-rights-register.json"
+      ]
+    },
+    {
+      "id": "RRVI-07",
+      "description": "Previne accesul și manipularea neautorizate.",
+      "acceptance": "Teste negative și scanări de securitate.",
+      "owner": "AiVenture S.R.L.",
+      "files": [
+        "security-controls.json",
+        "backend/onsite.mjs"
+      ]
+    },
+    {
+      "id": "RRVI-08",
+      "description": "Identifică exact codul și datele folosite.",
+      "acceptance": "Poți reproduce rezultatul din versiuni.",
+      "owner": "AiVenture S.R.L.",
+      "files": [
+        "version.json"
+      ]
+    },
+    {
+      "id": "RRVI-09",
+      "description": "Repetă testele și detectează regresii.",
+      "acceptance": "Compară rapoarte și alerte.",
+      "owner": "AiVenture S.R.L.",
+      "files": [
+        "monitoring-plan.json",
+        "scripts/verify-live.mjs"
+      ]
+    },
+    {
+      "id": "RRVI-10",
+      "description": "Evaluator separat reproduce testele.",
+      "acceptance": "Raportul conține probe și limitări.",
+      "owner": "AiVenture S.R.L.",
+      "files": [
+        "independent-validation.json"
+      ]
+    }
+  ]
+}

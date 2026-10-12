@@ -1,0 +1,8 @@
+{
+  "schema": "FIRMSFINDER_DATA_FRESHNESS",
+  "version": "1.0.0",
+  "status": "BACKEND_REQUIRED",
+  "endpoint": "https://firmsfinder.eu/data-freshness.json",
+  "items": [],
+  "notice": "Date reale din registrul importurilor. Acest fișier static este un manifest; exportul real este generat de backend când este conectat."
+}

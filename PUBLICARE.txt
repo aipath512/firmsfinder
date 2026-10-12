@@ -1,0 +1,102 @@
+FIRMSFINDER — TOATE FIȘIERELE ON-SITE · PACHET v1.1.0
+12 octombrie 2026 · Europe/Bucharest
+
+UN SINGUR ZIP
+FirmsFinder_ON_SITE_TOATE_2026-10-12.zip
+Include 67 fișiere de bază + inventarul + tot conținutul pentru copy-paste.
+Catalogul păstrează exact 60 semnale: 15 WEB-OM, 20 WEB-AI, 15 WEB-A2A, 10 RRVI.
+Generat și testat local. Nu este publicat pe firmsfinder.eu.
+Acest pachet nu este un certificat de 60/60 funcții active.
+
+1. UNDE URCI FIȘIERELE
+GitHub → aipath512/firmsfinder → Code → branch-ul folosit pentru publicare.
+Descarcă și dezarhivează ZIP-ul. Nu urca ZIP-ul ca fișier al site-ului.
+Fișierele publice din rădăcina arhivei și folderele categorii/, cautare/, comparare/, contact/, localitati/, semnale/, surse/ merg în folderul publicat al site-ului, lângă index.html.
+În acest pachet nu există nivelul suplimentar site-root/.
+backend/, scripts/ și tests/ sunt cod sursă; merg la rădăcina proiectului sursă. Dacă proiectul publică public/ sau dist/, nu pune aceste trei foldere în folderul public.
+Dacă folderul publicat este chiar rădăcina repository-ului, folosește procesul de build existent ca să nu servească public sursele backend, testele și documentele de lucru.
+
+2. CUM URCI
+GitHub → Add file → Upload files sau Create new file.
+Păstrează numele și folderele exact.
+Înainte de înlocuirea unui fișier existent, compară versiunea actuală.
+Nu înlocui homepage-ul: arhiva nu conține un index.html pentru homepage.
+Nu înlocui paginile actuale mai recente cu paginile pachetului fără comparație.
+Sitemap: păstrează toate URL-urile existente și adaugă intrările noilor pagini înainte de </urlset>.
+robots.txt: păstrează restricțiile actuale pentru rute private; păstrează referința corectă la sitemap.
+_headers: combină regulile cu cele existente.
+homepage-link.html: copiază fragmentul în index.html înainte de </footer> sau, dacă nu există footer, înainte de </body>.
+schema-org.json: este sursa datelor structurate. Fișierul separat nu înlocuiește scriptul JSON-LD din HTML; trebuie integrat cu graful existent al homepage-ului, fără duplicate.
+Commit → Cloudflare → proiectul care servește firmsfinder.eu → Deployments → confirmă Success.
+Legătura repository–producție nu a fost verificată în această sesiune.
+
+3. VERIFICAREA FIȘIERELOR PUBLICE
+Deschide /signals.json: JSON cu 60 intrări, nu homepage HTML.
+Deschide /semnale/: pagina cu toate cele 60 fișe.
+Deschide /surse/: explicații și limite.
+Deschide /robots.txt, /sitemap.xml, /llms.txt, /llms-full.txt: tipul și conținutul corect.
+Fișierele entities/services/taxonomy/relationships/freshness sunt manifeste statice până la instalarea backend-ului.
+Un HTTP 200 cu homepage la o adresă .json nu confirmă fișierul.
+
+4. ACTIVAREA ÎN CLOUDFLARE PAGES
+Folosește această variantă doar pentru proiectul Pages care servește domeniul.
+backend/onsite.mjs rămâne în proiect la această cale.
+Copiază backend/pages-function.js la functions/[[path]].js.
+Dacă există deja un catch-all Functions, integrează apelul handle în codul actual; nu îl suprascrie.
+Cloudflare → Workers & Pages → proiect → Settings → Bindings → D1 database.
+Numele binding-ului: DB. Selectează baza ONRC/MF actuală.
+Codul salvat anterior numea baza b2b-romania-db. Confirmă baza efectiv folosită acum.
+Cloudflare → Storage & databases → D1 → baza selectată → Console.
+Execută backend/001_onsite.sql: creează numai tabele ff_*, fără modificarea tabelelor ONRC/MF.
+Settings → Variables and Secrets → FF_RATE_SECRET: secret aleatoriu puternic, generat local.
+Redeploy din sursa proiectului, nu prin simplu upload de fișiere statice.
+Verifică /api/onsite/status și /api/companies/search?caen=1721.
+Codul folosește schema din sursa anterioară: onrc_firme, mf_bilant_2024, onrc_excluderi, onrc_nom_caen. Dacă schema curentă diferă, este necesară maparea ei înaintea activării.
+
+5. ALTERNATIVA WORKER EXISTENT
+Nu combina automat cu varianta Pages.
+Pune onsite.mjs și worker-wrapper.mjs în folderul entrypoint-ului existent.
+Importul existing-worker.mjs trebuie să indice entrypoint-ul real păstrat în acel folder.
+În configurația Worker-ului, main trebuie să indice wrapper-ul.
+Păstrează rutele, bindings, cron-ul și celelalte setări curente.
+Configurează DB, migration și FF_RATE_SECRET ca mai sus.
+Wrapper-ul deleagă celelalte rute către Worker-ul existent, inclusiv /api/cauta.
+
+6. ACCESUL AGENTULUI
+A2A ales pentru acest cod: 0.3.0, transport JSON-RPC. Nu este declarat v1.0.
+Secret Cloudflare FF_CLIENTS_JSON:
+[{"id":"buyer-1","token_sha256":"HASH_SHA256_REAL_AL_TOKENULUI","scopes":["company.search","company.get","company.compare"],"revoked":false}]
+Tokenul original rămâne secret la client; numai hash-ul este pus în secretul FF_CLIENTS_JSON.
+Nu publica tokenul sau secretul în GitHub.
+Revocare: elimină clientul sau setează revoked=true și actualizează secretul.
+Agent Card: /.well-known/agent-card.json. Endpoint: POST /a2a.
+Exemplu JSON-RPC, cu Authorization: Bearer TOKEN:
+{"jsonrpc":"2.0","id":1,"method":"message/send","params":{"message":{"kind":"message","role":"user","messageId":"probe-1","parts":[{"kind":"data","data":{"operation":"company.search","caen":"1721","revision":2}}]}}}
+Operațiuni permise după verificarea scopes: company.search, company.get, company.compare.
+Comenzi comerciale, plăți și modificări de firmă: blocate.
+
+7. CE RĂMÂNE DE EXECUTAT / VERIFICAT
+Actualitatea și proveniența exactă se completează numai din importuri reale reușite.
+Nu sunt incluse firme fictive, servicii inventate sau date de import fabricate în manifestele publice.
+Serviciile documentate trebuie înscrise cu sursă în ff_services.
+Maparea oficială CAEN Rev.2–Rev.3 nu este implementată.
+LCP/INP/CLS: ținte declarate, fără măsurători înainte/după.
+Teste reale ChatGPT/Claude/Gemini/Perplexity: neexecutate.
+RAG: fragmente create; index Vectorize necreat.
+Detectorul contradicțiilor: cod livrat; integrarea în pipeline neefectuată.
+HITL pending/reject/approve: neimplementat. Agentul este read-only și nu execută acțiuni comerciale.
+Validare A2A cu client independent: neefectuată.
+OTS: dovadă temporală independentă necreată.
+Licențe, temeiuri și politica efectivă de prelucrare: necesită verificarea operatorului.
+Monitorizarea este un script, nu o automatizare instalată.
+Formularul salvează în ff_contact; nu trimite email și nu are interfață admin inclusă.
+Politica efectivă și procedura de tratare a cererilor trebuie stabilite înaintea activării colectării.
+Retenția se aplică numai prin executarea periodică a backend/retention.sql, după confirmarea termenelor reale.
+
+8. TESTE
+node --test tests/backend.test.mjs
+python3 scripts/validate-package.py
+node scripts/verify-live.mjs https://firmsfinder.eu
+Validatorul pachetului folosește acum fișierele publice din rădăcină, nu site-root/.
+proof.json verifică octeții exact livrați în această arhivă. Reformatarea prin copy-paste schimbă amprenta; după modificări, recalculează manifestul de amprente.
+Testele locale nu confirmă publicarea sau schema reală D1 din producție.
