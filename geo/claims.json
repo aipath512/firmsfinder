@@ -1,0 +1,29 @@
+
+{
+  "id": "CL-011",
+  "statement": "FirmsFinder acopera peste un milion de firme active din Romania.",
+  "category": "quantitative",
+  "language": "ro-RO",
+  "scope": "https://firmsfinder.eu/",
+  "source": {
+    "url": "https://firmsfinder.eu/",
+    "type": "first_party_page",
+    "checked_at": null,
+    "verification": "not_checked"
+  },
+  "evidence": {
+    "id": null,
+    "url": null,
+    "type_required": "dated_dataset_count",
+    "captured_at": null,
+    "sha256": null
+  },
+  "status": "requires_evidence",
+  "risk": "high",
+  "publication": {
+    "approved": false,
+    "approved_by": null,
+    "approved_at": null
+  },
+  "notes": "Declaratia nu este verificata independent; nu o prezenta drept fapt confirmat."
+}
