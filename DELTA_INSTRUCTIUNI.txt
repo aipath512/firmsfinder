@@ -1,0 +1,8 @@
+DELTA față de firmsfinder-main (8).zip
+
+Înlocuiește/adaugă fișierele din acest ZIP păstrând căile relative.
+
+ȘTERGE din repository, dacă există:
+firmsfinder-main/geo/ghid/index,html
+
+Atenție: ZIP-ul nu șterge automat fișierele vechi.
