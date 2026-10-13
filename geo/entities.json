@@ -1,0 +1,215 @@
+
+{
+  "schema_version": "1.0",
+  "methodology": "FirmsFinder GEO V3.1",
+  "artifact": "entities",
+  "site": "https://firmsfinder.eu/",
+  "publisher": {
+    "id": "https://firmsfinder.eu/#organization",
+    "name": "AiVenture S.R.L.",
+    "type": "Organization",
+    "status": "SELF_DECLARED"
+  },
+  "language": "ro-RO",
+  "generated_at": null,
+  "status": "DRAFT_REQUIRES_VERIFICATION",
+  "entity_id_policy": {
+    "format": "absolute_uri",
+    "unique_per_entity": true,
+    "persistent_identifiers": true,
+    "reuse_across_artifacts": true
+  },
+  "entities": [
+    {
+      "id": "https://firmsfinder.eu/#organization",
+      "type": "Organization",
+      "name": "AiVenture S.R.L.",
+      "description": "Organizatia care dezvolta platforma FirmsFinder.",
+      "url": "https://aiventure.ro/",
+      "identifiers": [],
+      "same_as": [],
+      "status": "SELF_DECLARED",
+      "evidence_refs": []
+    },
+    {
+      "id": "https://firmsfinder.eu/#website",
+      "type": "WebSite",
+      "name": "FirmsFinder.eu",
+      "description": "Website dedicat descoperirii firmelor si oportunitatilor economice.",
+      "url": "https://firmsfinder.eu/",
+      "publisher_ref": "https://firmsfinder.eu/#organization",
+      "language": "ro-RO",
+      "status": "SELF_DECLARED",
+      "evidence_refs": []
+    },
+    {
+      "id": "https://firmsfinder.eu/#software",
+      "type": "SoftwareApplication",
+      "name": "FirmsFinder AI",
+      "description": "Platforma de cautare si analiza a firmelor, orientata catre identificarea oportunitatilor economice.",
+      "url": "https://firmsfinder.eu/",
+      "provider_ref": "https://firmsfinder.eu/#organization",
+      "status": "SELF_DECLARED",
+      "evidence_refs": []
+    },
+    {
+      "id": "https://firmsfinder.eu/#free-data",
+      "type": "Service",
+      "name": "FREE DATA",
+      "description": "Acces gratuit la date oficiale publice despre firme, in limitele surselor si functionalitatilor disponibile.",
+      "url": "https://firmsfinder.eu/cauta/",
+      "provider_ref": "https://firmsfinder.eu/#organization",
+      "pricing_model": "FREE",
+      "price_eur": 0,
+      "availability_status": "REQUIRES_VERIFICATION",
+      "evidence_refs": []
+    },
+    {
+      "id": "https://firmsfinder.eu/#geo-diagnostic",
+      "type": "Service",
+      "name": "GEO Diagnostic",
+      "description": "Diagnostic initial pentru evaluarea pregatirii unei pagini web pentru descoperirea si utilizarea de catre sisteme AI.",
+      "url": "https://firmsfinder.eu/geo/",
+      "provider_ref": "https://firmsfinder.eu/#organization",
+      "pricing_model": "FREE_PROPOSED",
+      "price_eur": 0,
+      "availability_status": "NOT_IMPLEMENTED",
+      "evidence_refs": []
+    },
+    {
+      "id": "https://firmsfinder.eu/#geo-generator",
+      "type": "Service",
+      "name": "GEO File Generator",
+      "description": "Generarea unui set de 21 de artefacte JSON GEO si a unei arhive ZIP pentru un URL analizat.",
+      "url": "https://firmsfinder.eu/geo/",
+      "provider_ref": "https://firmsfinder.eu/#organization",
+      "pricing_model": "ONE_TIME_PROPOSED",
+      "price_eur": 49,
+      "availability_status": "MVP_NOT_DEPLOYED",
+      "evidence_refs": []
+    },
+    {
+      "id": "https://firmsfinder.eu/#geo-monitor",
+      "type": "Service",
+      "name": "GEO Weekly Monitor",
+      "description": "Monitorizare periodica GEO, rapoarte comparative si planuri de remediere.",
+      "url": "https://firmsfinder.eu/geo/",
+      "provider_ref": "https://firmsfinder.eu/#organization",
+      "pricing_model": "SUBSCRIPTION_PROPOSED",
+      "price_eur": 29,
+      "billing_period": "P1M",
+      "availability_status": "NOT_IMPLEMENTED",
+      "evidence_refs": []
+    },
+    {
+      "id": "https://firmsfinder.eu/#aeo-diagnostic",
+      "type": "Service",
+      "name": "AEO Diagnostic",
+      "description": "Evaluare initiala a structurii continutului pentru raspunsuri directe si sisteme de cautare.",
+      "url": "https://firmsfinder.eu/aeo/",
+      "provider_ref": "https://firmsfinder.eu/#organization",
+      "pricing_model": "FREE_PROPOSED",
+      "availability_status": "REQUIRES_VERIFICATION",
+      "evidence_refs": []
+    },
+    {
+      "id": "https://firmsfinder.eu/#aio-diagnostic",
+      "type": "Service",
+      "name": "AIO Diagnostic",
+      "description": "Evaluare initiala a semnalelor tehnice si semantice pentru utilizarea continutului de catre sisteme AI.",
+      "url": "https://firmsfinder.eu/aio/",
+      "provider_ref": "https://firmsfinder.eu/#organization",
+      "pricing_model": "FREE_PROPOSED",
+      "availability_status": "REQUIRES_VERIFICATION",
+      "evidence_refs": []
+    },
+    {
+      "id": "https://firmsfinder.eu/#economic-intelligence",
+      "type": "Concept",
+      "name": "Economic Intelligence",
+      "description": "Interpretarea si corelarea datelor economice pentru identificarea oportunitatilor si fundamentarea deciziilor.",
+      "status": "DEFINED",
+      "evidence_refs": []
+    },
+    {
+      "id": "https://firmsfinder.eu/#ere",
+      "type": "Concept",
+      "name": "Entity Relationship Entity",
+      "alternate_name": "ERE",
+      "description": "Model de reprezentare a legaturilor dintre doua entitati printr-o relatie explicit definita.",
+      "status": "DEFINED",
+      "evidence_refs": []
+    },
+    {
+      "id": "https://firmsfinder.eu/#caen",
+      "type": "Concept",
+      "name": "CAEN",
+      "description": "Clasificarea activitatilor din economia nationala utilizata pentru descrierea si clasificarea activitatilor economice.",
+      "status": "DEFINED",
+      "evidence_refs": []
+    }
+  ],
+  "relations": [
+    {
+      "subject": "https://firmsfinder.eu/#organization",
+      "predicate": "develops",
+      "object": "https://firmsfinder.eu/#software",
+      "status": "SELF_DECLARED"
+    },
+    {
+      "subject": "https://firmsfinder.eu/#organization",
+      "predicate": "publishes",
+      "object": "https://firmsfinder.eu/#website",
+      "status": "SELF_DECLARED"
+    },
+    {
+      "subject": "https://firmsfinder.eu/#software",
+      "predicate": "usesConcept",
+      "object": "https://firmsfinder.eu/#economic-intelligence",
+      "status": "DESIGN_INTENT"
+    },
+    {
+      "subject": "https://firmsfinder.eu/#software",
+      "predicate": "usesConcept",
+      "object": "https://firmsfinder.eu/#ere",
+      "status": "DESIGN_INTENT"
+    },
+    {
+      "subject": "https://firmsfinder.eu/#software",
+      "predicate": "usesConcept",
+      "object": "https://firmsfinder.eu/#caen",
+      "status": "DESIGN_INTENT"
+    },
+    {
+      "subject": "https://firmsfinder.eu/#organization",
+      "predicate": "proposesService",
+      "object": "https://firmsfinder.eu/#geo-diagnostic",
+      "status": "DESIGN_INTENT"
+    },
+    {
+      "subject": "https://firmsfinder.eu/#organization",
+      "predicate": "proposesService",
+      "object": "https://firmsfinder.eu/#geo-generator",
+      "status": "DESIGN_INTENT"
+    },
+    {
+      "subject": "https://firmsfinder.eu/#organization",
+      "predicate": "proposesService",
+      "object": "https://firmsfinder.eu/#geo-monitor",
+      "status": "DESIGN_INTENT"
+    }
+  ],
+  "integrity": {
+    "hash_algorithm": "SHA-256",
+    "sha256": null,
+    "timestamp_proof": null,
+    "verification_status": "NOT_VERIFIED"
+  },
+  "validation": {
+    "json_syntax": "NOT_TESTED",
+    "unique_ids": "NOT_TESTED",
+    "relation_references": "NOT_TESTED",
+    "url_reachability": "NOT_TESTED",
+    "semantic_review": "REQUIRED"
+  }
+}
