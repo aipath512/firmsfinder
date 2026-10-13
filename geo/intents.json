@@ -6,7 +6,7 @@
   "publisher": "AiVenture S.R.L.",
   "language": "ro-RO",
   "generated_at": null,
-  "status": "LOCAL_REFERENCES_REVISED_LIVE_NOT_TESTED",
+  "status": "150_INTENTS_ALL_HAVE_LOCAL_DESTINATIONS_RUNTIME_PENDING",
   "intent_model": {
     "formula": "ACTION + TARGET",
     "funnel_stages": [
@@ -579,13 +579,16 @@
       "entity_refs": [
         "https://firmsfinder.eu/#geo-diagnostic"
       ],
-      "target_pages": [],
+      "target_pages": [
+        "https://firmsfinder.eu/geo/ghid/#intent-ff-geo-tof-033"
+      ],
       "query_language": "ro-RO",
-      "semantic_status": "PROPOSED",
+      "semantic_status": "EDITORIAL_EXPLANATION_PUBLISHED_IN_THIS_BUILD",
       "evidence_refs": [],
       "audit_bis": {
         "unresolved_original_target": "https://firmsfinder.eu/geo/"
-      }
+      },
+      "target_anchor": "intent-ff-geo-tof-033"
     },
     {
       "id": "FF-GEO-TOF-034",
@@ -597,13 +600,16 @@
       "entity_refs": [
         "https://firmsfinder.eu/#geo-diagnostic"
       ],
-      "target_pages": [],
+      "target_pages": [
+        "https://firmsfinder.eu/geo/ghid/#intent-ff-geo-tof-034"
+      ],
       "query_language": "ro-RO",
-      "semantic_status": "PROPOSED",
+      "semantic_status": "EDITORIAL_EXPLANATION_PUBLISHED_IN_THIS_BUILD",
       "evidence_refs": [],
       "audit_bis": {
         "unresolved_original_target": "https://firmsfinder.eu/geo/"
-      }
+      },
+      "target_anchor": "intent-ff-geo-tof-034"
     },
     {
       "id": "FF-GEO-TOF-035",
@@ -615,13 +621,16 @@
       "entity_refs": [
         "https://firmsfinder.eu/#geo-diagnostic"
       ],
-      "target_pages": [],
+      "target_pages": [
+        "https://firmsfinder.eu/geo/ghid/#intent-ff-geo-tof-035"
+      ],
       "query_language": "ro-RO",
-      "semantic_status": "PROPOSED",
+      "semantic_status": "EDITORIAL_EXPLANATION_PUBLISHED_IN_THIS_BUILD",
       "evidence_refs": [],
       "audit_bis": {
         "unresolved_original_target": "https://firmsfinder.eu/geo/"
-      }
+      },
+      "target_anchor": "intent-ff-geo-tof-035"
     },
     {
       "id": "FF-GEO-TOF-036",
@@ -633,13 +642,16 @@
       "entity_refs": [
         "https://firmsfinder.eu/#geo-diagnostic"
       ],
-      "target_pages": [],
+      "target_pages": [
+        "https://firmsfinder.eu/geo/ghid/#intent-ff-geo-tof-036"
+      ],
       "query_language": "ro-RO",
-      "semantic_status": "PROPOSED",
+      "semantic_status": "EDITORIAL_EXPLANATION_PUBLISHED_IN_THIS_BUILD",
       "evidence_refs": [],
       "audit_bis": {
         "unresolved_original_target": "https://firmsfinder.eu/geo/"
-      }
+      },
+      "target_anchor": "intent-ff-geo-tof-036"
     },
     {
       "id": "FF-GEO-TOF-037",
@@ -651,13 +663,16 @@
       "entity_refs": [
         "https://firmsfinder.eu/#geo-diagnostic"
       ],
-      "target_pages": [],
+      "target_pages": [
+        "https://firmsfinder.eu/geo/ghid/#intent-ff-geo-tof-037"
+      ],
       "query_language": "ro-RO",
-      "semantic_status": "PROPOSED",
+      "semantic_status": "EDITORIAL_EXPLANATION_PUBLISHED_IN_THIS_BUILD",
       "evidence_refs": [],
       "audit_bis": {
         "unresolved_original_target": "https://firmsfinder.eu/geo/"
-      }
+      },
+      "target_anchor": "intent-ff-geo-tof-037"
     },
     {
       "id": "FF-GEO-TOF-038",
@@ -669,13 +684,16 @@
       "entity_refs": [
         "https://firmsfinder.eu/#geo-diagnostic"
       ],
-      "target_pages": [],
+      "target_pages": [
+        "https://firmsfinder.eu/geo/ghid/#intent-ff-geo-tof-038"
+      ],
       "query_language": "ro-RO",
-      "semantic_status": "PROPOSED",
+      "semantic_status": "EDITORIAL_EXPLANATION_PUBLISHED_IN_THIS_BUILD",
       "evidence_refs": [],
       "audit_bis": {
         "unresolved_original_target": "https://firmsfinder.eu/geo/"
-      }
+      },
+      "target_anchor": "intent-ff-geo-tof-038"
     },
     {
       "id": "FF-GEO-TOF-039",
@@ -687,13 +705,16 @@
       "entity_refs": [
         "https://firmsfinder.eu/#aeo-diagnostic"
       ],
-      "target_pages": [],
+      "target_pages": [
+        "https://firmsfinder.eu/geo/ghid/#intent-ff-geo-tof-039"
+      ],
       "query_language": "ro-RO",
-      "semantic_status": "PROPOSED",
+      "semantic_status": "EDITORIAL_EXPLANATION_PUBLISHED_IN_THIS_BUILD",
       "evidence_refs": [],
       "audit_bis": {
         "unresolved_original_target": "https://firmsfinder.eu/aeo/"
-      }
+      },
+      "target_anchor": "intent-ff-geo-tof-039"
     },
     {
       "id": "FF-GEO-TOF-040",
@@ -705,13 +726,16 @@
       "entity_refs": [
         "https://firmsfinder.eu/#aeo-diagnostic"
       ],
-      "target_pages": [],
+      "target_pages": [
+        "https://firmsfinder.eu/geo/ghid/#intent-ff-geo-tof-040"
+      ],
       "query_language": "ro-RO",
-      "semantic_status": "PROPOSED",
+      "semantic_status": "EDITORIAL_EXPLANATION_PUBLISHED_IN_THIS_BUILD",
       "evidence_refs": [],
       "audit_bis": {
         "unresolved_original_target": "https://firmsfinder.eu/aeo/"
-      }
+      },
+      "target_anchor": "intent-ff-geo-tof-040"
     },
     {
       "id": "FF-GEO-TOF-041",
@@ -723,13 +747,16 @@
       "entity_refs": [
         "https://firmsfinder.eu/#aeo-diagnostic"
       ],
-      "target_pages": [],
+      "target_pages": [
+        "https://firmsfinder.eu/geo/ghid/#intent-ff-geo-tof-041"
+      ],
       "query_language": "ro-RO",
-      "semantic_status": "PROPOSED",
+      "semantic_status": "EDITORIAL_EXPLANATION_PUBLISHED_IN_THIS_BUILD",
       "evidence_refs": [],
       "audit_bis": {
         "unresolved_original_target": "https://firmsfinder.eu/aeo/"
-      }
+      },
+      "target_anchor": "intent-ff-geo-tof-041"
     },
     {
       "id": "FF-GEO-TOF-042",
@@ -741,13 +768,16 @@
       "entity_refs": [
         "https://firmsfinder.eu/#aeo-diagnostic"
       ],
-      "target_pages": [],
+      "target_pages": [
+        "https://firmsfinder.eu/geo/ghid/#intent-ff-geo-tof-042"
+      ],
       "query_language": "ro-RO",
-      "semantic_status": "PROPOSED",
+      "semantic_status": "EDITORIAL_EXPLANATION_PUBLISHED_IN_THIS_BUILD",
       "evidence_refs": [],
       "audit_bis": {
         "unresolved_original_target": "https://firmsfinder.eu/aeo/"
-      }
+      },
+      "target_anchor": "intent-ff-geo-tof-042"
     },
     {
       "id": "FF-GEO-TOF-043",
@@ -759,13 +789,16 @@
       "entity_refs": [
         "https://firmsfinder.eu/#aeo-diagnostic"
       ],
-      "target_pages": [],
+      "target_pages": [
+        "https://firmsfinder.eu/geo/ghid/#intent-ff-geo-tof-043"
+      ],
       "query_language": "ro-RO",
-      "semantic_status": "PROPOSED",
+      "semantic_status": "EDITORIAL_EXPLANATION_PUBLISHED_IN_THIS_BUILD",
       "evidence_refs": [],
       "audit_bis": {
         "unresolved_original_target": "https://firmsfinder.eu/aeo/"
-      }
+      },
+      "target_anchor": "intent-ff-geo-tof-043"
     },
     {
       "id": "FF-GEO-TOF-044",
@@ -777,13 +810,16 @@
       "entity_refs": [
         "https://firmsfinder.eu/#aeo-diagnostic"
       ],
-      "target_pages": [],
+      "target_pages": [
+        "https://firmsfinder.eu/geo/ghid/#intent-ff-geo-tof-044"
+      ],
       "query_language": "ro-RO",
-      "semantic_status": "PROPOSED",
+      "semantic_status": "EDITORIAL_EXPLANATION_PUBLISHED_IN_THIS_BUILD",
       "evidence_refs": [],
       "audit_bis": {
         "unresolved_original_target": "https://firmsfinder.eu/aeo/"
-      }
+      },
+      "target_anchor": "intent-ff-geo-tof-044"
     },
     {
       "id": "FF-GEO-TOF-045",
@@ -1441,13 +1477,16 @@
       "entity_refs": [
         "https://firmsfinder.eu/#geo-diagnostic"
       ],
-      "target_pages": [],
+      "target_pages": [
+        "https://firmsfinder.eu/geo/ghid/#intent-ff-geo-mof-033"
+      ],
       "query_language": "ro-RO",
-      "semantic_status": "PROPOSED",
+      "semantic_status": "EDITORIAL_EXPLANATION_PUBLISHED_IN_THIS_BUILD",
       "evidence_refs": [],
       "audit_bis": {
         "unresolved_original_target": "https://firmsfinder.eu/geo/"
-      }
+      },
+      "target_anchor": "intent-ff-geo-mof-033"
     },
     {
       "id": "FF-GEO-MOF-034",
@@ -1459,13 +1498,16 @@
       "entity_refs": [
         "https://firmsfinder.eu/#geo-diagnostic"
       ],
-      "target_pages": [],
+      "target_pages": [
+        "https://firmsfinder.eu/geo/ghid/#intent-ff-geo-mof-034"
+      ],
       "query_language": "ro-RO",
-      "semantic_status": "PROPOSED",
+      "semantic_status": "EDITORIAL_EXPLANATION_PUBLISHED_IN_THIS_BUILD",
       "evidence_refs": [],
       "audit_bis": {
         "unresolved_original_target": "https://firmsfinder.eu/geo/"
-      }
+      },
+      "target_anchor": "intent-ff-geo-mof-034"
     },
     {
       "id": "FF-GEO-MOF-035",
@@ -1477,13 +1519,16 @@
       "entity_refs": [
         "https://firmsfinder.eu/#geo-diagnostic"
       ],
-      "target_pages": [],
+      "target_pages": [
+        "https://firmsfinder.eu/geo/ghid/#intent-ff-geo-mof-035"
+      ],
       "query_language": "ro-RO",
-      "semantic_status": "PROPOSED",
+      "semantic_status": "EDITORIAL_EXPLANATION_PUBLISHED_IN_THIS_BUILD",
       "evidence_refs": [],
       "audit_bis": {
         "unresolved_original_target": "https://firmsfinder.eu/geo/"
-      }
+      },
+      "target_anchor": "intent-ff-geo-mof-035"
     },
     {
       "id": "FF-GEO-MOF-036",
@@ -1495,13 +1540,16 @@
       "entity_refs": [
         "https://firmsfinder.eu/#geo-diagnostic"
       ],
-      "target_pages": [],
+      "target_pages": [
+        "https://firmsfinder.eu/geo/ghid/#intent-ff-geo-mof-036"
+      ],
       "query_language": "ro-RO",
-      "semantic_status": "PROPOSED",
+      "semantic_status": "EDITORIAL_EXPLANATION_PUBLISHED_IN_THIS_BUILD",
       "evidence_refs": [],
       "audit_bis": {
         "unresolved_original_target": "https://firmsfinder.eu/geo/"
-      }
+      },
+      "target_anchor": "intent-ff-geo-mof-036"
     },
     {
       "id": "FF-GEO-MOF-037",
@@ -1513,13 +1561,16 @@
       "entity_refs": [
         "https://firmsfinder.eu/#geo-diagnostic"
       ],
-      "target_pages": [],
+      "target_pages": [
+        "https://firmsfinder.eu/geo/ghid/#intent-ff-geo-mof-037"
+      ],
       "query_language": "ro-RO",
-      "semantic_status": "PROPOSED",
+      "semantic_status": "EDITORIAL_EXPLANATION_PUBLISHED_IN_THIS_BUILD",
       "evidence_refs": [],
       "audit_bis": {
         "unresolved_original_target": "https://firmsfinder.eu/geo/"
-      }
+      },
+      "target_anchor": "intent-ff-geo-mof-037"
     },
     {
       "id": "FF-GEO-MOF-038",
@@ -1531,13 +1582,16 @@
       "entity_refs": [
         "https://firmsfinder.eu/#geo-diagnostic"
       ],
-      "target_pages": [],
+      "target_pages": [
+        "https://firmsfinder.eu/geo/ghid/#intent-ff-geo-mof-038"
+      ],
       "query_language": "ro-RO",
-      "semantic_status": "PROPOSED",
+      "semantic_status": "EDITORIAL_EXPLANATION_PUBLISHED_IN_THIS_BUILD",
       "evidence_refs": [],
       "audit_bis": {
         "unresolved_original_target": "https://firmsfinder.eu/geo/"
-      }
+      },
+      "target_anchor": "intent-ff-geo-mof-038"
     },
     {
       "id": "FF-GEO-MOF-039",
@@ -1549,13 +1603,16 @@
       "entity_refs": [
         "https://firmsfinder.eu/#aeo-diagnostic"
       ],
-      "target_pages": [],
+      "target_pages": [
+        "https://firmsfinder.eu/geo/ghid/#intent-ff-geo-mof-039"
+      ],
       "query_language": "ro-RO",
-      "semantic_status": "PROPOSED",
+      "semantic_status": "EDITORIAL_EXPLANATION_PUBLISHED_IN_THIS_BUILD",
       "evidence_refs": [],
       "audit_bis": {
         "unresolved_original_target": "https://firmsfinder.eu/aeo/"
-      }
+      },
+      "target_anchor": "intent-ff-geo-mof-039"
     },
     {
       "id": "FF-GEO-MOF-040",
@@ -1567,13 +1624,16 @@
       "entity_refs": [
         "https://firmsfinder.eu/#aeo-diagnostic"
       ],
-      "target_pages": [],
+      "target_pages": [
+        "https://firmsfinder.eu/geo/ghid/#intent-ff-geo-mof-040"
+      ],
       "query_language": "ro-RO",
-      "semantic_status": "PROPOSED",
+      "semantic_status": "EDITORIAL_EXPLANATION_PUBLISHED_IN_THIS_BUILD",
       "evidence_refs": [],
       "audit_bis": {
         "unresolved_original_target": "https://firmsfinder.eu/aeo/"
-      }
+      },
+      "target_anchor": "intent-ff-geo-mof-040"
     },
     {
       "id": "FF-GEO-MOF-041",
@@ -1585,13 +1645,16 @@
       "entity_refs": [
         "https://firmsfinder.eu/#aeo-diagnostic"
       ],
-      "target_pages": [],
+      "target_pages": [
+        "https://firmsfinder.eu/geo/ghid/#intent-ff-geo-mof-041"
+      ],
       "query_language": "ro-RO",
-      "semantic_status": "PROPOSED",
+      "semantic_status": "EDITORIAL_EXPLANATION_PUBLISHED_IN_THIS_BUILD",
       "evidence_refs": [],
       "audit_bis": {
         "unresolved_original_target": "https://firmsfinder.eu/aeo/"
-      }
+      },
+      "target_anchor": "intent-ff-geo-mof-041"
     },
     {
       "id": "FF-GEO-MOF-042",
@@ -1603,13 +1666,16 @@
       "entity_refs": [
         "https://firmsfinder.eu/#aeo-diagnostic"
       ],
-      "target_pages": [],
+      "target_pages": [
+        "https://firmsfinder.eu/geo/ghid/#intent-ff-geo-mof-042"
+      ],
       "query_language": "ro-RO",
-      "semantic_status": "PROPOSED",
+      "semantic_status": "EDITORIAL_EXPLANATION_PUBLISHED_IN_THIS_BUILD",
       "evidence_refs": [],
       "audit_bis": {
         "unresolved_original_target": "https://firmsfinder.eu/aeo/"
-      }
+      },
+      "target_anchor": "intent-ff-geo-mof-042"
     },
     {
       "id": "FF-GEO-MOF-043",
@@ -1621,13 +1687,16 @@
       "entity_refs": [
         "https://firmsfinder.eu/#aeo-diagnostic"
       ],
-      "target_pages": [],
+      "target_pages": [
+        "https://firmsfinder.eu/geo/ghid/#intent-ff-geo-mof-043"
+      ],
       "query_language": "ro-RO",
-      "semantic_status": "PROPOSED",
+      "semantic_status": "EDITORIAL_EXPLANATION_PUBLISHED_IN_THIS_BUILD",
       "evidence_refs": [],
       "audit_bis": {
         "unresolved_original_target": "https://firmsfinder.eu/aeo/"
-      }
+      },
+      "target_anchor": "intent-ff-geo-mof-043"
     },
     {
       "id": "FF-GEO-MOF-044",
@@ -1639,13 +1708,16 @@
       "entity_refs": [
         "https://firmsfinder.eu/#aeo-diagnostic"
       ],
-      "target_pages": [],
+      "target_pages": [
+        "https://firmsfinder.eu/geo/ghid/#intent-ff-geo-mof-044"
+      ],
       "query_language": "ro-RO",
-      "semantic_status": "PROPOSED",
+      "semantic_status": "EDITORIAL_EXPLANATION_PUBLISHED_IN_THIS_BUILD",
       "evidence_refs": [],
       "audit_bis": {
         "unresolved_original_target": "https://firmsfinder.eu/aeo/"
-      }
+      },
+      "target_anchor": "intent-ff-geo-mof-044"
     },
     {
       "id": "FF-GEO-MOF-045",
@@ -2303,13 +2375,16 @@
       "entity_refs": [
         "https://firmsfinder.eu/#geo-diagnostic"
       ],
-      "target_pages": [],
+      "target_pages": [
+        "https://firmsfinder.eu/geo/ghid/#intent-ff-geo-bof-033"
+      ],
       "query_language": "ro-RO",
-      "semantic_status": "PROPOSED",
+      "semantic_status": "EDITORIAL_EXPLANATION_PUBLISHED_IN_THIS_BUILD",
       "evidence_refs": [],
       "audit_bis": {
         "unresolved_original_target": "https://firmsfinder.eu/geo/"
-      }
+      },
+      "target_anchor": "intent-ff-geo-bof-033"
     },
     {
       "id": "FF-GEO-BOF-034",
@@ -2321,13 +2396,16 @@
       "entity_refs": [
         "https://firmsfinder.eu/#geo-diagnostic"
       ],
-      "target_pages": [],
+      "target_pages": [
+        "https://firmsfinder.eu/geo/ghid/#intent-ff-geo-bof-034"
+      ],
       "query_language": "ro-RO",
-      "semantic_status": "PROPOSED",
+      "semantic_status": "EDITORIAL_EXPLANATION_PUBLISHED_IN_THIS_BUILD",
       "evidence_refs": [],
       "audit_bis": {
         "unresolved_original_target": "https://firmsfinder.eu/geo/"
-      }
+      },
+      "target_anchor": "intent-ff-geo-bof-034"
     },
     {
       "id": "FF-GEO-BOF-035",
@@ -2339,13 +2417,16 @@
       "entity_refs": [
         "https://firmsfinder.eu/#geo-diagnostic"
       ],
-      "target_pages": [],
+      "target_pages": [
+        "https://firmsfinder.eu/geo/ghid/#intent-ff-geo-bof-035"
+      ],
       "query_language": "ro-RO",
-      "semantic_status": "PROPOSED",
+      "semantic_status": "EDITORIAL_EXPLANATION_PUBLISHED_IN_THIS_BUILD",
       "evidence_refs": [],
       "audit_bis": {
         "unresolved_original_target": "https://firmsfinder.eu/geo/"
-      }
+      },
+      "target_anchor": "intent-ff-geo-bof-035"
     },
     {
       "id": "FF-GEO-BOF-036",
@@ -2357,13 +2438,16 @@
       "entity_refs": [
         "https://firmsfinder.eu/#geo-diagnostic"
       ],
-      "target_pages": [],
+      "target_pages": [
+        "https://firmsfinder.eu/geo/ghid/#intent-ff-geo-bof-036"
+      ],
       "query_language": "ro-RO",
-      "semantic_status": "PROPOSED",
+      "semantic_status": "EDITORIAL_EXPLANATION_PUBLISHED_IN_THIS_BUILD",
       "evidence_refs": [],
       "audit_bis": {
         "unresolved_original_target": "https://firmsfinder.eu/geo/"
-      }
+      },
+      "target_anchor": "intent-ff-geo-bof-036"
     },
     {
       "id": "FF-GEO-BOF-037",
@@ -2375,13 +2459,16 @@
       "entity_refs": [
         "https://firmsfinder.eu/#geo-diagnostic"
       ],
-      "target_pages": [],
+      "target_pages": [
+        "https://firmsfinder.eu/geo/ghid/#intent-ff-geo-bof-037"
+      ],
       "query_language": "ro-RO",
-      "semantic_status": "PROPOSED",
+      "semantic_status": "EDITORIAL_EXPLANATION_PUBLISHED_IN_THIS_BUILD",
       "evidence_refs": [],
       "audit_bis": {
         "unresolved_original_target": "https://firmsfinder.eu/geo/"
-      }
+      },
+      "target_anchor": "intent-ff-geo-bof-037"
     },
     {
       "id": "FF-GEO-BOF-038",
@@ -2393,13 +2480,16 @@
       "entity_refs": [
         "https://firmsfinder.eu/#geo-diagnostic"
       ],
-      "target_pages": [],
+      "target_pages": [
+        "https://firmsfinder.eu/geo/ghid/#intent-ff-geo-bof-038"
+      ],
       "query_language": "ro-RO",
-      "semantic_status": "PROPOSED",
+      "semantic_status": "EDITORIAL_EXPLANATION_PUBLISHED_IN_THIS_BUILD",
       "evidence_refs": [],
       "audit_bis": {
         "unresolved_original_target": "https://firmsfinder.eu/geo/"
-      }
+      },
+      "target_anchor": "intent-ff-geo-bof-038"
     },
     {
       "id": "FF-GEO-BOF-039",
@@ -2411,13 +2501,16 @@
       "entity_refs": [
         "https://firmsfinder.eu/#aeo-diagnostic"
       ],
-      "target_pages": [],
+      "target_pages": [
+        "https://firmsfinder.eu/geo/ghid/#intent-ff-geo-bof-039"
+      ],
       "query_language": "ro-RO",
-      "semantic_status": "PROPOSED",
+      "semantic_status": "EDITORIAL_EXPLANATION_PUBLISHED_IN_THIS_BUILD",
       "evidence_refs": [],
       "audit_bis": {
         "unresolved_original_target": "https://firmsfinder.eu/aeo/"
-      }
+      },
+      "target_anchor": "intent-ff-geo-bof-039"
     },
     {
       "id": "FF-GEO-BOF-040",
@@ -2429,13 +2522,16 @@
       "entity_refs": [
         "https://firmsfinder.eu/#aeo-diagnostic"
       ],
-      "target_pages": [],
+      "target_pages": [
+        "https://firmsfinder.eu/geo/ghid/#intent-ff-geo-bof-040"
+      ],
       "query_language": "ro-RO",
-      "semantic_status": "PROPOSED",
+      "semantic_status": "EDITORIAL_EXPLANATION_PUBLISHED_IN_THIS_BUILD",
       "evidence_refs": [],
       "audit_bis": {
         "unresolved_original_target": "https://firmsfinder.eu/aeo/"
-      }
+      },
+      "target_anchor": "intent-ff-geo-bof-040"
     },
     {
       "id": "FF-GEO-BOF-041",
@@ -2447,13 +2543,16 @@
       "entity_refs": [
         "https://firmsfinder.eu/#aeo-diagnostic"
       ],
-      "target_pages": [],
+      "target_pages": [
+        "https://firmsfinder.eu/geo/ghid/#intent-ff-geo-bof-041"
+      ],
       "query_language": "ro-RO",
-      "semantic_status": "PROPOSED",
+      "semantic_status": "EDITORIAL_EXPLANATION_PUBLISHED_IN_THIS_BUILD",
       "evidence_refs": [],
       "audit_bis": {
         "unresolved_original_target": "https://firmsfinder.eu/aeo/"
-      }
+      },
+      "target_anchor": "intent-ff-geo-bof-041"
     },
     {
       "id": "FF-GEO-BOF-042",
@@ -2465,13 +2564,16 @@
       "entity_refs": [
         "https://firmsfinder.eu/#aeo-diagnostic"
       ],
-      "target_pages": [],
+      "target_pages": [
+        "https://firmsfinder.eu/geo/ghid/#intent-ff-geo-bof-042"
+      ],
       "query_language": "ro-RO",
-      "semantic_status": "PROPOSED",
+      "semantic_status": "EDITORIAL_EXPLANATION_PUBLISHED_IN_THIS_BUILD",
       "evidence_refs": [],
       "audit_bis": {
         "unresolved_original_target": "https://firmsfinder.eu/aeo/"
-      }
+      },
+      "target_anchor": "intent-ff-geo-bof-042"
     },
     {
       "id": "FF-GEO-BOF-043",
@@ -2483,13 +2585,16 @@
       "entity_refs": [
         "https://firmsfinder.eu/#aeo-diagnostic"
       ],
-      "target_pages": [],
+      "target_pages": [
+        "https://firmsfinder.eu/geo/ghid/#intent-ff-geo-bof-043"
+      ],
       "query_language": "ro-RO",
-      "semantic_status": "PROPOSED",
+      "semantic_status": "EDITORIAL_EXPLANATION_PUBLISHED_IN_THIS_BUILD",
       "evidence_refs": [],
       "audit_bis": {
         "unresolved_original_target": "https://firmsfinder.eu/aeo/"
-      }
+      },
+      "target_anchor": "intent-ff-geo-bof-043"
     },
     {
       "id": "FF-GEO-BOF-044",
@@ -2501,13 +2606,16 @@
       "entity_refs": [
         "https://firmsfinder.eu/#aeo-diagnostic"
       ],
-      "target_pages": [],
+      "target_pages": [
+        "https://firmsfinder.eu/geo/ghid/#intent-ff-geo-bof-044"
+      ],
       "query_language": "ro-RO",
-      "semantic_status": "PROPOSED",
+      "semantic_status": "EDITORIAL_EXPLANATION_PUBLISHED_IN_THIS_BUILD",
       "evidence_refs": [],
       "audit_bis": {
         "unresolved_original_target": "https://firmsfinder.eu/aeo/"
-      }
+      },
+      "target_anchor": "intent-ff-geo-bof-044"
     },
     {
       "id": "FF-GEO-BOF-045",
@@ -2613,12 +2721,10 @@
     }
   ],
   "validation": {
-    "json_syntax": "NOT_TESTED",
-    "unique_ids": "NOT_TESTED",
-    "cluster_refs_resolved": "NOT_TESTED",
-    "entity_refs_resolved": "NOT_TESTED",
-    "target_pages_reachable": "NOT_TESTED",
-    "semantic_review": "REQUIRED"
+    "total": 150,
+    "unmapped": 0,
+    "new_explanations": 36,
+    "publication": "NOT_VERIFIED"
   },
   "audit_bis": {
     "note": "Eliminate referintele catre /geo/ si /aeo/ fara dovada de pagina HTML; /cauta/ devine /cautare/. Verificarea HTTP ramane UNKNOWN.",

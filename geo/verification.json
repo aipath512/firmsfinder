@@ -1,6 +1,6 @@
 {
   "schema": "FIRMSFINDER_GEO_VERIFICATION",
-  "version": "2.4",
+  "version": "FINAL-2026-10-13",
   "generated_at": "2026-10-13",
   "website": "https://firmsfinder.eu",
   "publisher": "AiVenture S.R.L.",
@@ -9,7 +9,7 @@
     "GEO60"
   ],
   "status": "LOCAL_STATIC_VALIDATION_PUBLIC_UNKNOWN",
-  "purpose": "Registru de integritate locala pentru 23 fisiere GEO. Nu demonstreaza publicarea sau citarea AI.",
+  "purpose": "Local inventory; hash self-reference omitted; live verification required.",
   "scope": {
     "expected_files": 23,
     "local_files_audited": [
@@ -57,11 +57,9 @@
       "local_json_syntax": "PASS",
       "local_bytes": 44902,
       "local_sha256": "0db7598d45eedb0c3d5b5eac3146aaace88826f6c4a441487fde9f574a06241b",
-      "public_http_status": null,
-      "public_content_type": null,
-      "public_sha256": null,
       "public_status": "UNKNOWN",
-      "cloudflare_deployment_id": null
+      "public_http_status": null,
+      "public_content_type": null
     },
     {
       "number": 2,
@@ -71,11 +69,9 @@
       "local_json_syntax": "PASS",
       "local_bytes": 16890,
       "local_sha256": "2652db85a3df15c2915912faf9d323d6c50ca8b9fcaf7f1e8f26a06ccd9506a9",
-      "public_http_status": null,
-      "public_content_type": null,
-      "public_sha256": null,
       "public_status": "UNKNOWN",
-      "cloudflare_deployment_id": null
+      "public_http_status": null,
+      "public_content_type": null
     },
     {
       "number": 3,
@@ -85,11 +81,9 @@
       "local_json_syntax": "PASS",
       "local_bytes": 11028,
       "local_sha256": "038db21c8a4db45733588e3929da4f56f617d867ac60540081dfc51584218f1e",
-      "public_http_status": null,
-      "public_content_type": null,
-      "public_sha256": null,
       "public_status": "UNKNOWN",
-      "cloudflare_deployment_id": null
+      "public_http_status": null,
+      "public_content_type": null
     },
     {
       "number": 4,
@@ -99,11 +93,9 @@
       "local_json_syntax": "PASS",
       "local_bytes": 10589,
       "local_sha256": "7d7923b714c6b06786967f187c2675b133302cf9e6afdabf211bde00136e93ec",
-      "public_http_status": null,
-      "public_content_type": null,
-      "public_sha256": null,
       "public_status": "UNKNOWN",
-      "cloudflare_deployment_id": null
+      "public_http_status": null,
+      "public_content_type": null
     },
     {
       "number": 5,
@@ -113,11 +105,9 @@
       "local_json_syntax": "PASS",
       "local_bytes": 15298,
       "local_sha256": "bdbfefb2b4032f2e9847f68602770cc58d0fc4b1a09b5e0487a7ef1c28935aaa",
-      "public_http_status": null,
-      "public_content_type": null,
-      "public_sha256": null,
       "public_status": "UNKNOWN",
-      "cloudflare_deployment_id": null
+      "public_http_status": null,
+      "public_content_type": null
     },
     {
       "number": 6,
@@ -125,13 +115,11 @@
       "public_url": "https://firmsfinder.eu/geo/dataset.json",
       "local_status": "PASS",
       "local_json_syntax": "PASS",
-      "local_bytes": 1561,
-      "local_sha256": "e699f38a9f3f5c6c8684ad9d780e2c65c4105ab59bdfba51a07f43e112ab6057",
-      "public_http_status": null,
-      "public_content_type": null,
-      "public_sha256": null,
+      "local_bytes": 1437,
+      "local_sha256": "63440bb8162c2134c35d49320ab111f423210ffaed26bf42bcb00fd9d38fd7c7",
       "public_status": "UNKNOWN",
-      "cloudflare_deployment_id": null
+      "public_http_status": null,
+      "public_content_type": null
     },
     {
       "number": 7,
@@ -141,11 +129,9 @@
       "local_json_syntax": "PASS",
       "local_bytes": 9057,
       "local_sha256": "d134a428097b9244a5803503bfdc55780ec8c47637abd7bce19c3ac2c97c65aa",
-      "public_http_status": null,
-      "public_content_type": null,
-      "public_sha256": null,
       "public_status": "UNKNOWN",
-      "cloudflare_deployment_id": null
+      "public_http_status": null,
+      "public_content_type": null
     },
     {
       "number": 8,
@@ -155,11 +141,9 @@
       "local_json_syntax": "PASS",
       "local_bytes": 43163,
       "local_sha256": "75d546ffad83ebc7eee6510fb4f57ae7dc6eac213d56e1ce645bf3da82f641e8",
-      "public_http_status": null,
-      "public_content_type": null,
-      "public_sha256": null,
       "public_status": "UNKNOWN",
-      "cloudflare_deployment_id": null
+      "public_http_status": null,
+      "public_content_type": null
     },
     {
       "number": 9,
@@ -169,11 +153,9 @@
       "local_json_syntax": "PASS",
       "local_bytes": 22809,
       "local_sha256": "792a8e9c2a73ee8e1bd7d1d97e8b3e7d281ed346e61d839fc64e08eff280eeb6",
-      "public_http_status": null,
-      "public_content_type": null,
-      "public_sha256": null,
       "public_status": "UNKNOWN",
-      "cloudflare_deployment_id": null
+      "public_http_status": null,
+      "public_content_type": null
     },
     {
       "number": 10,
@@ -183,11 +165,9 @@
       "local_json_syntax": "PASS",
       "local_bytes": 21323,
       "local_sha256": "286016b94e27ce439d9dbab0b3ffc1ea406368ecbf046e59e5b7d7d3a1f69ff4",
-      "public_http_status": null,
-      "public_content_type": null,
-      "public_sha256": null,
       "public_status": "UNKNOWN",
-      "cloudflare_deployment_id": null
+      "public_http_status": null,
+      "public_content_type": null
     },
     {
       "number": 11,
@@ -197,11 +177,9 @@
       "local_json_syntax": "PASS",
       "local_bytes": 16107,
       "local_sha256": "d81a529603ab26014541da8612c777372a65c837db0833e6fb4470c871ff22d4",
-      "public_http_status": null,
-      "public_content_type": null,
-      "public_sha256": null,
       "public_status": "UNKNOWN",
-      "cloudflare_deployment_id": null
+      "public_http_status": null,
+      "public_content_type": null
     },
     {
       "number": 12,
@@ -211,11 +189,9 @@
       "local_json_syntax": "PASS",
       "local_bytes": 25293,
       "local_sha256": "5321d68dc9ee8401ffc8f320a651610f90931379de76e59d2982fd57d2b65bdf",
-      "public_http_status": null,
-      "public_content_type": null,
-      "public_sha256": null,
       "public_status": "UNKNOWN",
-      "cloudflare_deployment_id": null
+      "public_http_status": null,
+      "public_content_type": null
     },
     {
       "number": 13,
@@ -223,13 +199,11 @@
       "public_url": "https://firmsfinder.eu/geo/intents.json",
       "local_status": "PASS",
       "local_json_syntax": "PASS",
-      "local_bytes": 74974,
-      "local_sha256": "3868027e9308f4a308467d8c7c917855f959c95978d26671dbf83da2a0f638bb",
-      "public_http_status": null,
-      "public_content_type": null,
-      "public_sha256": null,
+      "local_bytes": 80512,
+      "local_sha256": "81054c7b0ea277a9d135959fbb6589d57b7ff1511504f8aa365ce02e39db9293",
       "public_status": "UNKNOWN",
-      "cloudflare_deployment_id": null
+      "public_http_status": null,
+      "public_content_type": null
     },
     {
       "number": 14,
@@ -239,11 +213,9 @@
       "local_json_syntax": "PASS",
       "local_bytes": 10295,
       "local_sha256": "4e23e115138046db7c533e63f26e205b4b4a2294c732679c71b450bf3c27a227",
-      "public_http_status": null,
-      "public_content_type": null,
-      "public_sha256": null,
       "public_status": "UNKNOWN",
-      "cloudflare_deployment_id": null
+      "public_http_status": null,
+      "public_content_type": null
     },
     {
       "number": 15,
@@ -251,14 +223,11 @@
       "public_url": "https://firmsfinder.eu/geo/manifest.json",
       "local_status": "PASS",
       "local_json_syntax": "PASS",
-      "local_bytes": 1866,
-      "local_sha256": "86c4a15e656652d2f432bded1350aaf51bc3cc711750b753e2845ba616af6687",
-      "public_http_status": null,
-      "public_content_type": null,
-      "public_sha256": null,
+      "local_bytes": 1888,
+      "local_sha256": "12df11eed8d9659489c194324a7c5cfe6aa023dac19a2cb731906e088ee28279",
       "public_status": "UNKNOWN",
-      "cloudflare_deployment_id": null,
-      "hash_note": "Self-referential or manifest dependency; compute in external release manifest after final packaging"
+      "public_http_status": null,
+      "public_content_type": null
     },
     {
       "number": 16,
@@ -268,11 +237,9 @@
       "local_json_syntax": "PASS",
       "local_bytes": 24381,
       "local_sha256": "27cb220d1c6c51a4f9615b9ed5628c91920ef808f90292234623e170d8015a0e",
-      "public_http_status": null,
-      "public_content_type": null,
-      "public_sha256": null,
       "public_status": "UNKNOWN",
-      "cloudflare_deployment_id": null
+      "public_http_status": null,
+      "public_content_type": null
     },
     {
       "number": 17,
@@ -282,11 +249,9 @@
       "local_json_syntax": "PASS",
       "local_bytes": 4267,
       "local_sha256": "f036e73548a041382a33ad55c61d51eab20a7140ca4bdefc3733f790ca80280c",
-      "public_http_status": null,
-      "public_content_type": null,
-      "public_sha256": null,
       "public_status": "UNKNOWN",
-      "cloudflare_deployment_id": null
+      "public_http_status": null,
+      "public_content_type": null
     },
     {
       "number": 18,
@@ -296,11 +261,9 @@
       "local_json_syntax": "PASS",
       "local_bytes": 18268,
       "local_sha256": "6d1a37b5826c96ad9b24f5f4b35a96aecc6aa2ee2cee95e2af817e9ac7dce37e",
-      "public_http_status": null,
-      "public_content_type": null,
-      "public_sha256": null,
       "public_status": "UNKNOWN",
-      "cloudflare_deployment_id": null
+      "public_http_status": null,
+      "public_content_type": null
     },
     {
       "number": 19,
@@ -310,11 +273,9 @@
       "local_json_syntax": "PASS",
       "local_bytes": 61102,
       "local_sha256": "098080634dfe86eb6b176bdc3c5d9b7e3d5270250bf17487884ebc009ac7e408",
-      "public_http_status": null,
-      "public_content_type": null,
-      "public_sha256": null,
       "public_status": "UNKNOWN",
-      "cloudflare_deployment_id": null
+      "public_http_status": null,
+      "public_content_type": null
     },
     {
       "number": 20,
@@ -324,11 +285,9 @@
       "local_json_syntax": "PASS",
       "local_bytes": 13683,
       "local_sha256": "b232905f94c088e817c594ddf4ffa70e0d2d59ecca3f91573c29d8897ff86471",
-      "public_http_status": null,
-      "public_content_type": null,
-      "public_sha256": null,
       "public_status": "UNKNOWN",
-      "cloudflare_deployment_id": null
+      "public_http_status": null,
+      "public_content_type": null
     },
     {
       "number": 21,
@@ -338,11 +297,9 @@
       "local_json_syntax": "PASS",
       "local_bytes": 14493,
       "local_sha256": "3e4c31581205abc96173aea66730dae31097f1950b5e6807759442b05058f859",
-      "public_http_status": null,
-      "public_content_type": null,
-      "public_sha256": null,
       "public_status": "UNKNOWN",
-      "cloudflare_deployment_id": null
+      "public_http_status": null,
+      "public_content_type": null
     },
     {
       "number": 22,
@@ -352,11 +309,9 @@
       "local_json_syntax": "PASS",
       "local_bytes": 10302,
       "local_sha256": "0c75bf366945744c92845ad73cb6e27ad8515ec41d0aaa8f2db2c624d3b5b2c8",
-      "public_http_status": null,
-      "public_content_type": null,
-      "public_sha256": null,
       "public_status": "UNKNOWN",
-      "cloudflare_deployment_id": null
+      "public_http_status": null,
+      "public_content_type": null
     },
     {
       "number": 23,
@@ -366,12 +321,9 @@
       "local_json_syntax": "PASS",
       "local_bytes": 17038,
       "local_sha256": null,
-      "public_http_status": null,
-      "public_content_type": null,
-      "public_sha256": null,
       "public_status": "UNKNOWN",
-      "cloudflare_deployment_id": null,
-      "hash_note": "Self-referential or manifest dependency; compute in external release manifest after final packaging"
+      "public_http_status": null,
+      "public_content_type": null
     }
   ],
   "verification_gates": [
@@ -516,6 +468,5 @@
     "html_identity_pages_modified": 12,
     "claim_placeholders_not_approved": 14,
     "uncovered_intents": 36
-  },
-  "integrity_note_v24": "verification.json self-hash intentionally null to avoid recursive checksum; manifest and other file hashes are locally computed."
+  }
 }
