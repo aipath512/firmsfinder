@@ -1,0 +1,864 @@
+{
+  "schema": "FIRMSFINDER_GEO_GLOSSARY",
+  "version": "1.0.0",
+  "generated_at": "2026-10-13",
+  "website": "https://firmsfinder.eu/",
+  "publisher": "AiVenture S.R.L.",
+  "language": "ro-RO",
+  "status": "draft_not_verified",
+  "signal_ids": [
+    "GEO31"
+  ],
+  "scope_note": "Dicționar semantic editorial propus. Nu certifică implementarea aplicației sau verificarea externă a definițiilor.",
+  "references": {
+    "entities": "/geo/entities.json",
+    "topic_clusters": "/geo/topic-clusters.json",
+    "semantic_keywords": "/geo/semantic-keywords.json",
+    "claims": "/geo/claims.json",
+    "evidence": "/geo/evidence.json",
+    "knowledge_graph": "/geo/knowledge-graph.json"
+  },
+  "terms": [
+    {
+      "id": "TERM-001",
+      "term": "Firmă",
+      "category": "Organizație",
+      "definition": "Entitate economică identificabilă prin date de registru; statutul juridic și starea activității trebuie verificate la sursa și data indicate.",
+      "synonyms": [
+        "companie",
+        "întreprindere"
+      ],
+      "not_synonyms": [
+        "persoană fizică fără context economic"
+      ],
+      "entity_id": null,
+      "topic_cluster_ids": [
+        "TC-001"
+      ],
+      "language": "ro-RO",
+      "definition_status": "editorial_draft",
+      "source_urls": [],
+      "evidence_ids": [],
+      "verified_at": null,
+      "concept_id": "FF-CONCEPT-001"
+    },
+    {
+      "id": "TERM-002",
+      "term": "Activitate economică",
+      "category": "Clasificare",
+      "definition": "Tip de activitate desfășurată sau declarată de o firmă; o activitate declarată nu dovedește executarea sa curentă.",
+      "synonyms": [
+        "activitate CAEN"
+      ],
+      "not_synonyms": [],
+      "entity_id": null,
+      "topic_cluster_ids": [
+        "TC-003"
+      ],
+      "language": "ro-RO",
+      "definition_status": "editorial_draft",
+      "source_urls": [],
+      "evidence_ids": [],
+      "verified_at": null,
+      "concept_id": "FF-CONCEPT-002"
+    },
+    {
+      "id": "TERM-003",
+      "term": "Cod CAEN",
+      "category": "Clasificare",
+      "definition": "Cod de clasificare a activităților economice din România; interpretarea trebuie să precizeze revizia aplicabilă.",
+      "synonyms": [
+        "cod de activitate"
+      ],
+      "not_synonyms": [
+        "cod fiscal",
+        "CUI"
+      ],
+      "entity_id": null,
+      "topic_cluster_ids": [
+        "TC-002"
+      ],
+      "language": "ro-RO",
+      "definition_status": "editorial_draft",
+      "source_urls": [],
+      "evidence_ids": [],
+      "verified_at": null,
+      "concept_id": "FF-CONCEPT-003"
+    },
+    {
+      "id": "TERM-004",
+      "term": "CAEN Rev.3",
+      "category": "Clasificare",
+      "definition": "Revizia 3 a Clasificării activităților din economia națională; codurile și denumirile trebuie verificate față de nomenclatorul oficial.",
+      "synonyms": [
+        "CAEN 3"
+      ],
+      "not_synonyms": [
+        "CAEN Rev.2"
+      ],
+      "entity_id": null,
+      "topic_cluster_ids": [
+        "TC-002"
+      ],
+      "language": "ro-RO",
+      "definition_status": "editorial_draft",
+      "source_urls": [],
+      "evidence_ids": [],
+      "verified_at": null,
+      "concept_id": "FF-CONCEPT-003"
+    },
+    {
+      "id": "TERM-005",
+      "term": "Produs",
+      "category": "Ofertă",
+      "definition": "Bun material sau digital identificabil, care poate face obiectul unei oferte; existența ofertei trebuie probată separat de CAEN.",
+      "synonyms": [
+        "bun oferit"
+      ],
+      "not_synonyms": [
+        "activitate CAEN"
+      ],
+      "entity_id": null,
+      "topic_cluster_ids": [
+        "TC-004"
+      ],
+      "language": "ro-RO",
+      "definition_status": "editorial_draft",
+      "source_urls": [],
+      "evidence_ids": [],
+      "verified_at": null,
+      "concept_id": "FF-CONCEPT-004"
+    },
+    {
+      "id": "TERM-006",
+      "term": "Serviciu",
+      "category": "Ofertă",
+      "definition": "Prestație sau rezultat oferit unui beneficiar în condiții comerciale ori contractuale documentate.",
+      "synonyms": [
+        "prestație"
+      ],
+      "not_synonyms": [
+        "produs fizic"
+      ],
+      "entity_id": null,
+      "topic_cluster_ids": [
+        "TC-004"
+      ],
+      "language": "ro-RO",
+      "definition_status": "editorial_draft",
+      "source_urls": [],
+      "evidence_ids": [],
+      "verified_at": null,
+      "concept_id": "FF-CONCEPT-005"
+    },
+    {
+      "id": "TERM-007",
+      "term": "Ofertă comercială",
+      "category": "Ofertă",
+      "definition": "Declarație verificabilă privind un produs sau serviciu disponibil, cu condiții, sursă și dată de valabilitate dacă sunt cunoscute.",
+      "synonyms": [
+        "ofertă de produse",
+        "ofertă de servicii"
+      ],
+      "not_synonyms": [
+        "cod CAEN"
+      ],
+      "entity_id": null,
+      "topic_cluster_ids": [
+        "TC-004"
+      ],
+      "language": "ro-RO",
+      "definition_status": "editorial_draft",
+      "source_urls": [],
+      "evidence_ids": [],
+      "verified_at": null
+    },
+    {
+      "id": "TERM-008",
+      "term": "Producător",
+      "category": "Rol economic",
+      "definition": "Firmă care fabrică sau produce efectiv bunuri; clasificarea drept producător necesită dovezi despre activitatea reală.",
+      "synonyms": [
+        "fabricant"
+      ],
+      "not_synonyms": [
+        "distribuitor",
+        "importator",
+        "revânzător"
+      ],
+      "entity_id": null,
+      "topic_cluster_ids": [
+        "TC-003"
+      ],
+      "language": "ro-RO",
+      "definition_status": "editorial_draft",
+      "source_urls": [],
+      "evidence_ids": [],
+      "verified_at": null
+    },
+    {
+      "id": "TERM-009",
+      "term": "Distribuitor",
+      "category": "Rol economic",
+      "definition": "Actor care distribuie produse pe o piață; nu trebuie echivalat automat cu producătorul.",
+      "synonyms": [
+        "distribuție comercială"
+      ],
+      "not_synonyms": [
+        "producător"
+      ],
+      "entity_id": null,
+      "topic_cluster_ids": [
+        "TC-003"
+      ],
+      "language": "ro-RO",
+      "definition_status": "editorial_draft",
+      "source_urls": [],
+      "evidence_ids": [],
+      "verified_at": null
+    },
+    {
+      "id": "TERM-010",
+      "term": "Furnizor potențial",
+      "category": "Relație ipotetică",
+      "definition": "Firmă care ar putea furniza un produs sau serviciu relevant; potrivirea nu dovedește capacitate, disponibilitate ori contract.",
+      "synonyms": [
+        "furnizor candidat"
+      ],
+      "not_synonyms": [
+        "furnizor contractual confirmat"
+      ],
+      "entity_id": null,
+      "topic_cluster_ids": [
+        "TC-006"
+      ],
+      "language": "ro-RO",
+      "definition_status": "editorial_draft",
+      "source_urls": [],
+      "evidence_ids": [],
+      "verified_at": null,
+      "concept_id": "FF-CONCEPT-007"
+    },
+    {
+      "id": "TERM-011",
+      "term": "Client potențial",
+      "category": "Relație ipotetică",
+      "definition": "Firmă pentru care există indicii privind o posibilă nevoie relevantă pentru ofertă; nu este un client confirmat.",
+      "synonyms": [
+        "prospect B2B",
+        "cumpărător potențial"
+      ],
+      "not_synonyms": [
+        "client existent"
+      ],
+      "entity_id": null,
+      "topic_cluster_ids": [
+        "TC-005"
+      ],
+      "language": "ro-RO",
+      "definition_status": "editorial_draft",
+      "source_urls": [],
+      "evidence_ids": [],
+      "verified_at": null,
+      "concept_id": "FF-CONCEPT-006"
+    },
+    {
+      "id": "TERM-012",
+      "term": "Partener potențial",
+      "category": "Relație ipotetică",
+      "definition": "Organizație cu care poate exista complementaritate economică; parteneriatul efectiv necesită confirmare.",
+      "synonyms": [
+        "partener candidat"
+      ],
+      "not_synonyms": [
+        "partener contractual"
+      ],
+      "entity_id": null,
+      "topic_cluster_ids": [
+        "TC-007"
+      ],
+      "language": "ro-RO",
+      "definition_status": "editorial_draft",
+      "source_urls": [],
+      "evidence_ids": [],
+      "verified_at": null,
+      "concept_id": "FF-CONCEPT-008"
+    },
+    {
+      "id": "TERM-013",
+      "term": "Concurent potențial",
+      "category": "Relație ipotetică",
+      "definition": "Firmă care poate deservi aceeași nevoie sau piață; concurența trebuie analizată după ofertă și context, nu doar CAEN.",
+      "synonyms": [
+        "competitor candidat"
+      ],
+      "not_synonyms": [
+        "concurent confirmat"
+      ],
+      "entity_id": null,
+      "topic_cluster_ids": [
+        "TC-007"
+      ],
+      "language": "ro-RO",
+      "definition_status": "editorial_draft",
+      "source_urls": [],
+      "evidence_ids": [],
+      "verified_at": null,
+      "concept_id": "FF-CONCEPT-009"
+    },
+    {
+      "id": "TERM-014",
+      "term": "Relație ERE",
+      "category": "Model semantic",
+      "definition": "Tripletă Entitate–Relație–Entitate care descrie o legătură semantică, factuală sau ipotetică, cu direcție și proveniență.",
+      "synonyms": [
+        "tripletă semantică",
+        "subject-predicate-object"
+      ],
+      "not_synonyms": [],
+      "entity_id": null,
+      "topic_cluster_ids": [
+        "TC-005"
+      ],
+      "language": "ro-RO",
+      "definition_status": "editorial_draft",
+      "source_urls": [],
+      "evidence_ids": [],
+      "verified_at": null
+    },
+    {
+      "id": "TERM-015",
+      "term": "Cardinalitate",
+      "category": "Model semantic",
+      "definition": "Restricție privind numărul de entități asociabile unei relații: 0..1, 1..1, 0..N sau 1..N.",
+      "synonyms": [
+        "multiplicitate"
+      ],
+      "not_synonyms": [],
+      "entity_id": null,
+      "topic_cluster_ids": [
+        "TC-005"
+      ],
+      "language": "ro-RO",
+      "definition_status": "editorial_draft",
+      "source_urls": [],
+      "evidence_ids": [],
+      "verified_at": null
+    },
+    {
+      "id": "TERM-016",
+      "term": "Relație inversă",
+      "category": "Model semantic",
+      "definition": "Citirea aceleiași relații în sens opus; exemplu: firma oferă produs / produsul este oferit de firmă.",
+      "synonyms": [
+        "predicat invers"
+      ],
+      "not_synonyms": [],
+      "entity_id": null,
+      "topic_cluster_ids": [
+        "TC-005"
+      ],
+      "language": "ro-RO",
+      "definition_status": "editorial_draft",
+      "source_urls": [],
+      "evidence_ids": [],
+      "verified_at": null
+    },
+    {
+      "id": "TERM-017",
+      "term": "Knowledge Graph",
+      "category": "Model semantic",
+      "definition": "Reprezentare structurată a entităților și relațiilor lor, în care fiecare legătură poate avea tip, sursă și stare de verificare.",
+      "synonyms": [
+        "graf de cunoștințe"
+      ],
+      "not_synonyms": [
+        "listă simplă de firme"
+      ],
+      "entity_id": null,
+      "topic_cluster_ids": [
+        "TC-005"
+      ],
+      "language": "ro-RO",
+      "definition_status": "editorial_draft",
+      "source_urls": [],
+      "evidence_ids": [],
+      "verified_at": null,
+      "concept_id": "FF-CONCEPT-010"
+    },
+    {
+      "id": "TERM-018",
+      "term": "Potrivire economică",
+      "category": "Analiză",
+      "definition": "Evaluare a compatibilității dintre ofertă, nevoie, activitate și piață; rezultatul este o ipoteză până la validare.",
+      "synonyms": [
+        "matching B2B",
+        "compatibilitate comercială"
+      ],
+      "not_synonyms": [
+        "relație comercială confirmată"
+      ],
+      "entity_id": null,
+      "topic_cluster_ids": [
+        "TC-005",
+        "TC-006"
+      ],
+      "language": "ro-RO",
+      "definition_status": "editorial_draft",
+      "source_urls": [],
+      "evidence_ids": [],
+      "verified_at": null
+    },
+    {
+      "id": "TERM-019",
+      "term": "Explicația potrivirii",
+      "category": "Analiză",
+      "definition": "Argumente care arată de ce două entități au fost asociate, cu sursele și limitele fiecărei inferențe.",
+      "synonyms": [
+        "rationale",
+        "justificare"
+      ],
+      "not_synonyms": [],
+      "entity_id": null,
+      "topic_cluster_ids": [
+        "TC-005"
+      ],
+      "language": "ro-RO",
+      "definition_status": "editorial_draft",
+      "source_urls": [],
+      "evidence_ids": [],
+      "verified_at": null
+    },
+    {
+      "id": "TERM-020",
+      "term": "Dovadă",
+      "category": "Guvernanță",
+      "definition": "Artefact verificabil care susține o afirmație; trebuie identificat, datat și asociat cu o metodă de verificare.",
+      "synonyms": [
+        "evidence",
+        "probă"
+      ],
+      "not_synonyms": [
+        "afirmație neverificată"
+      ],
+      "entity_id": null,
+      "topic_cluster_ids": [
+        "TC-006"
+      ],
+      "language": "ro-RO",
+      "definition_status": "editorial_draft",
+      "source_urls": [],
+      "evidence_ids": [],
+      "verified_at": null
+    },
+    {
+      "id": "TERM-021",
+      "term": "Afirmație",
+      "category": "Guvernanță",
+      "definition": "Propoziție factuală ori funcțională susceptibilă de verificare; existența ei nu constituie dovadă.",
+      "synonyms": [
+        "claim"
+      ],
+      "not_synonyms": [
+        "dovadă"
+      ],
+      "entity_id": null,
+      "topic_cluster_ids": [
+        "TC-006"
+      ],
+      "language": "ro-RO",
+      "definition_status": "editorial_draft",
+      "source_urls": [],
+      "evidence_ids": [],
+      "verified_at": null
+    },
+    {
+      "id": "TERM-022",
+      "term": "Proveniență",
+      "category": "Guvernanță",
+      "definition": "Informații despre originea, autorul, momentul, licența și transformările unei surse sau înregistrări.",
+      "synonyms": [
+        "provenance",
+        "linie de proveniență"
+      ],
+      "not_synonyms": [],
+      "entity_id": null,
+      "topic_cluster_ids": [
+        "TC-006"
+      ],
+      "language": "ro-RO",
+      "definition_status": "editorial_draft",
+      "source_urls": [],
+      "evidence_ids": [],
+      "verified_at": null
+    },
+    {
+      "id": "TERM-023",
+      "term": "Verificare",
+      "category": "Guvernanță",
+      "definition": "Proces documentat prin care se confruntă o afirmație sau un rezultat cu surse și criterii de acceptare.",
+      "synonyms": [
+        "validare factuală"
+      ],
+      "not_synonyms": [
+        "publicare"
+      ],
+      "entity_id": null,
+      "topic_cluster_ids": [
+        "TC-006"
+      ],
+      "language": "ro-RO",
+      "definition_status": "editorial_draft",
+      "source_urls": [],
+      "evidence_ids": [],
+      "verified_at": null
+    },
+    {
+      "id": "TERM-024",
+      "term": "Căutare în limbaj natural",
+      "category": "Căutare",
+      "definition": "Formularea unei cereri prin expresii obișnuite, fără obligativitatea completării unor filtre tehnice.",
+      "synonyms": [
+        "interogare conversațională"
+      ],
+      "not_synonyms": [],
+      "entity_id": null,
+      "topic_cluster_ids": [
+        "TC-001"
+      ],
+      "language": "ro-RO",
+      "definition_status": "editorial_draft",
+      "source_urls": [],
+      "evidence_ids": [],
+      "verified_at": null
+    },
+    {
+      "id": "TERM-025",
+      "term": "Căutare semantică",
+      "category": "Căutare",
+      "definition": "Recuperare de rezultate după sensul cererii, nu numai după potrivirea literală a termenilor.",
+      "synonyms": [
+        "semantic search"
+      ],
+      "not_synonyms": [
+        "căutare strict lexicală"
+      ],
+      "entity_id": null,
+      "topic_cluster_ids": [
+        "TC-001"
+      ],
+      "language": "ro-RO",
+      "definition_status": "editorial_draft",
+      "source_urls": [],
+      "evidence_ids": [],
+      "verified_at": null
+    },
+    {
+      "id": "TERM-026",
+      "term": "RAG",
+      "category": "AI",
+      "definition": "Metodă de generare a răspunsurilor asistată de recuperarea informațiilor din surse; nu garantează corectitudinea răspunsului.",
+      "synonyms": [
+        "Retrieval-Augmented Generation"
+      ],
+      "not_synonyms": [],
+      "entity_id": null,
+      "topic_cluster_ids": [
+        "TC-007"
+      ],
+      "language": "ro-RO",
+      "definition_status": "editorial_draft",
+      "source_urls": [],
+      "evidence_ids": [],
+      "verified_at": null
+    },
+    {
+      "id": "TERM-027",
+      "term": "Citable chunk",
+      "category": "GEO",
+      "definition": "Fragment autonom, cu întrebare, răspuns și proveniență; caracterul citabil nu garantează citarea de către un motor AI.",
+      "synonyms": [
+        "fragment citabil"
+      ],
+      "not_synonyms": [],
+      "entity_id": null,
+      "topic_cluster_ids": [
+        "TC-006"
+      ],
+      "language": "ro-RO",
+      "definition_status": "editorial_draft",
+      "source_urls": [],
+      "evidence_ids": [],
+      "verified_at": null
+    },
+    {
+      "id": "TERM-028",
+      "term": "TOF",
+      "category": "Intenție",
+      "definition": "Top of Funnel: etapa de descoperire sau învățare înaintea evaluării unei soluții.",
+      "synonyms": [
+        "top of funnel"
+      ],
+      "not_synonyms": [],
+      "entity_id": null,
+      "topic_cluster_ids": [
+        "TC-007"
+      ],
+      "language": "ro-RO",
+      "definition_status": "editorial_draft",
+      "source_urls": [],
+      "evidence_ids": [],
+      "verified_at": null
+    },
+    {
+      "id": "TERM-029",
+      "term": "MOF",
+      "category": "Intenție",
+      "definition": "Middle of Funnel: etapa de comparare, evaluare și verificare a alternativelor.",
+      "synonyms": [
+        "middle of funnel"
+      ],
+      "not_synonyms": [],
+      "entity_id": null,
+      "topic_cluster_ids": [
+        "TC-007"
+      ],
+      "language": "ro-RO",
+      "definition_status": "editorial_draft",
+      "source_urls": [],
+      "evidence_ids": [],
+      "verified_at": null
+    },
+    {
+      "id": "TERM-030",
+      "term": "BOF",
+      "category": "Intenție",
+      "definition": "Bottom of Funnel: etapa în care utilizatorul solicită o acțiune concretă sau se apropie de o decizie.",
+      "synonyms": [
+        "bottom of funnel"
+      ],
+      "not_synonyms": [],
+      "entity_id": null,
+      "topic_cluster_ids": [
+        "TC-007"
+      ],
+      "language": "ro-RO",
+      "definition_status": "editorial_draft",
+      "source_urls": [],
+      "evidence_ids": [],
+      "verified_at": null
+    },
+    {
+      "id": "TERM-031",
+      "term": "Date oficiale",
+      "category": "Date",
+      "definition": "Date publicate de o autoritate competentă, cu limitele, actualitatea și condițiile de reutilizare ale sursei.",
+      "synonyms": [
+        "sursă oficială"
+      ],
+      "not_synonyms": [
+        "date derivate prezentate ca oficiale"
+      ],
+      "entity_id": null,
+      "topic_cluster_ids": [
+        "TC-001"
+      ],
+      "language": "ro-RO",
+      "definition_status": "editorial_draft",
+      "source_urls": [],
+      "evidence_ids": [],
+      "verified_at": null
+    },
+    {
+      "id": "TERM-032",
+      "term": "Date derivate",
+      "category": "Date",
+      "definition": "Date rezultate prin transformări, corelări sau inferențe din surse; nu devin oficiale prin simpla prelucrare.",
+      "synonyms": [
+        "date procesate"
+      ],
+      "not_synonyms": [
+        "date oficiale originale"
+      ],
+      "entity_id": null,
+      "topic_cluster_ids": [
+        "TC-008"
+      ],
+      "language": "ro-RO",
+      "definition_status": "editorial_draft",
+      "source_urls": [],
+      "evidence_ids": [],
+      "verified_at": null
+    },
+    {
+      "id": "TERM-033",
+      "term": "Firmă activă",
+      "category": "Date",
+      "definition": "Firmă care îndeplinește o definiție explicită a activității la o dată precizată; criteriul trebuie documentat.",
+      "synonyms": [
+        "societate activă"
+      ],
+      "not_synonyms": [
+        "firmă existentă juridic fără verificarea activității"
+      ],
+      "entity_id": null,
+      "topic_cluster_ids": [
+        "TC-001"
+      ],
+      "language": "ro-RO",
+      "definition_status": "editorial_draft",
+      "source_urls": [],
+      "evidence_ids": [],
+      "verified_at": null
+    },
+    {
+      "id": "TERM-034",
+      "term": "EU AI Act Ready",
+      "category": "Conformitate",
+      "definition": "Expresie de pregătire pentru cerințe relevante ale AI Act; nu echivalează prin ea însăși cu certificare sau conformitate demonstrată.",
+      "synonyms": [
+        "pregătire AI Act"
+      ],
+      "not_synonyms": [
+        "certificare oficială automată"
+      ],
+      "entity_id": null,
+      "topic_cluster_ids": [
+        "TC-007"
+      ],
+      "language": "ro-RO",
+      "definition_status": "editorial_draft",
+      "source_urls": [],
+      "evidence_ids": [],
+      "verified_at": null
+    },
+    {
+      "id": "TERM-035",
+      "term": "SHA-256",
+      "category": "Integritate",
+      "definition": "Funcție hash criptografică ce produce o amprentă pentru un conținut; integritatea nu demonstrează adevărul afirmației.",
+      "synonyms": [
+        "hash SHA-256"
+      ],
+      "not_synonyms": [],
+      "entity_id": null,
+      "topic_cluster_ids": [
+        "TC-006"
+      ],
+      "language": "ro-RO",
+      "definition_status": "editorial_draft",
+      "source_urls": [],
+      "evidence_ids": [],
+      "verified_at": null
+    },
+    {
+      "id": "TERM-036",
+      "term": "OpenTimestamps",
+      "category": "Integritate",
+      "definition": "Protocol de timestamping verificabil; o dovadă temporală nu certifică veridicitatea conținutului.",
+      "synonyms": [
+        "OTS"
+      ],
+      "not_synonyms": [],
+      "entity_id": null,
+      "topic_cluster_ids": [
+        "TC-006"
+      ],
+      "language": "ro-RO",
+      "definition_status": "editorial_draft",
+      "source_urls": [],
+      "evidence_ids": [],
+      "verified_at": null
+    }
+  ],
+  "relation_patterns": [
+    {
+      "id": "REL-001",
+      "subject": "Firmă",
+      "predicate": "desfășoară activitate",
+      "object": "Activitate economică",
+      "inverse": "este desfășurată de",
+      "subject_to_object": "0..N",
+      "object_to_subject": "0..N",
+      "relation_status": "model_rule",
+      "proof_requirement": "sursă despre activitate și dată"
+    },
+    {
+      "id": "REL-002",
+      "subject": "Activitate economică",
+      "predicate": "este clasificată prin",
+      "object": "Cod CAEN",
+      "inverse": "clasifică activitatea",
+      "subject_to_object": "0..N",
+      "object_to_subject": "0..N",
+      "relation_status": "classification_mapping",
+      "proof_requirement": "nomenclator oficial și revizie"
+    },
+    {
+      "id": "REL-003",
+      "subject": "Firmă",
+      "predicate": "oferă",
+      "object": "Produs",
+      "inverse": "este oferit de",
+      "subject_to_object": "0..N",
+      "object_to_subject": "0..N",
+      "relation_status": "requires_evidence",
+      "proof_requirement": "ofertă publică sau document verificabil"
+    },
+    {
+      "id": "REL-004",
+      "subject": "Firmă",
+      "predicate": "prestează",
+      "object": "Serviciu",
+      "inverse": "este prestat de",
+      "subject_to_object": "0..N",
+      "object_to_subject": "0..N",
+      "relation_status": "requires_evidence",
+      "proof_requirement": "descriere de serviciu și sursă"
+    },
+    {
+      "id": "REL-005",
+      "subject": "Firmă",
+      "predicate": "poate furniza către",
+      "object": "Firmă",
+      "inverse": "poate cumpăra de la",
+      "subject_to_object": "0..N",
+      "object_to_subject": "0..N",
+      "relation_status": "hypothesis_only",
+      "proof_requirement": "dovadă ofertă, nevoie și compatibilitate"
+    },
+    {
+      "id": "REL-006",
+      "subject": "Firmă",
+      "predicate": "poate concura cu",
+      "object": "Firmă",
+      "inverse": "poate concura cu",
+      "subject_to_object": "0..N",
+      "object_to_subject": "0..N",
+      "relation_status": "hypothesis_only",
+      "proof_requirement": "suprapunere demonstrabilă a ofertelor/piețelor"
+    }
+  ],
+  "semantic_rules": {
+    "do_not_infer_product_from_caen_alone": true,
+    "do_not_merge_manufacturer_with_distributor": true,
+    "do_not_present_potential_relation_as_contract": true,
+    "preserve_caen_revision": true,
+    "do_not_treat_hash_as_truth_proof": true,
+    "unverified_definitions_require_review": true
+  },
+  "validation": {
+    "expected_term_count": 36,
+    "expected_relation_pattern_count": 6,
+    "unique_ids_required": true,
+    "entity_ids_must_exist_in_entities_json": true,
+    "topic_cluster_ids_must_exist_in_topic_clusters_json": true,
+    "source_validation": "not_performed",
+    "deployment_status": "not_verified",
+    "entity_link_check": "pending_cross_file_validation; entity_id is null until matching entities.json IDs are assigned",
+    "local_json_syntax": "PASS",
+    "unique_term_ids": "PASS",
+    "relation_pattern_ids": "PASS",
+    "topic_cluster_link_check": "PASS_against_TC-001_to_TC-008_registry_ids; semantic_mapping_requires_review"
+  }
+}
