@@ -1,6 +1,6 @@
 {
   "schema": "FIRMSFINDER_ONSITE_SIGNAL",
-  "version": "1.0",
+  "version": "2.1",
   "signal_id": "ENTITIES",
   "signal_name": "Named entity catalogue",
   "site": "https://firmsfinder.eu/",
@@ -19,14 +19,28 @@
       "id": "https://firmsfinder.eu/#website",
       "type": "WebSite",
       "name": "FirmsFinder",
+      "url": "https://firmsfinder.eu/",
+      "publisher_ref": "https://aiventure.ro/#organization"
+    },
+    {
+      "id": "https://aiventure.ro/#organization",
+      "type": "Organization",
+      "name": "AiVenture S.R.L.",
+      "url": "https://aiventure.ro/",
+      "status": "SELF_DECLARED"
+    },
+    {
+      "id": "https://firmsfinder.eu/#brand",
+      "type": "Brand",
+      "name": "FirmsFinder",
       "url": "https://firmsfinder.eu/"
     },
     {
-      "id": "https://firmsfinder.eu/#organization",
-      "type": "Organization",
-      "name": "FirmsFinder",
-      "url": "https://firmsfinder.eu/",
-      "operator": "AiVenture S.R.L."
+      "id": "https://firmsfinder.eu/#software",
+      "type": "SoftwareApplication",
+      "name": "FirmsFinder AI",
+      "provider_ref": "https://aiventure.ro/#organization",
+      "brand_ref": "https://firmsfinder.eu/#brand"
     }
   ]
 }
