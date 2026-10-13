@@ -1,169 +1,199 @@
 {
   "schema": "FIRMSFINDER_GEO_CLAIMS_REGISTRY",
-  "version": "2.1",
+  "version": "2.2",
   "generated_at": "2026-10-13",
-  "status": "REFERENCES_RESOLVED_CONTENT_UNVERIFIED",
+  "status": "ALL_15_CANDIDATE_STATEMENTS_LINKED_NONE_VERIFIED",
   "site": "https://firmsfinder.eu/",
   "claims": [
     {
       "id": "CL-001",
-      "statement": null,
-      "status": "requires_definition_and_evidence",
+      "statement": "FirmsFinder este o platforma pentru descoperirea firmelor si oportunitatilor B2B.",
+      "status": "CANDIDATE_NOT_VERIFIED",
       "risk": "unassessed",
       "source_chunk_ids": [
         "CH-001"
       ],
-      "evidence_refs": [],
+      "evidence_refs": [
+        "EV-001"
+      ],
       "publication": {
         "approved": false,
         "approved_by": null,
         "approved_at": null
       },
-      "note": "ID rezervat pentru reconciliere; nu reprezinta o afirmatie validata."
+      "note": "Text recuperat din registrul existent; nu constituie dovada si nu este aprobat pentru publicare.",
+      "statement_origin": "geo/evidence.json evidence_records[].claim_statement (editorial candidate, not proven)"
     },
     {
       "id": "CL-002",
-      "statement": null,
-      "status": "requires_definition_and_evidence",
+      "statement": "FirmsFinder permite cautarea firmelor folosind limbaj natural.",
+      "status": "CANDIDATE_NOT_VERIFIED",
       "risk": "unassessed",
       "source_chunk_ids": [
         "CH-002"
       ],
-      "evidence_refs": [],
+      "evidence_refs": [
+        "EV-002"
+      ],
       "publication": {
         "approved": false,
         "approved_by": null,
         "approved_at": null
       },
-      "note": "ID rezervat pentru reconciliere; nu reprezinta o afirmatie validata."
+      "note": "Text recuperat din registrul existent; nu constituie dovada si nu este aprobat pentru publicare.",
+      "statement_origin": "geo/evidence.json evidence_records[].claim_statement (editorial candidate, not proven)"
     },
     {
       "id": "CL-003",
-      "statement": null,
-      "status": "requires_definition_and_evidence",
+      "statement": "FirmsFinder urmareste identificarea potentialilor clienti B2B.",
+      "status": "CANDIDATE_NOT_VERIFIED",
       "risk": "unassessed",
       "source_chunk_ids": [
         "CH-003"
       ],
-      "evidence_refs": [],
+      "evidence_refs": [
+        "EV-003"
+      ],
       "publication": {
         "approved": false,
         "approved_by": null,
         "approved_at": null
       },
-      "note": "ID rezervat pentru reconciliere; nu reprezinta o afirmatie validata."
+      "note": "Text recuperat din registrul existent; nu constituie dovada si nu este aprobat pentru publicare.",
+      "statement_origin": "geo/evidence.json evidence_records[].claim_statement (editorial candidate, not proven)"
     },
     {
       "id": "CL-004",
-      "statement": null,
-      "status": "requires_definition_and_evidence",
+      "statement": "FirmsFinder urmareste identificarea furnizorilor potentiali.",
+      "status": "CANDIDATE_NOT_VERIFIED",
       "risk": "unassessed",
       "source_chunk_ids": [
         "CH-004"
       ],
-      "evidence_refs": [],
+      "evidence_refs": [
+        "EV-004"
+      ],
       "publication": {
         "approved": false,
         "approved_by": null,
         "approved_at": null
       },
-      "note": "ID rezervat pentru reconciliere; nu reprezinta o afirmatie validata."
+      "note": "Text recuperat din registrul existent; nu constituie dovada si nu este aprobat pentru publicare.",
+      "statement_origin": "geo/evidence.json evidence_records[].claim_statement (editorial candidate, not proven)"
     },
     {
       "id": "CL-005",
-      "statement": null,
-      "status": "requires_definition_and_evidence",
+      "statement": "FirmsFinder urmareste identificarea partenerilor potentiali.",
+      "status": "CANDIDATE_NOT_VERIFIED",
       "risk": "unassessed",
       "source_chunk_ids": [
         "CH-005"
       ],
-      "evidence_refs": [],
+      "evidence_refs": [
+        "EV-005"
+      ],
       "publication": {
         "approved": false,
         "approved_by": null,
         "approved_at": null
       },
-      "note": "ID rezervat pentru reconciliere; nu reprezinta o afirmatie validata."
+      "note": "Text recuperat din registrul existent; nu constituie dovada si nu este aprobat pentru publicare.",
+      "statement_origin": "geo/evidence.json evidence_records[].claim_statement (editorial candidate, not proven)"
     },
     {
       "id": "CL-006",
-      "statement": null,
-      "status": "requires_definition_and_evidence",
+      "statement": "FirmsFinder foloseste clasificarea CAEN Rev.3 ca reper semantic pentru activitati economice.",
+      "status": "CANDIDATE_NOT_VERIFIED",
       "risk": "unassessed",
       "source_chunk_ids": [
         "CH-006"
       ],
-      "evidence_refs": [],
+      "evidence_refs": [
+        "EV-006"
+      ],
       "publication": {
         "approved": false,
         "approved_by": null,
         "approved_at": null
       },
-      "note": "ID rezervat pentru reconciliere; nu reprezinta o afirmatie validata."
+      "note": "Text recuperat din registrul existent; nu constituie dovada si nu este aprobat pentru publicare.",
+      "statement_origin": "geo/evidence.json evidence_records[].claim_statement (editorial candidate, not proven)"
     },
     {
       "id": "CL-007",
-      "statement": null,
-      "status": "requires_definition_and_evidence",
+      "statement": "Un cod CAEN clasifica o activitate economica; singur nu demonstreaza existenta unui anumit produs comercializat.",
+      "status": "CANDIDATE_NOT_VERIFIED",
       "risk": "unassessed",
       "source_chunk_ids": [
         "CH-007"
       ],
-      "evidence_refs": [],
+      "evidence_refs": [
+        "EV-007"
+      ],
       "publication": {
         "approved": false,
         "approved_by": null,
         "approved_at": null
       },
-      "note": "ID rezervat pentru reconciliere; nu reprezinta o afirmatie validata."
+      "note": "Text recuperat din registrul existent; nu constituie dovada si nu este aprobat pentru publicare.",
+      "statement_origin": "geo/evidence.json evidence_records[].claim_statement (editorial candidate, not proven)"
     },
     {
       "id": "CL-008",
-      "statement": null,
-      "status": "requires_definition_and_evidence",
+      "statement": "O potrivire comerciala potentiala nu constituie dovada unei relatii comerciale existente.",
+      "status": "CANDIDATE_NOT_VERIFIED",
       "risk": "unassessed",
       "source_chunk_ids": [
         "CH-008"
       ],
-      "evidence_refs": [],
+      "evidence_refs": [
+        "EV-008"
+      ],
       "publication": {
         "approved": false,
         "approved_by": null,
         "approved_at": null
       },
-      "note": "ID rezervat pentru reconciliere; nu reprezinta o afirmatie validata."
+      "note": "Text recuperat din registrul existent; nu constituie dovada si nu este aprobat pentru publicare.",
+      "statement_origin": "geo/evidence.json evidence_records[].claim_statement (editorial candidate, not proven)"
     },
     {
       "id": "CL-009",
-      "statement": null,
-      "status": "requires_definition_and_evidence",
+      "statement": "Datele oficiale pot fi consultate gratuit la institutiile publice competente, in limitele accesului oferit de fiecare institutie.",
+      "status": "CANDIDATE_NOT_VERIFIED",
       "risk": "unassessed",
       "source_chunk_ids": [
         "CH-009"
       ],
-      "evidence_refs": [],
+      "evidence_refs": [
+        "EV-009"
+      ],
       "publication": {
         "approved": false,
         "approved_by": null,
         "approved_at": null
       },
-      "note": "ID rezervat pentru reconciliere; nu reprezinta o afirmatie validata."
+      "note": "Text recuperat din registrul existent; nu constituie dovada si nu este aprobat pentru publicare.",
+      "statement_origin": "geo/evidence.json evidence_records[].claim_statement (editorial candidate, not proven)"
     },
     {
       "id": "CL-010",
-      "statement": null,
-      "status": "requires_definition_and_evidence",
+      "statement": "FirmsFinder ofera acces gratuit la cautarea de baza.",
+      "status": "CANDIDATE_NOT_VERIFIED",
       "risk": "unassessed",
       "source_chunk_ids": [
         "CH-010"
       ],
-      "evidence_refs": [],
+      "evidence_refs": [
+        "EV-010"
+      ],
       "publication": {
         "approved": false,
         "approved_by": null,
         "approved_at": null
       },
-      "note": "ID rezervat pentru reconciliere; nu reprezinta o afirmatie validata."
+      "note": "Text recuperat din registrul existent; nu constituie dovada si nu este aprobat pentru publicare.",
+      "statement_origin": "geo/evidence.json evidence_records[].claim_statement (editorial candidate, not proven)"
     },
     {
       "id": "CL-011",
@@ -184,78 +214,95 @@
         "captured_at": null,
         "sha256": null
       },
-      "status": "requires_evidence",
+      "status": "CANDIDATE_NOT_VERIFIED",
       "risk": "high",
       "publication": {
         "approved": false,
         "approved_by": null,
         "approved_at": null
       },
-      "notes": "Declaratia nu este verificata independent; nu o prezenta drept fapt confirmat."
+      "notes": "Declaratia nu este verificata independent; nu o prezenta drept fapt confirmat.",
+      "statement_origin": "geo/evidence.json evidence_records[].claim_statement (editorial candidate, not proven)",
+      "evidence_refs": [
+        "EV-011"
+      ],
+      "note": "Text recuperat din registrul existent; nu constituie dovada si nu este aprobat pentru publicare."
     },
     {
       "id": "CL-012",
-      "statement": null,
-      "status": "requires_definition_and_evidence",
+      "statement": "FirmsFinder ofera recomandari explicabile prin legaturi intre firme, activitati, produse si piete.",
+      "status": "CANDIDATE_NOT_VERIFIED",
       "risk": "unassessed",
       "source_chunk_ids": [
         "CH-012"
       ],
-      "evidence_refs": [],
+      "evidence_refs": [
+        "EV-012"
+      ],
       "publication": {
         "approved": false,
         "approved_by": null,
         "approved_at": null
       },
-      "note": "ID rezervat pentru reconciliere; nu reprezinta o afirmatie validata."
+      "note": "Text recuperat din registrul existent; nu constituie dovada si nu este aprobat pentru publicare.",
+      "statement_origin": "geo/evidence.json evidence_records[].claim_statement (editorial candidate, not proven)"
     },
     {
       "id": "CL-013",
-      "statement": null,
-      "status": "requires_definition_and_evidence",
+      "statement": "FirmsFinder permite delegarea cercetarii catre agenti AI.",
+      "status": "CANDIDATE_NOT_VERIFIED",
       "risk": "unassessed",
       "source_chunk_ids": [
         "CH-013"
       ],
-      "evidence_refs": [],
+      "evidence_refs": [
+        "EV-013"
+      ],
       "publication": {
         "approved": false,
         "approved_by": null,
         "approved_at": null
       },
-      "note": "ID rezervat pentru reconciliere; nu reprezinta o afirmatie validata."
+      "note": "Text recuperat din registrul existent; nu constituie dovada si nu este aprobat pentru publicare.",
+      "statement_origin": "geo/evidence.json evidence_records[].claim_statement (editorial candidate, not proven)"
     },
     {
       "id": "CL-014",
-      "statement": null,
-      "status": "requires_definition_and_evidence",
+      "statement": "AiVenture S.R.L. este editorul platformei FirmsFinder.",
+      "status": "CANDIDATE_NOT_VERIFIED",
       "risk": "unassessed",
       "source_chunk_ids": [
         "CH-014"
       ],
-      "evidence_refs": [],
+      "evidence_refs": [
+        "EV-014"
+      ],
       "publication": {
         "approved": false,
         "approved_by": null,
         "approved_at": null
       },
-      "note": "ID rezervat pentru reconciliere; nu reprezinta o afirmatie validata."
+      "note": "Text recuperat din registrul existent; nu constituie dovada si nu este aprobat pentru publicare.",
+      "statement_origin": "geo/evidence.json evidence_records[].claim_statement (editorial candidate, not proven)"
     },
     {
       "id": "CL-015",
-      "statement": null,
-      "status": "requires_definition_and_evidence",
-      "risk": "unassessed",
+      "statement": "FirmsFinder asigura conformitatea cu EU AI Act.",
+      "status": "CANDIDATE_NOT_VERIFIED",
+      "risk": "high",
       "source_chunk_ids": [
         "CH-015"
       ],
-      "evidence_refs": [],
+      "evidence_refs": [
+        "EV-015"
+      ],
       "publication": {
         "approved": false,
         "approved_by": null,
         "approved_at": null
       },
-      "note": "ID rezervat pentru reconciliere; nu reprezinta o afirmatie validata."
+      "note": "Text recuperat din registrul existent; nu constituie dovada si nu este aprobat pentru publicare. Afirmatia de conformitate EU AI Act NU trebuie publicata ca fapt fara evaluare documentata.",
+      "statement_origin": "geo/evidence.json evidence_records[].claim_statement (editorial candidate, not proven)"
     }
   ],
   "policy": {
@@ -267,5 +314,11 @@
     "claim_ids_resolved": 15,
     "defined_claims": 1,
     "placeholders_unapproved": 14
+  },
+  "reconciliation": {
+    "source": "existing geo/evidence.json, no newly invented statements",
+    "candidate_count": 15,
+    "verified_count": 0,
+    "approved_count": 0
   }
 }
