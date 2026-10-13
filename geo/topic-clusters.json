@@ -1,0 +1,357 @@
+
+{
+  "schema_version": "1.0",
+  "methodology": "FirmsFinder GEO V3.1",
+  "artifact": "topic-clusters",
+  "site": "https://firmsfinder.eu/",
+  "publisher": "AiVenture S.R.L.",
+  "language": "ro-RO",
+  "generated_at": null,
+  "status": "DRAFT_REQUIRES_VERIFICATION",
+  "cluster_count": 8,
+  "cluster_model": {
+    "hierarchy": "pillar_topic_subtopic",
+    "intent_funnel": [
+      "TOF",
+      "MOF",
+      "BOF"
+    ],
+    "relationship_model": "entity_relation_entity",
+    "canonical_policy": "verify_before_publication",
+    "evidence_policy": "no_unverified_claims"
+  },
+  "clusters": [
+    {
+      "id": "TC-001",
+      "name": "Descoperirea firmelor",
+      "pillar": "Identificarea firmelor relevante",
+      "description": "Cautarea firmelor dupa activitate, locatie si caracteristici economice.",
+      "entity_refs": [
+        "https://firmsfinder.eu/#software",
+        "https://firmsfinder.eu/#caen"
+      ],
+      "topics": [
+        "Cautare firme din Romania",
+        "Firme active",
+        "Cautare dupa cod CAEN",
+        "Cautare dupa judet",
+        "Cautare in limbaj natural"
+      ],
+      "intents": [
+        {
+          "id": "TC-001-I01",
+          "funnel": "TOF",
+          "query": "Cum gasesc firme din Romania?"
+        },
+        {
+          "id": "TC-001-I02",
+          "funnel": "MOF",
+          "query": "Cum gasesc firme dupa activitate si judet?"
+        },
+        {
+          "id": "TC-001-I03",
+          "funnel": "BOF",
+          "query": "Cauta firme relevante pentru oferta mea."
+        }
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/cauta/"
+      ],
+      "page_status": "REQUIRES_VERIFICATION",
+      "evidence_refs": []
+    },
+    {
+      "id": "TC-002",
+      "name": "Identificarea clientilor B2B",
+      "pillar": "Descoperirea oportunitatilor comerciale",
+      "description": "Identificarea firmelor care ar putea avea nevoie de anumite produse sau servicii.",
+      "entity_refs": [
+        "https://firmsfinder.eu/#software",
+        "https://firmsfinder.eu/#economic-intelligence"
+      ],
+      "topics": [
+        "Clienti potentiali",
+        "Prospectare B2B",
+        "Potrivirea oferta-cerere",
+        "Segmente de piata",
+        "Argumentarea oportunitatilor"
+      ],
+      "intents": [
+        {
+          "id": "TC-002-I01",
+          "funnel": "TOF",
+          "query": "Cum identific clienti potentiali B2B?"
+        },
+        {
+          "id": "TC-002-I02",
+          "funnel": "MOF",
+          "query": "Ce firme ar putea cumpara produsele mele?"
+        },
+        {
+          "id": "TC-002-I03",
+          "funnel": "BOF",
+          "query": "Identifica potentiali clienti si explica potrivirea."
+        }
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "page_status": "REQUIRES_VERIFICATION",
+      "evidence_refs": []
+    },
+    {
+      "id": "TC-003",
+      "name": "Furnizori si parteneri",
+      "pillar": "Relatii economice intre firme",
+      "description": "Identificarea furnizorilor, distribuitorilor si partenerilor potentiali.",
+      "entity_refs": [
+        "https://firmsfinder.eu/#software",
+        "https://firmsfinder.eu/#ere"
+      ],
+      "topics": [
+        "Furnizori potentiali",
+        "Distribuitori",
+        "Parteneriate comerciale",
+        "Lanturi de aprovizionare",
+        "Complementaritate economica"
+      ],
+      "intents": [
+        {
+          "id": "TC-003-I01",
+          "funnel": "TOF",
+          "query": "Cum gasesc furnizori pentru firma mea?"
+        },
+        {
+          "id": "TC-003-I02",
+          "funnel": "MOF",
+          "query": "Ce distribuitori se potrivesc produselor mele?"
+        },
+        {
+          "id": "TC-003-I03",
+          "funnel": "BOF",
+          "query": "Gaseste parteneri si explica relatia economica."
+        }
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "page_status": "REQUIRES_VERIFICATION",
+      "evidence_refs": []
+    },
+    {
+      "id": "TC-004",
+      "name": "CAEN si clasificarea activitatilor",
+      "pillar": "Intelegerea activitatilor economice",
+      "description": "Utilizarea clasificarii CAEN pentru organizarea activitatilor si identificarea relatiilor economice posibile.",
+      "entity_refs": [
+        "https://firmsfinder.eu/#caen",
+        "https://firmsfinder.eu/#ere"
+      ],
+      "topics": [
+        "Structura CAEN",
+        "Activitati economice",
+        "Producatori si furnizori",
+        "Activitati complementare",
+        "Relatii intre coduri CAEN"
+      ],
+      "intents": [
+        {
+          "id": "TC-004-I01",
+          "funnel": "TOF",
+          "query": "Ce inseamna un cod CAEN?"
+        },
+        {
+          "id": "TC-004-I02",
+          "funnel": "MOF",
+          "query": "Cum identific activitati economice complementare?"
+        },
+        {
+          "id": "TC-004-I03",
+          "funnel": "BOF",
+          "query": "Identifica firme cu activitati CAEN relevante."
+        }
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "page_status": "REQUIRES_VERIFICATION",
+      "evidence_refs": []
+    },
+    {
+      "id": "TC-005",
+      "name": "Knowledge Graph si ERE",
+      "pillar": "Modelarea relatiilor economice",
+      "description": "Reprezentarea relatiilor dintre firme, activitati, produse, servicii si piete.",
+      "entity_refs": [
+        "https://firmsfinder.eu/#ere",
+        "https://firmsfinder.eu/#economic-intelligence"
+      ],
+      "topics": [
+        "Entitate-relatie-entitate",
+        "Knowledge Graph",
+        "Relatii bidirectionale",
+        "Cardinalitati",
+        "Inferente economice"
+      ],
+      "intents": [
+        {
+          "id": "TC-005-I01",
+          "funnel": "TOF",
+          "query": "Ce este un knowledge graph economic?"
+        },
+        {
+          "id": "TC-005-I02",
+          "funnel": "MOF",
+          "query": "Cum se leaga activitatile CAEN de produse?"
+        },
+        {
+          "id": "TC-005-I03",
+          "funnel": "BOF",
+          "query": "Explica relatiile dintre firme si piete."
+        }
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "page_status": "REQUIRES_VERIFICATION",
+      "evidence_refs": []
+    },
+    {
+      "id": "TC-006",
+      "name": "GEO si vizibilitatea AI",
+      "pillar": "Pregatirea continutului pentru AI Search",
+      "description": "Diagnosticarea semnalelor GEO si pregatirea artefactelor semantice verificabile.",
+      "entity_refs": [
+        "https://firmsfinder.eu/#geo-diagnostic",
+        "https://firmsfinder.eu/#geo-generator",
+        "https://firmsfinder.eu/#geo-monitor"
+      ],
+      "topics": [
+        "GEO Diagnostic",
+        "GEO File Generator",
+        "GEO Readiness",
+        "Fragmente citabile",
+        "Dovezi verificabile",
+        "Monitorizare GEO"
+      ],
+      "intents": [
+        {
+          "id": "TC-006-I01",
+          "funnel": "TOF",
+          "query": "Ce este GEO?"
+        },
+        {
+          "id": "TC-006-I02",
+          "funnel": "MOF",
+          "query": "Cum verific pregatirea unui site pentru AI Search?"
+        },
+        {
+          "id": "TC-006-I03",
+          "funnel": "BOF",
+          "query": "Genereaza fisiere GEO pentru site-ul meu."
+        }
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/geo/"
+      ],
+      "page_status": "REQUIRES_VERIFICATION",
+      "evidence_refs": []
+    },
+    {
+      "id": "TC-007",
+      "name": "AEO si AIO",
+      "pillar": "Optimizarea continutului pentru raspunsuri AI",
+      "description": "Organizarea raspunsurilor si a semnalelor tehnice si semantice pentru sisteme AI.",
+      "entity_refs": [
+        "https://firmsfinder.eu/#aeo-diagnostic",
+        "https://firmsfinder.eu/#aio-diagnostic"
+      ],
+      "topics": [
+        "Answer Engine Optimization",
+        "AI Optimization",
+        "FAQ",
+        "Intentii de cautare",
+        "Date structurate",
+        "Raspunsuri directe"
+      ],
+      "intents": [
+        {
+          "id": "TC-007-I01",
+          "funnel": "TOF",
+          "query": "Ce inseamna AEO si AIO?"
+        },
+        {
+          "id": "TC-007-I02",
+          "funnel": "MOF",
+          "query": "Cum pregatesc paginile pentru raspunsuri AI?"
+        },
+        {
+          "id": "TC-007-I03",
+          "funnel": "BOF",
+          "query": "Evalueaza semnalele AEO si AIO ale site-ului."
+        }
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/aeo/",
+        "https://firmsfinder.eu/aio/"
+      ],
+      "page_status": "REQUIRES_VERIFICATION",
+      "evidence_refs": []
+    },
+    {
+      "id": "TC-008",
+      "name": "Date gratuite si inteligenta platita",
+      "pillar": "Modelul economic FirmsFinder",
+      "description": "Separarea accesului gratuit la datele oficiale publice de serviciile de interpretare si inteligenta economica.",
+      "entity_refs": [
+        "https://firmsfinder.eu/#free-data",
+        "https://firmsfinder.eu/#economic-intelligence"
+      ],
+      "topics": [
+        "Date oficiale publice",
+        "Acces gratuit",
+        "Inteligenta economica",
+        "Analiza avansata",
+        "Automatizare AI",
+        "Servicii cu abonament"
+      ],
+      "intents": [
+        {
+          "id": "TC-008-I01",
+          "funnel": "TOF",
+          "query": "Unde gasesc gratuit date despre firme?"
+        },
+        {
+          "id": "TC-008-I02",
+          "funnel": "MOF",
+          "query": "Care este diferenta dintre date si inteligenta economica?"
+        },
+        {
+          "id": "TC-008-I03",
+          "funnel": "BOF",
+          "query": "Ce servicii de inteligenta economica pot cumpara?"
+        }
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/",
+        "https://firmsfinder.eu/cauta/"
+      ],
+      "page_status": "REQUIRES_VERIFICATION",
+      "evidence_refs": []
+    }
+  ],
+  "integrity": {
+    "hash_algorithm": "SHA-256",
+    "sha256": null,
+    "timestamp_proof": null,
+    "verification_status": "NOT_VERIFIED"
+  },
+  "validation": {
+    "json_syntax": "NOT_TESTED",
+    "cluster_ids_unique": "NOT_TESTED",
+    "intent_ids_unique": "NOT_TESTED",
+    "entity_refs_resolved": "NOT_TESTED",
+    "target_pages_reachable": "NOT_TESTED",
+    "semantic_review": "REQUIRED"
+  }
+}
