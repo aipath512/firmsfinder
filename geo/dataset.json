@@ -1,0 +1,40 @@
+{
+  "schema": "FIRMSFINDER_GEO_DATASET_METADATA",
+  "version": "2.4",
+  "generated_at": "2026-10-13",
+  "status": "SELF_DECLARED_NOT_RUNTIME_VERIFIED",
+  "schema_org": {
+    "@type": "Dataset",
+    "@id": "https://firmsfinder.eu/#dataset",
+    "name": "FirmsFinder — catalog de firme și activități economice din România",
+    "description": "Catalog utilizat pentru explorarea firmelor, activităților CAEN și potrivirilor B2B. Acoperirea, data ultimului import și actualitatea înregistrărilor nu sunt validate public în acest document.",
+    "url": "https://firmsfinder.eu/surse/",
+    "inLanguage": "ro-RO",
+    "creator": {
+      "@id": "https://aiventure.ro/#organization"
+    },
+    "publisher": {
+      "@id": "https://aiventure.ro/#organization"
+    },
+    "isAccessibleForFree": true,
+    "measurementTechnique": "Informații despre firme și activități, cu verificarea sursei și a ediției CAEN la nivelul înregistrării",
+    "citation": [
+      "https://www.onrc.ro/",
+      "https://mfinante.gov.ro/"
+    ],
+    "distribution": [
+      {
+        "@type": "DataDownload",
+        "name": "Metadate despre surse și proveniență (nu exportul bazei de date)",
+        "encodingFormat": "application/json",
+        "contentUrl": "https://firmsfinder.eu/source-provenance.json"
+      }
+    ]
+  },
+  "coverage": {
+    "active_companies_count": null,
+    "as_of": null,
+    "source_import_verified": false
+  },
+  "caveat": "Metadate declarative; nu demonstreaza accesul la baza de date, provenienta fiecarei inregistrari sau citari AI."
+}

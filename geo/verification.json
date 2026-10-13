@@ -1,6 +1,6 @@
 {
   "schema": "FIRMSFINDER_GEO_VERIFICATION",
-  "version": "2.1",
+  "version": "2.4",
   "generated_at": "2026-10-13",
   "website": "https://firmsfinder.eu",
   "publisher": "AiVenture S.R.L.",
@@ -9,9 +9,9 @@
     "GEO60"
   ],
   "status": "LOCAL_STATIC_VALIDATION_PUBLIC_UNKNOWN",
-  "purpose": "Registru de integritate locala pentru 22 fisiere GEO. Nu demonstreaza publicarea sau citarea AI.",
+  "purpose": "Registru de integritate locala pentru 23 fisiere GEO. Nu demonstreaza publicarea sau citarea AI.",
   "scope": {
-    "expected_files": 22,
+    "expected_files": 23,
     "local_files_audited": [
       1,
       2,
@@ -34,7 +34,8 @@
       19,
       20,
       21,
-      22
+      22,
+      23
     ],
     "missing_local_files": [],
     "network_checks_performed": false,
@@ -120,6 +121,20 @@
     },
     {
       "number": 6,
+      "path": "geo/dataset.json",
+      "public_url": "https://firmsfinder.eu/geo/dataset.json",
+      "local_status": "PASS",
+      "local_json_syntax": "PASS",
+      "local_bytes": 1561,
+      "local_sha256": "e699f38a9f3f5c6c8684ad9d780e2c65c4105ab59bdfba51a07f43e112ab6057",
+      "public_http_status": null,
+      "public_content_type": null,
+      "public_sha256": null,
+      "public_status": "UNKNOWN",
+      "cloudflare_deployment_id": null
+    },
+    {
+      "number": 7,
       "path": "geo/entities.json",
       "public_url": "https://firmsfinder.eu/geo/entities.json",
       "local_status": "PASS",
@@ -133,7 +148,7 @@
       "cloudflare_deployment_id": null
     },
     {
-      "number": 7,
+      "number": 8,
       "path": "geo/ere-dictionary.json",
       "public_url": "https://firmsfinder.eu/geo/ere-dictionary.json",
       "local_status": "PASS",
@@ -147,7 +162,7 @@
       "cloudflare_deployment_id": null
     },
     {
-      "number": 8,
+      "number": 9,
       "path": "geo/evidence.json",
       "public_url": "https://firmsfinder.eu/geo/evidence.json",
       "local_status": "PASS",
@@ -161,7 +176,7 @@
       "cloudflare_deployment_id": null
     },
     {
-      "number": 9,
+      "number": 10,
       "path": "geo/experiments.json",
       "public_url": "https://firmsfinder.eu/geo/experiments.json",
       "local_status": "PASS",
@@ -175,7 +190,7 @@
       "cloudflare_deployment_id": null
     },
     {
-      "number": 10,
+      "number": 11,
       "path": "geo/external-corroboration.json",
       "public_url": "https://firmsfinder.eu/geo/external-corroboration.json",
       "local_status": "PASS",
@@ -189,7 +204,7 @@
       "cloudflare_deployment_id": null
     },
     {
-      "number": 11,
+      "number": 12,
       "path": "geo/glossary.json",
       "public_url": "https://firmsfinder.eu/geo/glossary.json",
       "local_status": "PASS",
@@ -203,7 +218,7 @@
       "cloudflare_deployment_id": null
     },
     {
-      "number": 12,
+      "number": 13,
       "path": "geo/intents.json",
       "public_url": "https://firmsfinder.eu/geo/intents.json",
       "local_status": "PASS",
@@ -217,7 +232,7 @@
       "cloudflare_deployment_id": null
     },
     {
-      "number": 13,
+      "number": 14,
       "path": "geo/knowledge-graph.json",
       "public_url": "https://firmsfinder.eu/geo/knowledge-graph.json",
       "local_status": "PASS",
@@ -231,13 +246,13 @@
       "cloudflare_deployment_id": null
     },
     {
-      "number": 14,
+      "number": 15,
       "path": "geo/manifest.json",
       "public_url": "https://firmsfinder.eu/geo/manifest.json",
       "local_status": "PASS",
       "local_json_syntax": "PASS",
-      "local_bytes": 1710,
-      "local_sha256": "94c88c03e351131d51d05b4b996a0f08b6b73f912e0e5c1033a8dceaeb9a352c",
+      "local_bytes": 1866,
+      "local_sha256": "86c4a15e656652d2f432bded1350aaf51bc3cc711750b753e2845ba616af6687",
       "public_http_status": null,
       "public_content_type": null,
       "public_sha256": null,
@@ -246,7 +261,7 @@
       "hash_note": "Self-referential or manifest dependency; compute in external release manifest after final packaging"
     },
     {
-      "number": 15,
+      "number": 16,
       "path": "geo/observations.json",
       "public_url": "https://firmsfinder.eu/geo/observations.json",
       "local_status": "PASS",
@@ -260,7 +275,7 @@
       "cloudflare_deployment_id": null
     },
     {
-      "number": 16,
+      "number": 17,
       "path": "geo/proprietary-data.json",
       "public_url": "https://firmsfinder.eu/geo/proprietary-data.json",
       "local_status": "PASS",
@@ -274,7 +289,7 @@
       "cloudflare_deployment_id": null
     },
     {
-      "number": 17,
+      "number": 18,
       "path": "geo/rag-metadata.json",
       "public_url": "https://firmsfinder.eu/geo/rag-metadata.json",
       "local_status": "PASS",
@@ -288,7 +303,7 @@
       "cloudflare_deployment_id": null
     },
     {
-      "number": 18,
+      "number": 19,
       "path": "geo/reference-set.json",
       "public_url": "https://firmsfinder.eu/geo/reference-set.json",
       "local_status": "PASS",
@@ -302,7 +317,7 @@
       "cloudflare_deployment_id": null
     },
     {
-      "number": 19,
+      "number": 20,
       "path": "geo/scorecard.json",
       "public_url": "https://firmsfinder.eu/geo/scorecard.json",
       "local_status": "PASS",
@@ -316,7 +331,7 @@
       "cloudflare_deployment_id": null
     },
     {
-      "number": 20,
+      "number": 21,
       "path": "geo/semantic-keywords.json",
       "public_url": "https://firmsfinder.eu/geo/semantic-keywords.json",
       "local_status": "PASS",
@@ -330,7 +345,7 @@
       "cloudflare_deployment_id": null
     },
     {
-      "number": 21,
+      "number": 22,
       "path": "geo/topic-clusters.json",
       "public_url": "https://firmsfinder.eu/geo/topic-clusters.json",
       "local_status": "PASS",
@@ -344,12 +359,12 @@
       "cloudflare_deployment_id": null
     },
     {
-      "number": 22,
+      "number": 23,
       "path": "geo/verification.json",
       "public_url": "https://firmsfinder.eu/geo/verification.json",
-      "local_status": "SELF_REFERENTIAL_HASH_OMITTED",
+      "local_status": "PASS",
       "local_json_syntax": "PASS",
-      "local_bytes": null,
+      "local_bytes": 17038,
       "local_sha256": null,
       "public_http_status": null,
       "public_content_type": null,
@@ -501,5 +516,6 @@
     "html_identity_pages_modified": 12,
     "claim_placeholders_not_approved": 14,
     "uncovered_intents": 36
-  }
+  },
+  "integrity_note_v24": "verification.json self-hash intentionally null to avoid recursive checksum; manifest and other file hashes are locally computed."
 }

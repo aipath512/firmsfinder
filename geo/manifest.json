@@ -14,6 +14,7 @@
     "https://firmsfinder.eu/geo/claims.json",
     "https://firmsfinder.eu/geo/consistency-manifest.json",
     "https://firmsfinder.eu/geo/corrections.json",
+    "https://firmsfinder.eu/geo/dataset.json",
     "https://firmsfinder.eu/geo/entities.json",
     "https://firmsfinder.eu/geo/ere-dictionary.json",
     "https://firmsfinder.eu/geo/evidence.json",
@@ -38,9 +39,10 @@
     "scope": "local ZIP only",
     "public_verified": false
   },
-  "version": "2.1",
+  "version": "2.4",
   "audit_v21": {
     "local_artifacts": 22,
     "public_verification": "UNKNOWN"
-  }
+  },
+  "dataset_registry_note": "geo/dataset.json is metadata, not a database export or proof of source imports"
 }
