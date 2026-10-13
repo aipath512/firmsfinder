@@ -1,0 +1,1383 @@
+{
+  "schema": "FIRMSFINDER_ERE_DICTIONARY",
+  "version": "1.0.0",
+  "generated_at": "2026-10-13",
+  "site": "https://firmsfinder.eu/",
+  "publisher": "AiVenture S.R.L.",
+  "language": "ro-RO",
+  "status": "GENERATED_NOT_DEPLOYED_NOT_RUNTIME_VERIFIED",
+  "scope": "Dicționar de metamodel ERE; nu conține firme reale sau relații comerciale confirmate.",
+  "source_basis": [
+    {
+      "file": "geo/glossary.json",
+      "role": "36 termeni și definiții editoriale"
+    },
+    {
+      "file": "geo/knowledge-graph.json",
+      "role": "Tipuri de noduri, relații, inverse și cardinalități"
+    }
+  ],
+  "model": {
+    "notation": "ERE",
+    "entity_types": [
+      {
+        "term_id": "TERM-001",
+        "name": "Firmă",
+        "topic_cluster_ids": [
+          "TC-001"
+        ],
+        "concept_id": "FF-CONCEPT-001",
+        "definition": "Entitate economică identificabilă prin date de registru; statutul juridic și starea activității trebuie verificate la sursa și data indicate.",
+        "attributes": [
+          {
+            "name": "company_id",
+            "type": "string",
+            "description": "Identificator intern stabil",
+            "cardinality": "1..1",
+            "source_status": "proposed_schema"
+          },
+          {
+            "name": "cui",
+            "type": "string|null",
+            "description": "CUI dacă este disponibil și confirmat",
+            "cardinality": "0..1",
+            "source_status": "proposed_schema"
+          },
+          {
+            "name": "denumire",
+            "type": "string",
+            "description": "Denumire asociată sursei",
+            "cardinality": "1..1",
+            "source_status": "proposed_schema"
+          },
+          {
+            "name": "status_activitate",
+            "type": "string|null",
+            "description": "Stare cu dată și proveniență",
+            "cardinality": "0..1",
+            "source_status": "proposed_schema"
+          },
+          {
+            "name": "source_ids",
+            "type": "array[string]",
+            "description": "Surse pentru datele declarate",
+            "cardinality": "0..N",
+            "source_status": "proposed_schema"
+          }
+        ],
+        "instance_count": null,
+        "runtime_status": "NOT_VERIFIED"
+      },
+      {
+        "term_id": "TERM-002",
+        "name": "Activitate economică",
+        "topic_cluster_ids": [
+          "TC-004"
+        ],
+        "concept_id": "FF-CONCEPT-002",
+        "definition": "Tip de activitate desfășurată sau declarată de o firmă; o activitate declarată nu dovedește executarea sa curentă.",
+        "attributes": [
+          {
+            "name": "activity_id",
+            "type": "string",
+            "description": "Identificator stabil",
+            "cardinality": "1..1",
+            "source_status": "proposed_schema"
+          },
+          {
+            "name": "denumire",
+            "type": "string",
+            "description": "Denumire activitate",
+            "cardinality": "1..1",
+            "source_status": "proposed_schema"
+          },
+          {
+            "name": "declarata_sau_observata",
+            "type": "enum",
+            "description": "Tipul afirmației",
+            "cardinality": "1..1",
+            "source_status": "proposed_schema"
+          }
+        ],
+        "instance_count": null,
+        "runtime_status": "NOT_VERIFIED"
+      },
+      {
+        "term_id": "TERM-003",
+        "name": "Cod CAEN",
+        "topic_cluster_ids": [
+          "TC-004"
+        ],
+        "concept_id": "FF-CONCEPT-003",
+        "definition": "Cod de clasificare a activităților economice din România; interpretarea trebuie să precizeze revizia aplicabilă.",
+        "attributes": [
+          {
+            "name": "code",
+            "type": "string",
+            "description": "Cod din nomenclator",
+            "cardinality": "1..1",
+            "source_status": "proposed_schema"
+          },
+          {
+            "name": "revision",
+            "type": "string",
+            "description": "Revizia CAEN (ex. Rev.3)",
+            "cardinality": "1..1",
+            "source_status": "proposed_schema"
+          },
+          {
+            "name": "label",
+            "type": "string",
+            "description": "Descriere oficială",
+            "cardinality": "1..1",
+            "source_status": "proposed_schema"
+          },
+          {
+            "name": "source_url",
+            "type": "uri",
+            "description": "Sursa clasificării",
+            "cardinality": "1..1",
+            "source_status": "proposed_schema"
+          }
+        ],
+        "instance_count": null,
+        "runtime_status": "NOT_VERIFIED"
+      },
+      {
+        "term_id": "TERM-005",
+        "name": "Produs",
+        "topic_cluster_ids": [
+          "TC-005"
+        ],
+        "concept_id": "FF-CONCEPT-004",
+        "definition": "Bun material sau digital identificabil, care poate face obiectul unei oferte; existența ofertei trebuie probată separat de CAEN.",
+        "attributes": [
+          {
+            "name": "product_id",
+            "type": "string",
+            "description": "Identificator produs",
+            "cardinality": "1..1",
+            "source_status": "proposed_schema"
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "description": "Nume produs",
+            "cardinality": "1..1",
+            "source_status": "proposed_schema"
+          },
+          {
+            "name": "evidence_ids",
+            "type": "array[string]",
+            "description": "Dovezi privind oferta",
+            "cardinality": "0..N",
+            "source_status": "proposed_schema"
+          }
+        ],
+        "instance_count": null,
+        "runtime_status": "NOT_VERIFIED"
+      },
+      {
+        "term_id": "TERM-006",
+        "name": "Serviciu",
+        "topic_cluster_ids": [
+          "TC-005"
+        ],
+        "concept_id": "FF-CONCEPT-005",
+        "definition": "Prestație sau rezultat oferit unui beneficiar în condiții comerciale ori contractuale documentate.",
+        "attributes": [
+          {
+            "name": "service_id",
+            "type": "string",
+            "description": "Identificator serviciu",
+            "cardinality": "1..1",
+            "source_status": "proposed_schema"
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "description": "Nume serviciu",
+            "cardinality": "1..1",
+            "source_status": "proposed_schema"
+          },
+          {
+            "name": "evidence_ids",
+            "type": "array[string]",
+            "description": "Dovezi privind prestarea",
+            "cardinality": "0..N",
+            "source_status": "proposed_schema"
+          }
+        ],
+        "instance_count": null,
+        "runtime_status": "NOT_VERIFIED"
+      },
+      {
+        "term_id": "TERM-010",
+        "name": "Furnizor potențial",
+        "topic_cluster_ids": [
+          "TC-003"
+        ],
+        "concept_id": "FF-CONCEPT-007",
+        "definition": "Firmă care ar putea furniza un produs sau serviciu relevant; potrivirea nu dovedește capacitate, disponibilitate ori contract.",
+        "attributes": [
+          {
+            "name": "firm_id",
+            "type": "string",
+            "description": "Referință la firmă",
+            "cardinality": "1..1",
+            "source_status": "proposed_schema"
+          },
+          {
+            "name": "hypothesis_id",
+            "type": "string",
+            "description": "Ipoteză comercială",
+            "cardinality": "1..1",
+            "source_status": "proposed_schema"
+          },
+          {
+            "name": "verified_supplier",
+            "type": "boolean",
+            "description": "Implicit false",
+            "cardinality": "1..1",
+            "source_status": "proposed_schema"
+          }
+        ],
+        "instance_count": null,
+        "runtime_status": "NOT_VERIFIED"
+      },
+      {
+        "term_id": "TERM-011",
+        "name": "Client potențial",
+        "topic_cluster_ids": [
+          "TC-002"
+        ],
+        "concept_id": "FF-CONCEPT-006",
+        "definition": "Firmă pentru care există indicii privind o posibilă nevoie relevantă pentru ofertă; nu este un client confirmat.",
+        "attributes": [
+          {
+            "name": "firm_id",
+            "type": "string",
+            "description": "Referință la firmă",
+            "cardinality": "1..1",
+            "source_status": "proposed_schema"
+          },
+          {
+            "name": "hypothesis_id",
+            "type": "string",
+            "description": "Ipoteză comercială",
+            "cardinality": "1..1",
+            "source_status": "proposed_schema"
+          },
+          {
+            "name": "verified_customer",
+            "type": "boolean",
+            "description": "Implicit false",
+            "cardinality": "1..1",
+            "source_status": "proposed_schema"
+          }
+        ],
+        "instance_count": null,
+        "runtime_status": "NOT_VERIFIED"
+      },
+      {
+        "term_id": "TERM-012",
+        "name": "Partener potențial",
+        "topic_cluster_ids": [
+          "TC-003"
+        ],
+        "concept_id": "FF-CONCEPT-008",
+        "definition": "Organizație cu care poate exista complementaritate economică; parteneriatul efectiv necesită confirmare.",
+        "attributes": [
+          {
+            "name": "firm_id",
+            "type": "string",
+            "description": "Referință la firmă",
+            "cardinality": "1..1",
+            "source_status": "proposed_schema"
+          },
+          {
+            "name": "hypothesis_id",
+            "type": "string",
+            "description": "Ipoteză comercială",
+            "cardinality": "1..1",
+            "source_status": "proposed_schema"
+          },
+          {
+            "name": "verified_partner",
+            "type": "boolean",
+            "description": "Implicit false",
+            "cardinality": "1..1",
+            "source_status": "proposed_schema"
+          }
+        ],
+        "instance_count": null,
+        "runtime_status": "NOT_VERIFIED"
+      },
+      {
+        "term_id": "TERM-013",
+        "name": "Concurent potențial",
+        "topic_cluster_ids": [
+          "TC-003"
+        ],
+        "concept_id": "FF-CONCEPT-009",
+        "definition": "Firmă care poate deservi aceeași nevoie sau piață; concurența trebuie analizată după ofertă și context, nu doar CAEN.",
+        "attributes": [
+          {
+            "name": "firm_id",
+            "type": "string",
+            "description": "Referință la firmă",
+            "cardinality": "1..1",
+            "source_status": "proposed_schema"
+          },
+          {
+            "name": "hypothesis_id",
+            "type": "string",
+            "description": "Ipoteză comercială",
+            "cardinality": "1..1",
+            "source_status": "proposed_schema"
+          },
+          {
+            "name": "verified_competitor",
+            "type": "boolean",
+            "description": "Implicit false",
+            "cardinality": "1..1",
+            "source_status": "proposed_schema"
+          }
+        ],
+        "instance_count": null,
+        "runtime_status": "NOT_VERIFIED"
+      }
+    ],
+    "relation_types": [
+      {
+        "id": "REL-001",
+        "subject_type": "Firmă",
+        "subject_term_id": "TERM-001",
+        "predicate": "desfășoară activitate",
+        "object_type": "Activitate economică",
+        "object_term_id": "TERM-002",
+        "inverse_predicate": "este desfășurată de",
+        "cardinality": {
+          "subject_to_object": {
+            "min": 0,
+            "max": "N",
+            "notation": "0..N"
+          },
+          "object_to_subject": {
+            "min": 0,
+            "max": "N",
+            "notation": "0..N"
+          }
+        },
+        "semantic_status": "model_rule",
+        "evidence_requirement": "sursă despre activitate și dată",
+        "instance_status": "no_verified_instances_in_this_file",
+        "inverse_relation": {
+          "subject_type": "Activitate economică",
+          "predicate": "este desfășurată de",
+          "object_type": "Firmă",
+          "cardinality": {
+            "subject_to_object": {
+              "min": 0,
+              "max": "N",
+              "notation": "0..N"
+            },
+            "object_to_subject": {
+              "min": 0,
+              "max": "N",
+              "notation": "0..N"
+            }
+          }
+        },
+        "inverse_storage_rule": "Inversele sunt vederi ale aceleiași relații; nu se dublează faptele sau dovezile."
+      },
+      {
+        "id": "REL-002",
+        "subject_type": "Activitate economică",
+        "subject_term_id": "TERM-002",
+        "predicate": "este clasificată prin",
+        "object_type": "Cod CAEN",
+        "object_term_id": "TERM-003",
+        "inverse_predicate": "clasifică activitatea",
+        "cardinality": {
+          "subject_to_object": {
+            "min": 0,
+            "max": "N",
+            "notation": "0..N"
+          },
+          "object_to_subject": {
+            "min": 0,
+            "max": "N",
+            "notation": "0..N"
+          }
+        },
+        "semantic_status": "classification_mapping",
+        "evidence_requirement": "nomenclator oficial și revizie",
+        "instance_status": "no_verified_instances_in_this_file",
+        "inverse_relation": {
+          "subject_type": "Cod CAEN",
+          "predicate": "clasifică activitatea",
+          "object_type": "Activitate economică",
+          "cardinality": {
+            "subject_to_object": {
+              "min": 0,
+              "max": "N",
+              "notation": "0..N"
+            },
+            "object_to_subject": {
+              "min": 0,
+              "max": "N",
+              "notation": "0..N"
+            }
+          }
+        },
+        "inverse_storage_rule": "Inversele sunt vederi ale aceleiași relații; nu se dublează faptele sau dovezile."
+      },
+      {
+        "id": "REL-003",
+        "subject_type": "Firmă",
+        "subject_term_id": "TERM-001",
+        "predicate": "oferă",
+        "object_type": "Produs",
+        "object_term_id": "TERM-005",
+        "inverse_predicate": "este oferit de",
+        "cardinality": {
+          "subject_to_object": {
+            "min": 0,
+            "max": "N",
+            "notation": "0..N"
+          },
+          "object_to_subject": {
+            "min": 0,
+            "max": "N",
+            "notation": "0..N"
+          }
+        },
+        "semantic_status": "requires_evidence",
+        "evidence_requirement": "ofertă publică sau document verificabil",
+        "instance_status": "no_verified_instances_in_this_file",
+        "inverse_relation": {
+          "subject_type": "Produs",
+          "predicate": "este oferit de",
+          "object_type": "Firmă",
+          "cardinality": {
+            "subject_to_object": {
+              "min": 0,
+              "max": "N",
+              "notation": "0..N"
+            },
+            "object_to_subject": {
+              "min": 0,
+              "max": "N",
+              "notation": "0..N"
+            }
+          }
+        },
+        "inverse_storage_rule": "Inversele sunt vederi ale aceleiași relații; nu se dublează faptele sau dovezile."
+      },
+      {
+        "id": "REL-004",
+        "subject_type": "Firmă",
+        "subject_term_id": "TERM-001",
+        "predicate": "prestează",
+        "object_type": "Serviciu",
+        "object_term_id": "TERM-006",
+        "inverse_predicate": "este prestat de",
+        "cardinality": {
+          "subject_to_object": {
+            "min": 0,
+            "max": "N",
+            "notation": "0..N"
+          },
+          "object_to_subject": {
+            "min": 0,
+            "max": "N",
+            "notation": "0..N"
+          }
+        },
+        "semantic_status": "requires_evidence",
+        "evidence_requirement": "descriere de serviciu și sursă",
+        "instance_status": "no_verified_instances_in_this_file",
+        "inverse_relation": {
+          "subject_type": "Serviciu",
+          "predicate": "este prestat de",
+          "object_type": "Firmă",
+          "cardinality": {
+            "subject_to_object": {
+              "min": 0,
+              "max": "N",
+              "notation": "0..N"
+            },
+            "object_to_subject": {
+              "min": 0,
+              "max": "N",
+              "notation": "0..N"
+            }
+          }
+        },
+        "inverse_storage_rule": "Inversele sunt vederi ale aceleiași relații; nu se dublează faptele sau dovezile."
+      },
+      {
+        "id": "REL-005",
+        "subject_type": "Firmă",
+        "subject_term_id": "TERM-001",
+        "predicate": "poate furniza către",
+        "object_type": "Firmă",
+        "object_term_id": "TERM-001",
+        "inverse_predicate": "poate cumpăra de la",
+        "cardinality": {
+          "subject_to_object": {
+            "min": 0,
+            "max": "N",
+            "notation": "0..N"
+          },
+          "object_to_subject": {
+            "min": 0,
+            "max": "N",
+            "notation": "0..N"
+          }
+        },
+        "semantic_status": "hypothesis_only",
+        "evidence_requirement": "dovadă ofertă, nevoie și compatibilitate",
+        "instance_status": "no_verified_instances_in_this_file",
+        "inverse_relation": {
+          "subject_type": "Firmă",
+          "predicate": "poate cumpăra de la",
+          "object_type": "Firmă",
+          "cardinality": {
+            "subject_to_object": {
+              "min": 0,
+              "max": "N",
+              "notation": "0..N"
+            },
+            "object_to_subject": {
+              "min": 0,
+              "max": "N",
+              "notation": "0..N"
+            }
+          }
+        },
+        "inverse_storage_rule": "Inversele sunt vederi ale aceleiași relații; nu se dublează faptele sau dovezile."
+      },
+      {
+        "id": "REL-006",
+        "subject_type": "Firmă",
+        "subject_term_id": "TERM-001",
+        "predicate": "poate concura cu",
+        "object_type": "Firmă",
+        "object_term_id": "TERM-001",
+        "inverse_predicate": "poate concura cu",
+        "cardinality": {
+          "subject_to_object": {
+            "min": 0,
+            "max": "N",
+            "notation": "0..N"
+          },
+          "object_to_subject": {
+            "min": 0,
+            "max": "N",
+            "notation": "0..N"
+          }
+        },
+        "semantic_status": "hypothesis_only",
+        "evidence_requirement": "suprapunere demonstrabilă a ofertelor/piețelor",
+        "instance_status": "no_verified_instances_in_this_file",
+        "inverse_relation": {
+          "subject_type": "Firmă",
+          "predicate": "poate concura cu",
+          "object_type": "Firmă",
+          "cardinality": {
+            "subject_to_object": {
+              "min": 0,
+              "max": "N",
+              "notation": "0..N"
+            },
+            "object_to_subject": {
+              "min": 0,
+              "max": "N",
+              "notation": "0..N"
+            }
+          }
+        },
+        "inverse_storage_rule": "Inversele sunt vederi ale aceleiași relații; nu se dublează faptele sau dovezile."
+      }
+    ],
+    "glossary": [
+      {
+        "id": "TERM-001",
+        "term": "Firmă",
+        "category": "Organizație",
+        "definition": "Entitate economică identificabilă prin date de registru; statutul juridic și starea activității trebuie verificate la sursa și data indicate.",
+        "synonyms": [
+          "companie",
+          "întreprindere"
+        ],
+        "not_synonyms": [
+          "persoană fizică fără context economic"
+        ],
+        "concept_id": "FF-CONCEPT-001",
+        "topic_cluster_ids": [
+          "TC-001"
+        ],
+        "definition_status": "editorial_draft",
+        "source_urls": [],
+        "evidence_ids": [],
+        "verified_at": null
+      },
+      {
+        "id": "TERM-002",
+        "term": "Activitate economică",
+        "category": "Clasificare",
+        "definition": "Tip de activitate desfășurată sau declarată de o firmă; o activitate declarată nu dovedește executarea sa curentă.",
+        "synonyms": [
+          "activitate CAEN"
+        ],
+        "not_synonyms": [],
+        "concept_id": "FF-CONCEPT-002",
+        "topic_cluster_ids": [
+          "TC-003"
+        ],
+        "definition_status": "editorial_draft",
+        "source_urls": [],
+        "evidence_ids": [],
+        "verified_at": null
+      },
+      {
+        "id": "TERM-003",
+        "term": "Cod CAEN",
+        "category": "Clasificare",
+        "definition": "Cod de clasificare a activităților economice din România; interpretarea trebuie să precizeze revizia aplicabilă.",
+        "synonyms": [
+          "cod de activitate"
+        ],
+        "not_synonyms": [
+          "cod fiscal",
+          "CUI"
+        ],
+        "concept_id": "FF-CONCEPT-003",
+        "topic_cluster_ids": [
+          "TC-002"
+        ],
+        "definition_status": "editorial_draft",
+        "source_urls": [],
+        "evidence_ids": [],
+        "verified_at": null
+      },
+      {
+        "id": "TERM-004",
+        "term": "CAEN Rev.3",
+        "category": "Clasificare",
+        "definition": "Revizia 3 a Clasificării activităților din economia națională; codurile și denumirile trebuie verificate față de nomenclatorul oficial.",
+        "synonyms": [
+          "CAEN 3"
+        ],
+        "not_synonyms": [
+          "CAEN Rev.2"
+        ],
+        "concept_id": "FF-CONCEPT-003",
+        "topic_cluster_ids": [
+          "TC-002"
+        ],
+        "definition_status": "editorial_draft",
+        "source_urls": [],
+        "evidence_ids": [],
+        "verified_at": null
+      },
+      {
+        "id": "TERM-005",
+        "term": "Produs",
+        "category": "Ofertă",
+        "definition": "Bun material sau digital identificabil, care poate face obiectul unei oferte; existența ofertei trebuie probată separat de CAEN.",
+        "synonyms": [
+          "bun oferit"
+        ],
+        "not_synonyms": [
+          "activitate CAEN"
+        ],
+        "concept_id": "FF-CONCEPT-004",
+        "topic_cluster_ids": [
+          "TC-004"
+        ],
+        "definition_status": "editorial_draft",
+        "source_urls": [],
+        "evidence_ids": [],
+        "verified_at": null
+      },
+      {
+        "id": "TERM-006",
+        "term": "Serviciu",
+        "category": "Ofertă",
+        "definition": "Prestație sau rezultat oferit unui beneficiar în condiții comerciale ori contractuale documentate.",
+        "synonyms": [
+          "prestație"
+        ],
+        "not_synonyms": [
+          "produs fizic"
+        ],
+        "concept_id": "FF-CONCEPT-005",
+        "topic_cluster_ids": [
+          "TC-004"
+        ],
+        "definition_status": "editorial_draft",
+        "source_urls": [],
+        "evidence_ids": [],
+        "verified_at": null
+      },
+      {
+        "id": "TERM-007",
+        "term": "Ofertă comercială",
+        "category": "Ofertă",
+        "definition": "Declarație verificabilă privind un produs sau serviciu disponibil, cu condiții, sursă și dată de valabilitate dacă sunt cunoscute.",
+        "synonyms": [
+          "ofertă de produse",
+          "ofertă de servicii"
+        ],
+        "not_synonyms": [
+          "cod CAEN"
+        ],
+        "concept_id": null,
+        "topic_cluster_ids": [
+          "TC-004"
+        ],
+        "definition_status": "editorial_draft",
+        "source_urls": [],
+        "evidence_ids": [],
+        "verified_at": null
+      },
+      {
+        "id": "TERM-008",
+        "term": "Producător",
+        "category": "Rol economic",
+        "definition": "Firmă care fabrică sau produce efectiv bunuri; clasificarea drept producător necesită dovezi despre activitatea reală.",
+        "synonyms": [
+          "fabricant"
+        ],
+        "not_synonyms": [
+          "distribuitor",
+          "importator",
+          "revânzător"
+        ],
+        "concept_id": null,
+        "topic_cluster_ids": [
+          "TC-003"
+        ],
+        "definition_status": "editorial_draft",
+        "source_urls": [],
+        "evidence_ids": [],
+        "verified_at": null
+      },
+      {
+        "id": "TERM-009",
+        "term": "Distribuitor",
+        "category": "Rol economic",
+        "definition": "Actor care distribuie produse pe o piață; nu trebuie echivalat automat cu producătorul.",
+        "synonyms": [
+          "distribuție comercială"
+        ],
+        "not_synonyms": [
+          "producător"
+        ],
+        "concept_id": null,
+        "topic_cluster_ids": [
+          "TC-003"
+        ],
+        "definition_status": "editorial_draft",
+        "source_urls": [],
+        "evidence_ids": [],
+        "verified_at": null
+      },
+      {
+        "id": "TERM-010",
+        "term": "Furnizor potențial",
+        "category": "Relație ipotetică",
+        "definition": "Firmă care ar putea furniza un produs sau serviciu relevant; potrivirea nu dovedește capacitate, disponibilitate ori contract.",
+        "synonyms": [
+          "furnizor candidat"
+        ],
+        "not_synonyms": [
+          "furnizor contractual confirmat"
+        ],
+        "concept_id": "FF-CONCEPT-007",
+        "topic_cluster_ids": [
+          "TC-006"
+        ],
+        "definition_status": "editorial_draft",
+        "source_urls": [],
+        "evidence_ids": [],
+        "verified_at": null
+      },
+      {
+        "id": "TERM-011",
+        "term": "Client potențial",
+        "category": "Relație ipotetică",
+        "definition": "Firmă pentru care există indicii privind o posibilă nevoie relevantă pentru ofertă; nu este un client confirmat.",
+        "synonyms": [
+          "prospect B2B",
+          "cumpărător potențial"
+        ],
+        "not_synonyms": [
+          "client existent"
+        ],
+        "concept_id": "FF-CONCEPT-006",
+        "topic_cluster_ids": [
+          "TC-005"
+        ],
+        "definition_status": "editorial_draft",
+        "source_urls": [],
+        "evidence_ids": [],
+        "verified_at": null
+      },
+      {
+        "id": "TERM-012",
+        "term": "Partener potențial",
+        "category": "Relație ipotetică",
+        "definition": "Organizație cu care poate exista complementaritate economică; parteneriatul efectiv necesită confirmare.",
+        "synonyms": [
+          "partener candidat"
+        ],
+        "not_synonyms": [
+          "partener contractual"
+        ],
+        "concept_id": "FF-CONCEPT-008",
+        "topic_cluster_ids": [
+          "TC-007"
+        ],
+        "definition_status": "editorial_draft",
+        "source_urls": [],
+        "evidence_ids": [],
+        "verified_at": null
+      },
+      {
+        "id": "TERM-013",
+        "term": "Concurent potențial",
+        "category": "Relație ipotetică",
+        "definition": "Firmă care poate deservi aceeași nevoie sau piață; concurența trebuie analizată după ofertă și context, nu doar CAEN.",
+        "synonyms": [
+          "competitor candidat"
+        ],
+        "not_synonyms": [
+          "concurent confirmat"
+        ],
+        "concept_id": "FF-CONCEPT-009",
+        "topic_cluster_ids": [
+          "TC-007"
+        ],
+        "definition_status": "editorial_draft",
+        "source_urls": [],
+        "evidence_ids": [],
+        "verified_at": null
+      },
+      {
+        "id": "TERM-014",
+        "term": "Relație ERE",
+        "category": "Model semantic",
+        "definition": "Tripletă Entitate–Relație–Entitate care descrie o legătură semantică, factuală sau ipotetică, cu direcție și proveniență.",
+        "synonyms": [
+          "tripletă semantică",
+          "subject-predicate-object"
+        ],
+        "not_synonyms": [],
+        "concept_id": null,
+        "topic_cluster_ids": [
+          "TC-005"
+        ],
+        "definition_status": "editorial_draft",
+        "source_urls": [],
+        "evidence_ids": [],
+        "verified_at": null
+      },
+      {
+        "id": "TERM-015",
+        "term": "Cardinalitate",
+        "category": "Model semantic",
+        "definition": "Restricție privind numărul de entități asociabile unei relații: 0..1, 1..1, 0..N sau 1..N.",
+        "synonyms": [
+          "multiplicitate"
+        ],
+        "not_synonyms": [],
+        "concept_id": null,
+        "topic_cluster_ids": [
+          "TC-005"
+        ],
+        "definition_status": "editorial_draft",
+        "source_urls": [],
+        "evidence_ids": [],
+        "verified_at": null
+      },
+      {
+        "id": "TERM-016",
+        "term": "Relație inversă",
+        "category": "Model semantic",
+        "definition": "Citirea aceleiași relații în sens opus; exemplu: firma oferă produs / produsul este oferit de firmă.",
+        "synonyms": [
+          "predicat invers"
+        ],
+        "not_synonyms": [],
+        "concept_id": null,
+        "topic_cluster_ids": [
+          "TC-005"
+        ],
+        "definition_status": "editorial_draft",
+        "source_urls": [],
+        "evidence_ids": [],
+        "verified_at": null
+      },
+      {
+        "id": "TERM-017",
+        "term": "Knowledge Graph",
+        "category": "Model semantic",
+        "definition": "Reprezentare structurată a entităților și relațiilor lor, în care fiecare legătură poate avea tip, sursă și stare de verificare.",
+        "synonyms": [
+          "graf de cunoștințe"
+        ],
+        "not_synonyms": [
+          "listă simplă de firme"
+        ],
+        "concept_id": "FF-CONCEPT-010",
+        "topic_cluster_ids": [
+          "TC-005"
+        ],
+        "definition_status": "editorial_draft",
+        "source_urls": [],
+        "evidence_ids": [],
+        "verified_at": null
+      },
+      {
+        "id": "TERM-018",
+        "term": "Potrivire economică",
+        "category": "Analiză",
+        "definition": "Evaluare a compatibilității dintre ofertă, nevoie, activitate și piață; rezultatul este o ipoteză până la validare.",
+        "synonyms": [
+          "matching B2B",
+          "compatibilitate comercială"
+        ],
+        "not_synonyms": [
+          "relație comercială confirmată"
+        ],
+        "concept_id": null,
+        "topic_cluster_ids": [
+          "TC-005",
+          "TC-006"
+        ],
+        "definition_status": "editorial_draft",
+        "source_urls": [],
+        "evidence_ids": [],
+        "verified_at": null
+      },
+      {
+        "id": "TERM-019",
+        "term": "Explicația potrivirii",
+        "category": "Analiză",
+        "definition": "Argumente care arată de ce două entități au fost asociate, cu sursele și limitele fiecărei inferențe.",
+        "synonyms": [
+          "rationale",
+          "justificare"
+        ],
+        "not_synonyms": [],
+        "concept_id": null,
+        "topic_cluster_ids": [
+          "TC-005"
+        ],
+        "definition_status": "editorial_draft",
+        "source_urls": [],
+        "evidence_ids": [],
+        "verified_at": null
+      },
+      {
+        "id": "TERM-020",
+        "term": "Dovadă",
+        "category": "Guvernanță",
+        "definition": "Artefact verificabil care susține o afirmație; trebuie identificat, datat și asociat cu o metodă de verificare.",
+        "synonyms": [
+          "evidence",
+          "probă"
+        ],
+        "not_synonyms": [
+          "afirmație neverificată"
+        ],
+        "concept_id": null,
+        "topic_cluster_ids": [
+          "TC-006"
+        ],
+        "definition_status": "editorial_draft",
+        "source_urls": [],
+        "evidence_ids": [],
+        "verified_at": null
+      },
+      {
+        "id": "TERM-021",
+        "term": "Afirmație",
+        "category": "Guvernanță",
+        "definition": "Propoziție factuală ori funcțională susceptibilă de verificare; existența ei nu constituie dovadă.",
+        "synonyms": [
+          "claim"
+        ],
+        "not_synonyms": [
+          "dovadă"
+        ],
+        "concept_id": null,
+        "topic_cluster_ids": [
+          "TC-006"
+        ],
+        "definition_status": "editorial_draft",
+        "source_urls": [],
+        "evidence_ids": [],
+        "verified_at": null
+      },
+      {
+        "id": "TERM-022",
+        "term": "Proveniență",
+        "category": "Guvernanță",
+        "definition": "Informații despre originea, autorul, momentul, licența și transformările unei surse sau înregistrări.",
+        "synonyms": [
+          "provenance",
+          "linie de proveniență"
+        ],
+        "not_synonyms": [],
+        "concept_id": null,
+        "topic_cluster_ids": [
+          "TC-006"
+        ],
+        "definition_status": "editorial_draft",
+        "source_urls": [],
+        "evidence_ids": [],
+        "verified_at": null
+      },
+      {
+        "id": "TERM-023",
+        "term": "Verificare",
+        "category": "Guvernanță",
+        "definition": "Proces documentat prin care se confruntă o afirmație sau un rezultat cu surse și criterii de acceptare.",
+        "synonyms": [
+          "validare factuală"
+        ],
+        "not_synonyms": [
+          "publicare"
+        ],
+        "concept_id": null,
+        "topic_cluster_ids": [
+          "TC-006"
+        ],
+        "definition_status": "editorial_draft",
+        "source_urls": [],
+        "evidence_ids": [],
+        "verified_at": null
+      },
+      {
+        "id": "TERM-024",
+        "term": "Căutare în limbaj natural",
+        "category": "Căutare",
+        "definition": "Formularea unei cereri prin expresii obișnuite, fără obligativitatea completării unor filtre tehnice.",
+        "synonyms": [
+          "interogare conversațională"
+        ],
+        "not_synonyms": [],
+        "concept_id": null,
+        "topic_cluster_ids": [
+          "TC-001"
+        ],
+        "definition_status": "editorial_draft",
+        "source_urls": [],
+        "evidence_ids": [],
+        "verified_at": null
+      },
+      {
+        "id": "TERM-025",
+        "term": "Căutare semantică",
+        "category": "Căutare",
+        "definition": "Recuperare de rezultate după sensul cererii, nu numai după potrivirea literală a termenilor.",
+        "synonyms": [
+          "semantic search"
+        ],
+        "not_synonyms": [
+          "căutare strict lexicală"
+        ],
+        "concept_id": null,
+        "topic_cluster_ids": [
+          "TC-001"
+        ],
+        "definition_status": "editorial_draft",
+        "source_urls": [],
+        "evidence_ids": [],
+        "verified_at": null
+      },
+      {
+        "id": "TERM-026",
+        "term": "RAG",
+        "category": "AI",
+        "definition": "Metodă de generare a răspunsurilor asistată de recuperarea informațiilor din surse; nu garantează corectitudinea răspunsului.",
+        "synonyms": [
+          "Retrieval-Augmented Generation"
+        ],
+        "not_synonyms": [],
+        "concept_id": null,
+        "topic_cluster_ids": [
+          "TC-007"
+        ],
+        "definition_status": "editorial_draft",
+        "source_urls": [],
+        "evidence_ids": [],
+        "verified_at": null
+      },
+      {
+        "id": "TERM-027",
+        "term": "Citable chunk",
+        "category": "GEO",
+        "definition": "Fragment autonom, cu întrebare, răspuns și proveniență; caracterul citabil nu garantează citarea de către un motor AI.",
+        "synonyms": [
+          "fragment citabil"
+        ],
+        "not_synonyms": [],
+        "concept_id": null,
+        "topic_cluster_ids": [
+          "TC-006"
+        ],
+        "definition_status": "editorial_draft",
+        "source_urls": [],
+        "evidence_ids": [],
+        "verified_at": null
+      },
+      {
+        "id": "TERM-028",
+        "term": "TOF",
+        "category": "Intenție",
+        "definition": "Top of Funnel: etapa de descoperire sau învățare înaintea evaluării unei soluții.",
+        "synonyms": [
+          "top of funnel"
+        ],
+        "not_synonyms": [],
+        "concept_id": null,
+        "topic_cluster_ids": [
+          "TC-007"
+        ],
+        "definition_status": "editorial_draft",
+        "source_urls": [],
+        "evidence_ids": [],
+        "verified_at": null
+      },
+      {
+        "id": "TERM-029",
+        "term": "MOF",
+        "category": "Intenție",
+        "definition": "Middle of Funnel: etapa de comparare, evaluare și verificare a alternativelor.",
+        "synonyms": [
+          "middle of funnel"
+        ],
+        "not_synonyms": [],
+        "concept_id": null,
+        "topic_cluster_ids": [
+          "TC-007"
+        ],
+        "definition_status": "editorial_draft",
+        "source_urls": [],
+        "evidence_ids": [],
+        "verified_at": null
+      },
+      {
+        "id": "TERM-030",
+        "term": "BOF",
+        "category": "Intenție",
+        "definition": "Bottom of Funnel: etapa în care utilizatorul solicită o acțiune concretă sau se apropie de o decizie.",
+        "synonyms": [
+          "bottom of funnel"
+        ],
+        "not_synonyms": [],
+        "concept_id": null,
+        "topic_cluster_ids": [
+          "TC-007"
+        ],
+        "definition_status": "editorial_draft",
+        "source_urls": [],
+        "evidence_ids": [],
+        "verified_at": null
+      },
+      {
+        "id": "TERM-031",
+        "term": "Date oficiale",
+        "category": "Date",
+        "definition": "Date publicate de o autoritate competentă, cu limitele, actualitatea și condițiile de reutilizare ale sursei.",
+        "synonyms": [
+          "sursă oficială"
+        ],
+        "not_synonyms": [
+          "date derivate prezentate ca oficiale"
+        ],
+        "concept_id": null,
+        "topic_cluster_ids": [
+          "TC-001"
+        ],
+        "definition_status": "editorial_draft",
+        "source_urls": [],
+        "evidence_ids": [],
+        "verified_at": null
+      },
+      {
+        "id": "TERM-032",
+        "term": "Date derivate",
+        "category": "Date",
+        "definition": "Date rezultate prin transformări, corelări sau inferențe din surse; nu devin oficiale prin simpla prelucrare.",
+        "synonyms": [
+          "date procesate"
+        ],
+        "not_synonyms": [
+          "date oficiale originale"
+        ],
+        "concept_id": null,
+        "topic_cluster_ids": [
+          "TC-008"
+        ],
+        "definition_status": "editorial_draft",
+        "source_urls": [],
+        "evidence_ids": [],
+        "verified_at": null
+      },
+      {
+        "id": "TERM-033",
+        "term": "Firmă activă",
+        "category": "Date",
+        "definition": "Firmă care îndeplinește o definiție explicită a activității la o dată precizată; criteriul trebuie documentat.",
+        "synonyms": [
+          "societate activă"
+        ],
+        "not_synonyms": [
+          "firmă existentă juridic fără verificarea activității"
+        ],
+        "concept_id": null,
+        "topic_cluster_ids": [
+          "TC-001"
+        ],
+        "definition_status": "editorial_draft",
+        "source_urls": [],
+        "evidence_ids": [],
+        "verified_at": null
+      },
+      {
+        "id": "TERM-034",
+        "term": "EU AI Act Ready",
+        "category": "Conformitate",
+        "definition": "Expresie de pregătire pentru cerințe relevante ale AI Act; nu echivalează prin ea însăși cu certificare sau conformitate demonstrată.",
+        "synonyms": [
+          "pregătire AI Act"
+        ],
+        "not_synonyms": [
+          "certificare oficială automată"
+        ],
+        "concept_id": null,
+        "topic_cluster_ids": [
+          "TC-007"
+        ],
+        "definition_status": "editorial_draft",
+        "source_urls": [],
+        "evidence_ids": [],
+        "verified_at": null
+      },
+      {
+        "id": "TERM-035",
+        "term": "SHA-256",
+        "category": "Integritate",
+        "definition": "Funcție hash criptografică ce produce o amprentă pentru un conținut; integritatea nu demonstrează adevărul afirmației.",
+        "synonyms": [
+          "hash SHA-256"
+        ],
+        "not_synonyms": [],
+        "concept_id": null,
+        "topic_cluster_ids": [
+          "TC-006"
+        ],
+        "definition_status": "editorial_draft",
+        "source_urls": [],
+        "evidence_ids": [],
+        "verified_at": null
+      },
+      {
+        "id": "TERM-036",
+        "term": "OpenTimestamps",
+        "category": "Integritate",
+        "definition": "Protocol de timestamping verificabil; o dovadă temporală nu certifică veridicitatea conținutului.",
+        "synonyms": [
+          "OTS"
+        ],
+        "not_synonyms": [],
+        "concept_id": null,
+        "topic_cluster_ids": [
+          "TC-006"
+        ],
+        "definition_status": "editorial_draft",
+        "source_urls": [],
+        "evidence_ids": [],
+        "verified_at": null
+      }
+    ],
+    "relation_instance_contract": {
+      "required_fields": [
+        "id",
+        "relation_type_id",
+        "subject_entity_id",
+        "object_entity_id",
+        "assertion_status",
+        "source_ids",
+        "evidence_ids",
+        "observed_at"
+      ],
+      "optional_fields": [
+        "valid_from",
+        "valid_to",
+        "confidence",
+        "rationale",
+        "reviewed_by",
+        "reviewed_at"
+      ],
+      "allowed_assertion_status": [
+        "hypothesis",
+        "source_asserted",
+        "verified",
+        "rejected"
+      ],
+      "confidence_rule": "confidence numeric nu transforma ipoteza in relatie verificata",
+      "inverse_rule": "relatia inversa este o vedere a aceleiasi muchii; nu crea doua dovezi sau doua contracte",
+      "identity_rule": "identificatorii firmelor trebuie stabiliti pe baza unei surse de identitate documentate"
+    },
+    "cardinality_convention": {
+      "0..N": "zero sau mai multe legaturi distincte",
+      "subject_to_object": "pentru un subiect, cate obiecte poate avea",
+      "object_to_subject": "pentru un obiect, cate subiecte il pot avea",
+      "scope": "cardinalitati conceptuale propuse, nu statistici observate"
+    }
+  },
+  "integrity_rules": [
+    {
+      "id": "IR-001",
+      "rule": "CAEN != dovada produsului sau serviciului"
+    },
+    {
+      "id": "IR-002",
+      "rule": "Potrivire comercială != client sau contract confirmat"
+    },
+    {
+      "id": "IR-003",
+      "rule": "Relație verificată necesită sursă și dovezi"
+    },
+    {
+      "id": "IR-004",
+      "rule": "Cardinalitățile descriu modelul, nu distribuții observate"
+    },
+    {
+      "id": "IR-005",
+      "rule": "Relația inversă nu dublează instanța factuală"
+    },
+    {
+      "id": "IR-006",
+      "rule": "Generated != Deployed != Verified"
+    }
+  ],
+  "validation": {
+    "json_syntax": "PASS_LOCAL",
+    "source_term_count": 36,
+    "node_type_count": 9,
+    "relation_type_count": 6,
+    "referential_integrity": "NOT_TESTED_PUBLIC",
+    "http_status": "UNKNOWN",
+    "deployment": "NOT_TESTED",
+    "real_world_instances": "NONE_ASSERTED"
+  }
+}
