@@ -1,0 +1,2587 @@
+{
+  "schema_version": "1.0",
+  "methodology": "FirmsFinder GEO V3.1",
+  "artifact": "intents",
+  "site": "https://firmsfinder.eu/",
+  "publisher": "AiVenture S.R.L.",
+  "language": "ro-RO",
+  "generated_at": null,
+  "status": "DRAFT_REQUIRES_VERIFICATION",
+  "intent_model": {
+    "formula": "ACTION + TARGET",
+    "funnel_stages": [
+      "TOF",
+      "MOF",
+      "BOF"
+    ],
+    "classification_is_internal": true,
+    "ai_citation_guaranteed": false,
+    "relationship_claim_policy": "UNVERIFIED_RELATIONSHIPS_ARE_HYPOTHESES"
+  },
+  "counts": {
+    "total": 150,
+    "TOF": 50,
+    "MOF": 50,
+    "BOF": 50
+  },
+  "intents": [
+    {
+      "id": "FF-GEO-TOF-001",
+      "funnel": "TOF",
+      "query": "Ce informații pot găsi despre o firmă din România?",
+      "action": "LEARN",
+      "target": "COMPANY",
+      "cluster_ref": "TC-001",
+      "entity_refs": [
+        "https://firmsfinder.eu/#software"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/cauta/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-TOF-002",
+      "funnel": "TOF",
+      "query": "Ce înseamnă o firmă activă?",
+      "action": "UNDERSTAND",
+      "target": "COMPANY",
+      "cluster_ref": "TC-001",
+      "entity_refs": [
+        "https://firmsfinder.eu/#software"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/cauta/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-TOF-003",
+      "funnel": "TOF",
+      "query": "Cum caut firme după județ?",
+      "action": "EXPLORE",
+      "target": "COMPANY",
+      "cluster_ref": "TC-001",
+      "entity_refs": [
+        "https://firmsfinder.eu/#software"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/cauta/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-TOF-004",
+      "funnel": "TOF",
+      "query": "Ce este căutarea firmelor după CAEN?",
+      "action": "DISCOVER",
+      "target": "COMPANY",
+      "cluster_ref": "TC-001",
+      "entity_refs": [
+        "https://firmsfinder.eu/#software"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/cauta/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-TOF-005",
+      "funnel": "TOF",
+      "query": "Pot căuta firme folosind limbaj natural?",
+      "action": "EXPLAIN",
+      "target": "COMPANY",
+      "cluster_ref": "TC-001",
+      "entity_refs": [
+        "https://firmsfinder.eu/#software"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/cauta/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-TOF-006",
+      "funnel": "TOF",
+      "query": "Ce date oficiale există despre companii?",
+      "action": "DEFINE",
+      "target": "COMPANY",
+      "cluster_ref": "TC-001",
+      "entity_refs": [
+        "https://firmsfinder.eu/#software"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/cauta/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-TOF-007",
+      "funnel": "TOF",
+      "query": "Cum identific firme după produs sau serviciu?",
+      "action": "RESEARCH",
+      "target": "COMPANY",
+      "cluster_ref": "TC-001",
+      "entity_refs": [
+        "https://firmsfinder.eu/#software"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/cauta/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-TOF-008",
+      "funnel": "TOF",
+      "query": "Ce este prospectarea B2B?",
+      "action": "LEARN",
+      "target": "PROSPECT",
+      "cluster_ref": "TC-002",
+      "entity_refs": [
+        "https://firmsfinder.eu/#economic-intelligence"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-TOF-009",
+      "funnel": "TOF",
+      "query": "Cum pot găsi clienți noi pentru o firmă?",
+      "action": "UNDERSTAND",
+      "target": "PROSPECT",
+      "cluster_ref": "TC-002",
+      "entity_refs": [
+        "https://firmsfinder.eu/#economic-intelligence"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-TOF-010",
+      "funnel": "TOF",
+      "query": "Ce este potrivirea ofertă–cerere?",
+      "action": "EXPLORE",
+      "target": "PROSPECT",
+      "cluster_ref": "TC-002",
+      "entity_refs": [
+        "https://firmsfinder.eu/#economic-intelligence"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-TOF-011",
+      "funnel": "TOF",
+      "query": "Ce înseamnă segmentarea pieței B2B?",
+      "action": "DISCOVER",
+      "target": "PROSPECT",
+      "cluster_ref": "TC-002",
+      "entity_refs": [
+        "https://firmsfinder.eu/#economic-intelligence"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-TOF-012",
+      "funnel": "TOF",
+      "query": "Ce este un client potențial?",
+      "action": "EXPLAIN",
+      "target": "PROSPECT",
+      "cluster_ref": "TC-002",
+      "entity_refs": [
+        "https://firmsfinder.eu/#economic-intelligence"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-TOF-013",
+      "funnel": "TOF",
+      "query": "Cum poate CAEN ajuta la identificarea clienților?",
+      "action": "DEFINE",
+      "target": "PROSPECT",
+      "cluster_ref": "TC-002",
+      "entity_refs": [
+        "https://firmsfinder.eu/#economic-intelligence"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-TOF-014",
+      "funnel": "TOF",
+      "query": "Cum stabilesc priorități în prospectare?",
+      "action": "RESEARCH",
+      "target": "PROSPECT",
+      "cluster_ref": "TC-002",
+      "entity_refs": [
+        "https://firmsfinder.eu/#economic-intelligence"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-TOF-015",
+      "funnel": "TOF",
+      "query": "Cum găsesc furnizori pentru firma mea?",
+      "action": "LEARN",
+      "target": "BUSINESS_PARTNER",
+      "cluster_ref": "TC-003",
+      "entity_refs": [
+        "https://firmsfinder.eu/#ere"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-TOF-016",
+      "funnel": "TOF",
+      "query": "Ce rol are un distribuitor?",
+      "action": "UNDERSTAND",
+      "target": "BUSINESS_PARTNER",
+      "cluster_ref": "TC-003",
+      "entity_refs": [
+        "https://firmsfinder.eu/#ere"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-TOF-017",
+      "funnel": "TOF",
+      "query": "Ce este un parteneriat B2B?",
+      "action": "EXPLORE",
+      "target": "BUSINESS_PARTNER",
+      "cluster_ref": "TC-003",
+      "entity_refs": [
+        "https://firmsfinder.eu/#ere"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-TOF-018",
+      "funnel": "TOF",
+      "query": "Ce este lanțul de aprovizionare?",
+      "action": "DISCOVER",
+      "target": "BUSINESS_PARTNER",
+      "cluster_ref": "TC-003",
+      "entity_refs": [
+        "https://firmsfinder.eu/#ere"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-TOF-019",
+      "funnel": "TOF",
+      "query": "Cum identific furnizori alternativi?",
+      "action": "EXPLAIN",
+      "target": "BUSINESS_PARTNER",
+      "cluster_ref": "TC-003",
+      "entity_refs": [
+        "https://firmsfinder.eu/#ere"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-TOF-020",
+      "funnel": "TOF",
+      "query": "Ce înseamnă complementaritatea economică?",
+      "action": "DEFINE",
+      "target": "BUSINESS_PARTNER",
+      "cluster_ref": "TC-003",
+      "entity_refs": [
+        "https://firmsfinder.eu/#ere"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-TOF-021",
+      "funnel": "TOF",
+      "query": "Ce reprezintă codul CAEN?",
+      "action": "LEARN",
+      "target": "ECONOMIC_ACTIVITY",
+      "cluster_ref": "TC-004",
+      "entity_refs": [
+        "https://firmsfinder.eu/#caen"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-TOF-022",
+      "funnel": "TOF",
+      "query": "Cum este organizată clasificarea CAEN?",
+      "action": "UNDERSTAND",
+      "target": "ECONOMIC_ACTIVITY",
+      "cluster_ref": "TC-004",
+      "entity_refs": [
+        "https://firmsfinder.eu/#caen"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-TOF-023",
+      "funnel": "TOF",
+      "query": "Ce activități sunt incluse într-un cod CAEN?",
+      "action": "EXPLORE",
+      "target": "ECONOMIC_ACTIVITY",
+      "cluster_ref": "TC-004",
+      "entity_refs": [
+        "https://firmsfinder.eu/#caen"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-TOF-024",
+      "funnel": "TOF",
+      "query": "CAEN arată ce produse vinde o firmă?",
+      "action": "DISCOVER",
+      "target": "ECONOMIC_ACTIVITY",
+      "cluster_ref": "TC-004",
+      "entity_refs": [
+        "https://firmsfinder.eu/#caen"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-TOF-025",
+      "funnel": "TOF",
+      "query": "Cum găsesc activități economice complementare?",
+      "action": "EXPLAIN",
+      "target": "ECONOMIC_ACTIVITY",
+      "cluster_ref": "TC-004",
+      "entity_refs": [
+        "https://firmsfinder.eu/#caen"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-TOF-026",
+      "funnel": "TOF",
+      "query": "Cum se schimbă codurile între revizii CAEN?",
+      "action": "DEFINE",
+      "target": "ECONOMIC_ACTIVITY",
+      "cluster_ref": "TC-004",
+      "entity_refs": [
+        "https://firmsfinder.eu/#caen"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-TOF-027",
+      "funnel": "TOF",
+      "query": "Ce este un knowledge graph economic?",
+      "action": "LEARN",
+      "target": "ENTITY_RELATIONSHIP",
+      "cluster_ref": "TC-005",
+      "entity_refs": [
+        "https://firmsfinder.eu/#ere"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-TOF-028",
+      "funnel": "TOF",
+      "query": "Ce înseamnă entitate–relație–entitate?",
+      "action": "UNDERSTAND",
+      "target": "ENTITY_RELATIONSHIP",
+      "cluster_ref": "TC-005",
+      "entity_refs": [
+        "https://firmsfinder.eu/#ere"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-TOF-029",
+      "funnel": "TOF",
+      "query": "Ce este cardinalitatea unei relații?",
+      "action": "EXPLORE",
+      "target": "ENTITY_RELATIONSHIP",
+      "cluster_ref": "TC-005",
+      "entity_refs": [
+        "https://firmsfinder.eu/#ere"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-TOF-030",
+      "funnel": "TOF",
+      "query": "Ce este o relație inversă într-un graf?",
+      "action": "DISCOVER",
+      "target": "ENTITY_RELATIONSHIP",
+      "cluster_ref": "TC-005",
+      "entity_refs": [
+        "https://firmsfinder.eu/#ere"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-TOF-031",
+      "funnel": "TOF",
+      "query": "Ce înseamnă proveniența unei relații?",
+      "action": "EXPLAIN",
+      "target": "ENTITY_RELATIONSHIP",
+      "cluster_ref": "TC-005",
+      "entity_refs": [
+        "https://firmsfinder.eu/#ere"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-TOF-032",
+      "funnel": "TOF",
+      "query": "Ce este o inferență economică?",
+      "action": "DEFINE",
+      "target": "ENTITY_RELATIONSHIP",
+      "cluster_ref": "TC-005",
+      "entity_refs": [
+        "https://firmsfinder.eu/#ere"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-TOF-033",
+      "funnel": "TOF",
+      "query": "Ce este Generative Engine Optimization?",
+      "action": "LEARN",
+      "target": "GEO_SERVICE",
+      "cluster_ref": "TC-006",
+      "entity_refs": [
+        "https://firmsfinder.eu/#geo-diagnostic"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/geo/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-TOF-034",
+      "funnel": "TOF",
+      "query": "Ce înseamnă GEO readiness?",
+      "action": "UNDERSTAND",
+      "target": "GEO_SERVICE",
+      "cluster_ref": "TC-006",
+      "entity_refs": [
+        "https://firmsfinder.eu/#geo-diagnostic"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/geo/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-TOF-035",
+      "funnel": "TOF",
+      "query": "Ce este un fragment citabil?",
+      "action": "EXPLORE",
+      "target": "GEO_SERVICE",
+      "cluster_ref": "TC-006",
+      "entity_refs": [
+        "https://firmsfinder.eu/#geo-diagnostic"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/geo/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-TOF-036",
+      "funnel": "TOF",
+      "query": "Ce sunt fișierele JSON GEO?",
+      "action": "DISCOVER",
+      "target": "GEO_SERVICE",
+      "cluster_ref": "TC-006",
+      "entity_refs": [
+        "https://firmsfinder.eu/#geo-diagnostic"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/geo/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-TOF-037",
+      "funnel": "TOF",
+      "query": "Cum funcționează monitorizarea GEO?",
+      "action": "EXPLAIN",
+      "target": "GEO_SERVICE",
+      "cluster_ref": "TC-006",
+      "entity_refs": [
+        "https://firmsfinder.eu/#geo-diagnostic"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/geo/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-TOF-038",
+      "funnel": "TOF",
+      "query": "GEO garantează apariția în ChatGPT?",
+      "action": "DEFINE",
+      "target": "GEO_SERVICE",
+      "cluster_ref": "TC-006",
+      "entity_refs": [
+        "https://firmsfinder.eu/#geo-diagnostic"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/geo/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-TOF-039",
+      "funnel": "TOF",
+      "query": "Ce este Answer Engine Optimization?",
+      "action": "LEARN",
+      "target": "AI_OPTIMIZATION",
+      "cluster_ref": "TC-007",
+      "entity_refs": [
+        "https://firmsfinder.eu/#aeo-diagnostic"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/aeo/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-TOF-040",
+      "funnel": "TOF",
+      "query": "Ce înseamnă AI Optimization?",
+      "action": "UNDERSTAND",
+      "target": "AI_OPTIMIZATION",
+      "cluster_ref": "TC-007",
+      "entity_refs": [
+        "https://firmsfinder.eu/#aeo-diagnostic"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/aeo/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-TOF-041",
+      "funnel": "TOF",
+      "query": "De ce sunt utile întrebările frecvente?",
+      "action": "EXPLORE",
+      "target": "AI_OPTIMIZATION",
+      "cluster_ref": "TC-007",
+      "entity_refs": [
+        "https://firmsfinder.eu/#aeo-diagnostic"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/aeo/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-TOF-042",
+      "funnel": "TOF",
+      "query": "Ce este Schema.org?",
+      "action": "DISCOVER",
+      "target": "AI_OPTIMIZATION",
+      "cluster_ref": "TC-007",
+      "entity_refs": [
+        "https://firmsfinder.eu/#aeo-diagnostic"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/aeo/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-TOF-043",
+      "funnel": "TOF",
+      "query": "Ce este un răspuns direct?",
+      "action": "EXPLAIN",
+      "target": "AI_OPTIMIZATION",
+      "cluster_ref": "TC-007",
+      "entity_refs": [
+        "https://firmsfinder.eu/#aeo-diagnostic"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/aeo/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-TOF-044",
+      "funnel": "TOF",
+      "query": "Ce este un intent JSON?",
+      "action": "DEFINE",
+      "target": "AI_OPTIMIZATION",
+      "cluster_ref": "TC-007",
+      "entity_refs": [
+        "https://firmsfinder.eu/#aeo-diagnostic"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/aeo/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-TOF-045",
+      "funnel": "TOF",
+      "query": "Unde găsesc date publice despre firme?",
+      "action": "LEARN",
+      "target": "ECONOMIC_INTELLIGENCE",
+      "cluster_ref": "TC-008",
+      "entity_refs": [
+        "https://firmsfinder.eu/#economic-intelligence"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-TOF-046",
+      "funnel": "TOF",
+      "query": "De ce sunt gratuite datele oficiale publice?",
+      "action": "UNDERSTAND",
+      "target": "ECONOMIC_INTELLIGENCE",
+      "cluster_ref": "TC-008",
+      "entity_refs": [
+        "https://firmsfinder.eu/#economic-intelligence"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-TOF-047",
+      "funnel": "TOF",
+      "query": "Ce este inteligența economică?",
+      "action": "EXPLORE",
+      "target": "ECONOMIC_INTELLIGENCE",
+      "cluster_ref": "TC-008",
+      "entity_refs": [
+        "https://firmsfinder.eu/#economic-intelligence"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-TOF-048",
+      "funnel": "TOF",
+      "query": "Ce diferență există între date și interpretare?",
+      "action": "DISCOVER",
+      "target": "ECONOMIC_INTELLIGENCE",
+      "cluster_ref": "TC-008",
+      "entity_refs": [
+        "https://firmsfinder.eu/#economic-intelligence"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-TOF-049",
+      "funnel": "TOF",
+      "query": "Ce poate automatiza un agent AI B2B?",
+      "action": "EXPLAIN",
+      "target": "ECONOMIC_INTELLIGENCE",
+      "cluster_ref": "TC-008",
+      "entity_refs": [
+        "https://firmsfinder.eu/#economic-intelligence"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-TOF-050",
+      "funnel": "TOF",
+      "query": "Ce include monitorizarea economică?",
+      "action": "DEFINE",
+      "target": "ECONOMIC_INTELLIGENCE",
+      "cluster_ref": "TC-008",
+      "entity_refs": [
+        "https://firmsfinder.eu/#economic-intelligence"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-MOF-001",
+      "funnel": "MOF",
+      "query": "Cum compar sursele pentru verificarea unei firme?",
+      "action": "COMPARE",
+      "target": "COMPANY",
+      "cluster_ref": "TC-001",
+      "entity_refs": [
+        "https://firmsfinder.eu/#software"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/cauta/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-MOF-002",
+      "funnel": "MOF",
+      "query": "Cum verific dacă statutul unei firme este actualizat?",
+      "action": "VERIFY",
+      "target": "COMPANY",
+      "cluster_ref": "TC-001",
+      "entity_refs": [
+        "https://firmsfinder.eu/#software"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/cauta/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-MOF-003",
+      "funnel": "MOF",
+      "query": "Ce criterii geografice pot combina într-o căutare?",
+      "action": "ANALYZE",
+      "target": "COMPANY",
+      "cluster_ref": "TC-001",
+      "entity_refs": [
+        "https://firmsfinder.eu/#software"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/cauta/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-MOF-004",
+      "funnel": "MOF",
+      "query": "Cum compar rezultatele pentru două coduri CAEN?",
+      "action": "EVALUATE",
+      "target": "COMPANY",
+      "cluster_ref": "TC-001",
+      "entity_refs": [
+        "https://firmsfinder.eu/#software"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/cauta/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-MOF-005",
+      "funnel": "MOF",
+      "query": "Cum interpretează o căutare semantică descrierea unei activități?",
+      "action": "ASSESS",
+      "target": "COMPANY",
+      "cluster_ref": "TC-001",
+      "entity_refs": [
+        "https://firmsfinder.eu/#software"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/cauta/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-MOF-006",
+      "funnel": "MOF",
+      "query": "Cum verific proveniența și data actualizării datelor?",
+      "action": "DISTINGUISH",
+      "target": "COMPANY",
+      "cluster_ref": "TC-001",
+      "entity_refs": [
+        "https://firmsfinder.eu/#software"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/cauta/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-MOF-007",
+      "funnel": "MOF",
+      "query": "Cum disting activitatea declarată de oferta comercială reală?",
+      "action": "VALIDATE",
+      "target": "COMPANY",
+      "cluster_ref": "TC-001",
+      "entity_refs": [
+        "https://firmsfinder.eu/#software"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/cauta/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-MOF-008",
+      "funnel": "MOF",
+      "query": "Cum evaluez relevanța unui potențial client?",
+      "action": "COMPARE",
+      "target": "PROSPECT",
+      "cluster_ref": "TC-002",
+      "entity_refs": [
+        "https://firmsfinder.eu/#economic-intelligence"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-MOF-009",
+      "funnel": "MOF",
+      "query": "Ce indicii sugerează nevoia unui produs?",
+      "action": "VERIFY",
+      "target": "PROSPECT",
+      "cluster_ref": "TC-002",
+      "entity_refs": [
+        "https://firmsfinder.eu/#economic-intelligence"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-MOF-010",
+      "funnel": "MOF",
+      "query": "Cum justific o potrivire dintre produs și activitatea firmei?",
+      "action": "ANALYZE",
+      "target": "PROSPECT",
+      "cluster_ref": "TC-002",
+      "entity_refs": [
+        "https://firmsfinder.eu/#economic-intelligence"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-MOF-011",
+      "funnel": "MOF",
+      "query": "Cum compar segmente după activitate și geografie?",
+      "action": "EVALUATE",
+      "target": "PROSPECT",
+      "cluster_ref": "TC-002",
+      "entity_refs": [
+        "https://firmsfinder.eu/#economic-intelligence"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-MOF-012",
+      "funnel": "MOF",
+      "query": "Cum separ ipotezele comerciale de relațiile confirmate?",
+      "action": "ASSESS",
+      "target": "PROSPECT",
+      "cluster_ref": "TC-002",
+      "entity_refs": [
+        "https://firmsfinder.eu/#economic-intelligence"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-MOF-013",
+      "funnel": "MOF",
+      "query": "Ce limite are inferența cererii din codul CAEN?",
+      "action": "DISTINGUISH",
+      "target": "PROSPECT",
+      "cluster_ref": "TC-002",
+      "entity_refs": [
+        "https://firmsfinder.eu/#economic-intelligence"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-MOF-014",
+      "funnel": "MOF",
+      "query": "Cum compar oportunitățile pe baza dovezilor disponibile?",
+      "action": "VALIDATE",
+      "target": "PROSPECT",
+      "cluster_ref": "TC-002",
+      "entity_refs": [
+        "https://firmsfinder.eu/#economic-intelligence"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-MOF-015",
+      "funnel": "MOF",
+      "query": "Cum compar furnizori după oferta verificabilă?",
+      "action": "COMPARE",
+      "target": "BUSINESS_PARTNER",
+      "cluster_ref": "TC-003",
+      "entity_refs": [
+        "https://firmsfinder.eu/#ere"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-MOF-016",
+      "funnel": "MOF",
+      "query": "Cum diferențiez producătorii de distribuitori?",
+      "action": "VERIFY",
+      "target": "BUSINESS_PARTNER",
+      "cluster_ref": "TC-003",
+      "entity_refs": [
+        "https://firmsfinder.eu/#ere"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-MOF-017",
+      "funnel": "MOF",
+      "query": "Cum evaluez complementaritatea dintre două firme?",
+      "action": "ANALYZE",
+      "target": "BUSINESS_PARTNER",
+      "cluster_ref": "TC-003",
+      "entity_refs": [
+        "https://firmsfinder.eu/#ere"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-MOF-018",
+      "funnel": "MOF",
+      "query": "Cum identific verigile lipsă dintr-un lanț valoric?",
+      "action": "EVALUATE",
+      "target": "BUSINESS_PARTNER",
+      "cluster_ref": "TC-003",
+      "entity_refs": [
+        "https://firmsfinder.eu/#ere"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-MOF-019",
+      "funnel": "MOF",
+      "query": "Cum compar dependența de un singur furnizor?",
+      "action": "ASSESS",
+      "target": "BUSINESS_PARTNER",
+      "cluster_ref": "TC-003",
+      "entity_refs": [
+        "https://firmsfinder.eu/#ere"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-MOF-020",
+      "funnel": "MOF",
+      "query": "Cum disting colaborarea posibilă de cea dovedită?",
+      "action": "DISTINGUISH",
+      "target": "BUSINESS_PARTNER",
+      "cluster_ref": "TC-003",
+      "entity_refs": [
+        "https://firmsfinder.eu/#ere"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-MOF-021",
+      "funnel": "MOF",
+      "query": "Cum verific versiunea CAEN aplicabilă unui cod?",
+      "action": "COMPARE",
+      "target": "ECONOMIC_ACTIVITY",
+      "cluster_ref": "TC-004",
+      "entity_refs": [
+        "https://firmsfinder.eu/#caen"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-MOF-022",
+      "funnel": "MOF",
+      "query": "Cum se leagă secțiunile, diviziunile, grupele și clasele?",
+      "action": "VERIFY",
+      "target": "ECONOMIC_ACTIVITY",
+      "cluster_ref": "TC-004",
+      "entity_refs": [
+        "https://firmsfinder.eu/#caen"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-MOF-023",
+      "funnel": "MOF",
+      "query": "Cum verific notele explicative și excluderile?",
+      "action": "ANALYZE",
+      "target": "ECONOMIC_ACTIVITY",
+      "cluster_ref": "TC-004",
+      "entity_refs": [
+        "https://firmsfinder.eu/#caen"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-MOF-024",
+      "funnel": "MOF",
+      "query": "Cum verific oferta reală dincolo de activitatea declarată?",
+      "action": "EVALUATE",
+      "target": "ECONOMIC_ACTIVITY",
+      "cluster_ref": "TC-004",
+      "entity_refs": [
+        "https://firmsfinder.eu/#caen"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-MOF-025",
+      "funnel": "MOF",
+      "query": "Cum argumentez relația dintre două activități CAEN?",
+      "action": "ASSESS",
+      "target": "ECONOMIC_ACTIVITY",
+      "cluster_ref": "TC-004",
+      "entity_refs": [
+        "https://firmsfinder.eu/#caen"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-MOF-026",
+      "funnel": "MOF",
+      "query": "Cum verific corespondențele dintre CAEN Rev. 2 și Rev. 3?",
+      "action": "DISTINGUISH",
+      "target": "ECONOMIC_ACTIVITY",
+      "cluster_ref": "TC-004",
+      "entity_refs": [
+        "https://firmsfinder.eu/#caen"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-MOF-027",
+      "funnel": "MOF",
+      "query": "Cum diferă un graf economic de o listă de firme?",
+      "action": "COMPARE",
+      "target": "ENTITY_RELATIONSHIP",
+      "cluster_ref": "TC-005",
+      "entity_refs": [
+        "https://firmsfinder.eu/#ere"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-MOF-028",
+      "funnel": "MOF",
+      "query": "Cum aleg tipurile de entități și predicate?",
+      "action": "VERIFY",
+      "target": "ENTITY_RELATIONSHIP",
+      "cluster_ref": "TC-005",
+      "entity_refs": [
+        "https://firmsfinder.eu/#ere"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-MOF-029",
+      "funnel": "MOF",
+      "query": "Cum stabilesc cardinalitățile între firme și activități?",
+      "action": "ANALYZE",
+      "target": "ENTITY_RELATIONSHIP",
+      "cluster_ref": "TC-005",
+      "entity_refs": [
+        "https://firmsfinder.eu/#ere"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-MOF-030",
+      "funnel": "MOF",
+      "query": "Cum verific simetria sau inversarea unui predicat?",
+      "action": "EVALUATE",
+      "target": "ENTITY_RELATIONSHIP",
+      "cluster_ref": "TC-005",
+      "entity_refs": [
+        "https://firmsfinder.eu/#ere"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-MOF-031",
+      "funnel": "MOF",
+      "query": "Cum compar dovezi contradictorii pentru o relație?",
+      "action": "ASSESS",
+      "target": "ENTITY_RELATIONSHIP",
+      "cluster_ref": "TC-005",
+      "entity_refs": [
+        "https://firmsfinder.eu/#ere"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-MOF-032",
+      "funnel": "MOF",
+      "query": "Cum separ inferențele de faptele observate?",
+      "action": "DISTINGUISH",
+      "target": "ENTITY_RELATIONSHIP",
+      "cluster_ref": "TC-005",
+      "entity_refs": [
+        "https://firmsfinder.eu/#ere"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-MOF-033",
+      "funnel": "MOF",
+      "query": "Cum se deosebește GEO de SEO tradițional?",
+      "action": "COMPARE",
+      "target": "GEO_SERVICE",
+      "cluster_ref": "TC-006",
+      "entity_refs": [
+        "https://firmsfinder.eu/#geo-diagnostic"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/geo/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-MOF-034",
+      "funnel": "MOF",
+      "query": "Ce semnale GEO pot fi măsurate automat?",
+      "action": "VERIFY",
+      "target": "GEO_SERVICE",
+      "cluster_ref": "TC-006",
+      "entity_refs": [
+        "https://firmsfinder.eu/#geo-diagnostic"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/geo/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-MOF-035",
+      "funnel": "MOF",
+      "query": "Cum verific dacă un fragment are sursă și context?",
+      "action": "ANALYZE",
+      "target": "GEO_SERVICE",
+      "cluster_ref": "TC-006",
+      "entity_refs": [
+        "https://firmsfinder.eu/#geo-diagnostic"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/geo/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-MOF-036",
+      "funnel": "MOF",
+      "query": "Cum verific consistența celor 21 de artefacte?",
+      "action": "EVALUATE",
+      "target": "GEO_SERVICE",
+      "cluster_ref": "TC-006",
+      "entity_refs": [
+        "https://firmsfinder.eu/#geo-diagnostic"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/geo/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-MOF-037",
+      "funnel": "MOF",
+      "query": "Cum compar două audituri GEO succesive?",
+      "action": "ASSESS",
+      "target": "GEO_SERVICE",
+      "cluster_ref": "TC-006",
+      "entity_refs": [
+        "https://firmsfinder.eu/#geo-diagnostic"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/geo/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-MOF-038",
+      "funnel": "MOF",
+      "query": "Cum separ pregătirea tehnică de citarea efectivă?",
+      "action": "DISTINGUISH",
+      "target": "GEO_SERVICE",
+      "cluster_ref": "TC-006",
+      "entity_refs": [
+        "https://firmsfinder.eu/#geo-diagnostic"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/geo/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-MOF-039",
+      "funnel": "MOF",
+      "query": "Cum diferă AEO de GEO și SEO?",
+      "action": "COMPARE",
+      "target": "AI_OPTIMIZATION",
+      "cluster_ref": "TC-007",
+      "entity_refs": [
+        "https://firmsfinder.eu/#aeo-diagnostic"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/aeo/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-MOF-040",
+      "funnel": "MOF",
+      "query": "Ce semnale AIO pot fi verificate pe o pagină?",
+      "action": "VERIFY",
+      "target": "AI_OPTIMIZATION",
+      "cluster_ref": "TC-007",
+      "entity_refs": [
+        "https://firmsfinder.eu/#aeo-diagnostic"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/aeo/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-MOF-041",
+      "funnel": "MOF",
+      "query": "Cum asociez FAQ cu intențiile reale ale utilizatorilor?",
+      "action": "ANALYZE",
+      "target": "AI_OPTIMIZATION",
+      "cluster_ref": "TC-007",
+      "entity_refs": [
+        "https://firmsfinder.eu/#aeo-diagnostic"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/aeo/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-MOF-042",
+      "funnel": "MOF",
+      "query": "Cum verific dacă datele structurate corespund conținutului vizibil?",
+      "action": "EVALUATE",
+      "target": "AI_OPTIMIZATION",
+      "cluster_ref": "TC-007",
+      "entity_refs": [
+        "https://firmsfinder.eu/#aeo-diagnostic"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/aeo/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-MOF-043",
+      "funnel": "MOF",
+      "query": "Cum formulez răspunsuri clare fără afirmații neverificate?",
+      "action": "ASSESS",
+      "target": "AI_OPTIMIZATION",
+      "cluster_ref": "TC-007",
+      "entity_refs": [
+        "https://firmsfinder.eu/#aeo-diagnostic"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/aeo/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-MOF-044",
+      "funnel": "MOF",
+      "query": "Cum aliniez intențiile cu paginile și entitățile?",
+      "action": "DISTINGUISH",
+      "target": "AI_OPTIMIZATION",
+      "cluster_ref": "TC-007",
+      "entity_refs": [
+        "https://firmsfinder.eu/#aeo-diagnostic"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/aeo/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-MOF-045",
+      "funnel": "MOF",
+      "query": "Cum verific licența și condițiile de reutilizare a datelor?",
+      "action": "COMPARE",
+      "target": "ECONOMIC_INTELLIGENCE",
+      "cluster_ref": "TC-008",
+      "entity_refs": [
+        "https://firmsfinder.eu/#economic-intelligence"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-MOF-046",
+      "funnel": "MOF",
+      "query": "Care este diferența dintre gratuitatea datelor și costul procesării?",
+      "action": "VERIFY",
+      "target": "ECONOMIC_INTELLIGENCE",
+      "cluster_ref": "TC-008",
+      "entity_refs": [
+        "https://firmsfinder.eu/#economic-intelligence"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-MOF-047",
+      "funnel": "MOF",
+      "query": "Cum transform datele brute în oportunități argumentate?",
+      "action": "ANALYZE",
+      "target": "ECONOMIC_INTELLIGENCE",
+      "cluster_ref": "TC-008",
+      "entity_refs": [
+        "https://firmsfinder.eu/#economic-intelligence"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-MOF-048",
+      "funnel": "MOF",
+      "query": "Cum verific argumentele unei recomandări comerciale?",
+      "action": "EVALUATE",
+      "target": "ECONOMIC_INTELLIGENCE",
+      "cluster_ref": "TC-008",
+      "entity_refs": [
+        "https://firmsfinder.eu/#economic-intelligence"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-MOF-049",
+      "funnel": "MOF",
+      "query": "Cum stabilesc limitele de autonomie și aprobarea umană?",
+      "action": "ASSESS",
+      "target": "ECONOMIC_INTELLIGENCE",
+      "cluster_ref": "TC-008",
+      "entity_refs": [
+        "https://firmsfinder.eu/#economic-intelligence"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-MOF-050",
+      "funnel": "MOF",
+      "query": "Cum compar rapoartele periodice și costurile serviciului?",
+      "action": "DISTINGUISH",
+      "target": "ECONOMIC_INTELLIGENCE",
+      "cluster_ref": "TC-008",
+      "entity_refs": [
+        "https://firmsfinder.eu/#economic-intelligence"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-BOF-001",
+      "funnel": "BOF",
+      "query": "Găsește firme active din România relevante pentru căutarea mea.",
+      "action": "FIND",
+      "target": "COMPANY",
+      "cluster_ref": "TC-001",
+      "entity_refs": [
+        "https://firmsfinder.eu/#software"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/cauta/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-BOF-002",
+      "funnel": "BOF",
+      "query": "Afișează firmele cu statut activ, folosind ultima sursă disponibilă.",
+      "action": "IDENTIFY",
+      "target": "COMPANY",
+      "cluster_ref": "TC-001",
+      "entity_refs": [
+        "https://firmsfinder.eu/#software"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/cauta/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-BOF-003",
+      "funnel": "BOF",
+      "query": "Găsește firme din județul Cluj care desfășoară activitatea solicitată.",
+      "action": "GENERATE",
+      "target": "COMPANY",
+      "cluster_ref": "TC-001",
+      "entity_refs": [
+        "https://firmsfinder.eu/#software"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/cauta/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-BOF-004",
+      "funnel": "BOF",
+      "query": "Listează firmele asociate codului CAEN introdus și precizează revizia.",
+      "action": "AUDIT",
+      "target": "COMPANY",
+      "cluster_ref": "TC-001",
+      "entity_refs": [
+        "https://firmsfinder.eu/#software"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/cauta/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-BOF-005",
+      "funnel": "BOF",
+      "query": "Caută firme care produc ambalaje din carton, folosind limbaj natural.",
+      "action": "MAP",
+      "target": "COMPANY",
+      "cluster_ref": "TC-001",
+      "entity_refs": [
+        "https://firmsfinder.eu/#software"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/cauta/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-BOF-006",
+      "funnel": "BOF",
+      "query": "Arată sursa și data fiecărui atribut afișat pentru firmele găsite.",
+      "action": "REQUEST",
+      "target": "COMPANY",
+      "cluster_ref": "TC-001",
+      "entity_refs": [
+        "https://firmsfinder.eu/#software"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/cauta/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-BOF-007",
+      "funnel": "BOF",
+      "query": "Găsește firme care declară sau prezintă servicii de mentenanță IT.",
+      "action": "CONFIGURE",
+      "target": "COMPANY",
+      "cluster_ref": "TC-001",
+      "entity_refs": [
+        "https://firmsfinder.eu/#software"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/cauta/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-BOF-008",
+      "funnel": "BOF",
+      "query": "Identifică potențiali clienți B2B pentru oferta mea.",
+      "action": "FIND",
+      "target": "PROSPECT",
+      "cluster_ref": "TC-002",
+      "entity_refs": [
+        "https://firmsfinder.eu/#economic-intelligence"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-BOF-009",
+      "funnel": "BOF",
+      "query": "Găsește firme care ar putea avea nevoie de ambalaje din carton.",
+      "action": "IDENTIFY",
+      "target": "PROSPECT",
+      "cluster_ref": "TC-002",
+      "entity_refs": [
+        "https://firmsfinder.eu/#economic-intelligence"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-BOF-010",
+      "funnel": "BOF",
+      "query": "Generează o listă de potriviri comerciale cu argumente și surse.",
+      "action": "GENERATE",
+      "target": "PROSPECT",
+      "cluster_ref": "TC-002",
+      "entity_refs": [
+        "https://firmsfinder.eu/#economic-intelligence"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-BOF-011",
+      "funnel": "BOF",
+      "query": "Construiește un segment de firme producătoare din regiunea Nord-Vest.",
+      "action": "AUDIT",
+      "target": "PROSPECT",
+      "cluster_ref": "TC-002",
+      "entity_refs": [
+        "https://firmsfinder.eu/#economic-intelligence"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-BOF-012",
+      "funnel": "BOF",
+      "query": "Marchează fiecare prospect ca ipoteză sau relație verificată.",
+      "action": "MAP",
+      "target": "PROSPECT",
+      "cluster_ref": "TC-002",
+      "entity_refs": [
+        "https://firmsfinder.eu/#economic-intelligence"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-BOF-013",
+      "funnel": "BOF",
+      "query": "Identifică industrii posibil cumpărătoare pentru ambalaje alimentare.",
+      "action": "REQUEST",
+      "target": "PROSPECT",
+      "cluster_ref": "TC-002",
+      "entity_refs": [
+        "https://firmsfinder.eu/#economic-intelligence"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-BOF-014",
+      "funnel": "BOF",
+      "query": "Ordonează prospectele după potrivire și afișează justificarea.",
+      "action": "CONFIGURE",
+      "target": "PROSPECT",
+      "cluster_ref": "TC-002",
+      "entity_refs": [
+        "https://firmsfinder.eu/#economic-intelligence"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-BOF-015",
+      "funnel": "BOF",
+      "query": "Găsește furnizori de ambalaje din carton din România.",
+      "action": "FIND",
+      "target": "BUSINESS_PARTNER",
+      "cluster_ref": "TC-003",
+      "entity_refs": [
+        "https://firmsfinder.eu/#ere"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-BOF-016",
+      "funnel": "BOF",
+      "query": "Identifică distribuitori pentru produsele firmei mele.",
+      "action": "IDENTIFY",
+      "target": "BUSINESS_PARTNER",
+      "cluster_ref": "TC-003",
+      "entity_refs": [
+        "https://firmsfinder.eu/#ere"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-BOF-017",
+      "funnel": "BOF",
+      "query": "Propune parteneri potențiali și explică potrivirea.",
+      "action": "GENERATE",
+      "target": "BUSINESS_PARTNER",
+      "cluster_ref": "TC-003",
+      "entity_refs": [
+        "https://firmsfinder.eu/#ere"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-BOF-018",
+      "funnel": "BOF",
+      "query": "Construiește o hartă ipotetică a furnizorilor pentru industria alimentară.",
+      "action": "AUDIT",
+      "target": "BUSINESS_PARTNER",
+      "cluster_ref": "TC-003",
+      "entity_refs": [
+        "https://firmsfinder.eu/#ere"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-BOF-019",
+      "funnel": "BOF",
+      "query": "Găsește alternative pentru un furnizor de componente metalice.",
+      "action": "MAP",
+      "target": "BUSINESS_PARTNER",
+      "cluster_ref": "TC-003",
+      "entity_refs": [
+        "https://firmsfinder.eu/#ere"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-BOF-020",
+      "funnel": "BOF",
+      "query": "Găsește firme cu activități complementare și marchează relațiile ipotetice.",
+      "action": "REQUEST",
+      "target": "BUSINESS_PARTNER",
+      "cluster_ref": "TC-003",
+      "entity_refs": [
+        "https://firmsfinder.eu/#ere"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-BOF-021",
+      "funnel": "BOF",
+      "query": "Afișează denumirea oficială a codului CAEN introdus și revizia sa.",
+      "action": "FIND",
+      "target": "ECONOMIC_ACTIVITY",
+      "cluster_ref": "TC-004",
+      "entity_refs": [
+        "https://firmsfinder.eu/#caen"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-BOF-022",
+      "funnel": "BOF",
+      "query": "Arată ierarhia completă pentru codul CAEN selectat.",
+      "action": "IDENTIFY",
+      "target": "ECONOMIC_ACTIVITY",
+      "cluster_ref": "TC-004",
+      "entity_refs": [
+        "https://firmsfinder.eu/#caen"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-BOF-023",
+      "funnel": "BOF",
+      "query": "Prezintă activitățile incluse și excluse pentru codul selectat.",
+      "action": "GENERATE",
+      "target": "ECONOMIC_ACTIVITY",
+      "cluster_ref": "TC-004",
+      "entity_refs": [
+        "https://firmsfinder.eu/#caen"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-BOF-024",
+      "funnel": "BOF",
+      "query": "Separă activitatea CAEN de produsele confirmate ale unei firme.",
+      "action": "AUDIT",
+      "target": "ECONOMIC_ACTIVITY",
+      "cluster_ref": "TC-004",
+      "entity_refs": [
+        "https://firmsfinder.eu/#caen"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-BOF-025",
+      "funnel": "BOF",
+      "query": "Identifică activități CAEN potențial complementare producției de carton.",
+      "action": "MAP",
+      "target": "ECONOMIC_ACTIVITY",
+      "cluster_ref": "TC-004",
+      "entity_refs": [
+        "https://firmsfinder.eu/#caen"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-BOF-026",
+      "funnel": "BOF",
+      "query": "Compară codul introdus între reviziile CAEN, indicând sursa oficială.",
+      "action": "REQUEST",
+      "target": "ECONOMIC_ACTIVITY",
+      "cluster_ref": "TC-004",
+      "entity_refs": [
+        "https://firmsfinder.eu/#caen"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-BOF-027",
+      "funnel": "BOF",
+      "query": "Reprezintă firmele și activitățile selectate într-un graf ERE.",
+      "action": "FIND",
+      "target": "ENTITY_RELATIONSHIP",
+      "cluster_ref": "TC-005",
+      "entity_refs": [
+        "https://firmsfinder.eu/#ere"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-BOF-028",
+      "funnel": "BOF",
+      "query": "Construiește triplete ERE pentru firme, activități și produse.",
+      "action": "IDENTIFY",
+      "target": "ENTITY_RELATIONSHIP",
+      "cluster_ref": "TC-005",
+      "entity_refs": [
+        "https://firmsfinder.eu/#ere"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-BOF-029",
+      "funnel": "BOF",
+      "query": "Afișează cardinalitățile definite pentru relațiile ERE selectate.",
+      "action": "GENERATE",
+      "target": "ENTITY_RELATIONSHIP",
+      "cluster_ref": "TC-005",
+      "entity_refs": [
+        "https://firmsfinder.eu/#ere"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-BOF-030",
+      "funnel": "BOF",
+      "query": "Generează relația inversă pentru furnizează, fără a presupune simetrie.",
+      "action": "AUDIT",
+      "target": "ENTITY_RELATIONSHIP",
+      "cluster_ref": "TC-005",
+      "entity_refs": [
+        "https://firmsfinder.eu/#ere"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-BOF-031",
+      "funnel": "BOF",
+      "query": "Afișează sursa și starea verificării pentru fiecare muchie a grafului.",
+      "action": "MAP",
+      "target": "ENTITY_RELATIONSHIP",
+      "cluster_ref": "TC-005",
+      "entity_refs": [
+        "https://firmsfinder.eu/#ere"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-BOF-032",
+      "funnel": "BOF",
+      "query": "Identifică potriviri inferate și etichetează-le ca ipoteze.",
+      "action": "REQUEST",
+      "target": "ENTITY_RELATIONSHIP",
+      "cluster_ref": "TC-005",
+      "entity_refs": [
+        "https://firmsfinder.eu/#ere"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-BOF-033",
+      "funnel": "BOF",
+      "query": "Evaluează pregătirea GEO a URL-ului introdus.",
+      "action": "FIND",
+      "target": "GEO_SERVICE",
+      "cluster_ref": "TC-006",
+      "entity_refs": [
+        "https://firmsfinder.eu/#geo-diagnostic"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/geo/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-BOF-034",
+      "funnel": "BOF",
+      "query": "Rulează diagnosticul GEO gratuit pentru pagina mea.",
+      "action": "IDENTIFY",
+      "target": "GEO_SERVICE",
+      "cluster_ref": "TC-006",
+      "entity_refs": [
+        "https://firmsfinder.eu/#geo-diagnostic"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/geo/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-BOF-035",
+      "funnel": "BOF",
+      "query": "Identifică fragmentele citabile și sursele lor pe pagina analizată.",
+      "action": "GENERATE",
+      "target": "GEO_SERVICE",
+      "cluster_ref": "TC-006",
+      "entity_refs": [
+        "https://firmsfinder.eu/#geo-diagnostic"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/geo/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-BOF-036",
+      "funnel": "BOF",
+      "query": "Generează cele 21 de fișiere GEO și arhiva ZIP.",
+      "action": "AUDIT",
+      "target": "GEO_SERVICE",
+      "cluster_ref": "TC-006",
+      "entity_refs": [
+        "https://firmsfinder.eu/#geo-diagnostic"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/geo/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-BOF-037",
+      "funnel": "BOF",
+      "query": "Configurează monitorizarea GEO săptămânală pentru domeniul meu.",
+      "action": "MAP",
+      "target": "GEO_SERVICE",
+      "cluster_ref": "TC-006",
+      "entity_refs": [
+        "https://firmsfinder.eu/#geo-diagnostic"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/geo/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-BOF-038",
+      "funnel": "BOF",
+      "query": "Afișează doar citările AI observate și dovezile aferente.",
+      "action": "REQUEST",
+      "target": "GEO_SERVICE",
+      "cluster_ref": "TC-006",
+      "entity_refs": [
+        "https://firmsfinder.eu/#geo-diagnostic"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/geo/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-BOF-039",
+      "funnel": "BOF",
+      "query": "Evaluează structura AEO a paginii introduse.",
+      "action": "FIND",
+      "target": "AI_OPTIMIZATION",
+      "cluster_ref": "TC-007",
+      "entity_refs": [
+        "https://firmsfinder.eu/#aeo-diagnostic"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/aeo/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-BOF-040",
+      "funnel": "BOF",
+      "query": "Rulează un diagnostic AIO pentru URL-ul meu.",
+      "action": "IDENTIFY",
+      "target": "AI_OPTIMIZATION",
+      "cluster_ref": "TC-007",
+      "entity_refs": [
+        "https://firmsfinder.eu/#aeo-diagnostic"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/aeo/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-BOF-041",
+      "funnel": "BOF",
+      "query": "Construiește întrebări și răspunsuri AEO pentru serviciul meu.",
+      "action": "GENERATE",
+      "target": "AI_OPTIMIZATION",
+      "cluster_ref": "TC-007",
+      "entity_refs": [
+        "https://firmsfinder.eu/#aeo-diagnostic"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/aeo/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-BOF-042",
+      "funnel": "BOF",
+      "query": "Verifică JSON-LD și raportează neconcordanțele.",
+      "action": "AUDIT",
+      "target": "AI_OPTIMIZATION",
+      "cluster_ref": "TC-007",
+      "entity_refs": [
+        "https://firmsfinder.eu/#aeo-diagnostic"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/aeo/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-BOF-043",
+      "funnel": "BOF",
+      "query": "Extrage răspunsuri directe susținute de conținutul paginii.",
+      "action": "MAP",
+      "target": "AI_OPTIMIZATION",
+      "cluster_ref": "TC-007",
+      "entity_refs": [
+        "https://firmsfinder.eu/#aeo-diagnostic"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/aeo/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-BOF-044",
+      "funnel": "BOF",
+      "query": "Generează registrul de intenții AEO/AIO cu referințe verificabile.",
+      "action": "REQUEST",
+      "target": "AI_OPTIMIZATION",
+      "cluster_ref": "TC-007",
+      "entity_refs": [
+        "https://firmsfinder.eu/#aeo-diagnostic"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/aeo/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-BOF-045",
+      "funnel": "BOF",
+      "query": "Accesează datele publice gratuite disponibile pentru firma selectată.",
+      "action": "FIND",
+      "target": "ECONOMIC_INTELLIGENCE",
+      "cluster_ref": "TC-008",
+      "entity_refs": [
+        "https://firmsfinder.eu/#economic-intelligence"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-BOF-046",
+      "funnel": "BOF",
+      "query": "Afișează sursa oficială a datelor și condițiile de acces.",
+      "action": "IDENTIFY",
+      "target": "ECONOMIC_INTELLIGENCE",
+      "cluster_ref": "TC-008",
+      "entity_refs": [
+        "https://firmsfinder.eu/#economic-intelligence"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-BOF-047",
+      "funnel": "BOF",
+      "query": "Solicită o analiză de inteligență economică pentru sectorul meu.",
+      "action": "GENERATE",
+      "target": "ECONOMIC_INTELLIGENCE",
+      "cluster_ref": "TC-008",
+      "entity_refs": [
+        "https://firmsfinder.eu/#economic-intelligence"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-BOF-048",
+      "funnel": "BOF",
+      "query": "Generează o analiză plătită cu surse și explicații pentru fiecare potrivire.",
+      "action": "AUDIT",
+      "target": "ECONOMIC_INTELLIGENCE",
+      "cluster_ref": "TC-008",
+      "entity_refs": [
+        "https://firmsfinder.eu/#economic-intelligence"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-BOF-049",
+      "funnel": "BOF",
+      "query": "Pregătește o sarcină de prospectare pentru agent, cu aprobare umană.",
+      "action": "MAP",
+      "target": "ECONOMIC_INTELLIGENCE",
+      "cluster_ref": "TC-008",
+      "entity_refs": [
+        "https://firmsfinder.eu/#economic-intelligence"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    },
+    {
+      "id": "FF-GEO-BOF-050",
+      "funnel": "BOF",
+      "query": "Solicită monitorizarea schimbărilor relevante pentru lista mea de firme.",
+      "action": "REQUEST",
+      "target": "ECONOMIC_INTELLIGENCE",
+      "cluster_ref": "TC-008",
+      "entity_refs": [
+        "https://firmsfinder.eu/#economic-intelligence"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "query_language": "ro-RO",
+      "semantic_status": "PROPOSED",
+      "evidence_refs": []
+    }
+  ],
+  "validation": {
+    "json_syntax": "NOT_TESTED",
+    "unique_ids": "NOT_TESTED",
+    "cluster_refs_resolved": "NOT_TESTED",
+    "entity_refs_resolved": "NOT_TESTED",
+    "target_pages_reachable": "NOT_TESTED",
+    "semantic_review": "REQUIRED"
+  }
+}
