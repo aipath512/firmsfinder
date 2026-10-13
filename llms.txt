@@ -110,17 +110,17 @@ These 12 URLs returned HTTP 200 in a user-provided GET test on 2026-10-13. HTTP 
 
 The following are candidate resources for the FirmsFinder semantic architecture. Do not assume they exist, are accessible, or contain valid data until tested individually.
 
-- https://firmsfinder.eu/entities.json
-- https://firmsfinder.eu/intents.json
-- https://firmsfinder.eu/knowledge-graph.json
-- https://firmsfinder.eu/ere-dictionary.json
-- https://firmsfinder.eu/claims.json
-- https://firmsfinder.eu/evidence.json
-- https://firmsfinder.eu/citable-chunks.json
-- https://firmsfinder.eu/rag-metadata.json
-- https://firmsfinder.eu/topic-clusters.json
-- https://firmsfinder.eu/semantic-keywords.json
-- https://firmsfinder.eu/verification.json
+- https://firmsfinder.eu/geo/entities.json
+- https://firmsfinder.eu/geo/intents.json
+- https://firmsfinder.eu/geo/knowledge-graph.json
+- https://firmsfinder.eu/geo/ere-dictionary.json
+- https://firmsfinder.eu/geo/claims.json
+- https://firmsfinder.eu/geo/evidence.json
+- https://firmsfinder.eu/geo/citable-chunks.json
+- https://firmsfinder.eu/geo/rag-metadata.json
+- https://firmsfinder.eu/geo/topic-clusters.json
+- https://firmsfinder.eu/geo/semantic-keywords.json
+- https://firmsfinder.eu/geo/verification.json
 - https://firmsfinder.eu/digital-dna.json
 
 These JSON resources are architecture-specific; they are not universal requirements of AI search engines.
