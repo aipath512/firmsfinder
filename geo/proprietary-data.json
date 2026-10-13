@@ -1,0 +1,137 @@
+{
+  "schema": "FIRMSFINDER_GEO_PROPRIETARY_DATA",
+  "version": "1.0.0",
+  "generated_at": "2026-10-13",
+  "status": "draft_not_verified",
+  "website": "https://firmsfinder.eu/",
+  "publisher": "AiVenture S.R.L.",
+  "language": "ro-RO",
+  "scope_note": "Registru de date si metode propuse; nu certifica existenta dataseturilor sau rezultate operationale.",
+  "datasets": [
+    {
+      "id": "PD-001",
+      "name": "Registrul firmelor candidate",
+      "classification": "third_party_derived_candidate",
+      "description": "Date de identificare a firmelor, daca sunt obtinute legal din surse documentate.",
+      "source_name": null,
+      "source_url": null,
+      "source_license": null,
+      "acquired_at": null,
+      "record_count": null,
+      "deduplication_method": null,
+      "update_frequency": null,
+      "public_access_verified": false,
+      "status": "source_required"
+    },
+    {
+      "id": "PD-002",
+      "name": "Mapare CAEN Rev.3 la concepte economice",
+      "classification": "derived_mapping_proposed",
+      "description": "Mapari explicite intre activitati CAEN si concepte, fara a deduce automat produse vandute.",
+      "source_name": null,
+      "source_url": null,
+      "source_license": null,
+      "acquired_at": null,
+      "record_count": null,
+      "mapping_reviewed": false,
+      "status": "not_verified"
+    },
+    {
+      "id": "PD-003",
+      "name": "Ipoteze de potrivire B2B",
+      "classification": "proprietary_method_candidate",
+      "description": "Legaturi ipotetice firma-nevoie-oferta, insotite de rationale si nivel de incredere.",
+      "source_name": null,
+      "source_url": null,
+      "source_license": null,
+      "acquired_at": null,
+      "record_count": null,
+      "status": "not_measured"
+    },
+    {
+      "id": "PD-004",
+      "name": "Observatii de vizibilitate AI",
+      "classification": "first_party_measurement_candidate",
+      "description": "Observatii reproductibile pentru intrebari de referinta si raspunsuri ale modelelor AI.",
+      "source_name": null,
+      "source_url": null,
+      "source_license": null,
+      "acquired_at": null,
+      "record_count": null,
+      "status": "not_collected"
+    }
+  ],
+  "methodology": {
+    "id": "METH-001",
+    "name": "Potrivire economica explicabila ERE",
+    "status": "proposed",
+    "steps": [
+      {
+        "order": 1,
+        "action": "identify_entity",
+        "description": "Identifica firma si sursa identitatii"
+      },
+      {
+        "order": 2,
+        "action": "classify_activity",
+        "description": "Asociaza activitatea CAEN Rev.3 pe baza unei surse documentate"
+      },
+      {
+        "order": 3,
+        "action": "identify_offer",
+        "description": "Cauta dovezi independente despre produse sau servicii efectiv oferite"
+      },
+      {
+        "order": 4,
+        "action": "generate_hypothesis",
+        "description": "Propune relatii potentiale furnizor-client-partener, fara a le prezenta drept contracte"
+      },
+      {
+        "order": 5,
+        "action": "explain_and_verify",
+        "description": "Prezinta argumente, surse, limite si starea verificarii"
+      }
+    ],
+    "input_requirements": [
+      "identificator_firma",
+      "sursa_date",
+      "activitate_caen_daca_exista",
+      "dovada_ofertei_daca_exista"
+    ],
+    "output_fields": [
+      "entity_id",
+      "relation_type",
+      "rationale",
+      "source_ids",
+      "evidence_ids",
+      "verification_status"
+    ],
+    "evaluation": {
+      "reference_set_url": "/geo/reference-set.json",
+      "experiments_url": "/geo/experiments.json",
+      "metrics_url": "/geo/scorecard.json",
+      "baseline": null,
+      "measured_uplift": null
+    }
+  },
+  "provenance_policy": {
+    "source_required": true,
+    "license_review_required": true,
+    "personal_data_minimization": true,
+    "do_not_present_derived_as_official": true,
+    "do_not_present_hypothesis_as_confirmed": true,
+    "counts_require_dated_query": true,
+    "claims_require_evidence": true
+  },
+  "geo_signals": [
+    "GEO21",
+    "GEO22",
+    "GEO23"
+  ],
+  "verification": {
+    "json_syntax": "validated_locally",
+    "source_validation": "not_performed",
+    "runtime_validation": "not_performed",
+    "public_deployment": "not_verified"
+  }
+}
