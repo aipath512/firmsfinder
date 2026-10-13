@@ -1,0 +1,816 @@
+{
+  "schema": "FIRMSFINDER_GEO_VERIFICATION",
+  "version": "1.0.0",
+  "generated_at": "2026-10-13",
+  "website": "https://firmsfinder.eu",
+  "publisher": "AiVenture S.R.L.",
+  "language": "ro-RO",
+  "geo_signals": [
+    "GEO60"
+  ],
+  "status": "local_partial_verification",
+  "purpose": "Registru verificabil pentru integritatea, publicarea si validarea functionala a celor 21 de fisiere GEO. Nu substituie auditul runtime.",
+  "scope": {
+    "expected_files": 21,
+    "local_files_audited": [
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21
+    ],
+    "missing_local_files": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "network_checks_performed": false,
+    "cloudflare_api_checks_performed": false,
+    "verification_environment": "local_filesystem"
+  },
+  "status_vocabulary": {
+    "PASS": "Control executat si criteriu indeplinit",
+    "FAIL": "Control executat si criteriu neindeplinit",
+    "UNKNOWN": "Control neexecutat sau date indisponibile; nu inseamna PASS sau FAIL",
+    "NOT_APPLICABLE": "Control documentat ca neaplicabil, cu justificare"
+  },
+  "file_inventory": [
+    {
+      "number": 1,
+      "path": "geo/manifest.json",
+      "public_url": "https://firmsfinder.eu/geo/manifest.json",
+      "local_status": "UNKNOWN",
+      "local_json_syntax": "UNKNOWN",
+      "local_bytes": null,
+      "local_sha256": null,
+      "public_http_status": null,
+      "public_content_type": null,
+      "public_sha256": null,
+      "public_status": "UNKNOWN",
+      "cloudflare_deployment_id": null,
+      "cloudflare_commit_sha": null,
+      "cloudflare_status": "UNKNOWN"
+    },
+    {
+      "number": 2,
+      "path": "geo/entities.json",
+      "public_url": "https://firmsfinder.eu/geo/entities.json",
+      "local_status": "UNKNOWN",
+      "local_json_syntax": "UNKNOWN",
+      "local_bytes": null,
+      "local_sha256": null,
+      "public_http_status": null,
+      "public_content_type": null,
+      "public_sha256": null,
+      "public_status": "UNKNOWN",
+      "cloudflare_deployment_id": null,
+      "cloudflare_commit_sha": null,
+      "cloudflare_status": "UNKNOWN"
+    },
+    {
+      "number": 3,
+      "path": "geo/topic-clusters.json",
+      "public_url": "https://firmsfinder.eu/geo/topic-clusters.json",
+      "local_status": "UNKNOWN",
+      "local_json_syntax": "UNKNOWN",
+      "local_bytes": null,
+      "local_sha256": null,
+      "public_http_status": null,
+      "public_content_type": null,
+      "public_sha256": null,
+      "public_status": "UNKNOWN",
+      "cloudflare_deployment_id": null,
+      "cloudflare_commit_sha": null,
+      "cloudflare_status": "UNKNOWN"
+    },
+    {
+      "number": 4,
+      "path": "geo/semantic-keywords.json",
+      "public_url": "https://firmsfinder.eu/geo/semantic-keywords.json",
+      "local_status": "UNKNOWN",
+      "local_json_syntax": "UNKNOWN",
+      "local_bytes": null,
+      "local_sha256": null,
+      "public_http_status": null,
+      "public_content_type": null,
+      "public_sha256": null,
+      "public_status": "UNKNOWN",
+      "cloudflare_deployment_id": null,
+      "cloudflare_commit_sha": null,
+      "cloudflare_status": "UNKNOWN"
+    },
+    {
+      "number": 5,
+      "path": "geo/intents.json",
+      "public_url": "https://firmsfinder.eu/geo/intents.json",
+      "local_status": "PASS",
+      "local_json_syntax": "PASS",
+      "local_bytes": 71622,
+      "local_sha256": "cac0aed74fd5cd5b514505dfb26fde6ef54295aeab2cae5c64a772730458c24a",
+      "public_http_status": null,
+      "public_content_type": null,
+      "public_sha256": null,
+      "public_status": "UNKNOWN",
+      "cloudflare_deployment_id": null,
+      "cloudflare_commit_sha": null,
+      "cloudflare_status": "UNKNOWN"
+    },
+    {
+      "number": 6,
+      "path": "geo/claims.json",
+      "public_url": "https://firmsfinder.eu/geo/claims.json",
+      "local_status": "PASS",
+      "local_json_syntax": "PASS",
+      "local_bytes": 14215,
+      "local_sha256": "947c21c23db98b1ac9a5ddf8b8c3755bcbfb5c35993541b47ebf8b98e7058cdd",
+      "public_http_status": null,
+      "public_content_type": null,
+      "public_sha256": null,
+      "public_status": "UNKNOWN",
+      "cloudflare_deployment_id": null,
+      "cloudflare_commit_sha": null,
+      "cloudflare_status": "UNKNOWN"
+    },
+    {
+      "number": 7,
+      "path": "geo/citable-chunks.json",
+      "public_url": "https://firmsfinder.eu/geo/citable-chunks.json",
+      "local_status": "PASS",
+      "local_json_syntax": "PASS",
+      "local_bytes": 16890,
+      "local_sha256": "2652db85a3df15c2915912faf9d323d6c50ca8b9fcaf7f1e8f26a06ccd9506a9",
+      "public_http_status": null,
+      "public_content_type": null,
+      "public_sha256": null,
+      "public_status": "UNKNOWN",
+      "cloudflare_deployment_id": null,
+      "cloudflare_commit_sha": null,
+      "cloudflare_status": "UNKNOWN"
+    },
+    {
+      "number": 8,
+      "path": "geo/rag-metadata.json",
+      "public_url": "https://firmsfinder.eu/geo/rag-metadata.json",
+      "local_status": "PASS",
+      "local_json_syntax": "PASS",
+      "local_bytes": 16458,
+      "local_sha256": "aa3491ecaad2f26afccc4bbf0a2b2b370fe5b714517ccf95b9aae2aa019d14d7",
+      "public_http_status": null,
+      "public_content_type": null,
+      "public_sha256": null,
+      "public_status": "UNKNOWN",
+      "cloudflare_deployment_id": null,
+      "cloudflare_commit_sha": null,
+      "cloudflare_status": "UNKNOWN"
+    },
+    {
+      "number": 9,
+      "path": "geo/proprietary-data.json",
+      "public_url": "https://firmsfinder.eu/geo/proprietary-data.json",
+      "local_status": "PASS",
+      "local_json_syntax": "PASS",
+      "local_bytes": 4267,
+      "local_sha256": "f036e73548a041382a33ad55c61d51eab20a7140ca4bdefc3733f790ca80280c",
+      "public_http_status": null,
+      "public_content_type": null,
+      "public_sha256": null,
+      "public_status": "UNKNOWN",
+      "cloudflare_deployment_id": null,
+      "cloudflare_commit_sha": null,
+      "cloudflare_status": "UNKNOWN"
+    },
+    {
+      "number": 10,
+      "path": "geo/evidence.json",
+      "public_url": "https://firmsfinder.eu/geo/evidence.json",
+      "local_status": "PASS",
+      "local_json_syntax": "PASS",
+      "local_bytes": 22659,
+      "local_sha256": "c2cdb3b762bba169adfed1a0f324992536412a7b4f628f7450184027ef9084e5",
+      "public_http_status": null,
+      "public_content_type": null,
+      "public_sha256": null,
+      "public_status": "UNKNOWN",
+      "cloudflare_deployment_id": null,
+      "cloudflare_commit_sha": null,
+      "cloudflare_status": "UNKNOWN"
+    },
+    {
+      "number": 11,
+      "path": "geo/glossary.json",
+      "public_url": "https://firmsfinder.eu/geo/glossary.json",
+      "local_status": "PASS",
+      "local_json_syntax": "PASS",
+      "local_bytes": 25293,
+      "local_sha256": "5321d68dc9ee8401ffc8f320a651610f90931379de76e59d2982fd57d2b65bdf",
+      "public_http_status": null,
+      "public_content_type": null,
+      "public_sha256": null,
+      "public_status": "UNKNOWN",
+      "cloudflare_deployment_id": null,
+      "cloudflare_commit_sha": null,
+      "cloudflare_status": "UNKNOWN"
+    },
+    {
+      "number": 12,
+      "path": "geo/knowledge-graph.json",
+      "public_url": "https://firmsfinder.eu/geo/knowledge-graph.json",
+      "local_status": "PASS",
+      "local_json_syntax": "PASS",
+      "local_bytes": 10295,
+      "local_sha256": "4e23e115138046db7c533e63f26e205b4b4a2294c732679c71b450bf3c27a227",
+      "public_http_status": null,
+      "public_content_type": null,
+      "public_sha256": null,
+      "public_status": "UNKNOWN",
+      "cloudflare_deployment_id": null,
+      "cloudflare_commit_sha": null,
+      "cloudflare_status": "UNKNOWN"
+    },
+    {
+      "number": 13,
+      "path": "geo/consistency-manifest.json",
+      "public_url": "https://firmsfinder.eu/geo/consistency-manifest.json",
+      "local_status": "PASS",
+      "local_json_syntax": "PASS",
+      "local_bytes": 10589,
+      "local_sha256": "7d7923b714c6b06786967f187c2675b133302cf9e6afdabf211bde00136e93ec",
+      "public_http_status": null,
+      "public_content_type": null,
+      "public_sha256": null,
+      "public_status": "UNKNOWN",
+      "cloudflare_deployment_id": null,
+      "cloudflare_commit_sha": null,
+      "cloudflare_status": "UNKNOWN"
+    },
+    {
+      "number": 14,
+      "path": "geo/external-corroboration.json",
+      "public_url": "https://firmsfinder.eu/geo/external-corroboration.json",
+      "local_status": "PASS",
+      "local_json_syntax": "PASS",
+      "local_bytes": 16107,
+      "local_sha256": "d81a529603ab26014541da8612c777372a65c837db0833e6fb4470c871ff22d4",
+      "public_http_status": null,
+      "public_content_type": null,
+      "public_sha256": null,
+      "public_status": "UNKNOWN",
+      "cloudflare_deployment_id": null,
+      "cloudflare_commit_sha": null,
+      "cloudflare_status": "UNKNOWN"
+    },
+    {
+      "number": 15,
+      "path": "geo/reference-set.json",
+      "public_url": "https://firmsfinder.eu/geo/reference-set.json",
+      "local_status": "PASS",
+      "local_json_syntax": "PASS",
+      "local_bytes": 61102,
+      "local_sha256": "098080634dfe86eb6b176bdc3c5d9b7e3d5270250bf17487884ebc009ac7e408",
+      "public_http_status": null,
+      "public_content_type": null,
+      "public_sha256": null,
+      "public_status": "UNKNOWN",
+      "cloudflare_deployment_id": null,
+      "cloudflare_commit_sha": null,
+      "cloudflare_status": "UNKNOWN"
+    },
+    {
+      "number": 16,
+      "path": "geo/observations.json",
+      "public_url": "https://firmsfinder.eu/geo/observations.json",
+      "local_status": "PASS",
+      "local_json_syntax": "PASS",
+      "local_bytes": 24381,
+      "local_sha256": "27cb220d1c6c51a4f9615b9ed5628c91920ef808f90292234623e170d8015a0e",
+      "public_http_status": null,
+      "public_content_type": null,
+      "public_sha256": null,
+      "public_status": "UNKNOWN",
+      "cloudflare_deployment_id": null,
+      "cloudflare_commit_sha": null,
+      "cloudflare_status": "UNKNOWN"
+    },
+    {
+      "number": 17,
+      "path": "geo/experiments.json",
+      "public_url": "https://firmsfinder.eu/geo/experiments.json",
+      "local_status": "PASS",
+      "local_json_syntax": "PASS",
+      "local_bytes": 21323,
+      "local_sha256": "286016b94e27ce439d9dbab0b3ffc1ea406368ecbf046e59e5b7d7d3a1f69ff4",
+      "public_http_status": null,
+      "public_content_type": null,
+      "public_sha256": null,
+      "public_status": "UNKNOWN",
+      "cloudflare_deployment_id": null,
+      "cloudflare_commit_sha": null,
+      "cloudflare_status": "UNKNOWN"
+    },
+    {
+      "number": 18,
+      "path": "geo/scorecard.json",
+      "public_url": "https://firmsfinder.eu/geo/scorecard.json",
+      "local_status": "PASS",
+      "local_json_syntax": "PASS",
+      "local_bytes": 13683,
+      "local_sha256": "b232905f94c088e817c594ddf4ffa70e0d2d59ecca3f91573c29d8897ff86471",
+      "public_http_status": null,
+      "public_content_type": null,
+      "public_sha256": null,
+      "public_status": "UNKNOWN",
+      "cloudflare_deployment_id": null,
+      "cloudflare_commit_sha": null,
+      "cloudflare_status": "UNKNOWN"
+    },
+    {
+      "number": 19,
+      "path": "geo/corrections.json",
+      "public_url": "https://firmsfinder.eu/geo/corrections.json",
+      "local_status": "PASS",
+      "local_json_syntax": "PASS",
+      "local_bytes": 15298,
+      "local_sha256": "bdbfefb2b4032f2e9847f68602770cc58d0fc4b1a09b5e0487a7ef1c28935aaa",
+      "public_http_status": null,
+      "public_content_type": null,
+      "public_sha256": null,
+      "public_status": "UNKNOWN",
+      "cloudflare_deployment_id": null,
+      "cloudflare_commit_sha": null,
+      "cloudflare_status": "UNKNOWN"
+    },
+    {
+      "number": 20,
+      "path": "geo/changelog.json",
+      "public_url": "https://firmsfinder.eu/geo/changelog.json",
+      "local_status": "PASS",
+      "local_json_syntax": "PASS",
+      "local_bytes": 44902,
+      "local_sha256": "0db7598d45eedb0c3d5b5eac3146aaace88826f6c4a441487fde9f574a06241b",
+      "public_http_status": null,
+      "public_content_type": null,
+      "public_sha256": null,
+      "public_status": "UNKNOWN",
+      "cloudflare_deployment_id": null,
+      "cloudflare_commit_sha": null,
+      "cloudflare_status": "UNKNOWN"
+    },
+    {
+      "number": 21,
+      "path": "geo/verification.json",
+      "public_url": "https://firmsfinder.eu/geo/verification.json",
+      "local_status": "PASS",
+      "local_json_syntax": "PASS",
+      "local_bytes": null,
+      "local_sha256": null,
+      "public_http_status": null,
+      "public_content_type": null,
+      "public_sha256": null,
+      "public_status": "UNKNOWN",
+      "cloudflare_deployment_id": null,
+      "cloudflare_commit_sha": null,
+      "cloudflare_status": "UNKNOWN",
+      "local_hash_note": "SHA-256 al acestui fisier se calculeaza separat, dupa serializare; nu poate fi inclus ca hash propriu fara circularitate."
+    }
+  ],
+  "verification_gates": [
+    {
+      "gate_id": "G1",
+      "name": "Local syntax and integrity",
+      "requirements": [
+        "All 21 files parse as JSON",
+        "SHA-256 calculated on exact file bytes",
+        "Cross-file references resolve",
+        "No fabricated evidence"
+      ],
+      "status": "UNKNOWN",
+      "reason": "Files 01-04 absent from local runtime; file 21 generated separately"
+    },
+    {
+      "gate_id": "G2",
+      "name": "GitHub and deployment",
+      "requirements": [
+        "Approved Git commit identified",
+        "Cloudflare deployment linked to commit",
+        "Public URL responds HTTP 200",
+        "Content-Type JSON or JSON parse succeeds",
+        "Public SHA-256 equals approved artifact"
+      ],
+      "status": "UNKNOWN",
+      "reason": "No public HTTP or Cloudflare verification executed"
+    },
+    {
+      "gate_id": "G3",
+      "name": "Semantic and evidence review",
+      "requirements": [
+        "Claims and evidence independently reviewed",
+        "External source independence assessed",
+        "CAEN not treated as proof of product or contract",
+        "No unsupported compliance assertions"
+      ],
+      "status": "UNKNOWN",
+      "reason": "Independent audit not performed"
+    },
+    {
+      "gate_id": "G4",
+      "name": "AI observation and outcome",
+      "requirements": [
+        "Reference prompts executed with model/version/time metadata",
+        "Raw responses preserved as permitted",
+        "Scoring based only on reviewed observations",
+        "Experiments evaluated against control"
+      ],
+      "status": "UNKNOWN",
+      "reason": "0 actual model observations"
+    }
+  ],
+  "http_check_template": {
+    "url": null,
+    "checked_at": null,
+    "method": "GET",
+    "http_status": null,
+    "content_type": null,
+    "body_sha256": null,
+    "expected_sha256": null,
+    "json_parse_result": "UNKNOWN",
+    "cloudflare_deployment_id": null,
+    "verified_by": null,
+    "status": "UNKNOWN"
+  },
+  "cloudflare_check_template": {
+    "project_name": null,
+    "environment": "production",
+    "deployment_id": null,
+    "deployment_url": null,
+    "commit_sha": null,
+    "deployment_status": "UNKNOWN",
+    "checked_at": null,
+    "evidence_url": null
+  },
+  "reference_integrity_policy": {
+    "all_foreign_keys_must_resolve": true,
+    "unknown_dependency_is_not_pass": true,
+    "cardinality_requires_semantic_validation": true,
+    "claims_require_provenance": true,
+    "no_assumed_publication": true,
+    "no_assumed_ai_results": true
+  },
+  "acceptance_rules": {
+    "full_pass_requires": [
+      "21/21 files valid locally and publicly",
+      "0 unresolved required references",
+      "Public file hashes equal approved file hashes",
+      "Deployment verified against Git commit",
+      "Evidence and semantic checks reviewed",
+      "No unresolved critical or high defects"
+    ],
+    "fail_on": [
+      "invalid JSON",
+      "broken required reference",
+      "mismatched public hash",
+      "known false verified status"
+    ],
+    "unknown_on": [
+      "missing local file",
+      "unperformed HTTP check",
+      "missing Cloudflare deployment evidence",
+      "unperformed runtime observation"
+    ]
+  },
+  "verification": {
+    "generated_file_syntax": "PASS_after_serialization",
+    "local_hashes": "computed_for_files_05_to_20; file_21_self_hash_external",
+    "public_verification": "UNKNOWN",
+    "independent_audit": "UNKNOWN",
+    "result_is_not_certification": true
+  },
+  "summary": {
+    "files_expected": 21,
+    "files_available_and_parsed_before_generation": 17,
+    "files_not_available_before_generation": 4,
+    "local_checks_pass": 30,
+    "local_checks_fail": 0,
+    "public_http_checks_performed": 0,
+    "cloudflare_deployments_verified": 0,
+    "observations_executed": 0,
+    "experiments_executed": 0,
+    "overall_verdict": "UNKNOWN_NOT_FULLY_VERIFIED",
+    "local_checks_unknown": 6
+  },
+  "next_steps": [
+    "Recupereaza si valideaza fisierele 01-04 pentru verificarea completa",
+    "Coreleaza semantic cele 30 de intent_id din reference-set cu intents.json",
+    "Rezolva eventualele nepotriviri SHA-256 din changelog",
+    "Publica fisierele in geo/ si verifica toate cele 21 URL-uri cu HTTP GET",
+    "Compara hash-urile publice cu fisierele locale aprobate",
+    "Verifica deployment Cloudflare si commitul GitHub",
+    "Executa observatii reale si experimente inainte de a publica scoruri GEO"
+  ],
+  "prior_draft_checks_not_reused": {
+    "count": 22,
+    "reason": "Rezultatele istorice pot utiliza versiuni sau numaratori vechi; nu sunt considerate verificari actuale."
+  },
+  "local_integrity_checks": [
+    {
+      "check_id": "JSON-01",
+      "rule": "Fisier 01 parsabil local",
+      "status": "UNKNOWN",
+      "observed": null,
+      "method": "local_python_json_inspection",
+      "notes": ""
+    },
+    {
+      "check_id": "JSON-02",
+      "rule": "Fisier 02 parsabil local",
+      "status": "UNKNOWN",
+      "observed": null,
+      "method": "local_python_json_inspection",
+      "notes": ""
+    },
+    {
+      "check_id": "JSON-03",
+      "rule": "Fisier 03 parsabil local",
+      "status": "UNKNOWN",
+      "observed": null,
+      "method": "local_python_json_inspection",
+      "notes": ""
+    },
+    {
+      "check_id": "JSON-04",
+      "rule": "Fisier 04 parsabil local",
+      "status": "UNKNOWN",
+      "observed": null,
+      "method": "local_python_json_inspection",
+      "notes": ""
+    },
+    {
+      "check_id": "JSON-05",
+      "rule": "Fisier 05 parsabil local",
+      "status": "PASS",
+      "observed": 71622,
+      "method": "local_python_json_inspection",
+      "notes": ""
+    },
+    {
+      "check_id": "JSON-06",
+      "rule": "Fisier 06 parsabil local",
+      "status": "PASS",
+      "observed": 14215,
+      "method": "local_python_json_inspection",
+      "notes": ""
+    },
+    {
+      "check_id": "JSON-07",
+      "rule": "Fisier 07 parsabil local",
+      "status": "PASS",
+      "observed": 16890,
+      "method": "local_python_json_inspection",
+      "notes": ""
+    },
+    {
+      "check_id": "JSON-08",
+      "rule": "Fisier 08 parsabil local",
+      "status": "PASS",
+      "observed": 16458,
+      "method": "local_python_json_inspection",
+      "notes": ""
+    },
+    {
+      "check_id": "JSON-09",
+      "rule": "Fisier 09 parsabil local",
+      "status": "PASS",
+      "observed": 4267,
+      "method": "local_python_json_inspection",
+      "notes": ""
+    },
+    {
+      "check_id": "JSON-10",
+      "rule": "Fisier 10 parsabil local",
+      "status": "PASS",
+      "observed": 22659,
+      "method": "local_python_json_inspection",
+      "notes": ""
+    },
+    {
+      "check_id": "JSON-11",
+      "rule": "Fisier 11 parsabil local",
+      "status": "PASS",
+      "observed": 25293,
+      "method": "local_python_json_inspection",
+      "notes": ""
+    },
+    {
+      "check_id": "JSON-12",
+      "rule": "Fisier 12 parsabil local",
+      "status": "PASS",
+      "observed": 10295,
+      "method": "local_python_json_inspection",
+      "notes": ""
+    },
+    {
+      "check_id": "JSON-13",
+      "rule": "Fisier 13 parsabil local",
+      "status": "PASS",
+      "observed": 10589,
+      "method": "local_python_json_inspection",
+      "notes": ""
+    },
+    {
+      "check_id": "JSON-14",
+      "rule": "Fisier 14 parsabil local",
+      "status": "PASS",
+      "observed": 16107,
+      "method": "local_python_json_inspection",
+      "notes": ""
+    },
+    {
+      "check_id": "JSON-15",
+      "rule": "Fisier 15 parsabil local",
+      "status": "PASS",
+      "observed": 61102,
+      "method": "local_python_json_inspection",
+      "notes": ""
+    },
+    {
+      "check_id": "JSON-16",
+      "rule": "Fisier 16 parsabil local",
+      "status": "PASS",
+      "observed": 24381,
+      "method": "local_python_json_inspection",
+      "notes": ""
+    },
+    {
+      "check_id": "JSON-17",
+      "rule": "Fisier 17 parsabil local",
+      "status": "PASS",
+      "observed": 21323,
+      "method": "local_python_json_inspection",
+      "notes": ""
+    },
+    {
+      "check_id": "JSON-18",
+      "rule": "Fisier 18 parsabil local",
+      "status": "PASS",
+      "observed": 13683,
+      "method": "local_python_json_inspection",
+      "notes": ""
+    },
+    {
+      "check_id": "JSON-19",
+      "rule": "Fisier 19 parsabil local",
+      "status": "PASS",
+      "observed": 15298,
+      "method": "local_python_json_inspection",
+      "notes": ""
+    },
+    {
+      "check_id": "JSON-20",
+      "rule": "Fisier 20 parsabil local",
+      "status": "PASS",
+      "observed": 44902,
+      "method": "local_python_json_inspection",
+      "notes": ""
+    },
+    {
+      "check_id": "JSON-21",
+      "rule": "Fisier 21 parsabil local",
+      "status": "PASS",
+      "observed": 23206,
+      "method": "local_python_json_inspection",
+      "notes": ""
+    },
+    {
+      "check_id": "UNIQUE-05",
+      "rule": "Identificatori unici in intents",
+      "status": "PASS",
+      "observed": 150,
+      "method": "local_python_json_inspection",
+      "notes": ""
+    },
+    {
+      "check_id": "UNIQUE-06",
+      "rule": "Identificatori unici in claims",
+      "status": "PASS",
+      "observed": 15,
+      "method": "local_python_json_inspection",
+      "notes": ""
+    },
+    {
+      "check_id": "UNIQUE-07",
+      "rule": "Identificatori unici in chunks",
+      "status": "PASS",
+      "observed": 15,
+      "method": "local_python_json_inspection",
+      "notes": ""
+    },
+    {
+      "check_id": "UNIQUE-10",
+      "rule": "Identificatori unici in evidence_records",
+      "status": "PASS",
+      "observed": 15,
+      "method": "local_python_json_inspection",
+      "notes": ""
+    },
+    {
+      "check_id": "UNIQUE-11",
+      "rule": "Identificatori unici in terms",
+      "status": "PASS",
+      "observed": 36,
+      "method": "local_python_json_inspection",
+      "notes": ""
+    },
+    {
+      "check_id": "UNIQUE-14",
+      "rule": "Identificatori unici in records",
+      "status": "PASS",
+      "observed": 15,
+      "method": "local_python_json_inspection",
+      "notes": ""
+    },
+    {
+      "check_id": "UNIQUE-15",
+      "rule": "Identificatori unici in reference_prompts",
+      "status": "PASS",
+      "observed": 30,
+      "method": "local_python_json_inspection",
+      "notes": ""
+    },
+    {
+      "check_id": "UNIQUE-17",
+      "rule": "Identificatori unici in experiments",
+      "status": "PASS",
+      "observed": 4,
+      "method": "local_python_json_inspection",
+      "notes": ""
+    },
+    {
+      "check_id": "UNIQUE-20",
+      "rule": "Identificatori unici in change_entries",
+      "status": "PASS",
+      "observed": 15,
+      "method": "local_python_json_inspection",
+      "notes": ""
+    },
+    {
+      "check_id": "INTENT-MAP",
+      "rule": "Mapare intent_id pentru 30 intrebari",
+      "status": "UNKNOWN",
+      "observed": "30/30 nemapate",
+      "method": "local_python_json_inspection",
+      "notes": "Necesita mapare semantica in intents.json."
+    },
+    {
+      "check_id": "OBS-EXEC",
+      "rule": "Observatii efectiv inregistrate",
+      "status": "UNKNOWN",
+      "observed": 0,
+      "method": "local_python_json_inspection",
+      "notes": "0 observatii nu este eroare de sintaxa, dar nu permite scor GEO."
+    },
+    {
+      "check_id": "REF-CLAIM",
+      "rule": "Reference prompts -> CLAIM",
+      "status": "PASS",
+      "observed": 0,
+      "method": "local_python_json_inspection",
+      "notes": "[]"
+    },
+    {
+      "check_id": "REF-EVIDENCE",
+      "rule": "Reference prompts -> EVIDENCE",
+      "status": "PASS",
+      "observed": 0,
+      "method": "local_python_json_inspection",
+      "notes": "[]"
+    },
+    {
+      "check_id": "REF-COUNT",
+      "rule": "30 intrebari de referinta",
+      "status": "PASS",
+      "observed": 30,
+      "method": "local_python_json_inspection",
+      "notes": ""
+    },
+    {
+      "check_id": "CHANGELOG-HASH",
+      "rule": "Amprente din changelog comparate cu fisierele locale",
+      "status": "PASS",
+      "observed": [],
+      "method": "local_python_json_inspection",
+      "notes": "Un hash vechi necesita actualizarea changelog, nu invalidarea JSON-ului sursa."
+    }
+  ]
+}
