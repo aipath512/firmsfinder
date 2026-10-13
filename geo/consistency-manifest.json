@@ -1,0 +1,377 @@
+{
+  "schema": "FIRMSFINDER_GEO_CONSISTENCY_MANIFEST",
+  "version": "1.1.0",
+  "generated_at": "2026-10-13",
+  "website": "https://firmsfinder.eu/",
+  "publisher": "AiVenture S.R.L.",
+  "language": "ro-RO",
+  "status": "PARTIAL_LOCAL_AUDIT",
+  "purpose": "Audit de coerenta intre fisierele GEO 05-12 existente local; nu certifica deployment sau continut factual.",
+  "source_scope": {
+    "files_available": "05-12",
+    "files_missing_for_audit": [
+      "01 manifest.json",
+      "02 entities.json",
+      "03 topic-clusters.json",
+      "04 semantic-keywords.json"
+    ],
+    "production_access_verified": false
+  },
+  "files_audited": [
+    {
+      "sequence": 5,
+      "local_filename": "FirmsFinder_GEO_05_intents.json",
+      "expected_public_path": "/geo/intents.json",
+      "bytes_local": 71622,
+      "sha256_local": "cac0aed74fd5cd5b514505dfb26fde6ef54295aeab2cae5c64a772730458c24a",
+      "syntax": "PASS",
+      "public_deployment": "NOT_VERIFIED"
+    },
+    {
+      "sequence": 6,
+      "local_filename": "FirmsFinder_GEO_06_claims.json",
+      "expected_public_path": "/geo/claims.json",
+      "bytes_local": 14215,
+      "sha256_local": "947c21c23db98b1ac9a5ddf8b8c3755bcbfb5c35993541b47ebf8b98e7058cdd",
+      "syntax": "PASS",
+      "public_deployment": "NOT_VERIFIED"
+    },
+    {
+      "sequence": 7,
+      "local_filename": "FirmsFinder_GEO_07_citable-chunks.json",
+      "expected_public_path": "/geo/citable-chunks.json",
+      "bytes_local": 16890,
+      "sha256_local": "2652db85a3df15c2915912faf9d323d6c50ca8b9fcaf7f1e8f26a06ccd9506a9",
+      "syntax": "PASS",
+      "public_deployment": "NOT_VERIFIED"
+    },
+    {
+      "sequence": 8,
+      "local_filename": "FirmsFinder_GEO_08_rag-metadata.json",
+      "expected_public_path": "/geo/rag-metadata.json",
+      "bytes_local": 16458,
+      "sha256_local": "aa3491ecaad2f26afccc4bbf0a2b2b370fe5b714517ccf95b9aae2aa019d14d7",
+      "syntax": "PASS",
+      "public_deployment": "NOT_VERIFIED"
+    },
+    {
+      "sequence": 9,
+      "local_filename": "FirmsFinder_GEO_09_proprietary-data.json",
+      "expected_public_path": "/geo/proprietary-data.json",
+      "bytes_local": 4267,
+      "sha256_local": "f036e73548a041382a33ad55c61d51eab20a7140ca4bdefc3733f790ca80280c",
+      "syntax": "PASS",
+      "public_deployment": "NOT_VERIFIED"
+    },
+    {
+      "sequence": 10,
+      "local_filename": "FirmsFinder_GEO_10_evidence.json",
+      "expected_public_path": "/geo/evidence.json",
+      "bytes_local": 22659,
+      "sha256_local": "c2cdb3b762bba169adfed1a0f324992536412a7b4f628f7450184027ef9084e5",
+      "syntax": "PASS",
+      "public_deployment": "NOT_VERIFIED"
+    },
+    {
+      "sequence": 11,
+      "local_filename": "FirmsFinder_GEO_11_glossary.json",
+      "expected_public_path": "/geo/glossary.json",
+      "bytes_local": 25293,
+      "sha256_local": "5321d68dc9ee8401ffc8f320a651610f90931379de76e59d2982fd57d2b65bdf",
+      "syntax": "PASS",
+      "public_deployment": "NOT_VERIFIED"
+    },
+    {
+      "sequence": 12,
+      "local_filename": "FirmsFinder_GEO_12_knowledge-graph.json",
+      "expected_public_path": "/geo/knowledge-graph.json",
+      "bytes_local": 10295,
+      "sha256_local": "4e23e115138046db7c533e63f26e205b4b4a2294c732679c71b450bf3c27a227",
+      "syntax": "PASS",
+      "public_deployment": "NOT_VERIFIED"
+    }
+  ],
+  "cross_file_checks": [
+    {
+      "id": "C01",
+      "description": "150 intentii, 50 TOF + 50 MOF + 50 BOF",
+      "status": "PASS",
+      "expected": {
+        "TOF": 50,
+        "MOF": 50,
+        "BOF": 50
+      },
+      "observed": {
+        "TOF": 50,
+        "MOF": 50,
+        "BOF": 50
+      },
+      "scope": "local_files"
+    },
+    {
+      "id": "C02",
+      "description": "Identificatori unici in intents",
+      "status": "PASS",
+      "expected": 150,
+      "observed": 150,
+      "scope": "local_files"
+    },
+    {
+      "id": "C03",
+      "description": "Identificatori unici in claims",
+      "status": "PASS",
+      "expected": 15,
+      "observed": 15,
+      "scope": "local_files"
+    },
+    {
+      "id": "C04",
+      "description": "Identificatori unici in chunks",
+      "status": "PASS",
+      "expected": 15,
+      "observed": 15,
+      "scope": "local_files"
+    },
+    {
+      "id": "C05",
+      "description": "Identificatori unici in records",
+      "status": "PASS",
+      "expected": 15,
+      "observed": 15,
+      "scope": "local_files"
+    },
+    {
+      "id": "C06",
+      "description": "Identificatori unici in datasets",
+      "status": "PASS",
+      "expected": 4,
+      "observed": 4,
+      "scope": "local_files"
+    },
+    {
+      "id": "C07",
+      "description": "Identificatori unici in evidence_records",
+      "status": "PASS",
+      "expected": 15,
+      "observed": 15,
+      "scope": "local_files"
+    },
+    {
+      "id": "C08",
+      "description": "Identificatori unici in terms",
+      "status": "PASS",
+      "expected": 36,
+      "observed": 36,
+      "scope": "local_files"
+    },
+    {
+      "id": "C09",
+      "description": "Identificatori unici in relation_patterns",
+      "status": "PASS",
+      "expected": 6,
+      "observed": 6,
+      "scope": "local_files"
+    },
+    {
+      "id": "C10",
+      "description": "Toate referintele chunks -> claims exista",
+      "status": "PASS",
+      "expected": true,
+      "observed": true,
+      "scope": "local_files"
+    },
+    {
+      "id": "C11",
+      "description": "RAG are exact aceleasi ID-uri ca chunks",
+      "status": "PASS",
+      "expected": [
+        "CH-001",
+        "CH-002",
+        "CH-003",
+        "CH-004",
+        "CH-005",
+        "CH-006",
+        "CH-007",
+        "CH-008",
+        "CH-009",
+        "CH-010",
+        "CH-011",
+        "CH-012",
+        "CH-013",
+        "CH-014",
+        "CH-015"
+      ],
+      "observed": [
+        "CH-001",
+        "CH-002",
+        "CH-003",
+        "CH-004",
+        "CH-005",
+        "CH-006",
+        "CH-007",
+        "CH-008",
+        "CH-009",
+        "CH-010",
+        "CH-011",
+        "CH-012",
+        "CH-013",
+        "CH-014",
+        "CH-015"
+      ],
+      "scope": "local_files"
+    },
+    {
+      "id": "C12",
+      "description": "Toate referintele RAG -> claims exista",
+      "status": "PASS",
+      "expected": true,
+      "observed": true,
+      "scope": "local_files"
+    },
+    {
+      "id": "C13",
+      "description": "Toate referintele evidence -> claims exista",
+      "status": "PASS",
+      "expected": true,
+      "observed": true,
+      "scope": "local_files"
+    },
+    {
+      "id": "C14",
+      "description": "Graph relation IDs corespund glossary",
+      "status": "PASS",
+      "expected": [
+        "REL-001",
+        "REL-002",
+        "REL-003",
+        "REL-004",
+        "REL-005",
+        "REL-006"
+      ],
+      "observed": [
+        "REL-001",
+        "REL-002",
+        "REL-003",
+        "REL-004",
+        "REL-005",
+        "REL-006"
+      ],
+      "scope": "local_files"
+    },
+    {
+      "id": "C15",
+      "description": "Graph node term_id exista in glossary",
+      "status": "PASS",
+      "expected": true,
+      "observed": true,
+      "scope": "local_files"
+    },
+    {
+      "id": "C16",
+      "description": "Niciun chunk nu declara citation_ready=true",
+      "status": "PASS",
+      "expected": true,
+      "observed": true,
+      "scope": "local_files"
+    },
+    {
+      "id": "C17",
+      "description": "Nicio inregistrare RAG nu declara indexare efectuata",
+      "status": "PASS",
+      "expected": true,
+      "observed": true,
+      "scope": "local_files"
+    }
+  ],
+  "pending_checks": [
+    {
+      "id": "P01",
+      "description": "01 manifest.json: verificarea continutului original",
+      "status": "NOT_TESTED",
+      "reason": "Dependenta sau acces public indisponibil in aceasta verificare"
+    },
+    {
+      "id": "P02",
+      "description": "02 entities.json: verificarea referintelor entity_refs",
+      "status": "NOT_TESTED",
+      "reason": "Dependenta sau acces public indisponibil in aceasta verificare"
+    },
+    {
+      "id": "P03",
+      "description": "03 topic-clusters.json: verificarea referintelor TC",
+      "status": "NOT_TESTED",
+      "reason": "Dependenta sau acces public indisponibil in aceasta verificare"
+    },
+    {
+      "id": "P04",
+      "description": "04 semantic-keywords.json: verificarea corelarilor semantice",
+      "status": "NOT_TESTED",
+      "reason": "Dependenta sau acces public indisponibil in aceasta verificare"
+    },
+    {
+      "id": "P05",
+      "description": "Verificare HTTP/Cloudflare pentru toate URL-urile publice",
+      "status": "NOT_TESTED",
+      "reason": "Dependenta sau acces public indisponibil in aceasta verificare"
+    },
+    {
+      "id": "P06",
+      "description": "Verificare externa a dovezilor si afirmatiilor",
+      "status": "NOT_TESTED",
+      "reason": "Dependenta sau acces public indisponibil in aceasta verificare"
+    }
+  ],
+  "consistency_contract": {
+    "identity_keys": [
+      "CL-###",
+      "CH-###",
+      "PD-###",
+      "EV-###",
+      "TERM-###",
+      "REL-###",
+      "TC-###"
+    ],
+    "required_references": [
+      "chunks[].claim_ids -> claims[].id",
+      "rag.records[].chunk_id -> chunks[].id",
+      "rag.records[].claim_ids -> claims[].id",
+      "evidence.evidence_records[].claim_ids -> claims[].id",
+      "knowledge_graph.graph_model.relation_types[].id -> glossary.relation_patterns[].id",
+      "intents[].cluster_ref -> topic_clusters[].id (pending)",
+      "chunks[].topic_cluster_id -> topic_clusters[].id (pending)",
+      "intents[].entity_refs -> entities[].id (pending)"
+    ],
+    "semantic_rules": [
+      "CAEN nu demonstreaza oferta reala",
+      "Ipoteza nu este contract confirmat",
+      "Hash-ul nu demonstreaza adevarul",
+      "GENERATED != DEPLOYED != VERIFIED"
+    ],
+    "public_acceptance": [
+      "Toate fisierele 01-13 trebuie validate impreuna",
+      "Fara referinte orfane",
+      "HTTP 200 si application/json pentru fiecare fisier public",
+      "Hash-ul public coincide cu hash-ul versiunii aprobate",
+      "Dovezile si aprobarile sunt verificate separat"
+    ]
+  },
+  "summary": {
+    "local_checks_pass": 17,
+    "local_checks_fail": 0,
+    "checks_not_tested": 6,
+    "files_audited": 8,
+    "intent_counts": {
+      "TOF": 50,
+      "MOF": 50,
+      "BOF": 50
+    },
+    "overall_status": "INCOMPLETE_NOT_PRODUCTION_VERIFIED"
+  },
+  "verification": {
+    "json_syntax": "PASS",
+    "source_file_hashes": "COMPUTED_LOCAL",
+    "runtime_verification": "NOT_PERFORMED",
+    "deployment": "NOT_VERIFIED",
+    "independent_audit": "NOT_PERFORMED"
+  }
+}
