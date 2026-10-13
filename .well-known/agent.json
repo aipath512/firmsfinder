@@ -1,0 +1,25 @@
+{
+  "name": "FirmsFinder AI",
+  "description": "Platformă de Economic Intelligence B2B pentru descoperirea firmelor din România. Acest card este informativ: site-ul nu expune încă un endpoint A2A executabil. Capabilitățile potențiale nu sunt endpoint-uri active.",
+  "url": "https://firmsfinder.eu/",
+  "version": "1.0",
+  "provider": {
+    "organization": "AiVenture S.R.L.",
+    "url": "https://aiventure.ro/"
+  },
+  "documentationUrl": "https://firmsfinder.eu/llms.txt",
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false
+  },
+  "defaultInputModes": ["text/plain"],
+  "defaultOutputModes": ["text/html", "application/json"],
+  "skills": [],
+  "status": "INFORMATIONAL_NO_RUNTIME_ENDPOINT",
+  "declarations": {
+    "capabilities": "https://firmsfinder.eu/agent-capabilities.json",
+    "mandate": "https://firmsfinder.eu/agent-mandate.json",
+    "a2a_status": "https://firmsfinder.eu/a2a-status.json"
+  },
+  "note": "Claim ≠ Proof. Capability ≠ Permission. Acțiunile comerciale automate necesită mandat explicit și aprobare umană."
+}
