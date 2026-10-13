@@ -125,6 +125,7 @@ export async function onRequestGet({params, env, request}) {
 <tr><th scope="row">2025</th><td>${esc(lei(r.ca_2025))}</td><td>${esc(nr(r.sal_2025))}</td><td>${esc(lei(r.profit_2025))}</td><td>${esc(lei(r.pierdere_2025))}</td></tr></tbody></table>
 </section>
 <section id="surse"><h2>Sursă și limite</h2><p>Date publice ONRC și Ministerul Finanțelor, prin data.gov.ro. Indicatorii sunt istorici, nu în timp real. Un cod CAEN nu dovedește produsele, clienții sau intenția de cumpărare. Verificați informațiile importante la sursă. <a href="/surse/">Surse și metodologie</a>.</p></section>
+<section id="vizibilitate-ai"><h2>Cum este văzută această firmă de sistemele AI?</h2><p>Clienții caută tot mai des prin asistenți AI, nu doar în Google. Dacă sunteți această firmă, puteți verifica gratuit ce informații despre dumneavoastră pot găsi și folosi sistemele AI, și ce lipsește.</p><p><a href="https://ai-lens.eu/" target="_blank" rel="noopener noreferrer">Verificați gratuit cu AI-LENS →</a></p><p>Un astfel de test arată ce se poate observa; nu garantează citarea sau recomandarea de către un sistem AI.</p></section>
 <p><a href="/cautare/">Înapoi la căutare</a></p>
 <script type="application/ld+json">${JSON.stringify(ld).replace(/</g, '\\u003c')}</script>`;
   const res = page(200, title, description, body);
