@@ -1,0 +1,1404 @@
+{
+  "schema": "FIRMSFINDER_GEO_CHANGELOG",
+  "version": "1.0.0",
+  "generated_at": "2026-10-13",
+  "website": "https://firmsfinder.eu",
+  "publisher": "AiVenture S.R.L.",
+  "language": "ro-RO",
+  "status": "draft_local_inventory_not_deployed",
+  "geo_signals": [
+    "GEO59"
+  ],
+  "purpose": "Istoric verificabil al modificarilor, versiunilor, aprobarilor, commiturilor, deploymenturilor si probelor, fara a confunda generarea locala cu publicarea sau verificarea runtime.",
+  "scope_note": "Snapshot local la data generarii. Nu constituie jurnal istoric complet al repository-ului GitHub si nici inventar confirmat al productie Cloudflare.",
+  "source_registry": {
+    "corrections": "geo/corrections.json",
+    "experiments": "geo/experiments.json",
+    "observations": "geo/observations.json",
+    "scorecard": "geo/scorecard.json",
+    "consistency_manifest": "geo/consistency-manifest.json",
+    "verification_planned": "geo/verification.json"
+  },
+  "principles": [
+    "Generated != Deployed",
+    "Deployed != Valid",
+    "Valid != Verified",
+    "Claim != Proof",
+    "No source -> no verified claim",
+    "Nu se inventeaza commituri, aprobari, hashuri publice, deploy-uri sau rezultate de audit"
+  ],
+  "change_id_format": "CHG-001",
+  "release_id_format": "REL-GEO-YYYYMMDD-KIND-NNN",
+  "event_types": {
+    "local_artifact_generated": "Fisier identificat local si verificat sintactic; nu implica publicare",
+    "content_changed": "Text sau date schimbate, cu before/after",
+    "schema_changed": "Campuri, tipuri sau structuri schimbate",
+    "semantic_rule_changed": "Reguli CAEN/ERE/claims schimbate",
+    "bugfix": "Corectie legata de issue_id",
+    "rollback": "Revenire la un commit anterior",
+    "verification_update": "Rezultat nou de verificare, fara a schimba neaparat sursa",
+    "deployment": "Publicare a unui commit, doar cu dovada reala"
+  },
+  "workflow": {
+    "states": [
+      "draft",
+      "reviewed",
+      "approved",
+      "committed",
+      "deployed",
+      "production_verified",
+      "rolled_back",
+      "rejected"
+    ],
+    "transitions": [
+      {
+        "from": "draft",
+        "to": "reviewed",
+        "requires": [
+          "reviewer",
+          "reviewed_at"
+        ]
+      },
+      {
+        "from": "reviewed",
+        "to": "approved",
+        "requires": [
+          "approved_by",
+          "approved_at"
+        ]
+      },
+      {
+        "from": "approved",
+        "to": "committed",
+        "requires": [
+          "commit_sha",
+          "commit_url"
+        ]
+      },
+      {
+        "from": "committed",
+        "to": "deployed",
+        "requires": [
+          "deployment_id",
+          "deployment_url",
+          "deployed_at"
+        ]
+      },
+      {
+        "from": "deployed",
+        "to": "production_verified",
+        "requires": [
+          "public_http_status",
+          "public_content_type",
+          "public_sha256",
+          "verified_at",
+          "verified_by"
+        ]
+      }
+    ],
+    "note": "Acestea sunt reguli tinta, nu dovada ca un sistem automat le impune."
+  },
+  "change_record_template": {
+    "change_id": null,
+    "change_type": null,
+    "artifact_path": null,
+    "artifact_version": null,
+    "description": null,
+    "recorded_at": null,
+    "origin": null,
+    "before": {
+      "version": null,
+      "sha256": null,
+      "verified": false
+    },
+    "change": {
+      "action": null,
+      "file_sha256": null,
+      "bytes": null,
+      "author": null,
+      "reviewer": null,
+      "approval_status": "not_checked",
+      "pull_request_url": null,
+      "commit_sha": null,
+      "commit_url": null
+    },
+    "deployment": {
+      "provider": "Cloudflare Pages",
+      "environment": "production",
+      "status": "not_checked",
+      "deployment_id": null,
+      "deployment_url": null,
+      "deployed_at": null
+    },
+    "verification": {
+      "local_json": "not_checked",
+      "local_sha256": "not_checked",
+      "public_http_status": null,
+      "public_content_type": null,
+      "public_sha256": null,
+      "verified_by": null,
+      "verified_at": null,
+      "status": "not_checked"
+    },
+    "related_issue_ids": [],
+    "related_experiment_ids": [],
+    "evidence": [],
+    "status": "draft"
+  },
+  "local_artifact_inventory": [
+    {
+      "sequence": 1,
+      "path": "geo/unknown.json",
+      "local_artifact": null,
+      "local_sha256": null,
+      "local_bytes": null,
+      "document_version": null,
+      "json_syntax": "not_checked",
+      "local_availability": "not_available_in_session",
+      "public_availability": "not_checked",
+      "github_commit_sha": null,
+      "cloudflare_deployment_id": null,
+      "production_sha256": null
+    },
+    {
+      "sequence": 2,
+      "path": "geo/unknown.json",
+      "local_artifact": null,
+      "local_sha256": null,
+      "local_bytes": null,
+      "document_version": null,
+      "json_syntax": "not_checked",
+      "local_availability": "not_available_in_session",
+      "public_availability": "not_checked",
+      "github_commit_sha": null,
+      "cloudflare_deployment_id": null,
+      "production_sha256": null
+    },
+    {
+      "sequence": 3,
+      "path": "geo/unknown.json",
+      "local_artifact": null,
+      "local_sha256": null,
+      "local_bytes": null,
+      "document_version": null,
+      "json_syntax": "not_checked",
+      "local_availability": "not_available_in_session",
+      "public_availability": "not_checked",
+      "github_commit_sha": null,
+      "cloudflare_deployment_id": null,
+      "production_sha256": null
+    },
+    {
+      "sequence": 4,
+      "path": "geo/unknown.json",
+      "local_artifact": null,
+      "local_sha256": null,
+      "local_bytes": null,
+      "document_version": null,
+      "json_syntax": "not_checked",
+      "local_availability": "not_available_in_session",
+      "public_availability": "not_checked",
+      "github_commit_sha": null,
+      "cloudflare_deployment_id": null,
+      "production_sha256": null
+    },
+    {
+      "sequence": 5,
+      "path": "geo/intents.json",
+      "local_artifact": "FirmsFinder_GEO_05_intents.json",
+      "local_sha256": "cac0aed74fd5cd5b514505dfb26fde6ef54295aeab2cae5c64a772730458c24a",
+      "local_bytes": 71622,
+      "document_version": "1.0",
+      "json_syntax": "PASS",
+      "local_availability": "present",
+      "public_availability": "not_checked",
+      "github_commit_sha": null,
+      "cloudflare_deployment_id": null,
+      "production_sha256": null
+    },
+    {
+      "sequence": 6,
+      "path": "geo/claims.json",
+      "local_artifact": "FirmsFinder_GEO_06_claims.json",
+      "local_sha256": "947c21c23db98b1ac9a5ddf8b8c3755bcbfb5c35993541b47ebf8b98e7058cdd",
+      "local_bytes": 14215,
+      "document_version": "1.0.0",
+      "json_syntax": "PASS",
+      "local_availability": "present",
+      "public_availability": "not_checked",
+      "github_commit_sha": null,
+      "cloudflare_deployment_id": null,
+      "production_sha256": null
+    },
+    {
+      "sequence": 7,
+      "path": "geo/citable-chunks.json",
+      "local_artifact": "FirmsFinder_GEO_07_citable-chunks.json",
+      "local_sha256": "2652db85a3df15c2915912faf9d323d6c50ca8b9fcaf7f1e8f26a06ccd9506a9",
+      "local_bytes": 16890,
+      "document_version": "1.0.0",
+      "json_syntax": "PASS",
+      "local_availability": "present",
+      "public_availability": "not_checked",
+      "github_commit_sha": null,
+      "cloudflare_deployment_id": null,
+      "production_sha256": null
+    },
+    {
+      "sequence": 8,
+      "path": "geo/rag-metadata.json",
+      "local_artifact": "FirmsFinder_GEO_08_rag-metadata.json",
+      "local_sha256": "aa3491ecaad2f26afccc4bbf0a2b2b370fe5b714517ccf95b9aae2aa019d14d7",
+      "local_bytes": 16458,
+      "document_version": "1.0.0",
+      "json_syntax": "PASS",
+      "local_availability": "present",
+      "public_availability": "not_checked",
+      "github_commit_sha": null,
+      "cloudflare_deployment_id": null,
+      "production_sha256": null
+    },
+    {
+      "sequence": 9,
+      "path": "geo/proprietary-data.json",
+      "local_artifact": "FirmsFinder_GEO_09_proprietary-data.json",
+      "local_sha256": "f036e73548a041382a33ad55c61d51eab20a7140ca4bdefc3733f790ca80280c",
+      "local_bytes": 4267,
+      "document_version": "1.0.0",
+      "json_syntax": "PASS",
+      "local_availability": "present",
+      "public_availability": "not_checked",
+      "github_commit_sha": null,
+      "cloudflare_deployment_id": null,
+      "production_sha256": null
+    },
+    {
+      "sequence": 10,
+      "path": "geo/evidence.json",
+      "local_artifact": "FirmsFinder_GEO_10_evidence.json",
+      "local_sha256": "c2cdb3b762bba169adfed1a0f324992536412a7b4f628f7450184027ef9084e5",
+      "local_bytes": 22659,
+      "document_version": "1.0.0",
+      "json_syntax": "PASS",
+      "local_availability": "present",
+      "public_availability": "not_checked",
+      "github_commit_sha": null,
+      "cloudflare_deployment_id": null,
+      "production_sha256": null
+    },
+    {
+      "sequence": 11,
+      "path": "geo/glossary.json",
+      "local_artifact": "FirmsFinder_GEO_11_glossary.json",
+      "local_sha256": "5321d68dc9ee8401ffc8f320a651610f90931379de76e59d2982fd57d2b65bdf",
+      "local_bytes": 25293,
+      "document_version": "1.0.0",
+      "json_syntax": "PASS",
+      "local_availability": "present",
+      "public_availability": "not_checked",
+      "github_commit_sha": null,
+      "cloudflare_deployment_id": null,
+      "production_sha256": null
+    },
+    {
+      "sequence": 12,
+      "path": "geo/knowledge-graph.json",
+      "local_artifact": "FirmsFinder_GEO_12_knowledge-graph.json",
+      "local_sha256": "4e23e115138046db7c533e63f26e205b4b4a2294c732679c71b450bf3c27a227",
+      "local_bytes": 10295,
+      "document_version": "1.0.0",
+      "json_syntax": "PASS",
+      "local_availability": "present",
+      "public_availability": "not_checked",
+      "github_commit_sha": null,
+      "cloudflare_deployment_id": null,
+      "production_sha256": null
+    },
+    {
+      "sequence": 13,
+      "path": "geo/consistency-manifest.json",
+      "local_artifact": "FirmsFinder_GEO_13_consistency-manifest.json",
+      "local_sha256": "7d7923b714c6b06786967f187c2675b133302cf9e6afdabf211bde00136e93ec",
+      "local_bytes": 10589,
+      "document_version": "1.1.0",
+      "json_syntax": "PASS",
+      "local_availability": "present",
+      "public_availability": "not_checked",
+      "github_commit_sha": null,
+      "cloudflare_deployment_id": null,
+      "production_sha256": null
+    },
+    {
+      "sequence": 14,
+      "path": "geo/external-corroboration.json",
+      "local_artifact": "FirmsFinder_GEO_14_external-corroboration.json",
+      "local_sha256": "d81a529603ab26014541da8612c777372a65c837db0833e6fb4470c871ff22d4",
+      "local_bytes": 16107,
+      "document_version": "1.0.0",
+      "json_syntax": "PASS",
+      "local_availability": "present",
+      "public_availability": "not_checked",
+      "github_commit_sha": null,
+      "cloudflare_deployment_id": null,
+      "production_sha256": null
+    },
+    {
+      "sequence": 15,
+      "path": "geo/reference-set.json",
+      "local_artifact": "FirmsFinder_GEO_15_reference-set.json",
+      "local_sha256": "098080634dfe86eb6b176bdc3c5d9b7e3d5270250bf17487884ebc009ac7e408",
+      "local_bytes": 61102,
+      "document_version": "1.0.0",
+      "json_syntax": "PASS",
+      "local_availability": "present",
+      "public_availability": "not_checked",
+      "github_commit_sha": null,
+      "cloudflare_deployment_id": null,
+      "production_sha256": null
+    },
+    {
+      "sequence": 16,
+      "path": "geo/observations.json",
+      "local_artifact": "FirmsFinder_GEO_16_observations.json",
+      "local_sha256": "27cb220d1c6c51a4f9615b9ed5628c91920ef808f90292234623e170d8015a0e",
+      "local_bytes": 24381,
+      "document_version": "1.0.0",
+      "json_syntax": "PASS",
+      "local_availability": "present",
+      "public_availability": "not_checked",
+      "github_commit_sha": null,
+      "cloudflare_deployment_id": null,
+      "production_sha256": null
+    },
+    {
+      "sequence": 17,
+      "path": "geo/experiments.json",
+      "local_artifact": "FirmsFinder_GEO_17_experiments.json",
+      "local_sha256": "286016b94e27ce439d9dbab0b3ffc1ea406368ecbf046e59e5b7d7d3a1f69ff4",
+      "local_bytes": 21323,
+      "document_version": "1.0.0",
+      "json_syntax": "PASS",
+      "local_availability": "present",
+      "public_availability": "not_checked",
+      "github_commit_sha": null,
+      "cloudflare_deployment_id": null,
+      "production_sha256": null
+    },
+    {
+      "sequence": 18,
+      "path": "geo/scorecard.json",
+      "local_artifact": "FirmsFinder_GEO_18_scorecard.json",
+      "local_sha256": "b232905f94c088e817c594ddf4ffa70e0d2d59ecca3f91573c29d8897ff86471",
+      "local_bytes": 13683,
+      "document_version": "1.0.0",
+      "json_syntax": "PASS",
+      "local_availability": "present",
+      "public_availability": "not_checked",
+      "github_commit_sha": null,
+      "cloudflare_deployment_id": null,
+      "production_sha256": null
+    },
+    {
+      "sequence": 19,
+      "path": "geo/corrections.json",
+      "local_artifact": "FirmsFinder_GEO_19_corrections.json",
+      "local_sha256": "bdbfefb2b4032f2e9847f68602770cc58d0fc4b1a09b5e0487a7ef1c28935aaa",
+      "local_bytes": 15298,
+      "document_version": "1.0.0",
+      "json_syntax": "PASS",
+      "local_availability": "present",
+      "public_availability": "not_checked",
+      "github_commit_sha": null,
+      "cloudflare_deployment_id": null,
+      "production_sha256": null
+    },
+    {
+      "sequence": 20,
+      "path": "geo/changelog.json",
+      "local_artifact": null,
+      "local_sha256": null,
+      "local_bytes": null,
+      "document_version": null,
+      "json_syntax": "not_checked",
+      "local_availability": "planned",
+      "public_availability": "not_checked",
+      "github_commit_sha": null,
+      "cloudflare_deployment_id": null,
+      "production_sha256": null
+    },
+    {
+      "sequence": 21,
+      "path": "geo/verification.json",
+      "local_artifact": null,
+      "local_sha256": null,
+      "local_bytes": null,
+      "document_version": null,
+      "json_syntax": "not_checked",
+      "local_availability": "planned",
+      "public_availability": "not_checked",
+      "github_commit_sha": null,
+      "cloudflare_deployment_id": null,
+      "production_sha256": null
+    }
+  ],
+  "change_entries": [
+    {
+      "change_id": "CHG-005",
+      "change_type": "local_artifact_generated",
+      "artifact_path": "geo/intents.json",
+      "artifact_version": "1.0",
+      "description": "Exemplarul local al fișierului 05/21 a fost identificat și validat sintactic la generarea acestui registru.",
+      "recorded_at": "2026-10-13",
+      "origin": "local_file_inspection",
+      "before": {
+        "version": null,
+        "sha256": null,
+        "verified": false
+      },
+      "change": {
+        "action": "register_local_snapshot",
+        "file_sha256": "cac0aed74fd5cd5b514505dfb26fde6ef54295aeab2cae5c64a772730458c24a",
+        "bytes": 71622,
+        "author": null,
+        "reviewer": null,
+        "approval_status": "not_checked",
+        "pull_request_url": null,
+        "commit_sha": null,
+        "commit_url": null
+      },
+      "deployment": {
+        "provider": "Cloudflare Pages",
+        "environment": "production",
+        "status": "not_checked",
+        "deployment_id": null,
+        "deployment_url": null,
+        "deployed_at": null
+      },
+      "verification": {
+        "local_json": "PASS",
+        "local_sha256": "COMPUTED",
+        "public_http_status": null,
+        "public_content_type": null,
+        "public_sha256": null,
+        "verified_by": null,
+        "verified_at": null,
+        "status": "local_only"
+      },
+      "related_issue_ids": [],
+      "related_experiment_ids": [],
+      "evidence": [
+        {
+          "type": "local_file_hash",
+          "value": "da833bb0a42308e644a8a1ad70e6c142d08f63220e2fea8a499828f86ae5eb9b",
+          "scope": "local",
+          "status": "computed"
+        }
+      ],
+      "status": "local_snapshot_only"
+    },
+    {
+      "change_id": "CHG-006",
+      "change_type": "local_artifact_generated",
+      "artifact_path": "geo/claims.json",
+      "artifact_version": "1.0.0",
+      "description": "Exemplarul local al fișierului 06/21 a fost identificat și validat sintactic la generarea acestui registru.",
+      "recorded_at": "2026-10-13",
+      "origin": "local_file_inspection",
+      "before": {
+        "version": null,
+        "sha256": null,
+        "verified": false
+      },
+      "change": {
+        "action": "register_local_snapshot",
+        "file_sha256": "947c21c23db98b1ac9a5ddf8b8c3755bcbfb5c35993541b47ebf8b98e7058cdd",
+        "bytes": 14215,
+        "author": null,
+        "reviewer": null,
+        "approval_status": "not_checked",
+        "pull_request_url": null,
+        "commit_sha": null,
+        "commit_url": null
+      },
+      "deployment": {
+        "provider": "Cloudflare Pages",
+        "environment": "production",
+        "status": "not_checked",
+        "deployment_id": null,
+        "deployment_url": null,
+        "deployed_at": null
+      },
+      "verification": {
+        "local_json": "PASS",
+        "local_sha256": "COMPUTED",
+        "public_http_status": null,
+        "public_content_type": null,
+        "public_sha256": null,
+        "verified_by": null,
+        "verified_at": null,
+        "status": "local_only"
+      },
+      "related_issue_ids": [],
+      "related_experiment_ids": [],
+      "evidence": [
+        {
+          "type": "local_file_hash",
+          "value": "947c21c23db98b1ac9a5ddf8b8c3755bcbfb5c35993541b47ebf8b98e7058cdd",
+          "scope": "local",
+          "status": "computed"
+        }
+      ],
+      "status": "local_snapshot_only"
+    },
+    {
+      "change_id": "CHG-007",
+      "change_type": "local_artifact_generated",
+      "artifact_path": "geo/citable-chunks.json",
+      "artifact_version": "1.0.0",
+      "description": "Exemplarul local al fișierului 07/21 a fost identificat și validat sintactic la generarea acestui registru.",
+      "recorded_at": "2026-10-13",
+      "origin": "local_file_inspection",
+      "before": {
+        "version": null,
+        "sha256": null,
+        "verified": false
+      },
+      "change": {
+        "action": "register_local_snapshot",
+        "file_sha256": "2652db85a3df15c2915912faf9d323d6c50ca8b9fcaf7f1e8f26a06ccd9506a9",
+        "bytes": 16890,
+        "author": null,
+        "reviewer": null,
+        "approval_status": "not_checked",
+        "pull_request_url": null,
+        "commit_sha": null,
+        "commit_url": null
+      },
+      "deployment": {
+        "provider": "Cloudflare Pages",
+        "environment": "production",
+        "status": "not_checked",
+        "deployment_id": null,
+        "deployment_url": null,
+        "deployed_at": null
+      },
+      "verification": {
+        "local_json": "PASS",
+        "local_sha256": "COMPUTED",
+        "public_http_status": null,
+        "public_content_type": null,
+        "public_sha256": null,
+        "verified_by": null,
+        "verified_at": null,
+        "status": "local_only"
+      },
+      "related_issue_ids": [],
+      "related_experiment_ids": [],
+      "evidence": [
+        {
+          "type": "local_file_hash",
+          "value": "ace1db14eea8930904ecc865a7b199af2199d2e3cd05f173f07667f8918e3cfa",
+          "scope": "local",
+          "status": "computed"
+        }
+      ],
+      "status": "local_snapshot_only"
+    },
+    {
+      "change_id": "CHG-008",
+      "change_type": "local_artifact_generated",
+      "artifact_path": "geo/rag-metadata.json",
+      "artifact_version": "1.0.0",
+      "description": "Exemplarul local al fișierului 08/21 a fost identificat și validat sintactic la generarea acestui registru.",
+      "recorded_at": "2026-10-13",
+      "origin": "local_file_inspection",
+      "before": {
+        "version": null,
+        "sha256": null,
+        "verified": false
+      },
+      "change": {
+        "action": "register_local_snapshot",
+        "file_sha256": "aa3491ecaad2f26afccc4bbf0a2b2b370fe5b714517ccf95b9aae2aa019d14d7",
+        "bytes": 16458,
+        "author": null,
+        "reviewer": null,
+        "approval_status": "not_checked",
+        "pull_request_url": null,
+        "commit_sha": null,
+        "commit_url": null
+      },
+      "deployment": {
+        "provider": "Cloudflare Pages",
+        "environment": "production",
+        "status": "not_checked",
+        "deployment_id": null,
+        "deployment_url": null,
+        "deployed_at": null
+      },
+      "verification": {
+        "local_json": "PASS",
+        "local_sha256": "COMPUTED",
+        "public_http_status": null,
+        "public_content_type": null,
+        "public_sha256": null,
+        "verified_by": null,
+        "verified_at": null,
+        "status": "local_only"
+      },
+      "related_issue_ids": [],
+      "related_experiment_ids": [],
+      "evidence": [
+        {
+          "type": "local_file_hash",
+          "value": "aa3491ecaad2f26afccc4bbf0a2b2b370fe5b714517ccf95b9aae2aa019d14d7",
+          "scope": "local",
+          "status": "computed"
+        }
+      ],
+      "status": "local_snapshot_only"
+    },
+    {
+      "change_id": "CHG-009",
+      "change_type": "local_artifact_generated",
+      "artifact_path": "geo/proprietary-data.json",
+      "artifact_version": "1.0.0",
+      "description": "Exemplarul local al fișierului 09/21 a fost identificat și validat sintactic la generarea acestui registru.",
+      "recorded_at": "2026-10-13",
+      "origin": "local_file_inspection",
+      "before": {
+        "version": null,
+        "sha256": null,
+        "verified": false
+      },
+      "change": {
+        "action": "register_local_snapshot",
+        "file_sha256": "f036e73548a041382a33ad55c61d51eab20a7140ca4bdefc3733f790ca80280c",
+        "bytes": 4267,
+        "author": null,
+        "reviewer": null,
+        "approval_status": "not_checked",
+        "pull_request_url": null,
+        "commit_sha": null,
+        "commit_url": null
+      },
+      "deployment": {
+        "provider": "Cloudflare Pages",
+        "environment": "production",
+        "status": "not_checked",
+        "deployment_id": null,
+        "deployment_url": null,
+        "deployed_at": null
+      },
+      "verification": {
+        "local_json": "PASS",
+        "local_sha256": "COMPUTED",
+        "public_http_status": null,
+        "public_content_type": null,
+        "public_sha256": null,
+        "verified_by": null,
+        "verified_at": null,
+        "status": "local_only"
+      },
+      "related_issue_ids": [],
+      "related_experiment_ids": [],
+      "evidence": [
+        {
+          "type": "local_file_hash",
+          "value": "f036e73548a041382a33ad55c61d51eab20a7140ca4bdefc3733f790ca80280c",
+          "scope": "local",
+          "status": "computed"
+        }
+      ],
+      "status": "local_snapshot_only"
+    },
+    {
+      "change_id": "CHG-010",
+      "change_type": "local_artifact_generated",
+      "artifact_path": "geo/evidence.json",
+      "artifact_version": "1.0.0",
+      "description": "Exemplarul local al fișierului 10/21 a fost identificat și validat sintactic la generarea acestui registru.",
+      "recorded_at": "2026-10-13",
+      "origin": "local_file_inspection",
+      "before": {
+        "version": null,
+        "sha256": null,
+        "verified": false
+      },
+      "change": {
+        "action": "register_local_snapshot",
+        "file_sha256": "c2cdb3b762bba169adfed1a0f324992536412a7b4f628f7450184027ef9084e5",
+        "bytes": 22659,
+        "author": null,
+        "reviewer": null,
+        "approval_status": "not_checked",
+        "pull_request_url": null,
+        "commit_sha": null,
+        "commit_url": null
+      },
+      "deployment": {
+        "provider": "Cloudflare Pages",
+        "environment": "production",
+        "status": "not_checked",
+        "deployment_id": null,
+        "deployment_url": null,
+        "deployed_at": null
+      },
+      "verification": {
+        "local_json": "PASS",
+        "local_sha256": "COMPUTED",
+        "public_http_status": null,
+        "public_content_type": null,
+        "public_sha256": null,
+        "verified_by": null,
+        "verified_at": null,
+        "status": "local_only"
+      },
+      "related_issue_ids": [],
+      "related_experiment_ids": [],
+      "evidence": [
+        {
+          "type": "local_file_hash",
+          "value": "7927ee82985e4090fed00f9a00117186fc356f57754d9c70da2a170c1eef76b1",
+          "scope": "local",
+          "status": "computed"
+        }
+      ],
+      "status": "local_snapshot_only"
+    },
+    {
+      "change_id": "CHG-011",
+      "change_type": "local_artifact_generated",
+      "artifact_path": "geo/glossary.json",
+      "artifact_version": "1.0.0",
+      "description": "Exemplarul local al fișierului 11/21 a fost identificat și validat sintactic la generarea acestui registru.",
+      "recorded_at": "2026-10-13",
+      "origin": "local_file_inspection",
+      "before": {
+        "version": null,
+        "sha256": null,
+        "verified": false
+      },
+      "change": {
+        "action": "register_local_snapshot",
+        "file_sha256": "5321d68dc9ee8401ffc8f320a651610f90931379de76e59d2982fd57d2b65bdf",
+        "bytes": 25293,
+        "author": null,
+        "reviewer": null,
+        "approval_status": "not_checked",
+        "pull_request_url": null,
+        "commit_sha": null,
+        "commit_url": null
+      },
+      "deployment": {
+        "provider": "Cloudflare Pages",
+        "environment": "production",
+        "status": "not_checked",
+        "deployment_id": null,
+        "deployment_url": null,
+        "deployed_at": null
+      },
+      "verification": {
+        "local_json": "PASS",
+        "local_sha256": "COMPUTED",
+        "public_http_status": null,
+        "public_content_type": null,
+        "public_sha256": null,
+        "verified_by": null,
+        "verified_at": null,
+        "status": "local_only"
+      },
+      "related_issue_ids": [],
+      "related_experiment_ids": [],
+      "evidence": [
+        {
+          "type": "local_file_hash",
+          "value": "d1a74a5088906dd6eae296f2075f85e4025d06c639d354756ec6c086d8970351",
+          "scope": "local",
+          "status": "computed"
+        }
+      ],
+      "status": "local_snapshot_only"
+    },
+    {
+      "change_id": "CHG-012",
+      "change_type": "local_artifact_generated",
+      "artifact_path": "geo/knowledge-graph.json",
+      "artifact_version": "1.0.0",
+      "description": "Exemplarul local al fișierului 12/21 a fost identificat și validat sintactic la generarea acestui registru.",
+      "recorded_at": "2026-10-13",
+      "origin": "local_file_inspection",
+      "before": {
+        "version": null,
+        "sha256": null,
+        "verified": false
+      },
+      "change": {
+        "action": "register_local_snapshot",
+        "file_sha256": "4e23e115138046db7c533e63f26e205b4b4a2294c732679c71b450bf3c27a227",
+        "bytes": 10295,
+        "author": null,
+        "reviewer": null,
+        "approval_status": "not_checked",
+        "pull_request_url": null,
+        "commit_sha": null,
+        "commit_url": null
+      },
+      "deployment": {
+        "provider": "Cloudflare Pages",
+        "environment": "production",
+        "status": "not_checked",
+        "deployment_id": null,
+        "deployment_url": null,
+        "deployed_at": null
+      },
+      "verification": {
+        "local_json": "PASS",
+        "local_sha256": "COMPUTED",
+        "public_http_status": null,
+        "public_content_type": null,
+        "public_sha256": null,
+        "verified_by": null,
+        "verified_at": null,
+        "status": "local_only"
+      },
+      "related_issue_ids": [],
+      "related_experiment_ids": [],
+      "evidence": [
+        {
+          "type": "local_file_hash",
+          "value": "c751181dfb68a328a5d6714441cc0ad7932f5f397ce4386105dd342cc3145962",
+          "scope": "local",
+          "status": "computed"
+        }
+      ],
+      "status": "local_snapshot_only"
+    },
+    {
+      "change_id": "CHG-013",
+      "change_type": "local_artifact_generated",
+      "artifact_path": "geo/consistency-manifest.json",
+      "artifact_version": "1.1.0",
+      "description": "Exemplarul local al fișierului 13/21 a fost identificat și validat sintactic la generarea acestui registru.",
+      "recorded_at": "2026-10-13",
+      "origin": "local_file_inspection",
+      "before": {
+        "version": null,
+        "sha256": null,
+        "verified": false
+      },
+      "change": {
+        "action": "register_local_snapshot",
+        "file_sha256": "7d7923b714c6b06786967f187c2675b133302cf9e6afdabf211bde00136e93ec",
+        "bytes": 10589,
+        "author": null,
+        "reviewer": null,
+        "approval_status": "not_checked",
+        "pull_request_url": null,
+        "commit_sha": null,
+        "commit_url": null
+      },
+      "deployment": {
+        "provider": "Cloudflare Pages",
+        "environment": "production",
+        "status": "not_checked",
+        "deployment_id": null,
+        "deployment_url": null,
+        "deployed_at": null
+      },
+      "verification": {
+        "local_json": "PASS",
+        "local_sha256": "COMPUTED",
+        "public_http_status": null,
+        "public_content_type": null,
+        "public_sha256": null,
+        "verified_by": null,
+        "verified_at": null,
+        "status": "local_only"
+      },
+      "related_issue_ids": [],
+      "related_experiment_ids": [],
+      "evidence": [
+        {
+          "type": "local_file_hash",
+          "value": "d55e91d14b24c7d3dd74a6a15d5fd22e66642651e09847f2d1ee0b5c6a8173ec",
+          "scope": "local",
+          "status": "computed"
+        }
+      ],
+      "status": "local_snapshot_only"
+    },
+    {
+      "change_id": "CHG-014",
+      "change_type": "local_artifact_generated",
+      "artifact_path": "geo/external-corroboration.json",
+      "artifact_version": "1.0.0",
+      "description": "Exemplarul local al fișierului 14/21 a fost identificat și validat sintactic la generarea acestui registru.",
+      "recorded_at": "2026-10-13",
+      "origin": "local_file_inspection",
+      "before": {
+        "version": null,
+        "sha256": null,
+        "verified": false
+      },
+      "change": {
+        "action": "register_local_snapshot",
+        "file_sha256": "d81a529603ab26014541da8612c777372a65c837db0833e6fb4470c871ff22d4",
+        "bytes": 16107,
+        "author": null,
+        "reviewer": null,
+        "approval_status": "not_checked",
+        "pull_request_url": null,
+        "commit_sha": null,
+        "commit_url": null
+      },
+      "deployment": {
+        "provider": "Cloudflare Pages",
+        "environment": "production",
+        "status": "not_checked",
+        "deployment_id": null,
+        "deployment_url": null,
+        "deployed_at": null
+      },
+      "verification": {
+        "local_json": "PASS",
+        "local_sha256": "COMPUTED",
+        "public_http_status": null,
+        "public_content_type": null,
+        "public_sha256": null,
+        "verified_by": null,
+        "verified_at": null,
+        "status": "local_only"
+      },
+      "related_issue_ids": [],
+      "related_experiment_ids": [],
+      "evidence": [
+        {
+          "type": "local_file_hash",
+          "value": "d81a529603ab26014541da8612c777372a65c837db0833e6fb4470c871ff22d4",
+          "scope": "local",
+          "status": "computed"
+        }
+      ],
+      "status": "local_snapshot_only"
+    },
+    {
+      "change_id": "CHG-015",
+      "change_type": "local_artifact_generated",
+      "artifact_path": "geo/reference-set.json",
+      "artifact_version": "1.0.0",
+      "description": "Exemplarul local al fișierului 15/21 a fost identificat și validat sintactic la generarea acestui registru.",
+      "recorded_at": "2026-10-13",
+      "origin": "local_file_inspection",
+      "before": {
+        "version": null,
+        "sha256": null,
+        "verified": false
+      },
+      "change": {
+        "action": "register_local_snapshot",
+        "file_sha256": "098080634dfe86eb6b176bdc3c5d9b7e3d5270250bf17487884ebc009ac7e408",
+        "bytes": 61102,
+        "author": null,
+        "reviewer": null,
+        "approval_status": "not_checked",
+        "pull_request_url": null,
+        "commit_sha": null,
+        "commit_url": null
+      },
+      "deployment": {
+        "provider": "Cloudflare Pages",
+        "environment": "production",
+        "status": "not_checked",
+        "deployment_id": null,
+        "deployment_url": null,
+        "deployed_at": null
+      },
+      "verification": {
+        "local_json": "PASS",
+        "local_sha256": "COMPUTED",
+        "public_http_status": null,
+        "public_content_type": null,
+        "public_sha256": null,
+        "verified_by": null,
+        "verified_at": null,
+        "status": "local_only"
+      },
+      "related_issue_ids": [],
+      "related_experiment_ids": [],
+      "evidence": [
+        {
+          "type": "local_file_hash",
+          "value": "7d57c2a90f3d3f2bea700c91e462910c85c64bed1895178f4c8b0521cfddbdc8",
+          "scope": "local",
+          "status": "computed"
+        }
+      ],
+      "status": "local_snapshot_only"
+    },
+    {
+      "change_id": "CHG-016",
+      "change_type": "local_artifact_generated",
+      "artifact_path": "geo/observations.json",
+      "artifact_version": "1.0.0",
+      "description": "Exemplarul local al fișierului 16/21 a fost identificat și validat sintactic la generarea acestui registru.",
+      "recorded_at": "2026-10-13",
+      "origin": "local_file_inspection",
+      "before": {
+        "version": null,
+        "sha256": null,
+        "verified": false
+      },
+      "change": {
+        "action": "register_local_snapshot",
+        "file_sha256": "27cb220d1c6c51a4f9615b9ed5628c91920ef808f90292234623e170d8015a0e",
+        "bytes": 24381,
+        "author": null,
+        "reviewer": null,
+        "approval_status": "not_checked",
+        "pull_request_url": null,
+        "commit_sha": null,
+        "commit_url": null
+      },
+      "deployment": {
+        "provider": "Cloudflare Pages",
+        "environment": "production",
+        "status": "not_checked",
+        "deployment_id": null,
+        "deployment_url": null,
+        "deployed_at": null
+      },
+      "verification": {
+        "local_json": "PASS",
+        "local_sha256": "COMPUTED",
+        "public_http_status": null,
+        "public_content_type": null,
+        "public_sha256": null,
+        "verified_by": null,
+        "verified_at": null,
+        "status": "local_only"
+      },
+      "related_issue_ids": [],
+      "related_experiment_ids": [],
+      "evidence": [
+        {
+          "type": "local_file_hash",
+          "value": "1b8d8e06938a8d033d570256524dc98ad97bffc91d450c9129663fe90c31dae0",
+          "scope": "local",
+          "status": "computed"
+        }
+      ],
+      "status": "local_snapshot_only"
+    },
+    {
+      "change_id": "CHG-017",
+      "change_type": "local_artifact_generated",
+      "artifact_path": "geo/experiments.json",
+      "artifact_version": "1.0.0",
+      "description": "Exemplarul local al fișierului 17/21 a fost identificat și validat sintactic la generarea acestui registru.",
+      "recorded_at": "2026-10-13",
+      "origin": "local_file_inspection",
+      "before": {
+        "version": null,
+        "sha256": null,
+        "verified": false
+      },
+      "change": {
+        "action": "register_local_snapshot",
+        "file_sha256": "286016b94e27ce439d9dbab0b3ffc1ea406368ecbf046e59e5b7d7d3a1f69ff4",
+        "bytes": 21323,
+        "author": null,
+        "reviewer": null,
+        "approval_status": "not_checked",
+        "pull_request_url": null,
+        "commit_sha": null,
+        "commit_url": null
+      },
+      "deployment": {
+        "provider": "Cloudflare Pages",
+        "environment": "production",
+        "status": "not_checked",
+        "deployment_id": null,
+        "deployment_url": null,
+        "deployed_at": null
+      },
+      "verification": {
+        "local_json": "PASS",
+        "local_sha256": "COMPUTED",
+        "public_http_status": null,
+        "public_content_type": null,
+        "public_sha256": null,
+        "verified_by": null,
+        "verified_at": null,
+        "status": "local_only"
+      },
+      "related_issue_ids": [],
+      "related_experiment_ids": [],
+      "evidence": [
+        {
+          "type": "local_file_hash",
+          "value": "286016b94e27ce439d9dbab0b3ffc1ea406368ecbf046e59e5b7d7d3a1f69ff4",
+          "scope": "local",
+          "status": "computed"
+        }
+      ],
+      "status": "local_snapshot_only"
+    },
+    {
+      "change_id": "CHG-018",
+      "change_type": "local_artifact_generated",
+      "artifact_path": "geo/scorecard.json",
+      "artifact_version": "1.0.0",
+      "description": "Exemplarul local al fișierului 18/21 a fost identificat și validat sintactic la generarea acestui registru.",
+      "recorded_at": "2026-10-13",
+      "origin": "local_file_inspection",
+      "before": {
+        "version": null,
+        "sha256": null,
+        "verified": false
+      },
+      "change": {
+        "action": "register_local_snapshot",
+        "file_sha256": "b232905f94c088e817c594ddf4ffa70e0d2d59ecca3f91573c29d8897ff86471",
+        "bytes": 13683,
+        "author": null,
+        "reviewer": null,
+        "approval_status": "not_checked",
+        "pull_request_url": null,
+        "commit_sha": null,
+        "commit_url": null
+      },
+      "deployment": {
+        "provider": "Cloudflare Pages",
+        "environment": "production",
+        "status": "not_checked",
+        "deployment_id": null,
+        "deployment_url": null,
+        "deployed_at": null
+      },
+      "verification": {
+        "local_json": "PASS",
+        "local_sha256": "COMPUTED",
+        "public_http_status": null,
+        "public_content_type": null,
+        "public_sha256": null,
+        "verified_by": null,
+        "verified_at": null,
+        "status": "local_only"
+      },
+      "related_issue_ids": [],
+      "related_experiment_ids": [],
+      "evidence": [
+        {
+          "type": "local_file_hash",
+          "value": "f7d15433439f5597898b88c681871fd246c4bbc497c03f440cc5d491e1da45a1",
+          "scope": "local",
+          "status": "computed"
+        }
+      ],
+      "status": "local_snapshot_only"
+    },
+    {
+      "change_id": "CHG-019",
+      "change_type": "local_artifact_generated",
+      "artifact_path": "geo/corrections.json",
+      "artifact_version": "1.0.0",
+      "description": "Exemplarul local al fișierului 19/21 a fost identificat și validat sintactic la generarea acestui registru.",
+      "recorded_at": "2026-10-13",
+      "origin": "local_file_inspection",
+      "before": {
+        "version": null,
+        "sha256": null,
+        "verified": false
+      },
+      "change": {
+        "action": "register_local_snapshot",
+        "file_sha256": "bdbfefb2b4032f2e9847f68602770cc58d0fc4b1a09b5e0487a7ef1c28935aaa",
+        "bytes": 15298,
+        "author": null,
+        "reviewer": null,
+        "approval_status": "not_checked",
+        "pull_request_url": null,
+        "commit_sha": null,
+        "commit_url": null
+      },
+      "deployment": {
+        "provider": "Cloudflare Pages",
+        "environment": "production",
+        "status": "not_checked",
+        "deployment_id": null,
+        "deployment_url": null,
+        "deployed_at": null
+      },
+      "verification": {
+        "local_json": "PASS",
+        "local_sha256": "COMPUTED",
+        "public_http_status": null,
+        "public_content_type": null,
+        "public_sha256": null,
+        "verified_by": null,
+        "verified_at": null,
+        "status": "local_only"
+      },
+      "related_issue_ids": [],
+      "related_experiment_ids": [],
+      "evidence": [
+        {
+          "type": "local_file_hash",
+          "value": "44b69b075c4c8e8c87b67fd46a465a499114129997d88712cad4da3988e28ee3",
+          "scope": "local",
+          "status": "computed"
+        }
+      ],
+      "status": "local_snapshot_only"
+    }
+  ],
+  "releases": [
+    {
+      "release_id": "REL-GEO-20261013-DRAFT-001",
+      "title": "Inventar local GEO FirmsFinder",
+      "version": "1.0.0-draft",
+      "created_at": "2026-10-13",
+      "status": "draft_not_deployed",
+      "scope": "Inventar de artefacte disponibile în sesiunea curentă; nu atestă publicarea pe firmsfinder.eu",
+      "included_change_ids": [
+        "CHG-005",
+        "CHG-006",
+        "CHG-007",
+        "CHG-008",
+        "CHG-009",
+        "CHG-010",
+        "CHG-011",
+        "CHG-012",
+        "CHG-013",
+        "CHG-014",
+        "CHG-015",
+        "CHG-016",
+        "CHG-017",
+        "CHG-018",
+        "CHG-019"
+      ],
+      "commit_sha": null,
+      "commit_url": null,
+      "approved_by": null,
+      "approved_at": null,
+      "cloudflare_deployment_id": null,
+      "cloudflare_deployment_url": null,
+      "production_verified_at": null,
+      "release_verdict": "NOT_DEPLOYMENT_VERIFIED"
+    }
+  ],
+  "production_verification_protocol": {
+    "steps": [
+      "Deschide fisierul la URL-ul public exact",
+      "Verifica HTTP 200 si Content-Type application/json (sau tip JSON compatibil)",
+      "Parseaza JSON-ul public",
+      "Calculeaza SHA-256 al octetilor publici si compara cu versiunea aprobata",
+      "Confirma commitul in GitHub si deploymentul aferent in Cloudflare Pages",
+      "Ruleaza verificari de referinte, semantica si regresie",
+      "Adauga URL-uri si hashuri reale de dovezi, data si evaluatorul",
+      "Marcheaza production_verified doar dupa toate controalele necesare"
+    ],
+    "minimum_acceptance": {
+      "http_status": 200,
+      "json_parse": true,
+      "hash_matches_approved": true,
+      "deployment_evidence_required": true,
+      "regression_checks_required": true
+    }
+  },
+  "integrity_policy": {
+    "hash_algorithm": "SHA-256",
+    "hash_input": "raw file bytes",
+    "local_hashes_are_not_public_hashes": true,
+    "self_hash_in_this_file": null,
+    "self_hash_note": "Nu includem SHA-256 al propriului fisier in interiorul sau; hashul se comunica separat pentru a evita dependenta circulara.",
+    "change_history_immutable_policy": "Nu suprascrie intrari confirmate; adauga evenimente noi, inclusiv rollback."
+  },
+  "publication_policy": {
+    "public_safe_fields": [
+      "change_id",
+      "artifact_path",
+      "artifact_version",
+      "description",
+      "recorded_at",
+      "commit_sha",
+      "deployment.status",
+      "verification.status"
+    ],
+    "review_before_publication": [
+      "author",
+      "reviewer",
+      "evidence URLs",
+      "issue links"
+    ],
+    "never_publish": [
+      "access tokens",
+      "secrets",
+      "personal data without legal basis",
+      "private internal deployment logs"
+    ]
+  },
+  "acceptance_rules": [
+    {
+      "id": "ACC-01",
+      "rule": "Identificatori change_id unici",
+      "severity": "error"
+    },
+    {
+      "id": "ACC-02",
+      "rule": "Fiecare hash local provine din octetii fisierului real",
+      "severity": "error"
+    },
+    {
+      "id": "ACC-03",
+      "rule": "Niciun status deployed fara dovezi Cloudflare",
+      "severity": "error"
+    },
+    {
+      "id": "ACC-04",
+      "rule": "Niciun status production_verified fara probe HTTP/JSON/hash si evaluator",
+      "severity": "error"
+    },
+    {
+      "id": "ACC-05",
+      "rule": "Nicio modificare semantica CAEN/ERE fara descriere si teste de regresie",
+      "severity": "error"
+    },
+    {
+      "id": "ACC-06",
+      "rule": "Referintele la issue si experiment trebuie sa existe cand sunt introduse",
+      "severity": "error"
+    },
+    {
+      "id": "ACC-07",
+      "rule": "Nu se publica date sensibile sau secrete",
+      "severity": "critical"
+    }
+  ],
+  "verification": {
+    "local_json_syntax": "PASS",
+    "local_artifacts_checked": 15,
+    "local_artifacts_not_available": 4,
+    "future_artifacts_planned": 2,
+    "local_hashes_computed": 15,
+    "github_history_read": false,
+    "cloudflare_deployments_checked": false,
+    "production_urls_checked": false,
+    "external_independent_review": false,
+    "runtime_change_tracking_implemented": false,
+    "notes": "Verificare locala a JSON si SHA-256 pentru fisierele 05-19; fara acces verificat la istoric GitHub, deployment Cloudflare sau productie. Nu este monitorizare automata."
+  },
+  "summary": {
+    "files_expected_in_series": 21,
+    "files_present_locally": 15,
+    "files_missing_locally": 4,
+    "files_future_planned": 2,
+    "local_snapshot_entries": 15,
+    "actual_verified_github_commits": 0,
+    "actual_verified_cloudflare_deployments": 0,
+    "production_verified_releases": 0,
+    "open_deployment_questions": true,
+    "verdict": "LOCAL_INVENTORY_ONLY_NOT_LIVE_VERIFIED"
+  }
+}
