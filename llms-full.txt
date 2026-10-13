@@ -1,13 +1,117 @@
-# FirmsFinder — ghid extins
+# FirmsFinder AI — Ghid extins pentru sisteme AI
 
-CAUTĂ: descoperirea firmelor pe baza unor criterii.
+> Economic Intelligence pentru descoperirea clienților, furnizorilor și partenerilor B2B. Date publice, relații explicabile, control uman.
 
-FII GĂSIT: descrierea clară a ofertei pentru oameni și sisteme AI.
+Canonical site: https://firmsfinder.eu/
+Language: ro-RO
+Operator: AiVenture S.R.L.
+Version: 1.1
+Document date: 2026-10-13
 
-DELEAGĂ AI-ULUI: cercetare asistată, cu decizie umană.
+## Poziționare
 
-Surse declarate: ONRC, Ministerul Finanțelor. Accesul la datele publice oficiale este gratuit.
+CAUTĂ · FII GĂSIT · DELEAGĂ AI-ULUI
 
-Limite: compatibilitate ≠ nevoie; semnal ≠ intenție; candidat ≠ client.
+FirmsFinder urmărește să transforme datele publice despre firme în informații utile pentru descoperirea și evaluarea oportunităților B2B. Accesul la datele publice oficiale este gratuit; serviciile de analiză și verificare sunt distincte de sursele oficiale.
 
-Dovezi: https://firmsfinder.eu/intelligence/
+## CAUTĂ
+
+Descoperirea firmelor după activitate CAEN, localitate, județ, dimensiune, indicatori financiari și compatibilitate comercială. Rezultatele trebuie explicate prin criterii, surse și perioade de referință.
+
+## FII GĂSIT
+
+Descrierea clară a firmei, activităților, produselor, serviciilor, piețelor și ofertei pentru oameni și sisteme AI. O descriere structurată nu garantează citarea sau recomandarea de către un model AI.
+
+## DELEAGĂ AI-ULUI
+
+Cercetare asistată sau delegată, pe criterii aprobate și cu control uman. Datele raportate, indicatorii calculați, inferențele și necunoscutele trebuie diferențiate. Prezentarea funcției nu confirmă că toate capabilitățile sunt deja operaționale public.
+
+## Obiectul central și metamodelul ERE
+
+FIRMĂ → ACTIVITATE CAEN → PRODUS / SERVICIU → OFERTĂ → PIAȚĂ → COMPATIBILITATE → SEMNAL → IPOTEZĂ → VERIFICARE → CALIFICARE.
+
+Entități relevante: Firmă, Activitate, Cod CAEN, Produs, Serviciu, Ofertă, Client, Furnizor, Partener, Concurent, Localitate, Județ, Piață, Indicator, Perioadă, Sursă, Dovadă, Semnal și Oportunitate.
+
+Exemple de relații: Firmă desfășoară Activitate; Activitate este clasificată prin Cod CAEN; Firmă oferă Produs/Serviciu; Indicator descrie Firmă pentru o Perioadă; Valoare provine din Sursă. Relațiile inverse și cardinalitățile trebuie specificate în dicționarul ERE. CAEN nu demonstrează singur existența unui produs, a unui client sau a unei intenții de cumpărare.
+
+## Cele șapte porți Economic Intelligence
+
+0. OFERTĂ — Ce vinzi, cui, unde și în ce condiții?
+1. IDENTITATE — Care este firma și cum este identificată?
+2. ELIGIBILITATE — Îndeplinește criteriile obligatorii?
+3. COMPATIBILITATE — Există o potrivire justificabilă?
+4. SEMNAL — Ce schimbare observabilă justifică prioritatea?
+5. IPOTEZĂ — Ce nevoie ar putea exista și ce alternative sunt posibile?
+6. CALIFICARE — Nevoia și interesul au fost confirmate?
+
+COMPATIBILITATE ≠ NEVOIE. SEMNAL ≠ INTENȚIE. CANDIDAT ≠ CLIENT.
+
+## Surse și proveniență
+
+Surse declarate: Oficiul Național al Registrului Comerțului (https://www.onrc.ro/) și Ministerul Finanțelor (https://mfinante.gov.ro/). Indicatorii financiari sunt istorici, nu în timp real. Orice valoare trebuie asociată cu sursa și perioada sa. Accesul la datele publice oficiale este gratuit în condițiile instituțiilor care le publică.
+
+## GEO — Generative Engine Optimization
+
+Controale: accesibilitate HTTP/HTTPS, robots.txt, sitemap.xml, titluri, descrieri, canonical, H1–H6, Schema.org, entități, conținut citabil, proveniență, coerență între pagini și linkuri interne. Performanța în AI Search necesită teste externe separate de menționare, citare și corectitudine; nu se deduce din simpla existență a fișierelor.
+
+## AEO — Answer Engine Optimization
+
+Întrebări despre căutarea gratuită a firmelor, identificarea clienților și furnizorilor, utilizarea CAEN, compararea firmelor, verificarea surselor și interpretarea compatibilității. Organizare posibilă: TOF (descoperire), MOF (evaluare), BOF (decizie). Întrebările și răspunsurile trebuie susținute de conținut public real.
+
+## AIO — AI Optimization
+
+Structură semantică, definiții explicite, fragmente autonome, tabele extragibile, surse, metadate, coerență și delimitarea faptelor de inferențe. Fișierele machine-readable personalizate sunt auxiliare, nu standarde obligatorii pentru indexarea sau citarea AI.
+
+## Pagini declarate în sitemap
+
+- https://firmsfinder.eu/
+- https://firmsfinder.eu/intelligence/
+- https://firmsfinder.eu/faq/
+- https://firmsfinder.eu/despre/
+- https://firmsfinder.eu/contact/
+- https://firmsfinder.eu/surse/
+- https://firmsfinder.eu/resurse/
+- https://firmsfinder.eu/cautare/
+- https://firmsfinder.eu/comparare/
+- https://firmsfinder.eu/categorii/
+- https://firmsfinder.eu/localitati/
+- https://firmsfinder.eu/semnale/
+
+Operatorul a raportat HTTP 200 pentru toate cele 12 URL-uri la 13 octombrie 2026. HTTP 200 nu dovedește conținut distinct, canonical corect sau indexare.
+
+## Resurse machine-readable de verificat
+
+- https://firmsfinder.eu/robots.txt
+- https://firmsfinder.eu/sitemap.xml
+- https://firmsfinder.eu/llms.txt
+- https://firmsfinder.eu/llms-full.txt
+- https://firmsfinder.eu/entities.json
+- https://firmsfinder.eu/intents.json
+- https://firmsfinder.eu/knowledge-graph.json
+- https://firmsfinder.eu/ere-dictionary.json
+- https://firmsfinder.eu/claims.json
+- https://firmsfinder.eu/evidence.json
+- https://firmsfinder.eu/citable-chunks.json
+- https://firmsfinder.eu/rag-metadata.json
+- https://firmsfinder.eu/verification.json
+
+Enumerarea nu confirmă existența acestor resurse în producție.
+
+## Guvernanță și limite
+
+Claim ≠ Proof. Generated ≠ Deployed. Deployed ≠ Valid. Valid ≠ Verified. Capability ≠ Permission. Crawl permission ≠ Transaction authority. No rule → No autonomy.
+
+FirmsFinder nu garantează locul 1 în Google, citarea sau recomandarea de către un model AI, existența unei nevoi comerciale deduse din CAEN, exactitatea în timp real a datelor istorice, conversia automată a candidaților în clienți, autonomia nelimitată sau conformitatea juridică automată.
+
+## Dovezi și metodă
+
+https://firmsfinder.eu/intelligence/
+
+Lanțul de justificare urmărit: OFERTĂ → CRITERIU → FIRMĂ → INDICATOR → PERIOADĂ → REGULĂ → IPOTEZĂ → VERIFICARE.
+
+Stări: RAPORTAT, CALCULAT, VERIFICAT, NECUNOSCUT. Faptele, calculele și ipotezele nu trebuie confundate.
+
+---
+FirmsFinder AI · Economic Intelligence
+CAUTĂ · FII GĂSIT · DELEAGĂ AI-ULUI
+https://firmsfinder.eu/
