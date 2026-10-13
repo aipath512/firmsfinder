@@ -5,7 +5,7 @@
   "site": "https://firmsfinder.eu/",
   "publisher": "AiVenture S.R.L.",
   "language": "ro-RO",
-  "status": "LOCAL_INVENTORY_RECONCILED_PUBLICATION_UNKNOWN",
+  "status": "LOCAL_PATCH_NOT_DEPLOYED",
   "generated_at": "2026-10-13",
   "catalog_signal_count": 60,
   "artifacts": [
@@ -37,5 +37,10 @@
     "includes_ere_dictionary": true,
     "scope": "local ZIP only",
     "public_verified": false
+  },
+  "version": "2.1",
+  "audit_v21": {
+    "local_artifacts": 22,
+    "public_verification": "UNKNOWN"
   }
 }

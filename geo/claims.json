@@ -1,10 +1,170 @@
 {
   "schema": "FIRMSFINDER_GEO_CLAIMS_REGISTRY",
-  "version": "2.0-audit-bis",
+  "version": "2.1",
   "generated_at": "2026-10-13",
-  "status": "PARTIAL_REGISTRY_UNVERIFIED",
+  "status": "REFERENCES_RESOLVED_CONTENT_UNVERIFIED",
   "site": "https://firmsfinder.eu/",
   "claims": [
+    {
+      "id": "CL-001",
+      "statement": null,
+      "status": "requires_definition_and_evidence",
+      "risk": "unassessed",
+      "source_chunk_ids": [
+        "CH-001"
+      ],
+      "evidence_refs": [],
+      "publication": {
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "note": "ID rezervat pentru reconciliere; nu reprezinta o afirmatie validata."
+    },
+    {
+      "id": "CL-002",
+      "statement": null,
+      "status": "requires_definition_and_evidence",
+      "risk": "unassessed",
+      "source_chunk_ids": [
+        "CH-002"
+      ],
+      "evidence_refs": [],
+      "publication": {
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "note": "ID rezervat pentru reconciliere; nu reprezinta o afirmatie validata."
+    },
+    {
+      "id": "CL-003",
+      "statement": null,
+      "status": "requires_definition_and_evidence",
+      "risk": "unassessed",
+      "source_chunk_ids": [
+        "CH-003"
+      ],
+      "evidence_refs": [],
+      "publication": {
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "note": "ID rezervat pentru reconciliere; nu reprezinta o afirmatie validata."
+    },
+    {
+      "id": "CL-004",
+      "statement": null,
+      "status": "requires_definition_and_evidence",
+      "risk": "unassessed",
+      "source_chunk_ids": [
+        "CH-004"
+      ],
+      "evidence_refs": [],
+      "publication": {
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "note": "ID rezervat pentru reconciliere; nu reprezinta o afirmatie validata."
+    },
+    {
+      "id": "CL-005",
+      "statement": null,
+      "status": "requires_definition_and_evidence",
+      "risk": "unassessed",
+      "source_chunk_ids": [
+        "CH-005"
+      ],
+      "evidence_refs": [],
+      "publication": {
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "note": "ID rezervat pentru reconciliere; nu reprezinta o afirmatie validata."
+    },
+    {
+      "id": "CL-006",
+      "statement": null,
+      "status": "requires_definition_and_evidence",
+      "risk": "unassessed",
+      "source_chunk_ids": [
+        "CH-006"
+      ],
+      "evidence_refs": [],
+      "publication": {
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "note": "ID rezervat pentru reconciliere; nu reprezinta o afirmatie validata."
+    },
+    {
+      "id": "CL-007",
+      "statement": null,
+      "status": "requires_definition_and_evidence",
+      "risk": "unassessed",
+      "source_chunk_ids": [
+        "CH-007"
+      ],
+      "evidence_refs": [],
+      "publication": {
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "note": "ID rezervat pentru reconciliere; nu reprezinta o afirmatie validata."
+    },
+    {
+      "id": "CL-008",
+      "statement": null,
+      "status": "requires_definition_and_evidence",
+      "risk": "unassessed",
+      "source_chunk_ids": [
+        "CH-008"
+      ],
+      "evidence_refs": [],
+      "publication": {
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "note": "ID rezervat pentru reconciliere; nu reprezinta o afirmatie validata."
+    },
+    {
+      "id": "CL-009",
+      "statement": null,
+      "status": "requires_definition_and_evidence",
+      "risk": "unassessed",
+      "source_chunk_ids": [
+        "CH-009"
+      ],
+      "evidence_refs": [],
+      "publication": {
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "note": "ID rezervat pentru reconciliere; nu reprezinta o afirmatie validata."
+    },
+    {
+      "id": "CL-010",
+      "statement": null,
+      "status": "requires_definition_and_evidence",
+      "risk": "unassessed",
+      "source_chunk_ids": [
+        "CH-010"
+      ],
+      "evidence_refs": [],
+      "publication": {
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "note": "ID rezervat pentru reconciliere; nu reprezinta o afirmatie validata."
+    },
     {
       "id": "CL-011",
       "statement": "FirmsFinder acopera peste un milion de firme active din Romania.",
@@ -32,6 +192,70 @@
         "approved_at": null
       },
       "notes": "Declaratia nu este verificata independent; nu o prezenta drept fapt confirmat."
+    },
+    {
+      "id": "CL-012",
+      "statement": null,
+      "status": "requires_definition_and_evidence",
+      "risk": "unassessed",
+      "source_chunk_ids": [
+        "CH-012"
+      ],
+      "evidence_refs": [],
+      "publication": {
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "note": "ID rezervat pentru reconciliere; nu reprezinta o afirmatie validata."
+    },
+    {
+      "id": "CL-013",
+      "statement": null,
+      "status": "requires_definition_and_evidence",
+      "risk": "unassessed",
+      "source_chunk_ids": [
+        "CH-013"
+      ],
+      "evidence_refs": [],
+      "publication": {
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "note": "ID rezervat pentru reconciliere; nu reprezinta o afirmatie validata."
+    },
+    {
+      "id": "CL-014",
+      "statement": null,
+      "status": "requires_definition_and_evidence",
+      "risk": "unassessed",
+      "source_chunk_ids": [
+        "CH-014"
+      ],
+      "evidence_refs": [],
+      "publication": {
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "note": "ID rezervat pentru reconciliere; nu reprezinta o afirmatie validata."
+    },
+    {
+      "id": "CL-015",
+      "statement": null,
+      "status": "requires_definition_and_evidence",
+      "risk": "unassessed",
+      "source_chunk_ids": [
+        "CH-015"
+      ],
+      "evidence_refs": [],
+      "publication": {
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "note": "ID rezervat pentru reconciliere; nu reprezinta o afirmatie validata."
     }
   ],
   "policy": {
@@ -40,7 +264,8 @@
     "unresolved_claim_references": "UNKNOWN_NOT_VERIFIED"
   },
   "audit_bis": {
-    "known_claims": 1,
-    "note": "CL-001..CL-015 sunt referite in alte registre, dar numai CL-011 este disponibil ca obiect claim in arhiva. Nu s-au inventat alte 14 declaratii."
+    "claim_ids_resolved": 15,
+    "defined_claims": 1,
+    "placeholders_unapproved": 14
   }
 }

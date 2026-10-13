@@ -11,7 +11,7 @@
   },
   "language": "ro-RO",
   "generated_at": null,
-  "status": "LOCAL_SEMANTIC_REVISION_NOT_DEPLOYED",
+  "status": "LOCAL_REFERENCES_REPAIRED_NOT_DEPLOYED",
   "entity_id_policy": {
     "format": "absolute_uri",
     "unique_per_entity": true,
@@ -47,7 +47,7 @@
       "name": "FirmsFinder",
       "description": "Website dedicat descoperirii firmelor si oportunitatilor economice.",
       "url": "https://firmsfinder.eu/",
-      "publisher_ref": "https://firmsfinder.eu/#organization",
+      "publisher_ref": "https://aiventure.ro/#organization",
       "language": "ro-RO",
       "status": "SELF_DECLARED",
       "evidence_refs": []
@@ -58,9 +58,10 @@
       "name": "FirmsFinder AI",
       "description": "Platforma de cautare si analiza a firmelor, orientata catre identificarea oportunitatilor economice.",
       "url": "https://firmsfinder.eu/",
-      "provider_ref": "https://firmsfinder.eu/#organization",
+      "provider_ref": "https://aiventure.ro/#organization",
       "status": "SELF_DECLARED",
-      "evidence_refs": []
+      "evidence_refs": [],
+      "brand_ref": "https://firmsfinder.eu/#brand"
     },
     {
       "id": "https://firmsfinder.eu/#free-data",
@@ -68,7 +69,7 @@
       "name": "FREE DATA",
       "description": "Acces gratuit la date oficiale publice despre firme, in limitele surselor si functionalitatilor disponibile.",
       "url": "https://firmsfinder.eu/cauta/",
-      "provider_ref": "https://firmsfinder.eu/#organization",
+      "provider_ref": "https://aiventure.ro/#organization",
       "pricing_model": "FREE",
       "price_eur": 0,
       "availability_status": "REQUIRES_VERIFICATION",
@@ -80,7 +81,7 @@
       "name": "GEO Diagnostic",
       "description": "Diagnostic initial pentru evaluarea pregatirii unei pagini web pentru descoperirea si utilizarea de catre sisteme AI.",
       "url": "https://firmsfinder.eu/geo/",
-      "provider_ref": "https://firmsfinder.eu/#organization",
+      "provider_ref": "https://aiventure.ro/#organization",
       "pricing_model": "FREE_PROPOSED",
       "price_eur": 0,
       "availability_status": "NOT_IMPLEMENTED",
@@ -92,7 +93,7 @@
       "name": "GEO File Generator",
       "description": "Generarea unui set de 21 de artefacte JSON GEO si a unei arhive ZIP pentru un URL analizat.",
       "url": "https://firmsfinder.eu/geo/",
-      "provider_ref": "https://firmsfinder.eu/#organization",
+      "provider_ref": "https://aiventure.ro/#organization",
       "pricing_model": "ONE_TIME_PROPOSED",
       "price_eur": 49,
       "availability_status": "MVP_NOT_DEPLOYED",
@@ -104,7 +105,7 @@
       "name": "GEO Weekly Monitor",
       "description": "Monitorizare periodica GEO, rapoarte comparative si planuri de remediere.",
       "url": "https://firmsfinder.eu/geo/",
-      "provider_ref": "https://firmsfinder.eu/#organization",
+      "provider_ref": "https://aiventure.ro/#organization",
       "pricing_model": "SUBSCRIPTION_PROPOSED",
       "price_eur": 29,
       "billing_period": "P1M",
@@ -117,7 +118,7 @@
       "name": "AEO Diagnostic",
       "description": "Evaluare initiala a structurii continutului pentru raspunsuri directe si sisteme de cautare.",
       "url": "https://firmsfinder.eu/aeo/",
-      "provider_ref": "https://firmsfinder.eu/#organization",
+      "provider_ref": "https://aiventure.ro/#organization",
       "pricing_model": "FREE_PROPOSED",
       "availability_status": "REQUIRES_VERIFICATION",
       "evidence_refs": []
@@ -128,7 +129,7 @@
       "name": "AIO Diagnostic",
       "description": "Evaluare initiala a semnalelor tehnice si semantice pentru utilizarea continutului de catre sisteme AI.",
       "url": "https://firmsfinder.eu/aio/",
-      "provider_ref": "https://firmsfinder.eu/#organization",
+      "provider_ref": "https://aiventure.ro/#organization",
       "pricing_model": "FREE_PROPOSED",
       "availability_status": "REQUIRES_VERIFICATION",
       "evidence_refs": []
@@ -234,5 +235,43 @@
     "url_reachability": "NOT_TESTED",
     "semantic_review": "REQUIRED"
   },
-  "version": "2.0-audit-bis"
+  "version": "2.1",
+  "audit_v21": {
+    "repaired_refs": 8,
+    "repaired_fields": [
+      [
+        "https://firmsfinder.eu/#website",
+        "publisher_ref"
+      ],
+      [
+        "https://firmsfinder.eu/#software",
+        "provider_ref"
+      ],
+      [
+        "https://firmsfinder.eu/#free-data",
+        "provider_ref"
+      ],
+      [
+        "https://firmsfinder.eu/#geo-diagnostic",
+        "provider_ref"
+      ],
+      [
+        "https://firmsfinder.eu/#geo-generator",
+        "provider_ref"
+      ],
+      [
+        "https://firmsfinder.eu/#geo-monitor",
+        "provider_ref"
+      ],
+      [
+        "https://firmsfinder.eu/#aeo-diagnostic",
+        "provider_ref"
+      ],
+      [
+        "https://firmsfinder.eu/#aio-diagnostic",
+        "provider_ref"
+      ]
+    ],
+    "runtime": "UNKNOWN"
+  }
 }
