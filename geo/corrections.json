@@ -1,0 +1,422 @@
+{
+  "schema": "FIRMSFINDER_GEO_CORRECTIONS",
+  "version": "1.0.0",
+  "generated_at": "2026-10-13",
+  "website": "https://firmsfinder.eu",
+  "publisher": "AiVenture S.R.L.",
+  "language": "ro-RO",
+  "status": "draft_registry_no_confirmed_issues",
+  "geo_signals": [
+    "GEO58"
+  ],
+  "purpose": "Registru auditabil pentru identificarea, remedierea si reverificarea problemelor GEO: BEFORE -> FIX -> VERIFY. Separă ipotezele, defectele observate si rezolvarea verificată.",
+  "scope": {
+    "site": "firmsfinder.eu",
+    "paths": [
+      "/geo/",
+      "/",
+      "/faq/"
+    ],
+    "local_files_inspected": [
+      "13",
+      "14",
+      "15",
+      "16",
+      "17",
+      "18"
+    ],
+    "live_site_checked": false,
+    "github_repo_checked": false,
+    "cloudflare_deployment_checked": false,
+    "external_claims_verified": false
+  },
+  "source_registry": {
+    "local_snapshot": {
+      "13": {
+        "file": "FirmsFinder_GEO_13_consistency-manifest.json",
+        "sha256_local": "7d7923b714c6b06786967f187c2675b133302cf9e6afdabf211bde00136e93ec",
+        "status": "local_partial_audit",
+        "checked_locally": true,
+        "public_deployment": "not_checked"
+      },
+      "14": {
+        "file": "FirmsFinder_GEO_14_external-corroboration.json",
+        "sha256_local": "d81a529603ab26014541da8612c777372a65c837db0833e6fb4470c871ff22d4",
+        "status": "draft_sources_not_collected",
+        "checked_locally": true,
+        "public_deployment": "not_checked"
+      },
+      "15": {
+        "file": "FirmsFinder_GEO_15_reference-set.json",
+        "sha256_local": "098080634dfe86eb6b176bdc3c5d9b7e3d5270250bf17487884ebc009ac7e408",
+        "status": "draft_not_executed",
+        "checked_locally": true,
+        "public_deployment": "not_checked"
+      },
+      "16": {
+        "file": "FirmsFinder_GEO_16_observations.json",
+        "sha256_local": "27cb220d1c6c51a4f9615b9ed5628c91920ef808f90292234623e170d8015a0e",
+        "status": "draft_not_executed",
+        "checked_locally": true,
+        "public_deployment": "not_checked"
+      },
+      "17": {
+        "file": "FirmsFinder_GEO_17_experiments.json",
+        "sha256_local": "286016b94e27ce439d9dbab0b3ffc1ea406368ecbf046e59e5b7d7d3a1f69ff4",
+        "status": "draft_no_experiments_executed",
+        "checked_locally": true,
+        "public_deployment": "not_checked"
+      },
+      "18": {
+        "file": "FirmsFinder_GEO_18_scorecard.json",
+        "sha256_local": "b232905f94c088e817c594ddf4ffa70e0d2d59ecca3f91573c29d8897ff86471",
+        "status": "draft_no_observations",
+        "checked_locally": true,
+        "public_deployment": "not_checked"
+      }
+    },
+    "related_public_paths": [
+      "/geo/claims.json",
+      "/geo/evidence.json",
+      "/geo/knowledge-graph.json",
+      "/geo/consistency-manifest.json",
+      "/geo/external-corroboration.json",
+      "/geo/reference-set.json",
+      "/geo/observations.json",
+      "/geo/experiments.json",
+      "/geo/scorecard.json"
+    ]
+  },
+  "issue_identity": {
+    "id_pattern": "GEO58-YYYYMMDD-NNN",
+    "uniqueness_scope": "site_and_issue_id",
+    "deduplication_key": [
+      "affected_url",
+      "issue_type",
+      "first_observed_artifact_sha256"
+    ],
+    "repeat_occurrence_policy": "reopen_or_link_existing_issue; do_not_duplicate_unnecessarily"
+  },
+  "severity_levels": {
+    "critical": "Date sensibile expuse, metrici fabricate, conținut public înșelător sau blocaj major",
+    "high": "Referințe invalide, dovezi lipsă pentru afirmații importante, interpretare CAEN greșită",
+    "medium": "Inconsistențe de metadate, hash-uri vechi, coroborare incompletă",
+    "low": "Problemă editorială cu impact redus și fără risc de inducere în eroare"
+  },
+  "lifecycle": {
+    "states": [
+      "suspected",
+      "confirmed",
+      "triaged",
+      "fix_proposed",
+      "approved",
+      "fix_committed",
+      "deployed",
+      "verification_in_progress",
+      "verified_fixed",
+      "reopened",
+      "wont_fix_with_rationale"
+    ],
+    "allowed_transitions": {
+      "suspected": [
+        "confirmed",
+        "wont_fix_with_rationale"
+      ],
+      "confirmed": [
+        "triaged"
+      ],
+      "triaged": [
+        "fix_proposed",
+        "wont_fix_with_rationale"
+      ],
+      "fix_proposed": [
+        "approved",
+        "triaged"
+      ],
+      "approved": [
+        "fix_committed"
+      ],
+      "fix_committed": [
+        "deployed",
+        "reopened"
+      ],
+      "deployed": [
+        "verification_in_progress",
+        "reopened"
+      ],
+      "verification_in_progress": [
+        "verified_fixed",
+        "reopened"
+      ],
+      "verified_fixed": [
+        "reopened"
+      ],
+      "reopened": [
+        "triaged",
+        "fix_proposed"
+      ]
+    },
+    "closed_only_if": "state=verified_fixed AND after.status=pass AND evidence of production check present",
+    "no_automatic_pass_from_commit_or_deploy": true
+  },
+  "record_schema": {
+    "issue_id": "Unic, de ex. GEO58-20261013-001; se atribuie numai unei probleme observate",
+    "title": "Descriere scurtă, verificabilă",
+    "issue_type": "Categorie din issue_templates",
+    "severity": "critical|high|medium|low",
+    "state": "Valoare din lifecycle.states",
+    "created_at": "Timestamp ISO 8601 al deschiderii",
+    "owner": "Responsabil de corecție; null până la desemnare",
+    "detected_by": "Persoană, audit sau script care a detectat problema",
+    "affected_urls": "URL-uri afectate, exacte",
+    "related_files": "Fișiere GEO implicate",
+    "related_ids": "CL, EV, REF, OBS, EXP etc. afectate",
+    "impact": "Ce poate fi interpretat greșit și de cine",
+    "before": "Dovada situației inițiale și pașii de reproducere",
+    "fix": "Modificarea propusă și cea aplicată",
+    "verify": "Teste independente după deployment",
+    "decision": "Verdictul, aprobarea și justificarea",
+    "history": "Evenimente append-only cu dată, actor și dovezi",
+    "privacy": "Reguli de redactare și acces la artefacte"
+  },
+  "record_template": {
+    "issue_id": null,
+    "title": null,
+    "issue_type": null,
+    "severity": null,
+    "state": "suspected",
+    "created_at": null,
+    "owner": null,
+    "detected_by": null,
+    "affected_urls": [],
+    "related_files": [],
+    "related_ids": [],
+    "impact": {
+      "audience": [],
+      "risk_statement": null,
+      "business_effect": "not_measured",
+      "claim_affected": null
+    },
+    "before": {
+      "observed_at": null,
+      "environment": null,
+      "url": null,
+      "http_status": null,
+      "content_type": null,
+      "expected_behavior": null,
+      "actual_behavior": null,
+      "reproduction_steps": [],
+      "evidence_urls": [],
+      "evidence_sha256": [],
+      "source_commit_sha": null,
+      "observation_ids": [],
+      "status": "not_observed"
+    },
+    "fix": {
+      "proposal": null,
+      "root_cause": null,
+      "scope_of_change": [],
+      "approved_by": null,
+      "approved_at": null,
+      "commit_sha": null,
+      "pull_request_url": null,
+      "deployment_url": null,
+      "deployed_at": null,
+      "rollback_plan": null,
+      "status": "not_applied"
+    },
+    "verify": {
+      "checked_at": null,
+      "checked_by": null,
+      "environment": "production",
+      "url": null,
+      "test_steps": [],
+      "expected_result": null,
+      "actual_result": null,
+      "http_status": null,
+      "content_type": null,
+      "evidence_urls": [],
+      "evidence_sha256": [],
+      "rechecked_references": [],
+      "regression_tests": [],
+      "independent_reviewer": null,
+      "status": "not_run"
+    },
+    "decision": {
+      "verdict": "open_unverified",
+      "closed_at": null,
+      "closure_approved_by": null,
+      "rationale": null,
+      "limitations": []
+    },
+    "history": [],
+    "privacy": {
+      "public_safe": null,
+      "personal_data_included": null,
+      "redaction_required": null,
+      "private_evidence_location": null
+    }
+  },
+  "issue_templates": [
+    {
+      "template_id": "ISSUE-TEMPLATE-001",
+      "issue_type": "missing_public_json",
+      "title": "Fișier GEO absent sau URL întoarce HTML",
+      "severity_suggested": "critical",
+      "affected_path_example": "geo/*.json",
+      "acceptance_criterion": "HTTP 200, Content-Type JSON, conținut parsabil, fără fallback homepage",
+      "instantiate_only_after_observation": true
+    },
+    {
+      "template_id": "ISSUE-TEMPLATE-002",
+      "issue_type": "broken_cross_file_reference",
+      "title": "Referință CL/CH/EV/REF invalidă",
+      "severity_suggested": "high",
+      "affected_path_example": "geo/consistency-manifest.json",
+      "acceptance_criterion": "Toate cheile externe se rezolvă în fișierele corespunzătoare",
+      "instantiate_only_after_observation": true
+    },
+    {
+      "template_id": "ISSUE-TEMPLATE-003",
+      "issue_type": "unsupported_business_claim",
+      "title": "Afirmație despre capabilitate sau acoperire fără dovadă",
+      "severity_suggested": "high",
+      "affected_path_example": "geo/claims.json",
+      "acceptance_criterion": "Afirmația are sursă și dovadă verificabilă ori este marcată explicit neverificată",
+      "instantiate_only_after_observation": true
+    },
+    {
+      "template_id": "ISSUE-TEMPLATE-004",
+      "issue_type": "caen_overinference",
+      "title": "Cod CAEN tratat ca dovadă de produs, client sau contract",
+      "severity_suggested": "high",
+      "affected_path_example": "geo/knowledge-graph.json",
+      "acceptance_criterion": "Separare activitate declarată / ofertă observată / relație contractuală verificată",
+      "instantiate_only_after_observation": true
+    },
+    {
+      "template_id": "ISSUE-TEMPLATE-005",
+      "issue_type": "citation_misclassification",
+      "title": "Mențiune de brand confundată cu citare verificată",
+      "severity_suggested": "high",
+      "affected_path_example": "geo/observations.json",
+      "acceptance_criterion": "Citația are URL observat, captură și verificare; mențiunea se măsoară separat",
+      "instantiate_only_after_observation": true
+    },
+    {
+      "template_id": "ISSUE-TEMPLATE-006",
+      "issue_type": "fabricated_metric",
+      "title": "Scor GEO afișat fără observații reale",
+      "severity_suggested": "critical",
+      "affected_path_example": "geo/scorecard.json",
+      "acceptance_criterion": "Metricile rămân null până la eșantion și dovezi suficiente",
+      "instantiate_only_after_observation": true
+    },
+    {
+      "template_id": "ISSUE-TEMPLATE-007",
+      "issue_type": "experimental_contamination",
+      "title": "Grupul control a fost modificat sau condițiile s-au schimbat",
+      "severity_suggested": "high",
+      "affected_path_example": "geo/experiments.json",
+      "acceptance_criterion": "Contaminarea evaluată; efectul nu este atribuit fără control metodologic",
+      "instantiate_only_after_observation": true
+    },
+    {
+      "template_id": "ISSUE-TEMPLATE-008",
+      "issue_type": "independence_conflict",
+      "title": "Sursă proprie declarată independentă",
+      "severity_suggested": "medium",
+      "affected_path_example": "geo/external-corroboration.json",
+      "acceptance_criterion": "Independența verificată și sursele proprii excluse din numărătoarea independentă",
+      "instantiate_only_after_observation": true
+    },
+    {
+      "template_id": "ISSUE-TEMPLATE-009",
+      "issue_type": "sensitive_information_exposure",
+      "title": "Observație publicată cu date personale ori informații confidențiale",
+      "severity_suggested": "critical",
+      "affected_path_example": "geo/observations.json",
+      "acceptance_criterion": "Artefactele sensibile rămân private; registrul public conține numai metadate permise",
+      "instantiate_only_after_observation": true
+    },
+    {
+      "template_id": "ISSUE-TEMPLATE-010",
+      "issue_type": "stale_manifest_hash",
+      "title": "Hash din manifest nu corespunde versiunii fișierului",
+      "severity_suggested": "medium",
+      "affected_path_example": "geo/consistency-manifest.json",
+      "acceptance_criterion": "SHA-256 recalculat după fix și verificat față de bytes publicați",
+      "instantiate_only_after_observation": true
+    }
+  ],
+  "issues": [],
+  "triage_rules": [
+    "O suspiciune nu este defect confirmat până la reproducere sau probă verificabilă.",
+    "Nu atribui severitate finală fără evaluarea impactului.",
+    "Nu transforma lipsa unei dovezi într-o afirmație falsă despre sistem.",
+    "Nu confunda generarea fișierului cu publicarea lui.",
+    "Nu confunda publicarea cu verificarea funcțională.",
+    "Nu închide o problemă doar pe baza unui commit, PR sau deployment.",
+    "Nu deduce produse, furnizări sau contracte reale doar din codul CAEN.",
+    "Nu inventa URL-uri, rezultate de teste, hash-uri sau aprobări."
+  ],
+  "verification_protocol": {
+    "before": [
+      "Reproduce problema pe URL exact; înregistrează data, mediul și pașii.",
+      "Salvează dovada și calculează hash SHA-256 pe octeții ei.",
+      "Identifică versiunea de cod/deployment și impactul."
+    ],
+    "fix": [
+      "Descrie cauza rădăcină și schimbarea minimă.",
+      "Obține aprobarea necesară.",
+      "Leagă commitul, PR-ul și deployment-ul efectiv."
+    ],
+    "verify": [
+      "Testează URL-ul public după deployment, nu doar preview-ul local.",
+      "Compară rezultatul cu criteriul de acceptare.",
+      "Reexecută controalele de regresie și referințele între fișiere.",
+      "Arhivează rezultatele, datele, hash-urile și evaluatorul.",
+      "Marchează verified_fixed doar dacă toate condițiile sunt îndeplinite."
+    ]
+  },
+  "privacy_and_publication": {
+    "public_registry": "Publică doar informații fără date personale/confidențiale și dovezi cu permisiune de redistribuire.",
+    "private_evidence": "Păstrează capturile brute și informațiile sensibile în spațiu cu acces controlat.",
+    "redaction": "Elimină date personale, tokenuri, identificatori de sesiune și secrete înainte de publicare."
+  },
+  "acceptance_rules": {
+    "json_parses": true,
+    "all_issue_ids_unique": true,
+    "verified_fixed_requires_production_evidence": true,
+    "all_hashes_must_be_computed_from_actual_bytes": true,
+    "missing_evidence_is_not_pass": true,
+    "issues_array_empty_until_real_detection": true,
+    "issue_templates_are_not_observed_issues": true
+  },
+  "verification": {
+    "json_syntax": "PASS",
+    "local_source_files_inspected": [
+      "13",
+      "14",
+      "15",
+      "16",
+      "17",
+      "18"
+    ],
+    "actual_defects_detected_during_this_task": 0,
+    "live_website_audit": "not_performed",
+    "github_commit": "not_checked",
+    "cloudflare_deployment": "not_checked",
+    "external_audit": "not_performed",
+    "note": "Zero probleme consemnate nu inseamna site fara defecte. Maparea intent_id pentru fisierele 15-16 este PENDING, nu PASS; necesita triere si verificare separata."
+  },
+  "summary": {
+    "issue_templates": 10,
+    "confirmed_issues": 0,
+    "suspected_issues": 0,
+    "open_issues": 0,
+    "verified_fixed_issues": 0,
+    "public_checks_executed": 0,
+    "overall_verdict": "REGISTER_READY_NO_LIVE_AUDIT_INTENT_MAPPING_PENDING"
+  }
+}
