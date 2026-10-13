@@ -2,7 +2,7 @@
   "schema": "FIRMSFINDER_GEO_RAG_METADATA",
   "version": "1.0.0",
   "generated_at": "2026-10-13",
-  "status": "draft_unverified",
+  "status": "LOCAL_CROSS_REFERENCES_REVISED_NOT_INDEXED",
   "website": "https://firmsfinder.eu/",
   "language": "ro-RO",
   "geo_signals": [
@@ -86,7 +86,7 @@
     {
       "chunk_id": "CH-002",
       "question": "Ce înseamnă căutarea firmelor în limbaj natural?",
-      "topic_cluster_id": "TC-010",
+      "topic_cluster_id": "TC-001",
       "claim_ids": [
         "CL-002"
       ],
@@ -115,7 +115,7 @@
     {
       "chunk_id": "CH-003",
       "question": "Cum identific potențiali clienți B2B?",
-      "topic_cluster_id": "TC-005",
+      "topic_cluster_id": "TC-002",
       "claim_ids": [
         "CL-003"
       ],
@@ -144,7 +144,7 @@
     {
       "chunk_id": "CH-004",
       "question": "Cum identific potențiali furnizori?",
-      "topic_cluster_id": "TC-006",
+      "topic_cluster_id": "TC-003",
       "claim_ids": [
         "CL-004"
       ],
@@ -173,7 +173,7 @@
     {
       "chunk_id": "CH-005",
       "question": "Cum identific potențiali parteneri?",
-      "topic_cluster_id": "TC-007",
+      "topic_cluster_id": "TC-003",
       "claim_ids": [
         "CL-005"
       ],
@@ -202,7 +202,7 @@
     {
       "chunk_id": "CH-006",
       "question": "Ce rol are CAEN Rev.3?",
-      "topic_cluster_id": "TC-002",
+      "topic_cluster_id": "TC-004",
       "claim_ids": [
         "CL-006"
       ],
@@ -231,7 +231,7 @@
     {
       "chunk_id": "CH-007",
       "question": "Un cod CAEN dovedește că firma fabrică un produs?",
-      "topic_cluster_id": "TC-002",
+      "topic_cluster_id": "TC-004",
       "claim_ids": [
         "CL-007"
       ],
@@ -260,7 +260,7 @@
     {
       "chunk_id": "CH-008",
       "question": "O firmă recomandată este client confirmat?",
-      "topic_cluster_id": "TC-005",
+      "topic_cluster_id": "TC-002",
       "claim_ids": [
         "CL-008"
       ],
@@ -289,7 +289,7 @@
     {
       "chunk_id": "CH-009",
       "question": "Ce înseamnă acces gratuit la date oficiale?",
-      "topic_cluster_id": "TC-001",
+      "topic_cluster_id": "TC-008",
       "claim_ids": [
         "CL-009"
       ],
@@ -318,7 +318,7 @@
     {
       "chunk_id": "CH-010",
       "question": "Este gratuită căutarea în FirmsFinder?",
-      "topic_cluster_id": "TC-010",
+      "topic_cluster_id": "TC-008",
       "claim_ids": [
         "CL-010"
       ],
@@ -376,7 +376,7 @@
     {
       "chunk_id": "CH-012",
       "question": "Cum verific o recomandare de firmă?",
-      "topic_cluster_id": "TC-009",
+      "topic_cluster_id": "TC-005",
       "claim_ids": [
         "CL-012"
       ],
@@ -405,7 +405,7 @@
     {
       "chunk_id": "CH-013",
       "question": "Poate un agent AI să facă cercetarea în locul meu?",
-      "topic_cluster_id": "TC-010",
+      "topic_cluster_id": "TC-002",
       "claim_ids": [
         "CL-013"
       ],
@@ -463,7 +463,7 @@
     {
       "chunk_id": "CH-015",
       "question": "Este FirmsFinder certificat EU AI Act Ready?",
-      "topic_cluster_id": "TC-010",
+      "topic_cluster_id": "TC-007",
       "claim_ids": [
         "CL-015"
       ],
@@ -505,5 +505,83 @@
     "records_embedded": 0,
     "records_indexed": 0,
     "live_url_verified": false
+  },
+  "audit_bis": {
+    "reconciled_against": "geo/citable-chunks.json",
+    "changes": [
+      {
+        "chunk_id": "CH-002",
+        "field": "topic_cluster_id",
+        "before": "TC-010",
+        "after": "TC-001"
+      },
+      {
+        "chunk_id": "CH-003",
+        "field": "topic_cluster_id",
+        "before": "TC-005",
+        "after": "TC-002"
+      },
+      {
+        "chunk_id": "CH-004",
+        "field": "topic_cluster_id",
+        "before": "TC-006",
+        "after": "TC-003"
+      },
+      {
+        "chunk_id": "CH-005",
+        "field": "topic_cluster_id",
+        "before": "TC-007",
+        "after": "TC-003"
+      },
+      {
+        "chunk_id": "CH-006",
+        "field": "topic_cluster_id",
+        "before": "TC-002",
+        "after": "TC-004"
+      },
+      {
+        "chunk_id": "CH-007",
+        "field": "topic_cluster_id",
+        "before": "TC-002",
+        "after": "TC-004"
+      },
+      {
+        "chunk_id": "CH-008",
+        "field": "topic_cluster_id",
+        "before": "TC-005",
+        "after": "TC-002"
+      },
+      {
+        "chunk_id": "CH-009",
+        "field": "topic_cluster_id",
+        "before": "TC-001",
+        "after": "TC-008"
+      },
+      {
+        "chunk_id": "CH-010",
+        "field": "topic_cluster_id",
+        "before": "TC-010",
+        "after": "TC-008"
+      },
+      {
+        "chunk_id": "CH-012",
+        "field": "topic_cluster_id",
+        "before": "TC-009",
+        "after": "TC-005"
+      },
+      {
+        "chunk_id": "CH-013",
+        "field": "topic_cluster_id",
+        "before": "TC-010",
+        "after": "TC-002"
+      },
+      {
+        "chunk_id": "CH-015",
+        "field": "topic_cluster_id",
+        "before": "TC-010",
+        "after": "TC-007"
+      }
+    ],
+    "runtime_verified": false
   }
 }

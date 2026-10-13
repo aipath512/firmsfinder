@@ -6,7 +6,7 @@
   "publisher": "AiVenture S.R.L.",
   "language": "ro-RO",
   "generated_at": null,
-  "status": "DRAFT_REQUIRES_VERIFICATION",
+  "status": "LOCAL_REFERENCES_REVISED_LIVE_NOT_TESTED",
   "intent_model": {
     "formula": "ACTION + TARGET",
     "funnel_stages": [
@@ -36,7 +36,7 @@
         "https://firmsfinder.eu/#software"
       ],
       "target_pages": [
-        "https://firmsfinder.eu/cauta/"
+        "https://firmsfinder.eu/cautare/"
       ],
       "query_language": "ro-RO",
       "semantic_status": "PROPOSED",
@@ -53,7 +53,7 @@
         "https://firmsfinder.eu/#software"
       ],
       "target_pages": [
-        "https://firmsfinder.eu/cauta/"
+        "https://firmsfinder.eu/cautare/"
       ],
       "query_language": "ro-RO",
       "semantic_status": "PROPOSED",
@@ -70,7 +70,7 @@
         "https://firmsfinder.eu/#software"
       ],
       "target_pages": [
-        "https://firmsfinder.eu/cauta/"
+        "https://firmsfinder.eu/cautare/"
       ],
       "query_language": "ro-RO",
       "semantic_status": "PROPOSED",
@@ -87,7 +87,7 @@
         "https://firmsfinder.eu/#software"
       ],
       "target_pages": [
-        "https://firmsfinder.eu/cauta/"
+        "https://firmsfinder.eu/cautare/"
       ],
       "query_language": "ro-RO",
       "semantic_status": "PROPOSED",
@@ -104,7 +104,7 @@
         "https://firmsfinder.eu/#software"
       ],
       "target_pages": [
-        "https://firmsfinder.eu/cauta/"
+        "https://firmsfinder.eu/cautare/"
       ],
       "query_language": "ro-RO",
       "semantic_status": "PROPOSED",
@@ -121,7 +121,7 @@
         "https://firmsfinder.eu/#software"
       ],
       "target_pages": [
-        "https://firmsfinder.eu/cauta/"
+        "https://firmsfinder.eu/cautare/"
       ],
       "query_language": "ro-RO",
       "semantic_status": "PROPOSED",
@@ -138,7 +138,7 @@
         "https://firmsfinder.eu/#software"
       ],
       "target_pages": [
-        "https://firmsfinder.eu/cauta/"
+        "https://firmsfinder.eu/cautare/"
       ],
       "query_language": "ro-RO",
       "semantic_status": "PROPOSED",
@@ -579,12 +579,13 @@
       "entity_refs": [
         "https://firmsfinder.eu/#geo-diagnostic"
       ],
-      "target_pages": [
-        "https://firmsfinder.eu/geo/"
-      ],
+      "target_pages": [],
       "query_language": "ro-RO",
       "semantic_status": "PROPOSED",
-      "evidence_refs": []
+      "evidence_refs": [],
+      "audit_bis": {
+        "unresolved_original_target": "https://firmsfinder.eu/geo/"
+      }
     },
     {
       "id": "FF-GEO-TOF-034",
@@ -596,12 +597,13 @@
       "entity_refs": [
         "https://firmsfinder.eu/#geo-diagnostic"
       ],
-      "target_pages": [
-        "https://firmsfinder.eu/geo/"
-      ],
+      "target_pages": [],
       "query_language": "ro-RO",
       "semantic_status": "PROPOSED",
-      "evidence_refs": []
+      "evidence_refs": [],
+      "audit_bis": {
+        "unresolved_original_target": "https://firmsfinder.eu/geo/"
+      }
     },
     {
       "id": "FF-GEO-TOF-035",
@@ -613,12 +615,13 @@
       "entity_refs": [
         "https://firmsfinder.eu/#geo-diagnostic"
       ],
-      "target_pages": [
-        "https://firmsfinder.eu/geo/"
-      ],
+      "target_pages": [],
       "query_language": "ro-RO",
       "semantic_status": "PROPOSED",
-      "evidence_refs": []
+      "evidence_refs": [],
+      "audit_bis": {
+        "unresolved_original_target": "https://firmsfinder.eu/geo/"
+      }
     },
     {
       "id": "FF-GEO-TOF-036",
@@ -630,12 +633,13 @@
       "entity_refs": [
         "https://firmsfinder.eu/#geo-diagnostic"
       ],
-      "target_pages": [
-        "https://firmsfinder.eu/geo/"
-      ],
+      "target_pages": [],
       "query_language": "ro-RO",
       "semantic_status": "PROPOSED",
-      "evidence_refs": []
+      "evidence_refs": [],
+      "audit_bis": {
+        "unresolved_original_target": "https://firmsfinder.eu/geo/"
+      }
     },
     {
       "id": "FF-GEO-TOF-037",
@@ -647,12 +651,13 @@
       "entity_refs": [
         "https://firmsfinder.eu/#geo-diagnostic"
       ],
-      "target_pages": [
-        "https://firmsfinder.eu/geo/"
-      ],
+      "target_pages": [],
       "query_language": "ro-RO",
       "semantic_status": "PROPOSED",
-      "evidence_refs": []
+      "evidence_refs": [],
+      "audit_bis": {
+        "unresolved_original_target": "https://firmsfinder.eu/geo/"
+      }
     },
     {
       "id": "FF-GEO-TOF-038",
@@ -664,12 +669,13 @@
       "entity_refs": [
         "https://firmsfinder.eu/#geo-diagnostic"
       ],
-      "target_pages": [
-        "https://firmsfinder.eu/geo/"
-      ],
+      "target_pages": [],
       "query_language": "ro-RO",
       "semantic_status": "PROPOSED",
-      "evidence_refs": []
+      "evidence_refs": [],
+      "audit_bis": {
+        "unresolved_original_target": "https://firmsfinder.eu/geo/"
+      }
     },
     {
       "id": "FF-GEO-TOF-039",
@@ -681,12 +687,13 @@
       "entity_refs": [
         "https://firmsfinder.eu/#aeo-diagnostic"
       ],
-      "target_pages": [
-        "https://firmsfinder.eu/aeo/"
-      ],
+      "target_pages": [],
       "query_language": "ro-RO",
       "semantic_status": "PROPOSED",
-      "evidence_refs": []
+      "evidence_refs": [],
+      "audit_bis": {
+        "unresolved_original_target": "https://firmsfinder.eu/aeo/"
+      }
     },
     {
       "id": "FF-GEO-TOF-040",
@@ -698,12 +705,13 @@
       "entity_refs": [
         "https://firmsfinder.eu/#aeo-diagnostic"
       ],
-      "target_pages": [
-        "https://firmsfinder.eu/aeo/"
-      ],
+      "target_pages": [],
       "query_language": "ro-RO",
       "semantic_status": "PROPOSED",
-      "evidence_refs": []
+      "evidence_refs": [],
+      "audit_bis": {
+        "unresolved_original_target": "https://firmsfinder.eu/aeo/"
+      }
     },
     {
       "id": "FF-GEO-TOF-041",
@@ -715,12 +723,13 @@
       "entity_refs": [
         "https://firmsfinder.eu/#aeo-diagnostic"
       ],
-      "target_pages": [
-        "https://firmsfinder.eu/aeo/"
-      ],
+      "target_pages": [],
       "query_language": "ro-RO",
       "semantic_status": "PROPOSED",
-      "evidence_refs": []
+      "evidence_refs": [],
+      "audit_bis": {
+        "unresolved_original_target": "https://firmsfinder.eu/aeo/"
+      }
     },
     {
       "id": "FF-GEO-TOF-042",
@@ -732,12 +741,13 @@
       "entity_refs": [
         "https://firmsfinder.eu/#aeo-diagnostic"
       ],
-      "target_pages": [
-        "https://firmsfinder.eu/aeo/"
-      ],
+      "target_pages": [],
       "query_language": "ro-RO",
       "semantic_status": "PROPOSED",
-      "evidence_refs": []
+      "evidence_refs": [],
+      "audit_bis": {
+        "unresolved_original_target": "https://firmsfinder.eu/aeo/"
+      }
     },
     {
       "id": "FF-GEO-TOF-043",
@@ -749,12 +759,13 @@
       "entity_refs": [
         "https://firmsfinder.eu/#aeo-diagnostic"
       ],
-      "target_pages": [
-        "https://firmsfinder.eu/aeo/"
-      ],
+      "target_pages": [],
       "query_language": "ro-RO",
       "semantic_status": "PROPOSED",
-      "evidence_refs": []
+      "evidence_refs": [],
+      "audit_bis": {
+        "unresolved_original_target": "https://firmsfinder.eu/aeo/"
+      }
     },
     {
       "id": "FF-GEO-TOF-044",
@@ -766,12 +777,13 @@
       "entity_refs": [
         "https://firmsfinder.eu/#aeo-diagnostic"
       ],
-      "target_pages": [
-        "https://firmsfinder.eu/aeo/"
-      ],
+      "target_pages": [],
       "query_language": "ro-RO",
       "semantic_status": "PROPOSED",
-      "evidence_refs": []
+      "evidence_refs": [],
+      "audit_bis": {
+        "unresolved_original_target": "https://firmsfinder.eu/aeo/"
+      }
     },
     {
       "id": "FF-GEO-TOF-045",
@@ -886,7 +898,7 @@
         "https://firmsfinder.eu/#software"
       ],
       "target_pages": [
-        "https://firmsfinder.eu/cauta/"
+        "https://firmsfinder.eu/cautare/"
       ],
       "query_language": "ro-RO",
       "semantic_status": "PROPOSED",
@@ -903,7 +915,7 @@
         "https://firmsfinder.eu/#software"
       ],
       "target_pages": [
-        "https://firmsfinder.eu/cauta/"
+        "https://firmsfinder.eu/cautare/"
       ],
       "query_language": "ro-RO",
       "semantic_status": "PROPOSED",
@@ -920,7 +932,7 @@
         "https://firmsfinder.eu/#software"
       ],
       "target_pages": [
-        "https://firmsfinder.eu/cauta/"
+        "https://firmsfinder.eu/cautare/"
       ],
       "query_language": "ro-RO",
       "semantic_status": "PROPOSED",
@@ -937,7 +949,7 @@
         "https://firmsfinder.eu/#software"
       ],
       "target_pages": [
-        "https://firmsfinder.eu/cauta/"
+        "https://firmsfinder.eu/cautare/"
       ],
       "query_language": "ro-RO",
       "semantic_status": "PROPOSED",
@@ -954,7 +966,7 @@
         "https://firmsfinder.eu/#software"
       ],
       "target_pages": [
-        "https://firmsfinder.eu/cauta/"
+        "https://firmsfinder.eu/cautare/"
       ],
       "query_language": "ro-RO",
       "semantic_status": "PROPOSED",
@@ -971,7 +983,7 @@
         "https://firmsfinder.eu/#software"
       ],
       "target_pages": [
-        "https://firmsfinder.eu/cauta/"
+        "https://firmsfinder.eu/cautare/"
       ],
       "query_language": "ro-RO",
       "semantic_status": "PROPOSED",
@@ -988,7 +1000,7 @@
         "https://firmsfinder.eu/#software"
       ],
       "target_pages": [
-        "https://firmsfinder.eu/cauta/"
+        "https://firmsfinder.eu/cautare/"
       ],
       "query_language": "ro-RO",
       "semantic_status": "PROPOSED",
@@ -1429,12 +1441,13 @@
       "entity_refs": [
         "https://firmsfinder.eu/#geo-diagnostic"
       ],
-      "target_pages": [
-        "https://firmsfinder.eu/geo/"
-      ],
+      "target_pages": [],
       "query_language": "ro-RO",
       "semantic_status": "PROPOSED",
-      "evidence_refs": []
+      "evidence_refs": [],
+      "audit_bis": {
+        "unresolved_original_target": "https://firmsfinder.eu/geo/"
+      }
     },
     {
       "id": "FF-GEO-MOF-034",
@@ -1446,12 +1459,13 @@
       "entity_refs": [
         "https://firmsfinder.eu/#geo-diagnostic"
       ],
-      "target_pages": [
-        "https://firmsfinder.eu/geo/"
-      ],
+      "target_pages": [],
       "query_language": "ro-RO",
       "semantic_status": "PROPOSED",
-      "evidence_refs": []
+      "evidence_refs": [],
+      "audit_bis": {
+        "unresolved_original_target": "https://firmsfinder.eu/geo/"
+      }
     },
     {
       "id": "FF-GEO-MOF-035",
@@ -1463,12 +1477,13 @@
       "entity_refs": [
         "https://firmsfinder.eu/#geo-diagnostic"
       ],
-      "target_pages": [
-        "https://firmsfinder.eu/geo/"
-      ],
+      "target_pages": [],
       "query_language": "ro-RO",
       "semantic_status": "PROPOSED",
-      "evidence_refs": []
+      "evidence_refs": [],
+      "audit_bis": {
+        "unresolved_original_target": "https://firmsfinder.eu/geo/"
+      }
     },
     {
       "id": "FF-GEO-MOF-036",
@@ -1480,12 +1495,13 @@
       "entity_refs": [
         "https://firmsfinder.eu/#geo-diagnostic"
       ],
-      "target_pages": [
-        "https://firmsfinder.eu/geo/"
-      ],
+      "target_pages": [],
       "query_language": "ro-RO",
       "semantic_status": "PROPOSED",
-      "evidence_refs": []
+      "evidence_refs": [],
+      "audit_bis": {
+        "unresolved_original_target": "https://firmsfinder.eu/geo/"
+      }
     },
     {
       "id": "FF-GEO-MOF-037",
@@ -1497,12 +1513,13 @@
       "entity_refs": [
         "https://firmsfinder.eu/#geo-diagnostic"
       ],
-      "target_pages": [
-        "https://firmsfinder.eu/geo/"
-      ],
+      "target_pages": [],
       "query_language": "ro-RO",
       "semantic_status": "PROPOSED",
-      "evidence_refs": []
+      "evidence_refs": [],
+      "audit_bis": {
+        "unresolved_original_target": "https://firmsfinder.eu/geo/"
+      }
     },
     {
       "id": "FF-GEO-MOF-038",
@@ -1514,12 +1531,13 @@
       "entity_refs": [
         "https://firmsfinder.eu/#geo-diagnostic"
       ],
-      "target_pages": [
-        "https://firmsfinder.eu/geo/"
-      ],
+      "target_pages": [],
       "query_language": "ro-RO",
       "semantic_status": "PROPOSED",
-      "evidence_refs": []
+      "evidence_refs": [],
+      "audit_bis": {
+        "unresolved_original_target": "https://firmsfinder.eu/geo/"
+      }
     },
     {
       "id": "FF-GEO-MOF-039",
@@ -1531,12 +1549,13 @@
       "entity_refs": [
         "https://firmsfinder.eu/#aeo-diagnostic"
       ],
-      "target_pages": [
-        "https://firmsfinder.eu/aeo/"
-      ],
+      "target_pages": [],
       "query_language": "ro-RO",
       "semantic_status": "PROPOSED",
-      "evidence_refs": []
+      "evidence_refs": [],
+      "audit_bis": {
+        "unresolved_original_target": "https://firmsfinder.eu/aeo/"
+      }
     },
     {
       "id": "FF-GEO-MOF-040",
@@ -1548,12 +1567,13 @@
       "entity_refs": [
         "https://firmsfinder.eu/#aeo-diagnostic"
       ],
-      "target_pages": [
-        "https://firmsfinder.eu/aeo/"
-      ],
+      "target_pages": [],
       "query_language": "ro-RO",
       "semantic_status": "PROPOSED",
-      "evidence_refs": []
+      "evidence_refs": [],
+      "audit_bis": {
+        "unresolved_original_target": "https://firmsfinder.eu/aeo/"
+      }
     },
     {
       "id": "FF-GEO-MOF-041",
@@ -1565,12 +1585,13 @@
       "entity_refs": [
         "https://firmsfinder.eu/#aeo-diagnostic"
       ],
-      "target_pages": [
-        "https://firmsfinder.eu/aeo/"
-      ],
+      "target_pages": [],
       "query_language": "ro-RO",
       "semantic_status": "PROPOSED",
-      "evidence_refs": []
+      "evidence_refs": [],
+      "audit_bis": {
+        "unresolved_original_target": "https://firmsfinder.eu/aeo/"
+      }
     },
     {
       "id": "FF-GEO-MOF-042",
@@ -1582,12 +1603,13 @@
       "entity_refs": [
         "https://firmsfinder.eu/#aeo-diagnostic"
       ],
-      "target_pages": [
-        "https://firmsfinder.eu/aeo/"
-      ],
+      "target_pages": [],
       "query_language": "ro-RO",
       "semantic_status": "PROPOSED",
-      "evidence_refs": []
+      "evidence_refs": [],
+      "audit_bis": {
+        "unresolved_original_target": "https://firmsfinder.eu/aeo/"
+      }
     },
     {
       "id": "FF-GEO-MOF-043",
@@ -1599,12 +1621,13 @@
       "entity_refs": [
         "https://firmsfinder.eu/#aeo-diagnostic"
       ],
-      "target_pages": [
-        "https://firmsfinder.eu/aeo/"
-      ],
+      "target_pages": [],
       "query_language": "ro-RO",
       "semantic_status": "PROPOSED",
-      "evidence_refs": []
+      "evidence_refs": [],
+      "audit_bis": {
+        "unresolved_original_target": "https://firmsfinder.eu/aeo/"
+      }
     },
     {
       "id": "FF-GEO-MOF-044",
@@ -1616,12 +1639,13 @@
       "entity_refs": [
         "https://firmsfinder.eu/#aeo-diagnostic"
       ],
-      "target_pages": [
-        "https://firmsfinder.eu/aeo/"
-      ],
+      "target_pages": [],
       "query_language": "ro-RO",
       "semantic_status": "PROPOSED",
-      "evidence_refs": []
+      "evidence_refs": [],
+      "audit_bis": {
+        "unresolved_original_target": "https://firmsfinder.eu/aeo/"
+      }
     },
     {
       "id": "FF-GEO-MOF-045",
@@ -1736,7 +1760,7 @@
         "https://firmsfinder.eu/#software"
       ],
       "target_pages": [
-        "https://firmsfinder.eu/cauta/"
+        "https://firmsfinder.eu/cautare/"
       ],
       "query_language": "ro-RO",
       "semantic_status": "PROPOSED",
@@ -1753,7 +1777,7 @@
         "https://firmsfinder.eu/#software"
       ],
       "target_pages": [
-        "https://firmsfinder.eu/cauta/"
+        "https://firmsfinder.eu/cautare/"
       ],
       "query_language": "ro-RO",
       "semantic_status": "PROPOSED",
@@ -1770,7 +1794,7 @@
         "https://firmsfinder.eu/#software"
       ],
       "target_pages": [
-        "https://firmsfinder.eu/cauta/"
+        "https://firmsfinder.eu/cautare/"
       ],
       "query_language": "ro-RO",
       "semantic_status": "PROPOSED",
@@ -1787,7 +1811,7 @@
         "https://firmsfinder.eu/#software"
       ],
       "target_pages": [
-        "https://firmsfinder.eu/cauta/"
+        "https://firmsfinder.eu/cautare/"
       ],
       "query_language": "ro-RO",
       "semantic_status": "PROPOSED",
@@ -1804,7 +1828,7 @@
         "https://firmsfinder.eu/#software"
       ],
       "target_pages": [
-        "https://firmsfinder.eu/cauta/"
+        "https://firmsfinder.eu/cautare/"
       ],
       "query_language": "ro-RO",
       "semantic_status": "PROPOSED",
@@ -1821,7 +1845,7 @@
         "https://firmsfinder.eu/#software"
       ],
       "target_pages": [
-        "https://firmsfinder.eu/cauta/"
+        "https://firmsfinder.eu/cautare/"
       ],
       "query_language": "ro-RO",
       "semantic_status": "PROPOSED",
@@ -1838,7 +1862,7 @@
         "https://firmsfinder.eu/#software"
       ],
       "target_pages": [
-        "https://firmsfinder.eu/cauta/"
+        "https://firmsfinder.eu/cautare/"
       ],
       "query_language": "ro-RO",
       "semantic_status": "PROPOSED",
@@ -2279,12 +2303,13 @@
       "entity_refs": [
         "https://firmsfinder.eu/#geo-diagnostic"
       ],
-      "target_pages": [
-        "https://firmsfinder.eu/geo/"
-      ],
+      "target_pages": [],
       "query_language": "ro-RO",
       "semantic_status": "PROPOSED",
-      "evidence_refs": []
+      "evidence_refs": [],
+      "audit_bis": {
+        "unresolved_original_target": "https://firmsfinder.eu/geo/"
+      }
     },
     {
       "id": "FF-GEO-BOF-034",
@@ -2296,12 +2321,13 @@
       "entity_refs": [
         "https://firmsfinder.eu/#geo-diagnostic"
       ],
-      "target_pages": [
-        "https://firmsfinder.eu/geo/"
-      ],
+      "target_pages": [],
       "query_language": "ro-RO",
       "semantic_status": "PROPOSED",
-      "evidence_refs": []
+      "evidence_refs": [],
+      "audit_bis": {
+        "unresolved_original_target": "https://firmsfinder.eu/geo/"
+      }
     },
     {
       "id": "FF-GEO-BOF-035",
@@ -2313,12 +2339,13 @@
       "entity_refs": [
         "https://firmsfinder.eu/#geo-diagnostic"
       ],
-      "target_pages": [
-        "https://firmsfinder.eu/geo/"
-      ],
+      "target_pages": [],
       "query_language": "ro-RO",
       "semantic_status": "PROPOSED",
-      "evidence_refs": []
+      "evidence_refs": [],
+      "audit_bis": {
+        "unresolved_original_target": "https://firmsfinder.eu/geo/"
+      }
     },
     {
       "id": "FF-GEO-BOF-036",
@@ -2330,12 +2357,13 @@
       "entity_refs": [
         "https://firmsfinder.eu/#geo-diagnostic"
       ],
-      "target_pages": [
-        "https://firmsfinder.eu/geo/"
-      ],
+      "target_pages": [],
       "query_language": "ro-RO",
       "semantic_status": "PROPOSED",
-      "evidence_refs": []
+      "evidence_refs": [],
+      "audit_bis": {
+        "unresolved_original_target": "https://firmsfinder.eu/geo/"
+      }
     },
     {
       "id": "FF-GEO-BOF-037",
@@ -2347,12 +2375,13 @@
       "entity_refs": [
         "https://firmsfinder.eu/#geo-diagnostic"
       ],
-      "target_pages": [
-        "https://firmsfinder.eu/geo/"
-      ],
+      "target_pages": [],
       "query_language": "ro-RO",
       "semantic_status": "PROPOSED",
-      "evidence_refs": []
+      "evidence_refs": [],
+      "audit_bis": {
+        "unresolved_original_target": "https://firmsfinder.eu/geo/"
+      }
     },
     {
       "id": "FF-GEO-BOF-038",
@@ -2364,12 +2393,13 @@
       "entity_refs": [
         "https://firmsfinder.eu/#geo-diagnostic"
       ],
-      "target_pages": [
-        "https://firmsfinder.eu/geo/"
-      ],
+      "target_pages": [],
       "query_language": "ro-RO",
       "semantic_status": "PROPOSED",
-      "evidence_refs": []
+      "evidence_refs": [],
+      "audit_bis": {
+        "unresolved_original_target": "https://firmsfinder.eu/geo/"
+      }
     },
     {
       "id": "FF-GEO-BOF-039",
@@ -2381,12 +2411,13 @@
       "entity_refs": [
         "https://firmsfinder.eu/#aeo-diagnostic"
       ],
-      "target_pages": [
-        "https://firmsfinder.eu/aeo/"
-      ],
+      "target_pages": [],
       "query_language": "ro-RO",
       "semantic_status": "PROPOSED",
-      "evidence_refs": []
+      "evidence_refs": [],
+      "audit_bis": {
+        "unresolved_original_target": "https://firmsfinder.eu/aeo/"
+      }
     },
     {
       "id": "FF-GEO-BOF-040",
@@ -2398,12 +2429,13 @@
       "entity_refs": [
         "https://firmsfinder.eu/#aeo-diagnostic"
       ],
-      "target_pages": [
-        "https://firmsfinder.eu/aeo/"
-      ],
+      "target_pages": [],
       "query_language": "ro-RO",
       "semantic_status": "PROPOSED",
-      "evidence_refs": []
+      "evidence_refs": [],
+      "audit_bis": {
+        "unresolved_original_target": "https://firmsfinder.eu/aeo/"
+      }
     },
     {
       "id": "FF-GEO-BOF-041",
@@ -2415,12 +2447,13 @@
       "entity_refs": [
         "https://firmsfinder.eu/#aeo-diagnostic"
       ],
-      "target_pages": [
-        "https://firmsfinder.eu/aeo/"
-      ],
+      "target_pages": [],
       "query_language": "ro-RO",
       "semantic_status": "PROPOSED",
-      "evidence_refs": []
+      "evidence_refs": [],
+      "audit_bis": {
+        "unresolved_original_target": "https://firmsfinder.eu/aeo/"
+      }
     },
     {
       "id": "FF-GEO-BOF-042",
@@ -2432,12 +2465,13 @@
       "entity_refs": [
         "https://firmsfinder.eu/#aeo-diagnostic"
       ],
-      "target_pages": [
-        "https://firmsfinder.eu/aeo/"
-      ],
+      "target_pages": [],
       "query_language": "ro-RO",
       "semantic_status": "PROPOSED",
-      "evidence_refs": []
+      "evidence_refs": [],
+      "audit_bis": {
+        "unresolved_original_target": "https://firmsfinder.eu/aeo/"
+      }
     },
     {
       "id": "FF-GEO-BOF-043",
@@ -2449,12 +2483,13 @@
       "entity_refs": [
         "https://firmsfinder.eu/#aeo-diagnostic"
       ],
-      "target_pages": [
-        "https://firmsfinder.eu/aeo/"
-      ],
+      "target_pages": [],
       "query_language": "ro-RO",
       "semantic_status": "PROPOSED",
-      "evidence_refs": []
+      "evidence_refs": [],
+      "audit_bis": {
+        "unresolved_original_target": "https://firmsfinder.eu/aeo/"
+      }
     },
     {
       "id": "FF-GEO-BOF-044",
@@ -2466,12 +2501,13 @@
       "entity_refs": [
         "https://firmsfinder.eu/#aeo-diagnostic"
       ],
-      "target_pages": [
-        "https://firmsfinder.eu/aeo/"
-      ],
+      "target_pages": [],
       "query_language": "ro-RO",
       "semantic_status": "PROPOSED",
-      "evidence_refs": []
+      "evidence_refs": [],
+      "audit_bis": {
+        "unresolved_original_target": "https://firmsfinder.eu/aeo/"
+      }
     },
     {
       "id": "FF-GEO-BOF-045",
@@ -2583,5 +2619,12 @@
     "entity_refs_resolved": "NOT_TESTED",
     "target_pages_reachable": "NOT_TESTED",
     "semantic_review": "REQUIRED"
+  },
+  "audit_bis": {
+    "note": "Eliminate referintele catre /geo/ si /aeo/ fara dovada de pagina HTML; /cauta/ devine /cautare/. Verificarea HTTP ramane UNKNOWN.",
+    "changes": {
+      "cauta_to_cautare": 21,
+      "removed_unverified_landing": 36
+    }
   }
 }

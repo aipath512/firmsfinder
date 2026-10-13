@@ -1,18 +1,17 @@
-
 {
   "schema_version": "1.0",
   "methodology": "FirmsFinder GEO V3.1",
   "artifact": "entities",
   "site": "https://firmsfinder.eu/",
   "publisher": {
-    "id": "https://firmsfinder.eu/#organization",
+    "id": "https://aiventure.ro/#organization",
     "name": "AiVenture S.R.L.",
     "type": "Organization",
     "status": "SELF_DECLARED"
   },
   "language": "ro-RO",
   "generated_at": null,
-  "status": "DRAFT_REQUIRES_VERIFICATION",
+  "status": "LOCAL_SEMANTIC_REVISION_NOT_DEPLOYED",
   "entity_id_policy": {
     "format": "absolute_uri",
     "unique_per_entity": true,
@@ -21,7 +20,7 @@
   },
   "entities": [
     {
-      "id": "https://firmsfinder.eu/#organization",
+      "id": "https://aiventure.ro/#organization",
       "type": "Organization",
       "name": "AiVenture S.R.L.",
       "description": "Organizatia care dezvolta platforma FirmsFinder.",
@@ -32,9 +31,20 @@
       "evidence_refs": []
     },
     {
+      "id": "https://firmsfinder.eu/#brand",
+      "type": "Brand",
+      "name": "FirmsFinder",
+      "description": "Brandul platformei FirmsFinder operată de AiVenture S.R.L.",
+      "url": "https://firmsfinder.eu/",
+      "identifiers": [],
+      "same_as": [],
+      "status": "SELF_DECLARED",
+      "evidence_refs": []
+    },
+    {
       "id": "https://firmsfinder.eu/#website",
       "type": "WebSite",
-      "name": "FirmsFinder.eu",
+      "name": "FirmsFinder",
       "description": "Website dedicat descoperirii firmelor si oportunitatilor economice.",
       "url": "https://firmsfinder.eu/",
       "publisher_ref": "https://firmsfinder.eu/#organization",
@@ -151,13 +161,13 @@
   ],
   "relations": [
     {
-      "subject": "https://firmsfinder.eu/#organization",
+      "subject": "https://aiventure.ro/#organization",
       "predicate": "develops",
       "object": "https://firmsfinder.eu/#software",
       "status": "SELF_DECLARED"
     },
     {
-      "subject": "https://firmsfinder.eu/#organization",
+      "subject": "https://aiventure.ro/#organization",
       "predicate": "publishes",
       "object": "https://firmsfinder.eu/#website",
       "status": "SELF_DECLARED"
@@ -181,22 +191,34 @@
       "status": "DESIGN_INTENT"
     },
     {
-      "subject": "https://firmsfinder.eu/#organization",
+      "subject": "https://aiventure.ro/#organization",
       "predicate": "proposesService",
       "object": "https://firmsfinder.eu/#geo-diagnostic",
       "status": "DESIGN_INTENT"
     },
     {
-      "subject": "https://firmsfinder.eu/#organization",
+      "subject": "https://aiventure.ro/#organization",
       "predicate": "proposesService",
       "object": "https://firmsfinder.eu/#geo-generator",
       "status": "DESIGN_INTENT"
     },
     {
-      "subject": "https://firmsfinder.eu/#organization",
+      "subject": "https://aiventure.ro/#organization",
       "predicate": "proposesService",
       "object": "https://firmsfinder.eu/#geo-monitor",
       "status": "DESIGN_INTENT"
+    },
+    {
+      "subject": "https://aiventure.ro/#organization",
+      "predicate": "ownsBrand",
+      "object": "https://firmsfinder.eu/#brand",
+      "status": "SELF_DECLARED"
+    },
+    {
+      "subject": "https://firmsfinder.eu/#brand",
+      "predicate": "identifiesProduct",
+      "object": "https://firmsfinder.eu/#software",
+      "status": "SELF_DECLARED"
     }
   ],
   "integrity": {
@@ -211,5 +233,6 @@
     "relation_references": "NOT_TESTED",
     "url_reachability": "NOT_TESTED",
     "semantic_review": "REQUIRED"
-  }
+  },
+  "version": "2.0-audit-bis"
 }
