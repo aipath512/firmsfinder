@@ -76,6 +76,7 @@ Structură semantică, definiții explicite, fragmente autonome, tabele extragib
 - https://firmsfinder.eu/categorii/
 - https://firmsfinder.eu/localitati/
 - https://firmsfinder.eu/semnale/
+- https://firmsfinder.eu/geo/ghid/
 
 Fiecare pagină are canonical propriu.
 

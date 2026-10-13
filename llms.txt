@@ -14,6 +14,7 @@ FirmsFinder propune trei moduri de lucru: CAUTĂ (firme după activitate, județ
 - [Resurse](https://firmsfinder.eu/resurse/): arhitectura Knowledge Graph + Vector Search
 - [Semnale](https://firmsfinder.eu/semnale/): catalogul celor 60 de semnale ON-SITE, cu verdict per semnal
 - [Contact și corecturi](https://firmsfinder.eu/contact/): solicitări de informații și corecturi
+- [Ghid GEO și AEO](https://firmsfinder.eu/geo/ghid/): întrebări și răspunsuri despre GEO, AEO și citabilitate AI; fișierele și datele structurate nu garantează citarea de către sisteme AI
 
 ## Acoperire geografică
 
