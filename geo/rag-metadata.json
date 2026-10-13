@@ -1,0 +1,509 @@
+{
+  "schema": "FIRMSFINDER_GEO_RAG_METADATA",
+  "version": "1.0.0",
+  "generated_at": "2026-10-13",
+  "status": "draft_unverified",
+  "website": "https://firmsfinder.eu/",
+  "language": "ro-RO",
+  "geo_signals": [
+    "GEO20"
+  ],
+  "purpose": "Metadate pentru identificarea, filtrarea si verificarea fragmentelor recuperate prin RAG. Nu reprezinta un index vectorial si nu activeaza automat indexarea externa.",
+  "source_registry": {
+    "chunks_path": "/geo/citable-chunks.json",
+    "claims_path": "/geo/claims.json",
+    "topics_path": "/geo/topic-clusters.json",
+    "evidence_path": "/geo/evidence.json"
+  },
+  "retrieval_policy": {
+    "unit": "chunk",
+    "primary_key": "chunk_id",
+    "semantic_search_enabled": false,
+    "vector_index_connected": false,
+    "embedding_model": null,
+    "embedding_dimensions": null,
+    "chunking_strategy": "reuse_existing_citable_chunks",
+    "allow_unverified_for_public_answers": false,
+    "require_public_canonical_url": true,
+    "require_human_approval": true,
+    "require_evidence_for_factual_claims": true,
+    "do_not_infer_products_from_caen_alone": true,
+    "return_provenance_with_results": true,
+    "fallback_if_no_verified_result": "No verified answer available; request manual review."
+  },
+  "metadata_schema": {
+    "chunk_id": "string",
+    "question": "string",
+    "topic_cluster_id": "string",
+    "claim_ids": "array[string]",
+    "language": "BCP47 string",
+    "content_type": "string",
+    "content_source": "repository-relative path",
+    "canonical_page_url": "URL|null",
+    "source_candidate_url": "URL|null",
+    "source_verified_url": "URL|null",
+    "source_checked_at": "ISO8601|null",
+    "evidence_ids": "array[string]",
+    "content_sha256": "SHA256 hex|null",
+    "content_hash_status": "string",
+    "publication_approved": "boolean",
+    "verification_status": "string",
+    "retrieval_status": "string",
+    "embedding_status": "string",
+    "index_status": "string",
+    "recommended_metadata_filters": "array[string]"
+  },
+  "records": [
+    {
+      "chunk_id": "CH-001",
+      "question": "Ce este FirmsFinder?",
+      "topic_cluster_id": "TC-001",
+      "claim_ids": [
+        "CL-001"
+      ],
+      "language": "ro-RO",
+      "content_type": "question_answer",
+      "content_source": "geo/citable-chunks.json",
+      "canonical_page_url": null,
+      "source_candidate_url": "https://firmsfinder.eu/",
+      "source_verified_url": null,
+      "source_checked_at": null,
+      "evidence_ids": [],
+      "content_sha256": null,
+      "content_hash_status": "not_computed",
+      "publication_approved": false,
+      "verification_status": "not_verified",
+      "retrieval_status": "blocked_pending_review",
+      "embedding_status": "not_generated",
+      "index_status": "not_indexed",
+      "recommended_metadata_filters": [
+        "language",
+        "topic_cluster_id",
+        "claim_ids",
+        "verification_status"
+      ]
+    },
+    {
+      "chunk_id": "CH-002",
+      "question": "Ce înseamnă căutarea firmelor în limbaj natural?",
+      "topic_cluster_id": "TC-010",
+      "claim_ids": [
+        "CL-002"
+      ],
+      "language": "ro-RO",
+      "content_type": "question_answer",
+      "content_source": "geo/citable-chunks.json",
+      "canonical_page_url": null,
+      "source_candidate_url": "https://firmsfinder.eu/",
+      "source_verified_url": null,
+      "source_checked_at": null,
+      "evidence_ids": [],
+      "content_sha256": null,
+      "content_hash_status": "not_computed",
+      "publication_approved": false,
+      "verification_status": "not_verified",
+      "retrieval_status": "blocked_pending_review",
+      "embedding_status": "not_generated",
+      "index_status": "not_indexed",
+      "recommended_metadata_filters": [
+        "language",
+        "topic_cluster_id",
+        "claim_ids",
+        "verification_status"
+      ]
+    },
+    {
+      "chunk_id": "CH-003",
+      "question": "Cum identific potențiali clienți B2B?",
+      "topic_cluster_id": "TC-005",
+      "claim_ids": [
+        "CL-003"
+      ],
+      "language": "ro-RO",
+      "content_type": "question_answer",
+      "content_source": "geo/citable-chunks.json",
+      "canonical_page_url": null,
+      "source_candidate_url": "https://firmsfinder.eu/",
+      "source_verified_url": null,
+      "source_checked_at": null,
+      "evidence_ids": [],
+      "content_sha256": null,
+      "content_hash_status": "not_computed",
+      "publication_approved": false,
+      "verification_status": "not_verified",
+      "retrieval_status": "blocked_pending_review",
+      "embedding_status": "not_generated",
+      "index_status": "not_indexed",
+      "recommended_metadata_filters": [
+        "language",
+        "topic_cluster_id",
+        "claim_ids",
+        "verification_status"
+      ]
+    },
+    {
+      "chunk_id": "CH-004",
+      "question": "Cum identific potențiali furnizori?",
+      "topic_cluster_id": "TC-006",
+      "claim_ids": [
+        "CL-004"
+      ],
+      "language": "ro-RO",
+      "content_type": "question_answer",
+      "content_source": "geo/citable-chunks.json",
+      "canonical_page_url": null,
+      "source_candidate_url": "https://firmsfinder.eu/",
+      "source_verified_url": null,
+      "source_checked_at": null,
+      "evidence_ids": [],
+      "content_sha256": null,
+      "content_hash_status": "not_computed",
+      "publication_approved": false,
+      "verification_status": "not_verified",
+      "retrieval_status": "blocked_pending_review",
+      "embedding_status": "not_generated",
+      "index_status": "not_indexed",
+      "recommended_metadata_filters": [
+        "language",
+        "topic_cluster_id",
+        "claim_ids",
+        "verification_status"
+      ]
+    },
+    {
+      "chunk_id": "CH-005",
+      "question": "Cum identific potențiali parteneri?",
+      "topic_cluster_id": "TC-007",
+      "claim_ids": [
+        "CL-005"
+      ],
+      "language": "ro-RO",
+      "content_type": "question_answer",
+      "content_source": "geo/citable-chunks.json",
+      "canonical_page_url": null,
+      "source_candidate_url": "https://firmsfinder.eu/",
+      "source_verified_url": null,
+      "source_checked_at": null,
+      "evidence_ids": [],
+      "content_sha256": null,
+      "content_hash_status": "not_computed",
+      "publication_approved": false,
+      "verification_status": "not_verified",
+      "retrieval_status": "blocked_pending_review",
+      "embedding_status": "not_generated",
+      "index_status": "not_indexed",
+      "recommended_metadata_filters": [
+        "language",
+        "topic_cluster_id",
+        "claim_ids",
+        "verification_status"
+      ]
+    },
+    {
+      "chunk_id": "CH-006",
+      "question": "Ce rol are CAEN Rev.3?",
+      "topic_cluster_id": "TC-002",
+      "claim_ids": [
+        "CL-006"
+      ],
+      "language": "ro-RO",
+      "content_type": "question_answer",
+      "content_source": "geo/citable-chunks.json",
+      "canonical_page_url": null,
+      "source_candidate_url": "https://firmsfinder.eu/",
+      "source_verified_url": null,
+      "source_checked_at": null,
+      "evidence_ids": [],
+      "content_sha256": null,
+      "content_hash_status": "not_computed",
+      "publication_approved": false,
+      "verification_status": "not_verified",
+      "retrieval_status": "blocked_pending_review",
+      "embedding_status": "not_generated",
+      "index_status": "not_indexed",
+      "recommended_metadata_filters": [
+        "language",
+        "topic_cluster_id",
+        "claim_ids",
+        "verification_status"
+      ]
+    },
+    {
+      "chunk_id": "CH-007",
+      "question": "Un cod CAEN dovedește că firma fabrică un produs?",
+      "topic_cluster_id": "TC-002",
+      "claim_ids": [
+        "CL-007"
+      ],
+      "language": "ro-RO",
+      "content_type": "question_answer",
+      "content_source": "geo/citable-chunks.json",
+      "canonical_page_url": null,
+      "source_candidate_url": "https://firmsfinder.eu/",
+      "source_verified_url": null,
+      "source_checked_at": null,
+      "evidence_ids": [],
+      "content_sha256": null,
+      "content_hash_status": "not_computed",
+      "publication_approved": false,
+      "verification_status": "not_verified",
+      "retrieval_status": "blocked_pending_review",
+      "embedding_status": "not_generated",
+      "index_status": "not_indexed",
+      "recommended_metadata_filters": [
+        "language",
+        "topic_cluster_id",
+        "claim_ids",
+        "verification_status"
+      ]
+    },
+    {
+      "chunk_id": "CH-008",
+      "question": "O firmă recomandată este client confirmat?",
+      "topic_cluster_id": "TC-005",
+      "claim_ids": [
+        "CL-008"
+      ],
+      "language": "ro-RO",
+      "content_type": "question_answer",
+      "content_source": "geo/citable-chunks.json",
+      "canonical_page_url": null,
+      "source_candidate_url": "https://firmsfinder.eu/",
+      "source_verified_url": null,
+      "source_checked_at": null,
+      "evidence_ids": [],
+      "content_sha256": null,
+      "content_hash_status": "not_computed",
+      "publication_approved": false,
+      "verification_status": "not_verified",
+      "retrieval_status": "blocked_pending_review",
+      "embedding_status": "not_generated",
+      "index_status": "not_indexed",
+      "recommended_metadata_filters": [
+        "language",
+        "topic_cluster_id",
+        "claim_ids",
+        "verification_status"
+      ]
+    },
+    {
+      "chunk_id": "CH-009",
+      "question": "Ce înseamnă acces gratuit la date oficiale?",
+      "topic_cluster_id": "TC-001",
+      "claim_ids": [
+        "CL-009"
+      ],
+      "language": "ro-RO",
+      "content_type": "question_answer",
+      "content_source": "geo/citable-chunks.json",
+      "canonical_page_url": null,
+      "source_candidate_url": "https://firmsfinder.eu/",
+      "source_verified_url": null,
+      "source_checked_at": null,
+      "evidence_ids": [],
+      "content_sha256": null,
+      "content_hash_status": "not_computed",
+      "publication_approved": false,
+      "verification_status": "not_verified",
+      "retrieval_status": "blocked_pending_review",
+      "embedding_status": "not_generated",
+      "index_status": "not_indexed",
+      "recommended_metadata_filters": [
+        "language",
+        "topic_cluster_id",
+        "claim_ids",
+        "verification_status"
+      ]
+    },
+    {
+      "chunk_id": "CH-010",
+      "question": "Este gratuită căutarea în FirmsFinder?",
+      "topic_cluster_id": "TC-010",
+      "claim_ids": [
+        "CL-010"
+      ],
+      "language": "ro-RO",
+      "content_type": "question_answer",
+      "content_source": "geo/citable-chunks.json",
+      "canonical_page_url": null,
+      "source_candidate_url": "https://firmsfinder.eu/",
+      "source_verified_url": null,
+      "source_checked_at": null,
+      "evidence_ids": [],
+      "content_sha256": null,
+      "content_hash_status": "not_computed",
+      "publication_approved": false,
+      "verification_status": "not_verified",
+      "retrieval_status": "blocked_pending_review",
+      "embedding_status": "not_generated",
+      "index_status": "not_indexed",
+      "recommended_metadata_filters": [
+        "language",
+        "topic_cluster_id",
+        "claim_ids",
+        "verification_status"
+      ]
+    },
+    {
+      "chunk_id": "CH-011",
+      "question": "Câte firme active acoperă FirmsFinder?",
+      "topic_cluster_id": "TC-001",
+      "claim_ids": [
+        "CL-011"
+      ],
+      "language": "ro-RO",
+      "content_type": "question_answer",
+      "content_source": "geo/citable-chunks.json",
+      "canonical_page_url": null,
+      "source_candidate_url": "https://firmsfinder.eu/",
+      "source_verified_url": null,
+      "source_checked_at": null,
+      "evidence_ids": [],
+      "content_sha256": null,
+      "content_hash_status": "not_computed",
+      "publication_approved": false,
+      "verification_status": "not_verified",
+      "retrieval_status": "blocked_pending_review",
+      "embedding_status": "not_generated",
+      "index_status": "not_indexed",
+      "recommended_metadata_filters": [
+        "language",
+        "topic_cluster_id",
+        "claim_ids",
+        "verification_status"
+      ]
+    },
+    {
+      "chunk_id": "CH-012",
+      "question": "Cum verific o recomandare de firmă?",
+      "topic_cluster_id": "TC-009",
+      "claim_ids": [
+        "CL-012"
+      ],
+      "language": "ro-RO",
+      "content_type": "question_answer",
+      "content_source": "geo/citable-chunks.json",
+      "canonical_page_url": null,
+      "source_candidate_url": "https://firmsfinder.eu/",
+      "source_verified_url": null,
+      "source_checked_at": null,
+      "evidence_ids": [],
+      "content_sha256": null,
+      "content_hash_status": "not_computed",
+      "publication_approved": false,
+      "verification_status": "not_verified",
+      "retrieval_status": "blocked_pending_review",
+      "embedding_status": "not_generated",
+      "index_status": "not_indexed",
+      "recommended_metadata_filters": [
+        "language",
+        "topic_cluster_id",
+        "claim_ids",
+        "verification_status"
+      ]
+    },
+    {
+      "chunk_id": "CH-013",
+      "question": "Poate un agent AI să facă cercetarea în locul meu?",
+      "topic_cluster_id": "TC-010",
+      "claim_ids": [
+        "CL-013"
+      ],
+      "language": "ro-RO",
+      "content_type": "question_answer",
+      "content_source": "geo/citable-chunks.json",
+      "canonical_page_url": null,
+      "source_candidate_url": "https://firmsfinder.eu/",
+      "source_verified_url": null,
+      "source_checked_at": null,
+      "evidence_ids": [],
+      "content_sha256": null,
+      "content_hash_status": "not_computed",
+      "publication_approved": false,
+      "verification_status": "not_verified",
+      "retrieval_status": "blocked_pending_review",
+      "embedding_status": "not_generated",
+      "index_status": "not_indexed",
+      "recommended_metadata_filters": [
+        "language",
+        "topic_cluster_id",
+        "claim_ids",
+        "verification_status"
+      ]
+    },
+    {
+      "chunk_id": "CH-014",
+      "question": "Cine publică FirmsFinder?",
+      "topic_cluster_id": "TC-001",
+      "claim_ids": [
+        "CL-014"
+      ],
+      "language": "ro-RO",
+      "content_type": "question_answer",
+      "content_source": "geo/citable-chunks.json",
+      "canonical_page_url": null,
+      "source_candidate_url": "https://firmsfinder.eu/",
+      "source_verified_url": null,
+      "source_checked_at": null,
+      "evidence_ids": [],
+      "content_sha256": null,
+      "content_hash_status": "not_computed",
+      "publication_approved": false,
+      "verification_status": "not_verified",
+      "retrieval_status": "blocked_pending_review",
+      "embedding_status": "not_generated",
+      "index_status": "not_indexed",
+      "recommended_metadata_filters": [
+        "language",
+        "topic_cluster_id",
+        "claim_ids",
+        "verification_status"
+      ]
+    },
+    {
+      "chunk_id": "CH-015",
+      "question": "Este FirmsFinder certificat EU AI Act Ready?",
+      "topic_cluster_id": "TC-010",
+      "claim_ids": [
+        "CL-015"
+      ],
+      "language": "ro-RO",
+      "content_type": "question_answer",
+      "content_source": "geo/citable-chunks.json",
+      "canonical_page_url": null,
+      "source_candidate_url": "https://firmsfinder.eu/",
+      "source_verified_url": null,
+      "source_checked_at": null,
+      "evidence_ids": [],
+      "content_sha256": null,
+      "content_hash_status": "not_computed",
+      "publication_approved": false,
+      "verification_status": "not_verified",
+      "retrieval_status": "blocked_pending_review",
+      "embedding_status": "not_generated",
+      "index_status": "not_indexed",
+      "recommended_metadata_filters": [
+        "language",
+        "topic_cluster_id",
+        "claim_ids",
+        "verification_status"
+      ]
+    }
+  ],
+  "validation_rules": {
+    "chunk_ids_unique": true,
+    "chunk_ids_must_exist_in_citable_chunks": true,
+    "claim_ids_must_exist_in_claims": true,
+    "topic_ids_must_exist_in_topic_clusters": true,
+    "no_fabricated_hashes": true,
+    "never_mark_indexed_without_index_evidence": true,
+    "never_mark_citation_ready_without_public_verified_page": true
+  },
+  "verification_summary": {
+    "record_count": 15,
+    "records_approved_for_retrieval": 0,
+    "records_embedded": 0,
+    "records_indexed": 0,
+    "live_url_verified": false
+  }
+}
