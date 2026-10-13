@@ -1,32 +1,67 @@
 {
-  "schema": "FIRMSFINDER_ONSITE_SIGNAL",
-  "version": "2.1",
-  "signal_id": "ENTITIES",
-  "signal_name": "Named entity catalogue",
+  "schema": "FIRMSFINDER_ENTITIES",
+  "version": "1.2",
+  "updated": "2026-10-13",
   "site": "https://firmsfinder.eu/",
-  "scope": "ON_SITE",
-  "category": "Semantics",
-  "status": "SPECIFICATION_NOT_RUNTIME_VERIFIED",
-  "purpose": "Named entity catalogue",
-  "publication_note": "Publicarea acestui fișier nu demonstrează că funcția sau controlul este implementat.",
-  "verification": {
-    "check": "GET public URL; validate JSON and verify runtime behavior separately",
-    "result": "NOT_TESTED"
-  },
-  "source_basis": "firmsfinder-main (2).zip; specification regenerated on 2026-10-12",
+  "language": "ro-RO",
+  "note": "Catalog al entităților publice ale site-ului. Nu conține profiluri de firme; căutarea în baza de firme rulează pe https://1clic-ia.eu/. Descrierea unei funcții aici nu demonstrează că ea este operațională; vezi https://firmsfinder.eu/signals.json.",
   "entities": [
     {
       "id": "https://firmsfinder.eu/#website",
       "type": "WebSite",
       "name": "FirmsFinder",
       "url": "https://firmsfinder.eu/",
-      "publisher_ref": "https://aiventure.ro/#organization"
+      "inLanguage": "ro-RO",
+      "publisher_ref": "https://5thelement.ai/#organization",
+      "areaServed": [
+        {
+          "type": "Country",
+          "name": "România",
+          "status": "CURRENT"
+        },
+        {
+          "type": "Region",
+          "name": "Uniunea Europeană",
+          "status": "PLANNED_NOT_DEPLOYED"
+        }
+      ]
     },
     {
-      "id": "https://aiventure.ro/#organization",
+      "id": "https://5thelement.ai/#organization",
       "type": "Organization",
       "name": "AiVenture S.R.L.",
-      "url": "https://aiventure.ro/",
+      "alternateName": "5thelement.ai",
+      "description": "AiVenture transformă serviciile B2B existente în servicii pregătite pentru sistemele AI și agenți, în limite autorizate.",
+      "url": "https://5thelement.ai/",
+      "sites": [
+        {
+          "url": "https://5thelement.ai/",
+          "role": "flagship, limba engleză",
+          "inLanguage": "en"
+        },
+        {
+          "url": "https://aiventure.ro/",
+          "role": "site în limba română",
+          "inLanguage": "ro"
+        }
+      ],
+      "legal_identifiers": {
+        "CUI": "51415878",
+        "EUID": "ROONRC.J2025016406000",
+        "registru_comert": "J2025016406000"
+      },
+      "address": "București, Sectorul 1, Drumul Pădurea Pustnicu, Nr. 141C, Corp A, Etaj 2, România",
+      "email": "contact@5thelement.ai",
+      "telephone": "+40737123540",
+      "sameAs": [
+        "https://www.linkedin.com/company/aiventure-se",
+        "https://www.linkedin.com/showcase/5thelement-ai",
+        "https://www.crunchbase.com/organization/aiventure-s-r-l",
+        "https://www.facebook.com/people/Aiventure/61573220584246",
+        "https://x.com/aipath512",
+        "https://www.youtube.com/@AIVenture-q8u",
+        "https://medium.com/@aipath512"
+      ],
       "status": "SELF_DECLARED"
     },
     {
@@ -39,8 +74,71 @@
       "id": "https://firmsfinder.eu/#software",
       "type": "SoftwareApplication",
       "name": "FirmsFinder AI",
-      "provider_ref": "https://aiventure.ro/#organization",
-      "brand_ref": "https://firmsfinder.eu/#brand"
+      "description": "Platformă de Economic Intelligence B2B pentru descoperirea firmelor, clienților, furnizorilor și partenerilor. Acoperire curentă: România; următoarea etapă: Uniunea Europeană.",
+      "provider_ref": "https://5thelement.ai/#organization",
+      "brand_ref": "https://firmsfinder.eu/#brand",
+      "search_endpoint_host": "https://1clic-ia.eu/",
+      "areaServed": [
+        {
+          "type": "Country",
+          "name": "România",
+          "status": "CURRENT"
+        },
+        {
+          "type": "Region",
+          "name": "Uniunea Europeană",
+          "status": "PLANNED_NOT_DEPLOYED"
+        }
+      ]
+    },
+    {
+      "id": "https://firmsfinder.eu/#mode-cauta",
+      "type": "Service",
+      "name": "CAUTĂ",
+      "description": "Căutare de firme după activitate (CAEN), județ și localitate, cu criterii și surse afișate.",
+      "provider_ref": "https://5thelement.ai/#organization",
+      "url": "https://1clic-ia.eu/"
+    },
+    {
+      "id": "https://firmsfinder.eu/#mode-fii-gasit",
+      "type": "Service",
+      "name": "FII GĂSIT",
+      "description": "Prezentarea structurată a ofertei unei firme, pentru a fi înțeleasă de oameni și sisteme AI.",
+      "provider_ref": "https://5thelement.ai/#organization",
+      "url": "https://firmsfinder.eu/intelligence/"
+    },
+    {
+      "id": "https://firmsfinder.eu/#mode-deleaga",
+      "type": "Service",
+      "name": "DELEAGĂ AI-ULUI",
+      "description": "Cercetare delegată pe baza unor criterii aprobate; calificarea și decizia comercială rămân la om.",
+      "provider_ref": "https://5thelement.ai/#organization",
+      "url": "https://firmsfinder.eu/intelligence/"
+    },
+    {
+      "id": "https://www.onrc.ro/#dataset-source",
+      "type": "DataSource",
+      "name": "Oficiul Național al Registrului Comerțului (ONRC)",
+      "url": "https://www.onrc.ro/",
+      "role": "sursă publică oficială"
+    },
+    {
+      "id": "https://mfinante.gov.ro/#dataset-source",
+      "type": "DataSource",
+      "name": "Ministerul Finanțelor (bilanțuri, ANAF)",
+      "url": "https://mfinante.gov.ro/",
+      "role": "sursă publică oficială"
     }
-  ]
+  ],
+  "coverage": {
+    "current": {
+      "name": "România",
+      "status": "CURRENT"
+    },
+    "next_stage": {
+      "name": "Uniunea Europeană",
+      "status": "PLANNED_NOT_DEPLOYED"
+    },
+    "note": "Acoperirea în afara României nu este declarată ca realizată."
+  }
 }

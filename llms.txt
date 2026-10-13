@@ -1,198 +1,53 @@
-
 # FirmsFinder AI
 
-> FirmsFinder.eu — Economic Intelligence pentru descoperirea firmelor, clienților, furnizorilor și partenerilor B2B. Platformă dezvoltată de AiVenture S.R.L.
+> FirmsFinder.eu este o platformă de Economic Intelligence B2B: ajută la descoperirea firmelor ca potențiali clienți, furnizori și parteneri, cu potriviri explicate și surse verificabile. Acoperire curentă: România. Următoarea etapă: Uniunea Europeană. Operator: AiVenture S.R.L. (CUI 51415878, București), care activează sub brandul 5thelement.ai. Limba: română.
 
-Canonical site: https://firmsfinder.eu/
-Language: ro-RO
-Document version: 1.1
-Document date: 2026-10-13
-Operator: AiVenture S.R.L.
+FirmsFinder propune trei moduri de lucru: CAUTĂ (firme după activitate, județ, localitate), FII GĂSIT (oferta firmei devine inteligibilă pentru oameni și sisteme AI) și DELEAGĂ AI-ULUI (cercetare delegată, cu decizia finală la om). Căutarea în baza de firme rulează pe 1clic-ia.eu; acest site conține explicațiile, metodologia și întrebările frecvente.
 
-## Canonical positioning
+## Pagini principale
 
-Category: B2B Company Discovery & Economic Intelligence
+- [Acasă](https://firmsfinder.eu/): prezentarea platformei și cele trei moduri de lucru
+- [Intelligence](https://firmsfinder.eu/intelligence/): demonstrația ECBTAX (calcul salarii) cu firme mascate și contraexemple, cinci interogări SQL read-only, cele șapte porți de raționament și limitele metodei
+- [FAQ](https://firmsfinder.eu/faq/): 50 de întrebări și răspunsuri despre date, căutare, AI, servicii și conformitate
+- [Despre](https://firmsfinder.eu/despre/): entități și relații economice, rolul platformei
+- [Surse și metodologie](https://firmsfinder.eu/surse/): sursele de date, limitele interpretării și verificarea unei potriviri
+- [Resurse](https://firmsfinder.eu/resurse/): arhitectura Knowledge Graph + Vector Search
+- [Semnale](https://firmsfinder.eu/semnale/): catalogul celor 60 de semnale ON-SITE, cu verdict per semnal
+- [Contact și corecturi](https://firmsfinder.eu/contact/): solicitări de informații și corecturi
 
-Headline (homepage):
-Descoperă clienți noi.
-Fă-te găsit de oameni și de sisteme AI.
-Delegă munca AI-ului.
+## Acoperire geografică
 
-Core actions:
-CAUTĂ · FII GĂSIT · DELEAGĂ AI-ULUI
+- România: acoperirea curentă. Datele provin din registrele publice românești (peste 1,7 milioane de firme în CSV oficial, din care peste 1 milion active).
+- Uniunea Europeană: următoarea etapă de dezvoltare. Nu este declarată ca realizată; până la publicarea surselor și a datelor pentru alte state membre, FirmsFinder nu oferă acoperire în afara României.
 
-Promise:
-Iată cui ai putea vinde, de ce există potrivirea și pe ce date se bazează.
+## Date și limite
 
-Principle:
-DATELE SUNT GRATUITE. INTELIGENȚA ESTE PLĂTITĂ.
+- Datele provin din surse publice oficiale (ONRC, Ministerul Finanțelor, ANAF, Monitorul Oficial); accesul la aceste surse este gratuit.
+- Indicatorii financiari sunt istorici, nu în timp real. Verificați întotdeauna informațiile importante la sursă.
+- Un cod CAEN, un scor sau o inferență nu dovedesc o relație comercială, o nevoie sau o intenție de cumpărare: compatibilitate ≠ nevoie, semnal ≠ intenție, candidat ≠ client.
+- Starea funcțiilor este declarată separat: catalogul de semnale marchează fiecare semnal ca NOT_DEPLOYED sau UNKNOWN până la verificare. Nu considerați o funcție operațională doar pentru că este descrisă.
+- Platforma nu garantează indexare, citare sau recomandare de către motoare de căutare sau modele AI.
+- Acțiunile comerciale automate necesită mandat explicit și aprobare umană; capabilitatea tehnică nu este permisiune.
 
-FirmsFinder urmărește să transforme datele publice despre firme în ipoteze comerciale explicabile, verificabile și utile pentru descoperirea clienților, furnizorilor, partenerilor și analiza concurenței. Accesul la sursele oficiale publice este gratuit; serviciile de analiză cu valoare adăugată sunt distincte de dreptul de acces la aceste surse.
+## Resurse mașină
 
-## Primary objects
+- [robots.txt](https://firmsfinder.eu/robots.txt)
+- [sitemap.xml](https://firmsfinder.eu/sitemap.xml)
+- [entities.json](https://firmsfinder.eu/entities.json): entitățile publice ale site-ului
+- [signals.json](https://firmsfinder.eu/signals.json): catalogul celor 60 de semnale ON-SITE și starea lor declarată
 
-- Firma: entitatea economică analizată.
-- Activitatea economică: clasificată, între altele, prin CAEN; codul nu demonstrează singur ce produse vinde firma.
-- Oferta: produsul sau serviciul declarat ori verificabil al firmei.
-- Piața: domeniul, regiunea, sectorul sau contextul în care oferta poate fi relevantă.
-- Relația ERE: legătura explicită între două entități, cu sens, inversă, cardinalitate și proveniență când sunt disponibile.
-- Oportunitatea B2B: ipoteză de potrivire între o ofertă și o posibilă nevoie, nu dovadă de intenție de cumpărare.
-- Dovada: sursa, data și regula care susțin o afirmație sau o potrivire.
+## Operator
 
-## Canonical discovery lifecycle
+- AiVenture S.R.L., București, Sector 1 · CUI 51415878 · EUID ROONRC.J2025016406000
+- [5thelement.ai](https://5thelement.ai/): site flagship, limba engleză
+- [aiventure.ro](https://aiventure.ro/): site în limba română
+- Email: contact@5thelement.ai · Telefon: +40 737 123 540
 
-FIRMĂ → ACTIVITATE (CAEN) → OFERTĂ → PIAȚĂ → CĂUTARE → POTRIVIRE → EXPLICAȚIE → VERIFICARE UMANĂ → CONTACT / ACȚIUNE AUTORIZATĂ
+## Ecosistem AiVenture
 
-Compatibilitate ≠ nevoie.
-Semnal ≠ intenție.
-Candidat ≠ client.
-Claim ≠ Proof.
-
-## Three modes
-
-### CAUTĂ
-
-Utilizatorul descrie în limbaj natural firmele căutate: activitate, produs, localitate, județ, industrie, dimensiune sau alte criterii verificabile. Rezultatele trebuie să distingă datele sursă de inferențe și să explice criteriile de selecție.
-
-### FII GĂSIT
-
-Firma își descrie identitatea, activitățile, produsele, serviciile și punctele de contact pentru a putea fi înțeleasă de oameni și sisteme AI. Prezența unor semnale GEO/AEO/AIO nu garantează citarea sau recomandarea de către modele AI.
-
-### DELEAGĂ AI-ULUI
-
-Un agent poate cerceta firme și relații pe baza unui mandat și a unor criterii aprobate. Cercetarea, calificarea, comunicarea și orice acțiune comercială trebuie delimitate prin capabilități, permisiuni și control uman. Prezentarea unei funcționalități nu dovedește că aceasta este operațională.
-
-## Web-Om / Web-AI / Web-A2A
-
-Web-Om: utilizatorul caută, compară și contactează firme.
-OM → FIRMSFINDER → FIRMĂ
-
-Web-AI: un sistem AI poate identifica, interpreta și reprezenta informații despre firme și oferte.
-OM → SISTEM AI → INFORMAȚIE DESPRE FIRMĂ
-
-Web-A2A: agenții pot solicita, evalua și, numai în limite autorizate, iniția acțiuni între firme.
-BUYER AGENT ↔ SELLER AGENT
-
-Web-A2A este o direcție arhitecturală, nu o declarație că toate tranzacțiile A2A sunt active pe FirmsFinder.
-
-## CAEN and ERE metamodel
-
-CAEN clasifică activități economice, nu stabilește automat produse, relații comerciale sau intenții de cumpărare.
-
-Metamodelul Entitate–Relație–Entitate (ERE) poate lega:
-FIRMĂ ↔ ACTIVITATE ↔ PRODUS / SERVICIU ↔ PIAȚĂ ↔ FIRMĂ.
-
-Relațiile trebuie să aibă, când sunt disponibile, tip, inversă, cardinalitate, reguli, sursă și stare de verificare. Inferențele din CAEN trebuie etichetate explicit ca ipoteze.
-
-## Important pages — URLs declared in supplied sitemap
-
-- https://firmsfinder.eu/
-- https://firmsfinder.eu/intelligence/
-- https://firmsfinder.eu/faq/
-- https://firmsfinder.eu/despre/
-- https://firmsfinder.eu/contact/
-- https://firmsfinder.eu/surse/
-- https://firmsfinder.eu/resurse/
-- https://firmsfinder.eu/cautare/
-- https://firmsfinder.eu/comparare/
-- https://firmsfinder.eu/categorii/
-- https://firmsfinder.eu/localitati/
-- https://firmsfinder.eu/semnale/
-
-These 12 URLs returned HTTP 200 in a user-provided GET test on 2026-10-13. HTTP 200 does not prove distinct content, canonical correctness, indexability, or live machine-readable resources. The homepage HTML provided for review contains title, meta description, canonical, robots meta and Organization/WebSite/WebPage JSON-LD; deployment equivalence has not been independently verified.
-
-## Discovery resources
-
-- https://firmsfinder.eu/robots.txt — crawler policy; content supplied by operator, live bytes not independently verified here.
-- https://firmsfinder.eu/sitemap.xml — sitemap; 12 URLs supplied by operator.
-
-## Proposed machine-readable resources — NOT VERIFIED AS DEPLOYED
-
-The following are candidate resources for the FirmsFinder semantic architecture. Do not assume they exist, are accessible, or contain valid data until tested individually.
-
-- https://firmsfinder.eu/geo/entities.json
-- https://firmsfinder.eu/geo/intents.json
-- https://firmsfinder.eu/geo/knowledge-graph.json
-- https://firmsfinder.eu/geo/ere-dictionary.json
-- https://firmsfinder.eu/geo/claims.json
-- https://firmsfinder.eu/geo/evidence.json
-- https://firmsfinder.eu/geo/citable-chunks.json
-- https://firmsfinder.eu/geo/rag-metadata.json
-- https://firmsfinder.eu/geo/topic-clusters.json
-- https://firmsfinder.eu/geo/semantic-keywords.json
-- https://firmsfinder.eu/geo/verification.json
-- https://firmsfinder.eu/digital-dna.json
-
-These JSON resources are architecture-specific; they are not universal requirements of AI search engines.
-
-## Intents and FAQ
-
-Intents should use the pattern ACTION + TARGET and may be classified as:
-- TOF: explore, discover, learn, search.
-- MOF: compare, qualify, validate, understand relationships.
-- BOF: contact, request, shortlist, initiate an authorized action.
-
-Examples:
-- Găsește producători de ambalaje din carton în România.
-- Identifică firme care ar putea cumpăra ambalaje de carton.
-- Compară firme cu activități CAEN relevante.
-- Explică de ce o firmă este un posibil client, furnizor sau partener.
-- Verifică sursele și data informațiilor despre o firmă.
-
-The number of published intents or Q&A pairs must be verified from the deployed files, not inferred from this document.
-
-## Data provenance and limitations
-
-The homepage supplied for review identifies ONRC and Ministerul Finanțelor as public sources used in its Economic Intelligence demonstration. The primary search CTA in the supplied homepage HTML currently points to https://1clic-ia.eu/; this is an external destination and not proof that FirmsFinder search is operational on its own domain. Financial indicators are historical, not real-time. A CAEN code, similarity score or model-generated inference does not establish a commercial relationship or purchasing intent.
-
-Do not claim full national coverage, live API access, verified company contact details, or continuously refreshed data without corresponding evidence.
-
-## GEO / AEO / AIO assessment
-
-GEO: inspect discoverability, entities, citable claims, attribution, provenance and externally observed AI citation.
-AEO: inspect direct answers, question coverage, semantic structure and source consistency.
-AIO: inspect machine readability, retrieval structure, semantic consistency and observed model behavior.
-
-Technical readiness ≠ actual AI citation.
-AI observation ≠ evidence of business performance.
-Model consensus ≠ independent verification.
-
-No GEO/AEO/AIO score, external citation success, or model performance certification is asserted by this document.
-
-## Governance rules
-
-- No rule → no autonomy.
-- Capability ≠ permission.
-- Crawl permission ≠ transaction authority.
-- Claim ≠ Proof.
-- Generated ≠ Deployed.
-- Deployed ≠ Valid.
-- Valid ≠ Verified.
-- Human review is required for ambiguity, exceptions, sensitive cases and financial commitments unless expressly authorized.
-- THE EDGE MUST NEVER INVENT THE OFFER DURING A TRANSACTION.
-
-## Negative scope
-
-FirmsFinder does not guarantee:
-- Google ranking or indexing;
-- citation, recommendation or inclusion in any AI model;
-- that a matched company needs or intends to purchase a product;
-- accuracy or freshness beyond the documented source and observation date;
-- legal or regulatory compliance by virtue of technical signals alone;
-- autonomous commercial transactions without explicit authority;
-- that a proposed machine-readable endpoint is already deployed.
-
-## Proof rule
-
-Every substantive claim should be traceable to a source, method, observation date and verification state. Do not declare SHA-256/OTS verified or a Bitcoin block confirmation without verification of the exact canonical artifact.
-
-## Publication and verification state
-
-This document is a drafted llms.txt artifact. Publication at https://firmsfinder.eu/llms.txt has not been verified. A successful HTTP 200 response must be followed by content verification; a fallback homepage with HTTP 200 is not a valid llms.txt publication.
-
-## Contact and operator
-
-Operator: AiVenture S.R.L.
-Platform: https://firmsfinder.eu/
-Corporate website: https://aiventure.ro/
-Contact page: https://firmsfinder.eu/contact/
+- [1clic-ia.eu](https://1clic-ia.eu/): căutare în baza de firme
+- [3webobs.com](https://3webobs.com/) și [ai-lens.eu](https://ai-lens.eu/): observarea prezenței firmei pe Web-ul pentru oameni, AI și agenți
+- [eu-ai-act-ready.eu](https://eu-ai-act-ready.eu/) și [eu-ai-act.ro](https://eu-ai-act.ro/): pregătirea pentru EU AI Act
+- [eu-ai-audit.eu](https://eu-ai-audit.eu/) și [eu-ai-ready.eu](https://eu-ai-ready.eu/): audit și pregătire AI
+- [b2b-ai-library.org](https://b2b-ai-library.org/), [eu-112.eu](https://eu-112.eu/), [eu-112.ro](https://eu-112.ro/)
+- Partener strategic: [ECBTAX](https://ecbtax.com/)
