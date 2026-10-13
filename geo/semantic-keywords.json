@@ -1,0 +1,533 @@
+
+{
+  "schema_version": "1.0",
+  "methodology": "FirmsFinder GEO V3.1",
+  "artifact": "semantic-keywords",
+  "site": "https://firmsfinder.eu/",
+  "publisher": "AiVenture S.R.L.",
+  "language": "ro-RO",
+  "generated_at": null,
+  "status": "DRAFT_REQUIRES_VERIFICATION",
+  "source_artifacts": [
+    "entities.json",
+    "topic-clusters.json"
+  ],
+  "semantic_model": {
+    "intent_pattern": "ACTION + TARGET",
+    "relationship_pattern": "ENTITY + RELATION + ENTITY",
+    "funnel_stages": [
+      "TOF",
+      "MOF",
+      "BOF"
+    ],
+    "keyword_stuffing_allowed": false,
+    "search_volume_measured": false,
+    "ai_citation_guaranteed": false,
+    "synonyms_are_context_dependent": true
+  },
+  "keyword_groups": [
+    {
+      "id": "SK-001",
+      "cluster_ref": "TC-001",
+      "name": "Descoperirea firmelor",
+      "primary_keyword": "cautare firme Romania",
+      "synonyms": [
+        "gasire firme",
+        "identificare companii",
+        "cautare societati comerciale",
+        "registru firme"
+      ],
+      "related_terms": [
+        "firme active",
+        "cod CAEN",
+        "judet",
+        "localitate",
+        "activitate economica",
+        "date oficiale"
+      ],
+      "long_tail_queries": [
+        "unde pot cauta gratuit firme din Romania",
+        "cum gasesc firme active dupa cod CAEN",
+        "cum caut firme dupa activitate si judet",
+        "cum identific firme folosind limbaj natural"
+      ],
+      "intent_mapping": [
+        {
+          "funnel": "TOF",
+          "action": "LEARN",
+          "target": "surse de date despre firme"
+        },
+        {
+          "funnel": "MOF",
+          "action": "COMPARE",
+          "target": "metode de cautare a firmelor"
+        },
+        {
+          "funnel": "BOF",
+          "action": "FIND",
+          "target": "firme relevante"
+        }
+      ],
+      "entity_refs": [
+        "https://firmsfinder.eu/#software",
+        "https://firmsfinder.eu/#caen"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/cauta/"
+      ],
+      "evidence_refs": []
+    },
+    {
+      "id": "SK-002",
+      "cluster_ref": "TC-002",
+      "name": "Clienti potentiali B2B",
+      "primary_keyword": "identificare clienti B2B",
+      "synonyms": [
+        "prospectare B2B",
+        "gasire clienti potentiali",
+        "descoperire clienti noi",
+        "identificare oportunitati comerciale"
+      ],
+      "related_terms": [
+        "cerere potentiala",
+        "potrivire comerciala",
+        "segment de piata",
+        "oferta",
+        "produse",
+        "servicii",
+        "argumente de potrivire"
+      ],
+      "long_tail_queries": [
+        "ce firme ar putea cumpara produsele mele",
+        "cum identific firme care au nevoie de serviciile mele",
+        "gaseste clienti potentiali pentru un producator",
+        "explica de ce o firma ar putea fi client"
+      ],
+      "intent_mapping": [
+        {
+          "funnel": "TOF",
+          "action": "LEARN",
+          "target": "prospectare B2B"
+        },
+        {
+          "funnel": "MOF",
+          "action": "ANALYZE",
+          "target": "potrivire oferta-cerere"
+        },
+        {
+          "funnel": "BOF",
+          "action": "IDENTIFY",
+          "target": "clienti potentiali"
+        }
+      ],
+      "ere_patterns": [
+        {
+          "subject_type": "Company",
+          "predicate": "potentially_buys",
+          "object_type": "Product",
+          "status": "HYPOTHESIS"
+        },
+        {
+          "subject_type": "Company",
+          "predicate": "potentially_needs",
+          "object_type": "Service",
+          "status": "HYPOTHESIS"
+        }
+      ],
+      "entity_refs": [
+        "https://firmsfinder.eu/#economic-intelligence",
+        "https://firmsfinder.eu/#ere"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "evidence_refs": []
+    },
+    {
+      "id": "SK-003",
+      "cluster_ref": "TC-003",
+      "name": "Furnizori si parteneri",
+      "primary_keyword": "gasire furnizori si parteneri",
+      "synonyms": [
+        "identificare furnizori",
+        "cautare distribuitori",
+        "parteneriate B2B",
+        "lant de aprovizionare"
+      ],
+      "related_terms": [
+        "producator",
+        "distribuitor",
+        "furnizor",
+        "cumparator",
+        "revanzator",
+        "logistica",
+        "complementaritate"
+      ],
+      "long_tail_queries": [
+        "gaseste distribuitori pentru produsele mele",
+        "identifica furnizori din Romania",
+        "ce firme pot deveni parteneri comerciali",
+        "cum gasesc producatori pentru un distribuitor"
+      ],
+      "intent_mapping": [
+        {
+          "funnel": "TOF",
+          "action": "LEARN",
+          "target": "tipuri de parteneriate"
+        },
+        {
+          "funnel": "MOF",
+          "action": "COMPARE",
+          "target": "furnizori potentiali"
+        },
+        {
+          "funnel": "BOF",
+          "action": "FIND",
+          "target": "parteneri comerciali"
+        }
+      ],
+      "ere_patterns": [
+        {
+          "subject_type": "Company",
+          "predicate": "potentially_supplies",
+          "object_type": "Company",
+          "status": "HYPOTHESIS"
+        },
+        {
+          "subject_type": "Company",
+          "predicate": "potentially_distributes",
+          "object_type": "Product",
+          "status": "HYPOTHESIS"
+        }
+      ],
+      "entity_refs": [
+        "https://firmsfinder.eu/#ere"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "evidence_refs": []
+    },
+    {
+      "id": "SK-004",
+      "cluster_ref": "TC-004",
+      "name": "CAEN si activitati economice",
+      "primary_keyword": "coduri CAEN activitati economice",
+      "synonyms": [
+        "clasificare CAEN",
+        "nomenclator CAEN",
+        "activitati economice Romania"
+      ],
+      "related_terms": [
+        "sectiune CAEN",
+        "diviziune CAEN",
+        "grupa CAEN",
+        "clasa CAEN",
+        "producator",
+        "servicii",
+        "comert"
+      ],
+      "long_tail_queries": [
+        "ce activitate economica descrie un cod CAEN",
+        "cum identific firme cu activitati complementare",
+        "ce coduri CAEN sunt relevante pentru ambalaje",
+        "cum leg activitatile CAEN de produse si piete"
+      ],
+      "intent_mapping": [
+        {
+          "funnel": "TOF",
+          "action": "LEARN",
+          "target": "clasificarea CAEN"
+        },
+        {
+          "funnel": "MOF",
+          "action": "ANALYZE",
+          "target": "activitati complementare"
+        },
+        {
+          "funnel": "BOF",
+          "action": "FIND",
+          "target": "firme dupa CAEN"
+        }
+      ],
+      "disambiguation": {
+        "caen_code_is_product": false,
+        "caen_code_proves_purchase": false,
+        "registered_activity_equals_actual_offer": false,
+        "classification_version_required": true
+      },
+      "entity_refs": [
+        "https://firmsfinder.eu/#caen",
+        "https://firmsfinder.eu/#ere"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "evidence_refs": []
+    },
+    {
+      "id": "SK-005",
+      "cluster_ref": "TC-005",
+      "name": "Knowledge Graph si ERE",
+      "primary_keyword": "knowledge graph economic",
+      "synonyms": [
+        "graf de cunostinte economice",
+        "graf de relatii intre firme",
+        "metamodel entitate relatie entitate"
+      ],
+      "related_terms": [
+        "entitate",
+        "relatie",
+        "cardinalitate",
+        "relatie inversa",
+        "ontologie",
+        "inferenta",
+        "provenienta"
+      ],
+      "long_tail_queries": [
+        "cum construiesc un knowledge graph pentru firme",
+        "cum reprezint relatiile dintre activitati si produse",
+        "cum identific relatii economice bidirectionale",
+        "cum verific o potrivire intre doua firme"
+      ],
+      "intent_mapping": [
+        {
+          "funnel": "TOF",
+          "action": "LEARN",
+          "target": "knowledge graph"
+        },
+        {
+          "funnel": "MOF",
+          "action": "MODEL",
+          "target": "relatii ERE"
+        },
+        {
+          "funnel": "BOF",
+          "action": "VERIFY",
+          "target": "potrivire economica"
+        }
+      ],
+      "ere_patterns": [
+        {
+          "subject_type": "Company",
+          "predicate": "performs_activity",
+          "object_type": "EconomicActivity",
+          "status": "REQUIRES_EVIDENCE"
+        },
+        {
+          "subject_type": "EconomicActivity",
+          "predicate": "may_use",
+          "object_type": "Product",
+          "status": "HYPOTHESIS"
+        }
+      ],
+      "entity_refs": [
+        "https://firmsfinder.eu/#ere",
+        "https://firmsfinder.eu/#economic-intelligence"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/"
+      ],
+      "evidence_refs": []
+    },
+    {
+      "id": "SK-006",
+      "cluster_ref": "TC-006",
+      "name": "GEO si vizibilitate AI",
+      "primary_keyword": "GEO Generative Engine Optimization",
+      "synonyms": [
+        "optimizare GEO",
+        "vizibilitate in cautarea AI",
+        "GEO readiness",
+        "pregatire website pentru AI Search"
+      ],
+      "related_terms": [
+        "diagnostic GEO",
+        "fragmente citabile",
+        "dovezi verificabile",
+        "entitati",
+        "continut semantic",
+        "monitorizare GEO"
+      ],
+      "long_tail_queries": [
+        "cum verific daca un site este pregatit pentru AI Search",
+        "cum generez fisiere GEO pentru un website",
+        "ce semnale GEO pot verifica automat",
+        "cum monitorizez modificarile GEO saptamanal"
+      ],
+      "intent_mapping": [
+        {
+          "funnel": "TOF",
+          "action": "LEARN",
+          "target": "GEO"
+        },
+        {
+          "funnel": "MOF",
+          "action": "AUDIT",
+          "target": "GEO readiness"
+        },
+        {
+          "funnel": "BOF",
+          "action": "GENERATE",
+          "target": "21 GEO JSON files"
+        }
+      ],
+      "entity_refs": [
+        "https://firmsfinder.eu/#geo-diagnostic",
+        "https://firmsfinder.eu/#geo-generator",
+        "https://firmsfinder.eu/#geo-monitor"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/geo/"
+      ],
+      "evidence_refs": []
+    },
+    {
+      "id": "SK-007",
+      "cluster_ref": "TC-007",
+      "name": "AEO si AIO",
+      "primary_keyword": "AEO AIO optimizare pentru AI",
+      "synonyms": [
+        "Answer Engine Optimization",
+        "AI Optimization",
+        "optimizare raspunsuri AI",
+        "semnale AI Search"
+      ],
+      "related_terms": [
+        "FAQ",
+        "schema.org",
+        "intents",
+        "raspunsuri directe",
+        "date structurate",
+        "continut extractibil"
+      ],
+      "long_tail_queries": [
+        "cum optimizez o pagina pentru raspunsuri AI",
+        "ce diferenta exista intre GEO AEO si AIO",
+        "cum verific semnalele AEO ale unui site",
+        "cum pregatesc continutul pentru extragere AI"
+      ],
+      "intent_mapping": [
+        {
+          "funnel": "TOF",
+          "action": "LEARN",
+          "target": "AEO si AIO"
+        },
+        {
+          "funnel": "MOF",
+          "action": "COMPARE",
+          "target": "metode de optimizare AI"
+        },
+        {
+          "funnel": "BOF",
+          "action": "AUDIT",
+          "target": "semnale AEO si AIO"
+        }
+      ],
+      "entity_refs": [
+        "https://firmsfinder.eu/#aeo-diagnostic",
+        "https://firmsfinder.eu/#aio-diagnostic"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/aeo/",
+        "https://firmsfinder.eu/aio/"
+      ],
+      "evidence_refs": []
+    },
+    {
+      "id": "SK-008",
+      "cluster_ref": "TC-008",
+      "name": "Date gratuite si inteligenta platita",
+      "primary_keyword": "date firme gratuite inteligenta economica",
+      "synonyms": [
+        "date publice despre firme",
+        "acces gratuit la date oficiale",
+        "economic intelligence",
+        "analiza economica avansata"
+      ],
+      "related_terms": [
+        "date oficiale",
+        "interpretare",
+        "corelare",
+        "potrivire argumentata",
+        "prospectare",
+        "automatizare",
+        "monitorizare"
+      ],
+      "long_tail_queries": [
+        "unde gasesc date gratuite despre firme din Romania",
+        "ce diferenta este intre date si inteligenta economica",
+        "de ce platesc pentru analiza daca datele sunt gratuite",
+        "cum transform datele publice in oportunitati B2B"
+      ],
+      "intent_mapping": [
+        {
+          "funnel": "TOF",
+          "action": "LEARN",
+          "target": "date publice"
+        },
+        {
+          "funnel": "MOF",
+          "action": "COMPARE",
+          "target": "date versus inteligenta"
+        },
+        {
+          "funnel": "BOF",
+          "action": "BUY",
+          "target": "servicii de inteligenta economica"
+        }
+      ],
+      "commercial_policy": {
+        "public_data_access": "FREE",
+        "value_added_intelligence": "PAID",
+        "free_data_is_promotion": false
+      },
+      "entity_refs": [
+        "https://firmsfinder.eu/#free-data",
+        "https://firmsfinder.eu/#economic-intelligence"
+      ],
+      "target_pages": [
+        "https://firmsfinder.eu/",
+        "https://firmsfinder.eu/cauta/"
+      ],
+      "evidence_refs": []
+    }
+  ],
+  "global_disambiguation_rules": [
+    {
+      "term": "client potential",
+      "rule": "Nu implica o relatie comercial existenta."
+    },
+    {
+      "term": "furnizor potential",
+      "rule": "Nu implica un contract sau disponibilitate confirmata."
+    },
+    {
+      "term": "CAEN",
+      "rule": "Codul CAEN nu demonstreaza singur ce produse sunt vandute sau cumparate."
+    },
+    {
+      "term": "GEO readiness",
+      "rule": "Pregatirea tehnica nu garanteaza citarea in sisteme AI."
+    },
+    {
+      "term": "date gratuite",
+      "rule": "Gratuitatea accesului nu implica absenta restrictiilor legale de reutilizare."
+    }
+  ],
+  "integrity": {
+    "hash_algorithm": "SHA-256",
+    "sha256": null,
+    "timestamp_proof": null,
+    "verification_status": "NOT_VERIFIED"
+  },
+  "validation": {
+    "json_syntax": "NOT_TESTED",
+    "group_ids_unique": "NOT_TESTED",
+    "cluster_refs_resolved": "NOT_TESTED",
+    "entity_refs_resolved": "NOT_TESTED",
+    "target_pages_reachable": "NOT_TESTED",
+    "search_volume": "NOT_MEASURED",
+    "semantic_review": "REQUIRED"
+  }
+}
