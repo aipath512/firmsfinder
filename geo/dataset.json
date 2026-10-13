@@ -7,7 +7,7 @@
     "@type": "Dataset",
     "@id": "https://firmsfinder.eu/#dataset",
     "name": "FirmsFinder — informații despre firme din România",
-    "description": "Set de informații economice și descriptive prezentate prin FirmsFinder pentru explorarea firmelor și a oportunităților B2B. Acoperirea, actualizarea și licențele trebuie verificate în sursele publicate.",
+    "description": "Metadate despre informațiile privind firmele din România prezentate prin FirmsFinder. Acest document nu este un export al bazei de firme; acoperirea, proveniența și frecvența actualizării necesită verificare.",
     "url": "https://firmsfinder.eu/",
     "inLanguage": "ro-RO",
     "spatialCoverage": {
@@ -24,13 +24,7 @@
       "localizare",
       "informații economice disponibile"
     ],
-    "measurementTechnique": "Agregare și prezentare a informațiilor; metodologia exactă și acoperirea sunt în curs de documentare",
-    "distribution": {
-      "@type": "DataDownload",
-      "contentUrl": "https://firmsfinder.eu/geo/dataset.json",
-      "encodingFormat": "application/json",
-      "name": "Metadate despre dataset; nu reprezintă exportul bazei de firme"
-    }
+    "measurementTechnique": "Agregare și prezentare a informațiilor; metodologia exactă și acoperirea sunt în curs de documentare"
   },
-  "caveat": "Nu se declară număr de înregistrări, licență sau actualizare fără dovezi."
+  "caveat": "Fișierul descrie metadate, nu conține înregistrările datasetului și nu demonstrează numărul de firme active."
 }

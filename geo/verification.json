@@ -79,8 +79,8 @@
       "public_url": "https://firmsfinder.eu/geo/claims.json",
       "local_status": "PASS",
       "local_json_syntax": "PASS",
-      "local_bytes": 11028,
-      "local_sha256": "038db21c8a4db45733588e3929da4f56f617d867ac60540081dfc51584218f1e",
+      "local_bytes": 10987,
+      "local_sha256": "9c02a4afc9b97664ae7522be901354df80299dcb9e5cebf1749815f6e85d5c89",
       "public_status": "UNKNOWN",
       "public_http_status": null,
       "public_content_type": null
@@ -115,8 +115,8 @@
       "public_url": "https://firmsfinder.eu/geo/dataset.json",
       "local_status": "PASS",
       "local_json_syntax": "PASS",
-      "local_bytes": 1437,
-      "local_sha256": "63440bb8162c2134c35d49320ab111f423210ffaed26bf42bcb00fd9d38fd7c7",
+      "local_bytes": 1229,
+      "local_sha256": "4757aacec72690300c94f272c92cec36522cb7e8679cfd44d73d1d5bed651e39",
       "public_status": "UNKNOWN",
       "public_http_status": null,
       "public_content_type": null

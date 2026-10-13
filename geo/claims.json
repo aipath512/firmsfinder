@@ -215,7 +215,7 @@
         "sha256": null
       },
       "status": "CANDIDATE_NOT_VERIFIED",
-      "risk": "high",
+      "risk": "HIGH_QUANTITATIVE",
       "publication": {
         "approved": false,
         "approved_by": null,
@@ -226,7 +226,7 @@
       "evidence_refs": [
         "EV-011"
       ],
-      "note": "Text recuperat din registrul existent; nu constituie dovada si nu este aprobat pentru publicare."
+      "note": "Numărul de firme active necesită interogare reproductibilă, dată, criteriu de activitate și sursa de date."
     },
     {
       "id": "CL-012",
@@ -288,8 +288,8 @@
     {
       "id": "CL-015",
       "statement": "FirmsFinder asigura conformitatea cu EU AI Act.",
-      "status": "CANDIDATE_NOT_VERIFIED",
-      "risk": "high",
+      "status": "NOT_SUBSTANTIATED_DO_NOT_PUBLISH",
+      "risk": "HIGH_LEGAL",
       "source_chunk_ids": [
         "CH-015"
       ],
@@ -301,7 +301,7 @@
         "approved_by": null,
         "approved_at": null
       },
-      "note": "Text recuperat din registrul existent; nu constituie dovada si nu este aprobat pentru publicare. Afirmatia de conformitate EU AI Act NU trebuie publicata ca fapt fara evaluare documentata.",
+      "note": "Nu se publică afirmația de conformitate EU AI Act fără evaluare juridică specifică, documentată.",
       "statement_origin": "geo/evidence.json evidence_records[].claim_statement (editorial candidate, not proven)"
     }
   ],
