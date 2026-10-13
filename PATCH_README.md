@@ -1,41 +1,9 @@
-# FirmsFinder GEO V2.1 — PATCH CONTROLAT
+# FirmsFinder GEO V2.2 — patch conservator
 
-Sursa: firmsfinder-main (2)(1).zip
-SHA-256 sursa: ab55670c57b33ce59b5bf385b382d4524056ac530d9420d092fdc955fb842678
+Sursa: firmsfinder-main (3).zip. Modificări: geo/claims.json, geo/verification.json, geo/manifest.json (dacă e necesar pentru integritate).
 
-## Modificari verificate local
-- 8 referinte publisher_ref/provider_ref reparate in geo/entities.json.
-- 12 pagini HTML cu JSON-LD aliniat: categorii/index.html, cautare/index.html, comparare/index.html, contact/index.html, despre/index.html, faq/index.html, index.html, intelligence/index.html, localitati/index.html, resurse/index.html, semnale/index.html, surse/index.html.
-- entities.json radacina aliniat cu operatorul AiVenture si brandul FirmsFinder.
-- 14 ID-uri de claim completate EXCLUSIV cu placeholder-uri neaprobate (statement=null), nu cu afirmatii inventate.
-- 36 intentii raman explicit fara pagina-tinta. Nu au fost trimise artificial spre homepage.
-- 22 fisiere GEO inventariate; hash-uri locale actualizate in geo/verification.json.
+15 texte de afirmații candidate au fost RECUPERATE din geo/evidence.json, nu inventate. Toate au publication.approved=false; evidence_records[].review.status rămâne NOT_COLLECTED. CL-011 (volumul bazei) și CL-015 (conformitate EU AI Act) sunt high risk și NU pot fi publicate drept fapte demonstrate.
 
-## Limite si blocaje
-- Nu exista dovada de deploy sau de citare AI.
-- Nu publica arhiva completa fara compararea homepage-ului cu productia.
-- Nu atribui semnificatie de fapt verificat placeholder-urilor CL-xxx.
-- Daca publici directorul repo direct, exclude fisiere interne (README audit, backend, tests).
-- Actualizarea paginilor HTML este structurala, nu validare a identitatii legale prin registru.
-- Pagini GEO/AEO inexistente nu au fost fabricate.
-- SHA-256 nu este OpenTimestamps.
+Nu s-au modificat homepage-ul, CTA, JSON-LD, intents sau robots.txt. Nu s-a verificat deploymentul Cloudflare și nu s-au executat teste AI.
 
-## Fisiere modificate
-- `categorii/index.html`
-- `cautare/index.html`
-- `comparare/index.html`
-- `contact/index.html`
-- `despre/index.html`
-- `entities.json`
-- `faq/index.html`
-- `geo/claims.json`
-- `geo/entities.json`
-- `geo/intents.json`
-- `geo/manifest.json`
-- `geo/verification.json`
-- `index.html`
-- `intelligence/index.html`
-- `localitati/index.html`
-- `resurse/index.html`
-- `semnale/index.html`
-- `surse/index.html`
+Pași: (1) review al celor 15 afirmații, (2) colectare dovezi și aprobare, (3) deploy pe branch, (4) verificare HTTP+MIME+JSON+hash, (5) măsurare citări.
