@@ -1,0 +1,803 @@
+{
+  "schema": "FIRMSFINDER_GEO_OBSERVATIONS",
+  "version": "1.0.0",
+  "generated_at": "2026-10-13",
+  "status": "draft_not_executed_intent_mapping_pending",
+  "publisher": "AiVenture S.R.L.",
+  "website": "https://firmsfinder.eu/",
+  "language": "ro-RO",
+  "geo_signals": [
+    "GEO38",
+    "GEO39",
+    "GEO40",
+    "GEO41",
+    "GEO42",
+    "GEO43",
+    "GEO44"
+  ],
+  "signal_definitions": {
+    "GEO38": "brand_discovery",
+    "GEO39": "brand_mention",
+    "GEO40": "brand_recommendation",
+    "GEO41": "citation_and_source_attribution",
+    "GEO42": "answer_position_and_prominence",
+    "GEO43": "factual_accuracy_and_uncertainty",
+    "GEO44": "cross_model_agreement_and_variability"
+  },
+  "purpose": "Registru de observatii pentru evaluarea reproductibila a raspunsurilor modelelor AI la setul de referinta GEO37. Nu contine rezultate simulate sau observatii live.",
+  "source_registry": {
+    "reference_set": "/geo/reference-set.json",
+    "intents": "/geo/intents.json",
+    "claims": "/geo/claims.json",
+    "evidence": "/geo/evidence.json",
+    "experiments": "/geo/experiments.json",
+    "scorecard": "/geo/scorecard.json"
+  },
+  "execution_protocol": {
+    "models_planned": [
+      "ChatGPT",
+      "Claude",
+      "Gemini",
+      "Perplexity"
+    ],
+    "model_version_required": true,
+    "prompt_source": "reference-set.json/reference_prompts[].prompt_ro",
+    "reference_id_required": true,
+    "repeat_count_per_model_and_prompt": 3,
+    "prompt_must_be_exact": true,
+    "locale": "ro-RO",
+    "country_context": "Romania",
+    "fresh_session_preferred": true,
+    "record_web_access_and_search_mode": true,
+    "capture_original_response": true,
+    "capture_response_hash": true,
+    "capture_source_urls": true,
+    "human_review_required": true,
+    "record_failed_runs_separately": true,
+    "never_fabricate_model_responses": true,
+    "model_consensus_is_not_evidence": true,
+    "prompt_performance_is_not_business_performance": true
+  },
+  "observation_id_format": "OBS-YYYYMMDD-REFNNN-MODEL-RR (replace MODEL with model identifier, RR with repetition 01..03)",
+  "status_vocabulary": {
+    "planned": "test planned, not run",
+    "not_executed": "no AI call was made",
+    "executed_pending_review": "real response captured, human review pending",
+    "verified_observation": "capture and assessment verified",
+    "execution_failed": "test attempted but did not produce a valid response"
+  },
+  "metrics": [
+    {
+      "signal": "GEO38",
+      "field": "brand_discovered",
+      "definition": "True only when response identifies FirmsFinder as a relevant solution; distinct from a mere quoted string."
+    },
+    {
+      "signal": "GEO39",
+      "field": "brand_mentioned",
+      "definition": "True if the actual response text names FirmsFinder; preserve original spelling and full response."
+    },
+    {
+      "signal": "GEO40",
+      "field": "brand_recommended",
+      "definition": "True if model recommends FirmsFinder for the request, not simply lists or mentions it."
+    },
+    {
+      "signal": "GEO41",
+      "field": "citation_to_firmsfinder",
+      "definition": "True if a citation or source link actually points to a firmsfinder.eu URL; verify link."
+    },
+    {
+      "signal": "GEO42",
+      "field": "brand_recommendation_position",
+      "definition": "One-based ordinal among recommended alternatives, null when not applicable; also capture first character offset."
+    },
+    {
+      "signal": "GEO43",
+      "field": "factual_errors",
+      "definition": "Human-reviewed errors with evidence, including fabricated capabilities or CAEN-to-product/contract inferences."
+    },
+    {
+      "signal": "GEO44",
+      "field": "cross_model_agreement",
+      "definition": "Derived later from reviewed observations of the same reference_id, never self-declared by a single run."
+    }
+  ],
+  "evaluation_rules": {
+    "missing_values": "null means not measured, not false or zero",
+    "false_values": "false only after execution and inspection",
+    "citation_verification": "URL must appear in original answer and be independently checked; search result mention alone is not citation",
+    "mention_vs_recommendation": "different booleans",
+    "position": "only among explicitly ranked/recommended items",
+    "branded_prompts": "exclude or report separately when measuring unprompted discovery",
+    "repeated_runs": "keep individual responses, never overwrite",
+    "model_comparison": "compare equivalent settings and time windows; report settings differences",
+    "consensus": "agreement between AI models does not prove a fact",
+    "score_scale": "0/1/2 or null for not assessed",
+    "privacy": "avoid storing user secrets, personal prompts or unnecessary personal data"
+  },
+  "planned_cases": [
+    {
+      "reference_id": "REF-001",
+      "intent_id": null,
+      "funnel_stage": "TOF",
+      "brand_scope": "branded",
+      "prompt_ro": "Ce este FirmsFinder?",
+      "planned_models": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Perplexity"
+      ],
+      "repetitions_per_model": 3,
+      "expected_runs": 12,
+      "completed_runs": 0,
+      "observation_ids": [],
+      "status": "not_tested",
+      "intent_mapping_status": "requires_semantic_mapping_to_intents_json"
+    },
+    {
+      "reference_id": "REF-002",
+      "intent_id": null,
+      "funnel_stage": "TOF",
+      "brand_scope": "unbranded",
+      "prompt_ro": "Unde pot cauta gratuit firme din Romania?",
+      "planned_models": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Perplexity"
+      ],
+      "repetitions_per_model": 3,
+      "expected_runs": 12,
+      "completed_runs": 0,
+      "observation_ids": [],
+      "status": "not_tested",
+      "intent_mapping_status": "requires_semantic_mapping_to_intents_json"
+    },
+    {
+      "reference_id": "REF-003",
+      "intent_id": null,
+      "funnel_stage": "TOF",
+      "brand_scope": "unbranded",
+      "prompt_ro": "Cum identific clienti B2B noi?",
+      "planned_models": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Perplexity"
+      ],
+      "repetitions_per_model": 3,
+      "expected_runs": 12,
+      "completed_runs": 0,
+      "observation_ids": [],
+      "status": "not_tested",
+      "intent_mapping_status": "requires_semantic_mapping_to_intents_json"
+    },
+    {
+      "reference_id": "REF-004",
+      "intent_id": null,
+      "funnel_stage": "TOF",
+      "brand_scope": "unbranded",
+      "prompt_ro": "Ce este un cod CAEN?",
+      "planned_models": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Perplexity"
+      ],
+      "repetitions_per_model": 3,
+      "expected_runs": 12,
+      "completed_runs": 0,
+      "observation_ids": [],
+      "status": "not_tested",
+      "intent_mapping_status": "requires_semantic_mapping_to_intents_json"
+    },
+    {
+      "reference_id": "REF-005",
+      "intent_id": null,
+      "funnel_stage": "TOF",
+      "brand_scope": "unbranded",
+      "prompt_ro": "Cum functioneaza CAEN Rev.3?",
+      "planned_models": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Perplexity"
+      ],
+      "repetitions_per_model": 3,
+      "expected_runs": 12,
+      "completed_runs": 0,
+      "observation_ids": [],
+      "status": "not_tested",
+      "intent_mapping_status": "requires_semantic_mapping_to_intents_json"
+    },
+    {
+      "reference_id": "REF-006",
+      "intent_id": null,
+      "funnel_stage": "TOF",
+      "brand_scope": "unbranded",
+      "prompt_ro": "Cum gasesc firme dupa activitate economica?",
+      "planned_models": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Perplexity"
+      ],
+      "repetitions_per_model": 3,
+      "expected_runs": 12,
+      "completed_runs": 0,
+      "observation_ids": [],
+      "status": "not_tested",
+      "intent_mapping_status": "requires_semantic_mapping_to_intents_json"
+    },
+    {
+      "reference_id": "REF-007",
+      "intent_id": null,
+      "funnel_stage": "TOF",
+      "brand_scope": "unbranded",
+      "prompt_ro": "Cum gasesc producatori din Romania?",
+      "planned_models": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Perplexity"
+      ],
+      "repetitions_per_model": 3,
+      "expected_runs": 12,
+      "completed_runs": 0,
+      "observation_ids": [],
+      "status": "not_tested",
+      "intent_mapping_status": "requires_semantic_mapping_to_intents_json"
+    },
+    {
+      "reference_id": "REF-008",
+      "intent_id": null,
+      "funnel_stage": "TOF",
+      "brand_scope": "unbranded",
+      "prompt_ro": "Cum identific distribuitori?",
+      "planned_models": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Perplexity"
+      ],
+      "repetitions_per_model": 3,
+      "expected_runs": 12,
+      "completed_runs": 0,
+      "observation_ids": [],
+      "status": "not_tested",
+      "intent_mapping_status": "requires_semantic_mapping_to_intents_json"
+    },
+    {
+      "reference_id": "REF-009",
+      "intent_id": null,
+      "funnel_stage": "TOF",
+      "brand_scope": "unbranded",
+      "prompt_ro": "Cum caut furnizori B2B?",
+      "planned_models": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Perplexity"
+      ],
+      "repetitions_per_model": 3,
+      "expected_runs": 12,
+      "completed_runs": 0,
+      "observation_ids": [],
+      "status": "not_tested",
+      "intent_mapping_status": "requires_semantic_mapping_to_intents_json"
+    },
+    {
+      "reference_id": "REF-010",
+      "intent_id": null,
+      "funnel_stage": "TOF",
+      "brand_scope": "unbranded",
+      "prompt_ro": "Cum gasesc parteneri comerciali?",
+      "planned_models": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Perplexity"
+      ],
+      "repetitions_per_model": 3,
+      "expected_runs": 12,
+      "completed_runs": 0,
+      "observation_ids": [],
+      "status": "not_tested",
+      "intent_mapping_status": "requires_semantic_mapping_to_intents_json"
+    },
+    {
+      "reference_id": "REF-011",
+      "intent_id": null,
+      "funnel_stage": "MOF",
+      "brand_scope": "unbranded",
+      "prompt_ro": "Cum compar furnizorii de ambalaje din carton?",
+      "planned_models": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Perplexity"
+      ],
+      "repetitions_per_model": 3,
+      "expected_runs": 12,
+      "completed_runs": 0,
+      "observation_ids": [],
+      "status": "not_tested",
+      "intent_mapping_status": "requires_semantic_mapping_to_intents_json"
+    },
+    {
+      "reference_id": "REF-012",
+      "intent_id": null,
+      "funnel_stage": "MOF",
+      "brand_scope": "unbranded",
+      "prompt_ro": "Cum selectez activitati CAEN relevante pentru vinificatie?",
+      "planned_models": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Perplexity"
+      ],
+      "repetitions_per_model": 3,
+      "expected_runs": 12,
+      "completed_runs": 0,
+      "observation_ids": [],
+      "status": "not_tested",
+      "intent_mapping_status": "requires_semantic_mapping_to_intents_json"
+    },
+    {
+      "reference_id": "REF-013",
+      "intent_id": null,
+      "funnel_stage": "MOF",
+      "brand_scope": "unbranded",
+      "prompt_ro": "Cum diferentiez CAEN declarat de oferta reala?",
+      "planned_models": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Perplexity"
+      ],
+      "repetitions_per_model": 3,
+      "expected_runs": 12,
+      "completed_runs": 0,
+      "observation_ids": [],
+      "status": "not_tested",
+      "intent_mapping_status": "requires_semantic_mapping_to_intents_json"
+    },
+    {
+      "reference_id": "REF-014",
+      "intent_id": null,
+      "funnel_stage": "MOF",
+      "brand_scope": "unbranded",
+      "prompt_ro": "Cum verific sursa datelor despre firme?",
+      "planned_models": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Perplexity"
+      ],
+      "repetitions_per_model": 3,
+      "expected_runs": 12,
+      "completed_runs": 0,
+      "observation_ids": [],
+      "status": "not_tested",
+      "intent_mapping_status": "requires_semantic_mapping_to_intents_json"
+    },
+    {
+      "reference_id": "REF-015",
+      "intent_id": null,
+      "funnel_stage": "MOF",
+      "brand_scope": "unbranded",
+      "prompt_ro": "Cum identific clienti pentru un producator de ambalaje?",
+      "planned_models": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Perplexity"
+      ],
+      "repetitions_per_model": 3,
+      "expected_runs": 12,
+      "completed_runs": 0,
+      "observation_ids": [],
+      "status": "not_tested",
+      "intent_mapping_status": "requires_semantic_mapping_to_intents_json"
+    },
+    {
+      "reference_id": "REF-016",
+      "intent_id": null,
+      "funnel_stage": "MOF",
+      "brand_scope": "unbranded",
+      "prompt_ro": "Cum identific firme cu activitati complementare?",
+      "planned_models": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Perplexity"
+      ],
+      "repetitions_per_model": 3,
+      "expected_runs": 12,
+      "completed_runs": 0,
+      "observation_ids": [],
+      "status": "not_tested",
+      "intent_mapping_status": "requires_semantic_mapping_to_intents_json"
+    },
+    {
+      "reference_id": "REF-017",
+      "intent_id": null,
+      "funnel_stage": "MOF",
+      "brand_scope": "unbranded",
+      "prompt_ro": "Cum compar producatori si distribuitori?",
+      "planned_models": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Perplexity"
+      ],
+      "repetitions_per_model": 3,
+      "expected_runs": 12,
+      "completed_runs": 0,
+      "observation_ids": [],
+      "status": "not_tested",
+      "intent_mapping_status": "requires_semantic_mapping_to_intents_json"
+    },
+    {
+      "reference_id": "REF-018",
+      "intent_id": null,
+      "funnel_stage": "MOF",
+      "brand_scope": "unbranded",
+      "prompt_ro": "Cum explic o recomandare de client potential?",
+      "planned_models": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Perplexity"
+      ],
+      "repetitions_per_model": 3,
+      "expected_runs": 12,
+      "completed_runs": 0,
+      "observation_ids": [],
+      "status": "not_tested",
+      "intent_mapping_status": "requires_semantic_mapping_to_intents_json"
+    },
+    {
+      "reference_id": "REF-019",
+      "intent_id": null,
+      "funnel_stage": "MOF",
+      "brand_scope": "unbranded",
+      "prompt_ro": "Cum folosesc filtre geografice si CAEN?",
+      "planned_models": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Perplexity"
+      ],
+      "repetitions_per_model": 3,
+      "expected_runs": 12,
+      "completed_runs": 0,
+      "observation_ids": [],
+      "status": "not_tested",
+      "intent_mapping_status": "requires_semantic_mapping_to_intents_json"
+    },
+    {
+      "reference_id": "REF-020",
+      "intent_id": null,
+      "funnel_stage": "MOF",
+      "brand_scope": "unbranded",
+      "prompt_ro": "Cum compar firme din doua judete?",
+      "planned_models": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Perplexity"
+      ],
+      "repetitions_per_model": 3,
+      "expected_runs": 12,
+      "completed_runs": 0,
+      "observation_ids": [],
+      "status": "not_tested",
+      "intent_mapping_status": "requires_semantic_mapping_to_intents_json"
+    },
+    {
+      "reference_id": "REF-021",
+      "intent_id": null,
+      "funnel_stage": "BOF",
+      "brand_scope": "unbranded",
+      "prompt_ro": "Gaseste producatori de ambalaje din carton in Romania.",
+      "planned_models": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Perplexity"
+      ],
+      "repetitions_per_model": 3,
+      "expected_runs": 12,
+      "completed_runs": 0,
+      "observation_ids": [],
+      "status": "not_tested",
+      "intent_mapping_status": "requires_semantic_mapping_to_intents_json"
+    },
+    {
+      "reference_id": "REF-022",
+      "intent_id": null,
+      "funnel_stage": "BOF",
+      "brand_scope": "unbranded",
+      "prompt_ro": "Identifica potentiali clienti pentru ambalaje de vin.",
+      "planned_models": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Perplexity"
+      ],
+      "repetitions_per_model": 3,
+      "expected_runs": 12,
+      "completed_runs": 0,
+      "observation_ids": [],
+      "status": "not_tested",
+      "intent_mapping_status": "requires_semantic_mapping_to_intents_json"
+    },
+    {
+      "reference_id": "REF-023",
+      "intent_id": null,
+      "funnel_stage": "BOF",
+      "brand_scope": "unbranded",
+      "prompt_ro": "Cauta distribuitori de produse alimentare in Bucuresti.",
+      "planned_models": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Perplexity"
+      ],
+      "repetitions_per_model": 3,
+      "expected_runs": 12,
+      "completed_runs": 0,
+      "observation_ids": [],
+      "status": "not_tested",
+      "intent_mapping_status": "requires_semantic_mapping_to_intents_json"
+    },
+    {
+      "reference_id": "REF-024",
+      "intent_id": null,
+      "funnel_stage": "BOF",
+      "brand_scope": "unbranded",
+      "prompt_ro": "Gaseste firme active dintr-o clasa CAEN specificata.",
+      "planned_models": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Perplexity"
+      ],
+      "repetitions_per_model": 3,
+      "expected_runs": 12,
+      "completed_runs": 0,
+      "observation_ids": [],
+      "status": "not_tested",
+      "intent_mapping_status": "requires_semantic_mapping_to_intents_json"
+    },
+    {
+      "reference_id": "REF-025",
+      "intent_id": null,
+      "funnel_stage": "BOF",
+      "brand_scope": "unbranded",
+      "prompt_ro": "Listeaza potentiali parteneri IT din Cluj.",
+      "planned_models": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Perplexity"
+      ],
+      "repetitions_per_model": 3,
+      "expected_runs": 12,
+      "completed_runs": 0,
+      "observation_ids": [],
+      "status": "not_tested",
+      "intent_mapping_status": "requires_semantic_mapping_to_intents_json"
+    },
+    {
+      "reference_id": "REF-026",
+      "intent_id": null,
+      "funnel_stage": "BOF",
+      "brand_scope": "unbranded",
+      "prompt_ro": "Compara cinci furnizori pentru un produs specificat.",
+      "planned_models": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Perplexity"
+      ],
+      "repetitions_per_model": 3,
+      "expected_runs": 12,
+      "completed_runs": 0,
+      "observation_ids": [],
+      "status": "not_tested",
+      "intent_mapping_status": "requires_semantic_mapping_to_intents_json"
+    },
+    {
+      "reference_id": "REF-027",
+      "intent_id": null,
+      "funnel_stage": "BOF",
+      "brand_scope": "unbranded",
+      "prompt_ro": "Verifica informatiile unei firme dupa CUI.",
+      "planned_models": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Perplexity"
+      ],
+      "repetitions_per_model": 3,
+      "expected_runs": 12,
+      "completed_runs": 0,
+      "observation_ids": [],
+      "status": "not_tested",
+      "intent_mapping_status": "requires_semantic_mapping_to_intents_json"
+    },
+    {
+      "reference_id": "REF-028",
+      "intent_id": null,
+      "funnel_stage": "BOF",
+      "brand_scope": "unbranded",
+      "prompt_ro": "Gaseste firme complementare unui producator.",
+      "planned_models": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Perplexity"
+      ],
+      "repetitions_per_model": 3,
+      "expected_runs": 12,
+      "completed_runs": 0,
+      "observation_ids": [],
+      "status": "not_tested",
+      "intent_mapping_status": "requires_semantic_mapping_to_intents_json"
+    },
+    {
+      "reference_id": "REF-029",
+      "intent_id": null,
+      "funnel_stage": "BOF",
+      "brand_scope": "unbranded",
+      "prompt_ro": "Identifica firme din industria cosmeticelor care ar putea utiliza ambalaje.",
+      "planned_models": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Perplexity"
+      ],
+      "repetitions_per_model": 3,
+      "expected_runs": 12,
+      "completed_runs": 0,
+      "observation_ids": [],
+      "status": "not_tested",
+      "intent_mapping_status": "requires_semantic_mapping_to_intents_json"
+    },
+    {
+      "reference_id": "REF-030",
+      "intent_id": null,
+      "funnel_stage": "BOF",
+      "brand_scope": "unbranded",
+      "prompt_ro": "Gaseste furnizori de servicii logistice din Romania.",
+      "planned_models": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Perplexity"
+      ],
+      "repetitions_per_model": 3,
+      "expected_runs": 12,
+      "completed_runs": 0,
+      "observation_ids": [],
+      "status": "not_tested",
+      "intent_mapping_status": "requires_semantic_mapping_to_intents_json"
+    }
+  ],
+  "observation_record_template": {
+    "observation_id": null,
+    "reference_id": "REF-001",
+    "intent_id": null,
+    "run_id": null,
+    "repetition_number": null,
+    "execution": {
+      "model_provider": null,
+      "model_name": null,
+      "model_version": null,
+      "interface_or_api": null,
+      "started_at": null,
+      "completed_at": null,
+      "locale": "ro-RO",
+      "country_context": "Romania",
+      "session_mode": null,
+      "web_access_enabled": null,
+      "search_mode": null,
+      "prompt_exact": null,
+      "prompt_sha256": null,
+      "response_text": null,
+      "response_artifact_url": null,
+      "response_sha256": null,
+      "capture_method": null
+    },
+    "observed": {
+      "brand_discovered": null,
+      "brand_mentioned": null,
+      "brand_mention_count": null,
+      "brand_recommended": null,
+      "brand_recommendation_position": null,
+      "first_brand_mention_character_offset": null,
+      "citation_to_firmsfinder": null,
+      "firmsfinder_cited_urls": [],
+      "other_cited_urls": [],
+      "all_citations": [],
+      "factual_errors": [],
+      "unsupported_capability_claims": [],
+      "caen_inference_errors": [],
+      "uncertainty_disclosed": null,
+      "answer_relevant": null
+    },
+    "human_review": {
+      "reviewer": null,
+      "reviewed_at": null,
+      "rubric_version": "1.0",
+      "scores": {
+        "answer_relevance": null,
+        "factual_accuracy": null,
+        "source_quality": null,
+        "brand_mention": null,
+        "brand_recommendation": null,
+        "citation_to_firmsfinder": null,
+        "uncertainty_handling": null
+      },
+      "score_notes": null,
+      "review_status": "not_reviewed"
+    },
+    "evidence": {
+      "source_snapshot_urls": [],
+      "source_sha256": null,
+      "verification_status": "not_verified"
+    },
+    "status": "not_executed",
+    "intent_mapping_status": "requires_semantic_mapping_to_intents_json"
+  },
+  "observations": [],
+  "aggregates": {
+    "aggregation_status": "not_computed",
+    "denominator_policy": "use only executed and valid runs; always report denominators",
+    "by_model": [],
+    "by_funnel_stage": [],
+    "by_reference_id": [],
+    "cross_model_comparisons": [],
+    "overall": {
+      "executed_runs": 0,
+      "valid_reviewed_runs": 0,
+      "brand_discovery_rate": null,
+      "brand_mention_rate": null,
+      "brand_recommendation_rate": null,
+      "citation_rate": null,
+      "factual_accuracy_mean": null,
+      "cross_model_agreement_rate": null
+    }
+  },
+  "acceptance_rules": [
+    "Every actual observation must reference an existing REF identifier",
+    "No model result may be fabricated",
+    "All run metadata must include model/version, timestamp and search setting",
+    "Original response must be preserved or a hash-verified capture linked",
+    "Do not assign true/false to unexecuted runs",
+    "Human review must distinguish mention, recommendation and citation",
+    "All percentages require numerator and denominator",
+    "Branded and unbranded prompts must be reported separately"
+  ],
+  "verification": {
+    "json_syntax": "validated_locally",
+    "reference_set_mapping": "validated_for_reference_ids_prompts_and_funnel;intent_ids_unresolved",
+    "runtime_observations": "not_performed",
+    "external_source_checks": "not_performed",
+    "public_deployment": "not_verified"
+  },
+  "summary": {
+    "reference_cases": 30,
+    "models_planned": 4,
+    "repetitions_per_case_and_model": 3,
+    "planned_executions": 360,
+    "completed_executions": 0,
+    "actual_observation_records": 0,
+    "verified_observations": 0,
+    "verified_citations": 0
+  }
+}
