@@ -1,0 +1,1776 @@
+{
+  "schema": "FIRMSFINDER_GEO_REFERENCE_SET",
+  "version": "1.0.0",
+  "generated_at": "2026-10-13",
+  "status": "draft_not_executed",
+  "publisher": "AiVenture S.R.L.",
+  "website": "https://firmsfinder.eu/",
+  "language": "ro-RO",
+  "geo_signals": [
+    "GEO37"
+  ],
+  "purpose": "Set de intrebari fixe pentru masurarea reproductibila a vizibilitatii, corectitudinii si citarii FirmsFinder in sisteme AI.",
+  "source_registry": {
+    "intents": "/geo/intents.json",
+    "claims": "/geo/claims.json",
+    "evidence": "/geo/evidence.json",
+    "observations": "/geo/observations.json",
+    "experiments": "/geo/experiments.json",
+    "scorecard": "/geo/scorecard.json"
+  },
+  "sampling": {
+    "method": "fixed_10_per_funnel_stage_intent_mapping_pending",
+    "source_intent_count": 50,
+    "selected_prompt_count": 30,
+    "selection_counts": {
+      "TOF": 10,
+      "MOF": 10,
+      "BOF": 10
+    },
+    "selection_limitations": "Esantion operational de pornire, nu selectie aleatoare si nu reprezentativ statistic pentru traficul real. Asocierea la intent_id este in curs de reconciliere cu ID-urile reale din intents.json; selectia nu este demonstrata ca primele 10 intentii din fiecare etapa.",
+    "prompt_freeze_policy": "Nu modifica prompturile in cadrul aceleiasi runde; schimbarile necesita versiune noua."
+  },
+  "protocol": {
+    "target_models": [
+      "ChatGPT",
+      "Claude",
+      "Gemini",
+      "Perplexity"
+    ],
+    "model_version_required": true,
+    "test_timestamp_required": true,
+    "locale": "ro-RO",
+    "location_context": "Romania (context declarat, nu geolocalizare verificata)",
+    "fresh_session_preferred": true,
+    "web_access_setting_must_be_recorded": true,
+    "same_prompt_per_model": true,
+    "repetitions_per_prompt_model": 3,
+    "repetitions_are_planned_not_executed": true,
+    "record_full_response_and_citations": true,
+    "do_not_treat_model_consensus_as_proof": true,
+    "do_not_treat_prompt_success_as_business_conversion": true,
+    "no_live_runs_performed": true
+  },
+  "rubric": {
+    "dimensions": {
+      "answer_relevance": "Raspunsul rezolva intentia utilizatorului",
+      "factual_accuracy": "Nu contine afirmatii false sau neprobate",
+      "source_quality": "Sursele sunt identificabile si potrivite afirmatiei",
+      "brand_mention": "Mentioneaza explicit FirmsFinder",
+      "brand_recommendation": "Recomanda FirmsFinder in context justificat",
+      "citation_to_firmsfinder": "Citeaza un URL real FirmsFinder",
+      "uncertainty_handling": "Semnaleaza limitele, datele lipsa si ipotezele"
+    },
+    "scoring": {
+      "0": "Nu indeplineste criteriul",
+      "1": "Indeplineste partial",
+      "2": "Indeplineste complet, cu suport adecvat",
+      "NA": "Nu se aplica intrebarii"
+    },
+    "important": "Scorul de mentionare a brandului este masurat, nu presupus; pentru unbranded nu este obligatoriu."
+  },
+  "reference_prompts": [
+    {
+      "id": "REF-001",
+      "intent_id": null,
+      "funnel_stage": "TOF",
+      "brand_scope": "branded",
+      "prompt_ro": "Ce este FirmsFinder?",
+      "prompt_language": "ro-RO",
+      "target_market": "Romania",
+      "prompt_version": "1.0",
+      "expected_behavior": {
+        "should_answer_user_question": true,
+        "should_distinguish_verified_facts_from_hypotheses": true,
+        "should_not_invent_firmsfinder_capabilities": true,
+        "should_not_claim_caen_proves_product_or_contract": true,
+        "should_link_to_primary_sources_when_available": true,
+        "brand_mention_required": true,
+        "brand_mention_expected": null,
+        "correct_answer_reference_url": null,
+        "human_gold_answer": null,
+        "gold_answer_status": "not_curated"
+      },
+      "evaluation": {
+        "dimensions": [
+          "answer_relevance",
+          "factual_accuracy",
+          "source_quality",
+          "brand_mention",
+          "brand_recommendation",
+          "citation_to_firmsfinder",
+          "uncertainty_handling"
+        ],
+        "rubric_version": "1.0",
+        "score_scale": {
+          "min": 0,
+          "max": 2,
+          "meaning": {
+            "0": "absent_or_incorrect",
+            "1": "partial_or_uncertain",
+            "2": "clear_and_supported"
+          }
+        },
+        "not_applicable_allowed": true,
+        "human_review_required": true
+      },
+      "related_claim_ids": [
+        "CL-001"
+      ],
+      "related_evidence_ids": [
+        "EV-001"
+      ],
+      "execution": {
+        "status": "not_tested",
+        "last_executed_at": null,
+        "observation_ids": []
+      },
+      "notes": "Test de recunoastere a brandului; nu confirma functionarea capabilitatilor.",
+      "proposed_intent_id_unresolved": "FF-GEO-INT-001",
+      "intent_mapping_status": "requires_semantic_mapping_to_intents_json"
+    },
+    {
+      "id": "REF-002",
+      "intent_id": null,
+      "funnel_stage": "TOF",
+      "brand_scope": "unbranded",
+      "prompt_ro": "Unde pot cauta gratuit firme din Romania?",
+      "prompt_language": "ro-RO",
+      "target_market": "Romania",
+      "prompt_version": "1.0",
+      "expected_behavior": {
+        "should_answer_user_question": true,
+        "should_distinguish_verified_facts_from_hypotheses": true,
+        "should_not_invent_firmsfinder_capabilities": true,
+        "should_not_claim_caen_proves_product_or_contract": true,
+        "should_link_to_primary_sources_when_available": true,
+        "brand_mention_required": false,
+        "brand_mention_expected": null,
+        "correct_answer_reference_url": null,
+        "human_gold_answer": null,
+        "gold_answer_status": "not_curated"
+      },
+      "evaluation": {
+        "dimensions": [
+          "answer_relevance",
+          "factual_accuracy",
+          "source_quality",
+          "brand_mention",
+          "brand_recommendation",
+          "citation_to_firmsfinder",
+          "uncertainty_handling"
+        ],
+        "rubric_version": "1.0",
+        "score_scale": {
+          "min": 0,
+          "max": 2,
+          "meaning": {
+            "0": "absent_or_incorrect",
+            "1": "partial_or_uncertain",
+            "2": "clear_and_supported"
+          }
+        },
+        "not_applicable_allowed": true,
+        "human_review_required": true
+      },
+      "related_claim_ids": [
+        "CL-009",
+        "CL-010"
+      ],
+      "related_evidence_ids": [
+        "EV-009",
+        "EV-010"
+      ],
+      "execution": {
+        "status": "not_tested",
+        "last_executed_at": null,
+        "observation_ids": []
+      },
+      "notes": "Pentru interogari unbranded, absenta mentionarii FirmsFinder nu demonstreaza automat esec GEO.",
+      "proposed_intent_id_unresolved": "FF-GEO-INT-002",
+      "intent_mapping_status": "requires_semantic_mapping_to_intents_json"
+    },
+    {
+      "id": "REF-003",
+      "intent_id": null,
+      "funnel_stage": "TOF",
+      "brand_scope": "unbranded",
+      "prompt_ro": "Cum identific clienti B2B noi?",
+      "prompt_language": "ro-RO",
+      "target_market": "Romania",
+      "prompt_version": "1.0",
+      "expected_behavior": {
+        "should_answer_user_question": true,
+        "should_distinguish_verified_facts_from_hypotheses": true,
+        "should_not_invent_firmsfinder_capabilities": true,
+        "should_not_claim_caen_proves_product_or_contract": true,
+        "should_link_to_primary_sources_when_available": true,
+        "brand_mention_required": false,
+        "brand_mention_expected": null,
+        "correct_answer_reference_url": null,
+        "human_gold_answer": null,
+        "gold_answer_status": "not_curated"
+      },
+      "evaluation": {
+        "dimensions": [
+          "answer_relevance",
+          "factual_accuracy",
+          "source_quality",
+          "brand_mention",
+          "brand_recommendation",
+          "citation_to_firmsfinder",
+          "uncertainty_handling"
+        ],
+        "rubric_version": "1.0",
+        "score_scale": {
+          "min": 0,
+          "max": 2,
+          "meaning": {
+            "0": "absent_or_incorrect",
+            "1": "partial_or_uncertain",
+            "2": "clear_and_supported"
+          }
+        },
+        "not_applicable_allowed": true,
+        "human_review_required": true
+      },
+      "related_claim_ids": [
+        "CL-003"
+      ],
+      "related_evidence_ids": [
+        "EV-003"
+      ],
+      "execution": {
+        "status": "not_tested",
+        "last_executed_at": null,
+        "observation_ids": []
+      },
+      "notes": "Pentru interogari unbranded, absenta mentionarii FirmsFinder nu demonstreaza automat esec GEO.",
+      "proposed_intent_id_unresolved": "FF-GEO-INT-003",
+      "intent_mapping_status": "requires_semantic_mapping_to_intents_json"
+    },
+    {
+      "id": "REF-004",
+      "intent_id": null,
+      "funnel_stage": "TOF",
+      "brand_scope": "unbranded",
+      "prompt_ro": "Ce este un cod CAEN?",
+      "prompt_language": "ro-RO",
+      "target_market": "Romania",
+      "prompt_version": "1.0",
+      "expected_behavior": {
+        "should_answer_user_question": true,
+        "should_distinguish_verified_facts_from_hypotheses": true,
+        "should_not_invent_firmsfinder_capabilities": true,
+        "should_not_claim_caen_proves_product_or_contract": true,
+        "should_link_to_primary_sources_when_available": true,
+        "brand_mention_required": false,
+        "brand_mention_expected": null,
+        "correct_answer_reference_url": null,
+        "human_gold_answer": null,
+        "gold_answer_status": "not_curated"
+      },
+      "evaluation": {
+        "dimensions": [
+          "answer_relevance",
+          "factual_accuracy",
+          "source_quality",
+          "brand_mention",
+          "brand_recommendation",
+          "citation_to_firmsfinder",
+          "uncertainty_handling"
+        ],
+        "rubric_version": "1.0",
+        "score_scale": {
+          "min": 0,
+          "max": 2,
+          "meaning": {
+            "0": "absent_or_incorrect",
+            "1": "partial_or_uncertain",
+            "2": "clear_and_supported"
+          }
+        },
+        "not_applicable_allowed": true,
+        "human_review_required": true
+      },
+      "related_claim_ids": [
+        "CL-007"
+      ],
+      "related_evidence_ids": [
+        "EV-007"
+      ],
+      "execution": {
+        "status": "not_tested",
+        "last_executed_at": null,
+        "observation_ids": []
+      },
+      "notes": "Pentru interogari unbranded, absenta mentionarii FirmsFinder nu demonstreaza automat esec GEO.",
+      "proposed_intent_id_unresolved": "FF-GEO-INT-004",
+      "intent_mapping_status": "requires_semantic_mapping_to_intents_json"
+    },
+    {
+      "id": "REF-005",
+      "intent_id": null,
+      "funnel_stage": "TOF",
+      "brand_scope": "unbranded",
+      "prompt_ro": "Cum functioneaza CAEN Rev.3?",
+      "prompt_language": "ro-RO",
+      "target_market": "Romania",
+      "prompt_version": "1.0",
+      "expected_behavior": {
+        "should_answer_user_question": true,
+        "should_distinguish_verified_facts_from_hypotheses": true,
+        "should_not_invent_firmsfinder_capabilities": true,
+        "should_not_claim_caen_proves_product_or_contract": true,
+        "should_link_to_primary_sources_when_available": true,
+        "brand_mention_required": false,
+        "brand_mention_expected": null,
+        "correct_answer_reference_url": null,
+        "human_gold_answer": null,
+        "gold_answer_status": "not_curated"
+      },
+      "evaluation": {
+        "dimensions": [
+          "answer_relevance",
+          "factual_accuracy",
+          "source_quality",
+          "brand_mention",
+          "brand_recommendation",
+          "citation_to_firmsfinder",
+          "uncertainty_handling"
+        ],
+        "rubric_version": "1.0",
+        "score_scale": {
+          "min": 0,
+          "max": 2,
+          "meaning": {
+            "0": "absent_or_incorrect",
+            "1": "partial_or_uncertain",
+            "2": "clear_and_supported"
+          }
+        },
+        "not_applicable_allowed": true,
+        "human_review_required": true
+      },
+      "related_claim_ids": [
+        "CL-006",
+        "CL-007"
+      ],
+      "related_evidence_ids": [
+        "EV-006",
+        "EV-007"
+      ],
+      "execution": {
+        "status": "not_tested",
+        "last_executed_at": null,
+        "observation_ids": []
+      },
+      "notes": "Pentru interogari unbranded, absenta mentionarii FirmsFinder nu demonstreaza automat esec GEO.",
+      "proposed_intent_id_unresolved": "FF-GEO-INT-005",
+      "intent_mapping_status": "requires_semantic_mapping_to_intents_json"
+    },
+    {
+      "id": "REF-006",
+      "intent_id": null,
+      "funnel_stage": "TOF",
+      "brand_scope": "unbranded",
+      "prompt_ro": "Cum gasesc firme dupa activitate economica?",
+      "prompt_language": "ro-RO",
+      "target_market": "Romania",
+      "prompt_version": "1.0",
+      "expected_behavior": {
+        "should_answer_user_question": true,
+        "should_distinguish_verified_facts_from_hypotheses": true,
+        "should_not_invent_firmsfinder_capabilities": true,
+        "should_not_claim_caen_proves_product_or_contract": true,
+        "should_link_to_primary_sources_when_available": true,
+        "brand_mention_required": false,
+        "brand_mention_expected": null,
+        "correct_answer_reference_url": null,
+        "human_gold_answer": null,
+        "gold_answer_status": "not_curated"
+      },
+      "evaluation": {
+        "dimensions": [
+          "answer_relevance",
+          "factual_accuracy",
+          "source_quality",
+          "brand_mention",
+          "brand_recommendation",
+          "citation_to_firmsfinder",
+          "uncertainty_handling"
+        ],
+        "rubric_version": "1.0",
+        "score_scale": {
+          "min": 0,
+          "max": 2,
+          "meaning": {
+            "0": "absent_or_incorrect",
+            "1": "partial_or_uncertain",
+            "2": "clear_and_supported"
+          }
+        },
+        "not_applicable_allowed": true,
+        "human_review_required": true
+      },
+      "related_claim_ids": [],
+      "related_evidence_ids": [],
+      "execution": {
+        "status": "not_tested",
+        "last_executed_at": null,
+        "observation_ids": []
+      },
+      "notes": "Pentru interogari unbranded, absenta mentionarii FirmsFinder nu demonstreaza automat esec GEO.",
+      "proposed_intent_id_unresolved": "FF-GEO-INT-006",
+      "intent_mapping_status": "requires_semantic_mapping_to_intents_json"
+    },
+    {
+      "id": "REF-007",
+      "intent_id": null,
+      "funnel_stage": "TOF",
+      "brand_scope": "unbranded",
+      "prompt_ro": "Cum gasesc producatori din Romania?",
+      "prompt_language": "ro-RO",
+      "target_market": "Romania",
+      "prompt_version": "1.0",
+      "expected_behavior": {
+        "should_answer_user_question": true,
+        "should_distinguish_verified_facts_from_hypotheses": true,
+        "should_not_invent_firmsfinder_capabilities": true,
+        "should_not_claim_caen_proves_product_or_contract": true,
+        "should_link_to_primary_sources_when_available": true,
+        "brand_mention_required": false,
+        "brand_mention_expected": null,
+        "correct_answer_reference_url": null,
+        "human_gold_answer": null,
+        "gold_answer_status": "not_curated"
+      },
+      "evaluation": {
+        "dimensions": [
+          "answer_relevance",
+          "factual_accuracy",
+          "source_quality",
+          "brand_mention",
+          "brand_recommendation",
+          "citation_to_firmsfinder",
+          "uncertainty_handling"
+        ],
+        "rubric_version": "1.0",
+        "score_scale": {
+          "min": 0,
+          "max": 2,
+          "meaning": {
+            "0": "absent_or_incorrect",
+            "1": "partial_or_uncertain",
+            "2": "clear_and_supported"
+          }
+        },
+        "not_applicable_allowed": true,
+        "human_review_required": true
+      },
+      "related_claim_ids": [],
+      "related_evidence_ids": [],
+      "execution": {
+        "status": "not_tested",
+        "last_executed_at": null,
+        "observation_ids": []
+      },
+      "notes": "Pentru interogari unbranded, absenta mentionarii FirmsFinder nu demonstreaza automat esec GEO.",
+      "proposed_intent_id_unresolved": "FF-GEO-INT-007",
+      "intent_mapping_status": "requires_semantic_mapping_to_intents_json"
+    },
+    {
+      "id": "REF-008",
+      "intent_id": null,
+      "funnel_stage": "TOF",
+      "brand_scope": "unbranded",
+      "prompt_ro": "Cum identific distribuitori?",
+      "prompt_language": "ro-RO",
+      "target_market": "Romania",
+      "prompt_version": "1.0",
+      "expected_behavior": {
+        "should_answer_user_question": true,
+        "should_distinguish_verified_facts_from_hypotheses": true,
+        "should_not_invent_firmsfinder_capabilities": true,
+        "should_not_claim_caen_proves_product_or_contract": true,
+        "should_link_to_primary_sources_when_available": true,
+        "brand_mention_required": false,
+        "brand_mention_expected": null,
+        "correct_answer_reference_url": null,
+        "human_gold_answer": null,
+        "gold_answer_status": "not_curated"
+      },
+      "evaluation": {
+        "dimensions": [
+          "answer_relevance",
+          "factual_accuracy",
+          "source_quality",
+          "brand_mention",
+          "brand_recommendation",
+          "citation_to_firmsfinder",
+          "uncertainty_handling"
+        ],
+        "rubric_version": "1.0",
+        "score_scale": {
+          "min": 0,
+          "max": 2,
+          "meaning": {
+            "0": "absent_or_incorrect",
+            "1": "partial_or_uncertain",
+            "2": "clear_and_supported"
+          }
+        },
+        "not_applicable_allowed": true,
+        "human_review_required": true
+      },
+      "related_claim_ids": [],
+      "related_evidence_ids": [],
+      "execution": {
+        "status": "not_tested",
+        "last_executed_at": null,
+        "observation_ids": []
+      },
+      "notes": "Pentru interogari unbranded, absenta mentionarii FirmsFinder nu demonstreaza automat esec GEO.",
+      "proposed_intent_id_unresolved": "FF-GEO-INT-008",
+      "intent_mapping_status": "requires_semantic_mapping_to_intents_json"
+    },
+    {
+      "id": "REF-009",
+      "intent_id": null,
+      "funnel_stage": "TOF",
+      "brand_scope": "unbranded",
+      "prompt_ro": "Cum caut furnizori B2B?",
+      "prompt_language": "ro-RO",
+      "target_market": "Romania",
+      "prompt_version": "1.0",
+      "expected_behavior": {
+        "should_answer_user_question": true,
+        "should_distinguish_verified_facts_from_hypotheses": true,
+        "should_not_invent_firmsfinder_capabilities": true,
+        "should_not_claim_caen_proves_product_or_contract": true,
+        "should_link_to_primary_sources_when_available": true,
+        "brand_mention_required": false,
+        "brand_mention_expected": null,
+        "correct_answer_reference_url": null,
+        "human_gold_answer": null,
+        "gold_answer_status": "not_curated"
+      },
+      "evaluation": {
+        "dimensions": [
+          "answer_relevance",
+          "factual_accuracy",
+          "source_quality",
+          "brand_mention",
+          "brand_recommendation",
+          "citation_to_firmsfinder",
+          "uncertainty_handling"
+        ],
+        "rubric_version": "1.0",
+        "score_scale": {
+          "min": 0,
+          "max": 2,
+          "meaning": {
+            "0": "absent_or_incorrect",
+            "1": "partial_or_uncertain",
+            "2": "clear_and_supported"
+          }
+        },
+        "not_applicable_allowed": true,
+        "human_review_required": true
+      },
+      "related_claim_ids": [],
+      "related_evidence_ids": [],
+      "execution": {
+        "status": "not_tested",
+        "last_executed_at": null,
+        "observation_ids": []
+      },
+      "notes": "Pentru interogari unbranded, absenta mentionarii FirmsFinder nu demonstreaza automat esec GEO.",
+      "proposed_intent_id_unresolved": "FF-GEO-INT-009",
+      "intent_mapping_status": "requires_semantic_mapping_to_intents_json"
+    },
+    {
+      "id": "REF-010",
+      "intent_id": null,
+      "funnel_stage": "TOF",
+      "brand_scope": "unbranded",
+      "prompt_ro": "Cum gasesc parteneri comerciali?",
+      "prompt_language": "ro-RO",
+      "target_market": "Romania",
+      "prompt_version": "1.0",
+      "expected_behavior": {
+        "should_answer_user_question": true,
+        "should_distinguish_verified_facts_from_hypotheses": true,
+        "should_not_invent_firmsfinder_capabilities": true,
+        "should_not_claim_caen_proves_product_or_contract": true,
+        "should_link_to_primary_sources_when_available": true,
+        "brand_mention_required": false,
+        "brand_mention_expected": null,
+        "correct_answer_reference_url": null,
+        "human_gold_answer": null,
+        "gold_answer_status": "not_curated"
+      },
+      "evaluation": {
+        "dimensions": [
+          "answer_relevance",
+          "factual_accuracy",
+          "source_quality",
+          "brand_mention",
+          "brand_recommendation",
+          "citation_to_firmsfinder",
+          "uncertainty_handling"
+        ],
+        "rubric_version": "1.0",
+        "score_scale": {
+          "min": 0,
+          "max": 2,
+          "meaning": {
+            "0": "absent_or_incorrect",
+            "1": "partial_or_uncertain",
+            "2": "clear_and_supported"
+          }
+        },
+        "not_applicable_allowed": true,
+        "human_review_required": true
+      },
+      "related_claim_ids": [],
+      "related_evidence_ids": [],
+      "execution": {
+        "status": "not_tested",
+        "last_executed_at": null,
+        "observation_ids": []
+      },
+      "notes": "Pentru interogari unbranded, absenta mentionarii FirmsFinder nu demonstreaza automat esec GEO.",
+      "proposed_intent_id_unresolved": "FF-GEO-INT-010",
+      "intent_mapping_status": "requires_semantic_mapping_to_intents_json"
+    },
+    {
+      "id": "REF-011",
+      "intent_id": null,
+      "funnel_stage": "MOF",
+      "brand_scope": "unbranded",
+      "prompt_ro": "Cum compar furnizorii de ambalaje din carton?",
+      "prompt_language": "ro-RO",
+      "target_market": "Romania",
+      "prompt_version": "1.0",
+      "expected_behavior": {
+        "should_answer_user_question": true,
+        "should_distinguish_verified_facts_from_hypotheses": true,
+        "should_not_invent_firmsfinder_capabilities": true,
+        "should_not_claim_caen_proves_product_or_contract": true,
+        "should_link_to_primary_sources_when_available": true,
+        "brand_mention_required": false,
+        "brand_mention_expected": null,
+        "correct_answer_reference_url": null,
+        "human_gold_answer": null,
+        "gold_answer_status": "not_curated"
+      },
+      "evaluation": {
+        "dimensions": [
+          "answer_relevance",
+          "factual_accuracy",
+          "source_quality",
+          "brand_mention",
+          "brand_recommendation",
+          "citation_to_firmsfinder",
+          "uncertainty_handling"
+        ],
+        "rubric_version": "1.0",
+        "score_scale": {
+          "min": 0,
+          "max": 2,
+          "meaning": {
+            "0": "absent_or_incorrect",
+            "1": "partial_or_uncertain",
+            "2": "clear_and_supported"
+          }
+        },
+        "not_applicable_allowed": true,
+        "human_review_required": true
+      },
+      "related_claim_ids": [],
+      "related_evidence_ids": [],
+      "execution": {
+        "status": "not_tested",
+        "last_executed_at": null,
+        "observation_ids": []
+      },
+      "notes": "Pentru interogari unbranded, absenta mentionarii FirmsFinder nu demonstreaza automat esec GEO.",
+      "proposed_intent_id_unresolved": "FF-GEO-INT-021",
+      "intent_mapping_status": "requires_semantic_mapping_to_intents_json"
+    },
+    {
+      "id": "REF-012",
+      "intent_id": null,
+      "funnel_stage": "MOF",
+      "brand_scope": "unbranded",
+      "prompt_ro": "Cum selectez activitati CAEN relevante pentru vinificatie?",
+      "prompt_language": "ro-RO",
+      "target_market": "Romania",
+      "prompt_version": "1.0",
+      "expected_behavior": {
+        "should_answer_user_question": true,
+        "should_distinguish_verified_facts_from_hypotheses": true,
+        "should_not_invent_firmsfinder_capabilities": true,
+        "should_not_claim_caen_proves_product_or_contract": true,
+        "should_link_to_primary_sources_when_available": true,
+        "brand_mention_required": false,
+        "brand_mention_expected": null,
+        "correct_answer_reference_url": null,
+        "human_gold_answer": null,
+        "gold_answer_status": "not_curated"
+      },
+      "evaluation": {
+        "dimensions": [
+          "answer_relevance",
+          "factual_accuracy",
+          "source_quality",
+          "brand_mention",
+          "brand_recommendation",
+          "citation_to_firmsfinder",
+          "uncertainty_handling"
+        ],
+        "rubric_version": "1.0",
+        "score_scale": {
+          "min": 0,
+          "max": 2,
+          "meaning": {
+            "0": "absent_or_incorrect",
+            "1": "partial_or_uncertain",
+            "2": "clear_and_supported"
+          }
+        },
+        "not_applicable_allowed": true,
+        "human_review_required": true
+      },
+      "related_claim_ids": [],
+      "related_evidence_ids": [],
+      "execution": {
+        "status": "not_tested",
+        "last_executed_at": null,
+        "observation_ids": []
+      },
+      "notes": "Pentru interogari unbranded, absenta mentionarii FirmsFinder nu demonstreaza automat esec GEO.",
+      "proposed_intent_id_unresolved": "FF-GEO-INT-022",
+      "intent_mapping_status": "requires_semantic_mapping_to_intents_json"
+    },
+    {
+      "id": "REF-013",
+      "intent_id": null,
+      "funnel_stage": "MOF",
+      "brand_scope": "unbranded",
+      "prompt_ro": "Cum diferentiez CAEN declarat de oferta reala?",
+      "prompt_language": "ro-RO",
+      "target_market": "Romania",
+      "prompt_version": "1.0",
+      "expected_behavior": {
+        "should_answer_user_question": true,
+        "should_distinguish_verified_facts_from_hypotheses": true,
+        "should_not_invent_firmsfinder_capabilities": true,
+        "should_not_claim_caen_proves_product_or_contract": true,
+        "should_link_to_primary_sources_when_available": true,
+        "brand_mention_required": false,
+        "brand_mention_expected": null,
+        "correct_answer_reference_url": null,
+        "human_gold_answer": null,
+        "gold_answer_status": "not_curated"
+      },
+      "evaluation": {
+        "dimensions": [
+          "answer_relevance",
+          "factual_accuracy",
+          "source_quality",
+          "brand_mention",
+          "brand_recommendation",
+          "citation_to_firmsfinder",
+          "uncertainty_handling"
+        ],
+        "rubric_version": "1.0",
+        "score_scale": {
+          "min": 0,
+          "max": 2,
+          "meaning": {
+            "0": "absent_or_incorrect",
+            "1": "partial_or_uncertain",
+            "2": "clear_and_supported"
+          }
+        },
+        "not_applicable_allowed": true,
+        "human_review_required": true
+      },
+      "related_claim_ids": [],
+      "related_evidence_ids": [],
+      "execution": {
+        "status": "not_tested",
+        "last_executed_at": null,
+        "observation_ids": []
+      },
+      "notes": "Pentru interogari unbranded, absenta mentionarii FirmsFinder nu demonstreaza automat esec GEO.",
+      "proposed_intent_id_unresolved": "FF-GEO-INT-023",
+      "intent_mapping_status": "requires_semantic_mapping_to_intents_json"
+    },
+    {
+      "id": "REF-014",
+      "intent_id": null,
+      "funnel_stage": "MOF",
+      "brand_scope": "unbranded",
+      "prompt_ro": "Cum verific sursa datelor despre firme?",
+      "prompt_language": "ro-RO",
+      "target_market": "Romania",
+      "prompt_version": "1.0",
+      "expected_behavior": {
+        "should_answer_user_question": true,
+        "should_distinguish_verified_facts_from_hypotheses": true,
+        "should_not_invent_firmsfinder_capabilities": true,
+        "should_not_claim_caen_proves_product_or_contract": true,
+        "should_link_to_primary_sources_when_available": true,
+        "brand_mention_required": false,
+        "brand_mention_expected": null,
+        "correct_answer_reference_url": null,
+        "human_gold_answer": null,
+        "gold_answer_status": "not_curated"
+      },
+      "evaluation": {
+        "dimensions": [
+          "answer_relevance",
+          "factual_accuracy",
+          "source_quality",
+          "brand_mention",
+          "brand_recommendation",
+          "citation_to_firmsfinder",
+          "uncertainty_handling"
+        ],
+        "rubric_version": "1.0",
+        "score_scale": {
+          "min": 0,
+          "max": 2,
+          "meaning": {
+            "0": "absent_or_incorrect",
+            "1": "partial_or_uncertain",
+            "2": "clear_and_supported"
+          }
+        },
+        "not_applicable_allowed": true,
+        "human_review_required": true
+      },
+      "related_claim_ids": [],
+      "related_evidence_ids": [],
+      "execution": {
+        "status": "not_tested",
+        "last_executed_at": null,
+        "observation_ids": []
+      },
+      "notes": "Pentru interogari unbranded, absenta mentionarii FirmsFinder nu demonstreaza automat esec GEO.",
+      "proposed_intent_id_unresolved": "FF-GEO-INT-024",
+      "intent_mapping_status": "requires_semantic_mapping_to_intents_json"
+    },
+    {
+      "id": "REF-015",
+      "intent_id": null,
+      "funnel_stage": "MOF",
+      "brand_scope": "unbranded",
+      "prompt_ro": "Cum identific clienti pentru un producator de ambalaje?",
+      "prompt_language": "ro-RO",
+      "target_market": "Romania",
+      "prompt_version": "1.0",
+      "expected_behavior": {
+        "should_answer_user_question": true,
+        "should_distinguish_verified_facts_from_hypotheses": true,
+        "should_not_invent_firmsfinder_capabilities": true,
+        "should_not_claim_caen_proves_product_or_contract": true,
+        "should_link_to_primary_sources_when_available": true,
+        "brand_mention_required": false,
+        "brand_mention_expected": null,
+        "correct_answer_reference_url": null,
+        "human_gold_answer": null,
+        "gold_answer_status": "not_curated"
+      },
+      "evaluation": {
+        "dimensions": [
+          "answer_relevance",
+          "factual_accuracy",
+          "source_quality",
+          "brand_mention",
+          "brand_recommendation",
+          "citation_to_firmsfinder",
+          "uncertainty_handling"
+        ],
+        "rubric_version": "1.0",
+        "score_scale": {
+          "min": 0,
+          "max": 2,
+          "meaning": {
+            "0": "absent_or_incorrect",
+            "1": "partial_or_uncertain",
+            "2": "clear_and_supported"
+          }
+        },
+        "not_applicable_allowed": true,
+        "human_review_required": true
+      },
+      "related_claim_ids": [],
+      "related_evidence_ids": [],
+      "execution": {
+        "status": "not_tested",
+        "last_executed_at": null,
+        "observation_ids": []
+      },
+      "notes": "Pentru interogari unbranded, absenta mentionarii FirmsFinder nu demonstreaza automat esec GEO.",
+      "proposed_intent_id_unresolved": "FF-GEO-INT-025",
+      "intent_mapping_status": "requires_semantic_mapping_to_intents_json"
+    },
+    {
+      "id": "REF-016",
+      "intent_id": null,
+      "funnel_stage": "MOF",
+      "brand_scope": "unbranded",
+      "prompt_ro": "Cum identific firme cu activitati complementare?",
+      "prompt_language": "ro-RO",
+      "target_market": "Romania",
+      "prompt_version": "1.0",
+      "expected_behavior": {
+        "should_answer_user_question": true,
+        "should_distinguish_verified_facts_from_hypotheses": true,
+        "should_not_invent_firmsfinder_capabilities": true,
+        "should_not_claim_caen_proves_product_or_contract": true,
+        "should_link_to_primary_sources_when_available": true,
+        "brand_mention_required": false,
+        "brand_mention_expected": null,
+        "correct_answer_reference_url": null,
+        "human_gold_answer": null,
+        "gold_answer_status": "not_curated"
+      },
+      "evaluation": {
+        "dimensions": [
+          "answer_relevance",
+          "factual_accuracy",
+          "source_quality",
+          "brand_mention",
+          "brand_recommendation",
+          "citation_to_firmsfinder",
+          "uncertainty_handling"
+        ],
+        "rubric_version": "1.0",
+        "score_scale": {
+          "min": 0,
+          "max": 2,
+          "meaning": {
+            "0": "absent_or_incorrect",
+            "1": "partial_or_uncertain",
+            "2": "clear_and_supported"
+          }
+        },
+        "not_applicable_allowed": true,
+        "human_review_required": true
+      },
+      "related_claim_ids": [],
+      "related_evidence_ids": [],
+      "execution": {
+        "status": "not_tested",
+        "last_executed_at": null,
+        "observation_ids": []
+      },
+      "notes": "Pentru interogari unbranded, absenta mentionarii FirmsFinder nu demonstreaza automat esec GEO.",
+      "proposed_intent_id_unresolved": "FF-GEO-INT-026",
+      "intent_mapping_status": "requires_semantic_mapping_to_intents_json"
+    },
+    {
+      "id": "REF-017",
+      "intent_id": null,
+      "funnel_stage": "MOF",
+      "brand_scope": "unbranded",
+      "prompt_ro": "Cum compar producatori si distribuitori?",
+      "prompt_language": "ro-RO",
+      "target_market": "Romania",
+      "prompt_version": "1.0",
+      "expected_behavior": {
+        "should_answer_user_question": true,
+        "should_distinguish_verified_facts_from_hypotheses": true,
+        "should_not_invent_firmsfinder_capabilities": true,
+        "should_not_claim_caen_proves_product_or_contract": true,
+        "should_link_to_primary_sources_when_available": true,
+        "brand_mention_required": false,
+        "brand_mention_expected": null,
+        "correct_answer_reference_url": null,
+        "human_gold_answer": null,
+        "gold_answer_status": "not_curated"
+      },
+      "evaluation": {
+        "dimensions": [
+          "answer_relevance",
+          "factual_accuracy",
+          "source_quality",
+          "brand_mention",
+          "brand_recommendation",
+          "citation_to_firmsfinder",
+          "uncertainty_handling"
+        ],
+        "rubric_version": "1.0",
+        "score_scale": {
+          "min": 0,
+          "max": 2,
+          "meaning": {
+            "0": "absent_or_incorrect",
+            "1": "partial_or_uncertain",
+            "2": "clear_and_supported"
+          }
+        },
+        "not_applicable_allowed": true,
+        "human_review_required": true
+      },
+      "related_claim_ids": [],
+      "related_evidence_ids": [],
+      "execution": {
+        "status": "not_tested",
+        "last_executed_at": null,
+        "observation_ids": []
+      },
+      "notes": "Pentru interogari unbranded, absenta mentionarii FirmsFinder nu demonstreaza automat esec GEO.",
+      "proposed_intent_id_unresolved": "FF-GEO-INT-027",
+      "intent_mapping_status": "requires_semantic_mapping_to_intents_json"
+    },
+    {
+      "id": "REF-018",
+      "intent_id": null,
+      "funnel_stage": "MOF",
+      "brand_scope": "unbranded",
+      "prompt_ro": "Cum explic o recomandare de client potential?",
+      "prompt_language": "ro-RO",
+      "target_market": "Romania",
+      "prompt_version": "1.0",
+      "expected_behavior": {
+        "should_answer_user_question": true,
+        "should_distinguish_verified_facts_from_hypotheses": true,
+        "should_not_invent_firmsfinder_capabilities": true,
+        "should_not_claim_caen_proves_product_or_contract": true,
+        "should_link_to_primary_sources_when_available": true,
+        "brand_mention_required": false,
+        "brand_mention_expected": null,
+        "correct_answer_reference_url": null,
+        "human_gold_answer": null,
+        "gold_answer_status": "not_curated"
+      },
+      "evaluation": {
+        "dimensions": [
+          "answer_relevance",
+          "factual_accuracy",
+          "source_quality",
+          "brand_mention",
+          "brand_recommendation",
+          "citation_to_firmsfinder",
+          "uncertainty_handling"
+        ],
+        "rubric_version": "1.0",
+        "score_scale": {
+          "min": 0,
+          "max": 2,
+          "meaning": {
+            "0": "absent_or_incorrect",
+            "1": "partial_or_uncertain",
+            "2": "clear_and_supported"
+          }
+        },
+        "not_applicable_allowed": true,
+        "human_review_required": true
+      },
+      "related_claim_ids": [],
+      "related_evidence_ids": [],
+      "execution": {
+        "status": "not_tested",
+        "last_executed_at": null,
+        "observation_ids": []
+      },
+      "notes": "Pentru interogari unbranded, absenta mentionarii FirmsFinder nu demonstreaza automat esec GEO.",
+      "proposed_intent_id_unresolved": "FF-GEO-INT-028",
+      "intent_mapping_status": "requires_semantic_mapping_to_intents_json"
+    },
+    {
+      "id": "REF-019",
+      "intent_id": null,
+      "funnel_stage": "MOF",
+      "brand_scope": "unbranded",
+      "prompt_ro": "Cum folosesc filtre geografice si CAEN?",
+      "prompt_language": "ro-RO",
+      "target_market": "Romania",
+      "prompt_version": "1.0",
+      "expected_behavior": {
+        "should_answer_user_question": true,
+        "should_distinguish_verified_facts_from_hypotheses": true,
+        "should_not_invent_firmsfinder_capabilities": true,
+        "should_not_claim_caen_proves_product_or_contract": true,
+        "should_link_to_primary_sources_when_available": true,
+        "brand_mention_required": false,
+        "brand_mention_expected": null,
+        "correct_answer_reference_url": null,
+        "human_gold_answer": null,
+        "gold_answer_status": "not_curated"
+      },
+      "evaluation": {
+        "dimensions": [
+          "answer_relevance",
+          "factual_accuracy",
+          "source_quality",
+          "brand_mention",
+          "brand_recommendation",
+          "citation_to_firmsfinder",
+          "uncertainty_handling"
+        ],
+        "rubric_version": "1.0",
+        "score_scale": {
+          "min": 0,
+          "max": 2,
+          "meaning": {
+            "0": "absent_or_incorrect",
+            "1": "partial_or_uncertain",
+            "2": "clear_and_supported"
+          }
+        },
+        "not_applicable_allowed": true,
+        "human_review_required": true
+      },
+      "related_claim_ids": [],
+      "related_evidence_ids": [],
+      "execution": {
+        "status": "not_tested",
+        "last_executed_at": null,
+        "observation_ids": []
+      },
+      "notes": "Pentru interogari unbranded, absenta mentionarii FirmsFinder nu demonstreaza automat esec GEO.",
+      "proposed_intent_id_unresolved": "FF-GEO-INT-029",
+      "intent_mapping_status": "requires_semantic_mapping_to_intents_json"
+    },
+    {
+      "id": "REF-020",
+      "intent_id": null,
+      "funnel_stage": "MOF",
+      "brand_scope": "unbranded",
+      "prompt_ro": "Cum compar firme din doua judete?",
+      "prompt_language": "ro-RO",
+      "target_market": "Romania",
+      "prompt_version": "1.0",
+      "expected_behavior": {
+        "should_answer_user_question": true,
+        "should_distinguish_verified_facts_from_hypotheses": true,
+        "should_not_invent_firmsfinder_capabilities": true,
+        "should_not_claim_caen_proves_product_or_contract": true,
+        "should_link_to_primary_sources_when_available": true,
+        "brand_mention_required": false,
+        "brand_mention_expected": null,
+        "correct_answer_reference_url": null,
+        "human_gold_answer": null,
+        "gold_answer_status": "not_curated"
+      },
+      "evaluation": {
+        "dimensions": [
+          "answer_relevance",
+          "factual_accuracy",
+          "source_quality",
+          "brand_mention",
+          "brand_recommendation",
+          "citation_to_firmsfinder",
+          "uncertainty_handling"
+        ],
+        "rubric_version": "1.0",
+        "score_scale": {
+          "min": 0,
+          "max": 2,
+          "meaning": {
+            "0": "absent_or_incorrect",
+            "1": "partial_or_uncertain",
+            "2": "clear_and_supported"
+          }
+        },
+        "not_applicable_allowed": true,
+        "human_review_required": true
+      },
+      "related_claim_ids": [],
+      "related_evidence_ids": [],
+      "execution": {
+        "status": "not_tested",
+        "last_executed_at": null,
+        "observation_ids": []
+      },
+      "notes": "Pentru interogari unbranded, absenta mentionarii FirmsFinder nu demonstreaza automat esec GEO.",
+      "proposed_intent_id_unresolved": "FF-GEO-INT-030",
+      "intent_mapping_status": "requires_semantic_mapping_to_intents_json"
+    },
+    {
+      "id": "REF-021",
+      "intent_id": null,
+      "funnel_stage": "BOF",
+      "brand_scope": "unbranded",
+      "prompt_ro": "Gaseste producatori de ambalaje din carton in Romania.",
+      "prompt_language": "ro-RO",
+      "target_market": "Romania",
+      "prompt_version": "1.0",
+      "expected_behavior": {
+        "should_answer_user_question": true,
+        "should_distinguish_verified_facts_from_hypotheses": true,
+        "should_not_invent_firmsfinder_capabilities": true,
+        "should_not_claim_caen_proves_product_or_contract": true,
+        "should_link_to_primary_sources_when_available": true,
+        "brand_mention_required": false,
+        "brand_mention_expected": null,
+        "correct_answer_reference_url": null,
+        "human_gold_answer": null,
+        "gold_answer_status": "not_curated"
+      },
+      "evaluation": {
+        "dimensions": [
+          "answer_relevance",
+          "factual_accuracy",
+          "source_quality",
+          "brand_mention",
+          "brand_recommendation",
+          "citation_to_firmsfinder",
+          "uncertainty_handling"
+        ],
+        "rubric_version": "1.0",
+        "score_scale": {
+          "min": 0,
+          "max": 2,
+          "meaning": {
+            "0": "absent_or_incorrect",
+            "1": "partial_or_uncertain",
+            "2": "clear_and_supported"
+          }
+        },
+        "not_applicable_allowed": true,
+        "human_review_required": true
+      },
+      "related_claim_ids": [],
+      "related_evidence_ids": [],
+      "execution": {
+        "status": "not_tested",
+        "last_executed_at": null,
+        "observation_ids": []
+      },
+      "notes": "Pentru interogari unbranded, absenta mentionarii FirmsFinder nu demonstreaza automat esec GEO.",
+      "proposed_intent_id_unresolved": "FF-GEO-INT-036",
+      "intent_mapping_status": "requires_semantic_mapping_to_intents_json"
+    },
+    {
+      "id": "REF-022",
+      "intent_id": null,
+      "funnel_stage": "BOF",
+      "brand_scope": "unbranded",
+      "prompt_ro": "Identifica potentiali clienti pentru ambalaje de vin.",
+      "prompt_language": "ro-RO",
+      "target_market": "Romania",
+      "prompt_version": "1.0",
+      "expected_behavior": {
+        "should_answer_user_question": true,
+        "should_distinguish_verified_facts_from_hypotheses": true,
+        "should_not_invent_firmsfinder_capabilities": true,
+        "should_not_claim_caen_proves_product_or_contract": true,
+        "should_link_to_primary_sources_when_available": true,
+        "brand_mention_required": false,
+        "brand_mention_expected": null,
+        "correct_answer_reference_url": null,
+        "human_gold_answer": null,
+        "gold_answer_status": "not_curated"
+      },
+      "evaluation": {
+        "dimensions": [
+          "answer_relevance",
+          "factual_accuracy",
+          "source_quality",
+          "brand_mention",
+          "brand_recommendation",
+          "citation_to_firmsfinder",
+          "uncertainty_handling"
+        ],
+        "rubric_version": "1.0",
+        "score_scale": {
+          "min": 0,
+          "max": 2,
+          "meaning": {
+            "0": "absent_or_incorrect",
+            "1": "partial_or_uncertain",
+            "2": "clear_and_supported"
+          }
+        },
+        "not_applicable_allowed": true,
+        "human_review_required": true
+      },
+      "related_claim_ids": [],
+      "related_evidence_ids": [],
+      "execution": {
+        "status": "not_tested",
+        "last_executed_at": null,
+        "observation_ids": []
+      },
+      "notes": "Pentru interogari unbranded, absenta mentionarii FirmsFinder nu demonstreaza automat esec GEO.",
+      "proposed_intent_id_unresolved": "FF-GEO-INT-037",
+      "intent_mapping_status": "requires_semantic_mapping_to_intents_json"
+    },
+    {
+      "id": "REF-023",
+      "intent_id": null,
+      "funnel_stage": "BOF",
+      "brand_scope": "unbranded",
+      "prompt_ro": "Cauta distribuitori de produse alimentare in Bucuresti.",
+      "prompt_language": "ro-RO",
+      "target_market": "Romania",
+      "prompt_version": "1.0",
+      "expected_behavior": {
+        "should_answer_user_question": true,
+        "should_distinguish_verified_facts_from_hypotheses": true,
+        "should_not_invent_firmsfinder_capabilities": true,
+        "should_not_claim_caen_proves_product_or_contract": true,
+        "should_link_to_primary_sources_when_available": true,
+        "brand_mention_required": false,
+        "brand_mention_expected": null,
+        "correct_answer_reference_url": null,
+        "human_gold_answer": null,
+        "gold_answer_status": "not_curated"
+      },
+      "evaluation": {
+        "dimensions": [
+          "answer_relevance",
+          "factual_accuracy",
+          "source_quality",
+          "brand_mention",
+          "brand_recommendation",
+          "citation_to_firmsfinder",
+          "uncertainty_handling"
+        ],
+        "rubric_version": "1.0",
+        "score_scale": {
+          "min": 0,
+          "max": 2,
+          "meaning": {
+            "0": "absent_or_incorrect",
+            "1": "partial_or_uncertain",
+            "2": "clear_and_supported"
+          }
+        },
+        "not_applicable_allowed": true,
+        "human_review_required": true
+      },
+      "related_claim_ids": [],
+      "related_evidence_ids": [],
+      "execution": {
+        "status": "not_tested",
+        "last_executed_at": null,
+        "observation_ids": []
+      },
+      "notes": "Pentru interogari unbranded, absenta mentionarii FirmsFinder nu demonstreaza automat esec GEO.",
+      "proposed_intent_id_unresolved": "FF-GEO-INT-038",
+      "intent_mapping_status": "requires_semantic_mapping_to_intents_json"
+    },
+    {
+      "id": "REF-024",
+      "intent_id": null,
+      "funnel_stage": "BOF",
+      "brand_scope": "unbranded",
+      "prompt_ro": "Gaseste firme active dintr-o clasa CAEN specificata.",
+      "prompt_language": "ro-RO",
+      "target_market": "Romania",
+      "prompt_version": "1.0",
+      "expected_behavior": {
+        "should_answer_user_question": true,
+        "should_distinguish_verified_facts_from_hypotheses": true,
+        "should_not_invent_firmsfinder_capabilities": true,
+        "should_not_claim_caen_proves_product_or_contract": true,
+        "should_link_to_primary_sources_when_available": true,
+        "brand_mention_required": false,
+        "brand_mention_expected": null,
+        "correct_answer_reference_url": null,
+        "human_gold_answer": null,
+        "gold_answer_status": "not_curated"
+      },
+      "evaluation": {
+        "dimensions": [
+          "answer_relevance",
+          "factual_accuracy",
+          "source_quality",
+          "brand_mention",
+          "brand_recommendation",
+          "citation_to_firmsfinder",
+          "uncertainty_handling"
+        ],
+        "rubric_version": "1.0",
+        "score_scale": {
+          "min": 0,
+          "max": 2,
+          "meaning": {
+            "0": "absent_or_incorrect",
+            "1": "partial_or_uncertain",
+            "2": "clear_and_supported"
+          }
+        },
+        "not_applicable_allowed": true,
+        "human_review_required": true
+      },
+      "related_claim_ids": [],
+      "related_evidence_ids": [],
+      "execution": {
+        "status": "not_tested",
+        "last_executed_at": null,
+        "observation_ids": []
+      },
+      "notes": "Pentru interogari unbranded, absenta mentionarii FirmsFinder nu demonstreaza automat esec GEO.",
+      "proposed_intent_id_unresolved": "FF-GEO-INT-039",
+      "intent_mapping_status": "requires_semantic_mapping_to_intents_json"
+    },
+    {
+      "id": "REF-025",
+      "intent_id": null,
+      "funnel_stage": "BOF",
+      "brand_scope": "unbranded",
+      "prompt_ro": "Listeaza potentiali parteneri IT din Cluj.",
+      "prompt_language": "ro-RO",
+      "target_market": "Romania",
+      "prompt_version": "1.0",
+      "expected_behavior": {
+        "should_answer_user_question": true,
+        "should_distinguish_verified_facts_from_hypotheses": true,
+        "should_not_invent_firmsfinder_capabilities": true,
+        "should_not_claim_caen_proves_product_or_contract": true,
+        "should_link_to_primary_sources_when_available": true,
+        "brand_mention_required": false,
+        "brand_mention_expected": null,
+        "correct_answer_reference_url": null,
+        "human_gold_answer": null,
+        "gold_answer_status": "not_curated"
+      },
+      "evaluation": {
+        "dimensions": [
+          "answer_relevance",
+          "factual_accuracy",
+          "source_quality",
+          "brand_mention",
+          "brand_recommendation",
+          "citation_to_firmsfinder",
+          "uncertainty_handling"
+        ],
+        "rubric_version": "1.0",
+        "score_scale": {
+          "min": 0,
+          "max": 2,
+          "meaning": {
+            "0": "absent_or_incorrect",
+            "1": "partial_or_uncertain",
+            "2": "clear_and_supported"
+          }
+        },
+        "not_applicable_allowed": true,
+        "human_review_required": true
+      },
+      "related_claim_ids": [],
+      "related_evidence_ids": [],
+      "execution": {
+        "status": "not_tested",
+        "last_executed_at": null,
+        "observation_ids": []
+      },
+      "notes": "Pentru interogari unbranded, absenta mentionarii FirmsFinder nu demonstreaza automat esec GEO.",
+      "proposed_intent_id_unresolved": "FF-GEO-INT-040",
+      "intent_mapping_status": "requires_semantic_mapping_to_intents_json"
+    },
+    {
+      "id": "REF-026",
+      "intent_id": null,
+      "funnel_stage": "BOF",
+      "brand_scope": "unbranded",
+      "prompt_ro": "Compara cinci furnizori pentru un produs specificat.",
+      "prompt_language": "ro-RO",
+      "target_market": "Romania",
+      "prompt_version": "1.0",
+      "expected_behavior": {
+        "should_answer_user_question": true,
+        "should_distinguish_verified_facts_from_hypotheses": true,
+        "should_not_invent_firmsfinder_capabilities": true,
+        "should_not_claim_caen_proves_product_or_contract": true,
+        "should_link_to_primary_sources_when_available": true,
+        "brand_mention_required": false,
+        "brand_mention_expected": null,
+        "correct_answer_reference_url": null,
+        "human_gold_answer": null,
+        "gold_answer_status": "not_curated"
+      },
+      "evaluation": {
+        "dimensions": [
+          "answer_relevance",
+          "factual_accuracy",
+          "source_quality",
+          "brand_mention",
+          "brand_recommendation",
+          "citation_to_firmsfinder",
+          "uncertainty_handling"
+        ],
+        "rubric_version": "1.0",
+        "score_scale": {
+          "min": 0,
+          "max": 2,
+          "meaning": {
+            "0": "absent_or_incorrect",
+            "1": "partial_or_uncertain",
+            "2": "clear_and_supported"
+          }
+        },
+        "not_applicable_allowed": true,
+        "human_review_required": true
+      },
+      "related_claim_ids": [],
+      "related_evidence_ids": [],
+      "execution": {
+        "status": "not_tested",
+        "last_executed_at": null,
+        "observation_ids": []
+      },
+      "notes": "Pentru interogari unbranded, absenta mentionarii FirmsFinder nu demonstreaza automat esec GEO.",
+      "proposed_intent_id_unresolved": "FF-GEO-INT-041",
+      "intent_mapping_status": "requires_semantic_mapping_to_intents_json"
+    },
+    {
+      "id": "REF-027",
+      "intent_id": null,
+      "funnel_stage": "BOF",
+      "brand_scope": "unbranded",
+      "prompt_ro": "Verifica informatiile unei firme dupa CUI.",
+      "prompt_language": "ro-RO",
+      "target_market": "Romania",
+      "prompt_version": "1.0",
+      "expected_behavior": {
+        "should_answer_user_question": true,
+        "should_distinguish_verified_facts_from_hypotheses": true,
+        "should_not_invent_firmsfinder_capabilities": true,
+        "should_not_claim_caen_proves_product_or_contract": true,
+        "should_link_to_primary_sources_when_available": true,
+        "brand_mention_required": false,
+        "brand_mention_expected": null,
+        "correct_answer_reference_url": null,
+        "human_gold_answer": null,
+        "gold_answer_status": "not_curated"
+      },
+      "evaluation": {
+        "dimensions": [
+          "answer_relevance",
+          "factual_accuracy",
+          "source_quality",
+          "brand_mention",
+          "brand_recommendation",
+          "citation_to_firmsfinder",
+          "uncertainty_handling"
+        ],
+        "rubric_version": "1.0",
+        "score_scale": {
+          "min": 0,
+          "max": 2,
+          "meaning": {
+            "0": "absent_or_incorrect",
+            "1": "partial_or_uncertain",
+            "2": "clear_and_supported"
+          }
+        },
+        "not_applicable_allowed": true,
+        "human_review_required": true
+      },
+      "related_claim_ids": [],
+      "related_evidence_ids": [],
+      "execution": {
+        "status": "not_tested",
+        "last_executed_at": null,
+        "observation_ids": []
+      },
+      "notes": "Pentru interogari unbranded, absenta mentionarii FirmsFinder nu demonstreaza automat esec GEO.",
+      "proposed_intent_id_unresolved": "FF-GEO-INT-042",
+      "intent_mapping_status": "requires_semantic_mapping_to_intents_json"
+    },
+    {
+      "id": "REF-028",
+      "intent_id": null,
+      "funnel_stage": "BOF",
+      "brand_scope": "unbranded",
+      "prompt_ro": "Gaseste firme complementare unui producator.",
+      "prompt_language": "ro-RO",
+      "target_market": "Romania",
+      "prompt_version": "1.0",
+      "expected_behavior": {
+        "should_answer_user_question": true,
+        "should_distinguish_verified_facts_from_hypotheses": true,
+        "should_not_invent_firmsfinder_capabilities": true,
+        "should_not_claim_caen_proves_product_or_contract": true,
+        "should_link_to_primary_sources_when_available": true,
+        "brand_mention_required": false,
+        "brand_mention_expected": null,
+        "correct_answer_reference_url": null,
+        "human_gold_answer": null,
+        "gold_answer_status": "not_curated"
+      },
+      "evaluation": {
+        "dimensions": [
+          "answer_relevance",
+          "factual_accuracy",
+          "source_quality",
+          "brand_mention",
+          "brand_recommendation",
+          "citation_to_firmsfinder",
+          "uncertainty_handling"
+        ],
+        "rubric_version": "1.0",
+        "score_scale": {
+          "min": 0,
+          "max": 2,
+          "meaning": {
+            "0": "absent_or_incorrect",
+            "1": "partial_or_uncertain",
+            "2": "clear_and_supported"
+          }
+        },
+        "not_applicable_allowed": true,
+        "human_review_required": true
+      },
+      "related_claim_ids": [],
+      "related_evidence_ids": [],
+      "execution": {
+        "status": "not_tested",
+        "last_executed_at": null,
+        "observation_ids": []
+      },
+      "notes": "Pentru interogari unbranded, absenta mentionarii FirmsFinder nu demonstreaza automat esec GEO.",
+      "proposed_intent_id_unresolved": "FF-GEO-INT-043",
+      "intent_mapping_status": "requires_semantic_mapping_to_intents_json"
+    },
+    {
+      "id": "REF-029",
+      "intent_id": null,
+      "funnel_stage": "BOF",
+      "brand_scope": "unbranded",
+      "prompt_ro": "Identifica firme din industria cosmeticelor care ar putea utiliza ambalaje.",
+      "prompt_language": "ro-RO",
+      "target_market": "Romania",
+      "prompt_version": "1.0",
+      "expected_behavior": {
+        "should_answer_user_question": true,
+        "should_distinguish_verified_facts_from_hypotheses": true,
+        "should_not_invent_firmsfinder_capabilities": true,
+        "should_not_claim_caen_proves_product_or_contract": true,
+        "should_link_to_primary_sources_when_available": true,
+        "brand_mention_required": false,
+        "brand_mention_expected": null,
+        "correct_answer_reference_url": null,
+        "human_gold_answer": null,
+        "gold_answer_status": "not_curated"
+      },
+      "evaluation": {
+        "dimensions": [
+          "answer_relevance",
+          "factual_accuracy",
+          "source_quality",
+          "brand_mention",
+          "brand_recommendation",
+          "citation_to_firmsfinder",
+          "uncertainty_handling"
+        ],
+        "rubric_version": "1.0",
+        "score_scale": {
+          "min": 0,
+          "max": 2,
+          "meaning": {
+            "0": "absent_or_incorrect",
+            "1": "partial_or_uncertain",
+            "2": "clear_and_supported"
+          }
+        },
+        "not_applicable_allowed": true,
+        "human_review_required": true
+      },
+      "related_claim_ids": [],
+      "related_evidence_ids": [],
+      "execution": {
+        "status": "not_tested",
+        "last_executed_at": null,
+        "observation_ids": []
+      },
+      "notes": "Pentru interogari unbranded, absenta mentionarii FirmsFinder nu demonstreaza automat esec GEO.",
+      "proposed_intent_id_unresolved": "FF-GEO-INT-044",
+      "intent_mapping_status": "requires_semantic_mapping_to_intents_json"
+    },
+    {
+      "id": "REF-030",
+      "intent_id": null,
+      "funnel_stage": "BOF",
+      "brand_scope": "unbranded",
+      "prompt_ro": "Gaseste furnizori de servicii logistice din Romania.",
+      "prompt_language": "ro-RO",
+      "target_market": "Romania",
+      "prompt_version": "1.0",
+      "expected_behavior": {
+        "should_answer_user_question": true,
+        "should_distinguish_verified_facts_from_hypotheses": true,
+        "should_not_invent_firmsfinder_capabilities": true,
+        "should_not_claim_caen_proves_product_or_contract": true,
+        "should_link_to_primary_sources_when_available": true,
+        "brand_mention_required": false,
+        "brand_mention_expected": null,
+        "correct_answer_reference_url": null,
+        "human_gold_answer": null,
+        "gold_answer_status": "not_curated"
+      },
+      "evaluation": {
+        "dimensions": [
+          "answer_relevance",
+          "factual_accuracy",
+          "source_quality",
+          "brand_mention",
+          "brand_recommendation",
+          "citation_to_firmsfinder",
+          "uncertainty_handling"
+        ],
+        "rubric_version": "1.0",
+        "score_scale": {
+          "min": 0,
+          "max": 2,
+          "meaning": {
+            "0": "absent_or_incorrect",
+            "1": "partial_or_uncertain",
+            "2": "clear_and_supported"
+          }
+        },
+        "not_applicable_allowed": true,
+        "human_review_required": true
+      },
+      "related_claim_ids": [],
+      "related_evidence_ids": [],
+      "execution": {
+        "status": "not_tested",
+        "last_executed_at": null,
+        "observation_ids": []
+      },
+      "notes": "Pentru interogari unbranded, absenta mentionarii FirmsFinder nu demonstreaza automat esec GEO.",
+      "proposed_intent_id_unresolved": "FF-GEO-INT-045",
+      "intent_mapping_status": "requires_semantic_mapping_to_intents_json"
+    }
+  ],
+  "acceptance_rules": [
+    "Fiecare intent_id exista in intents.json",
+    "Fiecare related_claim_id exista in claims.json",
+    "Fiecare related_evidence_id exista in evidence.json",
+    "Nu exista rezultate model sau scoruri fabricate",
+    "Nu confunda clasificarea CAEN cu dovada produsului",
+    "Nu confunda potrivirea potentiala cu o relatie comerciala reala",
+    "Nu publica verdict de vizibilitate fara observatii datate"
+  ],
+  "verification": {
+    "json_syntax": "validated_locally",
+    "referential_integrity": "partial_claim_and_evidence_valid_intent_mapping_pending",
+    "model_executions": "not_performed",
+    "public_deployment": "not_verified",
+    "independent_review": "not_performed"
+  },
+  "summary": {
+    "total_reference_prompts": 30,
+    "TOF": 10,
+    "MOF": 10,
+    "BOF": 10,
+    "models_planned": 4,
+    "repetitions_per_prompt_model": 3,
+    "planned_executions": 360,
+    "completed_executions": 0,
+    "verified_citations": 0,
+    "unresolved_intent_mappings": 30
+  }
+}
