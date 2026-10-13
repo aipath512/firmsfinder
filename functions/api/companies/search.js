@@ -35,7 +35,7 @@ export async function onRequestGet({request}) {
       for (const x of d.rezultate || []) {
         results.push({
           cui: x.cui ?? x.referinta,
-          denumire: x.denumire,
+          denumire: x.mascat ? ((x.forma_juridica || 'PFA/II/IF') + ' · în așteptarea acordului GDPR') : x.denumire,
           forma_juridica: x.forma_juridica,
           judet: x.judet,
           localitate: x.localitate,
