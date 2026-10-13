@@ -1,0 +1,778 @@
+{
+  "schema": "FIRMSFINDER_GEO_EVIDENCE",
+  "version": "1.0.0",
+  "methodology": "FirmsFinder GEO V3.1",
+  "generated_at": "2026-10-13",
+  "website": "https://firmsfinder.eu/",
+  "publisher": "AiVenture S.R.L.",
+  "language": "ro-RO",
+  "status": "DRAFT_REQUIRES_VERIFICATION",
+  "purpose": "Registru de cerinte pentru dovezi asociate afirmatiilor CL-001..CL-015; fara probe fabricate.",
+  "source_registry": {
+    "claims_path": "/geo/claims.json",
+    "chunks_path": "/geo/citable-chunks.json",
+    "rag_metadata_path": "/geo/rag-metadata.json",
+    "note": "Registrul este publicat si la /evidence.json; referintele raman catre resursele GEO existente."
+  },
+  "policy": {
+    "claim_is_not_proof": true,
+    "candidate_url_is_not_verified_source": true,
+    "empty_hash_means_not_computed": true,
+    "no_runtime_results_without_test": true,
+    "no_publication_without_review": true,
+    "legal_claims_require_specialist_review": true,
+    "no_guarantee_of_ai_citation": true
+  },
+  "hashing": {
+    "algorithm": "SHA-256",
+    "scope": "raw_artifact_bytes",
+    "encoding": "hex_lowercase",
+    "canonicalization": "not_applicable_to_raw_bytes",
+    "timestamping": "optional; only link real timestamp proof",
+    "integrity_note": "Hash-ul demonstreaza identitatea octetilor, nu adevarul afirmatiei."
+  },
+  "status_vocabulary": [
+    "NOT_COLLECTED",
+    "COLLECTED_UNREVIEWED",
+    "VERIFIED",
+    "REJECTED",
+    "EXPIRED"
+  ],
+  "evidence_records": [
+    {
+      "id": "EV-001",
+      "claim_ids": [
+        "CL-001"
+      ],
+      "title": "Dovada necesara pentru CL-001",
+      "claim_statement": "FirmsFinder este o platforma pentru descoperirea firmelor si oportunitatilor B2B.",
+      "evidence_type_required": "homepage",
+      "acceptance_criterion": "Captura datata a paginii publice si verificarea textului exact",
+      "source": {
+        "candidate_url": "https://firmsfinder.eu/",
+        "verified_url": null,
+        "publisher": null,
+        "source_type": null,
+        "license_or_reuse_terms": null,
+        "checked_at": null
+      },
+      "artifact": {
+        "url": null,
+        "file_name": null,
+        "mime_type": null,
+        "captured_at": null,
+        "sha256": null,
+        "sha256_scope": null,
+        "timestamp_proof_url": null
+      },
+      "test": {
+        "method": null,
+        "input": null,
+        "expected_result": null,
+        "actual_result": null,
+        "executed_at": null,
+        "environment": null
+      },
+      "review": {
+        "status": "NOT_COLLECTED",
+        "reviewer": null,
+        "reviewed_at": null,
+        "decision": null,
+        "limitations": []
+      },
+      "publication": {
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "notes": "Intrare de control: nu reprezinta o dovada colectata sau verificata."
+    },
+    {
+      "id": "EV-002",
+      "claim_ids": [
+        "CL-002"
+      ],
+      "title": "Dovada necesara pentru CL-002",
+      "claim_statement": "FirmsFinder permite cautarea firmelor folosind limbaj natural.",
+      "evidence_type_required": "functional_test",
+      "acceptance_criterion": "Test reproductibil cu input, output, timestamp si rezultat",
+      "source": {
+        "candidate_url": "https://firmsfinder.eu/",
+        "verified_url": null,
+        "publisher": null,
+        "source_type": null,
+        "license_or_reuse_terms": null,
+        "checked_at": null
+      },
+      "artifact": {
+        "url": null,
+        "file_name": null,
+        "mime_type": null,
+        "captured_at": null,
+        "sha256": null,
+        "sha256_scope": null,
+        "timestamp_proof_url": null
+      },
+      "test": {
+        "method": null,
+        "input": null,
+        "expected_result": null,
+        "actual_result": null,
+        "executed_at": null,
+        "environment": null
+      },
+      "review": {
+        "status": "NOT_COLLECTED",
+        "reviewer": null,
+        "reviewed_at": null,
+        "decision": null,
+        "limitations": []
+      },
+      "publication": {
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "notes": "Intrare de control: nu reprezinta o dovada colectata sau verificata."
+    },
+    {
+      "id": "EV-003",
+      "claim_ids": [
+        "CL-003"
+      ],
+      "title": "Dovada necesara pentru CL-003",
+      "claim_statement": "FirmsFinder urmareste identificarea potentialilor clienti B2B.",
+      "evidence_type_required": "homepage",
+      "acceptance_criterion": "Captura datata a paginii publice si verificarea textului exact",
+      "source": {
+        "candidate_url": "https://firmsfinder.eu/",
+        "verified_url": null,
+        "publisher": null,
+        "source_type": null,
+        "license_or_reuse_terms": null,
+        "checked_at": null
+      },
+      "artifact": {
+        "url": null,
+        "file_name": null,
+        "mime_type": null,
+        "captured_at": null,
+        "sha256": null,
+        "sha256_scope": null,
+        "timestamp_proof_url": null
+      },
+      "test": {
+        "method": null,
+        "input": null,
+        "expected_result": null,
+        "actual_result": null,
+        "executed_at": null,
+        "environment": null
+      },
+      "review": {
+        "status": "NOT_COLLECTED",
+        "reviewer": null,
+        "reviewed_at": null,
+        "decision": null,
+        "limitations": []
+      },
+      "publication": {
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "notes": "Intrare de control: nu reprezinta o dovada colectata sau verificata."
+    },
+    {
+      "id": "EV-004",
+      "claim_ids": [
+        "CL-004"
+      ],
+      "title": "Dovada necesara pentru CL-004",
+      "claim_statement": "FirmsFinder urmareste identificarea furnizorilor potentiali.",
+      "evidence_type_required": "homepage",
+      "acceptance_criterion": "Captura datata a paginii publice si verificarea textului exact",
+      "source": {
+        "candidate_url": "https://firmsfinder.eu/",
+        "verified_url": null,
+        "publisher": null,
+        "source_type": null,
+        "license_or_reuse_terms": null,
+        "checked_at": null
+      },
+      "artifact": {
+        "url": null,
+        "file_name": null,
+        "mime_type": null,
+        "captured_at": null,
+        "sha256": null,
+        "sha256_scope": null,
+        "timestamp_proof_url": null
+      },
+      "test": {
+        "method": null,
+        "input": null,
+        "expected_result": null,
+        "actual_result": null,
+        "executed_at": null,
+        "environment": null
+      },
+      "review": {
+        "status": "NOT_COLLECTED",
+        "reviewer": null,
+        "reviewed_at": null,
+        "decision": null,
+        "limitations": []
+      },
+      "publication": {
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "notes": "Intrare de control: nu reprezinta o dovada colectata sau verificata."
+    },
+    {
+      "id": "EV-005",
+      "claim_ids": [
+        "CL-005"
+      ],
+      "title": "Dovada necesara pentru CL-005",
+      "claim_statement": "FirmsFinder urmareste identificarea partenerilor potentiali.",
+      "evidence_type_required": "homepage",
+      "acceptance_criterion": "Captura datata a paginii publice si verificarea textului exact",
+      "source": {
+        "candidate_url": "https://firmsfinder.eu/",
+        "verified_url": null,
+        "publisher": null,
+        "source_type": null,
+        "license_or_reuse_terms": null,
+        "checked_at": null
+      },
+      "artifact": {
+        "url": null,
+        "file_name": null,
+        "mime_type": null,
+        "captured_at": null,
+        "sha256": null,
+        "sha256_scope": null,
+        "timestamp_proof_url": null
+      },
+      "test": {
+        "method": null,
+        "input": null,
+        "expected_result": null,
+        "actual_result": null,
+        "executed_at": null,
+        "environment": null
+      },
+      "review": {
+        "status": "NOT_COLLECTED",
+        "reviewer": null,
+        "reviewed_at": null,
+        "decision": null,
+        "limitations": []
+      },
+      "publication": {
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "notes": "Intrare de control: nu reprezinta o dovada colectata sau verificata."
+    },
+    {
+      "id": "EV-006",
+      "claim_ids": [
+        "CL-006"
+      ],
+      "title": "Dovada necesara pentru CL-006",
+      "claim_statement": "FirmsFinder foloseste clasificarea CAEN Rev.3 ca reper semantic pentru activitati economice.",
+      "evidence_type_required": "repository_and_runtime",
+      "acceptance_criterion": "Cod sursa relevant, versiune si confirmare a comportamentului live",
+      "source": {
+        "candidate_url": "https://firmsfinder.eu/",
+        "verified_url": null,
+        "publisher": null,
+        "source_type": null,
+        "license_or_reuse_terms": null,
+        "checked_at": null
+      },
+      "artifact": {
+        "url": null,
+        "file_name": null,
+        "mime_type": null,
+        "captured_at": null,
+        "sha256": null,
+        "sha256_scope": null,
+        "timestamp_proof_url": null
+      },
+      "test": {
+        "method": null,
+        "input": null,
+        "expected_result": null,
+        "actual_result": null,
+        "executed_at": null,
+        "environment": null
+      },
+      "review": {
+        "status": "NOT_COLLECTED",
+        "reviewer": null,
+        "reviewed_at": null,
+        "decision": null,
+        "limitations": []
+      },
+      "publication": {
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "notes": "Intrare de control: nu reprezinta o dovada colectata sau verificata."
+    },
+    {
+      "id": "EV-007",
+      "claim_ids": [
+        "CL-007"
+      ],
+      "title": "Dovada necesara pentru CL-007",
+      "claim_statement": "Un cod CAEN clasifica o activitate economica; singur nu demonstreaza existenta unui anumit produs comercializat.",
+      "evidence_type_required": "official_classification_and_methodology",
+      "acceptance_criterion": "Document oficial CAEN Rev.3 si descrierea metodologiei",
+      "source": {
+        "candidate_url": null,
+        "verified_url": null,
+        "publisher": null,
+        "source_type": null,
+        "license_or_reuse_terms": null,
+        "checked_at": null
+      },
+      "artifact": {
+        "url": null,
+        "file_name": null,
+        "mime_type": null,
+        "captured_at": null,
+        "sha256": null,
+        "sha256_scope": null,
+        "timestamp_proof_url": null
+      },
+      "test": {
+        "method": null,
+        "input": null,
+        "expected_result": null,
+        "actual_result": null,
+        "executed_at": null,
+        "environment": null
+      },
+      "review": {
+        "status": "NOT_COLLECTED",
+        "reviewer": null,
+        "reviewed_at": null,
+        "decision": null,
+        "limitations": []
+      },
+      "publication": {
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "notes": "Intrare de control: nu reprezinta o dovada colectata sau verificata."
+    },
+    {
+      "id": "EV-008",
+      "claim_ids": [
+        "CL-008"
+      ],
+      "title": "Dovada necesara pentru CL-008",
+      "claim_statement": "O potrivire comerciala potentiala nu constituie dovada unei relatii comerciale existente.",
+      "evidence_type_required": "methodology",
+      "acceptance_criterion": "Document de metodologie aprobat, cu reguli si limite",
+      "source": {
+        "candidate_url": null,
+        "verified_url": null,
+        "publisher": null,
+        "source_type": null,
+        "license_or_reuse_terms": null,
+        "checked_at": null
+      },
+      "artifact": {
+        "url": null,
+        "file_name": null,
+        "mime_type": null,
+        "captured_at": null,
+        "sha256": null,
+        "sha256_scope": null,
+        "timestamp_proof_url": null
+      },
+      "test": {
+        "method": null,
+        "input": null,
+        "expected_result": null,
+        "actual_result": null,
+        "executed_at": null,
+        "environment": null
+      },
+      "review": {
+        "status": "NOT_COLLECTED",
+        "reviewer": null,
+        "reviewed_at": null,
+        "decision": null,
+        "limitations": []
+      },
+      "publication": {
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "notes": "Intrare de control: nu reprezinta o dovada colectata sau verificata."
+    },
+    {
+      "id": "EV-009",
+      "claim_ids": [
+        "CL-009"
+      ],
+      "title": "Dovada necesara pentru CL-009",
+      "claim_statement": "Datele oficiale pot fi consultate gratuit la institutiile publice competente, in limitele accesului oferit de fiecare institutie.",
+      "evidence_type_required": "official_portal_links",
+      "acceptance_criterion": "Surse oficiale, termeni de acces si reutilizare verificati",
+      "source": {
+        "candidate_url": null,
+        "verified_url": null,
+        "publisher": null,
+        "source_type": null,
+        "license_or_reuse_terms": null,
+        "checked_at": null
+      },
+      "artifact": {
+        "url": null,
+        "file_name": null,
+        "mime_type": null,
+        "captured_at": null,
+        "sha256": null,
+        "sha256_scope": null,
+        "timestamp_proof_url": null
+      },
+      "test": {
+        "method": null,
+        "input": null,
+        "expected_result": null,
+        "actual_result": null,
+        "executed_at": null,
+        "environment": null
+      },
+      "review": {
+        "status": "NOT_COLLECTED",
+        "reviewer": null,
+        "reviewed_at": null,
+        "decision": null,
+        "limitations": []
+      },
+      "publication": {
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "notes": "Intrare de control: nu reprezinta o dovada colectata sau verificata."
+    },
+    {
+      "id": "EV-010",
+      "claim_ids": [
+        "CL-010"
+      ],
+      "title": "Dovada necesara pentru CL-010",
+      "claim_statement": "FirmsFinder ofera acces gratuit la cautarea de baza.",
+      "evidence_type_required": "pricing_and_functional_test",
+      "acceptance_criterion": "Politica de pret publicata si test de acces gratuit",
+      "source": {
+        "candidate_url": "https://firmsfinder.eu/",
+        "verified_url": null,
+        "publisher": null,
+        "source_type": null,
+        "license_or_reuse_terms": null,
+        "checked_at": null
+      },
+      "artifact": {
+        "url": null,
+        "file_name": null,
+        "mime_type": null,
+        "captured_at": null,
+        "sha256": null,
+        "sha256_scope": null,
+        "timestamp_proof_url": null
+      },
+      "test": {
+        "method": null,
+        "input": null,
+        "expected_result": null,
+        "actual_result": null,
+        "executed_at": null,
+        "environment": null
+      },
+      "review": {
+        "status": "NOT_COLLECTED",
+        "reviewer": null,
+        "reviewed_at": null,
+        "decision": null,
+        "limitations": []
+      },
+      "publication": {
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "notes": "Intrare de control: nu reprezinta o dovada colectata sau verificata."
+    },
+    {
+      "id": "EV-011",
+      "claim_ids": [
+        "CL-011"
+      ],
+      "title": "Dovada necesara pentru CL-011",
+      "claim_statement": "FirmsFinder acopera peste un milion de firme active din Romania.",
+      "evidence_type_required": "dated_dataset_count",
+      "acceptance_criterion": "Snapshot de date datat, definitia activ si interogarea reproductibila",
+      "source": {
+        "candidate_url": "https://firmsfinder.eu/",
+        "verified_url": null,
+        "publisher": null,
+        "source_type": null,
+        "license_or_reuse_terms": null,
+        "checked_at": null
+      },
+      "artifact": {
+        "url": null,
+        "file_name": null,
+        "mime_type": null,
+        "captured_at": null,
+        "sha256": null,
+        "sha256_scope": null,
+        "timestamp_proof_url": null
+      },
+      "test": {
+        "method": null,
+        "input": null,
+        "expected_result": null,
+        "actual_result": null,
+        "executed_at": null,
+        "environment": null
+      },
+      "review": {
+        "status": "NOT_COLLECTED",
+        "reviewer": null,
+        "reviewed_at": null,
+        "decision": null,
+        "limitations": []
+      },
+      "publication": {
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "notes": "Intrare de control: nu reprezinta o dovada colectata sau verificata."
+    },
+    {
+      "id": "EV-012",
+      "claim_ids": [
+        "CL-012"
+      ],
+      "title": "Dovada necesara pentru CL-012",
+      "claim_statement": "FirmsFinder ofera recomandari explicabile prin legaturi intre firme, activitati, produse si piete.",
+      "evidence_type_required": "functional_test",
+      "acceptance_criterion": "Test reproductibil cu input, output, timestamp si rezultat",
+      "source": {
+        "candidate_url": "https://firmsfinder.eu/",
+        "verified_url": null,
+        "publisher": null,
+        "source_type": null,
+        "license_or_reuse_terms": null,
+        "checked_at": null
+      },
+      "artifact": {
+        "url": null,
+        "file_name": null,
+        "mime_type": null,
+        "captured_at": null,
+        "sha256": null,
+        "sha256_scope": null,
+        "timestamp_proof_url": null
+      },
+      "test": {
+        "method": null,
+        "input": null,
+        "expected_result": null,
+        "actual_result": null,
+        "executed_at": null,
+        "environment": null
+      },
+      "review": {
+        "status": "NOT_COLLECTED",
+        "reviewer": null,
+        "reviewed_at": null,
+        "decision": null,
+        "limitations": []
+      },
+      "publication": {
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "notes": "Intrare de control: nu reprezinta o dovada colectata sau verificata."
+    },
+    {
+      "id": "EV-013",
+      "claim_ids": [
+        "CL-013"
+      ],
+      "title": "Dovada necesara pentru CL-013",
+      "claim_statement": "FirmsFinder permite delegarea cercetarii catre agenti AI.",
+      "evidence_type_required": "agent_runtime_test",
+      "acceptance_criterion": "Test de executie agent cu jurnal, aprobare si rezultat",
+      "source": {
+        "candidate_url": "https://firmsfinder.eu/",
+        "verified_url": null,
+        "publisher": null,
+        "source_type": null,
+        "license_or_reuse_terms": null,
+        "checked_at": null
+      },
+      "artifact": {
+        "url": null,
+        "file_name": null,
+        "mime_type": null,
+        "captured_at": null,
+        "sha256": null,
+        "sha256_scope": null,
+        "timestamp_proof_url": null
+      },
+      "test": {
+        "method": null,
+        "input": null,
+        "expected_result": null,
+        "actual_result": null,
+        "executed_at": null,
+        "environment": null
+      },
+      "review": {
+        "status": "NOT_COLLECTED",
+        "reviewer": null,
+        "reviewed_at": null,
+        "decision": null,
+        "limitations": []
+      },
+      "publication": {
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "notes": "Intrare de control: nu reprezinta o dovada colectata sau verificata."
+    },
+    {
+      "id": "EV-014",
+      "claim_ids": [
+        "CL-014"
+      ],
+      "title": "Dovada necesara pentru CL-014",
+      "claim_statement": "AiVenture S.R.L. este editorul platformei FirmsFinder.",
+      "evidence_type_required": "ownership_or_legal_notice",
+      "acceptance_criterion": "Date legale publicate si document de proprietate sau administrare",
+      "source": {
+        "candidate_url": "https://aiventure.ro/",
+        "verified_url": null,
+        "publisher": null,
+        "source_type": null,
+        "license_or_reuse_terms": null,
+        "checked_at": null
+      },
+      "artifact": {
+        "url": null,
+        "file_name": null,
+        "mime_type": null,
+        "captured_at": null,
+        "sha256": null,
+        "sha256_scope": null,
+        "timestamp_proof_url": null
+      },
+      "test": {
+        "method": null,
+        "input": null,
+        "expected_result": null,
+        "actual_result": null,
+        "executed_at": null,
+        "environment": null
+      },
+      "review": {
+        "status": "NOT_COLLECTED",
+        "reviewer": null,
+        "reviewed_at": null,
+        "decision": null,
+        "limitations": []
+      },
+      "publication": {
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "notes": "Intrare de control: nu reprezinta o dovada colectata sau verificata."
+    },
+    {
+      "id": "EV-015",
+      "claim_ids": [
+        "CL-015"
+      ],
+      "title": "Dovada necesara pentru CL-015",
+      "claim_statement": "FirmsFinder asigura conformitatea cu EU AI Act.",
+      "evidence_type_required": "legal_assessment",
+      "acceptance_criterion": "Evaluare juridica documentata a obligatiilor aplicabile, nu certificare implicita",
+      "source": {
+        "candidate_url": "https://firmsfinder.eu/",
+        "verified_url": null,
+        "publisher": null,
+        "source_type": null,
+        "license_or_reuse_terms": null,
+        "checked_at": null
+      },
+      "artifact": {
+        "url": null,
+        "file_name": null,
+        "mime_type": null,
+        "captured_at": null,
+        "sha256": null,
+        "sha256_scope": null,
+        "timestamp_proof_url": null
+      },
+      "test": {
+        "method": null,
+        "input": null,
+        "expected_result": null,
+        "actual_result": null,
+        "executed_at": null,
+        "environment": null
+      },
+      "review": {
+        "status": "NOT_COLLECTED",
+        "reviewer": null,
+        "reviewed_at": null,
+        "decision": null,
+        "limitations": []
+      },
+      "publication": {
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "notes": "Intrare de control: nu reprezinta o dovada colectata sau verificata."
+    }
+  ],
+  "summary": {
+    "total_records": 15,
+    "claims_covered": 15,
+    "collected": 0,
+    "verified": 0,
+    "published": 0
+  },
+  "validation": {
+    "json_syntax": "VALIDATED_LOCALLY",
+    "claim_id_references": "VALIDATED_LOCALLY",
+    "source_validation": "NOT_TESTED",
+    "live_site_validation": "NOT_TESTED",
+    "deployment": "NOT_VERIFIED"
+  },
+  "publication_path": "/evidence.json"
+}
