@@ -1,0 +1,430 @@
+{
+  "schema": "FIRMSFINDER_GEO_SCORECARD",
+  "version": "1.0.0",
+  "generated_at": "2026-10-13",
+  "website": "https://firmsfinder.eu",
+  "publisher": "AiVenture S.R.L.",
+  "language": "ro-RO",
+  "status": "draft_no_observations",
+  "geo_signals": [
+    "GEO49",
+    "GEO50"
+  ],
+  "signal_definitions": {
+    "GEO49": "Scoruri de vizibilitate AI bazate exclusiv pe observatii verificabile",
+    "GEO50": "Comparatie longitudinala, praguri, evolutie si conditii de raportare"
+  },
+  "purpose": "Raportare auditabila a vizibilitatii FirmsFinder in raspunsuri AI, fara scoruri fabricate sau confundarea intentiilor cu rezultate.",
+  "scope": {
+    "planned_reference_prompts": 30,
+    "planned_models": [
+      "ChatGPT",
+      "Claude",
+      "Gemini",
+      "Perplexity"
+    ],
+    "repetitions_per_prompt_model": 3,
+    "planned_runs": 360,
+    "actual_observations": 0,
+    "verified_observations": 0,
+    "date_window_start": null,
+    "date_window_end": null,
+    "sampling_basis": "reference-set.json; 10 TOF + 10 MOF + 10 BOF",
+    "representativeness": "non_probability_operational_benchmark",
+    "web_visibility_not_equal_business_performance": true
+  },
+  "source_registry": [
+    {
+      "file": "geo/reference-set.json",
+      "local_source_sha256": "098080634dfe86eb6b176bdc3c5d9b7e3d5270250bf17487884ebc009ac7e408",
+      "local_source_bytes": 61102,
+      "local_syntax": "PASS",
+      "public_deployment": "not_checked"
+    },
+    {
+      "file": "geo/observations.json",
+      "local_source_sha256": "27cb220d1c6c51a4f9615b9ed5628c91920ef808f90292234623e170d8015a0e",
+      "local_source_bytes": 24381,
+      "local_syntax": "PASS",
+      "public_deployment": "not_checked"
+    },
+    {
+      "file": "geo/experiments.json",
+      "local_source_sha256": "286016b94e27ce439d9dbab0b3ffc1ea406368ecbf046e59e5b7d7d3a1f69ff4",
+      "local_source_bytes": 21323,
+      "local_syntax": "PASS",
+      "public_deployment": "not_checked"
+    }
+  ],
+  "calculation_contract": {
+    "eligible_record": "observations.json/observations[] with actual response, provenance, valid review, status executed or verified, non-duplicated observation_id",
+    "eligible_numerator": "count only eligible records with explicitly true value; null is never false",
+    "eligible_denominator": "count only eligible records with non-null measured field, matching question category and applicable criterion",
+    "rate_formula": "100 * numerator / denominator; if denominator=0 then value=null",
+    "rank_formula": "sum(valid positive recommendation positions) / count(valid ranked recommendations)",
+    "factual_accuracy_formula": "sum(valid reviewed factual_accuracy scores 0..2) / count(valid reviewed scores)",
+    "agreement_formula": "number of comparable reference_id/repetition panels with same assessed result for all four models / number of complete comparable panels",
+    "missing_data": "Report excluded, failed, not_applicable, unknown and unreviewed separately; do not treat missing as 0.",
+    "branded_policy": "Brand mentions in branded prompts must not be presented as spontaneous discovery.",
+    "citations_policy": "Count only inspected URLs in actual model output that resolve to firmsfinder.eu or its subdomains; do not count plain text names as citations.",
+    "causal_claims": "Do not infer intervention impact from a scorecard; consult controlled experiments with verified BEFORE/CHANGE/AFTER.",
+    "rounding": "Rates as percent to 2 decimals only after actual computation.",
+    "sample_uncertainty": "Compute uncertainty only when observations and assumptions permit; never invent confidence intervals."
+  },
+  "metric_definitions": [
+    {
+      "metric_id": "brand_discovery_rate",
+      "signal": "GEO38",
+      "source_field": "brand_discovered",
+      "definition": "Procentul raspunsurilor care identifica FirmsFinder ca solutie relevanta",
+      "numerator": null,
+      "denominator": null,
+      "value": null,
+      "unit": "proportion",
+      "eligibility_policy": "exclude_branded_from_spontaneous_discovery",
+      "missing_data_policy": "exclude_from_metric_and_report_missing_count",
+      "required_status": [
+        "executed",
+        "verified"
+      ],
+      "requires_human_review": true,
+      "status": "not_computed"
+    },
+    {
+      "metric_id": "brand_mention_rate",
+      "signal": "GEO39",
+      "source_field": "brand_mentioned",
+      "definition": "Procentul raspunsurilor care mentioneaza FirmsFinder",
+      "numerator": null,
+      "denominator": null,
+      "value": null,
+      "unit": "proportion",
+      "eligibility_policy": "separate_branded_unbranded",
+      "missing_data_policy": "exclude_from_metric_and_report_missing_count",
+      "required_status": [
+        "executed",
+        "verified"
+      ],
+      "requires_human_review": true,
+      "status": "not_computed"
+    },
+    {
+      "metric_id": "brand_recommendation_rate",
+      "signal": "GEO40",
+      "source_field": "brand_recommended",
+      "definition": "Procentul raspunsurilor care recomanda explicit FirmsFinder",
+      "numerator": null,
+      "denominator": null,
+      "value": null,
+      "unit": "proportion",
+      "eligibility_policy": "review_context_required",
+      "missing_data_policy": "exclude_from_metric_and_report_missing_count",
+      "required_status": [
+        "executed",
+        "verified"
+      ],
+      "requires_human_review": true,
+      "status": "not_computed"
+    },
+    {
+      "metric_id": "citation_rate",
+      "signal": "GEO41",
+      "source_field": "citation_to_firmsfinder",
+      "definition": "Procentul raspunsurilor cu citare verificata catre firmsfinder.eu",
+      "numerator": null,
+      "denominator": null,
+      "value": null,
+      "unit": "proportion",
+      "eligibility_policy": "verified_citations_only",
+      "missing_data_policy": "exclude_from_metric_and_report_missing_count",
+      "required_status": [
+        "executed",
+        "verified"
+      ],
+      "requires_human_review": true,
+      "status": "not_computed"
+    },
+    {
+      "metric_id": "recommendation_rank_mean",
+      "signal": "GEO42",
+      "source_field": "brand_recommendation_position",
+      "definition": "Pozitia medie a FirmsFinder in liste de recomandari",
+      "numerator": null,
+      "denominator": null,
+      "value": null,
+      "unit": "mean_rank",
+      "eligibility_policy": "only_when_rank_observable",
+      "missing_data_policy": "exclude_from_metric_and_report_missing_count",
+      "required_status": [
+        "executed",
+        "verified"
+      ],
+      "requires_human_review": true,
+      "status": "not_computed"
+    },
+    {
+      "metric_id": "factual_accuracy_mean",
+      "signal": "GEO43",
+      "source_field": "factual_accuracy",
+      "definition": "Media scorului de corectitudine factuala acordat de evaluator (0..2)",
+      "numerator": null,
+      "denominator": null,
+      "value": null,
+      "unit": "score_0_2",
+      "eligibility_policy": "reviewed_scored_only",
+      "missing_data_policy": "exclude_from_metric_and_report_missing_count",
+      "required_status": [
+        "executed",
+        "verified"
+      ],
+      "requires_human_review": true,
+      "status": "not_computed"
+    },
+    {
+      "metric_id": "cross_model_agreement_rate",
+      "signal": "GEO44",
+      "source_field": "brand_mentioned",
+      "definition": "Concordanta intre modele pe acelasi prompt si repetare",
+      "numerator": null,
+      "denominator": null,
+      "value": null,
+      "unit": "proportion",
+      "eligibility_policy": "paired_runs_only",
+      "missing_data_policy": "exclude_from_metric_and_report_missing_count",
+      "required_status": [
+        "executed",
+        "verified"
+      ],
+      "requires_human_review": true,
+      "status": "not_computed"
+    }
+  ],
+  "score_dimensions": [
+    {
+      "dimension": "discoverability",
+      "metrics": [
+        "brand_discovery_rate",
+        "brand_mention_rate"
+      ],
+      "status": "not_computed"
+    },
+    {
+      "dimension": "recommendation",
+      "metrics": [
+        "brand_recommendation_rate",
+        "recommendation_rank_mean"
+      ],
+      "status": "not_computed"
+    },
+    {
+      "dimension": "citation",
+      "metrics": [
+        "citation_rate"
+      ],
+      "status": "not_computed"
+    },
+    {
+      "dimension": "accuracy",
+      "metrics": [
+        "factual_accuracy_mean"
+      ],
+      "status": "not_computed"
+    },
+    {
+      "dimension": "stability",
+      "metrics": [
+        "cross_model_agreement_rate"
+      ],
+      "status": "not_computed"
+    }
+  ],
+  "overall_score": {
+    "value": null,
+    "max_value": 100,
+    "status": "not_computed",
+    "weighting_status": "not_approved",
+    "weighting_policy": "No composite score before documented approved weights and adequate verified observations.",
+    "weights": null,
+    "denominator": 0,
+    "confidence_interval": null
+  },
+  "breakdowns": {
+    "by_model": [
+      {
+        "model": "ChatGPT",
+        "completed_runs": 0,
+        "verified_runs": 0,
+        "metrics": {},
+        "status": "not_computed"
+      },
+      {
+        "model": "Claude",
+        "completed_runs": 0,
+        "verified_runs": 0,
+        "metrics": {},
+        "status": "not_computed"
+      },
+      {
+        "model": "Gemini",
+        "completed_runs": 0,
+        "verified_runs": 0,
+        "metrics": {},
+        "status": "not_computed"
+      },
+      {
+        "model": "Perplexity",
+        "completed_runs": 0,
+        "verified_runs": 0,
+        "metrics": {},
+        "status": "not_computed"
+      }
+    ],
+    "by_funnel_stage": [
+      {
+        "stage": "TOF",
+        "reference_prompts": 10,
+        "planned_runs": 120,
+        "completed_runs": 0,
+        "metrics": {},
+        "status": "not_computed"
+      },
+      {
+        "stage": "MOF",
+        "reference_prompts": 10,
+        "planned_runs": 120,
+        "completed_runs": 0,
+        "metrics": {},
+        "status": "not_computed"
+      },
+      {
+        "stage": "BOF",
+        "reference_prompts": 10,
+        "planned_runs": 120,
+        "completed_runs": 0,
+        "metrics": {},
+        "status": "not_computed"
+      }
+    ],
+    "by_brand_scope": [],
+    "by_reference_id": [],
+    "by_date": []
+  },
+  "threshold_policy": {
+    "status": "proposed_not_approved",
+    "purpose": "Minimum evidence gates, not a guarantee of SEO/GEO quality.",
+    "gates": [
+      {
+        "id": "GATE-01",
+        "condition": "JSON valid and source files match expected hashes",
+        "state": "partially_checked_local_only"
+      },
+      {
+        "id": "GATE-02",
+        "condition": "All metric denominators greater than zero before computing scores",
+        "state": "not_met"
+      },
+      {
+        "id": "GATE-03",
+        "condition": "Every counted citation has URL evidence and review",
+        "state": "not_tested"
+      },
+      {
+        "id": "GATE-04",
+        "condition": "Separate branded from unbranded discovery",
+        "state": "not_tested"
+      },
+      {
+        "id": "GATE-05",
+        "condition": "Model version, date, locale, web mode and prompt preserved",
+        "state": "not_tested"
+      },
+      {
+        "id": "GATE-06",
+        "condition": "Cross-model comparison uses comparable matched panels",
+        "state": "not_tested"
+      }
+    ],
+    "performance_thresholds": [],
+    "no_arbitrary_100_score": true
+  },
+  "longitudinal_comparison": {
+    "status": "not_computed",
+    "baseline_window": null,
+    "current_window": null,
+    "metric_deltas": [],
+    "experiment_ids": [
+      "EXP-001",
+      "EXP-002",
+      "EXP-003",
+      "EXP-004"
+    ],
+    "verified_experiment_effects": 0,
+    "causality_claim_allowed": false,
+    "change_control": "Record model/version/search changes; compare like with like; avoid treating drift as intervention effect."
+  },
+  "quality_and_risk": {
+    "unsupported_claims_observed": null,
+    "caen_inference_errors_observed": null,
+    "unverified_citations_observed": null,
+    "missing_response_artifacts": null,
+    "review_disagreements": null,
+    "privacy_or_redistribution_review": "required_before_publication_of_raw_responses",
+    "risk_status": "not_assessed"
+  },
+  "verification": {
+    "local_json_syntax": "PASS",
+    "source_json_syntax": "PASS",
+    "source_files_inspected": [
+      15,
+      16,
+      17
+    ],
+    "actual_observations_count": 0,
+    "score_calculation_executed": false,
+    "metric_values_verified": false,
+    "source_hashes_calculated_locally": true,
+    "live_site_checked": false,
+    "deployed": false,
+    "independent_audit": false,
+    "checks": [
+      {
+        "id": "SC-01",
+        "status": "PASS",
+        "finding": "30 reference prompts, 4 models, 3 repetitions; 360 planned runs"
+      },
+      {
+        "id": "SC-02",
+        "status": "PASS",
+        "finding": "observations[] is empty; no eligible observations"
+      },
+      {
+        "id": "SC-03",
+        "status": "PASS",
+        "finding": "4 experiments defined; no verified experiment effects"
+      },
+      {
+        "id": "SC-04",
+        "status": "PASS",
+        "finding": "all metric values and overall score are null, not fabricated zeros"
+      },
+      {
+        "id": "SC-05",
+        "status": "NOT_TESTED",
+        "finding": "Public deployment and runtime data capture not tested"
+      }
+    ]
+  },
+  "summary": {
+    "reference_prompts": 30,
+    "models": 4,
+    "planned_runs": 360,
+    "executed_runs": 0,
+    "verified_runs": 0,
+    "computed_metrics": 0,
+    "verified_citations": 0,
+    "experiments_planned": 4,
+    "experiments_with_verified_effect": 0,
+    "overall_score": null,
+    "overall_verdict": "NOT_MEASURED"
+  }
+}
