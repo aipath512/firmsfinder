@@ -1,0 +1,18 @@
+{
+  "_comment": "Singurele fapte noi pe care agentul AI are voie să le folosească. Se editează numai de operator.",
+  "emails": ["contact@5thelement.ai"],
+  "phones": ["+40737123540"],
+  "hosts": [
+    "firmsfinder.eu", "aiventure.ro", "orcid.org", "schema.org", "www.w3.org",
+    "www.linkedin.com", "www.crunchbase.com", "x.com", "www.youtube.com", "medium.com",
+    "www.onrc.ro", "mfinante.gov.ro", "data.gov.ro"
+  ],
+  "organization": {
+    "name": "AiVenture S.R.L.",
+    "foundingDate": "2025-03-07",
+    "address": {"addressLocality": "București", "addressCountry": "RO"},
+    "founder": "Dan Ionesco",
+    "orcid": "https://orcid.org/0009-0002-5498-1046"
+  },
+  "forbidden_claims": ["număr de firme", "licență", "conformitate EU AI Act", "rezultate de citare AI", "OpenTimestamps confirmat"]
+}
