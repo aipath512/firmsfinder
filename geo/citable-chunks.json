@@ -1,0 +1,539 @@
+{
+  "schema": "FIRMSFINDER_GEO_CITABLE_CHUNKS",
+  "version": "1.0.0",
+  "generated_at": "2026-10-13",
+  "status": "draft_unverified",
+  "website": "https://firmsfinder.eu/",
+  "language": "ro-RO",
+  "geo_signals": [
+    "GEO17",
+    "GEO18",
+    "GEO19"
+  ],
+  "policy": {
+    "self_contained_chunks": true,
+    "no_invented_evidence": true,
+    "unverified_chunks_must_not_be_presented_as_verified": true,
+    "source_url_is_candidate_not_proof": true,
+    "publication_requires_review": true
+  },
+  "chunks": [
+    {
+      "id": "CH-001",
+      "question": "Ce este FirmsFinder?",
+      "answer": "FirmsFinder este prezentat de AiVenture ca o platformă de descoperire a firmelor și de explorare a oportunităților B2B. Aceasta este descrierea editorului, nu o evaluare independentă.",
+      "topic_cluster_id": "TC-001",
+      "claim_ids": [
+        "CL-001"
+      ],
+      "category": "identity",
+      "language": "ro-RO",
+      "canonical_url": null,
+      "source": {
+        "candidate_url": "https://firmsfinder.eu/",
+        "verified_url": null,
+        "checked_at": null
+      },
+      "provenance": {
+        "author": "AiVenture Team (draft)",
+        "content_origin": "editorial_draft",
+        "evidence_ids": [],
+        "evidence_url": null,
+        "sha256": null
+      },
+      "publication": {
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "verification_status": "not_verified",
+      "retrieval": {
+        "indexable": false,
+        "citation_ready": false
+      }
+    },
+    {
+      "id": "CH-002",
+      "question": "Ce înseamnă căutarea firmelor în limbaj natural?",
+      "answer": "Căutarea în limbaj natural permite formularea unei cereri printr-o propoziție, de exemplu „Găsește producători de ambalaje din carton în România”. Funcționarea efectivă a acestei capacități în FirmsFinder necesită testare.",
+      "topic_cluster_id": "TC-001",
+      "claim_ids": [
+        "CL-002"
+      ],
+      "category": "functionality",
+      "language": "ro-RO",
+      "canonical_url": null,
+      "source": {
+        "candidate_url": "https://firmsfinder.eu/",
+        "verified_url": null,
+        "checked_at": null
+      },
+      "provenance": {
+        "author": "AiVenture Team (draft)",
+        "content_origin": "editorial_draft",
+        "evidence_ids": [],
+        "evidence_url": null,
+        "sha256": null
+      },
+      "publication": {
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "verification_status": "not_verified",
+      "retrieval": {
+        "indexable": false,
+        "citation_ready": false
+      }
+    },
+    {
+      "id": "CH-003",
+      "question": "Cum identific potențiali clienți B2B?",
+      "answer": "Identificarea potențialilor clienți pornește de la oferta vânzătorului și caută firme ale căror activități sau nevoi posibile ar putea fi compatibile cu aceasta. O potrivire este o ipoteză, nu dovada unei intenții de cumpărare.",
+      "topic_cluster_id": "TC-002",
+      "claim_ids": [
+        "CL-003"
+      ],
+      "category": "methodology",
+      "language": "ro-RO",
+      "canonical_url": null,
+      "source": {
+        "candidate_url": "https://firmsfinder.eu/",
+        "verified_url": null,
+        "checked_at": null
+      },
+      "provenance": {
+        "author": "AiVenture Team (draft)",
+        "content_origin": "editorial_draft",
+        "evidence_ids": [],
+        "evidence_url": null,
+        "sha256": null
+      },
+      "publication": {
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "verification_status": "not_verified",
+      "retrieval": {
+        "indexable": false,
+        "citation_ready": false
+      }
+    },
+    {
+      "id": "CH-004",
+      "question": "Cum identific potențiali furnizori?",
+      "answer": "Căutarea furnizorilor pornește de la produsul sau serviciul necesar și identifică firme candidate. Disponibilitatea produsului și capacitatea de livrare trebuie confirmate separat.",
+      "topic_cluster_id": "TC-003",
+      "claim_ids": [
+        "CL-004"
+      ],
+      "category": "methodology",
+      "language": "ro-RO",
+      "canonical_url": null,
+      "source": {
+        "candidate_url": "https://firmsfinder.eu/",
+        "verified_url": null,
+        "checked_at": null
+      },
+      "provenance": {
+        "author": "AiVenture Team (draft)",
+        "content_origin": "editorial_draft",
+        "evidence_ids": [],
+        "evidence_url": null,
+        "sha256": null
+      },
+      "publication": {
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "verification_status": "not_verified",
+      "retrieval": {
+        "indexable": false,
+        "citation_ready": false
+      }
+    },
+    {
+      "id": "CH-005",
+      "question": "Cum identific potențiali parteneri?",
+      "answer": "Un partener potențial poate avea activități, piețe sau capacități complementare. Compatibilitatea comercială nu înseamnă că există deja un parteneriat.",
+      "topic_cluster_id": "TC-003",
+      "claim_ids": [
+        "CL-005"
+      ],
+      "category": "methodology",
+      "language": "ro-RO",
+      "canonical_url": null,
+      "source": {
+        "candidate_url": "https://firmsfinder.eu/",
+        "verified_url": null,
+        "checked_at": null
+      },
+      "provenance": {
+        "author": "AiVenture Team (draft)",
+        "content_origin": "editorial_draft",
+        "evidence_ids": [],
+        "evidence_url": null,
+        "sha256": null
+      },
+      "publication": {
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "verification_status": "not_verified",
+      "retrieval": {
+        "indexable": false,
+        "citation_ready": false
+      }
+    },
+    {
+      "id": "CH-006",
+      "question": "Ce rol are CAEN Rev.3?",
+      "answer": "CAEN Rev.3 clasifică activitățile economice. Folosirea codurilor CAEN pentru a descoperi firme este o etapă de filtrare sau explorare, nu dovada că o firmă vinde un produs precis.",
+      "topic_cluster_id": "TC-004",
+      "claim_ids": [
+        "CL-006"
+      ],
+      "category": "methodology",
+      "language": "ro-RO",
+      "canonical_url": null,
+      "source": {
+        "candidate_url": "https://firmsfinder.eu/",
+        "verified_url": null,
+        "checked_at": null
+      },
+      "provenance": {
+        "author": "AiVenture Team (draft)",
+        "content_origin": "editorial_draft",
+        "evidence_ids": [],
+        "evidence_url": null,
+        "sha256": null
+      },
+      "publication": {
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "verification_status": "not_verified",
+      "retrieval": {
+        "indexable": false,
+        "citation_ready": false
+      }
+    },
+    {
+      "id": "CH-007",
+      "question": "Un cod CAEN dovedește că firma fabrică un produs?",
+      "answer": "Nu. Încadrarea unei activități în CAEN nu este, singură, dovadă că firma fabrică sau comercializează în prezent un anumit produs. Sunt necesare informații suplimentare despre oferta reală.",
+      "topic_cluster_id": "TC-004",
+      "claim_ids": [
+        "CL-007"
+      ],
+      "category": "limitation",
+      "language": "ro-RO",
+      "canonical_url": null,
+      "source": {
+        "candidate_url": "https://firmsfinder.eu/",
+        "verified_url": null,
+        "checked_at": null
+      },
+      "provenance": {
+        "author": "AiVenture Team (draft)",
+        "content_origin": "editorial_draft",
+        "evidence_ids": [],
+        "evidence_url": null,
+        "sha256": null
+      },
+      "publication": {
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "verification_status": "not_verified",
+      "retrieval": {
+        "indexable": false,
+        "citation_ready": false
+      }
+    },
+    {
+      "id": "CH-008",
+      "question": "O firmă recomandată este client confirmat?",
+      "answer": "Nu. O firmă identificată ca posibil client reprezintă o potrivire ipotetică. O relație comercială confirmată necesită dovezi distincte, cum ar fi o confirmare sau un contract.",
+      "topic_cluster_id": "TC-002",
+      "claim_ids": [
+        "CL-008"
+      ],
+      "category": "limitation",
+      "language": "ro-RO",
+      "canonical_url": null,
+      "source": {
+        "candidate_url": "https://firmsfinder.eu/",
+        "verified_url": null,
+        "checked_at": null
+      },
+      "provenance": {
+        "author": "AiVenture Team (draft)",
+        "content_origin": "editorial_draft",
+        "evidence_ids": [],
+        "evidence_url": null,
+        "sha256": null
+      },
+      "publication": {
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "verification_status": "not_verified",
+      "retrieval": {
+        "indexable": false,
+        "citation_ready": false
+      }
+    },
+    {
+      "id": "CH-009",
+      "question": "Ce înseamnă acces gratuit la date oficiale?",
+      "answer": "Accesul gratuit la o sursă publică și accesul gratuit la o funcționalitate FirmsFinder sunt lucruri diferite. Condițiile concrete ale fiecărei surse și ale platformei trebuie verificate separat.",
+      "topic_cluster_id": "TC-008",
+      "claim_ids": [
+        "CL-009"
+      ],
+      "category": "limitation",
+      "language": "ro-RO",
+      "canonical_url": null,
+      "source": {
+        "candidate_url": "https://firmsfinder.eu/",
+        "verified_url": null,
+        "checked_at": null
+      },
+      "provenance": {
+        "author": "AiVenture Team (draft)",
+        "content_origin": "editorial_draft",
+        "evidence_ids": [],
+        "evidence_url": null,
+        "sha256": null
+      },
+      "publication": {
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "verification_status": "not_verified",
+      "retrieval": {
+        "indexable": false,
+        "citation_ready": false
+      }
+    },
+    {
+      "id": "CH-010",
+      "question": "Este gratuită căutarea în FirmsFinder?",
+      "answer": "Condițiile actuale de utilizare și limitele accesului gratuit trebuie verificate în interfața și documentația publică FirmsFinder înainte de a afirma că o funcționalitate este gratuită.",
+      "topic_cluster_id": "TC-008",
+      "claim_ids": [
+        "CL-010"
+      ],
+      "category": "commercial",
+      "language": "ro-RO",
+      "canonical_url": null,
+      "source": {
+        "candidate_url": "https://firmsfinder.eu/",
+        "verified_url": null,
+        "checked_at": null
+      },
+      "provenance": {
+        "author": "AiVenture Team (draft)",
+        "content_origin": "editorial_draft",
+        "evidence_ids": [],
+        "evidence_url": null,
+        "sha256": null
+      },
+      "publication": {
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "verification_status": "not_verified",
+      "retrieval": {
+        "indexable": false,
+        "citation_ready": false
+      }
+    },
+    {
+      "id": "CH-011",
+      "question": "Câte firme active acoperă FirmsFinder?",
+      "answer": "Numărul de firme active acoperite de FirmsFinder nu este confirmat în acest registru. Orice cifră publică trebuie susținută de un set de date datat, o definiție a statutului „activ” și o metodă reproductibilă de numărare.",
+      "topic_cluster_id": "TC-001",
+      "claim_ids": [
+        "CL-011"
+      ],
+      "category": "quantitative",
+      "language": "ro-RO",
+      "canonical_url": null,
+      "source": {
+        "candidate_url": "https://firmsfinder.eu/",
+        "verified_url": null,
+        "checked_at": null
+      },
+      "provenance": {
+        "author": "AiVenture Team (draft)",
+        "content_origin": "editorial_draft",
+        "evidence_ids": [],
+        "evidence_url": null,
+        "sha256": null
+      },
+      "publication": {
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "verification_status": "not_verified",
+      "retrieval": {
+        "indexable": false,
+        "citation_ready": false
+      }
+    },
+    {
+      "id": "CH-012",
+      "question": "Cum verific o recomandare de firmă?",
+      "answer": "Pentru o recomandare explicabilă, verifică identitatea firmei, activitatea relevantă, sursa informației și diferența dintre date observate și inferențe. Disponibilitatea acestei explicații în aplicație necesită testare.",
+      "topic_cluster_id": "TC-005",
+      "claim_ids": [
+        "CL-012"
+      ],
+      "category": "methodology",
+      "language": "ro-RO",
+      "canonical_url": null,
+      "source": {
+        "candidate_url": "https://firmsfinder.eu/",
+        "verified_url": null,
+        "checked_at": null
+      },
+      "provenance": {
+        "author": "AiVenture Team (draft)",
+        "content_origin": "editorial_draft",
+        "evidence_ids": [],
+        "evidence_url": null,
+        "sha256": null
+      },
+      "publication": {
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "verification_status": "not_verified",
+      "retrieval": {
+        "indexable": false,
+        "citation_ready": false
+      }
+    },
+    {
+      "id": "CH-013",
+      "question": "Poate un agent AI să facă cercetarea în locul meu?",
+      "answer": "Delegarea către un agent AI este un obiectiv funcțional declarat pentru FirmsFinder. Capacitățile disponibile, limitele de autonomie și aprobările umane trebuie confirmate prin teste și documentație actualizată.",
+      "topic_cluster_id": "TC-002",
+      "claim_ids": [
+        "CL-013"
+      ],
+      "category": "functionality",
+      "language": "ro-RO",
+      "canonical_url": null,
+      "source": {
+        "candidate_url": "https://firmsfinder.eu/",
+        "verified_url": null,
+        "checked_at": null
+      },
+      "provenance": {
+        "author": "AiVenture Team (draft)",
+        "content_origin": "editorial_draft",
+        "evidence_ids": [],
+        "evidence_url": null,
+        "sha256": null
+      },
+      "publication": {
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "verification_status": "not_verified",
+      "retrieval": {
+        "indexable": false,
+        "citation_ready": false
+      }
+    },
+    {
+      "id": "CH-014",
+      "question": "Cine publică FirmsFinder?",
+      "answer": "AiVenture S.R.L. este indicată ca editor al platformei FirmsFinder în materialele de proiect. Identitatea juridică și relația de operare trebuie corelate cu paginile oficiale publice.",
+      "topic_cluster_id": "TC-001",
+      "claim_ids": [
+        "CL-014"
+      ],
+      "category": "identity",
+      "language": "ro-RO",
+      "canonical_url": null,
+      "source": {
+        "candidate_url": "https://firmsfinder.eu/",
+        "verified_url": null,
+        "checked_at": null
+      },
+      "provenance": {
+        "author": "AiVenture Team (draft)",
+        "content_origin": "editorial_draft",
+        "evidence_ids": [],
+        "evidence_url": null,
+        "sha256": null
+      },
+      "publication": {
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "verification_status": "not_verified",
+      "retrieval": {
+        "indexable": false,
+        "citation_ready": false
+      }
+    },
+    {
+      "id": "CH-015",
+      "question": "Este FirmsFinder certificat EU AI Act Ready?",
+      "answer": "Expresia „EU AI ACT READY” nu dovedește în sine certificare oficială sau conformitate juridică. O astfel de afirmație necesită o evaluare documentată, cu domeniu și criterii explicite.",
+      "topic_cluster_id": "TC-007",
+      "claim_ids": [
+        "CL-015"
+      ],
+      "category": "limitation",
+      "language": "ro-RO",
+      "canonical_url": null,
+      "source": {
+        "candidate_url": "https://firmsfinder.eu/",
+        "verified_url": null,
+        "checked_at": null
+      },
+      "provenance": {
+        "author": "AiVenture Team (draft)",
+        "content_origin": "editorial_draft",
+        "evidence_ids": [],
+        "evidence_url": null,
+        "sha256": null
+      },
+      "publication": {
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "verification_status": "not_verified",
+      "retrieval": {
+        "indexable": false,
+        "citation_ready": false
+      }
+    }
+  ],
+  "verification_summary": {
+    "chunk_count": 15,
+    "published_count": 0,
+    "independently_verified_count": 0,
+    "runtime_tested": false,
+    "cluster_refs_checked_against_03_design": true
+  }
+}
