@@ -1,0 +1,394 @@
+{
+  "schema": "FIRMSFINDER_GEO_EXTERNAL_CORROBORATION",
+  "version": "1.0.0",
+  "generated_at": "2026-10-13",
+  "website": "https://firmsfinder.eu/",
+  "publisher": "AiVenture S.R.L.",
+  "language": "ro-RO",
+  "status": "draft_sources_not_collected",
+  "geo_signals": [
+    "GEO35",
+    "GEO36"
+  ],
+  "purpose": "Registru al surselor externe si al evaluarii independente a afirmatiilor FirmsFinder. Nu declara validari externe inexistente.",
+  "references": {
+    "claims": "/geo/claims.json",
+    "evidence": "/geo/evidence.json",
+    "consistency": "/geo/consistency-manifest.json",
+    "verification": "/geo/verification.json"
+  },
+  "independence_policy": {
+    "independent_source_definition": "Sursa cu control editorial sau verificare proprie, separata de AiVenture si FirmsFinder; nu simpla republicare a materialelor acestora.",
+    "not_independent": [
+      "firmsfinder.eu",
+      "aiventure.ro",
+      "comunicat de presa republicat identic",
+      "profil creat sau administrat de editor",
+      "raspuns AI fara dovezi primare",
+      "agregator care copiaza afirmatia fara test"
+    ],
+    "acceptable_source_types": [
+      "autoritate publica pentru fapte oficiale",
+      "publicatie cu verificare editoriala proprie",
+      "studiu sau audit independent cu metodologie",
+      "test extern reproductibil cu jurnal si data",
+      "registru legal independent pentru identitatea companiei"
+    ],
+    "source_quality_fields": [
+      "editorial_independence",
+      "primary_evidence",
+      "method_disclosed",
+      "published_at",
+      "accessed_at",
+      "conflict_of_interest",
+      "supports_claim",
+      "limitations"
+    ],
+    "minimum_independent_confirmations_for_status_confirmed": 1,
+    "independent_count_alone_is_not_proof": true,
+    "disagreement_must_be_preserved": true,
+    "source_url_must_be_real_and_checked": true,
+    "do_not_infer_endorsement_from_indexing_or_mentions": true
+  },
+  "source_assessment_template": {
+    "source_id": "EXT-001",
+    "publisher": null,
+    "title": null,
+    "url": null,
+    "published_at": null,
+    "accessed_at": null,
+    "author": null,
+    "editorial_independence": "not_assessed",
+    "primary_evidence_url": null,
+    "method_disclosed": null,
+    "conflict_of_interest": null,
+    "supports_claim": "not_assessed",
+    "limitations": null,
+    "snapshot_url": null,
+    "snapshot_sha256": null,
+    "reviewer": null,
+    "reviewed_at": null,
+    "review_status": "not_reviewed"
+  },
+  "records": [
+    {
+      "id": "EC-001",
+      "claim_id": "CL-001",
+      "claim_text": "FirmsFinder este o platforma pentru descoperirea firmelor si oportunitatilor B2B.",
+      "corroboration_target": "Descriere independenta a platformei si a functiei sale",
+      "required_source_type": "independent_product_description",
+      "candidate_sources": [],
+      "source_assessments": [],
+      "independent_sources_confirming": 0,
+      "independent_sources_disputing": 0,
+      "independent_sources_inconclusive": 0,
+      "first_party_sources_counted_as_independent": false,
+      "evidence_ids": [
+        "EV-001"
+      ],
+      "last_checked_at": null,
+      "corroboration_status": "not_assessed",
+      "publication_status": "not_verified",
+      "notes": "Nu presupune ca existenta unei pagini sau mentionari inseamna validare independenta."
+    },
+    {
+      "id": "EC-002",
+      "claim_id": "CL-002",
+      "claim_text": "FirmsFinder permite cautarea firmelor folosind limbaj natural.",
+      "corroboration_target": "Test repetabil al cautarii in limbaj natural realizat de tert",
+      "required_source_type": "independent_functional_test",
+      "candidate_sources": [],
+      "source_assessments": [],
+      "independent_sources_confirming": 0,
+      "independent_sources_disputing": 0,
+      "independent_sources_inconclusive": 0,
+      "first_party_sources_counted_as_independent": false,
+      "evidence_ids": [
+        "EV-002"
+      ],
+      "last_checked_at": null,
+      "corroboration_status": "not_assessed",
+      "publication_status": "not_verified",
+      "notes": "Nu presupune ca existenta unei pagini sau mentionari inseamna validare independenta."
+    },
+    {
+      "id": "EC-003",
+      "claim_id": "CL-003",
+      "claim_text": "FirmsFinder urmareste identificarea potentialilor clienti B2B.",
+      "corroboration_target": "Studiu de caz verificabil despre identificarea clientilor potentiali",
+      "required_source_type": "independent_use_case",
+      "candidate_sources": [],
+      "source_assessments": [],
+      "independent_sources_confirming": 0,
+      "independent_sources_disputing": 0,
+      "independent_sources_inconclusive": 0,
+      "first_party_sources_counted_as_independent": false,
+      "evidence_ids": [
+        "EV-003"
+      ],
+      "last_checked_at": null,
+      "corroboration_status": "not_assessed",
+      "publication_status": "not_verified",
+      "notes": "Nu presupune ca existenta unei pagini sau mentionari inseamna validare independenta."
+    },
+    {
+      "id": "EC-004",
+      "claim_id": "CL-004",
+      "claim_text": "FirmsFinder urmareste identificarea furnizorilor potentiali.",
+      "corroboration_target": "Studiu de caz verificabil despre identificarea furnizorilor",
+      "required_source_type": "independent_use_case",
+      "candidate_sources": [],
+      "source_assessments": [],
+      "independent_sources_confirming": 0,
+      "independent_sources_disputing": 0,
+      "independent_sources_inconclusive": 0,
+      "first_party_sources_counted_as_independent": false,
+      "evidence_ids": [
+        "EV-004"
+      ],
+      "last_checked_at": null,
+      "corroboration_status": "not_assessed",
+      "publication_status": "not_verified",
+      "notes": "Nu presupune ca existenta unei pagini sau mentionari inseamna validare independenta."
+    },
+    {
+      "id": "EC-005",
+      "claim_id": "CL-005",
+      "claim_text": "FirmsFinder urmareste identificarea partenerilor potentiali.",
+      "corroboration_target": "Studiu de caz verificabil despre identificarea partenerilor",
+      "required_source_type": "independent_use_case",
+      "candidate_sources": [],
+      "source_assessments": [],
+      "independent_sources_confirming": 0,
+      "independent_sources_disputing": 0,
+      "independent_sources_inconclusive": 0,
+      "first_party_sources_counted_as_independent": false,
+      "evidence_ids": [
+        "EV-005"
+      ],
+      "last_checked_at": null,
+      "corroboration_status": "not_assessed",
+      "publication_status": "not_verified",
+      "notes": "Nu presupune ca existenta unei pagini sau mentionari inseamna validare independenta."
+    },
+    {
+      "id": "EC-006",
+      "claim_id": "CL-006",
+      "claim_text": "FirmsFinder foloseste clasificarea CAEN Rev.3 ca reper semantic pentru activitati economice.",
+      "corroboration_target": "Sursa oficiala CAEN Rev.3 si evaluare externa a utilizarii in platforma",
+      "required_source_type": "official_classification_plus_independent_implementation_review",
+      "candidate_sources": [],
+      "source_assessments": [],
+      "independent_sources_confirming": 0,
+      "independent_sources_disputing": 0,
+      "independent_sources_inconclusive": 0,
+      "first_party_sources_counted_as_independent": false,
+      "evidence_ids": [
+        "EV-006"
+      ],
+      "last_checked_at": null,
+      "corroboration_status": "not_assessed",
+      "publication_status": "not_verified",
+      "notes": "Nu presupune ca existenta unei pagini sau mentionari inseamna validare independenta."
+    },
+    {
+      "id": "EC-007",
+      "claim_id": "CL-007",
+      "claim_text": "Un cod CAEN clasifica o activitate economica; singur nu demonstreaza existenta unui anumit produs comercializat.",
+      "corroboration_target": "Definitia oficiala CAEN si analiza limitelor inferentei produselor",
+      "required_source_type": "official_methodological_source",
+      "candidate_sources": [],
+      "source_assessments": [],
+      "independent_sources_confirming": 0,
+      "independent_sources_disputing": 0,
+      "independent_sources_inconclusive": 0,
+      "first_party_sources_counted_as_independent": false,
+      "evidence_ids": [
+        "EV-007"
+      ],
+      "last_checked_at": null,
+      "corroboration_status": "not_assessed",
+      "publication_status": "not_verified",
+      "notes": "Nu presupune ca existenta unei pagini sau mentionari inseamna validare independenta."
+    },
+    {
+      "id": "EC-008",
+      "claim_id": "CL-008",
+      "claim_text": "O potrivire comerciala potentiala nu constituie dovada unei relatii comerciale existente.",
+      "corroboration_target": "Evaluare externa a distinctiei dintre ipoteza si relatie comerciala dovedita",
+      "required_source_type": "independent_methodology_review",
+      "candidate_sources": [],
+      "source_assessments": [],
+      "independent_sources_confirming": 0,
+      "independent_sources_disputing": 0,
+      "independent_sources_inconclusive": 0,
+      "first_party_sources_counted_as_independent": false,
+      "evidence_ids": [
+        "EV-008"
+      ],
+      "last_checked_at": null,
+      "corroboration_status": "not_assessed",
+      "publication_status": "not_verified",
+      "notes": "Nu presupune ca existenta unei pagini sau mentionari inseamna validare independenta."
+    },
+    {
+      "id": "EC-009",
+      "claim_id": "CL-009",
+      "claim_text": "Datele oficiale pot fi consultate gratuit la institutiile publice competente, in limitele accesului oferit de fiecare institutie.",
+      "corroboration_target": "Conditiile oficiale ale portalurilor relevante, verificate la data consultarii",
+      "required_source_type": "official_access_terms",
+      "candidate_sources": [],
+      "source_assessments": [],
+      "independent_sources_confirming": 0,
+      "independent_sources_disputing": 0,
+      "independent_sources_inconclusive": 0,
+      "first_party_sources_counted_as_independent": false,
+      "evidence_ids": [
+        "EV-009"
+      ],
+      "last_checked_at": null,
+      "corroboration_status": "not_assessed",
+      "publication_status": "not_verified",
+      "notes": "Nu presupune ca existenta unei pagini sau mentionari inseamna validare independenta."
+    },
+    {
+      "id": "EC-010",
+      "claim_id": "CL-010",
+      "claim_text": "FirmsFinder ofera acces gratuit la cautarea de baza.",
+      "corroboration_target": "Test extern al accesului gratuit si al eventualelor limitari",
+      "required_source_type": "independent_access_test",
+      "candidate_sources": [],
+      "source_assessments": [],
+      "independent_sources_confirming": 0,
+      "independent_sources_disputing": 0,
+      "independent_sources_inconclusive": 0,
+      "first_party_sources_counted_as_independent": false,
+      "evidence_ids": [
+        "EV-010"
+      ],
+      "last_checked_at": null,
+      "corroboration_status": "not_assessed",
+      "publication_status": "not_verified",
+      "notes": "Nu presupune ca existenta unei pagini sau mentionari inseamna validare independenta."
+    },
+    {
+      "id": "EC-011",
+      "claim_id": "CL-011",
+      "claim_text": "FirmsFinder acopera peste un milion de firme active din Romania.",
+      "corroboration_target": "Reproducerea numarului de firme unice active dintr-un snapshot datat",
+      "required_source_type": "independent_count_reproduction",
+      "candidate_sources": [],
+      "source_assessments": [],
+      "independent_sources_confirming": 0,
+      "independent_sources_disputing": 0,
+      "independent_sources_inconclusive": 0,
+      "first_party_sources_counted_as_independent": false,
+      "evidence_ids": [
+        "EV-011"
+      ],
+      "last_checked_at": null,
+      "corroboration_status": "not_assessed",
+      "publication_status": "not_verified",
+      "notes": "Nu presupune ca existenta unei pagini sau mentionari inseamna validare independenta."
+    },
+    {
+      "id": "EC-012",
+      "claim_id": "CL-012",
+      "claim_text": "FirmsFinder ofera recomandari explicabile prin legaturi intre firme, activitati, produse si piete.",
+      "corroboration_target": "Test extern cu exemple, surse si criterii de explicabilitate",
+      "required_source_type": "independent_explainability_test",
+      "candidate_sources": [],
+      "source_assessments": [],
+      "independent_sources_confirming": 0,
+      "independent_sources_disputing": 0,
+      "independent_sources_inconclusive": 0,
+      "first_party_sources_counted_as_independent": false,
+      "evidence_ids": [
+        "EV-012"
+      ],
+      "last_checked_at": null,
+      "corroboration_status": "not_assessed",
+      "publication_status": "not_verified",
+      "notes": "Nu presupune ca existenta unei pagini sau mentionari inseamna validare independenta."
+    },
+    {
+      "id": "EC-013",
+      "claim_id": "CL-013",
+      "claim_text": "FirmsFinder permite delegarea cercetarii catre agenti AI.",
+      "corroboration_target": "Test extern de executie a unui flux de delegare, cu jurnal",
+      "required_source_type": "independent_agent_runtime_test",
+      "candidate_sources": [],
+      "source_assessments": [],
+      "independent_sources_confirming": 0,
+      "independent_sources_disputing": 0,
+      "independent_sources_inconclusive": 0,
+      "first_party_sources_counted_as_independent": false,
+      "evidence_ids": [
+        "EV-013"
+      ],
+      "last_checked_at": null,
+      "corroboration_status": "not_assessed",
+      "publication_status": "not_verified",
+      "notes": "Nu presupune ca existenta unei pagini sau mentionari inseamna validare independenta."
+    },
+    {
+      "id": "EC-014",
+      "claim_id": "CL-014",
+      "claim_text": "AiVenture S.R.L. este editorul platformei FirmsFinder.",
+      "corroboration_target": "Sursa legala independenta care leaga editorul de platforma",
+      "required_source_type": "independent_legal_identity_source",
+      "candidate_sources": [],
+      "source_assessments": [],
+      "independent_sources_confirming": 0,
+      "independent_sources_disputing": 0,
+      "independent_sources_inconclusive": 0,
+      "first_party_sources_counted_as_independent": false,
+      "evidence_ids": [
+        "EV-014"
+      ],
+      "last_checked_at": null,
+      "corroboration_status": "not_assessed",
+      "publication_status": "not_verified",
+      "notes": "Nu presupune ca existenta unei pagini sau mentionari inseamna validare independenta."
+    },
+    {
+      "id": "EC-015",
+      "claim_id": "CL-015",
+      "claim_text": "FirmsFinder asigura conformitatea cu EU AI Act.",
+      "corroboration_target": "Evaluare juridica pe domeniu de aplicare, obligatii si dovezi; nu certificat generic",
+      "required_source_type": "independent_legal_assessment",
+      "candidate_sources": [],
+      "source_assessments": [],
+      "independent_sources_confirming": 0,
+      "independent_sources_disputing": 0,
+      "independent_sources_inconclusive": 0,
+      "first_party_sources_counted_as_independent": false,
+      "evidence_ids": [
+        "EV-015"
+      ],
+      "last_checked_at": null,
+      "corroboration_status": "not_assessed",
+      "publication_status": "not_verified",
+      "notes": "Nu publica drept certificare sau conformitate demonstrata."
+    }
+  ],
+  "verification_rules": [
+    "Fiecare claim_id trebuie sa existe in claims.json.",
+    "Fiecare evidence_id trebuie sa existe in evidence.json.",
+    "O sursa nu devine independenta doar pentru ca domeniul difera.",
+    "O mentiune nu este o confirmare a afirmatiei.",
+    "Contradictiile sunt inregistrate, nu sterse.",
+    "Pentru CL-011 se cere definirea populatiei, data, interogarea si deduplicarea.",
+    "Pentru CL-015 se cere analiza juridica specifica; nu se declara certificare generica.",
+    "Nu se trece la confirmed fara inspectarea sursei si a dovezilor sale."
+  ],
+  "verification": {
+    "json_syntax": "validated_locally",
+    "claim_id_references": "validated_locally",
+    "evidence_id_references": "validated_locally",
+    "external_sources_checked": 0,
+    "claims_independently_corroborated": 0,
+    "live_deployment": "not_verified",
+    "independent_audit": "not_performed"
+  }
+}
