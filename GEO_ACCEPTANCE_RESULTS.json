@@ -1,0 +1,2297 @@
+{
+  "scope": "LOCAL ONLY",
+  "passed": 458,
+  "failed": 0,
+  "checks": [
+    {
+      "control": "json:a2a-contracts.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:a2a-input-schema.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:a2a-output-schema.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:a2a-status.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:agent-capabilities.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:agent-identity.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:agent-mandate.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:ai-citation-policy.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:ai-summary-blocks.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:ai-visibility-tests.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:ai.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:audit-policy.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:authentication-policy.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:availability-status.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:backend-status.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:baseline-method.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:canonical-map.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:compare-contract.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:contradiction-rules.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:controls.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:cookie-status.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:data-freshness.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:data-rights-register.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:delegation-policy.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:digital-dna.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:economic-logic.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:entities.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:entity-relationships.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:evidence-chain.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:extractable-tables.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:faq-index.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:geo/changelog.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:geo/citable-chunks.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:geo/claims.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:geo/consistency-manifest.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:geo/corrections.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:geo/dataset.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:geo/entities.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:geo/ere-dictionary.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:geo/evidence.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:geo/experiments.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:geo/external-corroboration.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:geo/glossary.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:geo/intents.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:geo/knowledge-graph.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:geo/manifest.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:geo/observations.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:geo/proprietary-data.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:geo/rag-metadata.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:geo/reference-set.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:geo/scorecard.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:geo/semantic-keywords.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:geo/topic-clusters.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:geo/verification.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:human-approval-policy.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:independent-validation.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:intents.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:interop-test-plan.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:monitoring-plan.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:onsite-index.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:onsite-manifest.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:performance-budget.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:privacy-status.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:proof.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:qualification-rules.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:rag-chunk-map.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:rate-limit-policy.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:release-manifest.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:requirements.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:retention-policy.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:schema-audit.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:schema-org.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:search-contract.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:security-controls.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:services.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:signals.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:source-provenance.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:taxonomy.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:terms-status.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:timestamp-policy.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:version.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "manifest:geo/changelog.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "manifest:geo/citable-chunks.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "manifest:geo/claims.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "manifest:geo/consistency-manifest.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "manifest:geo/corrections.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "manifest:geo/dataset.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "manifest:geo/entities.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "manifest:geo/ere-dictionary.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "manifest:geo/evidence.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "manifest:geo/experiments.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "manifest:geo/external-corroboration.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "manifest:geo/glossary.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "manifest:geo/intents.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "manifest:geo/knowledge-graph.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "manifest:geo/manifest.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "manifest:geo/observations.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "manifest:geo/proprietary-data.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "manifest:geo/rag-metadata.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "manifest:geo/reference-set.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "manifest:geo/scorecard.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "manifest:geo/semantic-keywords.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "manifest:geo/topic-clusters.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "manifest:geo/verification.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "intent_count_150",
+      "result": "PASS",
+      "detail": "150"
+    },
+    {
+      "control": "intent:FF-GEO-TOF-001",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-TOF-001",
+      "result": "PASS",
+      "detail": "cautare/index.html"
+    },
+    {
+      "control": "intent:FF-GEO-TOF-002",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-TOF-002",
+      "result": "PASS",
+      "detail": "cautare/index.html"
+    },
+    {
+      "control": "intent:FF-GEO-TOF-003",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-TOF-003",
+      "result": "PASS",
+      "detail": "cautare/index.html"
+    },
+    {
+      "control": "intent:FF-GEO-TOF-004",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-TOF-004",
+      "result": "PASS",
+      "detail": "cautare/index.html"
+    },
+    {
+      "control": "intent:FF-GEO-TOF-005",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-TOF-005",
+      "result": "PASS",
+      "detail": "cautare/index.html"
+    },
+    {
+      "control": "intent:FF-GEO-TOF-006",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-TOF-006",
+      "result": "PASS",
+      "detail": "cautare/index.html"
+    },
+    {
+      "control": "intent:FF-GEO-TOF-007",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-TOF-007",
+      "result": "PASS",
+      "detail": "cautare/index.html"
+    },
+    {
+      "control": "intent:FF-GEO-TOF-008",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-TOF-008",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-TOF-009",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-TOF-009",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-TOF-010",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-TOF-010",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-TOF-011",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-TOF-011",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-TOF-012",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-TOF-012",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-TOF-013",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-TOF-013",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-TOF-014",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-TOF-014",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-TOF-015",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-TOF-015",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-TOF-016",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-TOF-016",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-TOF-017",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-TOF-017",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-TOF-018",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-TOF-018",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-TOF-019",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-TOF-019",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-TOF-020",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-TOF-020",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-TOF-021",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-TOF-021",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-TOF-022",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-TOF-022",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-TOF-023",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-TOF-023",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-TOF-024",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-TOF-024",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-TOF-025",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-TOF-025",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-TOF-026",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-TOF-026",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-TOF-027",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-TOF-027",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-TOF-028",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-TOF-028",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-TOF-029",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-TOF-029",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-TOF-030",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-TOF-030",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-TOF-031",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-TOF-031",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-TOF-032",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-TOF-032",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-TOF-033",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-TOF-033",
+      "result": "PASS",
+      "detail": "geo/ghid/index.html"
+    },
+    {
+      "control": "anchor:FF-GEO-TOF-033",
+      "result": "PASS",
+      "detail": "intent-ff-geo-tof-033"
+    },
+    {
+      "control": "intent:FF-GEO-TOF-034",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-TOF-034",
+      "result": "PASS",
+      "detail": "geo/ghid/index.html"
+    },
+    {
+      "control": "anchor:FF-GEO-TOF-034",
+      "result": "PASS",
+      "detail": "intent-ff-geo-tof-034"
+    },
+    {
+      "control": "intent:FF-GEO-TOF-035",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-TOF-035",
+      "result": "PASS",
+      "detail": "geo/ghid/index.html"
+    },
+    {
+      "control": "anchor:FF-GEO-TOF-035",
+      "result": "PASS",
+      "detail": "intent-ff-geo-tof-035"
+    },
+    {
+      "control": "intent:FF-GEO-TOF-036",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-TOF-036",
+      "result": "PASS",
+      "detail": "geo/ghid/index.html"
+    },
+    {
+      "control": "anchor:FF-GEO-TOF-036",
+      "result": "PASS",
+      "detail": "intent-ff-geo-tof-036"
+    },
+    {
+      "control": "intent:FF-GEO-TOF-037",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-TOF-037",
+      "result": "PASS",
+      "detail": "geo/ghid/index.html"
+    },
+    {
+      "control": "anchor:FF-GEO-TOF-037",
+      "result": "PASS",
+      "detail": "intent-ff-geo-tof-037"
+    },
+    {
+      "control": "intent:FF-GEO-TOF-038",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-TOF-038",
+      "result": "PASS",
+      "detail": "geo/ghid/index.html"
+    },
+    {
+      "control": "anchor:FF-GEO-TOF-038",
+      "result": "PASS",
+      "detail": "intent-ff-geo-tof-038"
+    },
+    {
+      "control": "intent:FF-GEO-TOF-039",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-TOF-039",
+      "result": "PASS",
+      "detail": "geo/ghid/index.html"
+    },
+    {
+      "control": "anchor:FF-GEO-TOF-039",
+      "result": "PASS",
+      "detail": "intent-ff-geo-tof-039"
+    },
+    {
+      "control": "intent:FF-GEO-TOF-040",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-TOF-040",
+      "result": "PASS",
+      "detail": "geo/ghid/index.html"
+    },
+    {
+      "control": "anchor:FF-GEO-TOF-040",
+      "result": "PASS",
+      "detail": "intent-ff-geo-tof-040"
+    },
+    {
+      "control": "intent:FF-GEO-TOF-041",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-TOF-041",
+      "result": "PASS",
+      "detail": "geo/ghid/index.html"
+    },
+    {
+      "control": "anchor:FF-GEO-TOF-041",
+      "result": "PASS",
+      "detail": "intent-ff-geo-tof-041"
+    },
+    {
+      "control": "intent:FF-GEO-TOF-042",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-TOF-042",
+      "result": "PASS",
+      "detail": "geo/ghid/index.html"
+    },
+    {
+      "control": "anchor:FF-GEO-TOF-042",
+      "result": "PASS",
+      "detail": "intent-ff-geo-tof-042"
+    },
+    {
+      "control": "intent:FF-GEO-TOF-043",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-TOF-043",
+      "result": "PASS",
+      "detail": "geo/ghid/index.html"
+    },
+    {
+      "control": "anchor:FF-GEO-TOF-043",
+      "result": "PASS",
+      "detail": "intent-ff-geo-tof-043"
+    },
+    {
+      "control": "intent:FF-GEO-TOF-044",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-TOF-044",
+      "result": "PASS",
+      "detail": "geo/ghid/index.html"
+    },
+    {
+      "control": "anchor:FF-GEO-TOF-044",
+      "result": "PASS",
+      "detail": "intent-ff-geo-tof-044"
+    },
+    {
+      "control": "intent:FF-GEO-TOF-045",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-TOF-045",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-TOF-046",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-TOF-046",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-TOF-047",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-TOF-047",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-TOF-048",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-TOF-048",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-TOF-049",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-TOF-049",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-TOF-050",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-TOF-050",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-MOF-001",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-MOF-001",
+      "result": "PASS",
+      "detail": "cautare/index.html"
+    },
+    {
+      "control": "intent:FF-GEO-MOF-002",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-MOF-002",
+      "result": "PASS",
+      "detail": "cautare/index.html"
+    },
+    {
+      "control": "intent:FF-GEO-MOF-003",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-MOF-003",
+      "result": "PASS",
+      "detail": "cautare/index.html"
+    },
+    {
+      "control": "intent:FF-GEO-MOF-004",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-MOF-004",
+      "result": "PASS",
+      "detail": "cautare/index.html"
+    },
+    {
+      "control": "intent:FF-GEO-MOF-005",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-MOF-005",
+      "result": "PASS",
+      "detail": "cautare/index.html"
+    },
+    {
+      "control": "intent:FF-GEO-MOF-006",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-MOF-006",
+      "result": "PASS",
+      "detail": "cautare/index.html"
+    },
+    {
+      "control": "intent:FF-GEO-MOF-007",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-MOF-007",
+      "result": "PASS",
+      "detail": "cautare/index.html"
+    },
+    {
+      "control": "intent:FF-GEO-MOF-008",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-MOF-008",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-MOF-009",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-MOF-009",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-MOF-010",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-MOF-010",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-MOF-011",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-MOF-011",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-MOF-012",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-MOF-012",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-MOF-013",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-MOF-013",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-MOF-014",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-MOF-014",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-MOF-015",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-MOF-015",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-MOF-016",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-MOF-016",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-MOF-017",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-MOF-017",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-MOF-018",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-MOF-018",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-MOF-019",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-MOF-019",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-MOF-020",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-MOF-020",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-MOF-021",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-MOF-021",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-MOF-022",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-MOF-022",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-MOF-023",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-MOF-023",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-MOF-024",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-MOF-024",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-MOF-025",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-MOF-025",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-MOF-026",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-MOF-026",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-MOF-027",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-MOF-027",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-MOF-028",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-MOF-028",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-MOF-029",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-MOF-029",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-MOF-030",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-MOF-030",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-MOF-031",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-MOF-031",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-MOF-032",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-MOF-032",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-MOF-033",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-MOF-033",
+      "result": "PASS",
+      "detail": "geo/ghid/index.html"
+    },
+    {
+      "control": "anchor:FF-GEO-MOF-033",
+      "result": "PASS",
+      "detail": "intent-ff-geo-mof-033"
+    },
+    {
+      "control": "intent:FF-GEO-MOF-034",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-MOF-034",
+      "result": "PASS",
+      "detail": "geo/ghid/index.html"
+    },
+    {
+      "control": "anchor:FF-GEO-MOF-034",
+      "result": "PASS",
+      "detail": "intent-ff-geo-mof-034"
+    },
+    {
+      "control": "intent:FF-GEO-MOF-035",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-MOF-035",
+      "result": "PASS",
+      "detail": "geo/ghid/index.html"
+    },
+    {
+      "control": "anchor:FF-GEO-MOF-035",
+      "result": "PASS",
+      "detail": "intent-ff-geo-mof-035"
+    },
+    {
+      "control": "intent:FF-GEO-MOF-036",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-MOF-036",
+      "result": "PASS",
+      "detail": "geo/ghid/index.html"
+    },
+    {
+      "control": "anchor:FF-GEO-MOF-036",
+      "result": "PASS",
+      "detail": "intent-ff-geo-mof-036"
+    },
+    {
+      "control": "intent:FF-GEO-MOF-037",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-MOF-037",
+      "result": "PASS",
+      "detail": "geo/ghid/index.html"
+    },
+    {
+      "control": "anchor:FF-GEO-MOF-037",
+      "result": "PASS",
+      "detail": "intent-ff-geo-mof-037"
+    },
+    {
+      "control": "intent:FF-GEO-MOF-038",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-MOF-038",
+      "result": "PASS",
+      "detail": "geo/ghid/index.html"
+    },
+    {
+      "control": "anchor:FF-GEO-MOF-038",
+      "result": "PASS",
+      "detail": "intent-ff-geo-mof-038"
+    },
+    {
+      "control": "intent:FF-GEO-MOF-039",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-MOF-039",
+      "result": "PASS",
+      "detail": "geo/ghid/index.html"
+    },
+    {
+      "control": "anchor:FF-GEO-MOF-039",
+      "result": "PASS",
+      "detail": "intent-ff-geo-mof-039"
+    },
+    {
+      "control": "intent:FF-GEO-MOF-040",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-MOF-040",
+      "result": "PASS",
+      "detail": "geo/ghid/index.html"
+    },
+    {
+      "control": "anchor:FF-GEO-MOF-040",
+      "result": "PASS",
+      "detail": "intent-ff-geo-mof-040"
+    },
+    {
+      "control": "intent:FF-GEO-MOF-041",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-MOF-041",
+      "result": "PASS",
+      "detail": "geo/ghid/index.html"
+    },
+    {
+      "control": "anchor:FF-GEO-MOF-041",
+      "result": "PASS",
+      "detail": "intent-ff-geo-mof-041"
+    },
+    {
+      "control": "intent:FF-GEO-MOF-042",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-MOF-042",
+      "result": "PASS",
+      "detail": "geo/ghid/index.html"
+    },
+    {
+      "control": "anchor:FF-GEO-MOF-042",
+      "result": "PASS",
+      "detail": "intent-ff-geo-mof-042"
+    },
+    {
+      "control": "intent:FF-GEO-MOF-043",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-MOF-043",
+      "result": "PASS",
+      "detail": "geo/ghid/index.html"
+    },
+    {
+      "control": "anchor:FF-GEO-MOF-043",
+      "result": "PASS",
+      "detail": "intent-ff-geo-mof-043"
+    },
+    {
+      "control": "intent:FF-GEO-MOF-044",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-MOF-044",
+      "result": "PASS",
+      "detail": "geo/ghid/index.html"
+    },
+    {
+      "control": "anchor:FF-GEO-MOF-044",
+      "result": "PASS",
+      "detail": "intent-ff-geo-mof-044"
+    },
+    {
+      "control": "intent:FF-GEO-MOF-045",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-MOF-045",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-MOF-046",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-MOF-046",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-MOF-047",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-MOF-047",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-MOF-048",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-MOF-048",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-MOF-049",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-MOF-049",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-MOF-050",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-MOF-050",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-BOF-001",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-BOF-001",
+      "result": "PASS",
+      "detail": "cautare/index.html"
+    },
+    {
+      "control": "intent:FF-GEO-BOF-002",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-BOF-002",
+      "result": "PASS",
+      "detail": "cautare/index.html"
+    },
+    {
+      "control": "intent:FF-GEO-BOF-003",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-BOF-003",
+      "result": "PASS",
+      "detail": "cautare/index.html"
+    },
+    {
+      "control": "intent:FF-GEO-BOF-004",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-BOF-004",
+      "result": "PASS",
+      "detail": "cautare/index.html"
+    },
+    {
+      "control": "intent:FF-GEO-BOF-005",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-BOF-005",
+      "result": "PASS",
+      "detail": "cautare/index.html"
+    },
+    {
+      "control": "intent:FF-GEO-BOF-006",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-BOF-006",
+      "result": "PASS",
+      "detail": "cautare/index.html"
+    },
+    {
+      "control": "intent:FF-GEO-BOF-007",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-BOF-007",
+      "result": "PASS",
+      "detail": "cautare/index.html"
+    },
+    {
+      "control": "intent:FF-GEO-BOF-008",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-BOF-008",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-BOF-009",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-BOF-009",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-BOF-010",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-BOF-010",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-BOF-011",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-BOF-011",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-BOF-012",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-BOF-012",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-BOF-013",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-BOF-013",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-BOF-014",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-BOF-014",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-BOF-015",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-BOF-015",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-BOF-016",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-BOF-016",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-BOF-017",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-BOF-017",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-BOF-018",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-BOF-018",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-BOF-019",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-BOF-019",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-BOF-020",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-BOF-020",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-BOF-021",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-BOF-021",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-BOF-022",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-BOF-022",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-BOF-023",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-BOF-023",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-BOF-024",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-BOF-024",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-BOF-025",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-BOF-025",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-BOF-026",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-BOF-026",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-BOF-027",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-BOF-027",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-BOF-028",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-BOF-028",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-BOF-029",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-BOF-029",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-BOF-030",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-BOF-030",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-BOF-031",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-BOF-031",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-BOF-032",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-BOF-032",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-BOF-033",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-BOF-033",
+      "result": "PASS",
+      "detail": "geo/ghid/index.html"
+    },
+    {
+      "control": "anchor:FF-GEO-BOF-033",
+      "result": "PASS",
+      "detail": "intent-ff-geo-bof-033"
+    },
+    {
+      "control": "intent:FF-GEO-BOF-034",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-BOF-034",
+      "result": "PASS",
+      "detail": "geo/ghid/index.html"
+    },
+    {
+      "control": "anchor:FF-GEO-BOF-034",
+      "result": "PASS",
+      "detail": "intent-ff-geo-bof-034"
+    },
+    {
+      "control": "intent:FF-GEO-BOF-035",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-BOF-035",
+      "result": "PASS",
+      "detail": "geo/ghid/index.html"
+    },
+    {
+      "control": "anchor:FF-GEO-BOF-035",
+      "result": "PASS",
+      "detail": "intent-ff-geo-bof-035"
+    },
+    {
+      "control": "intent:FF-GEO-BOF-036",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-BOF-036",
+      "result": "PASS",
+      "detail": "geo/ghid/index.html"
+    },
+    {
+      "control": "anchor:FF-GEO-BOF-036",
+      "result": "PASS",
+      "detail": "intent-ff-geo-bof-036"
+    },
+    {
+      "control": "intent:FF-GEO-BOF-037",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-BOF-037",
+      "result": "PASS",
+      "detail": "geo/ghid/index.html"
+    },
+    {
+      "control": "anchor:FF-GEO-BOF-037",
+      "result": "PASS",
+      "detail": "intent-ff-geo-bof-037"
+    },
+    {
+      "control": "intent:FF-GEO-BOF-038",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-BOF-038",
+      "result": "PASS",
+      "detail": "geo/ghid/index.html"
+    },
+    {
+      "control": "anchor:FF-GEO-BOF-038",
+      "result": "PASS",
+      "detail": "intent-ff-geo-bof-038"
+    },
+    {
+      "control": "intent:FF-GEO-BOF-039",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-BOF-039",
+      "result": "PASS",
+      "detail": "geo/ghid/index.html"
+    },
+    {
+      "control": "anchor:FF-GEO-BOF-039",
+      "result": "PASS",
+      "detail": "intent-ff-geo-bof-039"
+    },
+    {
+      "control": "intent:FF-GEO-BOF-040",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-BOF-040",
+      "result": "PASS",
+      "detail": "geo/ghid/index.html"
+    },
+    {
+      "control": "anchor:FF-GEO-BOF-040",
+      "result": "PASS",
+      "detail": "intent-ff-geo-bof-040"
+    },
+    {
+      "control": "intent:FF-GEO-BOF-041",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-BOF-041",
+      "result": "PASS",
+      "detail": "geo/ghid/index.html"
+    },
+    {
+      "control": "anchor:FF-GEO-BOF-041",
+      "result": "PASS",
+      "detail": "intent-ff-geo-bof-041"
+    },
+    {
+      "control": "intent:FF-GEO-BOF-042",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-BOF-042",
+      "result": "PASS",
+      "detail": "geo/ghid/index.html"
+    },
+    {
+      "control": "anchor:FF-GEO-BOF-042",
+      "result": "PASS",
+      "detail": "intent-ff-geo-bof-042"
+    },
+    {
+      "control": "intent:FF-GEO-BOF-043",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-BOF-043",
+      "result": "PASS",
+      "detail": "geo/ghid/index.html"
+    },
+    {
+      "control": "anchor:FF-GEO-BOF-043",
+      "result": "PASS",
+      "detail": "intent-ff-geo-bof-043"
+    },
+    {
+      "control": "intent:FF-GEO-BOF-044",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-BOF-044",
+      "result": "PASS",
+      "detail": "geo/ghid/index.html"
+    },
+    {
+      "control": "anchor:FF-GEO-BOF-044",
+      "result": "PASS",
+      "detail": "intent-ff-geo-bof-044"
+    },
+    {
+      "control": "intent:FF-GEO-BOF-045",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-BOF-045",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-BOF-046",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-BOF-046",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-BOF-047",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-BOF-047",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-BOF-048",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-BOF-048",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-BOF-049",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-BOF-049",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "intent:FF-GEO-BOF-050",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "target:FF-GEO-BOF-050",
+      "result": "PASS",
+      "detail": "index.html"
+    },
+    {
+      "control": "claim_count_15",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "claim:CL-001",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "claim:CL-002",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "claim:CL-003",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "claim:CL-004",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "claim:CL-005",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "claim:CL-006",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "claim:CL-007",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "claim:CL-008",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "claim:CL-009",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "claim:CL-010",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "claim:CL-011",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "claim:CL-012",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "claim:CL-013",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "claim:CL-014",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "claim:CL-015",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "guide",
+      "result": "PASS",
+      "detail": ""
+    }
+  ]
+}
