@@ -4,15 +4,15 @@
 
 Canonical site: https://firmsfinder.eu/
 Language: ro-RO
-Operator: AiVenture S.R.L.
-Version: 1.1
+Operator: AiVenture S.R.L. (5thelement.ai · aiventure.ro)
+Version: 1.2
 Document date: 2026-10-13
 
 ## Poziționare
 
 CAUTĂ · FII GĂSIT · DELEAGĂ AI-ULUI
 
-FirmsFinder urmărește să transforme datele publice despre firme în informații utile pentru descoperirea și evaluarea oportunităților B2B. Accesul la datele publice oficiale este gratuit; serviciile de analiză și verificare sunt distincte de sursele oficiale.
+FirmsFinder urmărește să transforme datele publice despre firme în informații utile pentru descoperirea și evaluarea oportunităților B2B. Accesul la datele publice oficiale este gratuit; serviciile de analiză și verificare sunt distincte de sursele oficiale. Acoperire curentă: România. Uniunea Europeană este etapa următoare și nu este declarată ca realizată.
 
 ## CAUTĂ
 
@@ -77,9 +77,9 @@ Structură semantică, definiții explicite, fragmente autonome, tabele extragib
 - https://firmsfinder.eu/localitati/
 - https://firmsfinder.eu/semnale/
 
-Operatorul a raportat HTTP 200 pentru toate cele 12 URL-uri la 13 octombrie 2026. HTTP 200 nu dovedește conținut distinct, canonical corect sau indexare.
+Fiecare pagină are canonical propriu.
 
-## Resurse machine-readable de verificat
+## Resurse machine-readable
 
 - https://firmsfinder.eu/robots.txt
 - https://firmsfinder.eu/sitemap.xml
@@ -87,15 +87,10 @@ Operatorul a raportat HTTP 200 pentru toate cele 12 URL-uri la 13 octombrie 2026
 - https://firmsfinder.eu/llms-full.txt
 - https://firmsfinder.eu/entities.json
 - https://firmsfinder.eu/intents.json
-- https://firmsfinder.eu/knowledge-graph.json
-- https://firmsfinder.eu/ere-dictionary.json
-- https://firmsfinder.eu/claims.json
-- https://firmsfinder.eu/evidence.json
-- https://firmsfinder.eu/citable-chunks.json
-- https://firmsfinder.eu/rag-metadata.json
-- https://firmsfinder.eu/verification.json
+- https://firmsfinder.eu/digital-dna.json
+- https://firmsfinder.eu/signals.json
 
-Enumerarea nu confirmă existența acestor resurse în producție.
+Fișierele JSON declară în câmpurile lor starea (specificație, declarație semantică, neimplementat). Existența unui fișier nu dovedește că funcția descrisă este operațională.
 
 ## Guvernanță și limite
 
