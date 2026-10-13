@@ -1,10 +1,198 @@
-# FirmsFinder
 
-> Economic Intelligence: CAUTĂ · FII GĂSIT · DELEAGĂ AI-ULUI.
+# FirmsFinder AI
 
-- [Acasă](https://firmsfinder.eu/)
-- [Intelligence](https://firmsfinder.eu/intelligence/)
-- [FAQ](https://firmsfinder.eu/faq/)
-- [Surse](https://firmsfinder.eu/surse/)
+> FirmsFinder.eu — Economic Intelligence pentru descoperirea firmelor, clienților, furnizorilor și partenerilor B2B. Platformă dezvoltată de AiVenture S.R.L.
 
-Datele publice nu demonstrează nevoia sau intenția de cumpărare. Capabilitățile AI nu sunt confirmate doar prin declarații.
+Canonical site: https://firmsfinder.eu/
+Language: ro-RO
+Document version: 1.1
+Document date: 2026-10-13
+Operator: AiVenture S.R.L.
+
+## Canonical positioning
+
+Category: B2B Company Discovery & Economic Intelligence
+
+Headline (homepage):
+Descoperă clienți noi.
+Fă-te găsit de oameni și de sisteme AI.
+Delegă munca AI-ului.
+
+Core actions:
+CAUTĂ · FII GĂSIT · DELEAGĂ AI-ULUI
+
+Promise:
+Iată cui ai putea vinde, de ce există potrivirea și pe ce date se bazează.
+
+Principle:
+DATELE SUNT GRATUITE. INTELIGENȚA ESTE PLĂTITĂ.
+
+FirmsFinder urmărește să transforme datele publice despre firme în ipoteze comerciale explicabile, verificabile și utile pentru descoperirea clienților, furnizorilor, partenerilor și analiza concurenței. Accesul la sursele oficiale publice este gratuit; serviciile de analiză cu valoare adăugată sunt distincte de dreptul de acces la aceste surse.
+
+## Primary objects
+
+- Firma: entitatea economică analizată.
+- Activitatea economică: clasificată, între altele, prin CAEN; codul nu demonstrează singur ce produse vinde firma.
+- Oferta: produsul sau serviciul declarat ori verificabil al firmei.
+- Piața: domeniul, regiunea, sectorul sau contextul în care oferta poate fi relevantă.
+- Relația ERE: legătura explicită între două entități, cu sens, inversă, cardinalitate și proveniență când sunt disponibile.
+- Oportunitatea B2B: ipoteză de potrivire între o ofertă și o posibilă nevoie, nu dovadă de intenție de cumpărare.
+- Dovada: sursa, data și regula care susțin o afirmație sau o potrivire.
+
+## Canonical discovery lifecycle
+
+FIRMĂ → ACTIVITATE (CAEN) → OFERTĂ → PIAȚĂ → CĂUTARE → POTRIVIRE → EXPLICAȚIE → VERIFICARE UMANĂ → CONTACT / ACȚIUNE AUTORIZATĂ
+
+Compatibilitate ≠ nevoie.
+Semnal ≠ intenție.
+Candidat ≠ client.
+Claim ≠ Proof.
+
+## Three modes
+
+### CAUTĂ
+
+Utilizatorul descrie în limbaj natural firmele căutate: activitate, produs, localitate, județ, industrie, dimensiune sau alte criterii verificabile. Rezultatele trebuie să distingă datele sursă de inferențe și să explice criteriile de selecție.
+
+### FII GĂSIT
+
+Firma își descrie identitatea, activitățile, produsele, serviciile și punctele de contact pentru a putea fi înțeleasă de oameni și sisteme AI. Prezența unor semnale GEO/AEO/AIO nu garantează citarea sau recomandarea de către modele AI.
+
+### DELEAGĂ AI-ULUI
+
+Un agent poate cerceta firme și relații pe baza unui mandat și a unor criterii aprobate. Cercetarea, calificarea, comunicarea și orice acțiune comercială trebuie delimitate prin capabilități, permisiuni și control uman. Prezentarea unei funcționalități nu dovedește că aceasta este operațională.
+
+## Web-Om / Web-AI / Web-A2A
+
+Web-Om: utilizatorul caută, compară și contactează firme.
+OM → FIRMSFINDER → FIRMĂ
+
+Web-AI: un sistem AI poate identifica, interpreta și reprezenta informații despre firme și oferte.
+OM → SISTEM AI → INFORMAȚIE DESPRE FIRMĂ
+
+Web-A2A: agenții pot solicita, evalua și, numai în limite autorizate, iniția acțiuni între firme.
+BUYER AGENT ↔ SELLER AGENT
+
+Web-A2A este o direcție arhitecturală, nu o declarație că toate tranzacțiile A2A sunt active pe FirmsFinder.
+
+## CAEN and ERE metamodel
+
+CAEN clasifică activități economice, nu stabilește automat produse, relații comerciale sau intenții de cumpărare.
+
+Metamodelul Entitate–Relație–Entitate (ERE) poate lega:
+FIRMĂ ↔ ACTIVITATE ↔ PRODUS / SERVICIU ↔ PIAȚĂ ↔ FIRMĂ.
+
+Relațiile trebuie să aibă, când sunt disponibile, tip, inversă, cardinalitate, reguli, sursă și stare de verificare. Inferențele din CAEN trebuie etichetate explicit ca ipoteze.
+
+## Important pages — URLs declared in supplied sitemap
+
+- https://firmsfinder.eu/
+- https://firmsfinder.eu/intelligence/
+- https://firmsfinder.eu/faq/
+- https://firmsfinder.eu/despre/
+- https://firmsfinder.eu/contact/
+- https://firmsfinder.eu/surse/
+- https://firmsfinder.eu/resurse/
+- https://firmsfinder.eu/cautare/
+- https://firmsfinder.eu/comparare/
+- https://firmsfinder.eu/categorii/
+- https://firmsfinder.eu/localitati/
+- https://firmsfinder.eu/semnale/
+
+These 12 URLs returned HTTP 200 in a user-provided GET test on 2026-10-13. HTTP 200 does not prove distinct content, canonical correctness, indexability, or live machine-readable resources. The homepage HTML provided for review contains title, meta description, canonical, robots meta and Organization/WebSite/WebPage JSON-LD; deployment equivalence has not been independently verified.
+
+## Discovery resources
+
+- https://firmsfinder.eu/robots.txt — crawler policy; content supplied by operator, live bytes not independently verified here.
+- https://firmsfinder.eu/sitemap.xml — sitemap; 12 URLs supplied by operator.
+
+## Proposed machine-readable resources — NOT VERIFIED AS DEPLOYED
+
+The following are candidate resources for the FirmsFinder semantic architecture. Do not assume they exist, are accessible, or contain valid data until tested individually.
+
+- https://firmsfinder.eu/entities.json
+- https://firmsfinder.eu/intents.json
+- https://firmsfinder.eu/knowledge-graph.json
+- https://firmsfinder.eu/ere-dictionary.json
+- https://firmsfinder.eu/claims.json
+- https://firmsfinder.eu/evidence.json
+- https://firmsfinder.eu/citable-chunks.json
+- https://firmsfinder.eu/rag-metadata.json
+- https://firmsfinder.eu/topic-clusters.json
+- https://firmsfinder.eu/semantic-keywords.json
+- https://firmsfinder.eu/verification.json
+- https://firmsfinder.eu/digital-dna.json
+
+These JSON resources are architecture-specific; they are not universal requirements of AI search engines.
+
+## Intents and FAQ
+
+Intents should use the pattern ACTION + TARGET and may be classified as:
+- TOF: explore, discover, learn, search.
+- MOF: compare, qualify, validate, understand relationships.
+- BOF: contact, request, shortlist, initiate an authorized action.
+
+Examples:
+- Găsește producători de ambalaje din carton în România.
+- Identifică firme care ar putea cumpăra ambalaje de carton.
+- Compară firme cu activități CAEN relevante.
+- Explică de ce o firmă este un posibil client, furnizor sau partener.
+- Verifică sursele și data informațiilor despre o firmă.
+
+The number of published intents or Q&A pairs must be verified from the deployed files, not inferred from this document.
+
+## Data provenance and limitations
+
+The homepage supplied for review identifies ONRC and Ministerul Finanțelor as public sources used in its Economic Intelligence demonstration. The primary search CTA in the supplied homepage HTML currently points to https://1clic-ia.eu/; this is an external destination and not proof that FirmsFinder search is operational on its own domain. Financial indicators are historical, not real-time. A CAEN code, similarity score or model-generated inference does not establish a commercial relationship or purchasing intent.
+
+Do not claim full national coverage, live API access, verified company contact details, or continuously refreshed data without corresponding evidence.
+
+## GEO / AEO / AIO assessment
+
+GEO: inspect discoverability, entities, citable claims, attribution, provenance and externally observed AI citation.
+AEO: inspect direct answers, question coverage, semantic structure and source consistency.
+AIO: inspect machine readability, retrieval structure, semantic consistency and observed model behavior.
+
+Technical readiness ≠ actual AI citation.
+AI observation ≠ evidence of business performance.
+Model consensus ≠ independent verification.
+
+No GEO/AEO/AIO score, external citation success, or model performance certification is asserted by this document.
+
+## Governance rules
+
+- No rule → no autonomy.
+- Capability ≠ permission.
+- Crawl permission ≠ transaction authority.
+- Claim ≠ Proof.
+- Generated ≠ Deployed.
+- Deployed ≠ Valid.
+- Valid ≠ Verified.
+- Human review is required for ambiguity, exceptions, sensitive cases and financial commitments unless expressly authorized.
+- THE EDGE MUST NEVER INVENT THE OFFER DURING A TRANSACTION.
+
+## Negative scope
+
+FirmsFinder does not guarantee:
+- Google ranking or indexing;
+- citation, recommendation or inclusion in any AI model;
+- that a matched company needs or intends to purchase a product;
+- accuracy or freshness beyond the documented source and observation date;
+- legal or regulatory compliance by virtue of technical signals alone;
+- autonomous commercial transactions without explicit authority;
+- that a proposed machine-readable endpoint is already deployed.
+
+## Proof rule
+
+Every substantive claim should be traceable to a source, method, observation date and verification state. Do not declare SHA-256/OTS verified or a Bitcoin block confirmation without verification of the exact canonical artifact.
+
+## Publication and verification state
+
+This document is a drafted llms.txt artifact. Publication at https://firmsfinder.eu/llms.txt has not been verified. A successful HTTP 200 response must be followed by content verification; a fallback homepage with HTTP 200 is not a valid llms.txt publication.
+
+## Contact and operator
+
+Operator: AiVenture S.R.L.
+Platform: https://firmsfinder.eu/
+Corporate website: https://aiventure.ro/
+Contact page: https://firmsfinder.eu/contact/
