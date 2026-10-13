@@ -1,0 +1,123 @@
+name: GEO loop
+
+# 1) La fiecare modificare (push pe main, pull request): verify_geo.py + scorer determinist -> raport în pagina rulării.
+# 2) La cerere (butonul „Run workflow”, run_agent=true): agentul AI corectează, max 10 iterații, apoi deschide un Pull Request.
+# Nimic nu se publică în producție: Cloudflare publică doar ce îmbinați (merge) în main.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      run_agent:
+        description: "Pornește agentul AI (necesită secretul ANTHROPIC_API_KEY)"
+        type: boolean
+        default: false
+      target:
+        description: "Țintă indicator (%)"
+        default: "90"
+      max_iterations:
+        description: "Iterații maxime (plafon dur 10)"
+        default: "10"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: geo-loop-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  score:
+    name: Verificare + scor
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: verify_geo.py (structură, local)
+        run: python3 verify_geo.py
+      - name: Scorer GEO determinist
+        id: score
+        continue-on-error: true
+        run: |
+          python3 .github/geo/geo_score.py --target "${{ github.event.inputs.target || '90' }}" \
+            --json geo-score.json --md geo-score.md
+      - name: Raport în pagina rulării
+        if: always()
+        run: cat geo-score.md >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: geo-score
+          path: |
+            geo-score.json
+            geo-score.md
+      - name: Starea țintei (informativ)
+        if: steps.score.outcome == 'failure'
+        run: echo "::warning::Ținta GEO sau o poartă de calitate nu este îndeplinită; vezi raportul. Nu blochează publicarea."
+
+  agent:
+    name: Agent AI (max 10 iterații) -> Pull Request
+    if: github.event_name == 'workflow_dispatch' && github.event.inputs.run_agent == 'true'
+    needs: score
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verifică secretul
+        env:
+          KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          if [ -z "$KEY" ]; then
+            echo "::error::Lipsește secretul ANTHROPIC_API_KEY (Settings > Secrets and variables > Actions)."; exit 1
+          fi
+      - name: Bucla (scorer -> agent -> scorer)
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GEO_AGENT_MODEL: ${{ vars.GEO_AGENT_MODEL || 'claude-sonnet-5-5' }}
+        run: |
+          python3 .github/geo/geo_agent_loop.py --target "${{ github.event.inputs.target }}" \
+            --max-iter "${{ github.event.inputs.max_iterations }}" --report geo-loop-report.md
+          # verify_geo.py rescrie GEO_ACCEPTANCE_RESULTS.json; îl rulăm ca dovadă, apoi îl păstrăm actualizat
+          python3 verify_geo.py
+      - name: Pull Request cu modificările și dovezile
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -e
+          git config user.name  "geo-loop[bot]"
+          git config user.email "geo-loop@users.noreply.github.com"
+          BR="geo-loop/run-${{ github.run_id }}"
+          git checkout -b "$BR"
+          mkdir -p geo-loop-evidence
+          mv geo-loop-report.md geo-loop-result.json geo-loop-evidence/ 2>/dev/null || true
+          # dovezile rămân în PR (artefact), nu în site: nu le adăugăm în arborele publicat
+          cp -r geo-loop-evidence /tmp/geo-loop-evidence
+          rm -rf geo-loop-evidence
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Agentul nu a produs modificări acceptate; nu se deschide PR."; exit 0
+          fi
+          git commit -m "GEO loop: corecții propuse de agent (run ${{ github.run_id }})"
+          git push origin "$BR"
+          gh pr create --base main --head "$BR" \
+            --title "GEO loop: corecții propuse (run ${{ github.run_id }})" \
+            --body-file /tmp/geo-loop-evidence/geo-loop-report.md
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: geo-loop-evidence
+          path: |
+            geo-loop-report.md
+            geo-loop-result.json
+            /tmp/geo-loop-evidence/*
+          if-no-files-found: ignore
