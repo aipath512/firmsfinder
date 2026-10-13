@@ -1,0 +1,351 @@
+{
+  "schema": "FIRMSFINDER_GEO_KNOWLEDGE_GRAPH",
+  "version": "1.0.0",
+  "generated_at": "2026-10-13",
+  "website": "https://firmsfinder.eu/",
+  "publisher": "AiVenture S.R.L.",
+  "language": "ro-RO",
+  "status": "draft_not_verified",
+  "geo_signals": [
+    "GEO32",
+    "GEO33"
+  ],
+  "purpose": "Metamodel semantic ERE: tipuri de entitati, predicate directe/inverse, cardinalitati bidirectionale si reguli de evidenta. Nu contine firme reale sau relatii comerciale confirmate.",
+  "references": {
+    "entities": "/geo/entities.json",
+    "topic_clusters": "/geo/topic-clusters.json",
+    "glossary": "/geo/glossary.json",
+    "claims": "/geo/claims.json",
+    "evidence": "/geo/evidence.json",
+    "proprietary_data": "/geo/proprietary-data.json"
+  },
+  "graph_model": {
+    "notation": "ERE",
+    "edge_direction": "directed_with_declared_inverse",
+    "cardinality_convention": {
+      "0..N": "zero sau mai multe legaturi distincte",
+      "subject_to_object": "pentru un subiect, cate obiecte poate avea",
+      "object_to_subject": "pentru un obiect, cate subiecte il pot avea",
+      "scope": "cardinalitati conceptuale propuse, nu statistici observate"
+    },
+    "node_types": [
+      {
+        "term_id": "TERM-001",
+        "name": "Firmă",
+        "topic_cluster_ids": [
+          "TC-001"
+        ],
+        "concept_id": "FF-CONCEPT-001"
+      },
+      {
+        "term_id": "TERM-002",
+        "name": "Activitate economică",
+        "topic_cluster_ids": [
+          "TC-004"
+        ],
+        "concept_id": "FF-CONCEPT-002"
+      },
+      {
+        "term_id": "TERM-003",
+        "name": "Cod CAEN",
+        "topic_cluster_ids": [
+          "TC-004"
+        ],
+        "concept_id": "FF-CONCEPT-003"
+      },
+      {
+        "term_id": "TERM-005",
+        "name": "Produs",
+        "topic_cluster_ids": [
+          "TC-005"
+        ],
+        "concept_id": "FF-CONCEPT-004"
+      },
+      {
+        "term_id": "TERM-006",
+        "name": "Serviciu",
+        "topic_cluster_ids": [
+          "TC-005"
+        ],
+        "concept_id": "FF-CONCEPT-005"
+      },
+      {
+        "term_id": "TERM-010",
+        "name": "Furnizor potențial",
+        "topic_cluster_ids": [
+          "TC-003"
+        ],
+        "concept_id": "FF-CONCEPT-007"
+      },
+      {
+        "term_id": "TERM-011",
+        "name": "Client potențial",
+        "topic_cluster_ids": [
+          "TC-002"
+        ],
+        "concept_id": "FF-CONCEPT-006"
+      },
+      {
+        "term_id": "TERM-012",
+        "name": "Partener potențial",
+        "topic_cluster_ids": [
+          "TC-003"
+        ],
+        "concept_id": "FF-CONCEPT-008"
+      },
+      {
+        "term_id": "TERM-013",
+        "name": "Concurent potențial",
+        "topic_cluster_ids": [
+          "TC-003"
+        ],
+        "concept_id": "FF-CONCEPT-009"
+      }
+    ],
+    "relation_types": [
+      {
+        "id": "REL-001",
+        "subject_type": "Firmă",
+        "subject_term_id": "TERM-001",
+        "predicate": "desfășoară activitate",
+        "object_type": "Activitate economică",
+        "object_term_id": "TERM-002",
+        "inverse_predicate": "este desfășurată de",
+        "cardinality": {
+          "subject_to_object": {
+            "min": 0,
+            "max": "N",
+            "notation": "0..N"
+          },
+          "object_to_subject": {
+            "min": 0,
+            "max": "N",
+            "notation": "0..N"
+          }
+        },
+        "semantic_status": "model_rule",
+        "evidence_requirement": "sursă despre activitate și dată",
+        "instance_status": "no_verified_instances_in_this_file"
+      },
+      {
+        "id": "REL-002",
+        "subject_type": "Activitate economică",
+        "subject_term_id": "TERM-002",
+        "predicate": "este clasificată prin",
+        "object_type": "Cod CAEN",
+        "object_term_id": "TERM-003",
+        "inverse_predicate": "clasifică activitatea",
+        "cardinality": {
+          "subject_to_object": {
+            "min": 0,
+            "max": "N",
+            "notation": "0..N"
+          },
+          "object_to_subject": {
+            "min": 0,
+            "max": "N",
+            "notation": "0..N"
+          }
+        },
+        "semantic_status": "classification_mapping",
+        "evidence_requirement": "nomenclator oficial și revizie",
+        "instance_status": "no_verified_instances_in_this_file"
+      },
+      {
+        "id": "REL-003",
+        "subject_type": "Firmă",
+        "subject_term_id": "TERM-001",
+        "predicate": "oferă",
+        "object_type": "Produs",
+        "object_term_id": "TERM-005",
+        "inverse_predicate": "este oferit de",
+        "cardinality": {
+          "subject_to_object": {
+            "min": 0,
+            "max": "N",
+            "notation": "0..N"
+          },
+          "object_to_subject": {
+            "min": 0,
+            "max": "N",
+            "notation": "0..N"
+          }
+        },
+        "semantic_status": "requires_evidence",
+        "evidence_requirement": "ofertă publică sau document verificabil",
+        "instance_status": "no_verified_instances_in_this_file"
+      },
+      {
+        "id": "REL-004",
+        "subject_type": "Firmă",
+        "subject_term_id": "TERM-001",
+        "predicate": "prestează",
+        "object_type": "Serviciu",
+        "object_term_id": "TERM-006",
+        "inverse_predicate": "este prestat de",
+        "cardinality": {
+          "subject_to_object": {
+            "min": 0,
+            "max": "N",
+            "notation": "0..N"
+          },
+          "object_to_subject": {
+            "min": 0,
+            "max": "N",
+            "notation": "0..N"
+          }
+        },
+        "semantic_status": "requires_evidence",
+        "evidence_requirement": "descriere de serviciu și sursă",
+        "instance_status": "no_verified_instances_in_this_file"
+      },
+      {
+        "id": "REL-005",
+        "subject_type": "Firmă",
+        "subject_term_id": "TERM-001",
+        "predicate": "poate furniza către",
+        "object_type": "Firmă",
+        "object_term_id": "TERM-001",
+        "inverse_predicate": "poate cumpăra de la",
+        "cardinality": {
+          "subject_to_object": {
+            "min": 0,
+            "max": "N",
+            "notation": "0..N"
+          },
+          "object_to_subject": {
+            "min": 0,
+            "max": "N",
+            "notation": "0..N"
+          }
+        },
+        "semantic_status": "hypothesis_only",
+        "evidence_requirement": "dovadă ofertă, nevoie și compatibilitate",
+        "instance_status": "no_verified_instances_in_this_file"
+      },
+      {
+        "id": "REL-006",
+        "subject_type": "Firmă",
+        "subject_term_id": "TERM-001",
+        "predicate": "poate concura cu",
+        "object_type": "Firmă",
+        "object_term_id": "TERM-001",
+        "inverse_predicate": "poate concura cu",
+        "cardinality": {
+          "subject_to_object": {
+            "min": 0,
+            "max": "N",
+            "notation": "0..N"
+          },
+          "object_to_subject": {
+            "min": 0,
+            "max": "N",
+            "notation": "0..N"
+          }
+        },
+        "semantic_status": "hypothesis_only",
+        "evidence_requirement": "suprapunere demonstrabilă a ofertelor/piețelor",
+        "instance_status": "no_verified_instances_in_this_file"
+      }
+    ]
+  },
+  "relation_instance_schema": {
+    "required_fields": [
+      "id",
+      "relation_type_id",
+      "subject_entity_id",
+      "object_entity_id",
+      "assertion_status",
+      "source_ids",
+      "evidence_ids",
+      "observed_at"
+    ],
+    "optional_fields": [
+      "valid_from",
+      "valid_to",
+      "confidence",
+      "rationale",
+      "reviewed_by",
+      "reviewed_at"
+    ],
+    "allowed_assertion_status": [
+      "hypothesis",
+      "source_asserted",
+      "verified",
+      "rejected"
+    ],
+    "confidence_rule": "confidence numeric nu transforma ipoteza in relatie verificata",
+    "inverse_rule": "relatia inversa este o vedere a aceleiasi muchii; nu crea doua dovezi sau doua contracte",
+    "identity_rule": "identificatorii firmelor trebuie stabiliti pe baza unei surse de identitate documentate"
+  },
+  "illustrative_instance": {
+    "synthetic": true,
+    "do_not_publish_as_real_company": true,
+    "nodes": [
+      {
+        "id": "EX-FIRM-A",
+        "type": "Firmă",
+        "label": "Producator exemplificativ A"
+      },
+      {
+        "id": "EX-PRODUCT-1",
+        "type": "Produs",
+        "label": "Ambalaje din carton"
+      }
+    ],
+    "edges": [
+      {
+        "id": "EX-EDGE-1",
+        "relation_type_id": "REL-003",
+        "subject_entity_id": "EX-FIRM-A",
+        "object_entity_id": "EX-PRODUCT-1",
+        "assertion_status": "hypothesis",
+        "source_ids": [],
+        "evidence_ids": [],
+        "observed_at": null,
+        "rationale": "Exemplu exclusiv didactic; oferta reala nu este confirmata"
+      }
+    ]
+  },
+  "inference_rules": [
+    {
+      "id": "RULE-001",
+      "rule": "CAEN != dovada_produs",
+      "effect": "nu crea relatie verificata Firma-ofera-Produs exclusiv din cod CAEN"
+    },
+    {
+      "id": "RULE-002",
+      "rule": "potential != contractual",
+      "effect": "nu transforma relatie potentiala in contract sau client existent"
+    },
+    {
+      "id": "RULE-003",
+      "rule": "inverse_is_view",
+      "effect": "inversele nu dubleaza numarul relatiilor factuale"
+    },
+    {
+      "id": "RULE-004",
+      "rule": "verified_requires_evidence",
+      "effect": "starea verified necesita surse si dovezi verificabile"
+    },
+    {
+      "id": "RULE-005",
+      "rule": "temporal_validity",
+      "effect": "o relatie observata la o data nu este automat valabila permanent"
+    },
+    {
+      "id": "RULE-006",
+      "rule": "classification_version",
+      "effect": "orice mapare CAEN trebuie sa precizeze revizia nomenclatorului si sursa"
+    }
+  ],
+  "validation": {
+    "json_syntax": "validated_locally",
+    "glossary_relation_ids_match": "validated_locally",
+    "real_world_instances": "not_collected",
+    "runtime_graph_engine": "not_verified",
+    "deployment": "not_verified",
+    "cluster_mapping": "validated_against_defined_TC_001_to_TC_008",
+    "concept_ids": "internal_concept_identifiers_not_entities_json_refs"
+  }
+}
