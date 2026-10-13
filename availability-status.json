@@ -13,7 +13,6 @@
     "check": "GET public URL; validate JSON and verify runtime behavior separately",
     "result": "NOT_TESTED"
   },
-  "source_basis": "firmsfinder-main (2).zip; specification regenerated on 2026-10-12",
   "romania": "DECLARED_MARKETING_CLAIM_VERIFY",
   "eu": "COMING_SOON_NOT_LIVE",
   "firm_count": "1+ million active firms — VERIFY_DEFINITION_AND_DATE"

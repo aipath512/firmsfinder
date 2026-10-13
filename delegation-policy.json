@@ -13,7 +13,6 @@
     "check": "GET public URL; validate JSON and verify runtime behavior separately",
     "result": "NOT_TESTED"
   },
-  "source_basis": "firmsfinder-main (2).zip; specification regenerated on 2026-10-12",
   "allowed": "Research and draft candidate explanations",
   "prohibited_without_approval": [
     "contacting companies",
