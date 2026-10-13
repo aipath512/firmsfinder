@@ -41,6 +41,38 @@ function chartCA(r) {
   return out + '</svg>';
 }
 
+
+// Rezultat net = profit net - pierdere netă (pozitiv = profit, negativ = pierdere). Culoare + semn + etichetă (nu doar culoare).
+function chartRez(r) {
+  const rez = (p, l) => (p === null || p === undefined) && (l === null || l === undefined) ? null : Number(p || 0) - Number(l || 0);
+  const vals = [rez(r.profit_2023, r.pierdere_2023), rez(r.profit_2024, r.pierdere_2024), rez(r.profit_2025, r.pierdere_2025)];
+  const ani = [2023, 2024, 2025];
+  const max = Math.max(...vals.filter((v) => v !== null).map(Math.abs), 0);
+  if (!(max > 0)) return '<p>Rezultatul net nu poate fi afișat: nu există bilanț cu profit sau pierdere pentru 2023–2025.</p>';
+  const W = 640, H = 300, zero = 150, half = 80, bw = 110, gap = 80, x0 = (W - (3 * bw + 2 * gap)) / 2;
+  let out = `<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Rezultat net ${esc(r.denumire)}: ${ani.map((a, i) => a + ' ' + (vals[i] === null ? 'necunoscut' : (vals[i] >= 0 ? 'profit ' : 'pierdere ') + compact(Math.abs(vals[i])))).join(', ')}" style="max-width:640px;height:auto">`;
+  out += `<line x1="${x0 - 20}" y1="${zero}" x2="${W - x0 + 20}" y2="${zero}" stroke="#516075" stroke-width="1"/>`;
+  ani.forEach((an, i) => {
+    const x = x0 + i * (bw + gap), v = vals[i];
+    if (v === null) {
+      out += `<text x="${x + bw / 2}" y="${zero - 12}" text-anchor="middle" fill="#9fb0c4" font-size="14">fără date</text>`;
+    } else if (v === 0) {
+      out += `<text x="${x + bw / 2}" y="${zero - 12}" text-anchor="middle" fill="#eaf0f8" font-size="16" font-weight="700">0 lei</text>`;
+    } else {
+      const h = Math.max(4, (Math.abs(v) / max) * half), pos = v > 0, rad = Math.min(4, h);
+      const y = pos ? zero - h : zero;
+      const d = pos
+        ? `M${x} ${zero}V${y + rad}Q${x} ${y} ${x + rad} ${y}H${x + bw - rad}Q${x + bw} ${y} ${x + bw} ${y + rad}V${zero}Z`
+        : `M${x} ${zero}V${zero + h - rad}Q${x} ${zero + h} ${x + rad} ${zero + h}H${x + bw - rad}Q${x + bw} ${zero + h} ${x + bw} ${zero + h - rad}V${zero}Z`;
+      out += `<path d="${d}" fill="${pos ? '#5db4ec' : '#f0a35e'}"><title>${an}: ${pos ? 'profit net' : 'pierdere netă'} ${esc(lei(Math.abs(v)))}</title></path>`;
+      out += `<text x="${x + bw / 2}" y="${pos ? y - 22 : zero + h + 38}" text-anchor="middle" fill="#eaf0f8" font-size="16" font-weight="700">${pos ? '' : '−'}${esc(compact(Math.abs(v)))}</text>`;
+      out += `<text x="${x + bw / 2}" y="${pos ? y - 6 : zero + h + 56}" text-anchor="middle" fill="#9fb0c4" font-size="13">${pos ? '▲ profit net' : '▼ pierdere netă'}</text>`;
+    }
+    out += `<text x="${x + bw / 2}" y="${zero + (v !== null && v < 0 ? 0 : 0) + 130 > H - 4 ? H - 4 : zero + 130}" text-anchor="middle" fill="#9fb0c4" font-size="15">${an}</text>`;
+  });
+  return out + '</svg>';
+}
+
 const page = (status, title, description, body, robots = 'index, follow') => new Response(
 `<!doctype html><html lang="ro"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${esc(title)} | FirmsFinder</title><meta name="description" content="${esc(description)}"><meta name="robots" content="${robots}">
@@ -60,7 +92,8 @@ export async function onRequestGet({params, env, request}) {
   }
   const r = await env.DB.prepare(`SELECT f.cui, f.denumire, f.forma_juridica, f.persoana_fizica, f.judet, f.localitate, f.data_inmatriculare, f.coduri_stare,
       b.caen_mf, a.cifra_afaceri AS ca_2023, b.cifra_afaceri AS ca_2024, c.cifra_afaceri AS ca_2025,
-      a.salariati AS sal_2023, b.salariati AS sal_2024, c.salariati AS sal_2025, b.profit_net AS profit_2024, b.pierdere_neta AS pierdere_2024
+      a.salariati AS sal_2023, b.salariati AS sal_2024, c.salariati AS sal_2025,
+      a.profit_net AS profit_2023, a.pierdere_neta AS pierdere_2023, b.profit_net AS profit_2024, b.pierdere_neta AS pierdere_2024, c.profit_net AS profit_2025, c.pierdere_neta AS pierdere_2025
     FROM onrc_firme f
     LEFT JOIN mf_bilant_2024 b ON b.cui = f.cui
     LEFT JOIN mf_bilant_2023 a ON a.cui = f.cui
@@ -86,11 +119,11 @@ export async function onRequestGet({params, env, request}) {
 <h1>${esc(r.denumire)}</h1>
 <p>CUI ${esc(r.cui)} · ${esc(r.forma_juridica)} · ${esc(r.judet)}${r.localitate ? ', ' + esc(r.localitate) : ''}</p>
 <section id="identitate"><h2>Identitate</h2><dl><dt>CUI</dt><dd>${esc(r.cui)}</dd><dt>Formă juridică</dt><dd>${esc(r.forma_juridica)}</dd><dt>Data înmatriculării</dt><dd>${esc(r.data_inmatriculare || 'necunoscut')}</dd><dt>Cod stare ONRC</dt><dd>${esc(r.coduri_stare || 'necunoscut')}</dd><dt>CAEN Rev.2 · MF 2024</dt><dd>${esc(r.caen_mf || 'necunoscut')}</dd></dl></section>
-<section id="indicatori"><h2>Evoluția cifrei de afaceri, 2023–2025</h2>${chartCA(r)}<h2>Indicatori financiari (istorici)</h2><table><caption>Valori raportate la Ministerul Finanțelor; necunoscut = nu există bilanț depus.</caption><thead><tr><th scope="col">An</th><th scope="col">Cifră de afaceri</th><th scope="col">Salariați</th></tr></thead><tbody>
-<tr><th scope="row">2023</th><td>${esc(lei(r.ca_2023))}</td><td>${esc(nr(r.sal_2023))}</td></tr>
-<tr><th scope="row">2024</th><td>${esc(lei(r.ca_2024))}</td><td>${esc(nr(r.sal_2024))}</td></tr>
-<tr><th scope="row">2025</th><td>${esc(lei(r.ca_2025))}</td><td>${esc(nr(r.sal_2025))}</td></tr></tbody></table>
-<p>Profit net 2024: ${esc(lei(r.profit_2024))}${r.pierdere_2024 ? ' · Pierdere netă 2024: ' + esc(lei(r.pierdere_2024)) : ''}</p></section>
+<section id="indicatori"><h2>Evoluția cifrei de afaceri, 2023–2025</h2>${chartCA(r)}<h2>Profit sau pierdere netă, 2023–2025</h2>${chartRez(r)}<h2>Indicatori financiari (istorici)</h2><table><caption>Valori raportate la Ministerul Finanțelor; necunoscut = nu există bilanț depus.</caption><thead><tr><th scope="col">An</th><th scope="col">Cifră de afaceri</th><th scope="col">Salariați</th><th scope="col">Profit net</th><th scope="col">Pierdere netă</th></tr></thead><tbody>
+<tr><th scope="row">2023</th><td>${esc(lei(r.ca_2023))}</td><td>${esc(nr(r.sal_2023))}</td><td>${esc(lei(r.profit_2023))}</td><td>${esc(lei(r.pierdere_2023))}</td></tr>
+<tr><th scope="row">2024</th><td>${esc(lei(r.ca_2024))}</td><td>${esc(nr(r.sal_2024))}</td><td>${esc(lei(r.profit_2024))}</td><td>${esc(lei(r.pierdere_2024))}</td></tr>
+<tr><th scope="row">2025</th><td>${esc(lei(r.ca_2025))}</td><td>${esc(nr(r.sal_2025))}</td><td>${esc(lei(r.profit_2025))}</td><td>${esc(lei(r.pierdere_2025))}</td></tr></tbody></table>
+</section>
 <section id="surse"><h2>Sursă și limite</h2><p>Date publice ONRC și Ministerul Finanțelor, prin data.gov.ro. Indicatorii sunt istorici, nu în timp real. Un cod CAEN nu dovedește produsele, clienții sau intenția de cumpărare. Verificați informațiile importante la sursă. <a href="/surse/">Surse și metodologie</a>.</p></section>
 <p><a href="/cautare/">Înapoi la căutare</a></p>
 <script type="application/ld+json">${JSON.stringify(ld).replace(/</g, '\\u003c')}</script>`;
