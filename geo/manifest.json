@@ -1,0 +1,35 @@
+
+{
+  "schema_version": "1.0",
+  "artifact": "manifest",
+  "methodology": "FirmsFinder GEO V3.1",
+  "site": "https://firmsfinder.eu/",
+  "publisher": "AiVenture S.R.L.",
+  "language": "ro-RO",
+  "status": "DRAFT_REQUIRES_VERIFICATION",
+  "generated_at": null,
+  "catalog_signal_count": 60,
+  "artifacts": [
+    "https://firmsfinder.eu/geo/manifest.json",
+    "https://firmsfinder.eu/geo/entities.json",
+    "https://firmsfinder.eu/geo/topic-clusters.json",
+    "https://firmsfinder.eu/geo/semantic-keywords.json",
+    "https://firmsfinder.eu/geo/intents.json",
+    "https://firmsfinder.eu/geo/claims.json",
+    "https://firmsfinder.eu/geo/citable-chunks.json",
+    "https://firmsfinder.eu/geo/rag-metadata.json",
+    "https://firmsfinder.eu/geo/proprietary-data.json",
+    "https://firmsfinder.eu/geo/evidence.json",
+    "https://firmsfinder.eu/geo/glossary.json",
+    "https://firmsfinder.eu/geo/knowledge-graph.json",
+    "https://firmsfinder.eu/geo/consistency-manifest.json",
+    "https://firmsfinder.eu/geo/external-corroboration.json",
+    "https://firmsfinder.eu/geo/reference-set.json",
+    "https://firmsfinder.eu/geo/observations.json",
+    "https://firmsfinder.eu/geo/experiments.json",
+    "https://firmsfinder.eu/geo/scorecard.json",
+    "https://firmsfinder.eu/geo/corrections.json",
+    "https://firmsfinder.eu/geo/changelog.json",
+    "https://firmsfinder.eu/geo/verification.json"
+  ]
+}
