@@ -1,0 +1,652 @@
+{
+  "schema": "FIRMSFINDER_GEO_EXPERIMENTS",
+  "version": "1.0.0",
+  "generated_at": "2026-10-13",
+  "status": "draft_no_experiments_executed",
+  "publisher": "AiVenture S.R.L.",
+  "website": "https://firmsfinder.eu/",
+  "language": "ro-RO",
+  "geo_signals": [
+    "GEO45",
+    "GEO46",
+    "GEO47",
+    "GEO48"
+  ],
+  "signal_definitions": {
+    "GEO45": "BEFORE: stabilirea situației inițiale, cu protocol fix",
+    "GEO46": "CHANGE: intervenție documentată și verificarea implementării",
+    "GEO47": "AFTER: repetarea măsurătorilor în condiții comparabile",
+    "GEO48": "CONTROL + analiză diferență-în-diferențe și limitări cauzale"
+  },
+  "purpose": "Registru de experimente GEO planificate; nu declară efecte, citări, îmbunătățiri sau deploy-uri reale.",
+  "source_registry": {
+    "reference_set": "/geo/reference-set.json",
+    "observations": "/geo/observations.json",
+    "claims": "/geo/claims.json",
+    "evidence": "/geo/evidence.json",
+    "knowledge_graph": "/geo/knowledge-graph.json",
+    "scorecard": "/geo/scorecard.json"
+  },
+  "design": {
+    "design_type": "controlled_before_after_quasi_experiment",
+    "assignment_preference": "randomize matched page/topic clusters if feasible; otherwise report selection bias",
+    "minimum_required": [
+      "pre_registered_hypothesis",
+      "primary_metric",
+      "treatment_assignment",
+      "holdout_assignment",
+      "baseline_observations",
+      "versioned_change",
+      "deployment_verification",
+      "after_observations",
+      "quality_gate_review"
+    ],
+    "measurement_protocol": {
+      "models": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Perplexity"
+      ],
+      "reference_questions_available": 30,
+      "repetitions_per_question_model": 3,
+      "baseline_full_panel_executions": 360,
+      "before_after_use_same_prompt_ids": true,
+      "before_after_use_same_model_settings_when_possible": true,
+      "fresh_sessions_or_documented_context": true,
+      "record_web_search_setting": true,
+      "human_review_required": true,
+      "no_automatic_scoring_of_missing_data": true
+    },
+    "windows": {
+      "before": "Setați o fereastră datată înainte de modificare",
+      "after": "Setați o fereastră comparabilă după deploy și eventuală recrawl; documentați latența",
+      "avoid_simultaneous_interventions": true,
+      "document_search_indexing_delay": true
+    },
+    "analysis_method": {
+      "name": "difference_in_differences",
+      "formula": "(treatment_after - treatment_before) - (control_after - control_before)",
+      "denominator_rule": "Use only eligible executed observations; report missing and not-applicable separately",
+      "uncertainty": "Report variability across prompts, models, repetitions and dates; do not imply causality solely from a positive delta",
+      "guardrails": [
+        "No invented runtime evidence",
+        "No unverified causal attribution",
+        "No CAEN-to-product proof inference",
+        "No claim that GEO guarantees AI citations"
+      ]
+    },
+    "metric_definitions": {
+      "brand_mention": "Proportion of eligible responses mentioning FirmsFinder, stratified branded/unbranded",
+      "brand_recommendation": "Proportion of eligible responses recommending FirmsFinder",
+      "citation_to_firmsfinder": "Proportion of eligible responses containing a verified citation link to firmsfinder.eu",
+      "factual_accuracy": "Mean human-reviewed rubric score (0-2), with N/A excluded",
+      "answer_relevance": "Mean human-reviewed rubric score (0-2), with N/A excluded",
+      "source_quality": "Mean human-reviewed rubric score (0-2), with N/A excluded",
+      "uncertainty_handling": "Mean human-reviewed rubric score (0-2), with N/A excluded",
+      "unsupported_capability_claims": "Count and rate of unsupported functionality assertions",
+      "caen_inference_errors": "Count and rate of unsupported CAEN-based inferences"
+    }
+  },
+  "experiments": [
+    {
+      "id": "EXP-001",
+      "title": "GEO On-Page: definiții și entități",
+      "hypothesis": "Schimbarea propusă poate îmbunătăți indicatorul answer_relevance, comparativ cu pagini și întrebări de control, fără a reduce factual_accuracy.",
+      "status": "planned_not_started",
+      "change_type": "on_page",
+      "unit_of_assignment": "page_topic_cluster",
+      "unit_of_analysis": "reference_prompt_model_repetition",
+      "reference_set_url": "/geo/reference-set.json",
+      "observations_url": "/geo/observations.json",
+      "candidate_reference_ids": [
+        "REF-001",
+        "REF-002",
+        "REF-003",
+        "REF-004",
+        "REF-005",
+        "REF-006",
+        "REF-007",
+        "REF-008",
+        "REF-009",
+        "REF-010",
+        "REF-011",
+        "REF-012",
+        "REF-013",
+        "REF-014",
+        "REF-015",
+        "REF-016",
+        "REF-017",
+        "REF-018",
+        "REF-019",
+        "REF-020",
+        "REF-021",
+        "REF-022",
+        "REF-023",
+        "REF-024",
+        "REF-025",
+        "REF-026",
+        "REF-027",
+        "REF-028",
+        "REF-029",
+        "REF-030"
+      ],
+      "selection_policy": "Selectați înainte de BEFORE subsetul relevant pentru intervenție; înghețați lista și criteriile. Nu atribuiți automat toate cele 30 de întrebări fiecărui experiment.",
+      "primary_metric": "answer_relevance",
+      "guardrail_metrics": [
+        "factual_accuracy",
+        "unsupported_capability_claims",
+        "caen_inference_errors"
+      ],
+      "treatment": {
+        "description": "Publicarea definițiilor vizibile, referințelor către surse și a datelor structurate relevante pe paginile tratate.",
+        "page_urls": [],
+        "prompt_ids": [],
+        "assignment_status": "not_assigned",
+        "change_commit": null,
+        "deployed_at": null,
+        "change_manifest_sha256": null
+      },
+      "control": {
+        "description": "Un grup de pagini comparabile rămâne fără schimbare pe durata testului.",
+        "page_urls": [],
+        "prompt_ids": [],
+        "matching_variables": [
+          "funnel_stage",
+          "topic",
+          "baseline_visibility",
+          "page_type"
+        ],
+        "assignment_status": "not_assigned",
+        "contamination_check": "not_run"
+      },
+      "before": {
+        "window_start": null,
+        "window_end": null,
+        "observation_ids": [],
+        "sample_size": null,
+        "metric_value": null,
+        "status": "not_measured"
+      },
+      "change": {
+        "approved_by": null,
+        "approved_at": null,
+        "commit_sha": null,
+        "deployment_url": null,
+        "deployed_at": null,
+        "verified_at": null,
+        "status": "not_applied"
+      },
+      "after": {
+        "window_start": null,
+        "window_end": null,
+        "observation_ids": [],
+        "sample_size": null,
+        "metric_value": null,
+        "status": "not_measured"
+      },
+      "analysis": {
+        "treatment_before": null,
+        "treatment_after": null,
+        "control_before": null,
+        "control_after": null,
+        "treatment_delta": null,
+        "control_delta": null,
+        "difference_in_differences": null,
+        "confidence_interval": null,
+        "uncertainty_notes": null,
+        "causal_claim_allowed": false,
+        "analysis_status": "not_computed"
+      },
+      "quality_gates": {
+        "same_reference_prompt_versions": null,
+        "same_models_and_interfaces": null,
+        "comparable_time_windows": null,
+        "control_unchanged": null,
+        "observation_evidence_complete": null,
+        "human_review_complete": null
+      },
+      "evidence": {
+        "before_observation_ids": [],
+        "after_observation_ids": [],
+        "reviewer": null,
+        "reviewed_at": null,
+        "artifacts": []
+      },
+      "publication": {
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null,
+        "safe_to_claim_improvement": false
+      }
+    },
+    {
+      "id": "EXP-002",
+      "title": "GEO citabilitate: fragmente și surse",
+      "hypothesis": "Schimbarea propusă poate îmbunătăți indicatorul citation_to_firmsfinder, comparativ cu pagini și întrebări de control, fără a reduce source_quality.",
+      "status": "planned_not_started",
+      "change_type": "citable_content",
+      "unit_of_assignment": "page_topic_cluster",
+      "unit_of_analysis": "reference_prompt_model_repetition",
+      "reference_set_url": "/geo/reference-set.json",
+      "observations_url": "/geo/observations.json",
+      "candidate_reference_ids": [
+        "REF-001",
+        "REF-002",
+        "REF-003",
+        "REF-004",
+        "REF-005",
+        "REF-006",
+        "REF-007",
+        "REF-008",
+        "REF-009",
+        "REF-010",
+        "REF-011",
+        "REF-012",
+        "REF-013",
+        "REF-014",
+        "REF-015",
+        "REF-016",
+        "REF-017",
+        "REF-018",
+        "REF-019",
+        "REF-020",
+        "REF-021",
+        "REF-022",
+        "REF-023",
+        "REF-024",
+        "REF-025",
+        "REF-026",
+        "REF-027",
+        "REF-028",
+        "REF-029",
+        "REF-030"
+      ],
+      "selection_policy": "Selectați înainte de BEFORE subsetul relevant pentru intervenție; înghețați lista și criteriile. Nu atribuiți automat toate cele 30 de întrebări fiecărui experiment.",
+      "primary_metric": "citation_to_firmsfinder",
+      "guardrail_metrics": [
+        "source_quality",
+        "unsupported_capability_claims",
+        "caen_inference_errors"
+      ],
+      "treatment": {
+        "description": "Publicarea unor fragmente cu răspuns direct, delimitări clare și linkuri către surse primare.",
+        "page_urls": [],
+        "prompt_ids": [],
+        "assignment_status": "not_assigned",
+        "change_commit": null,
+        "deployed_at": null,
+        "change_manifest_sha256": null
+      },
+      "control": {
+        "description": "Fragmente și pagini comparabile neatinse.",
+        "page_urls": [],
+        "prompt_ids": [],
+        "matching_variables": [
+          "funnel_stage",
+          "topic",
+          "baseline_visibility",
+          "page_type"
+        ],
+        "assignment_status": "not_assigned",
+        "contamination_check": "not_run"
+      },
+      "before": {
+        "window_start": null,
+        "window_end": null,
+        "observation_ids": [],
+        "sample_size": null,
+        "metric_value": null,
+        "status": "not_measured"
+      },
+      "change": {
+        "approved_by": null,
+        "approved_at": null,
+        "commit_sha": null,
+        "deployment_url": null,
+        "deployed_at": null,
+        "verified_at": null,
+        "status": "not_applied"
+      },
+      "after": {
+        "window_start": null,
+        "window_end": null,
+        "observation_ids": [],
+        "sample_size": null,
+        "metric_value": null,
+        "status": "not_measured"
+      },
+      "analysis": {
+        "treatment_before": null,
+        "treatment_after": null,
+        "control_before": null,
+        "control_after": null,
+        "treatment_delta": null,
+        "control_delta": null,
+        "difference_in_differences": null,
+        "confidence_interval": null,
+        "uncertainty_notes": null,
+        "causal_claim_allowed": false,
+        "analysis_status": "not_computed"
+      },
+      "quality_gates": {
+        "same_reference_prompt_versions": null,
+        "same_models_and_interfaces": null,
+        "comparable_time_windows": null,
+        "control_unchanged": null,
+        "observation_evidence_complete": null,
+        "human_review_complete": null
+      },
+      "evidence": {
+        "before_observation_ids": [],
+        "after_observation_ids": [],
+        "reviewer": null,
+        "reviewed_at": null,
+        "artifacts": []
+      },
+      "publication": {
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null,
+        "safe_to_claim_improvement": false
+      }
+    },
+    {
+      "id": "EXP-003",
+      "title": "GEO terminologie CAEN și ERE",
+      "hypothesis": "Schimbarea propusă poate îmbunătăți indicatorul factual_accuracy, comparativ cu pagini și întrebări de control, fără a reduce uncertainty_handling.",
+      "status": "planned_not_started",
+      "change_type": "semantic_clarity",
+      "unit_of_assignment": "page_topic_cluster",
+      "unit_of_analysis": "reference_prompt_model_repetition",
+      "reference_set_url": "/geo/reference-set.json",
+      "observations_url": "/geo/observations.json",
+      "candidate_reference_ids": [
+        "REF-001",
+        "REF-002",
+        "REF-003",
+        "REF-004",
+        "REF-005",
+        "REF-006",
+        "REF-007",
+        "REF-008",
+        "REF-009",
+        "REF-010",
+        "REF-011",
+        "REF-012",
+        "REF-013",
+        "REF-014",
+        "REF-015",
+        "REF-016",
+        "REF-017",
+        "REF-018",
+        "REF-019",
+        "REF-020",
+        "REF-021",
+        "REF-022",
+        "REF-023",
+        "REF-024",
+        "REF-025",
+        "REF-026",
+        "REF-027",
+        "REF-028",
+        "REF-029",
+        "REF-030"
+      ],
+      "selection_policy": "Selectați înainte de BEFORE subsetul relevant pentru intervenție; înghețați lista și criteriile. Nu atribuiți automat toate cele 30 de întrebări fiecărui experiment.",
+      "primary_metric": "factual_accuracy",
+      "guardrail_metrics": [
+        "uncertainty_handling",
+        "unsupported_capability_claims",
+        "caen_inference_errors"
+      ],
+      "treatment": {
+        "description": "Clarificarea publică a conceptelor CAEN, produs, ofertă, client potențial și relații ERE.",
+        "page_urls": [],
+        "prompt_ids": [],
+        "assignment_status": "not_assigned",
+        "change_commit": null,
+        "deployed_at": null,
+        "change_manifest_sha256": null
+      },
+      "control": {
+        "description": "Pagini comparabile fără noile clarificări.",
+        "page_urls": [],
+        "prompt_ids": [],
+        "matching_variables": [
+          "funnel_stage",
+          "topic",
+          "baseline_visibility",
+          "page_type"
+        ],
+        "assignment_status": "not_assigned",
+        "contamination_check": "not_run"
+      },
+      "before": {
+        "window_start": null,
+        "window_end": null,
+        "observation_ids": [],
+        "sample_size": null,
+        "metric_value": null,
+        "status": "not_measured"
+      },
+      "change": {
+        "approved_by": null,
+        "approved_at": null,
+        "commit_sha": null,
+        "deployment_url": null,
+        "deployed_at": null,
+        "verified_at": null,
+        "status": "not_applied"
+      },
+      "after": {
+        "window_start": null,
+        "window_end": null,
+        "observation_ids": [],
+        "sample_size": null,
+        "metric_value": null,
+        "status": "not_measured"
+      },
+      "analysis": {
+        "treatment_before": null,
+        "treatment_after": null,
+        "control_before": null,
+        "control_after": null,
+        "treatment_delta": null,
+        "control_delta": null,
+        "difference_in_differences": null,
+        "confidence_interval": null,
+        "uncertainty_notes": null,
+        "causal_claim_allowed": false,
+        "analysis_status": "not_computed"
+      },
+      "quality_gates": {
+        "same_reference_prompt_versions": null,
+        "same_models_and_interfaces": null,
+        "comparable_time_windows": null,
+        "control_unchanged": null,
+        "observation_evidence_complete": null,
+        "human_review_complete": null
+      },
+      "evidence": {
+        "before_observation_ids": [],
+        "after_observation_ids": [],
+        "reviewer": null,
+        "reviewed_at": null,
+        "artifacts": []
+      },
+      "publication": {
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null,
+        "safe_to_claim_improvement": false
+      }
+    },
+    {
+      "id": "EXP-004",
+      "title": "GEO descoperire fără brand",
+      "hypothesis": "Schimbarea propusă poate îmbunătăți indicatorul brand_mention, comparativ cu pagini și întrebări de control, fără a reduce brand_recommendation.",
+      "status": "planned_not_started",
+      "change_type": "unbranded_discovery",
+      "unit_of_assignment": "page_topic_cluster",
+      "unit_of_analysis": "reference_prompt_model_repetition",
+      "reference_set_url": "/geo/reference-set.json",
+      "observations_url": "/geo/observations.json",
+      "candidate_reference_ids": [
+        "REF-001",
+        "REF-002",
+        "REF-003",
+        "REF-004",
+        "REF-005",
+        "REF-006",
+        "REF-007",
+        "REF-008",
+        "REF-009",
+        "REF-010",
+        "REF-011",
+        "REF-012",
+        "REF-013",
+        "REF-014",
+        "REF-015",
+        "REF-016",
+        "REF-017",
+        "REF-018",
+        "REF-019",
+        "REF-020",
+        "REF-021",
+        "REF-022",
+        "REF-023",
+        "REF-024",
+        "REF-025",
+        "REF-026",
+        "REF-027",
+        "REF-028",
+        "REF-029",
+        "REF-030"
+      ],
+      "selection_policy": "Selectați înainte de BEFORE subsetul relevant pentru intervenție; înghețați lista și criteriile. Nu atribuiți automat toate cele 30 de întrebări fiecărui experiment.",
+      "primary_metric": "brand_mention",
+      "guardrail_metrics": [
+        "brand_recommendation",
+        "unsupported_capability_claims",
+        "caen_inference_errors"
+      ],
+      "treatment": {
+        "description": "Îmbunătățirea conținutului pentru întrebări nebranduite și legăturilor interne către pagini relevante.",
+        "page_urls": [],
+        "prompt_ids": [],
+        "assignment_status": "not_assigned",
+        "change_commit": null,
+        "deployed_at": null,
+        "change_manifest_sha256": null
+      },
+      "control": {
+        "description": "Pagini/teme similare neoptimizate în aceeași perioadă.",
+        "page_urls": [],
+        "prompt_ids": [],
+        "matching_variables": [
+          "funnel_stage",
+          "topic",
+          "baseline_visibility",
+          "page_type"
+        ],
+        "assignment_status": "not_assigned",
+        "contamination_check": "not_run"
+      },
+      "before": {
+        "window_start": null,
+        "window_end": null,
+        "observation_ids": [],
+        "sample_size": null,
+        "metric_value": null,
+        "status": "not_measured"
+      },
+      "change": {
+        "approved_by": null,
+        "approved_at": null,
+        "commit_sha": null,
+        "deployment_url": null,
+        "deployed_at": null,
+        "verified_at": null,
+        "status": "not_applied"
+      },
+      "after": {
+        "window_start": null,
+        "window_end": null,
+        "observation_ids": [],
+        "sample_size": null,
+        "metric_value": null,
+        "status": "not_measured"
+      },
+      "analysis": {
+        "treatment_before": null,
+        "treatment_after": null,
+        "control_before": null,
+        "control_after": null,
+        "treatment_delta": null,
+        "control_delta": null,
+        "difference_in_differences": null,
+        "confidence_interval": null,
+        "uncertainty_notes": null,
+        "causal_claim_allowed": false,
+        "analysis_status": "not_computed"
+      },
+      "quality_gates": {
+        "same_reference_prompt_versions": null,
+        "same_models_and_interfaces": null,
+        "comparable_time_windows": null,
+        "control_unchanged": null,
+        "observation_evidence_complete": null,
+        "human_review_complete": null
+      },
+      "evidence": {
+        "before_observation_ids": [],
+        "after_observation_ids": [],
+        "reviewer": null,
+        "reviewed_at": null,
+        "artifacts": []
+      },
+      "publication": {
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null,
+        "safe_to_claim_improvement": false
+      }
+    }
+  ],
+  "observation_link_schema": {
+    "experiment_id": "EXP-001",
+    "phase": "before_or_after",
+    "arm": "treatment_or_control",
+    "reference_id": "REF-001",
+    "observation_id": null,
+    "model_name": null,
+    "repetition_number": null,
+    "captured_at": null
+  },
+  "acceptance_rules": [
+    "No experiment can be marked completed without BEFORE and AFTER observations for treatment and control",
+    "No numeric effect may be published while a required input is null",
+    "A deploy commit is not proof of runtime correctness",
+    "Primary metric and treatment/control assignment must be frozen before AFTER",
+    "Report confounders and index latency",
+    "Do not infer business revenue from AI mentions or citations"
+  ],
+  "verification": {
+    "json_syntax": "validated_locally",
+    "reference_set_links": "validated_locally",
+    "observations_registry_schema": "inspected_locally",
+    "experiment_runtime": "not_performed",
+    "live_deployment": "not_verified",
+    "causal_effect": "not_measured"
+  },
+  "summary": {
+    "experiments_planned": 4,
+    "experiments_started": 0,
+    "experiments_completed": 0,
+    "verified_effects": 0,
+    "reference_prompts_available": 30,
+    "baseline_full_panel_executions": 360,
+    "observations_currently_recorded": 0
+  }
+}
