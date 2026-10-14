@@ -1,0 +1,279 @@
+{
+  "kind": "GEO_LIVE_DELTA",
+  "methodology": "GEO_LIVE_METHODOLOGY_v1.0_2026-10-14",
+  "evaluator_version": "1.0.1",
+  "evaluator_sha256_t0": "63c7f72bacb075bf4c212c67de8e903e791e06baa4e52e9b76ddb3c48f86f961",
+  "evaluator_sha256_t1": "63c7f72bacb075bf4c212c67de8e903e791e06baa4e52e9b76ddb3c48f86f961",
+  "before": {
+    "stage": "T0",
+    "score": 54.0,
+    "grade": "D",
+    "commit": "4587f429e69b9f5d28a200b7c13bb1e4ae450056",
+    "run_url": "https://github.com/aipath512/firmsfinder/actions/runs/38547754675",
+    "started": "2026-10-14T10:11:03Z",
+    "evidence_sha256": "d3760c0e8d69509133a8a93636c2ccdbe4fd617ecf1d6e68342968647e25491d"
+  },
+  "after": {
+    "stage": "T1",
+    "score": 81.0,
+    "grade": "B",
+    "commit": "34919a9f525c2d191c7ed9e265436bb4c8364a1f",
+    "run_url": "https://github.com/aipath512/firmsfinder/actions/runs/38598054585",
+    "started": "2026-10-14T16:26:22Z",
+    "evidence_sha256": "f2be069a86e6e3e347a8f60f80917b4dbad7bd9ebcea0a7b43b83f5c1f32d083"
+  },
+  "delta_points": 27.0,
+  "improved": [
+    "J1",
+    "J3",
+    "J4",
+    "G5",
+    "A1",
+    "A2"
+  ],
+  "regressed": [],
+  "still_failing": [
+    "G2",
+    "G3",
+    "G4",
+    "A3",
+    "D2"
+  ],
+  "controls": [
+    {
+      "id": "H1",
+      "category": "HTTP/JSON",
+      "weight": 5,
+      "before": "PASS",
+      "after": "PASS",
+      "points": 0,
+      "after_detail": "manifest.json 200, JSON valid"
+    },
+    {
+      "id": "H2",
+      "category": "HTTP/JSON",
+      "weight": 8,
+      "before": "PASS",
+      "after": "PASS",
+      "points": 0,
+      "after_detail": "23/23 artefacte din manifest raspund 200"
+    },
+    {
+      "id": "H3",
+      "category": "HTTP/JSON",
+      "weight": 6,
+      "before": "PASS",
+      "after": "PASS",
+      "points": 0,
+      "after_detail": "23/23 artefacte sunt JSON valid cu Content-Type json"
+    },
+    {
+      "id": "H4",
+      "category": "HTTP/JSON",
+      "weight": 3,
+      "before": "PASS",
+      "after": "PASS",
+      "points": 0,
+      "after_detail": "signals.json si entities.json 200 + JSON valid"
+    },
+    {
+      "id": "H5",
+      "category": "HTTP/JSON",
+      "weight": 3,
+      "before": "PASS",
+      "after": "PASS",
+      "points": 0,
+      "after_detail": "http:// redirectioneaza (301) catre https"
+    },
+    {
+      "id": "J1",
+      "category": "JSON-LD",
+      "weight": 5,
+      "before": "FAIL",
+      "after": "PASS",
+      "points": 5,
+      "after_detail": "17/17 pagini conforme"
+    },
+    {
+      "id": "J2",
+      "category": "JSON-LD",
+      "weight": 5,
+      "before": "PASS",
+      "after": "PASS",
+      "points": 0,
+      "after_detail": "17/17 pagini conforme"
+    },
+    {
+      "id": "J3",
+      "category": "JSON-LD",
+      "weight": 5,
+      "before": "FAIL",
+      "after": "PASS",
+      "points": 5,
+      "after_detail": "17/17 pagini conforme"
+    },
+    {
+      "id": "J4",
+      "category": "JSON-LD",
+      "weight": 5,
+      "before": "FAIL",
+      "after": "PASS",
+      "points": 5,
+      "after_detail": "17/17 pagini conforme"
+    },
+    {
+      "id": "R1",
+      "category": "robots/llms/sitemap",
+      "weight": 3,
+      "before": "PASS",
+      "after": "PASS",
+      "points": 0,
+      "after_detail": "robots.txt: HTTP 200, text/plain; charset=utf-8"
+    },
+    {
+      "id": "R2",
+      "category": "robots/llms/sitemap",
+      "weight": 3,
+      "before": "PASS",
+      "after": "PASS",
+      "points": 0,
+      "after_detail": "boti AI principali nu sunt blocati; Sitemap declarat"
+    },
+    {
+      "id": "R3",
+      "category": "robots/llms/sitemap",
+      "weight": 3,
+      "before": "PASS",
+      "after": "PASS",
+      "points": 0,
+      "after_detail": "17/17 URL-uri din sitemap raspund 200"
+    },
+    {
+      "id": "R4",
+      "category": "robots/llms/sitemap",
+      "weight": 2,
+      "before": "PASS",
+      "after": "PASS",
+      "points": 0,
+      "after_detail": "17/17 intrari cu lastmod ISO valid"
+    },
+    {
+      "id": "R5",
+      "category": "robots/llms/sitemap",
+      "weight": 2,
+      "before": "PASS",
+      "after": "PASS",
+      "points": 0,
+      "after_detail": "llms.txt: HTTP 200, text/plain; charset=utf-8, titlu H1 prezent"
+    },
+    {
+      "id": "R6",
+      "category": "robots/llms/sitemap",
+      "weight": 2,
+      "before": "PASS",
+      "after": "PASS",
+      "points": 0,
+      "after_detail": "15/15 linkuri firmsfinder.eu din llms.txt raspund 200"
+    },
+    {
+      "id": "G1",
+      "category": "/geo/ghid",
+      "weight": 3,
+      "before": "PASS",
+      "after": "PASS",
+      "points": 0,
+      "after_detail": "200 HTML; in sitemap: True; canonical corect: True"
+    },
+    {
+      "id": "G2",
+      "category": "/geo/ghid",
+      "weight": 4,
+      "before": "FAIL",
+      "after": "FAIL",
+      "points": 0,
+      "after_detail": "FAQPage JSON-LD absent sau incomplet"
+    },
+    {
+      "id": "G3",
+      "category": "/geo/ghid",
+      "weight": 4,
+      "before": "FAIL",
+      "after": "FAIL",
+      "points": 0,
+      "after_detail": "0/23 intrebari vizibile (H2) au pereche in FAQPage"
+    },
+    {
+      "id": "G4",
+      "category": "/geo/ghid",
+      "weight": 2,
+      "before": "FAIL",
+      "after": "FAIL",
+      "points": 0,
+      "after_detail": "FAQPage absent"
+    },
+    {
+      "id": "G5",
+      "category": "/geo/ghid",
+      "weight": 2,
+      "before": "FAIL",
+      "after": "PASS",
+      "points": 2,
+      "after_detail": "BreadcrumbList prezent"
+    },
+    {
+      "id": "A1",
+      "category": "coerenta ANAF",
+      "weight": 5,
+      "before": "FAIL",
+      "after": "PASS",
+      "points": 5,
+      "after_detail": "ANAF in sursele declarate: False; linii llms.txt care o prezinta ca sursa fara negatie: 0"
+    },
+    {
+      "id": "A2",
+      "category": "coerenta ANAF",
+      "weight": 5,
+      "before": "FAIL",
+      "after": "PASS",
+      "points": 5,
+      "after_detail": "fisiere entitati care mentioneaza ANAF fara sa fie in sursele declarate: 0"
+    },
+    {
+      "id": "A3",
+      "category": "coerenta ANAF",
+      "weight": 5,
+      "before": "FAIL",
+      "after": "FAIL",
+      "points": 0,
+      "after_detail": "propozitii vizibile care prezinta ANAF ca sursa folosita, fara negatie: 18"
+    },
+    {
+      "id": "D1",
+      "category": "digital-dna.json",
+      "weight": 3,
+      "before": "PASS",
+      "after": "PASS",
+      "points": 0,
+      "after_detail": "digital-dna.json: HTTP 200, JSON valid"
+    },
+    {
+      "id": "D2",
+      "category": "digital-dna.json",
+      "weight": 4,
+      "before": "FAIL",
+      "after": "FAIL",
+      "points": 0,
+      "after_detail": "status=SPECIFICATION_NOT_RUNTIME_VERIFIED; verification.result=NOT_TESTED (PASS cere result=PASS si status fara NOT_RUNTIME_VERIFIED)"
+    },
+    {
+      "id": "D3",
+      "category": "digital-dna.json",
+      "weight": 3,
+      "before": "PASS",
+      "after": "PASS",
+      "points": 0,
+      "after_detail": "campuri obligatorii: complete"
+    }
+  ],
+  "limits": "GEO Technical Readiness. Nu masoara vizibilitatea in sistemele AI si nici impactul comercial. Setul de pagini evaluate poate diferi intre T0 si T1."
+}

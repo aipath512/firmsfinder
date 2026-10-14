@@ -22,3 +22,7 @@ b0447d9579405093bf3fd045d629349b186e74f965c5255d85e49f1d3eccd19b  audituri/evide
 69c1034e8d12c85da901c6548bd22a395d3fddb7a7758d8daafc1855255ccab7  audituri/metodologie/ERRATA_GEO_LIVE_v1.0_2026-10-14.md
 d3760c0e8d69509133a8a93636c2ccdbe4fd617ecf1d6e68342968647e25491d  audituri/evidence/T0-LIVE_geo-live_v1.0.1_2026-10-14.json
 9b83987d80675e9a20341d0c0dc4b655c383131043d589ccb40a421444f22d8e  audituri/evidence/T0-LIVE_geo-live_v1.0.1_2026-10-14.md
+f2be069a86e6e3e347a8f60f80917b4dbad7bd9ebcea0a7b43b83f5c1f32d083  audituri/evidence/T1-LIVE_geo-live_v1.0.1_2026-10-14.json
+659f49962c3165ede4405e0bf0ecbdae7579a3cbda73a4ee892d8aa8f8c42a11  audituri/evidence/T1-LIVE_geo-live_v1.0.1_2026-10-14.md
+a2ee71312b0d281e076055987c68483af6b32dca993acc981f26183008bd386b  audituri/evidence/DELTA_T0-T1_geo-live_v1.0.1_2026-10-14.json
+1ead2e2862adf9feed1ff601f7f940f47c4e266f9af93165525a25274258442b  .github/geo/geo_delta.py
