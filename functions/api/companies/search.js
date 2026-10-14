@@ -63,7 +63,32 @@ async function sugereaza(env, q) {
       }
     } catch (e) { return null; }
   }
-  return null;
+  return fuzzy(env, q, cuvinte);
+}
+// Fuzzy (distanță de editare ≤ 2 aproximată): variante cu o literă inversată, ștearsă, înlocuită sau lipsă (prima literă trebuie corectă).
+const lev = (a, b) => {
+  const d = Array.from({length: a.length + 1}, (_, i) => [i, ...Array(b.length).fill(0)]);
+  for (let j = 1; j <= b.length; j++) d[0][j] = j;
+  for (let i = 1; i <= a.length; i++) for (let j = 1; j <= b.length; j++)
+    d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+  return d[a.length][b.length];
+};
+async function fuzzy(env, q, cuvinte) {
+  const w = q.slice(0, 16), n = w.length, v = new Set();
+  for (let i = 0; i < n - 1; i++) v.add(w.slice(0, i) + w[i + 1] + w[i] + w.slice(i + 2));
+  for (let i = 1; i < n; i++) { v.add(w.slice(0, i) + w.slice(i + 1)); v.add(w.slice(0, i) + '_' + w.slice(i + 1)); v.add(w.slice(0, i) + '_' + w.slice(i)); }
+  v.add(w + '_'); v.delete(w);
+  const clauze = [...v].filter((x) => /^[A-Z0-9 &.\-_]+$/.test(x)).map((x) => `denumire_cautare LIKE '${x}%'`);
+  if (!clauze.length) return null;
+  try {
+    const r = await env.DB.prepare(`SELECT denumire, denumire_cautare AS dc FROM onrc_firme WHERE top = 1 AND persoana_fizica = 0 AND (${clauze.join(' OR ')}) LIMIT 60`).all();
+    let best = null, bd = 99;
+    for (const x of r.results || []) {
+      const d = Math.min(...[n - 1, n, n + 1].map((l) => lev(w, String(x.dc).slice(0, l))));
+      if (d < bd) { bd = d; best = x.denumire; }
+    }
+    return best && bd <= 2 ? best.split(' ').slice(0, cuvinte).join(' ') : null;
+  } catch (e) { return null; }
 }
 
 export async function onRequestGet({request, env}) {
