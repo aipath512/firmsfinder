@@ -4,7 +4,7 @@ function element(tag,text,parent){const x=document.createElement(tag);x.textCont
 async function call(url,options){const r=await fetch(url,options),d=await r.json();if(!r.ok)throw new Error(d.error||d.notice||'Cerere eșuată ('+r.status+').');if(d.status==='BACKEND_REQUIRED')throw new Error('Backend-ul nu este încă activ. Fișierul public este doar manifestul.');return d;}
 function renderCompanies(d){
  const box=$('#results');box.replaceChildren();
- for(const c of d.results){const article=element('article','',box);article.className='result';const h=element('h2','',article),a=element('a',c.denumire,h);a.href='/firme/'+encodeURIComponent(c.cui)+'/';element('p','CUI '+c.cui+' · '+(c.judet??'Necunoscut')+' · '+(c.localitate??'Necunoscut'),article);element('p','CAEN Rev.2 · MF 2024: '+(c.caen_mf??'Necunoscut'),article);element('p','Data importului: '+(c.observed_at??'Necunoscută'),article);}
+ for(const c of d.results){const article=element('article','',box);article.className='result';const h=element('h2','',article),a=element('a',c.denumire,h);a.href='/firme/'+encodeURIComponent(c.cui)+'/';element('p','CUI '+c.cui+' · '+(c.judet??'Necunoscut')+' · '+(c.localitate??'Necunoscut'),article);element('p','CAEN Rev.2 · MF 2024: '+(c.caen_mf??'Necunoscut'),article);element('p','Cifră de afaceri 2024: '+(c.cifra_afaceri_2024!=null?Number(c.cifra_afaceri_2024).toLocaleString('ro-RO')+' lei':'necunoscută')+' · Salariați: '+(c.salariati_2024!=null?Number(c.salariati_2024).toLocaleString('ro-RO'):'necunoscut'),article);}
  message(d.results.length?'Pagina '+d.page+' · '+d.results.length+' rezultate.':'Nicio firmă găsită pentru criteriile introduse.');
  $('#next').hidden=!d.has_more;
 }
