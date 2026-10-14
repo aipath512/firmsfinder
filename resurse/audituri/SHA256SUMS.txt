@@ -14,3 +14,5 @@ d023f6dcddf780f34e0607b79a274f411bf637d0ae7eb49e551d90208a90f1df  templates/GEO_
 ef31d1259860762c92ffc270ba564144f0b709241ac5d6b91bd73ad72cb208e5  audituri/evidence/T0_verify_geo_v1.0_2026-10-14.json
 d1455ef3317f64146da6c02083e046d51b7e5ef5bab7db673fd671517388e136  audituri/evidence/T0_geo_score_v1.0_2026-10-14.json
 4fd0b00738122ce91515aa334a287034bae2215509643789f81afc04bff27150  audituri/evidence/T0_geo_score_v1.0_2026-10-14.md
+97d5a266655b3a30b29161fed57fc6bfa18b88bcd8266d512e604c9ad1951e0a  audituri/metodologie/GEO_LIVE_METHODOLOGY_v1.0_2026-10-14.md
+9d13ee476528ab5591b972c484828b14526e3e26e04038e91bb07651989fb248  .github/geo/geo_live.py (evaluator v1.0.0)

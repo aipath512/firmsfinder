@@ -1,0 +1,38 @@
+name: GEO LIVE
+
+# La cerere (Run workflow): evalueaza site-ul PUBLIC https://firmsfinder.eu cu geo_live.py si publica dovezile ca artefact.
+# Nu modifica depozitul si nu publica nimic in productie.
+
+on:
+  workflow_dispatch:
+    inputs:
+      stage:
+        description: "Etapa: T0 (BEFORE) sau T1 (AFTER)"
+        default: "T0"
+
+permissions:
+  contents: read
+
+jobs:
+  live:
+    name: GEO LIVE ${{ github.event.inputs.stage }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Evaluator GEO LIVE
+        id: ev
+        continue-on-error: true
+        run: python3 .github/geo/geo_live.py --stage "${{ github.event.inputs.stage }}" --json geo-live.json --md geo-live.md
+      - name: Raport in pagina rularii
+        if: always()
+        run: cat geo-live.md >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: geo-live-${{ github.event.inputs.stage }}
+          path: |
+            geo-live.json
+            geo-live.md
