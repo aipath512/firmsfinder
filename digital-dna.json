@@ -6,12 +6,16 @@
   "site": "https://firmsfinder.eu/",
   "scope": "ON_SITE",
   "category": "Identity",
-  "status": "SPECIFICATION_NOT_RUNTIME_VERIFIED",
+  "status": "PUBLISHED_IDENTITY_METADATA_VERIFIED_SCOPED",
   "purpose": "Digital identity metadata",
-  "publication_note": "Publicarea acestui fișier nu demonstrează că funcția sau controlul este implementat.",
+  "publication_note": "Fișierul declară identitatea digitală (organizație, brand, site, limbă, piețe). Verificarea de mai jos privește exclusiv accesibilitatea publică și validitatea acestui fișier; nu demonstrează implementarea altor semnale sau funcții.",
   "verification": {
-    "check": "GET public URL; validate JSON and verify runtime behavior separately",
-    "result": "NOT_TESTED"
+    "check": "GET https://firmsfinder.eu/digital-dna.json întoarce HTTP 200, JSON valid și câmpurile obligatorii: schema, version, signal_id, site, organization, brand, language",
+    "scope": "Doar accesibilitatea și validitatea acestui fișier. Nu verifică comportamentul aplicației, capabilitățile sau citarea de către sisteme AI.",
+    "result": "PASS",
+    "verified_at": "2026-10-14T16:26:35Z",
+    "evidence": "https://firmsfinder.eu/resurse/audituri/evidence/T1-LIVE_geo-live_v1.0.1_2026-10-14.json",
+    "evidence_note": "Cererea din registrul T1-LIVE: HTTP 200, application/json, 776 octeți, sha256 ff478f5e43d2e72f5ba7484a2129559a69ee8bd79e39987e5d0fd069ce75ea23. Câmpurile de identitate sunt neschimbate față de acel conținut; s-au modificat doar câmpurile status, publication_note și verification. Fișierul actualizat este recitit la rularea următoare."
   },
   "organization": "AiVenture S.R.L.",
   "brand": "FirmsFinder",
