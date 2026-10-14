@@ -1,7 +1,7 @@
 name: GEO LIVE
 
 # La cerere (Run workflow): evalueaza site-ul PUBLIC https://firmsfinder.eu cu geo_live.py si publica dovezile ca artefact.
-# Nu modifica depozitul si nu publica nimic in productie.
+# Nu modifica main si nu publica nimic in productie: dovezile se salveaza intr-o ramura separata geo-live/<etapa>-<run_id>.
 
 on:
   workflow_dispatch:
@@ -11,7 +11,7 @@ on:
         default: "T0"
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   live:
@@ -36,3 +36,18 @@ jobs:
           path: |
             geo-live.json
             geo-live.md
+      - name: Dovezi in ramura separata
+        if: always()
+        run: |
+          set -e
+          B="geo-live/${{ github.event.inputs.stage }}-${{ github.run_id }}"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -q --orphan "$B"
+          git rm -rq --cached . || true
+          mkdir -p evidence
+          cp geo-live.json "evidence/geo-live-${{ github.event.inputs.stage }}.json"
+          cp geo-live.md "evidence/geo-live-${{ github.event.inputs.stage }}.md"
+          git add -f evidence
+          git commit -q -m "GEO LIVE ${{ github.event.inputs.stage }} - dovezi (rulare ${{ github.run_id }}, commit evaluat ${{ github.sha }})"
+          git push -q origin "$B"
