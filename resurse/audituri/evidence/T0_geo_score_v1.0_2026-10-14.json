@@ -1,0 +1,352 @@
+{
+  "stage": "T0 / BEFORE",
+  "generated": "2026-10-14 09:24:55 (UTC+03:00)",
+  "generated_by": "Claude (Anthropic); rulat din sesiunea de lucru, ora de la ceasul sesiunii",
+  "repo_commit": "ee5648d5cc4ac71d24cbb3777a48dffc34978c65",
+  "scorer": ".github/geo/geo_score.py",
+  "scorer_sha256": "e5425f59238859e0552b941c654ba75ba6f117ccdcb97c35ab0a2d4973794a44",
+  "metric": "indicator_pct = 22 semnale on-site masurabile (PASS=1, PARTIAL=0.5, FAIL=0); NA si semnalele externe excluse",
+  "scope": "REPOSITORY (offline, nu verifica site-ul live)",
+  "limits": "Este GEO Readiness pe fisierele din depozit. Nu masoara vizibilitate AI, citari sau impact comercial.",
+  "result": {
+    "indicator_pct": 38.6,
+    "measurable": 22,
+    "counts": {
+      "PASS": 3,
+      "PARTIAL": 11,
+      "FAIL": 8,
+      "NA": 1,
+      "UNKNOWN": 5
+    },
+    "target_pct": 100.0,
+    "signals": {
+      "1": {
+        "name": "Wikipedia / Wikidata",
+        "status": "UNKNOWN",
+        "why": "Extern sau nemăsurabil din repository.",
+        "files": []
+      },
+      "2": {
+        "name": "Crunchbase Profile",
+        "status": "UNKNOWN",
+        "why": "Extern sau nemăsurabil din repository.",
+        "files": []
+      },
+      "3": {
+        "name": "proof.json IP Anchoring",
+        "status": "FAIL",
+        "why": "SHA-256 absent, greșit sau nepotrivit cu fișierul ancorat.",
+        "files": [
+          "proof.json",
+          "geo/verification.json"
+        ],
+        "needs_operator": "ștampila OpenTimestamps (se face din contul operatorului, pe fișierul publicat)"
+      },
+      "4": {
+        "name": "sameAs External",
+        "status": "FAIL",
+        "why": "Zero sameAs în JSON-LD și în geo/entities.json.",
+        "files": [
+          "index.html",
+          "geo/entities.json"
+        ]
+      },
+      "5": {
+        "name": "ai.txt",
+        "status": "PARTIAL",
+        "why": "Există, dar fără politică, contact sau puncte de intrare suficiente (5 rânduri).",
+        "files": [
+          "ai.txt"
+        ]
+      },
+      "6": {
+        "name": "Hreflang",
+        "status": "NA",
+        "why": "Un singur limbaj (ro-RO).",
+        "files": []
+      },
+      "7": {
+        "name": "changelog.json",
+        "status": "PARTIAL",
+        "why": "Doar instantanee locale; nicio modificare reală consemnată.",
+        "files": [
+          "geo/changelog.json"
+        ]
+      },
+      "8": {
+        "name": "ai.json",
+        "status": "FAIL",
+        "why": "ai.json absent sau doar antet generic.",
+        "files": [
+          "ai.json"
+        ]
+      },
+      "9": {
+        "name": "External Entity Links Quality",
+        "status": "PASS",
+        "why": "Surse oficiale legate: ['anaf.ro', 'data.gov.ro', 'mfinante.gov.ro', 'onrc.ro']",
+        "files": []
+      },
+      "10": {
+        "name": "llms.txt",
+        "status": "PARTIAL",
+        "why": "URL-uri nerezolvate: []",
+        "files": [
+          "llms.txt"
+        ]
+      },
+      "11": {
+        "name": "governance.json",
+        "status": "FAIL",
+        "why": "governance.json absent.",
+        "files": [
+          "governance.json"
+        ],
+        "needs_operator": "conținutul real al politicilor (decizii ale operatorului)"
+      },
+      "12": {
+        "name": "Press Mentions",
+        "status": "UNKNOWN",
+        "why": "Extern sau nemăsurabil din repository.",
+        "files": []
+      },
+      "13": {
+        "name": "Geo-Tagged Content",
+        "status": "FAIL",
+        "why": "Fără areaServed=România și adresă în Organization.",
+        "files": [
+          "localitati/index.html",
+          "index.html"
+        ],
+        "needs_operator": "conținut real pe localități (date)"
+      },
+      "14": {
+        "name": "Dataset Schema Corpus",
+        "status": "PARTIAL",
+        "why": "definiție diferită între HTML și geo/dataset.json; spatialCoverage lipsă; temporalCoverage lipsă (necesită date reale de la operator)",
+        "files": [
+          "index.html",
+          "surse/index.html",
+          "geo/dataset.json"
+        ],
+        "needs_operator": "temporalCoverage = anii reali încărcați (date)"
+      },
+      "15": {
+        "name": "intents.json",
+        "status": "PARTIAL",
+        "why": "Intenții 150, ținte nerezolvate 13.",
+        "files": [
+          "intents.json",
+          "geo/intents.json"
+        ]
+      },
+      "16": {
+        "name": "Local Citations NAP",
+        "status": "FAIL",
+        "why": "Fără telefon/adresă în Organization sau nevizibile pe /contact/.",
+        "files": [
+          "contact/index.html",
+          "index.html"
+        ],
+        "needs_operator": "adresa completă cu stradă (decizie a operatorului)"
+      },
+      "17": {
+        "name": "entities.json Registry",
+        "status": "PARTIAL",
+        "why": "9 din 13 ID-uri nedefinite în pagini.",
+        "files": [
+          "geo/entities.json",
+          "index.html"
+        ]
+      },
+      "18": {
+        "name": "robots.txt AI",
+        "status": "PASS",
+        "why": "Boții AI principali permiși, Sitemap prezent. Lipsesc (informativ): ['Claude-User', 'Perplexity-User', 'Applebot', 'Meta-ExternalAgent']",
+        "files": [
+          "robots.txt"
+        ]
+      },
+      "19": {
+        "name": "Author EEAT",
+        "status": "PARTIAL",
+        "why": "Autor = organizație sau Person fără semnătură vizibilă.",
+        "files": [
+          "despre/index.html"
+        ]
+      },
+      "20": {
+        "name": "Google Business Profile",
+        "status": "UNKNOWN",
+        "why": "Extern sau nemăsurabil din repository.",
+        "files": []
+      },
+      "21": {
+        "name": "Twitter Card",
+        "status": "PARTIAL",
+        "why": "13/14 pagini cu Twitter Card complet",
+        "files": [
+          "geo/ghid/index.html"
+        ],
+        "frac": 0.9285714285714286
+      },
+      "22": {
+        "name": "Entity Graph JSON-LD",
+        "status": "PARTIAL",
+        "why": "10/14 pagini cu graf JSON-LD valid (ID-uri unice, referințe rezolvate)",
+        "files": [
+          "faq/index.html",
+          "despre/index.html",
+          "resurse/index.html",
+          "geo/ghid/index.html"
+        ],
+        "frac": 0.7142857142857143
+      },
+      "23": {
+        "name": "LinkedIn Verification",
+        "status": "FAIL",
+        "why": "Fără LinkedIn în sameAs.",
+        "files": [
+          "index.html"
+        ],
+        "needs_operator": "confirmarea din partea LinkedIn"
+      },
+      "24": {
+        "name": "Named Entity Density",
+        "status": "UNKNOWN",
+        "why": "Extern sau nemăsurabil din repository.",
+        "files": []
+      },
+      "25": {
+        "name": "Organization Completeness",
+        "status": "FAIL",
+        "why": "Doar 3/11 proprietăți.",
+        "files": [
+          "index.html"
+        ],
+        "needs_operator": "logo real și identificator (CUI/EUID) — decizie a operatorului"
+      },
+      "26": {
+        "name": "OpenGraph Completeness",
+        "status": "PARTIAL",
+        "why": "3/14 pagini cu Open Graph complet",
+        "files": [
+          "index.html",
+          "intelligence/index.html",
+          "faq/index.html",
+          "contact/index.html",
+          "surse/index.html",
+          "cautare/index.html",
+          "comparare/index.html",
+          "categorii/index.html",
+          "localitati/index.html",
+          "semnale/index.html",
+          "geo/ghid/index.html"
+        ],
+        "frac": 0.21428571428571427
+      },
+      "27": {
+        "name": "Brand Entity Consistency",
+        "status": "PARTIAL",
+        "why": "og:site_name diferit: ['FirmsFinder', 'FirmsFinder AI']; homepage trimite către domenii externe nedeclarate: ['1clic-ia.eu']",
+        "files": [
+          "index.html"
+        ],
+        "needs_operator": "decizia privind butonul CAUTĂ către alt domeniu și forma sloganului"
+      },
+      "28": {
+        "name": "Canonical URL",
+        "status": "PASS",
+        "why": "14/14 pagini cu canonical corect",
+        "files": [],
+        "frac": 1.0
+      }
+    },
+    "gates": [
+      {
+        "id": "Q1",
+        "name": "Ghid: răspunsuri distincte",
+        "ok": false,
+        "detail": "9 distincte din 23",
+        "files": [
+          "geo/ghid/index.html"
+        ]
+      },
+      {
+        "id": "Q2",
+        "name": "Ghid: FAQPage JSON-LD cu aceleași perechi",
+        "ok": false,
+        "detail": "fără FAQPage",
+        "files": [
+          "geo/ghid/index.html"
+        ]
+      },
+      {
+        "id": "Q3",
+        "name": "Fără fișiere cu virgulă în nume",
+        "ok": true,
+        "detail": "găsit: []",
+        "files": []
+      },
+      {
+        "id": "Q4",
+        "name": "Homepage: linkuri interne spre toate paginile",
+        "ok": false,
+        "detail": "lipsesc: ['/categorii/', '/cautare/', '/comparare/', '/contact/', '/despre/']",
+        "files": [
+          "index.html"
+        ]
+      },
+      {
+        "id": "Q5",
+        "name": "Fără linkuri interne rupte",
+        "ok": true,
+        "detail": "[]",
+        "files": []
+      },
+      {
+        "id": "Q6",
+        "name": "Hash-uri verification.json corecte",
+        "ok": true,
+        "detail": "diferă: []",
+        "files": [
+          "geo/verification.json"
+        ]
+      },
+      {
+        "id": "Q7",
+        "name": "Fără documente interne în rădăcina publică",
+        "ok": false,
+        "detail": "13 fișiere de lucru: ['GEO_ACCEPTANCE_README.md', 'DELTA_INSTRUCTIUNI.txt', 'PUBLICARE.txt', 'PATCH_README.md', 'INVENTAR.md', 'README.md']",
+        "files": [],
+        "needs_operator": "ștergerea fișierelor interne din repository (decizie a operatorului)"
+      },
+      {
+        "id": "Q8",
+        "name": "Claims: nimic „verificat” fără dovadă",
+        "ok": true,
+        "detail": "încălcări: []",
+        "files": [
+          "geo/claims.json"
+        ]
+      },
+      {
+        "id": "Q9",
+        "name": "Observații AI: fără rezultate fără dovadă",
+        "ok": true,
+        "detail": "0 observații",
+        "files": [
+          "geo/observations.json"
+        ]
+      }
+    ],
+    "gates_failed": [
+      "Q1",
+      "Q2",
+      "Q4",
+      "Q7"
+    ],
+    "note": "Indicator de acoperire on-site; nu este scor de vizibilitate AI și nu garantează citarea.",
+    "accepted": false
+  }
+}
