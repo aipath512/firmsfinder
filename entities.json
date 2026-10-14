@@ -4,7 +4,7 @@
   "updated": "2026-10-13",
   "site": "https://firmsfinder.eu/",
   "language": "ro-RO",
-  "note": "Catalog al entităților publice ale site-ului. Nu conține profiluri de firme; căutarea în baza de firme rulează pe https://1clic-ia.eu/. Descrierea unei funcții aici nu demonstrează că ea este operațională; vezi https://firmsfinder.eu/signals.json.",
+  "note": "Catalog al entităților publice ale site-ului. Nu conține profiluri de firme; căutarea în baza de firme este la https://firmsfinder.eu/cautare/. Descrierea unei funcții aici nu demonstrează că ea este operațională; vezi https://firmsfinder.eu/signals.json.",
   "entities": [
     {
       "id": "https://firmsfinder.eu/#website",
@@ -77,7 +77,7 @@
       "description": "Platformă de Economic Intelligence B2B pentru descoperirea firmelor, clienților, furnizorilor și partenerilor. Acoperire curentă: România; următoarea etapă: Uniunea Europeană.",
       "provider_ref": "https://aiventure.ro/#organization",
       "brand_ref": "https://firmsfinder.eu/#brand",
-      "search_endpoint_host": "https://1clic-ia.eu/",
+      "search_endpoint_host": "https://firmsfinder.eu/",
       "areaServed": [
         {
           "type": "Country",
@@ -97,7 +97,7 @@
       "name": "CAUTĂ",
       "description": "Căutare de firme după activitate (CAEN), județ și localitate, cu criterii și surse afișate.",
       "provider_ref": "https://aiventure.ro/#organization",
-      "url": "https://1clic-ia.eu/"
+      "url": "https://firmsfinder.eu/cautare/"
     },
     {
       "id": "https://firmsfinder.eu/#mode-fii-gasit",

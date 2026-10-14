@@ -13,7 +13,7 @@
     "check": "GET public URL; validate JSON and verify runtime behavior separately",
     "result": "NOT_TESTED"
   },
-  "public_search_url": "https://1clic-ia.eu/",
-  "routing": "TEMPORARY_EXTERNAL_LINK",
+  "public_search_url": "https://firmsfinder.eu/cautare/",
+  "routing": "ON_DOMAIN_PAGES_FUNCTION",
   "backend_status": "NOT_VERIFIED"
 }

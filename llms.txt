@@ -2,7 +2,7 @@
 
 > FirmsFinder.eu este o platformă de Economic Intelligence B2B: ajută la descoperirea firmelor ca potențiali clienți, furnizori și parteneri, cu potriviri explicate și surse verificabile. Acoperire curentă: România. Următoarea etapă: Uniunea Europeană. Operator: AiVenture S.R.L. (CUI 51415878, București), care activează sub brandul 5thelement.ai. Limba: română.
 
-FirmsFinder propune trei moduri de lucru: CAUTĂ (firme după activitate, județ, localitate), FII GĂSIT (oferta firmei devine inteligibilă pentru oameni și sisteme AI) și DELEAGĂ AI-ULUI (cercetare delegată, cu decizia finală la om). Căutarea în baza de firme rulează pe 1clic-ia.eu; acest site conține explicațiile, metodologia și întrebările frecvente.
+FirmsFinder propune trei moduri de lucru: CAUTĂ (firme după activitate, județ, localitate), FII GĂSIT (oferta firmei devine inteligibilă pentru oameni și sisteme AI) și DELEAGĂ AI-ULUI (cercetare delegată, cu decizia finală la om). Căutarea în baza de firme este disponibilă pe acest site, la https://firmsfinder.eu/cautare/ (gratuit, maximum 50 de rezultate per căutare; persoanele fizice sunt mascate în așteptarea acordului GDPR).
 
 ## Pagini principale
 
@@ -48,7 +48,6 @@ FirmsFinder propune trei moduri de lucru: CAUTĂ (firme după activitate, județ
 
 ## Ecosistem AiVenture
 
-- [1clic-ia.eu](https://1clic-ia.eu/): căutare în baza de firme
 - [3webobs.com](https://3webobs.com/) și [ai-lens.eu](https://ai-lens.eu/): observarea prezenței firmei pe Web-ul pentru oameni, AI și agenți
 - [eu-ai-act-ready.eu](https://eu-ai-act-ready.eu/) și [eu-ai-act.ro](https://eu-ai-act.ro/): pregătirea pentru EU AI Act
 - [eu-ai-audit.eu](https://eu-ai-audit.eu/) și [eu-ai-ready.eu](https://eu-ai-ready.eu/): audit și pregătire AI
