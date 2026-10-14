@@ -15,6 +15,10 @@ ef31d1259860762c92ffc270ba564144f0b709241ac5d6b91bd73ad72cb208e5  audituri/evide
 d1455ef3317f64146da6c02083e046d51b7e5ef5bab7db673fd671517388e136  audituri/evidence/T0_geo_score_v1.0_2026-10-14.json
 4fd0b00738122ce91515aa334a287034bae2215509643789f81afc04bff27150  audituri/evidence/T0_geo_score_v1.0_2026-10-14.md
 97d5a266655b3a30b29161fed57fc6bfa18b88bcd8266d512e604c9ad1951e0a  audituri/metodologie/GEO_LIVE_METHODOLOGY_v1.0_2026-10-14.md
-9d13ee476528ab5591b972c484828b14526e3e26e04038e91bb07651989fb248  .github/geo/geo_live.py (evaluator v1.0.0)
 7fbcff81cfe81bded31ab9913c99b6bed1d7b286ac177af1675b61cdb75ff15d  audituri/evidence/T0-LIVE_geo-live_v1.0_2026-10-14.json
 b0447d9579405093bf3fd045d629349b186e74f965c5255d85e49f1d3eccd19b  audituri/evidence/T0-LIVE_geo-live_v1.0_2026-10-14.md
+# geo_live.py v1.0.0 (folosit in rularea CI 38523064171) avea sha256 9d13ee476528ab5591b972c484828b14526e3e26e04038e91bb07651989fb248
+63c7f72bacb075bf4c212c67de8e903e791e06baa4e52e9b76ddb3c48f86f961  .github/geo/geo_live.py (evaluator v1.0.1)
+69c1034e8d12c85da901c6548bd22a395d3fddb7a7758d8daafc1855255ccab7  audituri/metodologie/ERRATA_GEO_LIVE_v1.0_2026-10-14.md
+d3760c0e8d69509133a8a93636c2ccdbe4fd617ecf1d6e68342968647e25491d  audituri/evidence/T0-LIVE_geo-live_v1.0.1_2026-10-14.json
+9b83987d80675e9a20341d0c0dc4b655c383131043d589ccb40a421444f22d8e  audituri/evidence/T0-LIVE_geo-live_v1.0.1_2026-10-14.md

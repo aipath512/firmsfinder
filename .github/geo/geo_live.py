@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""FirmsFinder - evaluator GEO LIVE v1.0.0 (GEO Technical Readiness, masurat pe site-ul PUBLIC).
+"""FirmsFinder - evaluator GEO LIVE v1.0.1 (GEO Technical Readiness, masurat pe site-ul PUBLIC).
 
 Metodologia normativa: resurse/audituri/metodologie/GEO_LIVE_METHODOLOGY_v1.0_2026-10-14.md
 Acelasi script, aceleasi ponderi si aceleasi reguli se folosesc la T0 si la T1. Orice schimbare => versiune noua.
@@ -16,7 +16,7 @@ import urllib.error, urllib.request
 import xml.etree.ElementTree as ET
 from urllib.parse import urlparse
 
-VERSION = "1.0.0"
+VERSION = "1.0.1"
 METHODOLOGY = "GEO_LIVE_METHODOLOGY_v1.0_2026-10-14"
 SITE = "https://firmsfinder.eu"
 UA = "FirmsFinder-GEO-Live/1.0 (+https://firmsfinder.eu/resurse/audituri/)"
@@ -25,7 +25,7 @@ CORE_BOTS = ["gptbot", "oai-searchbot", "chatgpt-user", "claudebot", "claude-sea
 LOCAL_HOSTS = {"firmsfinder.eu", "aiventure.ro"}
 LD_RE = re.compile(r'<script[^>]*application/ld\+json[^>]*>(.*?)</script>', re.S | re.I)
 NEG_RE = re.compile(r"\b(nu|fara|fără|neintegrat|exclus|neverificat|nefolosit)\b", re.I)
-SRC_RE = re.compile(r"(provin|provine|surs[ăa]|surse|folosit|preluat|extras|utilizat)", re.I)
+SRC_RE = re.compile(r"(provin|surs[ăae]|folosit|utiliz|preluat|extras|date oficiale de la)", re.I)
 ISO_DATE = re.compile(r"^\d{4}-\d{2}-\d{2}(T[0-9:.+\-Zz]+)?$")
 
 
