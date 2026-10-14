@@ -26,3 +26,8 @@ f2be069a86e6e3e347a8f60f80917b4dbad7bd9ebcea0a7b43b83f5c1f32d083  audituri/evide
 659f49962c3165ede4405e0bf0ecbdae7579a3cbda73a4ee892d8aa8f8c42a11  audituri/evidence/T1-LIVE_geo-live_v1.0.1_2026-10-14.md
 a2ee71312b0d281e076055987c68483af6b32dca993acc981f26183008bd386b  audituri/evidence/DELTA_T0-T1_geo-live_v1.0.1_2026-10-14.json
 1ead2e2862adf9feed1ff601f7f940f47c4e266f9af93165525a25274258442b  .github/geo/geo_delta.py
+95e8a2e1cd86a9c94c3ab3de4c1491a660f3974c5161dd8bf9584c68e04c8c98  audituri/evidence/T2-LIVE_geo-live_v1.0.1_2026-10-14.json
+8e57619d13ac5cb5a23fbd420759dfa23cc123c0c2fafb248a15ea662ad0fb7c  audituri/evidence/T2-LIVE_geo-live_v1.0.1_2026-10-14.md
+ed6ebd8490d23bd3405549e980f4ac08020ee3f2f5513dd48ffcc51ee1b5816d  audituri/evidence/DELTA_T1-T2_geo-live_v1.0.1_2026-10-14.json
+6d0b3e396f4b4abd4938fceaffeaa06d82ab895011017ad1465947cd09614b4c  audituri/evidence/DELTA_T0-T2_geo-live_v1.0.1_2026-10-14.json
+0fdcd1231d43cf976d9c2d7bc2d3a4616c8752f839c62da62cdff5eb407aa3e5  digital-dna.json (versiunea D2, e3be34b)
