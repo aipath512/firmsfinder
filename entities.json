@@ -125,7 +125,7 @@
     {
       "id": "https://mfinante.gov.ro/#dataset-source",
       "type": "DataSource",
-      "name": "Ministerul Finanțelor (bilanțuri, ANAF)",
+      "name": "Ministerul Finanțelor (bilanțuri)",
       "url": "https://mfinante.gov.ro/",
       "role": "sursă publică oficială"
     }
