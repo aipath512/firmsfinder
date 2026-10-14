@@ -1,3 +1,7 @@
+/
+  Cache-Control: public, max-age=0, must-revalidate
+/index.html
+  Cache-Control: public, max-age=0, must-revalidate
 /*.json
   X-Content-Type-Options: nosniff
   Cache-Control: public, max-age=300
