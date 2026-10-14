@@ -12,6 +12,7 @@ FirmsFinder propune trei moduri de lucru: CAUTĂ (firme după activitate, județ
 - [Despre](https://firmsfinder.eu/despre/): entități și relații economice, rolul platformei
 - [Surse și metodologie](https://firmsfinder.eu/surse/): sursele de date, limitele interpretării și verificarea unei potriviri
 - [Resurse](https://firmsfinder.eu/resurse/): arhitectura Knowledge Graph + Vector Search
+- [Audituri și dovezi](https://firmsfinder.eu/resurse/audituri/): protocol BEFORE → AFTER → DELTA și arhivă de audituri GEO, cu dată, autor declarat și stare de verificare; nu sunt dovezi independente
 - [Semnale](https://firmsfinder.eu/semnale/): catalogul celor 60 de semnale ON-SITE, cu verdict per semnal
 - [Contact și corecturi](https://firmsfinder.eu/contact/): solicitări de informații și corecturi
 - [Ghid GEO și AEO](https://firmsfinder.eu/geo/ghid/): întrebări și răspunsuri despre GEO, AEO și citabilitate AI; fișierele și datele structurate nu garantează citarea de către sisteme AI
@@ -36,6 +37,7 @@ FirmsFinder propune trei moduri de lucru: CAUTĂ (firme după activitate, județ
 - [sitemap.xml](https://firmsfinder.eu/sitemap.xml)
 - [entities.json](https://firmsfinder.eu/entities.json): entitățile publice ale site-ului
 - [signals.json](https://firmsfinder.eu/signals.json): catalogul celor 60 de semnale ON-SITE și starea lor declarată
+- [geo/manifest.json](https://firmsfinder.eu/geo/manifest.json): inventarul fișierelor GEO (JSON) și starea lor declarată
 
 ## Operator
 

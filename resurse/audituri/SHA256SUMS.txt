@@ -1,0 +1,13 @@
+# FirmsFinder - hash-uri SHA-256 ale fisierelor din /resurse/audit/ si /resurse/templates/
+# Generat 2026-10-14 (UTC+03:00). Hash-urile PDF-urilor GEO (23 fisiere) sunt in /resurse/geo-pdf/SHA256SUMS.txt
+# Un hash dovedeste integritatea unui fisier, nu autoratul sau momentul crearii.
+# Fisier primit si nepublicat (raport PDF Gemini, certificat invalid): 253519cb75165c359486812223a93ab818a557529472c26ce57d564f738fd56d
+# Fisier primit inainte de omiterea ultimului paragraf conversational (sablon DeepSeek): 2800b2b679129023a78ca5efab9fb8da15d5a91016f0d33af18f8752483de7a4
+e0575c31ac521e6f319ec6df0b15bf786cdbf89d46a637a62812e02e4035e765  audit/Audit_GEO_Perplexity_FirmsFinder_v1.0_2026-10-14.pdf
+4aae6b970057525a13281cda5546e926f69baf4847cc1e9b366011e0a9031796  audit/FirmsFinder_GEO_Audit_v1.0_2026-10-14.canonical.txt
+3a4ab1d6e00bc7078fe889c2bc42b625e06669c9f948b83f4c43aa9891c2265d  audit/FirmsFinder_GEO_Audit_v1.0_2026-10-14.pdf
+04346b7bd2442654caba58231c33edf50d732f97dcb7360f721c7ef53b236f67  audit/FirmsFinder_GEO_Audit_v1.1_2026-10-14.canonical.txt
+f40ecc7bf109d5546bb54f09b7dd09eddd5873a2d4333616180b2c528f450242  audit/FirmsFinder_GEO_Audit_v1.1_2026-10-14.pdf
+af1272e8b962ec0d41dedcbaa11924bba491ddf8d6271918e1c13f8a33a3d2e5  audit/Modern_SEO_GEO_Audit_Appendix_EN_v1.0_2026-10-14.pdf
+908a0f68066a5146fa41b6fdaa042b4ccc0ab8dc7a70d489a716001e92fa6110  audit/Modern_SEO_GEO_Audit_Appendix_EN_v1.0_2026-10-14.pdf.sha256
+d023f6dcddf780f34e0607b79a274f411bf637d0ae7eb49e551d90208a90f1df  templates/GEO_Audit_Template_DeepSeek_v1.0_2026-10-14.md
