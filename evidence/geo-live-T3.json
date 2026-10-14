@@ -1,0 +1,834 @@
+{
+  "stage": "T3",
+  "kind": "LIVE",
+  "target": "https://firmsfinder.eu/",
+  "methodology": "GEO_LIVE_METHODOLOGY_v1.0_2026-10-14",
+  "evaluator": {
+    "name": "geo_live.py",
+    "version": "1.0.1",
+    "sha256": "63c7f72bacb075bf4c212c67de8e903e791e06baa4e52e9b76ddb3c48f86f961"
+  },
+  "started": "2026-10-14T16:57:32Z",
+  "finished": "2026-10-14T16:57:52Z",
+  "ci": {
+    "commit": "996845a4479958f6b930bf53a707e0636dfbc0b6",
+    "run_id": "38602493567",
+    "run_url": "https://github.com/aipath512/firmsfinder/actions/runs/38602493567"
+  },
+  "limits": "GEO Technical Readiness pe site-ul public. Nu masoara vizibilitatea efectiva in sistemele AI, citarile sau impactul comercial.",
+  "summary": {
+    "score": 95.0,
+    "earned_weight": 95,
+    "determinable_weight": 100,
+    "unknown_weight": 0,
+    "evaluation": "COMPLETE",
+    "grade": "A",
+    "counts": {
+      "PASS": 25,
+      "FAIL": 1,
+      "UNKNOWN": 0,
+      "N/A": 0
+    },
+    "categories": [
+      {
+        "name": "HTTP/JSON",
+        "weight": 25,
+        "earned": 25,
+        "determinable": 25,
+        "unknown": 0
+      },
+      {
+        "name": "JSON-LD",
+        "weight": 20,
+        "earned": 20,
+        "determinable": 20,
+        "unknown": 0
+      },
+      {
+        "name": "robots/llms/sitemap",
+        "weight": 15,
+        "earned": 15,
+        "determinable": 15,
+        "unknown": 0
+      },
+      {
+        "name": "/geo/ghid",
+        "weight": 15,
+        "earned": 15,
+        "determinable": 15,
+        "unknown": 0
+      },
+      {
+        "name": "coerenta ANAF",
+        "weight": 15,
+        "earned": 10,
+        "determinable": 15,
+        "unknown": 0
+      },
+      {
+        "name": "digital-dna.json",
+        "weight": 10,
+        "earned": 10,
+        "determinable": 10,
+        "unknown": 0
+      }
+    ]
+  },
+  "checks": [
+    {
+      "id": "H1",
+      "category": "HTTP/JSON",
+      "weight": 5,
+      "state": "PASS",
+      "detail": "manifest.json 200, JSON valid",
+      "failing_items": []
+    },
+    {
+      "id": "H2",
+      "category": "HTTP/JSON",
+      "weight": 8,
+      "state": "PASS",
+      "detail": "23/23 artefacte din manifest raspund 200",
+      "failing_items": []
+    },
+    {
+      "id": "H3",
+      "category": "HTTP/JSON",
+      "weight": 6,
+      "state": "PASS",
+      "detail": "23/23 artefacte sunt JSON valid cu Content-Type json",
+      "failing_items": []
+    },
+    {
+      "id": "H4",
+      "category": "HTTP/JSON",
+      "weight": 3,
+      "state": "PASS",
+      "detail": "signals.json si entities.json 200 + JSON valid",
+      "failing_items": []
+    },
+    {
+      "id": "H5",
+      "category": "HTTP/JSON",
+      "weight": 3,
+      "state": "PASS",
+      "detail": "http:// redirectioneaza (301) catre https",
+      "failing_items": []
+    },
+    {
+      "id": "J1",
+      "category": "JSON-LD",
+      "weight": 5,
+      "state": "PASS",
+      "detail": "17/17 pagini conforme",
+      "failing_items": []
+    },
+    {
+      "id": "J2",
+      "category": "JSON-LD",
+      "weight": 5,
+      "state": "PASS",
+      "detail": "17/17 pagini conforme",
+      "failing_items": []
+    },
+    {
+      "id": "J3",
+      "category": "JSON-LD",
+      "weight": 5,
+      "state": "PASS",
+      "detail": "17/17 pagini conforme",
+      "failing_items": []
+    },
+    {
+      "id": "J4",
+      "category": "JSON-LD",
+      "weight": 5,
+      "state": "PASS",
+      "detail": "17/17 pagini conforme",
+      "failing_items": []
+    },
+    {
+      "id": "R1",
+      "category": "robots/llms/sitemap",
+      "weight": 3,
+      "state": "PASS",
+      "detail": "robots.txt: HTTP 200, text/plain; charset=utf-8",
+      "failing_items": []
+    },
+    {
+      "id": "R2",
+      "category": "robots/llms/sitemap",
+      "weight": 3,
+      "state": "PASS",
+      "detail": "boti AI principali nu sunt blocati; Sitemap declarat",
+      "failing_items": []
+    },
+    {
+      "id": "R3",
+      "category": "robots/llms/sitemap",
+      "weight": 3,
+      "state": "PASS",
+      "detail": "17/17 URL-uri din sitemap raspund 200",
+      "failing_items": []
+    },
+    {
+      "id": "R4",
+      "category": "robots/llms/sitemap",
+      "weight": 2,
+      "state": "PASS",
+      "detail": "17/17 intrari cu lastmod ISO valid",
+      "failing_items": []
+    },
+    {
+      "id": "R5",
+      "category": "robots/llms/sitemap",
+      "weight": 2,
+      "state": "PASS",
+      "detail": "llms.txt: HTTP 200, text/plain; charset=utf-8, titlu H1 prezent",
+      "failing_items": []
+    },
+    {
+      "id": "R6",
+      "category": "robots/llms/sitemap",
+      "weight": 2,
+      "state": "PASS",
+      "detail": "15/15 linkuri firmsfinder.eu din llms.txt raspund 200",
+      "failing_items": []
+    },
+    {
+      "id": "G1",
+      "category": "/geo/ghid",
+      "weight": 3,
+      "state": "PASS",
+      "detail": "200 HTML; in sitemap: True; canonical corect: True",
+      "failing_items": []
+    },
+    {
+      "id": "G2",
+      "category": "/geo/ghid",
+      "weight": 4,
+      "state": "PASS",
+      "detail": "FAQPage cu 23 intrebari si raspunsuri",
+      "failing_items": []
+    },
+    {
+      "id": "G3",
+      "category": "/geo/ghid",
+      "weight": 4,
+      "state": "PASS",
+      "detail": "23/23 intrebari vizibile (H2) au pereche in FAQPage",
+      "failing_items": []
+    },
+    {
+      "id": "G4",
+      "category": "/geo/ghid",
+      "weight": 2,
+      "state": "PASS",
+      "detail": "23 raspunsuri distincte din 23",
+      "failing_items": []
+    },
+    {
+      "id": "G5",
+      "category": "/geo/ghid",
+      "weight": 2,
+      "state": "PASS",
+      "detail": "BreadcrumbList prezent",
+      "failing_items": []
+    },
+    {
+      "id": "A1",
+      "category": "coerenta ANAF",
+      "weight": 5,
+      "state": "PASS",
+      "detail": "ANAF in sursele declarate: False; linii llms.txt care o prezinta ca sursa fara negatie: 0",
+      "failing_items": []
+    },
+    {
+      "id": "A2",
+      "category": "coerenta ANAF",
+      "weight": 5,
+      "state": "PASS",
+      "detail": "fisiere entitati care mentioneaza ANAF fara sa fie in sursele declarate: 0",
+      "failing_items": []
+    },
+    {
+      "id": "A3",
+      "category": "coerenta ANAF",
+      "weight": 5,
+      "state": "FAIL",
+      "detail": "propozitii vizibile care prezinta ANAF ca sursa folosita, fara negatie: 17",
+      "failing_items": [
+        "https://firmsfinder.eu/: QUICK LINKS 1clic-ia.eu ↗ 3webobs.com ↗ 5thelement.ai ↗ ai-lens.eu ↗ aiventure.ro ↗ b2b-ai-library.org ↗ eu-112.eu ↗ eu-112.ro ↗ eu-ai-act-r",
+        "https://firmsfinder.eu/intelligence/: QUICK LINKS 1clic-ia.eu ↗ 3webobs.com ↗ 5thelement.ai ↗ ai-lens.eu ↗ aiventure.ro ↗ b2b-ai-library.org ↗ eu-112.eu ↗ eu-112.ro ↗ eu-ai-act-r",
+        "https://firmsfinder.eu/faq/: QUICK LINKS 1clic-ia.eu ↗ 3webobs.com ↗ 5thelement.ai ↗ ai-lens.eu ↗ aiventure.ro ↗ b2b-ai-library.org ↗ eu-112.eu ↗ eu-112.ro ↗ eu-ai-act-r",
+        "https://firmsfinder.eu/despre/: QUICK LINKS 1clic-ia.eu ↗ 3webobs.com ↗ 5thelement.ai ↗ ai-lens.eu ↗ aiventure.ro ↗ b2b-ai-library.org ↗ eu-112.eu ↗ eu-112.ro ↗ eu-ai-act-r",
+        "https://firmsfinder.eu/contact/: QUICK LINKS 1clic-ia.eu ↗ 3webobs.com ↗ 5thelement.ai ↗ ai-lens.eu ↗ aiventure.ro ↗ b2b-ai-library.org ↗ eu-112.eu ↗ eu-112.ro ↗ eu-ai-act-r",
+        "https://firmsfinder.eu/surse/: QUICK LINKS 1clic-ia.eu ↗ 3webobs.com ↗ 5thelement.ai ↗ ai-lens.eu ↗ aiventure.ro ↗ b2b-ai-library.org ↗ eu-112.eu ↗ eu-112.ro ↗ eu-ai-act-r",
+        "https://firmsfinder.eu/resurse/: QUICK LINKS 1clic-ia.eu ↗ 3webobs.com ↗ 5thelement.ai ↗ ai-lens.eu ↗ aiventure.ro ↗ b2b-ai-library.org ↗ eu-112.eu ↗ eu-112.ro ↗ eu-ai-act-r",
+        "https://firmsfinder.eu/cautare/: QUICK LINKS 1clic-ia.eu ↗ 3webobs.com ↗ 5thelement.ai ↗ ai-lens.eu ↗ aiventure.ro ↗ b2b-ai-library.org ↗ eu-112.eu ↗ eu-112.ro ↗ eu-ai-act-r",
+        "https://firmsfinder.eu/comparare/: QUICK LINKS 1clic-ia.eu ↗ 3webobs.com ↗ 5thelement.ai ↗ ai-lens.eu ↗ aiventure.ro ↗ b2b-ai-library.org ↗ eu-112.eu ↗ eu-112.ro ↗ eu-ai-act-r",
+        "https://firmsfinder.eu/categorii/: QUICK LINKS 1clic-ia.eu ↗ 3webobs.com ↗ 5thelement.ai ↗ ai-lens.eu ↗ aiventure.ro ↗ b2b-ai-library.org ↗ eu-112.eu ↗ eu-112.ro ↗ eu-ai-act-r",
+        "https://firmsfinder.eu/localitati/: QUICK LINKS 1clic-ia.eu ↗ 3webobs.com ↗ 5thelement.ai ↗ ai-lens.eu ↗ aiventure.ro ↗ b2b-ai-library.org ↗ eu-112.eu ↗ eu-112.ro ↗ eu-ai-act-r",
+        "https://firmsfinder.eu/semnale/: QUICK LINKS 1clic-ia.eu ↗ 3webobs.com ↗ 5thelement.ai ↗ ai-lens.eu ↗ aiventure.ro ↗ b2b-ai-library.org ↗ eu-112.eu ↗ eu-112.ro ↗ eu-ai-act-r",
+        "https://firmsfinder.eu/geo/: QUICK LINKS 1clic-ia.eu ↗ 3webobs.com ↗ 5thelement.ai ↗ ai-lens.eu ↗ aiventure.ro ↗ b2b-ai-library.org ↗ eu-112.eu ↗ eu-112.ro ↗ eu-ai-act-r",
+        "https://firmsfinder.eu/aeo/: QUICK LINKS 1clic-ia.eu ↗ 3webobs.com ↗ 5thelement.ai ↗ ai-lens.eu ↗ aiventure.ro ↗ b2b-ai-library.org ↗ eu-112.eu ↗ eu-112.ro ↗ eu-ai-act-r",
+        "https://firmsfinder.eu/aio/: QUICK LINKS 1clic-ia.eu ↗ 3webobs.com ↗ 5thelement.ai ↗ ai-lens.eu ↗ aiventure.ro ↗ b2b-ai-library.org ↗ eu-112.eu ↗ eu-112.ro ↗ eu-ai-act-r",
+        "https://firmsfinder.eu/geo/ghid/: QUICK LINKS 1clic-ia.eu ↗ 3webobs.com ↗ 5thelement.ai ↗ ai-lens.eu ↗ aiventure.ro ↗ b2b-ai-library.org ↗ eu-112.eu ↗ eu-112.ro ↗ eu-ai-act-r",
+        "https://firmsfinder.eu/resurse/audituri/: QUICK LINKS 1clic-ia.eu ↗ 3webobs.com ↗ 5thelement.ai ↗ ai-lens.eu ↗ aiventure.ro ↗ b2b-ai-library.org ↗ eu-112.eu ↗ eu-112.ro ↗ eu-ai-act-r"
+      ]
+    },
+    {
+      "id": "D1",
+      "category": "digital-dna.json",
+      "weight": 3,
+      "state": "PASS",
+      "detail": "digital-dna.json: HTTP 200, JSON valid",
+      "failing_items": []
+    },
+    {
+      "id": "D2",
+      "category": "digital-dna.json",
+      "weight": 4,
+      "state": "PASS",
+      "detail": "status=PUBLISHED_IDENTITY_METADATA_VERIFIED_SCOPED; verification.result=PASS (PASS cere result=PASS si status fara NOT_RUNTIME_VERIFIED)",
+      "failing_items": []
+    },
+    {
+      "id": "D3",
+      "category": "digital-dna.json",
+      "weight": 3,
+      "state": "PASS",
+      "detail": "campuri obligatorii: complete",
+      "failing_items": []
+    }
+  ],
+  "requests": [
+    {
+      "url": "https://firmsfinder.eu/geo/manifest.json",
+      "final_url": "https://firmsfinder.eu/geo/manifest.json",
+      "status": 200,
+      "state": "OK",
+      "content_type": "application/json",
+      "bytes": 1888,
+      "sha256": "12df11eed8d9659489c194324a7c5cfe6aa023dac19a2cb731906e088ee28279",
+      "timestamp": "2026-10-14T16:57:32Z",
+      "cf_cache_status": "DYNAMIC"
+    },
+    {
+      "url": "https://firmsfinder.eu/geo/changelog.json",
+      "final_url": "https://firmsfinder.eu/geo/changelog.json",
+      "status": 200,
+      "state": "OK",
+      "content_type": "application/json",
+      "bytes": 44902,
+      "sha256": "0db7598d45eedb0c3d5b5eac3146aaace88826f6c4a441487fde9f574a06241b",
+      "timestamp": "2026-10-14T16:57:33Z",
+      "cf_cache_status": "DYNAMIC"
+    },
+    {
+      "url": "https://firmsfinder.eu/geo/citable-chunks.json",
+      "final_url": "https://firmsfinder.eu/geo/citable-chunks.json",
+      "status": 200,
+      "state": "OK",
+      "content_type": "application/json",
+      "bytes": 16890,
+      "sha256": "2652db85a3df15c2915912faf9d323d6c50ca8b9fcaf7f1e8f26a06ccd9506a9",
+      "timestamp": "2026-10-14T16:57:33Z",
+      "cf_cache_status": "DYNAMIC"
+    },
+    {
+      "url": "https://firmsfinder.eu/geo/claims.json",
+      "final_url": "https://firmsfinder.eu/geo/claims.json",
+      "status": 200,
+      "state": "OK",
+      "content_type": "application/json",
+      "bytes": 10987,
+      "sha256": "9c02a4afc9b97664ae7522be901354df80299dcb9e5cebf1749815f6e85d5c89",
+      "timestamp": "2026-10-14T16:57:33Z",
+      "cf_cache_status": "DYNAMIC"
+    },
+    {
+      "url": "https://firmsfinder.eu/geo/consistency-manifest.json",
+      "final_url": "https://firmsfinder.eu/geo/consistency-manifest.json",
+      "status": 200,
+      "state": "OK",
+      "content_type": "application/json",
+      "bytes": 10589,
+      "sha256": "7d7923b714c6b06786967f187c2675b133302cf9e6afdabf211bde00136e93ec",
+      "timestamp": "2026-10-14T16:57:34Z",
+      "cf_cache_status": "DYNAMIC"
+    },
+    {
+      "url": "https://firmsfinder.eu/geo/corrections.json",
+      "final_url": "https://firmsfinder.eu/geo/corrections.json",
+      "status": 200,
+      "state": "OK",
+      "content_type": "application/json",
+      "bytes": 15298,
+      "sha256": "bdbfefb2b4032f2e9847f68602770cc58d0fc4b1a09b5e0487a7ef1c28935aaa",
+      "timestamp": "2026-10-14T16:57:34Z",
+      "cf_cache_status": "DYNAMIC"
+    },
+    {
+      "url": "https://firmsfinder.eu/geo/dataset.json",
+      "final_url": "https://firmsfinder.eu/geo/dataset.json",
+      "status": 200,
+      "state": "OK",
+      "content_type": "application/json",
+      "bytes": 1229,
+      "sha256": "4757aacec72690300c94f272c92cec36522cb7e8679cfd44d73d1d5bed651e39",
+      "timestamp": "2026-10-14T16:57:34Z",
+      "cf_cache_status": "DYNAMIC"
+    },
+    {
+      "url": "https://firmsfinder.eu/geo/entities.json",
+      "final_url": "https://firmsfinder.eu/geo/entities.json",
+      "status": 200,
+      "state": "OK",
+      "content_type": "application/json",
+      "bytes": 9057,
+      "sha256": "d134a428097b9244a5803503bfdc55780ec8c47637abd7bce19c3ac2c97c65aa",
+      "timestamp": "2026-10-14T16:57:35Z",
+      "cf_cache_status": "DYNAMIC"
+    },
+    {
+      "url": "https://firmsfinder.eu/geo/ere-dictionary.json",
+      "final_url": "https://firmsfinder.eu/geo/ere-dictionary.json",
+      "status": 200,
+      "state": "OK",
+      "content_type": "application/json",
+      "bytes": 43163,
+      "sha256": "75d546ffad83ebc7eee6510fb4f57ae7dc6eac213d56e1ce645bf3da82f641e8",
+      "timestamp": "2026-10-14T16:57:35Z",
+      "cf_cache_status": "DYNAMIC"
+    },
+    {
+      "url": "https://firmsfinder.eu/geo/evidence.json",
+      "final_url": "https://firmsfinder.eu/geo/evidence.json",
+      "status": 200,
+      "state": "OK",
+      "content_type": "application/json",
+      "bytes": 22809,
+      "sha256": "792a8e9c2a73ee8e1bd7d1d97e8b3e7d281ed346e61d839fc64e08eff280eeb6",
+      "timestamp": "2026-10-14T16:57:36Z",
+      "cf_cache_status": "DYNAMIC"
+    },
+    {
+      "url": "https://firmsfinder.eu/geo/experiments.json",
+      "final_url": "https://firmsfinder.eu/geo/experiments.json",
+      "status": 200,
+      "state": "OK",
+      "content_type": "application/json",
+      "bytes": 21323,
+      "sha256": "286016b94e27ce439d9dbab0b3ffc1ea406368ecbf046e59e5b7d7d3a1f69ff4",
+      "timestamp": "2026-10-14T16:57:36Z",
+      "cf_cache_status": "DYNAMIC"
+    },
+    {
+      "url": "https://firmsfinder.eu/geo/external-corroboration.json",
+      "final_url": "https://firmsfinder.eu/geo/external-corroboration.json",
+      "status": 200,
+      "state": "OK",
+      "content_type": "application/json",
+      "bytes": 16107,
+      "sha256": "d81a529603ab26014541da8612c777372a65c837db0833e6fb4470c871ff22d4",
+      "timestamp": "2026-10-14T16:57:36Z",
+      "cf_cache_status": "DYNAMIC"
+    },
+    {
+      "url": "https://firmsfinder.eu/geo/glossary.json",
+      "final_url": "https://firmsfinder.eu/geo/glossary.json",
+      "status": 200,
+      "state": "OK",
+      "content_type": "application/json",
+      "bytes": 25293,
+      "sha256": "5321d68dc9ee8401ffc8f320a651610f90931379de76e59d2982fd57d2b65bdf",
+      "timestamp": "2026-10-14T16:57:37Z",
+      "cf_cache_status": "DYNAMIC"
+    },
+    {
+      "url": "https://firmsfinder.eu/geo/intents.json",
+      "final_url": "https://firmsfinder.eu/geo/intents.json",
+      "status": 200,
+      "state": "OK",
+      "content_type": "application/json",
+      "bytes": 80512,
+      "sha256": "81054c7b0ea277a9d135959fbb6589d57b7ff1511504f8aa365ce02e39db9293",
+      "timestamp": "2026-10-14T16:57:37Z",
+      "cf_cache_status": "DYNAMIC"
+    },
+    {
+      "url": "https://firmsfinder.eu/geo/knowledge-graph.json",
+      "final_url": "https://firmsfinder.eu/geo/knowledge-graph.json",
+      "status": 200,
+      "state": "OK",
+      "content_type": "application/json",
+      "bytes": 10295,
+      "sha256": "4e23e115138046db7c533e63f26e205b4b4a2294c732679c71b450bf3c27a227",
+      "timestamp": "2026-10-14T16:57:38Z",
+      "cf_cache_status": "DYNAMIC"
+    },
+    {
+      "url": "https://firmsfinder.eu/geo/observations.json",
+      "final_url": "https://firmsfinder.eu/geo/observations.json",
+      "status": 200,
+      "state": "OK",
+      "content_type": "application/json",
+      "bytes": 24381,
+      "sha256": "27cb220d1c6c51a4f9615b9ed5628c91920ef808f90292234623e170d8015a0e",
+      "timestamp": "2026-10-14T16:57:38Z",
+      "cf_cache_status": "DYNAMIC"
+    },
+    {
+      "url": "https://firmsfinder.eu/geo/proprietary-data.json",
+      "final_url": "https://firmsfinder.eu/geo/proprietary-data.json",
+      "status": 200,
+      "state": "OK",
+      "content_type": "application/json",
+      "bytes": 4267,
+      "sha256": "f036e73548a041382a33ad55c61d51eab20a7140ca4bdefc3733f790ca80280c",
+      "timestamp": "2026-10-14T16:57:39Z",
+      "cf_cache_status": "DYNAMIC"
+    },
+    {
+      "url": "https://firmsfinder.eu/geo/rag-metadata.json",
+      "final_url": "https://firmsfinder.eu/geo/rag-metadata.json",
+      "status": 200,
+      "state": "OK",
+      "content_type": "application/json",
+      "bytes": 18268,
+      "sha256": "6d1a37b5826c96ad9b24f5f4b35a96aecc6aa2ee2cee95e2af817e9ac7dce37e",
+      "timestamp": "2026-10-14T16:57:39Z",
+      "cf_cache_status": "DYNAMIC"
+    },
+    {
+      "url": "https://firmsfinder.eu/geo/reference-set.json",
+      "final_url": "https://firmsfinder.eu/geo/reference-set.json",
+      "status": 200,
+      "state": "OK",
+      "content_type": "application/json",
+      "bytes": 61102,
+      "sha256": "098080634dfe86eb6b176bdc3c5d9b7e3d5270250bf17487884ebc009ac7e408",
+      "timestamp": "2026-10-14T16:57:40Z",
+      "cf_cache_status": "DYNAMIC"
+    },
+    {
+      "url": "https://firmsfinder.eu/geo/scorecard.json",
+      "final_url": "https://firmsfinder.eu/geo/scorecard.json",
+      "status": 200,
+      "state": "OK",
+      "content_type": "application/json",
+      "bytes": 13683,
+      "sha256": "b232905f94c088e817c594ddf4ffa70e0d2d59ecca3f91573c29d8897ff86471",
+      "timestamp": "2026-10-14T16:57:40Z",
+      "cf_cache_status": "DYNAMIC"
+    },
+    {
+      "url": "https://firmsfinder.eu/geo/semantic-keywords.json",
+      "final_url": "https://firmsfinder.eu/geo/semantic-keywords.json",
+      "status": 200,
+      "state": "OK",
+      "content_type": "application/json",
+      "bytes": 14493,
+      "sha256": "3e4c31581205abc96173aea66730dae31097f1950b5e6807759442b05058f859",
+      "timestamp": "2026-10-14T16:57:40Z",
+      "cf_cache_status": "DYNAMIC"
+    },
+    {
+      "url": "https://firmsfinder.eu/geo/topic-clusters.json",
+      "final_url": "https://firmsfinder.eu/geo/topic-clusters.json",
+      "status": 200,
+      "state": "OK",
+      "content_type": "application/json",
+      "bytes": 10302,
+      "sha256": "0c75bf366945744c92845ad73cb6e27ad8515ec41d0aaa8f2db2c624d3b5b2c8",
+      "timestamp": "2026-10-14T16:57:41Z",
+      "cf_cache_status": "DYNAMIC"
+    },
+    {
+      "url": "https://firmsfinder.eu/geo/verification.json",
+      "final_url": "https://firmsfinder.eu/geo/verification.json",
+      "status": 200,
+      "state": "OK",
+      "content_type": "application/json",
+      "bytes": 15666,
+      "sha256": "15c73925a00f998ba3b34882b8517c284d896618a185f8fab394710dee4deadc",
+      "timestamp": "2026-10-14T16:57:41Z",
+      "cf_cache_status": "DYNAMIC"
+    },
+    {
+      "url": "https://firmsfinder.eu/signals.json",
+      "final_url": "https://firmsfinder.eu/signals.json",
+      "status": 200,
+      "state": "OK",
+      "content_type": "application/json",
+      "bytes": 36050,
+      "sha256": "682f6861985df91e6c3e72bfdd64e31d8d6ea4f0024d759e3f36f1ec4b481c06",
+      "timestamp": "2026-10-14T16:57:41Z",
+      "cf_cache_status": "DYNAMIC"
+    },
+    {
+      "url": "https://firmsfinder.eu/entities.json",
+      "final_url": "https://firmsfinder.eu/entities.json",
+      "status": 200,
+      "state": "OK",
+      "content_type": "application/json",
+      "bytes": 5096,
+      "sha256": "680a3e23fabcbf9bc9e3acbee98e7c289164206749dd58b50acf0b96bfe59683",
+      "timestamp": "2026-10-14T16:57:42Z",
+      "cf_cache_status": "DYNAMIC"
+    },
+    {
+      "url": "http://firmsfinder.eu/",
+      "final_url": "http://firmsfinder.eu/",
+      "status": 301,
+      "state": "REDIRECT",
+      "content_type": "",
+      "bytes": 167,
+      "sha256": "446a6087825fa73eadb045e5a2e9e2adf7df241b571228187728191d961dda1f",
+      "timestamp": "2026-10-14T16:57:42Z"
+    },
+    {
+      "url": "https://firmsfinder.eu/sitemap.xml",
+      "final_url": "https://firmsfinder.eu/sitemap.xml",
+      "status": 200,
+      "state": "OK",
+      "content_type": "application/xml",
+      "bytes": 1540,
+      "sha256": "949377410d6057b4ef4ddaa3cb4520f813b9437262196a787bdc9006fe38c175",
+      "timestamp": "2026-10-14T16:57:42Z",
+      "cf_cache_status": "DYNAMIC"
+    },
+    {
+      "url": "https://firmsfinder.eu/",
+      "final_url": "https://firmsfinder.eu/",
+      "status": 200,
+      "state": "OK",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 28781,
+      "sha256": "66d4da46dfb0761d73cb0479cb18eddeaac7218b7669397a66bf93ad6762ceb4",
+      "timestamp": "2026-10-14T16:57:43Z",
+      "cf_cache_status": "DYNAMIC"
+    },
+    {
+      "url": "https://firmsfinder.eu/intelligence/",
+      "final_url": "https://firmsfinder.eu/intelligence/",
+      "status": 200,
+      "state": "OK",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 95060,
+      "sha256": "7e24035c87ae07b221d2c6cf724ca8e8df797d37b499a6d6d67e9bd493899cc3",
+      "timestamp": "2026-10-14T16:57:44Z",
+      "cf_cache_status": "DYNAMIC"
+    },
+    {
+      "url": "https://firmsfinder.eu/faq/",
+      "final_url": "https://firmsfinder.eu/faq/",
+      "status": 200,
+      "state": "OK",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 43514,
+      "sha256": "475a986bcfbe443b081a435a48d59ff620d9a004362c439bc0232b273210a5bf",
+      "timestamp": "2026-10-14T16:57:44Z",
+      "cf_cache_status": "DYNAMIC"
+    },
+    {
+      "url": "https://firmsfinder.eu/despre/",
+      "final_url": "https://firmsfinder.eu/despre/",
+      "status": 200,
+      "state": "OK",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 37670,
+      "sha256": "2fd6e29de58fd13a17d7d5555064994100deea0aa0cc332b9f13246485af7c09",
+      "timestamp": "2026-10-14T16:57:45Z",
+      "cf_cache_status": "DYNAMIC"
+    },
+    {
+      "url": "https://firmsfinder.eu/contact/",
+      "final_url": "https://firmsfinder.eu/contact/",
+      "status": 200,
+      "state": "OK",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 17048,
+      "sha256": "2e4fd608837b57c22c00bcfd95b8449929af19e257ad0f36b01dee886f4c9c6a",
+      "timestamp": "2026-10-14T16:57:45Z",
+      "cf_cache_status": "DYNAMIC"
+    },
+    {
+      "url": "https://firmsfinder.eu/surse/",
+      "final_url": "https://firmsfinder.eu/surse/",
+      "status": 200,
+      "state": "OK",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 18174,
+      "sha256": "50bfd5dfa4875576f11da617b2308c21a83502db358ad25150056e3bed00dadc",
+      "timestamp": "2026-10-14T16:57:45Z",
+      "cf_cache_status": "DYNAMIC"
+    },
+    {
+      "url": "https://firmsfinder.eu/resurse/",
+      "final_url": "https://firmsfinder.eu/resurse/",
+      "status": 200,
+      "state": "OK",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 34622,
+      "sha256": "f140c89e008ab17d0ae66cafea3d9d4242838331703f038b9f7d6ee8973db07a",
+      "timestamp": "2026-10-14T16:57:46Z",
+      "cf_cache_status": "DYNAMIC"
+    },
+    {
+      "url": "https://firmsfinder.eu/cautare/",
+      "final_url": "https://firmsfinder.eu/cautare/",
+      "status": 200,
+      "state": "OK",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 16576,
+      "sha256": "d7be3eef21a319d4e4efcce2b4591a66d69a4c8bb410f641116d86d5aba5ad2c",
+      "timestamp": "2026-10-14T16:57:46Z",
+      "cf_cache_status": "DYNAMIC"
+    },
+    {
+      "url": "https://firmsfinder.eu/comparare/",
+      "final_url": "https://firmsfinder.eu/comparare/",
+      "status": 200,
+      "state": "OK",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 16112,
+      "sha256": "9ac09678819af8f10f91eb5a2aedda38c49b801c7cabc346c0c6ecd0e68a13e4",
+      "timestamp": "2026-10-14T16:57:47Z",
+      "cf_cache_status": "DYNAMIC"
+    },
+    {
+      "url": "https://firmsfinder.eu/categorii/",
+      "final_url": "https://firmsfinder.eu/categorii/",
+      "status": 200,
+      "state": "OK",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 16362,
+      "sha256": "4eaa568197b3fbab33a0dadd2bc387de3d7c89771c289bafa3d459f076322d70",
+      "timestamp": "2026-10-14T16:57:47Z",
+      "cf_cache_status": "DYNAMIC"
+    },
+    {
+      "url": "https://firmsfinder.eu/localitati/",
+      "final_url": "https://firmsfinder.eu/localitati/",
+      "status": 200,
+      "state": "OK",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 16096,
+      "sha256": "8109fc30e1a27c1b041364b43cba7164299e005612008d9738c609778a2e3698",
+      "timestamp": "2026-10-14T16:57:47Z",
+      "cf_cache_status": "DYNAMIC"
+    },
+    {
+      "url": "https://firmsfinder.eu/semnale/",
+      "final_url": "https://firmsfinder.eu/semnale/",
+      "status": 200,
+      "state": "OK",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 52833,
+      "sha256": "65080f8d079daf2fa3b615db73b006a5e8a57ae7d87237a7b9ca75c266e7bce6",
+      "timestamp": "2026-10-14T16:57:48Z",
+      "cf_cache_status": "DYNAMIC"
+    },
+    {
+      "url": "https://firmsfinder.eu/geo/",
+      "final_url": "https://firmsfinder.eu/geo/",
+      "status": 200,
+      "state": "OK",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 93295,
+      "sha256": "19a6310b2524c31e0be64860a0e7b996bda6004d785e830006e6bb7824bf33f0",
+      "timestamp": "2026-10-14T16:57:48Z",
+      "cf_cache_status": "DYNAMIC"
+    },
+    {
+      "url": "https://firmsfinder.eu/aeo/",
+      "final_url": "https://firmsfinder.eu/aeo/",
+      "status": 200,
+      "state": "OK",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 70947,
+      "sha256": "1e8e4b08d5e0110738ce53c6977b14d0c7f1774cdd91aebc899754fe611c47a2",
+      "timestamp": "2026-10-14T16:57:49Z",
+      "cf_cache_status": "DYNAMIC"
+    },
+    {
+      "url": "https://firmsfinder.eu/aio/",
+      "final_url": "https://firmsfinder.eu/aio/",
+      "status": 200,
+      "state": "OK",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 72070,
+      "sha256": "7c54b1badf71be9c75678b03bd0de394e31e1e0c73744ee4e868f0f1774c2d65",
+      "timestamp": "2026-10-14T16:57:50Z",
+      "cf_cache_status": "DYNAMIC"
+    },
+    {
+      "url": "https://firmsfinder.eu/geo/ghid/",
+      "final_url": "https://firmsfinder.eu/geo/ghid/",
+      "status": 200,
+      "state": "OK",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 30552,
+      "sha256": "5680f4f006be8bd375984ed77ec07074b4363fdb6ad79149887e2b24136b5e1c",
+      "timestamp": "2026-10-14T16:57:50Z",
+      "cf_cache_status": "DYNAMIC"
+    },
+    {
+      "url": "https://firmsfinder.eu/resurse/audituri/",
+      "final_url": "https://firmsfinder.eu/resurse/audituri/",
+      "status": 200,
+      "state": "OK",
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 41811,
+      "sha256": "a254bcf7acf8370b98dad33755c1f282928be6920315ec63d5c3880e7b18a3ed",
+      "timestamp": "2026-10-14T16:57:50Z",
+      "cf_cache_status": "DYNAMIC"
+    },
+    {
+      "url": "https://firmsfinder.eu/robots.txt",
+      "final_url": "https://firmsfinder.eu/robots.txt",
+      "status": 200,
+      "state": "OK",
+      "content_type": "text/plain; charset=utf-8",
+      "bytes": 476,
+      "sha256": "b7ea018585f449b20b8cc1151c91e4d7c3bc28eeb51fbcf11b4526df787cae28",
+      "timestamp": "2026-10-14T16:57:51Z",
+      "cf_cache_status": "MISS"
+    },
+    {
+      "url": "https://firmsfinder.eu/llms.txt",
+      "final_url": "https://firmsfinder.eu/llms.txt",
+      "status": 200,
+      "state": "OK",
+      "content_type": "text/plain; charset=utf-8",
+      "bytes": 4937,
+      "sha256": "89f370228d894e27633a068f3810b3f053c9a5e120ae057871e8c381fb8afd72",
+      "timestamp": "2026-10-14T16:57:52Z",
+      "cf_cache_status": "DYNAMIC"
+    },
+    {
+      "url": "https://firmsfinder.eu/source-provenance.json",
+      "final_url": "https://firmsfinder.eu/source-provenance.json",
+      "status": 200,
+      "state": "OK",
+      "content_type": "application/json",
+      "bytes": 923,
+      "sha256": "512a641df30dc2011b6ee995d5531cc17d945e1d53ac06a091d29c126a81b9c0",
+      "timestamp": "2026-10-14T16:57:52Z",
+      "cf_cache_status": "DYNAMIC"
+    },
+    {
+      "url": "https://firmsfinder.eu/digital-dna.json",
+      "final_url": "https://firmsfinder.eu/digital-dna.json",
+      "status": 200,
+      "state": "OK",
+      "content_type": "application/json",
+      "bytes": 1714,
+      "sha256": "0fdcd1231d43cf976d9c2d7bc2d3a4616c8752f839c62da62cdff5eb407aa3e5",
+      "timestamp": "2026-10-14T16:57:52Z",
+      "cf_cache_status": "DYNAMIC"
+    }
+  ]
+}
