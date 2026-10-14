@@ -1,0 +1,27 @@
+TARGET: https://firmsfinder.eu
+OBSERVED: 2026-10-14 05:37:27 UTC
+VERDICT: The technical GEO foundation is solid. The weak spots are contradictions between pages and signal files that declare themselves 'unverified'. No numeric score is given: the signals registry was not run.
+WORKS: robots.txt explicitly allows 13 AI crawlers (GPTBot, ClaudeBot, PerplexityBot, etc.) and declares the sitemap.
+WORKS: llms.txt is published with real content (v1.1, 13.10.2026), not a homepage fallback.
+WORKS: entities.json and digital-dna.json return valid JSON.
+WORKS: Homepage has title, meta description, canonical, robots meta and basic OG tags.
+WORKS: FAQ has 50 direct, self-contained answers (good for AEO).
+WORKS: /intelligence/ is the most citable page: dated figures (12.10.2026), reproducible SQL, explicit limits.
+ISSUE: 1. Cross-page contradiction (high) | Footer says data comes from 'MF, ANAF and Monitorul Oficial' for '1.7 million firms'. /intelligence/ says ANAF is not integrated and gives approx. 1.31M ONRC records; the FAQ says 'over a million'. An AI model will cite whichever version it picks up.
+ISSUE: 2. Signal files declare themselves unverified (high) | entities.json and digital-dna.json contain SPECIFICATION_NOT_RUNTIME_VERIFIED and NOT_TESTED. An agent reading them receives exactly that message about the site.
+ISSUE: 3. llms.txt contains internal working text (medium) | Phrases such as 'drafted artifact', 'supplied sitemap', 'user-provided GET test' and 'publication not verified' should be removed from the public version.
+ISSUE: 4. knowledge-graph.json returns 404 (medium) | llms.txt lists it as a proposed resource. The other 9 proposed JSON files were not tested.
+ISSUE: 5. Core function lives off-domain (medium) | The 'CAUTA' (Search) button goes to 1clic-ia.eu, so an AI cannot attribute the search to firmsfinder.eu.
+ISSUE: 6. Minor issues (low) | Homepage has no og:image or Twitter card (the FAQ has them). Sitemap has no lastmod. The ~40-line footer repeats on every page and dilutes extracted chunks. The LinkedIn link in the footer (company/aiventure-se) should be confirmed as the same profile used across the rest of the network.
+NOT_VERIFIED: JSON-LD (Organization/WebSite/WebPage): the fetch tool does not expose script tags, so what llms.txt claims could not be confirmed.
+NOT_VERIFIED: The other 8 pages listed in the sitemap.
+NOT_VERIFIED: Actual citation by AI models (no citation test was run).
+SOURCE: https://firmsfinder.eu
+SOURCE: https://firmsfinder.eu/robots.txt
+SOURCE: https://firmsfinder.eu/llms.txt
+SOURCE: https://firmsfinder.eu/sitemap.xml
+SOURCE: https://firmsfinder.eu/faq/
+SOURCE: https://firmsfinder.eu/intelligence/
+SOURCE: https://firmsfinder.eu/entities.json
+SOURCE: https://firmsfinder.eu/digital-dna.json
+SOURCE: https://firmsfinder.eu/knowledge-graph.json (404)
