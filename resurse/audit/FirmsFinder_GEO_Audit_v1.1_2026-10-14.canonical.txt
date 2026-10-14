@@ -1,0 +1,32 @@
+TARGET: https://firmsfinder.eu
+VERSION: v1.1 (supersedes v1.0)
+OBSERVED: 2026-10-14 05:57:26 UTC
+SUPERSEDES: v1.0 PDF sha256 3a4ab1d6e00bc7078fe889c2bc42b625e06669c9f948b83f4c43aa9891c2265d ; v1.0 content sha256 4aae6b970057525a13281cda5546e926f69baf4847cc1e9b366011e0a9031796
+VERDICT: Corrected re-audit. The v1.0 audit (2026-10-14 08:37) was run against an older deployed version of the site and contained statements that are outdated or wrong (listed below). Re-verified against the live site and the repository source: the technical GEO foundation is solid. Remaining issues: an inconsistency about ANAF as a data source, one signal file that declares itself untested, and JSON-LD that could not be checked in live bytes. No numeric score: the signals registry was not run.
+CORRECTION: llms.txt: v1.0 reported internal working text ('drafted artifact', 'supplied sitemap', 'user-provided GET test'). The current live llms.txt is a different, Romanian version without that text. v1.0 had read an older deployed version.
+CORRECTION: Sitemap: v1.0 reported 12 URLs and no lastmod. Current: 13 URLs (includes /geo/ghid/), all with lastmod 2026-10-13.
+CORRECTION: Homepage: v1.0 reported no og:image and no Twitter card. Current: og:image and twitter:card (summary_large_image) are present.
+CORRECTION: entities.json: v1.0 reported a SPECIFICATION_NOT_RUNTIME_VERIFIED flag. The current entities.json (v1.3, 9 entities) has no such flag; the Organization entity is marked SELF_DECLARED. The flag remains in digital-dna.json (see issue 2).
+CORRECTION: knowledge-graph.json: v1.0 reported a 404. That was the wrong path (site root). The file is live at /geo/knowledge-graph.json (valid JSON, status draft_not_verified).
+CORRECTION: Crawler count: v1.0 said 13 AI crawlers. Correct: 13 user-agents in robots.txt = the wildcard plus 12 named crawlers, all Allow: /.
+WORKS: robots.txt allows the wildcard and 12 named AI crawlers (GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot, Claude-SearchBot, PerplexityBot, Google-Extended, Applebot-Extended, CCBot, DeepSeekBot, YouBot, Coherebot) and declares the sitemap.
+WORKS: sitemap.xml lists 13 URLs, each with lastmod.
+WORKS: llms.txt (live, Romanian) describes the platform, pages, coverage, limits and machine resources (robots.txt, sitemap.xml, entities.json, signals.json) and states that search runs on 1clic-ia.eu.
+WORKS: Homepage meta: title, description, canonical, robots, Open Graph incl. og:image, Twitter card.
+WORKS: entities.json (v1.3) and /geo/knowledge-graph.json return valid JSON; neither is a 404 or HTML fallback.
+WORKS: JSON-LD is present in the repository source of 8 pages (Organization, WebSite, WebPage, SoftwareApplication, Brand; FAQPage/BreadcrumbList on several; Dataset on home and /surse/). The live page was served from the same source in the checks above.
+WORKS: Observed earlier today (v1.0 fetch, not re-fetched in v1.1): FAQ with 50 direct answers; /intelligence/ with dated figures, reproducible SQL and explicit limits.
+ISSUE: 1. ANAF listed as a source, but described as not integrated (medium) | The site-wide footer and llms.txt list ANAF and Monitorul Oficial among the data sources; /intelligence/ states that ANAF data is not yet integrated. Figures also differ by dataset (over 1.7 million firms in MF CSV; approx. 1.31M ONRC records; 918,334 MF 2025 balance sheets) and should be labelled by dataset.
+ISSUE: 2. digital-dna.json declares itself untested (low-medium) | It contains status SPECIFICATION_NOT_RUNTIME_VERIFIED and verification result NOT_TESTED. A machine reading it receives that message about the site.
+ISSUE: 3. Search function lives off-domain (low) | The CAUTA / Search button goes to 1clic-ia.eu. This is now disclosed in llms.txt, but an AI still cannot attribute the search to firmsfinder.eu.
+ISSUE: 4. llms.txt does not reference the /geo/ JSON files (low) | It references entities.json, signals.json and /geo/ghid/, but not the 23 files in /geo/ (manifest, intents, claims, knowledge-graph, etc.).
+ISSUE: 5. Duplicate ItemList node in /resurse/ JSON-LD (low) | The ItemList with @id /resurse/#sections appears twice in the same JSON-LD graph (verified in repository source). /geo/ghid/ has no JSON-LD in source.
+ISSUE: 6. Repository self-check reports failures (low-medium) | verify_geo.py (local mode) reports 448 PASS and 13 FAIL; the failing checks are intent-destination anchors. Pre-existing, not changed by this audit.
+ISSUE: 7. Footer block repeats on every page (low) | A long footer (company data, ecosystem links) is injected site-wide and is not in the repository source. Observed in the earlier fetch; not re-fetched in v1.1.
+NOT_VERIFIED: JSON-LD in live bytes: the fetch tool does not expose script tags; verified only in repository source.
+NOT_VERIFIED: The other pages in the sitemap were not re-fetched in v1.1.
+NOT_VERIFIED: The footer injection (not in repository source) was not re-checked.
+NOT_VERIFIED: Actual citation by AI models (no citation test was run).
+SOURCE: Live fetches with cache-busting parameter (?v=2e441ec): https://firmsfinder.eu/, /robots.txt, /sitemap.xml, /llms.txt, /entities.json, /digital-dna.json, /geo/knowledge-graph.json
+SOURCE: Repository source: github.com/aipath512/firmsfinder at commit 2e441ec (llms.txt, sitemap.xml, JSON-LD in page sources, digital-dna.json, verify_geo.py output)
+SOURCE: Earlier today (v1.0 fetch): /faq/, /intelligence/
