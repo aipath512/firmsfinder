@@ -27,7 +27,7 @@ export async function onRequestGet({request, env}) {
   const p = new URL(request.url).searchParams;
   const caen = (p.get('caen') || '').trim();
   const q = normaliza(p.get('q')).slice(0, 60);
-  if (caen && !/^\d{4}$/.test(caen)) return json({error: 'Codul CAEN trebuie să aibă 4 cifre (de exemplu 6920).'}, 400);
+  if (caen && !/^\d{2,4}$/.test(caen)) return json({error: 'Codul CAEN trebuie să aibă 2–4 cifre (de exemplu 69, 692 sau 6920).'}, 400);
   if (!caen && q.length < 3) {
     return json({error: 'Introduceți codul CAEN din 4 cifre (de exemplu 6920) sau cel puțin 3 litere din începutul denumirii firmei.'}, 400);
   }
@@ -35,7 +35,7 @@ export async function onRequestGet({request, env}) {
 
   const conditii = ['f.top = 1', 'f.cui NOT IN (SELECT cui FROM onrc_excluderi WHERE cui IS NOT NULL)'];
   const valori = [];
-  if (caen) { conditii.push('b.caen_mf = ?'); valori.push(caen); }
+  if (caen) { if (caen.length === 4) { conditii.push('b.caen_mf = ?'); valori.push(caen); } else { conditii.push('b.caen_mf >= ? AND b.caen_mf < ?'); valori.push(caen, caen + '\uffff'); } }
   if (q) { conditii.push('f.denumire_cautare LIKE ?'); valori.push(q.replace(/[%_]/g, '') + '%'); }
   const judete = lista(p.get('judet'));
   if (judete.length) { conditii.push(`f.judet IN (${judete.map(() => '?').join(',')})`); valori.push(...judete); }
