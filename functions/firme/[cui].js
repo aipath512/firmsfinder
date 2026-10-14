@@ -106,6 +106,17 @@ export async function onRequestGet({params, env, request}) {
     return page(200, 'Persoană fizică · în așteptarea acordului GDPR', 'Persoană fizică autorizată, în așteptarea acordului GDPR.',
       `<h1>${esc(r.forma_juridica || 'PFA/II/IF')} · în așteptarea acordului GDPR</h1><p>Datele acestei persoane fizice nu sunt afișate public până la obținerea acordului GDPR.</p><p>Județ: ${esc(r.judet)}</p><p><a href="/cautare/">Înapoi la căutare</a></p>`, 'noindex');
   }
+  let similare = '';
+  if (r.caen_mf && r.ca_2024 > 0) {
+    try {
+      const sr = await env.DB.prepare(`SELECT f.cui, f.denumire, f.judet, b.cifra_afaceri AS ca FROM mf_bilant_2024 b JOIN onrc_firme f ON f.cui = b.cui
+        WHERE b.caen_mf = ? AND b.cifra_afaceri BETWEEN ? AND ? AND f.cui <> ? AND f.top = 1 AND f.persoana_fizica = 0
+        AND f.cui NOT IN (SELECT cui FROM onrc_excluderi WHERE cui IS NOT NULL)
+        ORDER BY ABS(b.cifra_afaceri - ?) LIMIT 5`).bind(r.caen_mf, Math.floor(r.ca_2024 * 0.5), Math.ceil(r.ca_2024 * 2), r.cui, r.ca_2024).all();
+      const rows = sr.results || [];
+      if (rows.length) similare = `<section id="similare"><h2>Firme similare</h2><p>Aceeași activitate (CAEN ${esc(r.caen_mf)}) și cifră de afaceri 2024 apropiată. Este o apropiere după două criterii publice, nu o evaluare a concurenței.</p><ul>${rows.map((x) => `<li><a href="/firme/${esc(x.cui)}/">${esc(x.denumire)}</a> · ${esc(x.judet || '')} · ${esc(lei(x.ca))}</li>`).join('')}</ul></section>`;
+    } catch (e) { /* secțiune opțională */ }
+  }
   const url = `https://firmsfinder.eu/firme/${r.cui}/`;
   const title = `${r.denumire} · CUI ${r.cui}`;
   const description = `${r.denumire} (CUI ${r.cui}), ${r.judet || ''}${r.localitate ? ', ' + r.localitate : ''}. CAEN ${r.caen_mf || 'necunoscut'}. Cifră de afaceri 2024: ${lei(r.ca_2024)}. Date ONRC / Ministerul Finanțelor.`;
@@ -125,6 +136,7 @@ export async function onRequestGet({params, env, request}) {
 <tr><th scope="row">2025</th><td>${esc(lei(r.ca_2025))}</td><td>${esc(nr(r.sal_2025))}</td><td>${esc(lei(r.profit_2025))}</td><td>${esc(lei(r.pierdere_2025))}</td></tr></tbody></table>
 </section>
 <section id="surse"><h2>Sursă și limite</h2><p>Date publice ONRC și Ministerul Finanțelor, prin data.gov.ro. Indicatorii sunt istorici, nu în timp real. Un cod CAEN nu dovedește produsele, clienții sau intenția de cumpărare. Verificați informațiile importante la sursă. <a href="/surse/">Surse și metodologie</a>.</p></section>
+${similare}
 <section id="vizibilitate-ai"><h2>Cum este văzută această firmă de sistemele AI?</h2><p>Clienții caută tot mai des prin asistenți AI, nu doar în Google. Dacă sunteți această firmă, puteți verifica gratuit ce informații despre dumneavoastră pot găsi și folosi sistemele AI, și ce lipsește.</p><p><a href="https://ai-lens.eu/" target="_blank" rel="noopener noreferrer">Verificați gratuit cu AI-LENS →</a></p><p>Un astfel de test arată ce se poate observa; nu garantează citarea sau recomandarea de către un sistem AI.</p></section>
 <p><a href="/cautare/">Înapoi la căutare</a></p>
 <script type="application/ld+json">${JSON.stringify(ld).replace(/</g, '\\u003c')}</script>`;

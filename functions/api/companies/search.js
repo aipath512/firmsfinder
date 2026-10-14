@@ -23,6 +23,49 @@ const JUD_NORM = new Map(JUDETE.map((j) => [normaliza(j), j]));
 // Acceptă județe fără diacritice, cu litere mari/mici (ex. "bucuresti", "Timis"); ignoră ce nu recunoaște.
 const lista = (v) => [...new Set(String(v || '').split(',').map((x) => JUD_NORM.get(normaliza(x))).filter(Boolean))].slice(0, 8);
 
+// Sinonime: cuvinte uzuale -> coduri CAEN Rev.2 (2–3 cifre = diviziune/grupă). Se oferă ca sugestii, nu se aplică automat.
+const SINONIME = [
+  [['CONTABIL', 'CONTABILITATE', 'AUDIT', 'EXPERT CONTABIL'], 'Contabilitate și audit', '692'],
+  [['IT', 'SOFTWARE', 'PROGRAMARE', 'INFORMATICA'], 'Programare și consultanță IT', '62'],
+  [['CONSTRUCTII', 'CONSTRUCTOR'], 'Construcții de clădiri', '41'],
+  [['INSTALATII', 'INSTALATOR'], 'Lucrări de instalații', '432'],
+  [['TRANSPORT', 'TRANSPORTATOR', 'CURIERAT'], 'Transport rutier de mărfuri', '494'],
+  [['RESTAURANT', 'HORECA'], 'Restaurante', '561'],
+  [['HOTEL', 'PENSIUNE', 'CAZARE'], 'Hoteluri și cazare', '55'],
+  [['IMOBILIARE', 'AGENTIE IMOBILIARA'], 'Tranzacții imobiliare', '68'],
+  [['AVOCAT', 'JURIDIC'], 'Activități juridice', '691'],
+  [['MARKETING', 'PUBLICITATE', 'RECLAMA'], 'Publicitate', '731'],
+  [['ARHITECT', 'ARHITECTURA', 'INGINERIE', 'TOPOGRAFIE'], 'Arhitectură și inginerie', '711'],
+  [['AUTO', 'AUTOMOTIVE', 'SERVICE AUTO', 'VULCANIZARE'], 'Întreținere și reparare autovehicule', '452'],
+  [['AGRICULTURA', 'FERMA', 'CULTURI'], 'Agricultură', '01'],
+  [['MEDIC', 'CLINICA', 'STOMATOLOG', 'DENTIST'], 'Sănătate', '86'],
+  [['EDUCATIE', 'SCOALA', 'TRAINING', 'CURSURI'], 'Învățământ', '85'],
+  [['FRIZERIE', 'COAFOR', 'FRIZER', 'SALON'], 'Servicii de înfrumusețare', '9602'],
+  [['PANIFICATIE', 'BRUTARIE', 'PATISERIE'], 'Produse de panificație', '1071']
+];
+const sinonime = (q) => {
+  if (q.length < 3) return [];
+  const out = [];
+  for (const [chei, eticheta, caen] of SINONIME) {
+    if (chei.some((k) => k === q || (q.length >= 4 && k.startsWith(q)) || (q.length >= 4 && q.startsWith(k + ' ')))) out.push({eticheta, caen});
+  }
+  return out.slice(0, 3);
+};
+// „Ai vrut să spui…?”: când nu există rezultate, scurtează prefixul (cel mult 3 caractere) și propune primul cuvânt găsit.
+async function sugereaza(env, q) {
+  const cuvinte = q.split(' ').length;
+  for (let l = q.length - 1; l >= Math.max(3, q.length - 3); l--) {
+    try {
+      const r = await env.DB.prepare('SELECT denumire FROM onrc_firme WHERE top = 1 AND persoana_fizica = 0 AND denumire_cautare LIKE ? LIMIT 1').bind(q.slice(0, l) + '%').first();
+      if (r && r.denumire) {
+        const s = r.denumire.split(' ').slice(0, cuvinte).join(' ');
+        if (normaliza(s) !== q) return s;
+      }
+    } catch (e) { return null; }
+  }
+  return null;
+}
+
 export async function onRequestGet({request, env}) {
   const p = new URL(request.url).searchParams;
   const caen = (p.get('caen') || '').trim();
@@ -38,9 +81,7 @@ export async function onRequestGet({request, env}) {
   if (caen) { if (caen.length === 4) { conditii.push('b.caen_mf = ?'); valori.push(caen); } else { conditii.push('b.caen_mf >= ? AND b.caen_mf < ?'); valori.push(caen, caen + '\uffff'); } }
   if (q) { conditii.push('f.denumire_cautare LIKE ?'); valori.push(q.replace(/[%_]/g, '') + '%'); }
   const judete = lista(p.get('judet'));
-  if (judete.length) { conditii.push(`f.judet IN (${judete.map(() => '?').join(',')})`); valori.push(...judete); }
   const faraJudete = lista(p.get('fara_judet'));
-  if (faraJudete.length) { conditii.push(`f.judet NOT IN (${faraJudete.map(() => '?').join(',')})`); valori.push(...faraJudete); }
   const loc = (p.get('localitate') || '').trim().slice(0, 60);
   if (loc) { conditii.push('f.localitate LIKE ?'); valori.push('%' + loc + '%'); }
   const [cmin, cmax, smin, smax] = ['cmin', 'cmax', 'smin', 'smax'].map((k) => intreg(p.get(k)));
@@ -62,13 +103,25 @@ export async function onRequestGet({request, env}) {
   const sort = ORDINI[p.get('sort')] ? p.get('sort') : (caen ? 'ca' : 'nume');
   if (sort === 'crestere') { conditii.push('a.cifra_afaceri >= ?'); valori.push(1e5); }
 
+  // Cu CAEN: se pornește din tabela de bilanț (indexată pe CAEN); fără CAEN: din firme (prefix pe denumire).
+  const DEJA = caen
+    ? `FROM mf_bilant_2024 b CROSS JOIN onrc_firme f ON f.cui = b.cui
+      LEFT JOIN mf_bilant_2023 a ON a.cui = f.cui
+      LEFT JOIN mf_bilant_2025 c ON c.cui = f.cui`
+    : `FROM onrc_firme f
+      LEFT JOIN mf_bilant_2024 b ON b.cui = f.cui
+      LEFT JOIN mf_bilant_2023 a ON a.cui = f.cui
+      LEFT JOIN mf_bilant_2025 c ON c.cui = f.cui`;
+  // Fațete (număr de rezultate pe județ), calculate fără filtrul de județ, doar pentru căutări înguste (CAEN sau nume).
+  const cuFacete = p.get('facete') && (caen || q.length >= 3);
+  const condFacete = conditii.join(' AND '), valFacete = valori.slice();
+  if (judete.length) { conditii.push(`f.judet IN (${judete.map(() => '?').join(',')})`); valori.push(...judete); }
+  if (faraJudete.length) { conditii.push(`f.judet NOT IN (${faraJudete.map(() => '?').join(',')})`); valori.push(...faraJudete); }
+
   try {
     const r = await env.DB.prepare(`SELECT f.cui, f.denumire, f.forma_juridica, f.persoana_fizica, f.judet, f.localitate, f.data_inmatriculare,
         b.caen_mf, b.cifra_afaceri AS ca_2024, b.salariati AS sal_2024, b.profit_net AS profit_2024
-      FROM onrc_firme f
-      LEFT JOIN mf_bilant_2024 b ON b.cui = f.cui
-      LEFT JOIN mf_bilant_2023 a ON a.cui = f.cui
-      LEFT JOIN mf_bilant_2025 c ON c.cui = f.cui
+      ${DEJA}
       WHERE ${conditii.join(' AND ')}
       ORDER BY ${ORDINI[sort]} LIMIT ${MAX_REZULTATE}`).bind(...valori).all();
     const results = (r.results || []).map((x) => x.persoana_fizica
@@ -76,7 +129,21 @@ export async function onRequestGet({request, env}) {
          forma_juridica: x.forma_juridica, judet: x.judet, caen_mf: x.caen_mf, mascat: 1}
       : {cui: x.cui, denumire: x.denumire, forma_juridica: x.forma_juridica, judet: x.judet, localitate: x.localitate, caen_mf: x.caen_mf,
          data_inmatriculare: x.data_inmatriculare, cifra_afaceri_2024: x.ca_2024, salariati_2024: x.sal_2024, profit_net_2024: x.profit_2024});
-    return json({page: 1, results, limita: MAX_REZULTATE, sort, has_more: false, sursa: 'ONRC / MF, data.gov.ro — FirmsFinder AI'});
+    const out = {page: 1, results, limita: MAX_REZULTATE, sort, has_more: false, sursa: 'ONRC / MF, data.gov.ro — FirmsFinder AI'};
+    if (cuFacete) {
+      try {
+        const fr = await env.DB.prepare(`SELECT f.judet AS v, COUNT(*) AS n ${DEJA} WHERE ${condFacete} AND f.judet IS NOT NULL GROUP BY f.judet ORDER BY n DESC LIMIT 12`).bind(...valFacete).all();
+        out.facete = {judet: (fr.results || []).map((x) => ({v: x.v, n: x.n}))};
+      } catch (e) { /* fațetele sunt opționale */ }
+    }
+    if (!caen) {
+      const sin = sinonime(q);
+      if (sin.length) out.sinonime = sin;
+    }
+    if (!results.length && q.length >= 4) {
+      out.sugestie = await sugereaza(env, q);
+    }
+    return json(out);
   } catch (e) {
     return json({error: 'Căutarea nu este disponibilă momentan.'}, 502);
   }

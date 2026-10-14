@@ -8,16 +8,28 @@ function renderCompanies(d){
  message(d.results.length?d.results.length+' rezultate (maximum 50).':'Nicio firmă găsită. Încercați: eliminați un filtru, măriți intervalul cifrei de afaceri sau verificați ortografia.');
  $('#next').hidden=!d.has_more;
  if($('#export'))$('#export').hidden=!d.results.some(c=>!c.mascat);window.__rez=d.results;
+ const aux=$('#aux');if(aux){aux.replaceChildren();
+  const go=(name,val)=>{const f=$('#search-form').elements.namedItem(name);if(f){f.value=val;$('#search-form').requestSubmit();}};
+  if(d.sugestie){const p=element('p','Ai vrut să spui: ',aux);const b=element('button',d.sugestie+'?',p);b.type='button';b.addEventListener('click',()=>go('q',d.sugestie));}
+  if(d.sinonime&&d.sinonime.length){const p=element('p','Căutați după activitate: ',aux);for(const x of d.sinonime){const b=element('button',x.eticheta+' (CAEN '+x.caen+')',p);b.type='button';b.addEventListener('click',()=>{const f=$('#search-form');f.elements.namedItem('q').value='';go('caen',x.caen);});p.append(' ');}}
+  if(d.facete&&d.facete.judet&&d.facete.judet.length){const p=element('p','Județe în rezultate: ',aux);for(const x of d.facete.judet){const b=element('button',x.v+' ('+Number(x.n).toLocaleString('ro-RO')+')',p);b.type='button';b.addEventListener('click',()=>go('judet',x.v));p.append(' ');}}
+ }
 }
 if($('#search-form')){
  let page=1;const form=$('#search-form');const initial=new URLSearchParams(location.search);
  for(const [key,v] of initial){{const f=form.elements.namedItem(key);if(f){if(f.type==='checkbox')f.checked=true;else f.value=v;}}}
  const LBL={q:'Nume',caen:'CAEN',judet:'Județ',fara_judet:'Fără județ',localitate:'Localitate',cmin:'CA ≥',cmax:'CA ≤',smin:'Salariați ≥',smax:'Salariați ≤',trend:'Evoluție',sort:'Sortare',profit_pozitiv:'Profit',fara_pierdere:'Fără pierdere'};
  function chips(params){const box=$('#chips');if(!box)return;box.replaceChildren();for(const [k,v] of params){if(!LBL[k]||k==='page')continue;const b=element('button',LBL[k]+': '+(v==='1'?'da':v)+' ×',box);b.type='button';b.addEventListener('click',()=>{const f=form.elements.namedItem(k);if(f){if(f.type==='checkbox')f.checked=false;else f.value='';}page=1;run();});}}
- async function run(){try{message('Caut…');const params=new URLSearchParams();for(const [k,v] of new FormData(form))if(String(v).trim())params.set(k,String(v).trim());chips(params);params.set('page',page);renderCompanies(await call('/api/companies/search?'+params));}catch(e){message(e.message);$('#results').replaceChildren();$('#next').hidden=true;}}
+ async function run(){try{message('Caut…');const params=new URLSearchParams();for(const [k,v] of new FormData(form))if(String(v).trim())params.set(k,String(v).trim());chips(params);params.set('page',page);params.set('facete','1');renderCompanies(await call('/api/companies/search?'+params));}catch(e){message(e.message);$('#results').replaceChildren();$('#next').hidden=true;}}
  const sg=$('#sugestii'),qi=form.elements.namedItem('q');let tm;
  if(sg&&qi)qi.addEventListener('input',()=>{clearTimeout(tm);const v=qi.value.trim();if(v.length<3){sg.replaceChildren();return;}tm=setTimeout(async()=>{try{const r=await fetch('/api/companies/suggest?q='+encodeURIComponent(v));const l=await r.json();sg.replaceChildren();for(const n of l){const o=document.createElement('option');o.value=n;sg.append(o);}}catch(e){}},250);});
  if($('#export'))$('#export').addEventListener('click',()=>{const rows=(window.__rez||[]).filter(c=>!c.mascat);const cols=['cui','denumire','forma_juridica','judet','localitate','caen_mf','data_inmatriculare','cifra_afaceri_2024','salariati_2024','profit_net_2024'];const esc=v=>'"'+String(v??'').replace(/"/g,'""')+'"';const csv='\ufeff'+cols.join(',')+'\n'+rows.map(c=>cols.map(k=>esc(c[k])).join(',')).join('\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));a.download='firmsfinder_rezultate.csv';a.click();});
+ const KEY='ff_cautari_salvate';const citeste=()=>{try{return JSON.parse(localStorage.getItem(KEY)||'[]');}catch(e){return [];}};
+ const scrie=l=>{try{localStorage.setItem(KEY,JSON.stringify(l.slice(0,10)));}catch(e){message('Browserul nu permite salvarea.');}};
+ function arataSalvate(){const box=$('#salvate');if(!box)return;box.replaceChildren();const l=citeste();if(!l.length)return;element('p','Căutări salvate (doar în acest browser):',box);
+  l.forEach((x,i)=>{const p=element('p','',box);const b=element('button',x.nume,p);b.type='button';b.addEventListener('click',()=>{for(const el of form.elements){if(!el.name)continue;const v=x.p[el.name];if(el.type==='checkbox')el.checked=!!v;else el.value=v||'';}page=1;run();});p.append(' ');const d=element('button','șterge',p);d.type='button';d.addEventListener('click',()=>{const n=citeste();n.splice(i,1);scrie(n);arataSalvate();});});}
+ if($('#salveaza'))$('#salveaza').addEventListener('click',()=>{const pr={};for(const [k,v] of new FormData(form))if(String(v).trim())pr[k]=String(v).trim();if(!Object.keys(pr).length){message('Completați mai întâi criteriile.');return;}const nume=Object.values(pr).join(' · ').slice(0,60);const l=citeste();l.unshift({nume,p:pr});scrie(l);arataSalvate();message('Căutare salvată în acest browser.');});
+ arataSalvate();
  form.addEventListener('submit',e=>{e.preventDefault();page=1;run();});$('#next').addEventListener('click',()=>{page++;run();});if(initial.size)run();
 }
 if($('#compare-form'))$('#compare-form').addEventListener('submit',async e=>{
