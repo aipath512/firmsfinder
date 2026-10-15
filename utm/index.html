@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Biblioteca UTM FirmsFinder.eu</title>
+<link rel="canonical" href="https://firmsfinder.eu/utm/">
+<style>
+:root{--bg:#f6f7f9;--fg:#1b2430;--muted:#5b6675;--card:#fff;--line:#d9dee6;--accent:#0a5ea8;--accent-fg:#fff;--hl:#ffe14d;--hl-fg:#1b1b1b}
+@media (prefers-color-scheme:dark){:root{--bg:#11151b;--fg:#e8ecf2;--muted:#9aa5b4;--card:#1a2029;--line:#2b3441;--accent:#6db3f2;--accent-fg:#0b1a2a;--hl:#f2d13a;color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif;padding:24px 16px}
+main{max-width:860px;margin:0 auto;display:flex;flex-direction:column;gap:18px;min-width:0}
+h1{font-size:1.45rem;margin:0;line-height:1.25}
+h2{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
+.lead,.note{color:var(--muted);margin:4px 0 0}
+.note{font-size:.88rem}
+.bar{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px;display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+label{display:block;font-size:.8rem;color:var(--muted);margin-bottom:4px}
+input,select{font:inherit;width:100%;background:var(--bg);color:var(--fg);border:1px solid var(--line);border-radius:8px;padding:9px 10px;font-size:.88rem}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.wide{grid-column:1/-1}
+.stages{display:flex;flex-wrap:wrap;gap:8px}
+.stage{font:inherit;font-weight:600;background:var(--bg);color:var(--fg);border:1px solid var(--line);border-radius:999px;padding:7px 14px;cursor:pointer}
+.stage[aria-pressed=true]{background:var(--accent);color:var(--accent-fg);border-color:var(--accent)}
+.hint{margin:0;color:var(--muted);font-size:.9rem}
+.hook{margin:0;padding:10px 12px;border-left:4px solid var(--hl);background:var(--bg);border-radius:4px}
+.group{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 12px;padding:10px 0;border-top:1px solid var(--line);align-items:start}
+.row:first-of-type{border-top:0}
+.name{font-weight:600}.name small{font-weight:400;color:var(--muted);margin-left:6px}
+.url{grid-column:1;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.78rem;overflow-wrap:anywhere;word-break:break-word;color:var(--muted)}
+mark{background:var(--hl);color:var(--hl-fg);padding:0 2px;border-radius:3px}
+.cp{grid-column:2;grid-row:1/3;font:inherit;font-weight:600;background:var(--accent);color:var(--accent-fg);border:0;border-radius:8px;padding:8px 14px;cursor:pointer;align-self:center}
+.cp.done{background:var(--hl);color:var(--hl-fg)}
+@media (max-width:480px){.row{grid-template-columns:minmax(0,1fr)}.cp{grid-column:1;grid-row:auto;justify-self:start}}
+</style>
+</head>
+<body>
+<main>
+<header>
+<h1>Biblioteca UTM FirmsFinder.eu</h1>
+<p class="lead">Alegeți etapa din funnel (TOF, MOF, BOF), apoi întrebarea la care răspunde mesajul, apoi copiați linkul canalului pe care postați. Partea galbenă este eticheta UTM.</p>
+</header>
+<section class="bar" aria-label="Setări">
+<div class="wide"><label>Etapa din funnel</label><div class="stages" id="stages" role="group"></div><p class="hint" id="hint"></p></div>
+<div class="wide"><label for="intent">Întrebarea la care răspunde mesajul (din intents.json)</label><select id="intent"></select></div>
+<div class="wide"><p class="hook" id="hook"></p></div>
+<div><label for="camp">Campanie (utm_campaign)</label><input id="camp" value="2610_ff_lansare" autocomplete="off"></div>
+<div><label for="path">Pagina de aterizare (se completează singură)</label><input id="path" value="/" autocomplete="off"></div>
+</section>
+<div id="list" style="display:flex;flex-direction:column;gap:14px"></div>
+<p class="note">Site: firmsfinder.eu. Etapa și acțiunea intră în <code>utm_content</code> (exemplu <code>tof_learn</code>), deci în raport vedeți ce tip de întrebare aduce vizitatori de pe fiecare canal. Pentru reclame plătite adăugați manual la final <code>&amp;utm_term=cuvantul_cheie</code>. Pagina nu este în sitemap și are noindex.</p>
+</main>
+<script>
+(function(){
+var HOST='firmsfinder.eu';
+var STAGES=[
+['tof','TOF · Rece','Omul nu vă cunoaște și caută un răspuns. Folosiți întrebări de tip: ce este, cum caut, ce înseamnă.'],
+['mof','MOF · Cald','Omul compară și verifică. Folosiți întrebări de tip: cum compar, cum verific sursa și data.'],
+['bof','BOF · Fierbinte','Omul vrea rezultatul. Folosiți cereri directe: găsește firme, arată sursa, caută după CAEN sau județ.'],
+['client','Client','Omul folosește deja FirmsFinder. Folosiți mesaje de bun venit, noutăți, contact.']
+];
+var I=[["001","tof","learn","Ce informații pot găsi despre o firmă din România?","/cautare/"],["002","tof","understand","Ce înseamnă o firmă activă?","/cautare/"],["003","tof","explore","Cum caut firme după județ?","/cautare/"],["004","tof","discover","Ce este căutarea firmelor după CAEN?","/cautare/"],["005","tof","explain","Pot căuta firme folosind limbaj natural?","/cautare/"],["006","tof","define","Ce date oficiale există despre companii?","/cautare/"],["007","tof","research","Cum identific firme după produs sau serviciu?","/cautare/"],["008","tof","learn","Ce este prospectarea B2B?","/"],["009","tof","understand","Cum pot găsi clienți noi pentru o firmă?","/"],["010","tof","explore","Ce este potrivirea ofertă–cerere?","/"],["011","tof","discover","Ce înseamnă segmentarea pieței B2B?","/"],["012","tof","explain","Ce este un client potențial?","/"],["013","tof","define","Cum poate CAEN ajuta la identificarea clienților?","/"],["014","tof","research","Cum stabilesc priorități în prospectare?","/"],["015","tof","learn","Cum găsesc furnizori pentru firma mea?","/"],["016","tof","understand","Ce rol are un distribuitor?","/"],["017","tof","explore","Ce este un parteneriat B2B?","/"],["018","tof","discover","Ce este lanțul de aprovizionare?","/"],["019","tof","explain","Cum identific furnizori alternativi?","/"],["020","tof","define","Ce înseamnă complementaritatea economică?","/"],["021","tof","learn","Ce reprezintă codul CAEN?","/"],["022","tof","understand","Cum este organizată clasificarea CAEN?","/"],["023","tof","explore","Ce activități sunt incluse într-un cod CAEN?","/"],["024","tof","discover","CAEN arată ce produse vinde o firmă?","/"],["025","tof","explain","Cum găsesc activități economice complementare?","/"],["026","tof","define","Cum se schimbă codurile între revizii CAEN?","/"],["027","tof","learn","Ce este un knowledge graph economic?","/"],["028","tof","understand","Ce înseamnă entitate–relație–entitate?","/"],["029","tof","explore","Ce este cardinalitatea unei relații?","/"],["030","tof","discover","Ce este o relație inversă într-un graf?","/"],["031","tof","explain","Ce înseamnă proveniența unei relații?","/"],["032","tof","define","Ce este o inferență economică?","/"],["033","tof","learn","Ce este Generative Engine Optimization?","/geo/ghid/#intent-ff-geo-tof-033"],["034","tof","understand","Ce înseamnă GEO readiness?","/geo/ghid/#intent-ff-geo-tof-034"],["035","tof","explore","Ce este un fragment citabil?","/geo/ghid/#intent-ff-geo-tof-035"],["036","tof","discover","Ce sunt fișierele JSON GEO?","/geo/ghid/#intent-ff-geo-tof-036"],["037","tof","explain","Cum funcționează monitorizarea GEO?","/geo/ghid/#intent-ff-geo-tof-037"],["038","tof","define","GEO garantează apariția în ChatGPT?","/geo/ghid/#intent-ff-geo-tof-038"],["039","tof","learn","Ce este Answer Engine Optimization?","/geo/ghid/#intent-ff-geo-tof-039"],["040","tof","understand","Ce înseamnă AI Optimization?","/geo/ghid/#intent-ff-geo-tof-040"],["041","tof","explore","De ce sunt utile întrebările frecvente?","/geo/ghid/#intent-ff-geo-tof-041"],["042","tof","discover","Ce este Schema.org?","/geo/ghid/#intent-ff-geo-tof-042"],["043","tof","explain","Ce este un răspuns direct?","/geo/ghid/#intent-ff-geo-tof-043"],["044","tof","define","Ce este un intent JSON?","/geo/ghid/#intent-ff-geo-tof-044"],["045","tof","learn","Unde găsesc date publice despre firme?","/"],["046","tof","understand","De ce sunt gratuite datele oficiale publice?","/"],["047","tof","explore","Ce este inteligența economică?","/"],["048","tof","discover","Ce diferență există între date și interpretare?","/"],["049","tof","explain","Ce poate automatiza un agent AI B2B?","/"],["050","tof","define","Ce include monitorizarea economică?","/"],["001","mof","compare","Cum compar sursele pentru verificarea unei firme?","/cautare/"],["002","mof","verify","Cum verific dacă statutul unei firme este actualizat?","/cautare/"],["003","mof","analyze","Ce criterii geografice pot combina într-o căutare?","/cautare/"],["004","mof","evaluate","Cum compar rezultatele pentru două coduri CAEN?","/cautare/"],["005","mof","assess","Cum interpretează o căutare semantică descrierea unei activități?","/cautare/"],["006","mof","distinguish","Cum verific proveniența și data actualizării datelor?","/cautare/"],["007","mof","validate","Cum disting activitatea declarată de oferta comercială reală?","/cautare/"],["008","mof","compare","Cum evaluez relevanța unui potențial client?","/"],["009","mof","verify","Ce indicii sugerează nevoia unui produs?","/"],["010","mof","analyze","Cum justific o potrivire dintre produs și activitatea firmei?","/"],["011","mof","evaluate","Cum compar segmente după activitate și geografie?","/"],["012","mof","assess","Cum separ ipotezele comerciale de relațiile confirmate?","/"],["013","mof","distinguish","Ce limite are inferența cererii din codul CAEN?","/"],["014","mof","validate","Cum compar oportunitățile pe baza dovezilor disponibile?","/"],["015","mof","compare","Cum compar furnizori după oferta verificabilă?","/"],["016","mof","verify","Cum diferențiez producătorii de distribuitori?","/"],["017","mof","analyze","Cum evaluez complementaritatea dintre două firme?","/"],["018","mof","evaluate","Cum identific verigile lipsă dintr-un lanț valoric?","/"],["019","mof","assess","Cum compar dependența de un singur furnizor?","/"],["020","mof","distinguish","Cum disting colaborarea posibilă de cea dovedită?","/"],["021","mof","compare","Cum verific versiunea CAEN aplicabilă unui cod?","/"],["022","mof","verify","Cum se leagă secțiunile, diviziunile, grupele și clasele?","/"],["023","mof","analyze","Cum verific notele explicative și excluderile?","/"],["024","mof","evaluate","Cum verific oferta reală dincolo de activitatea declarată?","/"],["025","mof","assess","Cum argumentez relația dintre două activități CAEN?","/"],["026","mof","distinguish","Cum verific corespondențele dintre CAEN Rev. 2 și Rev. 3?","/"],["027","mof","compare","Cum diferă un graf economic de o listă de firme?","/"],["028","mof","verify","Cum aleg tipurile de entități și predicate?","/"],["029","mof","analyze","Cum stabilesc cardinalitățile între firme și activități?","/"],["030","mof","evaluate","Cum verific simetria sau inversarea unui predicat?","/"],["031","mof","assess","Cum compar dovezi contradictorii pentru o relație?","/"],["032","mof","distinguish","Cum separ inferențele de faptele observate?","/"],["033","mof","compare","Cum se deosebește GEO de SEO tradițional?","/geo/ghid/#intent-ff-geo-mof-033"],["034","mof","verify","Ce semnale GEO pot fi măsurate automat?","/geo/ghid/#intent-ff-geo-mof-034"],["035","mof","analyze","Cum verific dacă un fragment are sursă și context?","/geo/ghid/#intent-ff-geo-mof-035"],["036","mof","evaluate","Cum verific consistența celor 21 de artefacte?","/geo/ghid/#intent-ff-geo-mof-036"],["037","mof","assess","Cum compar două audituri GEO succesive?","/geo/ghid/#intent-ff-geo-mof-037"],["038","mof","distinguish","Cum separ pregătirea tehnică de citarea efectivă?","/geo/ghid/#intent-ff-geo-mof-038"],["039","mof","compare","Cum diferă AEO de GEO și SEO?","/geo/ghid/#intent-ff-geo-mof-039"],["040","mof","verify","Ce semnale AIO pot fi verificate pe o pagină?","/geo/ghid/#intent-ff-geo-mof-040"],["041","mof","analyze","Cum asociez FAQ cu intențiile reale ale utilizatorilor?","/geo/ghid/#intent-ff-geo-mof-041"],["042","mof","evaluate","Cum verific dacă datele structurate corespund conținutului vizibil?","/geo/ghid/#intent-ff-geo-mof-042"],["043","mof","assess","Cum formulez răspunsuri clare fără afirmații neverificate?","/geo/ghid/#intent-ff-geo-mof-043"],["044","mof","distinguish","Cum aliniez intențiile cu paginile și entitățile?","/geo/ghid/#intent-ff-geo-mof-044"],["045","mof","compare","Cum verific licența și condițiile de reutilizare a datelor?","/"],["046","mof","verify","Care este diferența dintre gratuitatea datelor și costul procesării?","/"],["047","mof","analyze","Cum transform datele brute în oportunități argumentate?","/"],["048","mof","evaluate","Cum verific argumentele unei recomandări comerciale?","/"],["049","mof","assess","Cum stabilesc limitele de autonomie și aprobarea umană?","/"],["050","mof","distinguish","Cum compar rapoartele periodice și costurile serviciului?","/"],["001","bof","find","Găsește firme active din România relevante pentru căutarea mea.","/cautare/"],["002","bof","identify","Afișează firmele cu statut activ, folosind ultima sursă disponibilă.","/cautare/"],["003","bof","generate","Găsește firme din județul Cluj care desfășoară activitatea solicitată.","/cautare/"],["004","bof","audit","Listează firmele asociate codului CAEN introdus și precizează revizia.","/cautare/"],["005","bof","map","Caută firme care produc ambalaje din carton, folosind limbaj natural.","/cautare/"],["006","bof","request","Arată sursa și data fiecărui atribut afișat pentru firmele găsite.","/cautare/"],["007","bof","configure","Găsește firme care declară sau prezintă servicii de mentenanță IT.","/cautare/"],["008","bof","find","Identifică potențiali clienți B2B pentru oferta mea.","/"],["009","bof","identify","Găsește firme care ar putea avea nevoie de ambalaje din carton.","/"],["010","bof","generate","Generează o listă de potriviri comerciale cu argumente și surse.","/"],["011","bof","audit","Construiește un segment de firme producătoare din regiunea Nord-Vest.","/"],["012","bof","map","Marchează fiecare prospect ca ipoteză sau relație verificată.","/"],["013","bof","request","Identifică industrii posibil cumpărătoare pentru ambalaje alimentare.","/"],["014","bof","configure","Ordonează prospectele după potrivire și afișează justificarea.","/"],["015","bof","find","Găsește furnizori de ambalaje din carton din România.","/"],["016","bof","identify","Identifică distribuitori pentru produsele firmei mele.","/"],["017","bof","generate","Propune parteneri potențiali și explică potrivirea.","/"],["018","bof","audit","Construiește o hartă ipotetică a furnizorilor pentru industria alimentară.","/"],["019","bof","map","Găsește alternative pentru un furnizor de componente metalice.","/"],["020","bof","request","Găsește firme cu activități complementare și marchează relațiile ipotetice.","/"],["021","bof","find","Afișează denumirea oficială a codului CAEN introdus și revizia sa.","/"],["022","bof","identify","Arată ierarhia completă pentru codul CAEN selectat.","/"],["023","bof","generate","Prezintă activitățile incluse și excluse pentru codul selectat.","/"],["024","bof","audit","Separă activitatea CAEN de produsele confirmate ale unei firme.","/"],["025","bof","map","Identifică activități CAEN potențial complementare producției de carton.","/"],["026","bof","request","Compară codul introdus între reviziile CAEN, indicând sursa oficială.","/"],["027","bof","find","Reprezintă firmele și activitățile selectate într-un graf ERE.","/"],["028","bof","identify","Construiește triplete ERE pentru firme, activități și produse.","/"],["029","bof","generate","Afișează cardinalitățile definite pentru relațiile ERE selectate.","/"],["030","bof","audit","Generează relația inversă pentru furnizează, fără a presupune simetrie.","/"],["031","bof","map","Afișează sursa și starea verificării pentru fiecare muchie a grafului.","/"],["032","bof","request","Identifică potriviri inferate și etichetează-le ca ipoteze.","/"],["033","bof","find","Evaluează pregătirea GEO a URL-ului introdus.","/geo/ghid/#intent-ff-geo-bof-033"],["034","bof","identify","Rulează diagnosticul GEO gratuit pentru pagina mea.","/geo/ghid/#intent-ff-geo-bof-034"],["035","bof","generate","Identifică fragmentele citabile și sursele lor pe pagina analizată.","/geo/ghid/#intent-ff-geo-bof-035"],["036","bof","audit","Generează cele 21 de fișiere GEO și arhiva ZIP.","/geo/ghid/#intent-ff-geo-bof-036"],["037","bof","map","Configurează monitorizarea GEO săptămânală pentru domeniul meu.","/geo/ghid/#intent-ff-geo-bof-037"],["038","bof","request","Afișează doar citările AI observate și dovezile aferente.","/geo/ghid/#intent-ff-geo-bof-038"],["039","bof","find","Evaluează structura AEO a paginii introduse.","/geo/ghid/#intent-ff-geo-bof-039"],["040","bof","identify","Rulează un diagnostic AIO pentru URL-ul meu.","/geo/ghid/#intent-ff-geo-bof-040"],["041","bof","generate","Construiește întrebări și răspunsuri AEO pentru serviciul meu.","/geo/ghid/#intent-ff-geo-bof-041"],["042","bof","audit","Verifică JSON-LD și raportează neconcordanțele.","/geo/ghid/#intent-ff-geo-bof-042"],["043","bof","map","Extrage răspunsuri directe susținute de conținutul paginii.","/geo/ghid/#intent-ff-geo-bof-043"],["044","bof","request","Generează registrul de intenții AEO/AIO cu referințe verificabile.","/geo/ghid/#intent-ff-geo-bof-044"],["045","bof","find","Accesează datele publice gratuite disponibile pentru firma selectată.","/"],["046","bof","identify","Afișează sursa oficială a datelor și condițiile de acces.","/"],["047","bof","generate","Solicită o analiză de inteligență economică pentru sectorul meu.","/"],["048","bof","audit","Generează o analiză plătită cu surse și explicații pentru fiecare potrivire.","/"],["049","bof","map","Pregătește o sarcină de prospectare pentru agent, cu aprobare umană.","/"],["050","bof","request","Solicită monitorizarea schimbărilor relevante pentru lista mea de firme.","/"]];
+var CH=[
+
+    ['LinkedIn','Profil personal','linkedin_personal','social'],
+    ['LinkedIn','Pagina de firmă','linkedin_company','social'],
+    ['LinkedIn','Pagina showcase','linkedin_showcase','social'],
+    ['LinkedIn','Articole / newsletter LinkedIn','linkedin_newsletter','social'],
+    ['LinkedIn','Reclame LinkedIn','linkedin_ads','paid_social'],
+    ['LinkedIn','Mesaje directe / InMail','linkedin_dm','dm'],
+    ['Email și mesagerie','Email către ținte','email_outreach','email'],
+    ['Email și mesagerie','Newsletter','newsletter','email'],
+    ['Email și mesagerie','Semnătura de email','email_signature','email'],
+    ['Email și mesagerie','WhatsApp','whatsapp','dm'],
+    ['Reclame și rețele','Google Ads','google','cpc'],
+    ['Reclame și rețele','Microsoft Ads','bing','cpc'],
+    ['Reclame și rețele','Facebook','facebook','social'],
+    ['Reclame și rețele','X','x','social'],
+    ['Reclame și rețele','YouTube','youtube','video'],
+    ['Conținut și profiluri','Medium','medium','content'],
+    ['Conținut și profiluri','Crunchbase','crunchbase','referral'],
+    ['Conținut și profiluri','Zenodo','zenodo','referral'],
+    ['Conținut și profiluri','ORCID','orcid','referral'],
+    ['Conținut și profiluri','GitHub','github','referral'],
+    ['Cărți și cursuri','Carte KDP','kdp_book','book'],
+    ['Cărți și cursuri','Curs Udemy','udemy','course'],
+    ['Parteneri și directoare','Directoare B2B','directory','referral'],
+    ['Parteneri și directoare','Partener','partner','partner'],
+    ['Offline','Ofertă PDF / prezentare','pdf_proposal','document'],
+    ['Offline','Cod QR tipărit','qr_print','qr'],
+    ['Offline','Eveniment / webinar','event','event'],
+    ['Agenți AI (experimental)','Agent Card A2A','a2a_agent_card','agent'],
+    ['Agenți AI (experimental)','llms.txt','llms_txt','ai_web']
+];
+var stage='tof',cur=null;
+var $=function(id){return document.getElementById(id)};
+function clean(v){return String(v||'').toLowerCase().replace(/[^a-z0-9_.\-]/g,'')}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function content(){ if(stage==='client') return 'client_general'; return cur?stage+'_'+cur[2]:stage+'_general'; }
+function tail(s,m){return 'utm_source='+s+'&utm_medium='+m+'&utm_campaign='+(clean($('camp').value)||'campanie')+'&utm_content='+content();}
+function base(){var p=$('path').value.trim()||'/'; if(p.charAt(0)!=='/')p='/'+p; var h=''; var i=p.indexOf('#'); if(i>-1){h=p.slice(i);p=p.slice(0,i);} return {pre:'https://'+HOST+p+'?',hash:h};}
+function link(c){var b=base();return b.pre+tail(c[2],c[3])+b.hash;}
+function drawIntents(){
+ var sel=$('intent');
+ if(stage==='client'){sel.innerHTML='<option>Nu se aplică</option>';sel.disabled=true;cur=null;$('hook').textContent='Mesaj către clienți existenți. Aterizare recomandată: /contact/ sau /cautare/.';$('path').value='/contact/';return;}
+ sel.disabled=false;
+ var L=I.filter(function(x){return x[1]===stage});
+ sel.innerHTML=L.map(function(x,k){return '<option value="'+k+'">'+esc(x[2].toUpperCase()+' · '+x[3])+'</option>'}).join('');
+ pick();
+}
+function pick(){
+ if(stage==='client')return;
+ var L=I.filter(function(x){return x[1]===stage});
+ cur=L[+$('intent').value||0];
+ $('hook').textContent='Întrebarea mesajului: '+cur[3];
+ $('path').value=cur[4];
+}
+function render(){
+ var h='',g='';
+ CH.forEach(function(c,i){
+  if(c[0]!==g){if(g)h+='</section>';g=c[0];h+='<section class="group"><h2>'+esc(g)+'</h2>';}
+  var b=base();
+  h+='<div class="row"><div class="name">'+esc(c[1])+'<small>'+esc(c[2])+'</small></div><div class="url">'+esc(b.pre)+'<mark>'+esc(tail(c[2],c[3]))+'</mark>'+esc(b.hash)+'</div><button type="button" class="cp" data-i="'+i+'">Copiază</button></div>';
+ });
+ $('list').innerHTML=h+'</section>';
+ $('hint').textContent=STAGES.filter(function(s){return s[0]===stage})[0][2];
+}
+function drawStages(){$('stages').innerHTML=STAGES.map(function(s){return '<button type="button" class="stage" data-s="'+s[0]+'" aria-pressed="'+(s[0]===stage)+'">'+esc(s[1])+'</button>'}).join('');}
+$('stages').addEventListener('click',function(e){var b=e.target.closest('.stage');if(!b)return;stage=b.getAttribute('data-s');drawStages();drawIntents();render();});
+$('intent').addEventListener('change',function(){pick();render();});
+['camp','path'].forEach(function(id){$(id).addEventListener('input',render)});
+$('list').addEventListener('click',function(e){
+ var b=e.target.closest('.cp');if(!b)return;var t=link(CH[+b.getAttribute('data-i')]);
+ function ok(){b.textContent='Copiat';b.classList.add('done');setTimeout(function(){b.textContent='Copiază';b.classList.remove('done')},1500)}
+ function fb(){var r=document.createRange();r.selectNodeContents(b.parentNode.querySelector('.url'));var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selectat';}
+ if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(t).then(ok,fb);else fb();
+});
+drawStages();drawIntents();render();
+})();
+</script>
+</body>
+</html>
