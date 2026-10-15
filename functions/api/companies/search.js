@@ -2,7 +2,7 @@
 // Gratuit, maximum 50 de rezultate per căutare (limită pentru reducerea costurilor).
 // Persoanele fizice (PFA/II/IF) sunt mascate, în așteptarea acordului GDPR.
 // Filtre (toate SQL): q (începutul denumirii), caen, judet (listă cu virgulă = SAU), fara_judet (NU),
-// localitate, cmin/cmax (cifra de afaceri 2024), smin/smax (salariați 2024), profit_pozitiv, fara_pierdere,
+// localitate, cmin/cmax (cifra de afaceri 2024; rezultatele returnează 2023–2025), smin/smax (salariați 2024), profit_pozitiv, fara_pierdere,
 // trend (up|down 2023→2025), sort (ca|sal|profit|nou|crestere|nume).
 const MAX_REZULTATE = 50;
 
@@ -145,7 +145,8 @@ export async function onRequestGet({request, env}) {
 
   try {
     const r = await env.DB.prepare(`SELECT f.cui, f.denumire, f.forma_juridica, f.persoana_fizica, f.judet, f.localitate, f.data_inmatriculare,
-        b.caen_mf, b.cifra_afaceri AS ca_2024, b.salariati AS sal_2024, b.profit_net AS profit_2024
+        b.caen_mf, b.cifra_afaceri AS ca_2024, b.salariati AS sal_2024, b.profit_net AS profit_2024,
+        a.cifra_afaceri AS ca_2023, a.salariati AS sal_2023, c.cifra_afaceri AS ca_2025, c.salariati AS sal_2025
       ${DEJA}
       WHERE ${conditii.join(' AND ')}
       ORDER BY ${ORDINI[sort]} LIMIT ${MAX_REZULTATE}`).bind(...valori).all();
@@ -153,7 +154,8 @@ export async function onRequestGet({request, env}) {
       ? {cui: 'P-' + ((x.cui ^ 5921370) >>> 0).toString(36).toUpperCase(), denumire: (x.forma_juridica || 'PFA/II/IF') + ' · în așteptarea acordului GDPR',
          forma_juridica: x.forma_juridica, judet: x.judet, caen_mf: x.caen_mf, mascat: 1}
       : {cui: x.cui, denumire: x.denumire, forma_juridica: x.forma_juridica, judet: x.judet, localitate: x.localitate, caen_mf: x.caen_mf,
-         data_inmatriculare: x.data_inmatriculare, cifra_afaceri_2024: x.ca_2024, salariati_2024: x.sal_2024, profit_net_2024: x.profit_2024});
+         data_inmatriculare: x.data_inmatriculare, cifra_afaceri_2023: x.ca_2023, cifra_afaceri_2024: x.ca_2024, cifra_afaceri_2025: x.ca_2025,
+         salariati_2023: x.sal_2023, salariati_2024: x.sal_2024, salariati_2025: x.sal_2025, profit_net_2024: x.profit_2024});
     const out = {page: 1, results, limita: MAX_REZULTATE, sort, has_more: false, sursa: 'ONRC / MF, data.gov.ro — FirmsFinder AI'};
     if (cuFacete) {
       try {
