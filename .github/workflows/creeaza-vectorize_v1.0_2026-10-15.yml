@@ -1,0 +1,13 @@
+name: Creeaza index Vectorize
+on: workflow_dispatch
+jobs:
+  creeaza:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npx --yes wrangler@latest vectorize create firmsfinder-firme --dimensions=1024 --metric=cosine
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
