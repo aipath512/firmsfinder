@@ -117,6 +117,23 @@ export async function onRequestGet({params, env, request}) {
       if (rows.length) similare = `<section id="similare"><h2>Firme similare</h2><p>Aceeași activitate (CAEN ${esc(r.caen_mf)}) și cifră de afaceri 2024 apropiată. Este o apropiere după două criterii publice, nu o evaluare a concurenței.</p><ul>${rows.map((x) => `<li><a href="/firme/${esc(x.cui)}/">${esc(x.denumire)}</a> · ${esc(x.judet || '')} · ${esc(lei(x.ca))}</li>`).join('')}</ul></section>`;
     } catch (e) { /* secțiune opțională */ }
   }
+  let semantice = '';
+  if (env.VECTORIZE) {
+    try {
+      const g = await env.VECTORIZE.getByIds([String(r.cui)]);
+      if (g.length) {
+        const m = await env.VECTORIZE.query(g[0].values, {topK: 9, returnMetadata: 'all'});
+        const ids = (m.matches || []).filter((x) => x.id !== String(r.cui)).slice(0, 8);
+        if (ids.length) {
+          const ok = await env.DB.prepare(`SELECT f.cui FROM onrc_firme f WHERE f.cui IN (${ids.map(() => '?').join(',')}) AND f.top = 1 AND f.persoana_fizica = 0
+            AND f.cui NOT IN (SELECT cui FROM onrc_excluderi WHERE cui IS NOT NULL)`).bind(...ids.map((x) => Number(x.id))).all();
+          const bune = new Set((ok.results || []).map((x) => String(x.cui)));
+          const rows = ids.filter((x) => bune.has(x.id));
+          if (rows.length) semantice = `<section id="similare-semantic"><h2>Firme cu profil apropiat</h2><p>Selecție prin analiză semantică a activității, locației și dimensiunii. Este o apropiere statistică, nu o evaluare a concurenței.</p><ul>${rows.map((x) => { const d = x.metadata || {}; return `<li><a href="/firme/${esc(x.id)}/">${esc(d.denumire || x.id)}</a> · ${esc(d.judet || '')} · ${esc(lei(d.ca))}</li>`; }).join('')}</ul></section>`;
+        }
+      }
+    } catch (e) { /* secțiune opțională */ }
+  }
   const url = `https://firmsfinder.eu/firme/${r.cui}/`;
   const title = `${r.denumire} · CUI ${r.cui}`;
   const description = `${r.denumire} (CUI ${r.cui}), ${r.judet || ''}${r.localitate ? ', ' + r.localitate : ''}. CAEN ${r.caen_mf || 'necunoscut'}. Cifră de afaceri 2024: ${lei(r.ca_2024)}. Date ONRC / Ministerul Finanțelor.`;
@@ -136,6 +153,7 @@ export async function onRequestGet({params, env, request}) {
 <tr><th scope="row">2025</th><td>${esc(lei(r.ca_2025))}</td><td>${esc(nr(r.sal_2025))}</td><td>${esc(lei(r.profit_2025))}</td><td>${esc(lei(r.pierdere_2025))}</td></tr></tbody></table>
 </section>
 <section id="surse"><h2>Sursă și limite</h2><p>Date publice ONRC și Ministerul Finanțelor, prin data.gov.ro. Indicatorii sunt istorici, nu în timp real. Un cod CAEN nu dovedește produsele, clienții sau intenția de cumpărare. Verificați informațiile importante la sursă. <a href="/surse/">Surse și metodologie</a>.</p></section>
+${semantice}
 ${similare}
 <section id="vizibilitate-ai"><h2>Cum este văzută această firmă de sistemele AI?</h2><p>Clienții caută tot mai des prin asistenți AI, nu doar în Google. Dacă sunteți această firmă, puteți verifica gratuit ce informații despre dumneavoastră pot găsi și folosi sistemele AI, și ce lipsește.</p><p><a href="https://ai-lens.eu/" target="_blank" rel="noopener noreferrer">Verificați gratuit cu AI-LENS →</a></p><p>Un astfel de test arată ce se poate observa; nu garantează citarea sau recomandarea de către un sistem AI.</p></section>
 <p><a href="/cautare/">Înapoi la căutare</a></p>
