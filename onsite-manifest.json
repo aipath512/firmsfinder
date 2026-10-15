@@ -2,6 +2,7 @@
   "schema": "FIRMSFINDER_ONSITE_MANIFEST",
   "version": "1.0",
   "generated_at": "2026-10-12",
+  "hashes_refreshed_at": "2026-10-15",
   "site": "https://firmsfinder.eu/",
   "count": 60,
   "status": "GENERATED_NOT_DEPLOYED",
@@ -13,7 +14,7 @@
       "purpose": "Crawler access policy",
       "audience": "Crawlers",
       "category": "Discovery",
-      "sha256": "a6efaaf4c3fe74a04e6d7306313c23a89cc58be2991d8fe9b83d69d009c940a7",
+      "sha256": "b7ea018585f449b20b8cc1151c91e4d7c3bc28eeb51fbcf11b4526df787cae28",
       "existing_in_uploaded_repo": true
     },
     {
@@ -23,7 +24,7 @@
       "purpose": "XML URL discovery",
       "audience": "Search engines",
       "category": "Discovery",
-      "sha256": "ced50e2f42332452e87b13208b837607f9df5480ffd5e312afab9d0d1555a648",
+      "sha256": "09fba6a7dc8c6876d5a125ef07cdadff2b3849e631f4516ba3422f01bcf3b5c2",
       "existing_in_uploaded_repo": true
     },
     {
@@ -33,7 +34,7 @@
       "purpose": "AI-readable site guide",
       "audience": "AI systems",
       "category": "Discovery",
-      "sha256": "be324cbe8d73f4dac218b0b915ae48a790990ee7112f7e91564766cae899c48c",
+      "sha256": "a6b9a78140a5219e7f4a3f489aa7e299f08b565185dddeab0f93c19392f21547",
       "existing_in_uploaded_repo": true
     },
     {
@@ -43,7 +44,7 @@
       "purpose": "Extended AI content guide",
       "audience": "AI systems",
       "category": "Discovery",
-      "sha256": "33874f9b3a0f5eb8d7834481bfb4ecc65c5ad25f005d6362233c27950e9adf43",
+      "sha256": "6810d22d8909ff2bd8c02fb3d7b5634a929264a6f04b417e4fc1703c3d21daf5",
       "existing_in_uploaded_repo": true
     },
     {
@@ -53,7 +54,7 @@
       "purpose": "Machine-readable AI entrypoint",
       "audience": "AI systems",
       "category": "Discovery",
-      "sha256": "819560f52250180922437c528515207ec59c5f278d326006f79ae09791c54280",
+      "sha256": "82c9eac20b5add08a52ce2b1bebbf14b0f6fcc443c409df22043e23c2514d353",
       "existing_in_uploaded_repo": true
     },
     {
@@ -83,7 +84,7 @@
       "purpose": "Named entity catalogue",
       "audience": "AI systems",
       "category": "Semantics",
-      "sha256": "2edc3c033ff3cf2e4a2a26e138ce91df19c602ea28e59ebe7727673ed752f821",
+      "sha256": "49a084522c9700083cbe39f50f6bad1e3d8a217e4529f10373268f6be71a7192",
       "existing_in_uploaded_repo": true
     },
     {
@@ -93,7 +94,7 @@
       "purpose": "Entity relation types",
       "audience": "AI systems",
       "category": "Semantics",
-      "sha256": "5709e94be4f4465ff57e19d6e5bbc2015dbb3a995f0813617d00ab0fc1229ed7",
+      "sha256": "4c3c5e28f7a8c130ecb9644fece5a58a05a5ab0a9c3febeede8683aaf59d4e2c",
       "existing_in_uploaded_repo": true
     },
     {
@@ -103,7 +104,7 @@
       "purpose": "Economic intelligence taxonomy",
       "audience": "AI systems",
       "category": "Semantics",
-      "sha256": "12676cca531a8ed5b9eacfaa8988058a3c576d814292aeb7bde4aed16bdf0f2e",
+      "sha256": "fe231811e4c8bdd3d86ed65fe4570d85783a12bf9ea715f7dd667aad626c1eb7",
       "existing_in_uploaded_repo": true
     },
     {
@@ -113,7 +114,7 @@
       "purpose": "Declared service offer",
       "audience": "Buyers and AI",
       "category": "Offer",
-      "sha256": "5a0174dc25f6ff366a6aec4e12ecf8ebafb81a648dae866dccda74dfddc460e5",
+      "sha256": "c7dc330012e012014a99ecdc526297efcea2d07c83f7cabcfcb59e174b61868b",
       "existing_in_uploaded_repo": true
     },
     {
@@ -133,7 +134,7 @@
       "purpose": "Canonical URL registry",
       "audience": "Crawlers",
       "category": "Discovery",
-      "sha256": "7ef7291c92cea379dd5970fa4012a60bb7f000ef7226605761edd890e639021c",
+      "sha256": "a7a246f6da79b14de689fd08e0f5e605acc3db52f9b92076c9140f4a0c302cc4",
       "existing_in_uploaded_repo": true
     },
     {
@@ -143,7 +144,7 @@
       "purpose": "Schema.org type registry",
       "audience": "Search engines",
       "category": "Semantics",
-      "sha256": "a5a28bf90a6b67cf77f19b851baee21b13ca86208760bc781f66cf17fbde1eb8",
+      "sha256": "24f33ec92aa51372bbd3a4c7f451600a8d6fc6b5ac32bd22643683b138e3fba8",
       "existing_in_uploaded_repo": true
     },
     {
@@ -153,7 +154,7 @@
       "purpose": "Structured-data validation criteria",
       "audience": "Maintainers",
       "category": "Quality",
-      "sha256": "44a97258367eb8d8ce4d8f94eacc35aab22cdd7cd30c6782b7b23f901488e1f3",
+      "sha256": "3ae4e62fb5a4c5ee47212c13a8d8cd18e789a8cf898690c4a44f0869a995b42e",
       "existing_in_uploaded_repo": true
     },
     {
@@ -163,7 +164,7 @@
       "purpose": "FAQ route and topic registry",
       "audience": "AI systems",
       "category": "Semantics",
-      "sha256": "ec2530822239b7ebf406d43eff0fffca5913d68faff0cba0593635210a9fe5a3",
+      "sha256": "2202c6baa79a3afe764d809d52fcee40dddb6fdc6b11d90b38ef191ffbc5c6c1",
       "existing_in_uploaded_repo": false
     },
     {
@@ -173,7 +174,7 @@
       "purpose": "Public source provenance",
       "audience": "Users and auditors",
       "category": "Evidence",
-      "sha256": "5b63aaaadd4e818e0cab896e30efd0938428ccd3fdf0fc31806960273dfb0d35",
+      "sha256": "512a641df30dc2011b6ee995d5531cc17d945e1d53ac06a091d29c126a81b9c0",
       "existing_in_uploaded_repo": true
     },
     {
@@ -183,7 +184,7 @@
       "purpose": "Data age and freshness policy",
       "audience": "Users and AI",
       "category": "Evidence",
-      "sha256": "12677aee10a65af866f221f94cac7d4d8ab3a23b665251e630cf0d418cc22706",
+      "sha256": "cfed87163990516ce13a51a61787f78a039cd2a206bbd7e5ba0a58219f8bb8a0",
       "existing_in_uploaded_repo": true
     },
     {
@@ -193,7 +194,7 @@
       "purpose": "Data reuse and attribution policy",
       "audience": "Auditors",
       "category": "Governance",
-      "sha256": "ef99999a4ecb4b3ae1241fc1075613c455a7b9650921b8479d1b58e277523920",
+      "sha256": "96d84b67cc08156cff9777ff85e040403e794228f4af6a1ca4b4dba25d18641a",
       "existing_in_uploaded_repo": true
     },
     {
@@ -203,7 +204,7 @@
       "purpose": "Proof and verification status",
       "audience": "Auditors",
       "category": "Evidence",
-      "sha256": "6d31bf92cdb8fc7e1bb6dd9bb8a7a2dd12a75e691262eaac2e27d762ad8658d3",
+      "sha256": "f79353259b8e9ccbeac0079ac3a499e3de3ae613cd80786c347445ecfdcc82ed",
       "existing_in_uploaded_repo": true
     },
     {
@@ -213,7 +214,7 @@
       "purpose": "Timestamping rules",
       "audience": "Auditors",
       "category": "Evidence",
-      "sha256": "34b8da6cc1991e5061a4036619fec21dbced8daca7a61fce289b5cca701a6eb9",
+      "sha256": "07f524bb0507cfa9e3a4f8182bc619d6a196c129ed62edf32d13d9ba12bc0dc5",
       "existing_in_uploaded_repo": true
     },
     {
@@ -223,7 +224,7 @@
       "purpose": "Audit process and scope",
       "audience": "Auditors",
       "category": "Governance",
-      "sha256": "40f17889fbd2df5a5650279a9f81e57b1a590b209ad129a0ef02be36efd32aa8",
+      "sha256": "7fb15bedd2e8b1575d026fb8c6524bd97e0a65f4a2a8f40c5ad39b21734c7754",
       "existing_in_uploaded_repo": true
     },
     {
@@ -233,7 +234,7 @@
       "purpose": "Independent validation status",
       "audience": "Auditors",
       "category": "Evidence",
-      "sha256": "85b326a89dfb29f7c89d0cd583ad22bb6f34abe83616405d8db907412b5a8586",
+      "sha256": "3722f700033d81059d0e0bce10f17ccf8d06790848bdcefc2c4e683c5f8eade7",
       "existing_in_uploaded_repo": true
     },
     {
@@ -243,7 +244,7 @@
       "purpose": "Control register",
       "audience": "Maintainers",
       "category": "Governance",
-      "sha256": "3add6ee06dfa676f8c766e1d9778aae270d743fe2b66a24b9ed90bb99646393e",
+      "sha256": "a0e3cb1e3713600b2d09ee3d997adee84ce36633149e1f2066ee2470b2b8dbf4",
       "existing_in_uploaded_repo": true
     },
     {
@@ -253,7 +254,7 @@
       "purpose": "Requirements register",
       "audience": "Maintainers",
       "category": "Governance",
-      "sha256": "ad9883aab0c01557026afb1e3eeeb51ca87924be1ae908fc7f828e769a2d1bfa",
+      "sha256": "e0557b81dd53990a757121fcfa014e7eeeba94b916ea8f5fa29d7f2ac0105db8",
       "existing_in_uploaded_repo": true
     },
     {
@@ -263,7 +264,7 @@
       "purpose": "Security control declaration",
       "audience": "Security reviewers",
       "category": "Security",
-      "sha256": "330c674e10de6f7010c16fe8103cec8c02495c447713f650541ea8cc3264082d",
+      "sha256": "114f53529f84e417b23d1e75c28e825385562b6e703fb71349f5a4bf0c27e08c",
       "existing_in_uploaded_repo": true
     },
     {
@@ -273,7 +274,7 @@
       "purpose": "Authentication policy",
       "audience": "Developers",
       "category": "Security",
-      "sha256": "13ed009d387df3c1bb276ffe75a10696d7c359b5d3436a8e0b0625787d07bf27",
+      "sha256": "039aecb49e81f845be4d037304679345f243deda53d63f7eceb4f972569ba175",
       "existing_in_uploaded_repo": true
     },
     {
@@ -283,7 +284,7 @@
       "purpose": "Rate limiting policy",
       "audience": "Developers",
       "category": "Security",
-      "sha256": "e3e6bd7d5a5af24b7e4f5d0fb189c52187c21e283415fda79ae7b9400ef7048f",
+      "sha256": "1fbd09de6093700c2e8c77576685dc813a53fc8ac868f0bc06cddae90d3f0482",
       "existing_in_uploaded_repo": true
     },
     {
@@ -293,7 +294,7 @@
       "purpose": "Human decision and approval boundaries",
       "audience": "Buyers and AI",
       "category": "Governance",
-      "sha256": "d3fb81a56c132a6836cb0dc8782eae260741a6ee3057099b0ce0b796586e6539",
+      "sha256": "d5ddd74f3476ab2600255d5544c477925e4671d14ec77ccdba380309dd0cd12a",
       "existing_in_uploaded_repo": true
     },
     {
@@ -303,7 +304,7 @@
       "purpose": "Retention and deletion policy",
       "audience": "Users",
       "category": "Privacy",
-      "sha256": "814e5a76bb023575bd8108bff77fa1259b705199b8891e626e86c2f295029f27",
+      "sha256": "3af26122bae8b53ccfb6556f04845ecdb114f447ab874aeca8f715217c528c4a",
       "existing_in_uploaded_repo": false
     },
     {
@@ -313,7 +314,7 @@
       "purpose": "Privacy document availability",
       "audience": "Users",
       "category": "Privacy",
-      "sha256": "cc393aed9a9b3ca15c522e3d6d83faf0e3980811684b0aa9a8a8798e043d58e3",
+      "sha256": "312976600e3ef4e35f0ec3b96a78862a7297eb929c3681111bc5e5e9b70726d3",
       "existing_in_uploaded_repo": false
     },
     {
@@ -323,7 +324,7 @@
       "purpose": "Cookie policy availability",
       "audience": "Users",
       "category": "Privacy",
-      "sha256": "981ab7c979ce50c91f4daa3927826e5970e59085125cc29d6cce4b291a3838ba",
+      "sha256": "d5f96fb308d56b9592d9bd3c69c05f66f003255114ce756897db7bc4785022b1",
       "existing_in_uploaded_repo": false
     },
     {
@@ -333,7 +334,7 @@
       "purpose": "Terms availability",
       "audience": "Users",
       "category": "Governance",
-      "sha256": "7089b17a69cbcb82fe1012487c409bfa2a644cbd740e64cca003025eafffa0b1",
+      "sha256": "f4c4a223f20e3157ad7b9798c50504e356445904182df10ec87bb1aafa2af671",
       "existing_in_uploaded_repo": false
     },
     {
@@ -343,7 +344,7 @@
       "purpose": "Agent identity declaration",
       "audience": "AI agents",
       "category": "A2A",
-      "sha256": "3fb1ecca999f4d7818dbfde8712e93ed775fdf02509df498499046ed85a88780",
+      "sha256": "4c77686f4927d496b271333f0aa7da17c52ccda0204dd7cd93c97849280796ae",
       "existing_in_uploaded_repo": true
     },
     {
@@ -353,7 +354,7 @@
       "purpose": "Agent capabilities declaration",
       "audience": "AI agents",
       "category": "A2A",
-      "sha256": "fd361a9f0e523f9dc13cc71ef9e0ce64575bf3863b3a9a10b227cc0e53cfdc6d",
+      "sha256": "bc495faa700323b49f77b4179feb4fe77d0f88272bbad328929170ec9d1f33c6",
       "existing_in_uploaded_repo": true
     },
     {
@@ -363,7 +364,7 @@
       "purpose": "Agent mandate limits",
       "audience": "AI agents",
       "category": "A2A",
-      "sha256": "568522ce23f5c686afe3efc5b7053dcf7aeaaeb52f259e01d0c4f39f6115c7c4",
+      "sha256": "72726af9f9fa29c10e7681e024b10302e8d07c74b4f69ddf5ff1be5f645fc2c7",
       "existing_in_uploaded_repo": true
     },
     {
@@ -373,7 +374,7 @@
       "purpose": "A2A offer contract registry",
       "audience": "AI agents",
       "category": "A2A",
-      "sha256": "34dbf4cbc8fa2cb3b000619004a2cca14d21ef91bd5cba6bb9f54112f8d46f7f",
+      "sha256": "ccee396532d89b84325c2a77bf5b7d0f634bf864edd052031adb748fb9cede85",
       "existing_in_uploaded_repo": true
     },
     {
@@ -383,7 +384,7 @@
       "purpose": "Agent input contract",
       "audience": "AI agents",
       "category": "A2A",
-      "sha256": "58aa62b42e54e91a996f4a871135349fca60a9c0f214f526f80123feab002343",
+      "sha256": "306cb6c151bbf87e27a2fccdee7a65619b0fc5dfc9096d92ba80dbbc96b9e894",
       "existing_in_uploaded_repo": true
     },
     {
@@ -393,7 +394,7 @@
       "purpose": "Agent output contract",
       "audience": "AI agents",
       "category": "A2A",
-      "sha256": "e3208b70146fcad1beba1c5c1f9aedffad976e048411b2b781bec7aa22849ff5",
+      "sha256": "5b4c4ae6c83cc5d9994f45572a23bbf810d987a4010ec30314c31f30c62b224b",
       "existing_in_uploaded_repo": true
     },
     {
@@ -403,7 +404,7 @@
       "purpose": "A2A implementation status",
       "audience": "AI agents",
       "category": "A2A",
-      "sha256": "f72151376a0c1f8a19eb46979da29bbcef56954b9b89638c684fb81624a7a918",
+      "sha256": "120b32fd284ab196409c598f150e1d57712bf125780159ab0f021da384f1c607",
       "existing_in_uploaded_repo": true
     },
     {
@@ -413,7 +414,7 @@
       "purpose": "Interoperability tests",
       "audience": "Developers",
       "category": "Quality",
-      "sha256": "f6808cc62930a3ab5a044eb27fbbba8c0f3b354ed904cb76e18667ac24664800",
+      "sha256": "8ec009bc016d34114abb7de4c836401d824570a686183552be276d3d83ec8f7b",
       "existing_in_uploaded_repo": true
     },
     {
@@ -423,7 +424,7 @@
       "purpose": "Contradiction detection rules",
       "audience": "Auditors",
       "category": "Quality",
-      "sha256": "900087514f5fabce68b2c423c9b40b0d33099d70d5b8e0820f4e83621c5685d3",
+      "sha256": "e66b51b9b041a010e4fcdc342217c463bffe5f5c310cdf9b51838ef5d3d33b8d",
       "existing_in_uploaded_repo": true
     },
     {
@@ -433,7 +434,7 @@
       "purpose": "AI citation guidance",
       "audience": "AI systems",
       "category": "Semantics",
-      "sha256": "91f89077d2d2e0a59ad3cf5a96d530c4e3cda0501d7356faec22c0190d9fe03d",
+      "sha256": "284660268d265996ae16e414723308555d816e96674e869500a000836122fe3f",
       "existing_in_uploaded_repo": true
     },
     {
@@ -443,7 +444,7 @@
       "purpose": "Extractable answer summaries",
       "audience": "AI systems",
       "category": "Semantics",
-      "sha256": "1bacc299f679880bb66cffe3a7611df3dae15a684a7170ba3724b50cc27d110c",
+      "sha256": "62d827c4c59db69a4ae12f7767762a55e5630eca8f66cd46bfc3892aa2af9fa7",
       "existing_in_uploaded_repo": true
     },
     {
@@ -453,7 +454,7 @@
       "purpose": "RAG content segmentation",
       "audience": "AI systems",
       "category": "Semantics",
-      "sha256": "ee4fc4700ec8d8669f31e6cf2392444d445ba49f7ef36a3a21be1c57490558f7",
+      "sha256": "b5301279cc0c4c0fc7259e9618ad3d72b33ddb7003c799c4edbf87b3911100f4",
       "existing_in_uploaded_repo": true
     },
     {
@@ -463,7 +464,7 @@
       "purpose": "Machine-readable table catalogue",
       "audience": "AI systems",
       "category": "Semantics",
-      "sha256": "e208dada94c7626203326e9c7fb75fc09ffb4be223144ba39f1f4e2eeeee3e95",
+      "sha256": "0b57128217b19f9af854d4d84692e8595ef93655e5870bd29450a531fc12b7bc",
       "existing_in_uploaded_repo": true
     },
     {
@@ -473,7 +474,7 @@
       "purpose": "AI discoverability test plan",
       "audience": "Maintainers",
       "category": "Quality",
-      "sha256": "e3697c63d8852193ca532f6add845513bb0f3ae33a832760d17e0429067a497e",
+      "sha256": "cc5f58c5f36d244dcf28503170635c7f40e42ccfdaf045cb28dbd252f7033e14",
       "existing_in_uploaded_repo": true
     },
     {
@@ -483,7 +484,7 @@
       "purpose": "Performance limits",
       "audience": "Developers",
       "category": "Performance",
-      "sha256": "e05177d48047e23575a985a10654844431702ce460d2d876f161e7cc7dab8382",
+      "sha256": "7c19292ba57bedfee21e1205dbbd91616663d3cbedd76618f0fc97e5effb04a5",
       "existing_in_uploaded_repo": true
     },
     {
@@ -493,7 +494,7 @@
       "purpose": "Monitoring requirements",
       "audience": "Operators",
       "category": "Operations",
-      "sha256": "a546e1390b602b48d2a9f42de2272a91ef5f914139bc16cd316ed98ee3034811",
+      "sha256": "569ab9d565d53a757c45978865aa374e02b1a2e6b9d79380aba78f6ddb23ab31",
       "existing_in_uploaded_repo": true
     },
     {
@@ -503,7 +504,7 @@
       "purpose": "Geographic service availability",
       "audience": "Users",
       "category": "Offer",
-      "sha256": "9450c9cd5caa040486d7660a3a84d10f8d6112df10ac05d536fe91926f254eba",
+      "sha256": "1157ac1862f75c004f57d586566353d37b25e957a5a8655fa5f5e9b2605629ab",
       "existing_in_uploaded_repo": false
     },
     {
@@ -513,7 +514,7 @@
       "purpose": "Backend deployment status",
       "audience": "Users and developers",
       "category": "Operations",
-      "sha256": "c793fdde1025c5fe21613056c13b67bd025f2a4c800aa52b668f2c49ca2706ff",
+      "sha256": "04ea734bcbb064ea481468d10ab512551bb053492badaa111ee36daa78db2628",
       "existing_in_uploaded_repo": false
     },
     {
@@ -523,7 +524,7 @@
       "purpose": "Search feature interface status",
       "audience": "Developers",
       "category": "Offer",
-      "sha256": "d2fa49b002c41e1a5ee8bb239b255dc5625623b9ba25a945108a1809c1393a6a",
+      "sha256": "ebd223696604ba0257a7bd047a559f3c308daf299d37b60acbb9bf88b63e50fc",
       "existing_in_uploaded_repo": false
     },
     {
@@ -533,7 +534,7 @@
       "purpose": "Comparison feature interface status",
       "audience": "Developers",
       "category": "Offer",
-      "sha256": "58c68fa7d58c38de65a32960a0ed81e0a66ceab87d1a4dece1d9c4666f9ce219",
+      "sha256": "f9429c4351b98accc2fffe1740bf8f893089da38c85f3408b0451bdaa4526a71",
       "existing_in_uploaded_repo": false
     },
     {
@@ -543,7 +544,7 @@
       "purpose": "Delegated research boundaries",
       "audience": "AI agents",
       "category": "A2A",
-      "sha256": "f6b9f73ed9c54103440b966e755f7e8f46ecff39eb17490a6de371c3b4948f52",
+      "sha256": "8233e94c1b62eac613f7e09986a88b05148dd0668e9ecead5baf4ebb69d7aa0b",
       "existing_in_uploaded_repo": false
     },
     {
@@ -553,7 +554,7 @@
       "purpose": "Economic signal interpretation rules",
       "audience": "Users and AI",
       "category": "Semantics",
-      "sha256": "55772a44bfc1dabd5b74e522a7115664a8771f5eebbe4942711b64d3ca1ac3c3",
+      "sha256": "6e691f7e45383524521c2dfe0ee6dfbcb3a9be26d7ca01f706e29add17c327f3",
       "existing_in_uploaded_repo": false
     },
     {
@@ -563,7 +564,7 @@
       "purpose": "Candidate qualification rules",
       "audience": "Users and AI",
       "category": "Governance",
-      "sha256": "7551765826051b2c75a8ecf33ccbc2d6edad9d1894f537ea3d75f06ebd617431",
+      "sha256": "b5a4968c58762e23cdeb643d36e724de36fbd137036790da05ce64b4276d556c",
       "existing_in_uploaded_repo": false
     },
     {
@@ -573,7 +574,7 @@
       "purpose": "Baseline comparison methodology",
       "audience": "Auditors",
       "category": "Evidence",
-      "sha256": "e50ebb4227021af5eb8ee4c006d218aeb5d44461b8d12297da3b7d794dc7354e",
+      "sha256": "48ea2e9c61ba507c168b88d360d6873009623c36a5488a01d13c44453df9c967",
       "existing_in_uploaded_repo": false
     },
     {
@@ -583,7 +584,7 @@
       "purpose": "Evidence chain registry",
       "audience": "Auditors",
       "category": "Evidence",
-      "sha256": "fba65901b0b72c4dea0996f5476f7ca2d06cf7912522baa8b46323a817b39ec0",
+      "sha256": "2d77e0b345be5802533694f6f7daf80025eec4040badb297f871eda9c2e68bad",
       "existing_in_uploaded_repo": false
     },
     {
@@ -593,7 +594,7 @@
       "purpose": "Release and provenance metadata",
       "audience": "Operators",
       "category": "Operations",
-      "sha256": "b63ebd8a37baa1bc50be0c8763a295875a78258c72f556ce911085b27ce78b16",
+      "sha256": "9ecccf8235b69b64f97132e9e68e2aa43a9b4eaae9571ce8b990268e2f2cb830",
       "existing_in_uploaded_repo": false
     },
     {
@@ -603,7 +604,7 @@
       "purpose": "Site-wide signals discovery index",
       "audience": "AI systems",
       "category": "Discovery",
-      "sha256": "4b2cc481a55a2e4c519ee98114174b332f7349f396f90aab214bcf440177e1e2",
+      "sha256": "a15ba98104d69f0e689135233a61e34d92f5c8965e13779f8f87e2ef32d07561",
       "existing_in_uploaded_repo": false
     }
   ]

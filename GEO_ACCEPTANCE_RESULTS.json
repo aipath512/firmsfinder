@@ -1,8 +1,23 @@
 {
   "scope": "LOCAL ONLY",
-  "passed": 458,
+  "passed": 470,
   "failed": 0,
   "checks": [
+    {
+      "control": "json:.github/geo/facts.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:.well-known/agent.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:GEO_ACCEPTANCE_RESULTS.json",
+      "result": "PASS",
+      "detail": ""
+    },
     {
       "control": "json:a2a-contracts.json",
       "result": "PASS",
@@ -345,6 +360,51 @@
     },
     {
       "control": "json:requirements.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:resurse/audituri/evidence/DELTA_T0-T1_geo-live_v1.0.1_2026-10-14.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:resurse/audituri/evidence/DELTA_T0-T2_geo-live_v1.0.1_2026-10-14.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:resurse/audituri/evidence/DELTA_T1-T2_geo-live_v1.0.1_2026-10-14.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:resurse/audituri/evidence/T0-LIVE_geo-live_v1.0.1_2026-10-14.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:resurse/audituri/evidence/T0-LIVE_geo-live_v1.0_2026-10-14.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:resurse/audituri/evidence/T0_geo_score_v1.0_2026-10-14.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:resurse/audituri/evidence/T0_verify_geo_v1.0_2026-10-14.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:resurse/audituri/evidence/T1-LIVE_geo-live_v1.0.1_2026-10-14.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:resurse/audituri/evidence/T2-LIVE_geo-live_v1.0.1_2026-10-14.json",
       "result": "PASS",
       "detail": ""
     },
