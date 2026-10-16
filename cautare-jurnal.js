@@ -108,6 +108,8 @@
   // 3) Panoul „Piața pe județe".
   const pf = $('#piata-form');
   if (pf) pf.addEventListener('submit', () => { const c = $('#piata-caen'); if (c && /^[0-9]{2,4}$/.test(c.value.trim())) trimite('market_panel_opened', {caen: c.value.trim()}); });
+  const pj = $('#piata-judet-form');
+  if (pj) pj.addEventListener('submit', () => { const s = $('#piata-j1'); if (s && s.value) trimite('market_panel_opened', {judet: s.value}); });
 
   // 4) Acord, refuz, retragere și starea afișată.
   const bDa = $('#jurnal-da'), bNu = $('#jurnal-nu'), bRetrage = $('#jurnal-retrage'), txt = $('#jurnal-stare');
