@@ -15,6 +15,29 @@
   if (panel) {
     const input = $('#piata-caen'), out = $('#piata-rez'), sort = $('#piata-sort'), msg = $('#piata-msg');
     let date = null, toate = false;
+    let pas = 0; const PAS_MAX = 3;
+
+    // Sugestii „mai departe” calculate din datele deja afișate (fără cerere nouă), cascadă de cel mult PAS_MAX pași.
+    function cascada(optiuni) {
+      const box = el('div', '', out, 'piata-urmeaza');
+      if (pas >= PAS_MAX) {
+        el('h3', 'Ați parcurs ' + PAS_MAX + ' pași', box);
+        el('p', 'Mai departe merg analizele avansate: „mai multe ca asta”, alerte pe criterii și monitorizare. Sunt în pregătire și încă indisponibile.', box);
+        const a = el('a', 'Vedeți ce pregătim', el('p', '', box)); a.href = '#functionalitati';
+        el('p', 'Căutarea gratuită rămâne la dispoziția dumneavoastră. Dacă doriți să ne ajutați să alegem ce construim întâi, puteți permite jurnalul de intenții din blocul „Ce memorăm când căutați”; serviciul rămâne gratuit și fără acord.', box, 'muted');
+        const b = el('button', 'Începeți un subiect nou', box); b.type = 'button';
+        b.addEventListener('click', () => { pas = 0; box.remove(); });
+        return;
+      }
+      const ok = optiuni.filter(Boolean).slice(0, 3);
+      if (!ok.length) return;
+      el('h3', 'Continuați cu (pasul ' + (pas + 1) + ' din ' + PAS_MAX + ')', box);
+      const ul = el('ul', '', box, 'piata-urm-lista');
+      for (const o of ok) {
+        const b = el('button', o.t, el('li', '', ul), 'piata-link'); b.type = 'button';
+        b.addEventListener('click', () => { const urm = pas + 1; o.f(); pas = urm; });
+      }
+    }
 
     function desen() {
       out.replaceChildren();
@@ -44,6 +67,14 @@
         b.addEventListener('click', () => { toate = !toate; desen(); });
       }
       el('p', date.nota + ' Surse: ' + date.surse + '.', out, 'muted');
+      const top = date.judete.slice().sort((a, b) => b.firme - a.firme);
+      const c = date.caen, sus = c.length > 2 ? c.slice(0, c.length - 1) : null;
+      cascada([
+        top[0] && {t: 'Ce activități sunt în ' + top[0].judet + ', județul cu cele mai multe firme din domeniu', f: () => { modJ.checked = true; mod(true); sel1.value = top[0].judet; sel2.value = ''; selN.value = '4'; incarcaJ(top[0].judet, ''); }},
+        sus ? {t: 'Urcați la ' + (sus.length === 3 ? 'grupa ' : 'diviziunea ') + sus + ': domeniul mai larg', f: () => { input.value = sus; incarca(sus); }}
+            : (top[0] && {t: 'Vedeți firmele din ' + top[0].judet + ' din această diviziune', f: () => { location.href = '/cautare/?caen=' + encodeURIComponent(c) + '&judet=' + encodeURIComponent(top[0].judet); }}),
+        top[1] && {t: 'Comparați ' + top[0].judet + ' cu ' + top[1].judet + ', primele două județe', f: () => { modJ.checked = true; mod(true); sel1.value = top[0].judet; sel2.value = top[1].judet; selN.value = '4'; incarcaJ(top[0].judet, top[1].judet); }}
+      ]);
     }
 
     async function incarca(caen) {
@@ -60,11 +91,11 @@
     }
 
     $('#piata-form').addEventListener('submit', e => {
-      e.preventDefault();
+      e.preventDefault(); pas = 0;
       incarca(input.value.trim());
     });
     sort.addEventListener('change', desen);
-    window.piataIncarca = c => { input.value = c; incarca(c); panel.scrollIntoView({behavior: 'smooth', block: 'start'}); };
+    window.piataIncarca = c => { pas = 0; input.value = c; incarca(c); panel.scrollIntoView({behavior: 'smooth', block: 'start'}); };
 
     const q = new URLSearchParams(location.search).get('caen');
     if (q && /^[0-9]{2,4}$/.test(q)) { input.value = q; incarca(q); }
@@ -82,8 +113,8 @@
       out.replaceChildren(); msg.textContent = ''; date = null; dj = null;
       if (judet && !listaIncarcata) incarcaLista();
     }
-    modA.addEventListener('change', () => { if (modA.checked) mod(false); });
-    modJ.addEventListener('change', () => { if (modJ.checked) mod(true); });
+    modA.addEventListener('change', () => { if (modA.checked) { pas = 0; mod(false); } });
+    modJ.addEventListener('change', () => { if (modJ.checked) { pas = 0; mod(true); } });
 
     async function incarcaLista() {
       try {
@@ -193,6 +224,14 @@
       if (evid && !vizibile.some(r => r.caen === evid)) el('p', 'Activitatea ' + evid + ' nu este printre rândurile afișate; arătați toate activitățile sau comutați sortarea.', out, 'muted');
       if (B) el('p', '„—” înseamnă că activitatea nu apare printre primele ' + dj.primele + ' ale județului respectiv.', out, 'muted');
       el('p', dj.nota + ' Surse: ' + dj.surse + '.', out, 'muted');
+      const prima = A.activitati[0];
+      const altul = ['București', 'Cluj'].find(x => x !== A.judet && [...sel2.options].some(o => o.value === x));
+      cascada([
+        prima && {t: 'Vedeți ' + prima.caen + (prima.denumire ? ' ' + prima.denumire : '') + ', cea mai mare activitate din ' + A.judet + ', pe toate județele', f: () => deschideActivitate(prima.caen)},
+        dj.nivel > 2 ? {t: 'Urcați la ' + (dj.nivel === 4 ? 'grupe' : 'diviziuni') + ': imaginea mai largă', f: () => schimbaNivel(dj.nivel - 1, null)} : {t: 'Coborâți la grupe: mai mult detaliu', f: () => schimbaNivel(3, null)},
+        B ? {t: 'Vedeți doar ' + A.judet, f: () => { sel2.value = ''; incarcaJ(A.judet, ''); }}
+          : (altul && {t: 'Comparați ' + A.judet + ' cu ' + altul, f: () => { sel2.value = altul; incarcaJ(A.judet, altul); }})
+      ]);
     }
 
     async function incarcaJ(j1, j2) {
@@ -205,7 +244,7 @@
         desenJ();
       } catch (e) { dj = null; msg.textContent = e.message; }
     }
-    formJ.addEventListener('submit', e => { e.preventDefault(); evid = null; if (sel1.value) incarcaJ(sel1.value, sel2.value); });
+    formJ.addEventListener('submit', e => { e.preventDefault(); evid = null; pas = 0; if (sel1.value) incarcaJ(sel1.value, sel2.value); });
   }
 
   const box = $('#sugestii-cautari');
