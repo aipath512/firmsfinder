@@ -1,0 +1,19 @@
+name: angajament-verify
+# Pică dacă codul sau schema nu mai corespund angajamentului public (angajament.json) sau dacă testele jurnalului eșuează.
+on:
+  push:
+  pull_request:
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verifică angajamentul (amprentă, schemă, endpoint, footer)
+        run: python3 verify_angajament.py
+      - name: Testele backend și jurnal
+        run: node --test tests/backend.test.mjs tests/jurnal.test.mjs
+      - name: Validatorul de semnale
+        run: python3 validate_onsite.py
