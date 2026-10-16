@@ -14,5 +14,14 @@
 /cautare-piata.js
   X-Content-Type-Options: nosniff
   Cache-Control: public, max-age=300
+/cautare-jurnal.js
+  X-Content-Type-Options: nosniff
+  Cache-Control: public, max-age=300
+/api/jurnal
+  Cache-Control: no-store
+/angajament.css
+  Cache-Control: public, max-age=300
+/angajament.json
+  Cache-Control: public, max-age=300
 /*
   Referrer-Policy: strict-origin-when-cross-origin

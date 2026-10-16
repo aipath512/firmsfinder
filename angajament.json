@@ -1,0 +1,115 @@
+{
+  "schema": "FIRMSFINDER_ANGAJAMENT",
+  "versiune": "1.0",
+  "data": "2026-10-16",
+  "site": "https://firmsfinder.eu/",
+  "operator": "AiVenture S.R.L., CUI 51415878",
+  "stare_juridica": "NEVALIDAT_DE_JURIST",
+  "jurnal_activ_in_productie": false,
+  "principiu": "Spunem exact ce memorăm și memorăm doar ce spunem. Dacă ceva nu ne este favorabil, îl spunem la fel.",
+  "text_footer": "Angajament de transparență v1.0 (16 octombrie 2026): memorăm doar ce declarăm. Fără acordul dumneavoastră, doar numărători, 24 de luni. Cu acord, text și selecții, cel mult 30 de zile. Nu stocăm în jurnal IP, email sau nume.",
+  "scop": "Să înțelegem ce informații economice caută vizitatorii și să adaptăm datele, funcțiile și serviciile AiVenture. Nu să identificăm persoane.",
+  "afirmatii": [
+    {
+      "id": "A1",
+      "text": "Căutarea și toate filtrele sunt gratuite și funcționează identic cu sau fără acord."
+    },
+    {
+      "id": "A2",
+      "text": "Fără acord, jurnalul păstrează doar: tipul acțiunii, activitatea (CAEN), județul, numărul de rezultate și ce element public ați apăsat. Fără text, fără cod de sesiune, fără localitate, fără filtre avansate."
+    },
+    {
+      "id": "A3",
+      "text": "Cu acord, jurnalul păstrează și textul scris (după ștergerea telefoanelor, emailurilor, IBAN și CNP), filtrele, selecțiile și un cod aleator din browserul dumneavoastră, cel mult 30 de zile."
+    },
+    {
+      "id": "A4",
+      "text": "Nu stocăm în jurnal adresa IP, user-agent-ul, emailul sau numele dumneavoastră."
+    },
+    {
+      "id": "A5",
+      "text": "Retragerea acordului șterge datele legate de codul de sesiune al browserului dumneavoastră."
+    },
+    {
+      "id": "A6",
+      "text": "Dacă se schimbă ce memorăm, schimbăm întâi acest angajament: versiune nouă, amprentă nouă, iar versiunea veche rămâne publică."
+    }
+  ],
+  "coloane": {
+    "event_id": "tehnic",
+    "schema_version": "tehnic",
+    "occurred_at": "tehnic",
+    "site": "tehnic",
+    "event_type": "fara_acord",
+    "session_id": "cu_acord",
+    "query_raw": "cu_acord",
+    "query_norm": "cu_acord",
+    "intent_family": "cu_acord",
+    "funnel_stage": "cu_acord",
+    "objective": "cu_acord",
+    "target_role": "cu_acord",
+    "caen": "fara_acord",
+    "judet": "fara_acord",
+    "localitate": "cu_acord",
+    "size_min": "cu_acord",
+    "size_max": "cu_acord",
+    "filters_json": "cu_acord",
+    "result_count": "fara_acord",
+    "result_count_scope": "fara_acord",
+    "zero_result_context": "fara_acord",
+    "target_kind": "fara_acord",
+    "target_value": "fara_acord",
+    "source_page": "fara_acord",
+    "referrer_host": "fara_acord",
+    "utm": "fara_acord",
+    "sanitization_version": "tehnic",
+    "consent_state": "tehnic",
+    "retention_until": "tehnic"
+  },
+  "retentie": {
+    "fara_acord_luni": 24,
+    "cu_acord_zile": 30
+  },
+  "nu_memoram": [
+    "adresa IP",
+    "user-agent",
+    "email",
+    "nume",
+    "conturi sau cookie-uri de urmărire de la terți"
+  ],
+  "limite_recunoscute": [
+    "Textul liber poate conține nume proprii sau alte date pe care filtrul nu le poate detecta; de aceea vă rugăm să nu scrieți date personale în căutare.",
+    "Cloudflare, furnizorul nostru de găzduire, procesează tehnic adresa IP pentru a livra paginile, conform politicii sale; noi nu o scriem în jurnal.",
+    "Numărătorile fără acord nu conțin cod sau text, dar utilizarea lor fără acord așteaptă validarea unui jurist.",
+    "Acest angajament nu este un aviz juridic. Amprenta SHA-256 dovedește conținutul și data publicării, nu conformitatea cu legea.",
+    "Cât timp jurnalul nu este activ în producție (câmpul jurnal_activ_in_productie), nu se memorează nimic pe site-ul public."
+  ],
+  "legislatie_relevanta": [
+    {
+      "act": "Regulamentul (UE) 2016/679 (GDPR)",
+      "articole": "5(1)(a), 6, 7, 12-13, 17"
+    },
+    {
+      "act": "Directiva 2002/58/CE (ePrivacy)",
+      "articole": "5(3); transpusă în România prin Legea 506/2004 (articolul exact de verificat de jurist)"
+    },
+    {
+      "act": "Regulamentul (UE) 2024/1689 (AI Act)",
+      "articole": "50, aplicabil din 2 august 2026"
+    }
+  ],
+  "ai_act": {
+    "art_50": "Art. 50(1) obligă furnizorii de sisteme care interacționează direct cu persoane (de exemplu asistenți conversaționali) să informeze clar că persoana interacționează cu un sistem AI. Căutarea din /cautare/ nu este un asistent conversațional; orice asistent adăugat se declară ca AI.",
+    "insigna": {
+      "imagine": "/assets/eu-ai-act-ready-2aug2026_256x256_v1.0_2026-10-16.webp",
+      "trimite_la": "https://eu-ai-act-ready.eu/",
+      "semnificatie": "Trimite la kitul EU AI Act Ready (70 de documente, 10 module a câte 7). Nu este o certificare oficială și nu atestă conformitatea acestui site cu AI Act."
+    }
+  },
+  "verificare": {
+    "algoritm": "SHA-256",
+    "metoda": "JSON canonic (chei sortate, fără spații, UTF-8) al acestui fișier, fără câmpul content_sha256",
+    "arhiva": "/angajament/versiuni/v1.0_2026-10-16.json"
+  },
+  "content_sha256": "0ab81772d3465137ca5783efa3cdcb6e53c1894ba882f523496922c8bb566298"
+}
