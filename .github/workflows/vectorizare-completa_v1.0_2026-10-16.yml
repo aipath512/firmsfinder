@@ -1,0 +1,36 @@
+name: Vectorizare completa
+on: workflow_dispatch
+jobs:
+  interval:
+    runs-on: ubuntu-latest
+    timeout-minutes: 355
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { min: 0, max: 24207756 }
+          - { min: 24207756, max: 37768378 }
+          - { min: 37768378, max: 44914093 }
+          - { min: 44914093, max: 99999999999 }
+    steps:
+      - name: Vectorizeaza intervalul (CUI ${{ matrix.min }} - ${{ matrix.max }})
+        env:
+          VEC_TOKEN: ${{ secrets.VEC_TOKEN }}
+        run: |
+          URL="https://firmsfinder.eu/admin/vectorizeaza_v2.0_2026-10-16"
+          END=$((SECONDS+20400))
+          N=0; FAILS=0
+          while [ $SECONDS -lt $END ]; do
+            OUT=$(curl -sS -m 120 -A "firmsfinder-vectorize/1.0" "$URL?k=$VEC_TOKEN&run=1&min=${{ matrix.min }}&max=${{ matrix.max }}" || true)
+            GATA=$(echo "$OUT" | jq -r '.gata // empty' 2>/dev/null || true)
+            if [ "$GATA" = "true" ]; then echo "GATA interval ${{ matrix.min }}-${{ matrix.max }} dupa $N loturi"; exit 0; fi
+            if [ "$GATA" = "false" ]; then
+              FAILS=0; N=$((N+1))
+              if [ $((N % 50)) -eq 0 ]; then echo "loturi=$N cursor=$(echo "$OUT" | jq -r .cursor)"; fi
+            else
+              FAILS=$((FAILS+1)); echo "eroare $FAILS: $(echo "$OUT" | head -c 300)"
+              if [ $FAILS -ge 20 ]; then echo "prea multe erori consecutive, ma opresc"; exit 1; fi
+              sleep 10
+            fi
+          done
+          echo "Limita de timp atinsa dupa $N loturi. Porniti din nou workflow-ul: continua de unde a ramas."
