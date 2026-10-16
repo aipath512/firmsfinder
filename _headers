@@ -11,5 +11,8 @@
 /onsite-ui.js
   X-Content-Type-Options: nosniff
   Cache-Control: public, max-age=300
+/cautare-piata.js
+  X-Content-Type-Options: nosniff
+  Cache-Control: public, max-age=300
 /*
   Referrer-Policy: strict-origin-when-cross-origin
