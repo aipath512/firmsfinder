@@ -10,10 +10,10 @@ before(()=>{
  db=new DatabaseSync(':memory:');
  db.exec(`CREATE TABLE sumar_judet_caen(an INTEGER NOT NULL, judet TEXT NOT NULL, caen TEXT NOT NULL, firme INTEGER, salariati INTEGER, cifra_afaceri INTEGER, profit_net INTEGER, PRIMARY KEY(an, judet, caen)) WITHOUT ROWID;
  CREATE TABLE onrc_nom_caen(versiune INTEGER, clasa TEXT, denumire TEXT);
- INSERT INTO onrc_nom_caen VALUES (2,'6201','Activități de realizare a software-ului la comandă'),(2,'6920','Activități de contabilitate'),(1,'6201','VECHI');
+ INSERT INTO onrc_nom_caen VALUES (2,'6201','Activități de realizare a software-ului la comandă'),(2,'6920','Activități de contabilitate'),(1,'6201','VECHI'),(2,'62','Servicii IT'),(2,'620','Servicii IT (grupă)'),(2,'69','Juridice și contabilitate');
  INSERT INTO sumar_judet_caen VALUES
  (2025,'Cluj','6201',2342,7509,3185146077,0),(2023,'Cluj','6201',2000,6000,2000000000,0),
- (2025,'Cluj','6920',900,1500,300000000,0),(2025,'Cluj','4120',0,0,0,0),
+ (2025,'Cluj','6920',900,1500,300000000,0),(2025,'Cluj','6202',58,100,1000000,0),(2023,'Cluj','6202',50,90,900000,0),(2025,'Cluj','4120',0,0,0,0),
  (2025,'București','6201',5000,40000,30000000000,0),(2025,'București','6920',2500,9000,2000000000,0),
  (2025,'Iași','6201',700,2000,900000000,0);`);
  env={DB:{prepare(q){const st=db.prepare(q);let a=[];return {bind(...v){a=v;return this;},async run(){st.run(...a);return {success:true};},async first(){return st.get(...a)??null;},async all(){return {results:st.all(...a)};}};}}};
@@ -27,10 +27,10 @@ test('lista județelor, în ordine, fără duplicate',async()=>{
 test('un județ: activități sortate după firme, fără rânduri cu 0 firme, cu denumire CAEN din versiunea 2',async()=>{
  const d=await (await get('judet=Cluj')).json();
  assert.equal(d.judete.length,1);const j=d.judete[0];
- assert.deepEqual(j.activitati.map(x=>x.caen),['6201','6920']);
+ assert.deepEqual(j.activitati.map(x=>x.caen),['6201','6920','6202']);
  assert.equal(j.activitati[0].denumire,'Activități de realizare a software-ului la comandă');
  assert.equal(j.activitati[0].firme_2023,2000);assert.equal(j.activitati[0].ca_mediu,Math.round(3185146077/2342));
- assert.equal(j.total.firme,2342+900);
+ assert.equal(j.total.firme,2342+900+58);
 });
 test('diacritice și majuscule: „bucuresti” găsește „București”',async()=>{
  const d=await (await get('judet=BUCURESTI')).json();assert.equal(d.judete[0].judet,'București');
@@ -45,7 +45,7 @@ test('județ necunoscut sau injecție: 400, nimic nu ajunge în SQL',async()=>{
   const r=await get('judet='+encodeURIComponent(v));assert.equal(r.status,400,v);assert.equal(r.headers.get('cache-control'),'no-store');
  }
  assert.equal((await get('judet=Cluj&judet2=Nicaieri')).status,400);
- assert.equal(db.prepare('SELECT COUNT(*) n FROM sumar_judet_caen').get().n,7);
+ assert.equal(db.prepare('SELECT COUNT(*) n FROM sumar_judet_caen').get().n,9);
 });
 test('răspunsul spune deschis ce nu este: nu evaluare de potențial, primele N activități, sursa',async()=>{
  const d=await (await get('judet=Cluj')).json();
@@ -64,4 +64,17 @@ test('fără bază de date: 503; bază stricată: 502 fără detalii interne',as
 test('răspunsul nu conține câmpuri personale sau de contact',async()=>{
  const t=JSON.stringify(await (await get('judet=Cluj&judet2=Iasi')).json());
  assert.ok(!/@|telefon|email|cnp/i.test(t));
+});
+
+test('urcare în ierarhia CAEN: grupă și diviziune se însumează în baza de date, cu pondere față de total județ',async()=>{
+ const g=(await (await get('judet=Cluj&nivel=3')).json()).judete[0];
+ const x=g.activitati.find(a=>a.caen==='620');assert.equal(x.firme,2342+58);assert.equal(x.firme_2023,2000+50);assert.equal(x.denumire,'Servicii IT (grupă)');
+ const d=(await (await get('judet=Cluj&nivel=2')).json());assert.equal(d.nivel,2);
+ const y=d.judete[0].activitati.find(a=>a.caen==='62');assert.equal(y.firme,2400);
+ const tot=2342+900+58;assert.equal(y.pondere,Math.round(2400/tot*1000)/10);
+ assert.equal(d.judete[0].total.firme,tot);
+ const c=(await (await get('judet=Cluj')).json());assert.equal(c.nivel,4);assert.ok(c.judete[0].activitati.every(a=>typeof a.pondere==='number'));
+});
+test('nivel CAEN invalid: 400 fără cache',async()=>{
+ for(const v of ['1','5','abc','4;DROP','']){const r=await get('judet=Cluj&nivel='+encodeURIComponent(v));assert.equal(r.status,400,v);assert.equal(r.headers.get('cache-control'),'no-store');}
 });

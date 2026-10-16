@@ -4,7 +4,7 @@
 const h = {'content-type': 'application/json; charset=utf-8', 'cache-control': 'public, max-age=3600'};
 const json = (d, s = 200) => new Response(JSON.stringify(d), {status: s, headers: s === 200 ? h : {...h, 'cache-control': 'no-store'}});
 
-const NOTA = 'Date pe sediul social și CAEN principal declarat în bilanțul fiecărui an. Firmele își pot schimba activitatea principală, deci evoluțiile între ani se citesc cu prudență. Fără persoane fizice (PFA/II/IF). Sunt numere de firme și sume declarate, nu o evaluare a potențialului unei piețe.';
+const NOTA = 'Date pe sediul social și CAEN principal declarat în bilanțul fiecărui an. Firmele își pot schimba activitatea principală, deci evoluțiile între ani se citesc cu prudență. Fără persoane fizice (PFA/II/IF). Sunt numere de firme și sume declarate, nu o evaluare a potențialului unei piețe. Ponderea = firmele din activitate împărțite la toate firmele județului.';
 const SURSE = 'ONRC și Ministerul Finanțelor, prin data.gov.ro';
 const TOP = 120;
 const fold = s => String(s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
@@ -13,20 +13,21 @@ async function listaJudete(env) {
   const r = await env.DB.prepare('SELECT DISTINCT judet FROM sumar_judet_caen WHERE an = 2025 ORDER BY judet').all();
   return (r.results || []).map(x => x.judet);
 }
-async function activitatiJudet(env, judet) {
+async function activitatiJudet(env, judet, nivel) {
+  // nivel = numărul de cifre CAEN: 4 = clasă, 3 = grupă, 2 = diviziune (agregare în baza de date, pe toate clasele județului)
   const r = await env.DB.prepare(
-    `SELECT s.caen AS caen, s.firme AS firme, s.salariati AS salariati, s.cifra_afaceri AS ca, p.firme AS firme_2023, n.denumire AS denumire
-     FROM sumar_judet_caen s
-     LEFT JOIN sumar_judet_caen p ON p.an = 2023 AND p.judet = s.judet AND p.caen = s.caen
-     LEFT JOIN onrc_nom_caen n ON n.clasa = s.caen AND n.versiune = 2
-     WHERE s.an = 2025 AND s.judet = ? AND s.firme > 0
-     ORDER BY s.firme DESC LIMIT ${TOP}`
-  ).bind(judet).all();
+    `WITH a AS (SELECT SUBSTR(caen, 1, ?) AS k, SUM(firme) AS f, SUM(salariati) AS s, SUM(cifra_afaceri) AS c FROM sumar_judet_caen WHERE an = 2025 AND judet = ? AND firme > 0 GROUP BY k),
+          p AS (SELECT SUBSTR(caen, 1, ?) AS k, SUM(firme) AS f FROM sumar_judet_caen WHERE an = 2023 AND judet = ? GROUP BY k)
+     SELECT a.k AS caen, a.f AS firme, a.s AS salariati, a.c AS ca, p.f AS firme_2023, n.denumire AS denumire
+     FROM a LEFT JOIN p ON p.k = a.k LEFT JOIN onrc_nom_caen n ON n.clasa = a.k AND n.versiune = 2
+     ORDER BY a.f DESC LIMIT ${TOP}`
+  ).bind(nivel, judet, nivel, judet).all();
   const t = await env.DB.prepare('SELECT SUM(firme) AS firme, SUM(salariati) AS salariati, SUM(cifra_afaceri) AS ca FROM sumar_judet_caen WHERE an = 2025 AND judet = ?').bind(judet).first();
+  const tf = t?.firme ?? 0;
   return {
     judet,
-    total: {firme: t?.firme ?? 0, salariati: t?.salariati ?? 0, ca: t?.ca ?? 0},
-    activitati: (r.results || []).map(x => ({caen: x.caen, denumire: x.denumire || null, firme: x.firme, salariati: x.salariati ?? 0, ca: x.ca ?? 0, ca_mediu: x.firme ? Math.round((x.ca || 0) / x.firme) : 0, firme_2023: x.firme_2023 ?? null}))
+    total: {firme: tf, salariati: t?.salariati ?? 0, ca: t?.ca ?? 0},
+    activitati: (r.results || []).map(x => ({caen: x.caen, denumire: x.denumire || null, firme: x.firme, pondere: tf ? Math.round(x.firme / tf * 1000) / 10 : 0, salariati: x.salariati ?? 0, ca: x.ca ?? 0, ca_mediu: x.firme ? Math.round((x.ca || 0) / x.firme) : 0, firme_2023: x.firme_2023 ?? null}))
   };
 }
 
@@ -39,9 +40,12 @@ async function peJudet(env, sp) {
   const cere2 = (sp.get('judet2') || '').trim();
   const b = cere2 ? alege(cere2) : null;
   if (cere2 && !b) return json({error: 'Al doilea județ nu este în listă.'}, 400);
-  const out = [await activitatiJudet(env, a)];
-  if (b && b !== a) out.push(await activitatiJudet(env, b));
-  return json({an: 2025, primele: TOP, judete: out, nota: NOTA + ' Se afișează primele ' + TOP + ' activități după numărul de firme.', surse: SURSE});
+  const nv = sp.has('nivel') ? sp.get('nivel') : '4';
+  if (!['2', '3', '4'].includes(nv)) return json({error: 'Nivelul CAEN trebuie să fie 2, 3 sau 4.'}, 400);
+  const nivel = Number(nv);
+  const out = [await activitatiJudet(env, a, nivel)];
+  if (b && b !== a) out.push(await activitatiJudet(env, b, nivel));
+  return json({an: 2025, nivel, primele: TOP, judete: out, nota: NOTA + ' Se afișează primele ' + TOP + ' activități după numărul de firme.', surse: SURSE});
 }
 
 export async function onRequestGet({request, env}) {

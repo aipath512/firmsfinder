@@ -71,7 +71,8 @@
 
     // --- Vedere pe județ și comparare între două județe (tabel sortabil) ---
     const modA = $('#piata-mod-activitate'), modJ = $('#piata-mod-judet'), formA = $('#piata-form'), formJ = $('#piata-judet-form');
-    const sel1 = $('#piata-j1'), sel2 = $('#piata-j2');
+    const sel1 = $('#piata-j1'), sel2 = $('#piata-j2'), selN = $('#piata-nivel');
+    let evid = null;
     let dj = null, toateJ = false, listaIncarcata = false;
     const sj = {k: 'firme', dir: -1};
     const sc = {k: 'fA', dir: -1};
@@ -116,8 +117,20 @@
       const b = el('button', r.caen + (r.denumire ? ' ' + r.denumire : ''), td, 'piata-link'); b.type = 'button';
       b.title = 'Vezi această activitate pe județe';
       b.addEventListener('click', () => deschideActivitate(r.caen));
+      if (r.caen.length > 2) {
+        const u = el('button', ' ↑', td, 'piata-link piata-sus'); u.type = 'button';
+        u.title = 'Urcă în ierarhia CAEN: ' + (r.caen.length === 4 ? 'grupa ' : 'diviziunea ') + r.caen.slice(0, r.caen.length - 1);
+        u.setAttribute('aria-label', u.title);
+        u.addEventListener('click', () => schimbaNivel(r.caen.length - 1, r.caen.slice(0, r.caen.length - 1)));
+      }
+    }
+    const NUME = {2: 'Diviziune (2 cifre)', 3: 'Grupă (3 cifre)', 4: 'Clasă (4 cifre)'};
+    function schimbaNivel(n, evidentiat) {
+      selN.value = String(n); evid = evidentiat || null;
+      if (sel1.value) incarcaJ(sel1.value, sel2.value);
     }
     const linkFirme = (caen, judet) => (r, td) => { const a = el('a', 'Vezi firmele', td, 'piata-link'); a.href = '/cautare/?caen=' + encodeURIComponent(caen(r)) + '&judet=' + encodeURIComponent(judet(r)); };
+    const pct = v => v === null || v === undefined ? '—' : v.toLocaleString('ro-RO', {maximumFractionDigits: 1}) + '%';
     const evo = r => r.firme_2023 ? Math.round((r.firme - r.firme_2023) / r.firme_2023 * 100) : null;
 
     function desenJ() {
@@ -129,6 +142,13 @@
         el('strong', x.judet, p);
         el('span', ' — ' + nr(x.total.firme) + ' firme, ' + nr(x.total.salariati) + ' salariați, ' + mil(x.total.ca) + ' mil. lei cifră de afaceri (' + dj.an + ')', p);
       }
+      const scara = el('p', '', out, 'piata-scara'); scara.setAttribute('aria-label', 'Nivelul CAEN afișat');
+      el('span', 'Nivel CAEN: ', scara);
+      [2, 3, 4].forEach((n, i) => {
+        if (i) el('span', ' › ', scara);
+        if (n === dj.nivel) { const s = el('strong', NUME[n], scara); s.setAttribute('aria-current', 'true'); }
+        else { const b = el('button', NUME[n], scara, 'piata-link'); b.type = 'button'; b.addEventListener('click', () => schimbaNivel(n, null)); }
+      });
       const LIM = 25;
       let rows, coloane, stare;
       if (!B) {
@@ -137,6 +157,7 @@
         coloane = [
           {t: 'Activitate', k: 'caen', sort: false, cell: celulaActivitate},
           {t: 'Firme', k: 'firme', cell: (r, td) => td.textContent = nr(r.firme)},
+          {t: 'Pondere în județ', k: 'pondere', cell: (r, td) => td.textContent = pct(r.pondere)},
           {t: 'Salariați', k: 'salariati', cell: (r, td) => td.textContent = nr(r.salariati)},
           {t: 'Cifră de afaceri (mil. lei)', k: 'ca', cell: (r, td) => td.textContent = mil(r.ca)},
           {t: 'Medie pe firmă (mil. lei)', k: 'ca_mediu', cell: (r, td) => td.textContent = mil(r.ca_mediu)},
@@ -146,8 +167,8 @@
       } else {
         stare = sc;
         const m = new Map();
-        for (const r of A.activitati) m.set(r.caen, {caen: r.caen, denumire: r.denumire, fA: r.firme, mA: r.ca_mediu, fB: null, mB: null});
-        for (const r of B.activitati) { const o = m.get(r.caen) || {caen: r.caen, denumire: r.denumire, fA: null, mA: null, fB: null, mB: null}; o.fB = r.firme; o.mB = r.ca_mediu; m.set(r.caen, o); }
+        for (const r of A.activitati) m.set(r.caen, {caen: r.caen, denumire: r.denumire, fA: r.firme, pA: r.pondere, mA: r.ca_mediu, fB: null, pB: null, mB: null});
+        for (const r of B.activitati) { const o = m.get(r.caen) || {caen: r.caen, denumire: r.denumire, fA: null, pA: null, mA: null, fB: null, pB: null, mB: null}; o.fB = r.firme; o.pB = r.pondere; o.mB = r.ca_mediu; m.set(r.caen, o); }
         rows = [...m.values()].sort((a, b) => ((b.fA || 0) + (b.fB || 0)) - ((a.fA || 0) + (a.fB || 0))).slice(0, 60);
         const v = f => (r, td) => td.textContent = r[f] === null ? '—' : nr(r[f]);
         const w = f => (r, td) => td.textContent = r[f] === null ? '—' : mil(r[f]);
@@ -155,6 +176,8 @@
           {t: 'Activitate', k: 'caen', sort: false, cell: celulaActivitate},
           {t: 'Firme ' + A.judet, k: 'fA', cell: v('fA')},
           {t: 'Firme ' + B.judet, k: 'fB', cell: v('fB')},
+          {t: 'Pondere ' + A.judet, k: 'pA', cell: (r, td) => td.textContent = pct(r.pA)},
+          {t: 'Pondere ' + B.judet, k: 'pB', cell: (r, td) => td.textContent = pct(r.pB)},
           {t: 'Medie/firmă ' + A.judet + ' (mil. lei)', k: 'mA', cell: w('mA')},
           {t: 'Medie/firmă ' + B.judet + ' (mil. lei)', k: 'mB', cell: w('mB')}
         ];
@@ -162,11 +185,12 @@
       const rd = () => desenJ();
       const {srt, body} = tabel(out, coloane, rows, stare, rd);
       const vizibile = toateJ ? srt : srt.slice(0, LIM);
-      for (const r of vizibile) { const tr = el('tr', '', body); for (const c of coloane) c.cell(r, el('td', '', tr)); }
+      for (const r of vizibile) { const tr = el('tr', '', body); if (evid && r.caen === evid) { tr.className = 'evid'; tr.setAttribute('aria-current', 'true'); } for (const c of coloane) c.cell(r, el('td', '', tr)); }
       if (srt.length > LIM) {
         const b = el('button', toateJ ? 'Arată doar primele ' + LIM : 'Arată toate cele ' + srt.length + ' activități', out); b.type = 'button';
         b.addEventListener('click', () => { toateJ = !toateJ; desenJ(); });
       }
+      if (evid && !vizibile.some(r => r.caen === evid)) el('p', 'Activitatea ' + evid + ' nu este printre rândurile afișate; arătați toate activitățile sau comutați sortarea.', out, 'muted');
       if (B) el('p', '„—” înseamnă că activitatea nu apare printre primele ' + dj.primele + ' ale județului respectiv.', out, 'muted');
       el('p', dj.nota + ' Surse: ' + dj.surse + '.', out, 'muted');
     }
@@ -174,14 +198,14 @@
     async function incarcaJ(j1, j2) {
       msg.textContent = 'Calculez…'; out.replaceChildren();
       try {
-        const r = await fetch('/api/piata?judet=' + encodeURIComponent(j1) + (j2 ? '&judet2=' + encodeURIComponent(j2) : ''));
+        const r = await fetch('/api/piata?judet=' + encodeURIComponent(j1) + (j2 ? '&judet2=' + encodeURIComponent(j2) : '') + '&nivel=' + encodeURIComponent(selN.value));
         const d = await r.json();
         if (!r.ok) throw new Error(d.error || 'Cerere eșuată.');
         dj = d; toateJ = false; sj.k = 'firme'; sj.dir = -1; sc.k = 'fA'; sc.dir = -1; msg.textContent = '';
         desenJ();
       } catch (e) { dj = null; msg.textContent = e.message; }
     }
-    formJ.addEventListener('submit', e => { e.preventDefault(); if (sel1.value) incarcaJ(sel1.value, sel2.value); });
+    formJ.addEventListener('submit', e => { e.preventDefault(); evid = null; if (sel1.value) incarcaJ(sel1.value, sel2.value); });
   }
 
   const box = $('#sugestii-cautari');
