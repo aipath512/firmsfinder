@@ -1,0 +1,19 @@
+{
+  "calculat": "2026-10-16",
+  "an": 2025,
+  "sursa": "ONRC + Ministerul Finanțelor (data.gov.ro), agregat precalculat în D1 (sumar_judet_caen); sediul social, CAEN principal din bilanț, fără PFA/II/IF",
+  "sugestii": [
+    {"caen": "6920", "titlu": "Contabili și consultanți fiscali", "firme": 12830, "top": [["București", 3433], ["Cluj", 789], ["Timiș", 640]]},
+    {"caen": "6201", "titlu": "Firme de software la comandă", "firme": 15892, "top": [["București", 4363], ["Cluj", 2342], ["Timiș", 951]]},
+    {"caen": "7311", "titlu": "Agenții de publicitate", "firme": 13656, "top": [["București", 5196], ["Ilfov", 1068], ["Cluj", 1066]]},
+    {"caen": "4120", "titlu": "Construcții de clădiri", "firme": 31386, "top": [["București", 3643], ["Cluj", 1850], ["Ilfov", 1644]]},
+    {"caen": "4941", "titlu": "Transport rutier de mărfuri", "firme": 40168, "top": [["București", 2804], ["Argeș", 2369], ["Bihor", 2303]]},
+    {"caen": "8622", "titlu": "Cabinete medicale specializate", "firme": 12390, "top": [["București", 2677], ["Dolj", 1016], ["Cluj", 868]]},
+    {"caen": "5510", "titlu": "Hoteluri și cazare", "firme": 2880, "top": [["Constanța", 381], ["București", 348], ["Brașov", 194]]},
+    {"caen": "5610", "titlu": "Restaurante", "firme": 10431, "top": [["București", 1473], ["Constanța", 704], ["Cluj", 581]]},
+    {"caen": "4711", "titlu": "Magazine alimentare", "firme": 36553, "top": [["București", 2959], ["Prahova", 1628], ["Dolj", 1501]]},
+    {"caen": "9602", "titlu": "Frizerii și saloane de înfrumusețare", "firme": 10341, "top": [["București", 1814], ["Ilfov", 642], ["Cluj", 595]]},
+    {"caen": "7111", "titlu": "Birouri de arhitectură", "firme": 6788, "top": [["București", 2031], ["Cluj", 578], ["Timiș", 355]]},
+    {"caen": "4321", "titlu": "Instalații electrice", "firme": 8919, "top": [["București", 1543], ["Cluj", 637], ["Ilfov", 562]]}
+  ]
+}
