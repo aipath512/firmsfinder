@@ -96,3 +96,15 @@ h1 span:nth-child(3){font-family:var(--ff-sans)!important;font-style:normal!impo
 .final .intro{margin:0 auto 22px}
 @media(max-width:820px){.cf{grid-template-columns:repeat(2,1fr)}.pasi{grid-template-columns:1fr}.tr{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:560px){.tr{grid-template-columns:1fr}.hs-row{flex-direction:column}.hs-row button{padding:14px}}
+
+/* v3.0 — exemple sub căutare + demonstrație geomarketing */
+.hs-ex{margin:12px 0 0;display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:.85rem}
+.hs-ex span{color:var(--muted);font-family:var(--ff-mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase}
+.hs-ex a{border:1px solid rgba(245,200,66,.45);border-radius:999px;padding:5px 12px;text-decoration:none;color:#eae7df}
+.hs-ex a:hover{background:rgba(245,200,66,.12)}
+.pd{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:28px 0 14px}
+.pd article{border:1px solid rgba(245,200,66,.25);background:#0d0d0d;border-radius:2px;padding:22px;display:flex;flex-direction:column;gap:8px}
+.pd h3{margin:0;font-size:1.25rem}.pd .tot{margin:0;color:var(--muted)}.pd .tot strong{color:var(--gold);font-family:var(--ff-serif);font-size:1.9rem;font-weight:400}
+.pd ul{list-style:none;margin:4px 0;padding:0}.pd li{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid rgba(245,200,66,.15)}
+.pd li b{font-family:var(--ff-mono);font-weight:500;color:var(--gold)}
+@media(max-width:820px){.pd{grid-template-columns:1fr}}
