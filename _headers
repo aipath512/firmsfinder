@@ -25,3 +25,7 @@
   Cache-Control: public, max-age=300
 /*
   Referrer-Policy: strict-origin-when-cross-origin
+/assets/ledger-ff.css
+  Cache-Control: public, max-age=300
+/assets/fonts/*
+  Cache-Control: public, max-age=31536000, immutable

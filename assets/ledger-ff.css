@@ -1,0 +1,64 @@
+/* FirmsFinder — stil „Ledger” (aceeași direcție vizuală ca ecbtax.com). Fonturi găzduite local: nu se face nicio cerere către Google. */
+@font-face{font-family:"Instrument Serif";font-style:normal;font-weight:400;font-display:swap;src:url(/assets/fonts/instrument-serif-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Instrument Serif";font-style:italic;font-weight:400;font-display:swap;src:url(/assets/fonts/instrument-serif-latin-400-italic.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"JetBrains Mono";font-style:normal;font-weight:400;font-display:swap;src:url(/assets/fonts/jetbrains-mono-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"JetBrains Mono";font-style:normal;font-weight:500;font-display:swap;src:url(/assets/fonts/jetbrains-mono-latin-500-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Inter";font-style:normal;font-weight:400;font-display:swap;src:url(/assets/fonts/inter-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Inter";font-style:normal;font-weight:600;font-display:swap;src:url(/assets/fonts/inter-latin-600-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Instrument Serif";font-style:normal;font-weight:400;font-display:swap;src:url(/assets/fonts/instrument-serif-latin-ext-400-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Instrument Serif";font-style:italic;font-weight:400;font-display:swap;src:url(/assets/fonts/instrument-serif-latin-ext-400-italic.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"JetBrains Mono";font-style:normal;font-weight:400;font-display:swap;src:url(/assets/fonts/jetbrains-mono-latin-ext-400-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"JetBrains Mono";font-style:normal;font-weight:500;font-display:swap;src:url(/assets/fonts/jetbrains-mono-latin-ext-500-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Inter";font-style:normal;font-weight:400;font-display:swap;src:url(/assets/fonts/inter-latin-ext-400-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Inter";font-style:normal;font-weight:600;font-display:swap;src:url(/assets/fonts/inter-latin-ext-600-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+:root{--bg:#050505;--panel:#0d0d0d;--line:rgba(245,200,66,.2);--text:#eae7df;--muted:rgba(234,231,223,.62);--cyan:#f5c842;--gold:#f5c842;--ff-ink:#050505;--ff-gold:#f5c842;--ff-rule:rgba(245,200,66,.2);--ff-rule-strong:rgba(245,200,66,.45);--ff-serif:"Instrument Serif","Playfair Display",Georgia,serif;--ff-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;--ff-sans:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif}
+html{color-scheme:dark}
+body{background:#050505;color:#eae7df;font-family:var(--ff-sans);-webkit-font-smoothing:antialiased}
+::selection{background:#f5c842;color:#050505}
+h1,h2,h3{font-family:var(--ff-serif);font-weight:400;letter-spacing:-.01em;line-height:1.1}
+h1{font-size:clamp(2.6rem,6vw,5rem)}
+h2{font-size:clamp(1.7rem,3vw,2.4rem)}
+h3{font-size:1.35rem}
+a{color:#f5c842;text-underline-offset:3px}
+nav a{font-family:var(--ff-mono);font-size:.82rem;letter-spacing:.04em}
+.eyebrow,.eyebrow-dim{font-family:var(--ff-mono);font-size:.72rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:#f5c842}
+.muted,small{color:rgba(234,231,223,.62)}
+input,select,textarea,button{font-family:var(--ff-sans);background:#0d0d0d;border:1px solid rgba(245,200,66,.28);border-radius:2px;color:#eae7df}
+input:focus,select:focus,textarea:focus{border-color:#f5c842;outline:none}
+button,.btn{background:#f5c842;color:#050505;border:1px solid #f5c842;border-radius:2px;font-family:var(--ff-mono);font-size:.82rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase}
+button:hover,.btn:hover{background:#eae7df;border-color:#eae7df;color:#050505}
+.btn.secondary,button.secondary{background:transparent;color:#f5c842;border:1px solid rgba(245,200,66,.45)}
+.btn.secondary:hover{background:rgba(245,200,66,.1);color:#f5c842}
+button.piata-link,button.th-b,.piata-link,.th-b{background:none;border:0;color:#f5c842;text-transform:none;letter-spacing:0;font-family:inherit;font-size:inherit}
+button.piata-link:hover,.th-b:hover{background:none;color:#eae7df}
+:focus-visible{outline:2px solid #f5c842;outline-offset:3px}
+th,td{border-bottom:1px solid rgba(245,200,66,.16)}
+thead th,th[scope=col]{font-family:var(--ff-mono);font-size:.74rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#f5c842}
+details,.result,footer{border-color:rgba(245,200,66,.16)}
+.hero{background:radial-gradient(ellipse at 85% 10%,rgba(245,200,66,.09) 0,transparent 56%)}
+.hero .lead,.lead{color:rgba(234,231,223,.78)}
+h1 span:nth-child(2){color:#f5c842;font-style:italic}
+.diff{border:1px solid rgba(245,200,66,.45);background:#0d0d0d;border-radius:2px}
+.diff span{color:#eae7df}
+.avail{background:#0d0d0d;border:1px solid rgba(245,200,66,.2);border-radius:2px}
+.avail .pill{border-radius:2px;font-family:var(--ff-sans);font-weight:600}
+.panel,.card,.box{background:#0d0d0d;border:1px solid rgba(245,200,66,.2);border-radius:2px}
+.legenda,.piata-urmeaza,.piata,.jn{border:1px solid rgba(245,200,66,.2)!important;border-radius:2px!important}
+.pt tr.evid{outline:1px solid #f5c842;background:rgba(245,200,66,.08)}
+.srch-i,.srch-i h2,.srch-i strong{color:#eae7df}
+.srch-i h2,.srch-i .plata{color:#f5c842}
+header.ffh,header{background:rgba(5,5,5,.95)!important;border-bottom:1px solid rgba(245,200,66,.2)!important}
+.ffh-dd summary,.dd summary,header.ffh .ffh-dd summary{font-family:var(--ff-mono)!important;font-size:.82rem!important;letter-spacing:.04em}
+header.ffh .ffh-links a{font-family:var(--ff-mono);font-size:.82rem;letter-spacing:.04em}
+.srch-i h2{font-size:1.5rem}
+.srch-i,.srch-i li{color:rgba(234,231,223,.78)}
+.srch-i strong{color:#eae7df}
+.srch-i .plata{color:#f5c842;font-size:1.25rem}
+.srch-i .plata-d{color:rgba(234,231,223,.78)}
+.valori>div{background:#0d0d0d!important;border:1px solid rgba(245,200,66,.2)!important;border-radius:2px!important}
+.valori strong{color:#f5c842!important;font-family:var(--ff-serif);font-weight:400;font-size:1.25rem}
+.valori span{color:rgba(234,231,223,.7)!important}
+.piata-lista li,.piata-lista li{border-bottom-color:rgba(245,200,66,.16)}
+.piata-bara{background:rgba(245,200,66,.12)}
+.piata-bara i{background:#f5c842}
+.pt th,.pt td,.ft th,.ft td{border-bottom-color:rgba(245,200,66,.16)}
