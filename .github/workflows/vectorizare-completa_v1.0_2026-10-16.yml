@@ -22,7 +22,7 @@ jobs:
           N=0; FAILS=0
           while [ $SECONDS -lt $END ]; do
             OUT=$(curl -sS -m 120 -A "firmsfinder-vectorize/1.0" "$URL?k=$VEC_TOKEN&run=1&min=${{ matrix.min }}&max=${{ matrix.max }}" || true)
-            GATA=$(echo "$OUT" | jq -r '.gata // empty' 2>/dev/null || true)
+            GATA=$(echo "$OUT" | jq -r 'if has("gata") then (.gata | tostring) else "" end' 2>/dev/null || true)
             if [ "$GATA" = "true" ]; then echo "GATA interval ${{ matrix.min }}-${{ matrix.max }} dupa $N loturi"; exit 0; fi
             if [ "$GATA" = "false" ]; then
               FAILS=0; N=$((N+1))
