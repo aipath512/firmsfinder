@@ -63,3 +63,4 @@ header.ffh .ffh-links a{font-family:var(--ff-mono);font-size:.82rem;letter-spaci
 .piata-bara i{background:#f5c842}
 .pt th,.pt td,.ft th,.ft td{border-bottom-color:rgba(245,200,66,.16)}
 h1 span:nth-child(3){font-family:var(--ff-sans)!important;font-style:normal!important;font-weight:400!important;font-size:.5em!important;letter-spacing:0!important;color:rgba(234,231,223,.8)!important;margin-top:18px!important;line-height:1.3!important}
+.act{display:flex;flex-direction:column;gap:8px;flex:1 1 0;min-width:0}.act .btn{width:100%;text-align:center;justify-content:center}.act-n{font-family:var(--ff-mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(234,231,223,.6);text-align:center}
