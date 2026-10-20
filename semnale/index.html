@@ -28,6 +28,108 @@
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "Organization",
+      "@id": "https://aiventure.ro/#organization",
+      "name": "AiVenture S.R.L.",
+      "legalName": "AiVenture S.R.L.",
+      "alternateName": "AiVenture",
+      "url": "https://aiventure.ro/",
+      "logo": "https://aiventure.ro/icon.svg",
+      "image": "https://aiventure.ro/assets/brand/logo_512w.png",
+      "email": "contact@5thelement.ai",
+      "telephone": "+40 737 123 540",
+      "description": "AiVenture oferă servicii pentru Web-Om, Web-AI și Web-A2A și produse pentru analiză, implementare și infrastructură AI/A2A.",
+      "foundingDate": "2025-03-07",
+      "taxID": "51415878",
+      "vatID": "RO51415878",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "CUI",
+          "value": "51415878"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "Nr. Registrul Comerțului",
+          "value": "J2025016406000"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "EUID",
+          "value": "ROONRC.J2025016406000"
+        }
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Drumul Pădurea Pustnicul nr. 141C, Corp A, Etaj 2, Ap. 5",
+        "addressLocality": "București",
+        "addressRegion": "Sector 1",
+        "postalCode": "014044",
+        "addressCountry": "RO"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "informații comerciale",
+        "email": "contact@5thelement.ai",
+        "telephone": "+40 737 123 540",
+        "availableLanguage": [
+          "ro"
+        ]
+      },
+      "founder": {
+        "@type": "Person",
+        "name": "Dan Ionescu",
+        "sameAs": [
+          "https://orcid.org/0009-0002-5498-1046",
+          "https://ro.linkedin.com/in/dan-ionesco-a856082a0"
+        ]
+      },
+      "employee": {
+        "@type": "Person",
+        "name": "Gratiela Ionescu",
+        "jobTitle": "Administrator"
+      },
+      "brand": {
+        "@id": "https://firmsfinder.eu/#brand"
+      },
+      "sameAs": [
+        "https://www.reddit.com/user/AiVentureRO/",
+        "https://www.linkedin.com/company/107338970",
+        "https://www.linkedin.com/showcase/5thelement-ai/",
+        "https://www.crunchbase.com/organization/aiventure-s-r-l",
+        "https://www.facebook.com/people/Aiventure/61573220584246/",
+        "https://x.com/aipath512",
+        "https://www.youtube.com/@AIVenture-q8u",
+        "https://medium.com/@aipath512"
+      ]
+    },
+    {
+      "@type": "Brand",
+      "@id": "https://firmsfinder.eu/#brand",
+      "name": "FirmsFinder AI",
+      "url": "https://firmsfinder.eu/",
+      "slogan": "Economic Intelligence"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://firmsfinder.eu/#website",
+      "url": "https://firmsfinder.eu/",
+      "name": "FirmsFinder AI",
+      "inLanguage": "ro-RO",
+      "publisher": {
+        "@id": "https://aiventure.ro/#organization"
+      },
+      "publishingPrinciples": "https://firmsfinder.eu/legal/ai-transparency",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://firmsfinder.eu/cautare/?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
       "@type": "CollectionPage",
       "@id": "https://firmsfinder.eu/semnale/#webpage",
       "url": "https://firmsfinder.eu/semnale/",
@@ -39,7 +141,13 @@
       "inLanguage": "ro-RO",
       "primaryImageOfPage": {
         "@type": "ImageObject",
-        "url": "https://firmsfinder.eu/assets/og-image.webp"
+        "@id": "https://firmsfinder.eu/semnale/#primaryimage",
+        "url": "https://firmsfinder.eu/assets/og-image.webp",
+        "contentUrl": "https://firmsfinder.eu/assets/og-image.webp",
+        "caption": "FirmsFinder AI — date, relații economice și oportunități"
+      },
+      "mainEntity": {
+        "@id": "https://firmsfinder.eu/semnale/#lista-semnale"
       },
       "dateModified": "2026-10-14",
       "datePublished": "2026-10-14",
@@ -60,24 +168,1315 @@
       "usageInfo": "https://firmsfinder.eu/legal/terms",
       "breadcrumb": {
         "@id": "https://firmsfinder.eu/semnale/#breadcrumb"
+      },
+      "significantLink": [
+        "https://firmsfinder.eu/cautare/",
+        "https://firmsfinder.eu/comparare/",
+        "https://firmsfinder.eu/surse/",
+        "https://firmsfinder.eu/contact/",
+        "https://firmsfinder.eu/legal/terms"
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://firmsfinder.eu/semnale/#lista-semnale",
+      "name": "Cele 60 de semnale ON-SITE",
+      "numberOfItems": 60,
+      "itemListOrder": "https://schema.org/ItemListOrderAscending",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@id": "https://firmsfinder.eu/semnale/#OM-01"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@id": "https://firmsfinder.eu/semnale/#OM-02"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@id": "https://firmsfinder.eu/semnale/#OM-03"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@id": "https://firmsfinder.eu/semnale/#OM-04"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "item": {
+            "@id": "https://firmsfinder.eu/semnale/#OM-05"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "item": {
+            "@id": "https://firmsfinder.eu/semnale/#OM-06"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "item": {
+            "@id": "https://firmsfinder.eu/semnale/#OM-07"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 8,
+          "item": {
+            "@id": "https://firmsfinder.eu/semnale/#OM-08"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 9,
+          "item": {
+            "@id": "https://firmsfinder.eu/semnale/#OM-09"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 10,
+          "item": {
+            "@id": "https://firmsfinder.eu/semnale/#OM-10"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 11,
+          "item": {
+            "@id": "https://firmsfinder.eu/semnale/#OM-11"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 12,
+          "item": {
+            "@id": "https://firmsfinder.eu/semnale/#OM-12"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 13,
+          "item": {
+            "@id": "https://firmsfinder.eu/semnale/#OM-13"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 14,
+          "item": {
+            "@id": "https://firmsfinder.eu/semnale/#OM-14"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 15,
+          "item": {
+            "@id": "https://firmsfinder.eu/semnale/#OM-15"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 16,
+          "item": {
+            "@id": "https://firmsfinder.eu/semnale/#AI-01"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 17,
+          "item": {
+            "@id": "https://firmsfinder.eu/semnale/#AI-02"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 18,
+          "item": {
+            "@id": "https://firmsfinder.eu/semnale/#AI-03"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 19,
+          "item": {
+            "@id": "https://firmsfinder.eu/semnale/#AI-04"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 20,
+          "item": {
+            "@id": "https://firmsfinder.eu/semnale/#AI-05"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 21,
+          "item": {
+            "@id": "https://firmsfinder.eu/semnale/#AI-06"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 22,
+          "item": {
+            "@id": "https://firmsfinder.eu/semnale/#AI-07"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 23,
+          "item": {
+            "@id": "https://firmsfinder.eu/semnale/#AI-08"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 24,
+          "item": {
+            "@id": "https://firmsfinder.eu/semnale/#AI-09"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 25,
+          "item": {
+            "@id": "https://firmsfinder.eu/semnale/#AI-10"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 26,
+          "item": {
+            "@id": "https://firmsfinder.eu/semnale/#AI-11"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 27,
+          "item": {
+            "@id": "https://firmsfinder.eu/semnale/#AI-12"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 28,
+          "item": {
+            "@id": "https://firmsfinder.eu/semnale/#AI-13"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 29,
+          "item": {
+            "@id": "https://firmsfinder.eu/semnale/#AI-14"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 30,
+          "item": {
+            "@id": "https://firmsfinder.eu/semnale/#AI-15"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 31,
+          "item": {
+            "@id": "https://firmsfinder.eu/semnale/#AI-16"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 32,
+          "item": {
+            "@id": "https://firmsfinder.eu/semnale/#AI-17"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 33,
+          "item": {
+            "@id": "https://firmsfinder.eu/semnale/#AI-18"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 34,
+          "item": {
+            "@id": "https://firmsfinder.eu/semnale/#AI-19"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 35,
+          "item": {
+            "@id": "https://firmsfinder.eu/semnale/#AI-20"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 36,
+          "item": {
+            "@id": "https://firmsfinder.eu/semnale/#A2A-01"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 37,
+          "item": {
+            "@id": "https://firmsfinder.eu/semnale/#A2A-02"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 38,
+          "item": {
+            "@id": "https://firmsfinder.eu/semnale/#A2A-03"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 39,
+          "item": {
+            "@id": "https://firmsfinder.eu/semnale/#A2A-04"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 40,
+          "item": {
+            "@id": "https://firmsfinder.eu/semnale/#A2A-05"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 41,
+          "item": {
+            "@id": "https://firmsfinder.eu/semnale/#A2A-06"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 42,
+          "item": {
+            "@id": "https://firmsfinder.eu/semnale/#A2A-07"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 43,
+          "item": {
+            "@id": "https://firmsfinder.eu/semnale/#A2A-08"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 44,
+          "item": {
+            "@id": "https://firmsfinder.eu/semnale/#A2A-09"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 45,
+          "item": {
+            "@id": "https://firmsfinder.eu/semnale/#A2A-10"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 46,
+          "item": {
+            "@id": "https://firmsfinder.eu/semnale/#A2A-11"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 47,
+          "item": {
+            "@id": "https://firmsfinder.eu/semnale/#A2A-12"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 48,
+          "item": {
+            "@id": "https://firmsfinder.eu/semnale/#A2A-13"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 49,
+          "item": {
+            "@id": "https://firmsfinder.eu/semnale/#A2A-14"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 50,
+          "item": {
+            "@id": "https://firmsfinder.eu/semnale/#A2A-15"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 51,
+          "item": {
+            "@id": "https://firmsfinder.eu/semnale/#RRVI-01"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 52,
+          "item": {
+            "@id": "https://firmsfinder.eu/semnale/#RRVI-02"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 53,
+          "item": {
+            "@id": "https://firmsfinder.eu/semnale/#RRVI-03"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 54,
+          "item": {
+            "@id": "https://firmsfinder.eu/semnale/#RRVI-04"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 55,
+          "item": {
+            "@id": "https://firmsfinder.eu/semnale/#RRVI-05"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 56,
+          "item": {
+            "@id": "https://firmsfinder.eu/semnale/#RRVI-06"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 57,
+          "item": {
+            "@id": "https://firmsfinder.eu/semnale/#RRVI-07"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 58,
+          "item": {
+            "@id": "https://firmsfinder.eu/semnale/#RRVI-08"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 59,
+          "item": {
+            "@id": "https://firmsfinder.eu/semnale/#RRVI-09"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 60,
+          "item": {
+            "@id": "https://firmsfinder.eu/semnale/#RRVI-10"
+          }
+        }
+      ]
+    },
+    {
+      "@type": "DefinedTermSet",
+      "@id": "https://firmsfinder.eu/semnale/#set-web-om",
+      "name": "WEB-OM",
+      "url": "https://firmsfinder.eu/semnale/",
+      "hasDefinedTerm": [
+        {
+          "@id": "https://firmsfinder.eu/semnale/#OM-01"
+        },
+        {
+          "@id": "https://firmsfinder.eu/semnale/#OM-02"
+        },
+        {
+          "@id": "https://firmsfinder.eu/semnale/#OM-03"
+        },
+        {
+          "@id": "https://firmsfinder.eu/semnale/#OM-04"
+        },
+        {
+          "@id": "https://firmsfinder.eu/semnale/#OM-05"
+        },
+        {
+          "@id": "https://firmsfinder.eu/semnale/#OM-06"
+        },
+        {
+          "@id": "https://firmsfinder.eu/semnale/#OM-07"
+        },
+        {
+          "@id": "https://firmsfinder.eu/semnale/#OM-08"
+        },
+        {
+          "@id": "https://firmsfinder.eu/semnale/#OM-09"
+        },
+        {
+          "@id": "https://firmsfinder.eu/semnale/#OM-10"
+        },
+        {
+          "@id": "https://firmsfinder.eu/semnale/#OM-11"
+        },
+        {
+          "@id": "https://firmsfinder.eu/semnale/#OM-12"
+        },
+        {
+          "@id": "https://firmsfinder.eu/semnale/#OM-13"
+        },
+        {
+          "@id": "https://firmsfinder.eu/semnale/#OM-14"
+        },
+        {
+          "@id": "https://firmsfinder.eu/semnale/#OM-15"
+        }
+      ]
+    },
+    {
+      "@type": "DefinedTermSet",
+      "@id": "https://firmsfinder.eu/semnale/#set-web-ai",
+      "name": "WEB-AI",
+      "url": "https://firmsfinder.eu/semnale/",
+      "hasDefinedTerm": [
+        {
+          "@id": "https://firmsfinder.eu/semnale/#AI-01"
+        },
+        {
+          "@id": "https://firmsfinder.eu/semnale/#AI-02"
+        },
+        {
+          "@id": "https://firmsfinder.eu/semnale/#AI-03"
+        },
+        {
+          "@id": "https://firmsfinder.eu/semnale/#AI-04"
+        },
+        {
+          "@id": "https://firmsfinder.eu/semnale/#AI-05"
+        },
+        {
+          "@id": "https://firmsfinder.eu/semnale/#AI-06"
+        },
+        {
+          "@id": "https://firmsfinder.eu/semnale/#AI-07"
+        },
+        {
+          "@id": "https://firmsfinder.eu/semnale/#AI-08"
+        },
+        {
+          "@id": "https://firmsfinder.eu/semnale/#AI-09"
+        },
+        {
+          "@id": "https://firmsfinder.eu/semnale/#AI-10"
+        },
+        {
+          "@id": "https://firmsfinder.eu/semnale/#AI-11"
+        },
+        {
+          "@id": "https://firmsfinder.eu/semnale/#AI-12"
+        },
+        {
+          "@id": "https://firmsfinder.eu/semnale/#AI-13"
+        },
+        {
+          "@id": "https://firmsfinder.eu/semnale/#AI-14"
+        },
+        {
+          "@id": "https://firmsfinder.eu/semnale/#AI-15"
+        },
+        {
+          "@id": "https://firmsfinder.eu/semnale/#AI-16"
+        },
+        {
+          "@id": "https://firmsfinder.eu/semnale/#AI-17"
+        },
+        {
+          "@id": "https://firmsfinder.eu/semnale/#AI-18"
+        },
+        {
+          "@id": "https://firmsfinder.eu/semnale/#AI-19"
+        },
+        {
+          "@id": "https://firmsfinder.eu/semnale/#AI-20"
+        }
+      ]
+    },
+    {
+      "@type": "DefinedTermSet",
+      "@id": "https://firmsfinder.eu/semnale/#set-web-a2a",
+      "name": "WEB-A2A",
+      "url": "https://firmsfinder.eu/semnale/",
+      "hasDefinedTerm": [
+        {
+          "@id": "https://firmsfinder.eu/semnale/#A2A-01"
+        },
+        {
+          "@id": "https://firmsfinder.eu/semnale/#A2A-02"
+        },
+        {
+          "@id": "https://firmsfinder.eu/semnale/#A2A-03"
+        },
+        {
+          "@id": "https://firmsfinder.eu/semnale/#A2A-04"
+        },
+        {
+          "@id": "https://firmsfinder.eu/semnale/#A2A-05"
+        },
+        {
+          "@id": "https://firmsfinder.eu/semnale/#A2A-06"
+        },
+        {
+          "@id": "https://firmsfinder.eu/semnale/#A2A-07"
+        },
+        {
+          "@id": "https://firmsfinder.eu/semnale/#A2A-08"
+        },
+        {
+          "@id": "https://firmsfinder.eu/semnale/#A2A-09"
+        },
+        {
+          "@id": "https://firmsfinder.eu/semnale/#A2A-10"
+        },
+        {
+          "@id": "https://firmsfinder.eu/semnale/#A2A-11"
+        },
+        {
+          "@id": "https://firmsfinder.eu/semnale/#A2A-12"
+        },
+        {
+          "@id": "https://firmsfinder.eu/semnale/#A2A-13"
+        },
+        {
+          "@id": "https://firmsfinder.eu/semnale/#A2A-14"
+        },
+        {
+          "@id": "https://firmsfinder.eu/semnale/#A2A-15"
+        }
+      ]
+    },
+    {
+      "@type": "DefinedTermSet",
+      "@id": "https://firmsfinder.eu/semnale/#set-rrvi",
+      "name": "RRVI™",
+      "url": "https://firmsfinder.eu/semnale/",
+      "hasDefinedTerm": [
+        {
+          "@id": "https://firmsfinder.eu/semnale/#RRVI-01"
+        },
+        {
+          "@id": "https://firmsfinder.eu/semnale/#RRVI-02"
+        },
+        {
+          "@id": "https://firmsfinder.eu/semnale/#RRVI-03"
+        },
+        {
+          "@id": "https://firmsfinder.eu/semnale/#RRVI-04"
+        },
+        {
+          "@id": "https://firmsfinder.eu/semnale/#RRVI-05"
+        },
+        {
+          "@id": "https://firmsfinder.eu/semnale/#RRVI-06"
+        },
+        {
+          "@id": "https://firmsfinder.eu/semnale/#RRVI-07"
+        },
+        {
+          "@id": "https://firmsfinder.eu/semnale/#RRVI-08"
+        },
+        {
+          "@id": "https://firmsfinder.eu/semnale/#RRVI-09"
+        },
+        {
+          "@id": "https://firmsfinder.eu/semnale/#RRVI-10"
+        }
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/semnale/#OM-01",
+      "termCode": "OM-01",
+      "name": "Homepage funcțional",
+      "description": "Scop: Prima pagină explică platforma și permite inițierea unei căutări. Conținut: H1, descriere, căutare, meniu, contact. Unde: / și componenta homepage. Cum: Leagă formularul de motorul de căutare real; nu afișa rezultate fictive. Verificare: Testează HTTP 200, telefon, formular și rezultat real. Fișiere: index.html, cautare/index.html",
+      "url": "https://firmsfinder.eu/semnale/#OM-01",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/semnale/#set-web-om"
       }
     },
     {
-      "@type": "WebSite",
-      "@id": "https://firmsfinder.eu/#website",
-      "url": "https://firmsfinder.eu/",
-      "name": "FirmsFinder AI",
-      "publisher": {
-        "@id": "https://aiventure.ro/#organization"
-      },
-      "inLanguage": "ro-RO",
-      "publishingPrinciples": "https://firmsfinder.eu/legal/ai-transparency"
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/semnale/#OM-02",
+      "termCode": "OM-02",
+      "name": "Navigație și breadcrumb",
+      "description": "Scop: Vizitatorul știe unde se află și cum se întoarce. Conținut: Meniu, linkuri interne, breadcrumb și etichete accesibile. Unde: Header, pagini interioare, footer. Cum: Construiește meniu coerent și breadcrumb specific fiecărei pagini. Verificare: Testează linkurile și traseul în mobil, inclusiv paginile inexistente. Fișiere: index.html, semnale/index.html",
+      "url": "https://firmsfinder.eu/semnale/#OM-02",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/semnale/#set-web-om"
+      }
     },
     {
-      "@type": "Organization",
-      "@id": "https://aiventure.ro/#organization",
-      "name": "AiVenture S.R.L.",
-      "url": "https://aiventure.ro/"
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/semnale/#OM-03",
+      "termCode": "OM-03",
+      "name": "Căutare reală",
+      "description": "Scop: Cererea utilizatorului interoghează date reale, nu un demo. Conținut: Formular, endpoint, rezultate, erori, paginare. Unde: /cautare/ și /api/companies/search. Cum: Conectează API-ul la baza autorizată; normalizează termenii și limitează cererile. Verificare: Caută un nume existent, unul absent și un termen ambiguu. Fișiere: cautare/index.html, backend/onsite.mjs",
+      "url": "https://firmsfinder.eu/semnale/#OM-03",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/semnale/#set-web-om"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/semnale/#OM-04",
+      "termCode": "OM-04",
+      "name": "Filtre CAEN și localitate",
+      "description": "Scop: Rezultatele pot fi restrânse după criterii explicite. Conținut: CAEN cu ediție, județ, localitate, activitate. Unde: Pagina de rezultate și API. Cum: Aplică filtre în interogarea bazei; arată filtrele active. Verificare: Verifică fiecare rezultat față de criteriile selectate. Fișiere: cautare/index.html, backend/onsite.mjs",
+      "url": "https://firmsfinder.eu/semnale/#OM-04",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/semnale/#set-web-om"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/semnale/#OM-05",
+      "termCode": "OM-05",
+      "name": "Profil individual de firmă",
+      "description": "Scop: Fiecare firmă publicabilă are URL stabil și pagină proprie. Conținut: Nume, identificator, activitate, surse, actualizare. Unde: /firme/{id}/ și generatorul de pagini. Cum: Generează profiluri din baza de date; evită paginile goale. Verificare: Deschide direct URL-ul și compară informația cu înregistrarea. Fișiere: backend/onsite.mjs",
+      "url": "https://firmsfinder.eu/semnale/#OM-05",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/semnale/#set-web-om"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/semnale/#OM-06",
+      "termCode": "OM-06",
+      "name": "Identitate verificabilă",
+      "description": "Scop: Identificatorii firmei provin din surse admise. Conținut: Denumire, identificator, stare, adresă, sursă. Unde: Tabelul companies și profilul HTML. Cum: Importă doar câmpurile permise; păstrează proveniența. Verificare: Compară un eșantion cu sursa originală. Fișiere: backend/onsite.mjs, source-provenance.json",
+      "url": "https://firmsfinder.eu/semnale/#OM-06",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/semnale/#set-web-om"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/semnale/#OM-07",
+      "termCode": "OM-07",
+      "name": "Clasificare CAEN",
+      "description": "Scop: Codul activității este legat de ediția sa corectă. Conținut: Cod, denumire, revizie, rol principal/secundar. Unde: Taxonomie și relațiile firmă–activitate. Cum: Versionează CAEN Rev.2/Rev.3 și mapează explicit schimbările. Verificare: Validează codurile și edițiile pe un eșantion. Fișiere: taxonomy.json, backend/onsite.mjs",
+      "url": "https://firmsfinder.eu/semnale/#OM-07",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/semnale/#set-web-om"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/semnale/#OM-08",
+      "termCode": "OM-08",
+      "name": "Servicii documentate",
+      "description": "Scop: Nu deducem automat servicii din codul CAEN. Conținut: Serviciu, descriere, firmă, sursă, stare. Unde: Tabelul services și profiluri. Cum: Publică servicii ca verificate numai cu dovezi suficiente. Verificare: Controlează pentru fiecare serviciu linkul la sursă. Fișiere: services.json, backend/001_onsite.sql",
+      "url": "https://firmsfinder.eu/semnale/#OM-08",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/semnale/#set-web-om"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/semnale/#OM-09",
+      "termCode": "OM-09",
+      "name": "Compararea firmelor",
+      "description": "Scop: Firmele sunt evaluate după aceleași câmpuri. Conținut: Tabel comparativ, valori lipsă și surse. Unde: /comparare/ și API. Cum: Construiește aceeași schemă de comparație pentru toate firmele. Verificare: Compară două firme și verifică toate câmpurile. Fișiere: comparare/index.html, backend/onsite.mjs",
+      "url": "https://firmsfinder.eu/semnale/#OM-09",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/semnale/#set-web-om"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/semnale/#OM-10",
+      "termCode": "OM-10",
+      "name": "Categorii și localități",
+      "description": "Scop: Utilizatorul descoperă firme fără nume exact. Conținut: Pagini CAEN, industrie, județ, localitate. Unde: /categorii/ și /localitati/. Cum: Generează pagini utile, cu legături spre profiluri. Verificare: Testează relevanța și evită paginile fără conținut. Fișiere: categorii/index.html, localitati/index.html",
+      "url": "https://firmsfinder.eu/semnale/#OM-10",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/semnale/#set-web-om"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/semnale/#OM-11",
+      "termCode": "OM-11",
+      "name": "Actualitatea datelor",
+      "description": "Scop: Cititorul știe când a fost observată informația. Conținut: Data colectării, verificării, versiunii. Unde: Profiluri și metadate. Cum: Afișează data reală din pipeline, nu data renderului. Verificare: Compară cu jurnalul de import. Fișiere: data-freshness.json, backend/onsite.mjs",
+      "url": "https://firmsfinder.eu/semnale/#OM-11",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/semnale/#set-web-om"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/semnale/#OM-12",
+      "termCode": "OM-12",
+      "name": "Surse vizibile",
+      "description": "Scop: Fiecare afirmație importantă poate fi urmărită. Conținut: Link, nume sursă, dată consultare, câmp susținut. Unde: Profiluri și comparații. Cum: Adaugă referințe lângă faptele relevante. Verificare: Deschide sursa și verifică afirmația exactă. Fișiere: surse/index.html, backend/onsite.mjs",
+      "url": "https://firmsfinder.eu/semnale/#OM-12",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/semnale/#set-web-om"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/semnale/#OM-13",
+      "termCode": "OM-13",
+      "name": "Utilizare pe telefon",
+      "description": "Scop: Interfața poate fi folosită fără zoom și scroll lateral inutil. Conținut: Viewport, CSS responsiv, controale accesibile. Unde: HTML, CSS și componente UI. Cum: Adaptează meniul, căutarea și tabelele la mobil. Verificare: Testează pe telefon real și cu tastatură. Fișiere: onsite.css",
+      "url": "https://firmsfinder.eu/semnale/#OM-13",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/semnale/#set-web-om"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/semnale/#OM-14",
+      "termCode": "OM-14",
+      "name": "Performanță web",
+      "description": "Scop: Conținutul apare repede și rămâne stabil. Conținut: LCP, INP, CLS, cache, optimizare imagini. Unde: Frontend și CDN. Cum: Optimizează resursele și măsoară înainte/după. Verificare: PageSpeed Insights și date reale când există. Fișiere: performance-budget.json",
+      "url": "https://firmsfinder.eu/semnale/#OM-14",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/semnale/#set-web-om"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/semnale/#OM-15",
+      "termCode": "OM-15",
+      "name": "Contact și conversie",
+      "description": "Scop: Vizitatorul poate solicita informații sau corecturi. Conținut: Formular, confirmare, protecție antispam, GDPR. Unde: /contact/ și /api/contact. Cum: Validează server-side și înregistrează solicitările. Verificare: Trimite cerere de test și confirmă recepția. Fișiere: contact/index.html, backend/onsite.mjs",
+      "url": "https://firmsfinder.eu/semnale/#OM-15",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/semnale/#set-web-om"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/semnale/#AI-01",
+      "termCode": "AI-01",
+      "name": "robots.txt",
+      "description": "Scop: Reguli publice pentru crawlerele care le respectă. Conținut: User-agent, Allow/Disallow, Sitemap. Unde: /robots.txt. Cum: Publică reguli coerente cu politica de crawling. Verificare: HTTP 200; verifică să nu blocheze profilurile. Fișiere: robots.txt",
+      "url": "https://firmsfinder.eu/semnale/#AI-01",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/semnale/#set-web-ai"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/semnale/#AI-02",
+      "termCode": "AI-02",
+      "name": "sitemap.xml",
+      "description": "Scop: Inventarul URL-urilor canonice publicabile. Conținut: Elemente loc și eventual lastmod real. Unde: /sitemap.xml. Cum: Generează sitemap din pagini publice, nu manual. Verificare: XML valid; fiecare URL este accesibil. Fișiere: sitemap.xml",
+      "url": "https://firmsfinder.eu/semnale/#AI-02",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/semnale/#set-web-ai"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/semnale/#AI-03",
+      "termCode": "AI-03",
+      "name": "llms.txt",
+      "description": "Scop: Ghid opțional în Markdown pentru consumatori AI. Conținut: Identitate, descriere, linkuri, limite. Unde: /llms.txt. Cum: Elimină trimiteri greșite la alte domenii; descrie datele reale. Verificare: HTTP 200; linkuri și afirmații corecte. Fișiere: llms.txt",
+      "url": "https://firmsfinder.eu/semnale/#AI-03",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/semnale/#set-web-ai"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/semnale/#AI-04",
+      "termCode": "AI-04",
+      "name": "llms-full.txt",
+      "description": "Scop: Documentație opțională extinsă a platformei. Conținut: Metodologie, date, surse, limite, API-uri. Unde: /llms-full.txt. Cum: Scrie documentație consecventă cu funcțiile existente. Verificare: Revizie factuală și linkuri valide. Fișiere: llms-full.txt",
+      "url": "https://firmsfinder.eu/semnale/#AI-04",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/semnale/#set-web-ai"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/semnale/#AI-05",
+      "termCode": "AI-05",
+      "name": "digital-dna.json",
+      "description": "Scop: Manifest propriu al identității digitale. Conținut: Nume, URL, versiune, capabilități. Unde: /digital-dna.json. Cum: Generează din configurația oficială; nu inventa capabilități. Verificare: JSON valid și identitate concordantă. Fișiere: digital-dna.json",
+      "url": "https://firmsfinder.eu/semnale/#AI-05",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/semnale/#set-web-ai"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/semnale/#AI-06",
+      "termCode": "AI-06",
+      "name": "Schema.org / JSON-LD",
+      "description": "Scop: Date structurate în paginile HTML. Conținut: Organization, WebSite, tipuri potrivite profilurilor. Unde: În head sau body prin script application/ld+json. Cum: Alege proprietăți corecte și valori susținute. Verificare: Validator Schema.org; concordanță cu pagina. Fișiere: schema-org.json, semnale/index.html",
+      "url": "https://firmsfinder.eu/semnale/#AI-06",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/semnale/#set-web-ai"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/semnale/#AI-07",
+      "termCode": "AI-07",
+      "name": "Canonical",
+      "description": "Scop: Indică URL-ul preferat al paginii. Conținut: Link rel=canonical spre pagina corespunzătoare. Unde: Head pentru fiecare URL. Cum: Generează canonical per profil, nu spre homepage. Verificare: Verifică URL, redirecționări și indexabilitate. Fișiere: canonical-map.json",
+      "url": "https://firmsfinder.eu/semnale/#AI-07",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/semnale/#set-web-ai"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/semnale/#AI-08",
+      "termCode": "AI-08",
+      "name": "entities.json",
+      "description": "Scop: Export structurat al entităților. Conținut: ID, nume, tip, sursă, paginare. Unde: /entities.json sau API. Cum: Construiește export din DB; paginează volumele mari. Verificare: ID-uri unice și corespondență cu DB. Fișiere: entities.json, backend/onsite.mjs",
+      "url": "https://firmsfinder.eu/semnale/#AI-08",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/semnale/#set-web-ai"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/semnale/#AI-09",
+      "termCode": "AI-09",
+      "name": "services.json",
+      "description": "Scop: Catalogul serviciilor confirmate sau marcate ca neconfirmate. Conținut: ID, nume, firmă, sursă, statut. Unde: /services.json sau API. Cum: Leagă serviciile de dovezi, nu doar de CAEN. Verificare: Verifică status și sursa fiecărei relații. Fișiere: services.json, backend/onsite.mjs",
+      "url": "https://firmsfinder.eu/semnale/#AI-09",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/semnale/#set-web-ai"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/semnale/#AI-10",
+      "termCode": "AI-10",
+      "name": "intents.json",
+      "description": "Scop: Acțiuni/intenții pe care sistemul le poate satisface. Conținut: Verb, obiect, rută, exemple, stare. Unde: /intents.json. Cum: Mapează SEARCH/GET/COMPARE către funcții existente. Verificare: Fiecare endpoint declarat răspunde corect. Fișiere: intents.json",
+      "url": "https://firmsfinder.eu/semnale/#AI-10",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/semnale/#set-web-ai"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/semnale/#AI-11",
+      "termCode": "AI-11",
+      "name": "taxonomy.json",
+      "description": "Scop: Clasificări semantice cu versiuni. Conținut: CAEN/NACE, revizie, cod, denumire. Unde: /taxonomy.json și DB. Cum: Păstrează clasificări și conversii explicite. Verificare: Testează coduri valide pentru fiecare ediție. Fișiere: taxonomy.json, backend/onsite.mjs",
+      "url": "https://firmsfinder.eu/semnale/#AI-11",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/semnale/#set-web-ai"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/semnale/#AI-12",
+      "termCode": "AI-12",
+      "name": "Relații semantice",
+      "description": "Scop: Legături explicite între firme, activități și locuri. Conținut: Subiect, relație, obiect, sursă. Unde: /entity-relationships.json și DB. Cum: Generează relații numai din câmpuri susținute. Verificare: Verifică un eșantion de legături. Fișiere: entity-relationships.json, backend/onsite.mjs",
+      "url": "https://firmsfinder.eu/semnale/#AI-12",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/semnale/#set-web-ai"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/semnale/#AI-13",
+      "termCode": "AI-13",
+      "name": "Proveniența surselor",
+      "description": "Scop: Fiecare fapt important are origine trasabilă. Conținut: Claim ID, source ID/URL, dată, stare. Unde: /source-provenance.json și DB. Cum: Înregistrează proveniența la import și modificare. Verificare: Reconstituie sursa unui fapt din profil. Fișiere: source-provenance.json",
+      "url": "https://firmsfinder.eu/semnale/#AI-13",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/semnale/#set-web-ai"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/semnale/#AI-14",
+      "termCode": "AI-14",
+      "name": "Data freshness",
+      "description": "Scop: Politica și istoricul actualizării datelor. Conținut: Set de date, ultim import reușit, frecvență. Unde: /data-freshness.json. Cum: Actualizează metadatele numai după import reușit. Verificare: Compară cu logurile pipeline-ului. Fișiere: data-freshness.json, backend/onsite.mjs",
+      "url": "https://firmsfinder.eu/semnale/#AI-14",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/semnale/#set-web-ai"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/semnale/#AI-15",
+      "termCode": "AI-15",
+      "name": "AI summary blocks",
+      "description": "Scop: Rezumate scurte bazate pe fapte verificabile. Conținut: Entitate, rezumat, surse. Unde: HTML și /ai-summary-blocks.json. Cum: Generează din date și marchează incertitudinile. Verificare: Fiecare propoziție are suport. Fișiere: ai-summary-blocks.json, surse/index.html",
+      "url": "https://firmsfinder.eu/semnale/#AI-15",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/semnale/#set-web-ai"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/semnale/#AI-16",
+      "termCode": "AI-16",
+      "name": "Tabele extractibile",
+      "description": "Scop: Tabele semantice ușor de interpretat. Conținut: thead, tbody, th, td, antete corecte. Unde: Pagini HTML și /extractable-tables.json opțional. Cum: Folosește HTML semantic, nu text aliniat vizual. Verificare: Parserul extrage rânduri și coloane corect. Fișiere: extractable-tables.json",
+      "url": "https://firmsfinder.eu/semnale/#AI-16",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/semnale/#set-web-ai"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/semnale/#AI-17",
+      "termCode": "AI-17",
+      "name": "RAG chunk map",
+      "description": "Scop: Fragmente identificabile cu sursă și versiune. Conținut: Chunk ID, URL, hash, poziție. Unde: /rag-chunk-map.json sau index intern. Cum: Segmentează documente și păstrează referințele. Verificare: Recuperează chunk și verifică hash/sursă. Fișiere: rag-chunk-map.json, backend/onsite.mjs",
+      "url": "https://firmsfinder.eu/semnale/#AI-17",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/semnale/#set-web-ai"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/semnale/#AI-18",
+      "termCode": "AI-18",
+      "name": "Politica de citare",
+      "description": "Scop: Reguli de atribuire a afirmațiilor. Conținut: Tipuri de afirmații, surse cerute, tratarea lipsei. Unde: /ai-citation-policy.json și serviciul AI. Cum: Refuză sau marchează necunoscut faptele nesusținute. Verificare: Testează afirmații fără sursă. Fișiere: ai-citation-policy.json",
+      "url": "https://firmsfinder.eu/semnale/#AI-18",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/semnale/#set-web-ai"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/semnale/#AI-19",
+      "termCode": "AI-19",
+      "name": "Vizibilitate multi-model",
+      "description": "Scop: Observă ce răspund și citează modelele AI. Conținut: Întrebări, model, dată, răspuns, citări. Unde: /ai-visibility-tests.json și results.json. Cum: Execută teste comparabile per model și păstrează rezultate. Verificare: Compară observațiile fără a le numi dovadă factuală. Fișiere: ai-visibility-tests.json",
+      "url": "https://firmsfinder.eu/semnale/#AI-19",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/semnale/#set-web-ai"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/semnale/#AI-20",
+      "termCode": "AI-20",
+      "name": "Detectarea contradicțiilor",
+      "description": "Scop: Semnalează valori incompatibile între surse. Conținut: Claim ID, surse, valori, stare rezolvare. Unde: Motorul de audit și raport. Cum: Compară valori normalizate și escaladează conflictele. Verificare: Introdu contradicție controlată într-un test. Fișiere: contradiction-rules.json, scripts/detect-contradictions.mjs",
+      "url": "https://firmsfinder.eu/semnale/#AI-20",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/semnale/#set-web-ai"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/semnale/#A2A-01",
+      "termCode": "A2A-01",
+      "name": "Agent Card",
+      "description": "Scop: Manifestul de descoperire al agentului A2A. Conținut: Identitate, endpoint, skills, securitate, versiune protocol. Unde: Ruta well-known definită de versiunea A2A. Cum: Publică Agent Card conform schemei versiunii alese. Verificare: Validează schema cu SDK/client independent. Fișiere: a2a-status.json, backend/onsite.mjs",
+      "url": "https://firmsfinder.eu/semnale/#A2A-01",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/semnale/#set-web-a2a"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/semnale/#A2A-02",
+      "termCode": "A2A-02",
+      "name": "Identitatea agentului",
+      "description": "Scop: Operatorul și versiunea agentului sunt identificabile. Conținut: ID, operator legal, domeniu, versiune. Unde: Configurația agentului și Agent Card. Cum: Corelează identitatea tehnică cu operatorul autorizat. Verificare: Verifică domeniul, versiunea și datele operatorului. Fișiere: agent-identity.json",
+      "url": "https://firmsfinder.eu/semnale/#A2A-02",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/semnale/#set-web-a2a"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/semnale/#A2A-03",
+      "termCode": "A2A-03",
+      "name": "Capabilități declarate",
+      "description": "Scop: Agentul promite numai operațiuni implementate. Conținut: company.search, company.get, company.compare. Unde: Agent Card și registrul capabilităților. Cum: Elimină skillurile care nu funcționează. Verificare: Rulează teste pentru fiecare capabilitate. Fișiere: agent-capabilities.json",
+      "url": "https://firmsfinder.eu/semnale/#A2A-03",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/semnale/#set-web-a2a"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/semnale/#A2A-04",
+      "termCode": "A2A-04",
+      "name": "Skills și contracte",
+      "description": "Scop: Fiecare skill are descriere și exemple precise. Conținut: ID, descriere, input, output, exemple. Unde: Agent Card și contractele API. Cum: Definește contractele fiecărei funcții. Verificare: Rulează exemplele documentate. Fișiere: a2a-contracts.json",
+      "url": "https://firmsfinder.eu/semnale/#A2A-04",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/semnale/#set-web-a2a"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/semnale/#A2A-05",
+      "termCode": "A2A-05",
+      "name": "Endpoint operațional",
+      "description": "Scop: Serverul primește și răspunde prin protocolul A2A. Conținut: HTTPS, transport, metode și răspunsuri conforme. Unde: Endpoint declarat de Agent Card. Cum: Implementează transportul A2A, nu doar REST generic. Verificare: Client A2A extern trimite cerere validă. Fișiere: backend/onsite.mjs",
+      "url": "https://firmsfinder.eu/semnale/#A2A-05",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/semnale/#set-web-a2a"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/semnale/#A2A-06",
+      "termCode": "A2A-06",
+      "name": "Descoperire",
+      "description": "Scop: Un client găsește cardul și endpoint-ul. Conținut: Rută de discovery, card și adrese corecte. Unde: /.well-known/ conform versiunii. Cum: Configurează ruta de descoperire și cache adecvat. Verificare: Clientul descarcă și parsează cardul. Fișiere: backend/onsite.mjs",
+      "url": "https://firmsfinder.eu/semnale/#A2A-06",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/semnale/#set-web-a2a"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/semnale/#A2A-07",
+      "termCode": "A2A-07",
+      "name": "Schema intrărilor",
+      "description": "Scop: Parametrii cererii sunt validați strict. Conținut: Tipuri, limite, câmpuri obligatorii. Unde: Backend și validator JSON Schema. Cum: Respinge input invalid și limite excesive. Verificare: Testează valori lipsă, invalide și extreme. Fișiere: a2a-input-schema.json, backend/onsite.mjs",
+      "url": "https://firmsfinder.eu/semnale/#A2A-07",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/semnale/#set-web-a2a"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/semnale/#A2A-08",
+      "termCode": "A2A-08",
+      "name": "Schema ieșirilor",
+      "description": "Scop: Rezultatul are structură previzibilă și surse. Conținut: Status, rezultate, proveniență, erori. Unde: Backend și contracte. Cum: Construiește răspunsuri conforme cu transportul. Verificare: Validatorul acceptă răspunsul complet. Fișiere: a2a-output-schema.json, backend/onsite.mjs",
+      "url": "https://firmsfinder.eu/semnale/#A2A-08",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/semnale/#set-web-a2a"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/semnale/#A2A-09",
+      "termCode": "A2A-09",
+      "name": "Autentificare",
+      "description": "Scop: Verifică identitatea clientului pentru acces protejat. Conținut: Token/OAuth sau mecanism adecvat; revocare. Unde: Gateway și backend. Cum: Configurează autentificarea fără a publica secrete. Verificare: Cereri neautorizate sunt respinse. Fișiere: authentication-policy.json, backend/onsite.mjs",
+      "url": "https://firmsfinder.eu/semnale/#A2A-09",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/semnale/#set-web-a2a"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/semnale/#A2A-10",
+      "termCode": "A2A-10",
+      "name": "Autorizare și mandat",
+      "description": "Scop: Capabilitatea nu înseamnă permisiune. Conținut: Roluri, acțiuni permise/interzise, scop. Unde: Motorul de politici. Cum: Aplică control per operațiune și client. Verificare: Testează interdicția order.create pentru read-only. Fișiere: agent-mandate.json, backend/onsite.mjs",
+      "url": "https://firmsfinder.eu/semnale/#A2A-10",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/semnale/#set-web-a2a"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/semnale/#A2A-11",
+      "termCode": "A2A-11",
+      "name": "Ciclul sarcinilor",
+      "description": "Scop: Sarcinile au ID și tranziții urmărite. Conținut: Task ID, status, erori, rezultate. Unde: Backend A2A și stocarea taskurilor. Cum: Implementează stările protocolului ales. Verificare: Testează tranziții, eșec și anulare. Fișiere: backend/onsite.mjs, backend/001_onsite.sql",
+      "url": "https://firmsfinder.eu/semnale/#A2A-11",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/semnale/#set-web-a2a"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/semnale/#A2A-12",
+      "termCode": "A2A-12",
+      "name": "Aprobare umană HITL",
+      "description": "Scop: Acțiunile sensibile așteaptă aprobare. Conținut: Cerere, aprobator, decizie, timp. Unde: Admin UI și motorul de politici. Cum: Blochează execuția până la aprobare validă. Verificare: Testează pending, reject și approve. Fișiere: human-approval-policy.json",
+      "url": "https://firmsfinder.eu/semnale/#A2A-12",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/semnale/#set-web-a2a"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/semnale/#A2A-13",
+      "termCode": "A2A-13",
+      "name": "Limite și bugete",
+      "description": "Scop: Controlează consumul și abuzul. Conținut: Cereri/minut, rezultate, cost, client. Unde: Gateway/Worker și DB. Cum: Implementează rate limits și cote. Verificare: Depășirea limitei este tratată corect. Fișiere: rate-limit-policy.json, backend/onsite.mjs",
+      "url": "https://firmsfinder.eu/semnale/#A2A-13",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/semnale/#set-web-a2a"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/semnale/#A2A-14",
+      "termCode": "A2A-14",
+      "name": "Audit trail",
+      "description": "Scop: Păstrează trasabilitatea interacțiunilor. Conținut: Event ID, task, agent, versiune, rezultat. Unde: Jurnal D1 sau echivalent. Cum: Înregistrează evenimente fără date excesive. Verificare: Reconstituie o cerere și răspunsul. Fișiere: audit-policy.json, backend/onsite.mjs",
+      "url": "https://firmsfinder.eu/semnale/#A2A-14",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/semnale/#set-web-a2a"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/semnale/#A2A-15",
+      "termCode": "A2A-15",
+      "name": "Interoperabilitate",
+      "description": "Scop: Un client A2A independent folosește agentul. Conținut: Scenariu, transcript, versiuni, rezultat. Unde: Suita de teste end-to-end. Cum: Testează cu client extern compatibil. Verificare: Păstrează transcript și raport reproductibil. Fișiere: interop-test-plan.json",
+      "url": "https://firmsfinder.eu/semnale/#A2A-15",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/semnale/#set-web-a2a"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/semnale/#RRVI-01",
+      "termCode": "RRVI-01",
+      "name": "Cerință identificabilă",
+      "description": "Scop: Fiecare obiectiv are ID și acceptanță. Conținut: ID, descriere, responsabil, criteriu. Unde: Registrul de cerințe. Cum: Asociază cerințe cu teste și controale. Verificare: Orice cerință poate fi testată. Fișiere: requirements.json",
+      "url": "https://firmsfinder.eu/semnale/#RRVI-01",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/semnale/#set-rrvi"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/semnale/#RRVI-02",
+      "termCode": "RRVI-02",
+      "name": "Control implementat",
+      "description": "Scop: O regulă tehnică aplică cerința. Conținut: Control ID, cerință, implementare, test. Unde: Cod, configurație, procedură. Cum: Implementează și documentează controlul. Verificare: Testul confirmă aplicarea regulii. Fișiere: controls.json",
+      "url": "https://firmsfinder.eu/semnale/#RRVI-02",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/semnale/#set-rrvi"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/semnale/#RRVI-03",
+      "termCode": "RRVI-03",
+      "name": "Proveniența afirmațiilor",
+      "description": "Scop: O afirmație poate fi urmărită la origine. Conținut: Claim ID, source ID, dată, stare. Unde: Registrul de proveniență. Cum: Leagă afirmația de dovada exactă. Verificare: Sursa chiar susține afirmația. Fișiere: source-provenance.json",
+      "url": "https://firmsfinder.eu/semnale/#RRVI-03",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/semnale/#set-rrvi"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/semnale/#RRVI-04",
+      "termCode": "RRVI-04",
+      "name": "Integritate SHA-256",
+      "description": "Scop: Detectează modificarea octeților unui artefact. Conținut: Fișier, hash, versiune. Unde: Manifest de dovezi. Cum: Calculează SHA-256 după finalizare. Verificare: Recalcularea produce același hash. Fișiere: proof.json",
+      "url": "https://firmsfinder.eu/semnale/#RRVI-04",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/semnale/#set-rrvi"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/semnale/#RRVI-05",
+      "termCode": "RRVI-05",
+      "name": "Dovadă temporală",
+      "description": "Scop: Documentează existența unui artefact la un moment. Conținut: UTC, hash, dovadă OTS dacă există. Unde: Manifest și timestamp service. Cum: Ancorează hash-ul când este justificat. Verificare: Verifică timestampul și dovada OTS. Fișiere: timestamp-policy.json",
+      "url": "https://firmsfinder.eu/semnale/#RRVI-05",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/semnale/#set-rrvi"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/semnale/#RRVI-06",
+      "termCode": "RRVI-06",
+      "name": "GDPR și drepturi",
+      "description": "Scop: Datele sunt utilizate conform temeiurilor și licențelor. Conținut: Categorii date, surse, temei, retenție. Unde: Registru de conformitate. Cum: Evaluează datele personale și drepturile de reutilizare. Verificare: Revizie juridică și teste de rectificare. Fișiere: data-rights-register.json",
+      "url": "https://firmsfinder.eu/semnale/#RRVI-06",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/semnale/#set-rrvi"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/semnale/#RRVI-07",
+      "termCode": "RRVI-07",
+      "name": "Securitatea API",
+      "description": "Scop: Previne accesul și manipularea neautorizate. Conținut: AuthN, AuthZ, validare, rate limits, secrete. Unde: Gateway, Worker, backend. Cum: Aplică controale și rotește secretele. Verificare: Teste negative și scanări de securitate. Fișiere: security-controls.json, backend/onsite.mjs",
+      "url": "https://firmsfinder.eu/semnale/#RRVI-07",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/semnale/#set-rrvi"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/semnale/#RRVI-08",
+      "termCode": "RRVI-08",
+      "name": "Versionare",
+      "description": "Scop: Identifică exact codul și datele folosite. Conținut: Commit, versiune dataset, API, deployment. Unde: GitHub și manifest. Cum: Înregistrează versiunile în fiecare execuție. Verificare: Poți reproduce rezultatul din versiuni. Fișiere: version.json",
+      "url": "https://firmsfinder.eu/semnale/#RRVI-08",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/semnale/#set-rrvi"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/semnale/#RRVI-09",
+      "termCode": "RRVI-09",
+      "name": "Monitorizare",
+      "description": "Scop: Repetă testele și detectează regresii. Conținut: Semnal, verdict, timestamp, delta, dovadă. Unde: Sistem de audit periodic. Cum: Automatizează execuția și păstrează istoricul. Verificare: Compară rapoarte și alerte. Fișiere: monitoring-plan.json, scripts/verify-live.mjs",
+      "url": "https://firmsfinder.eu/semnale/#RRVI-09",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/semnale/#set-rrvi"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/semnale/#RRVI-10",
+      "termCode": "RRVI-10",
+      "name": "Verificare independentă",
+      "description": "Scop: Evaluator separat reproduce testele. Conținut: Validator, metodă, rezultate, discrepanțe. Unde: Registru de validare. Cum: Solicită reproducerea fără a te baza pe auto-declarații. Verificare: Raportul conține probe și limitări. Fișiere: independent-validation.json",
+      "url": "https://firmsfinder.eu/semnale/#RRVI-10",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/semnale/#set-rrvi"
+      }
     },
     {
       "@type": "BreadcrumbList",
@@ -92,10 +1491,64 @@
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "Cele 60 de semnale ON-SITE",
+          "name": "Semnale",
           "item": "https://firmsfinder.eu/semnale/"
         }
       ]
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "@id": "https://firmsfinder.eu/semnale/#nav-1",
+      "name": "Acasă",
+      "url": "https://firmsfinder.eu/",
+      "isPartOf": {
+        "@id": "https://firmsfinder.eu/semnale/#webpage"
+      }
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "@id": "https://firmsfinder.eu/semnale/#nav-2",
+      "name": "Căutare",
+      "url": "https://firmsfinder.eu/cautare/",
+      "isPartOf": {
+        "@id": "https://firmsfinder.eu/semnale/#webpage"
+      }
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "@id": "https://firmsfinder.eu/semnale/#nav-3",
+      "name": "Comparare",
+      "url": "https://firmsfinder.eu/comparare/",
+      "isPartOf": {
+        "@id": "https://firmsfinder.eu/semnale/#webpage"
+      }
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "@id": "https://firmsfinder.eu/semnale/#nav-4",
+      "name": "Semnale",
+      "url": "https://firmsfinder.eu/semnale/",
+      "isPartOf": {
+        "@id": "https://firmsfinder.eu/semnale/#webpage"
+      }
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "@id": "https://firmsfinder.eu/semnale/#nav-5",
+      "name": "Surse",
+      "url": "https://firmsfinder.eu/surse/",
+      "isPartOf": {
+        "@id": "https://firmsfinder.eu/semnale/#webpage"
+      }
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "@id": "https://firmsfinder.eu/semnale/#nav-6",
+      "name": "Contact",
+      "url": "https://firmsfinder.eu/contact/",
+      "isPartOf": {
+        "@id": "https://firmsfinder.eu/semnale/#webpage"
+      }
     }
   ]
 }
