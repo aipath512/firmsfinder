@@ -68,7 +68,7 @@
       "type": "Service",
       "name": "FREE DATA",
       "description": "Acces gratuit la date oficiale publice despre firme, in limitele surselor si functionalitatilor disponibile.",
-      "url": "https://firmsfinder.eu/cauta/",
+      "url": "https://firmsfinder.eu/cautare/",
       "provider_ref": "https://aiventure.ro/#organization",
       "pricing_model": "FREE",
       "price_eur": 0,

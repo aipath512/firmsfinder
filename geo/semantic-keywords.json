@@ -73,7 +73,7 @@
         "https://firmsfinder.eu/#caen"
       ],
       "target_pages": [
-        "https://firmsfinder.eu/cauta/"
+        "https://firmsfinder.eu/cautare/"
       ],
       "evidence_refs": []
     },
@@ -488,7 +488,7 @@
       ],
       "target_pages": [
         "https://firmsfinder.eu/",
-        "https://firmsfinder.eu/cauta/"
+        "https://firmsfinder.eu/cautare/"
       ],
       "evidence_refs": []
     }
