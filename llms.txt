@@ -19,7 +19,7 @@ FirmsFinder propune trei moduri de lucru: CAUTĂ (firme după activitate, județ
 
 ## Acoperire geografică
 
-- România: acoperirea curentă. Datele provin din registrele publice românești (peste 1,7 milioane de firme în CSV oficial, din care peste 1 milion active).
+- România: acoperirea curentă. Datele provin din registrele publice românești (peste 1,7 milioane de firme active în registrul ONRC, setul din 02.09.2026; cifra exactă este pe pagina /date/).
 - Uniunea Europeană: următoarea etapă de dezvoltare. Nu este declarată ca realizată; până la publicarea surselor și a datelor pentru alte state membre, FirmsFinder nu oferă acoperire în afara României.
 
 ## Date și limite
