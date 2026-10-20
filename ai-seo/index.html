@@ -28,6 +28,108 @@
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "Organization",
+      "@id": "https://aiventure.ro/#organization",
+      "name": "AiVenture S.R.L.",
+      "legalName": "AiVenture S.R.L.",
+      "alternateName": "AiVenture",
+      "url": "https://aiventure.ro/",
+      "logo": "https://aiventure.ro/icon.svg",
+      "image": "https://aiventure.ro/assets/brand/logo_512w.png",
+      "email": "contact@5thelement.ai",
+      "telephone": "+40 737 123 540",
+      "description": "AiVenture oferă servicii pentru Web-Om, Web-AI și Web-A2A și produse pentru analiză, implementare și infrastructură AI/A2A.",
+      "foundingDate": "2025-03-07",
+      "taxID": "51415878",
+      "vatID": "RO51415878",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "CUI",
+          "value": "51415878"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "Nr. Registrul Comerțului",
+          "value": "J2025016406000"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "EUID",
+          "value": "ROONRC.J2025016406000"
+        }
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Drumul Pădurea Pustnicul nr. 141C, Corp A, Etaj 2, Ap. 5",
+        "addressLocality": "București",
+        "addressRegion": "Sector 1",
+        "postalCode": "014044",
+        "addressCountry": "RO"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "informații comerciale",
+        "email": "contact@5thelement.ai",
+        "telephone": "+40 737 123 540",
+        "availableLanguage": [
+          "ro"
+        ]
+      },
+      "founder": {
+        "@type": "Person",
+        "name": "Dan Ionescu",
+        "sameAs": [
+          "https://orcid.org/0009-0002-5498-1046",
+          "https://ro.linkedin.com/in/dan-ionesco-a856082a0"
+        ]
+      },
+      "employee": {
+        "@type": "Person",
+        "name": "Gratiela Ionescu",
+        "jobTitle": "Administrator"
+      },
+      "brand": {
+        "@id": "https://firmsfinder.eu/#brand"
+      },
+      "sameAs": [
+        "https://www.reddit.com/user/AiVentureRO/",
+        "https://www.linkedin.com/company/107338970",
+        "https://www.linkedin.com/showcase/5thelement-ai/",
+        "https://www.crunchbase.com/organization/aiventure-s-r-l",
+        "https://www.facebook.com/people/Aiventure/61573220584246/",
+        "https://x.com/aipath512",
+        "https://www.youtube.com/@AIVenture-q8u",
+        "https://medium.com/@aipath512"
+      ]
+    },
+    {
+      "@type": "Brand",
+      "@id": "https://firmsfinder.eu/#brand",
+      "name": "FirmsFinder AI",
+      "url": "https://firmsfinder.eu/",
+      "slogan": "Economic Intelligence"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://firmsfinder.eu/#website",
+      "url": "https://firmsfinder.eu/",
+      "name": "FirmsFinder AI",
+      "inLanguage": "ro-RO",
+      "publisher": {
+        "@id": "https://aiventure.ro/#organization"
+      },
+      "publishingPrinciples": "https://firmsfinder.eu/legal/ai-transparency",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://firmsfinder.eu/cautare/?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
       "@type": "WebPage",
       "@id": "https://firmsfinder.eu/ai-seo/#webpage",
       "url": "https://firmsfinder.eu/ai-seo/",
@@ -39,7 +141,18 @@
       "inLanguage": "ro-RO",
       "primaryImageOfPage": {
         "@type": "ImageObject",
-        "url": "https://firmsfinder.eu/assets/og-image.webp"
+        "@id": "https://firmsfinder.eu/ai-seo/#primaryimage",
+        "url": "https://firmsfinder.eu/assets/og-image.webp",
+        "contentUrl": "https://firmsfinder.eu/assets/og-image.webp",
+        "caption": "FirmsFinder AI — date, relații economice și oportunități"
+      },
+      "about": [
+        {
+          "@id": "https://firmsfinder.eu/#termen-ai-seo"
+        }
+      ],
+      "mainEntity": {
+        "@id": "https://firmsfinder.eu/ai-seo/#article"
       },
       "dateModified": "2026-10-17",
       "datePublished": "2026-10-17",
@@ -61,27 +174,203 @@
       "breadcrumb": {
         "@id": "https://firmsfinder.eu/ai-seo/#breadcrumb"
       },
-      "about": {
-        "@type": "Thing",
-        "name": "AI-SEO pentru căutările AI"
-      }
+      "significantLink": [
+        "https://firmsfinder.eu/",
+        "https://firmsfinder.eu/geo/",
+        "https://firmsfinder.eu/aeo/",
+        "https://firmsfinder.eu/aio/",
+        "https://firmsfinder.eu/on-site/",
+        "https://firmsfinder.eu/on-page/",
+        "https://firmsfinder.eu/legal/terms"
+      ]
     },
     {
-      "@type": "WebSite",
-      "@id": "https://firmsfinder.eu/#website",
-      "url": "https://firmsfinder.eu/",
-      "name": "FirmsFinder AI",
+      "@type": "TechArticle",
+      "@id": "https://firmsfinder.eu/ai-seo/#article",
+      "headline": "AI-SEO — Optimizare pentru căutările AI",
+      "abstract": "Ghid AI-SEO: pregătește conținutul pentru Google AI Overviews și motoare AI, cu exemple, checklist și verificări fără promisiuni de citare.",
+      "description": "Ghid AI-SEO: pregătește conținutul pentru Google AI Overviews și motoare AI, cu exemple, checklist și verificări fără promisiuni de citare.",
+      "inLanguage": "ro-RO",
+      "url": "https://firmsfinder.eu/ai-seo/",
+      "mainEntityOfPage": {
+        "@id": "https://firmsfinder.eu/ai-seo/#webpage"
+      },
+      "about": {
+        "@id": "https://firmsfinder.eu/#termen-ai-seo"
+      },
+      "author": {
+        "@id": "https://aiventure.ro/#organization"
+      },
       "publisher": {
         "@id": "https://aiventure.ro/#organization"
       },
-      "inLanguage": "ro-RO",
-      "publishingPrinciples": "https://firmsfinder.eu/legal/ai-transparency"
+      "dateModified": "2026-10-17",
+      "datePublished": "2026-10-17",
+      "image": "https://firmsfinder.eu/assets/og-image.webp",
+      "isAccessibleForFree": true,
+      "proficiencyLevel": "Beginner",
+      "usageInfo": "https://firmsfinder.eu/legal/terms",
+      "articleSection": [
+        "Ce înseamnă AI-SEO?",
+        "6 pași practici",
+        "Exemplu simplu",
+        "Întrebări frecvente",
+        "Continuă optimizarea"
+      ]
     },
     {
-      "@type": "Organization",
-      "@id": "https://aiventure.ro/#organization",
-      "name": "AiVenture S.R.L.",
-      "url": "https://aiventure.ro/"
+      "@type": "DefinedTermSet",
+      "@id": "https://firmsfinder.eu/#termeni",
+      "name": "SEO modern în era AI",
+      "hasDefinedTerm": [
+        {
+          "@id": "https://firmsfinder.eu/#termen-geo"
+        },
+        {
+          "@id": "https://firmsfinder.eu/#termen-aeo"
+        },
+        {
+          "@id": "https://firmsfinder.eu/#termen-ai-seo"
+        },
+        {
+          "@id": "https://firmsfinder.eu/#termen-on-site"
+        },
+        {
+          "@id": "https://firmsfinder.eu/#termen-on-page"
+        }
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/#termen-geo",
+      "termCode": "GEO",
+      "name": "Generative Engine Optimization",
+      "description": "Pregătire pentru citarea în răspunsurile AI.",
+      "url": "https://firmsfinder.eu/geo/",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/#termeni"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/#termen-aeo",
+      "termCode": "AEO",
+      "name": "Answer Engine Optimization",
+      "description": "Răspunsuri clare, structurate, ușor de extras.",
+      "url": "https://firmsfinder.eu/aeo/",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/#termeni"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/#termen-ai-seo",
+      "termCode": "AI-SEO",
+      "name": "AI-SEO",
+      "description": "Conținut optimizat pentru căutările AI și Google AI Overviews.",
+      "url": "https://firmsfinder.eu/ai-seo/",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/#termeni"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/#termen-on-site",
+      "termCode": "ON-SITE",
+      "name": "ON-SITE",
+      "description": "Structură, date structurate, performanță și accesibilitate.",
+      "url": "https://firmsfinder.eu/on-site/",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/#termeni"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/#termen-on-page",
+      "termCode": "ON-PAGE",
+      "name": "ON-PAGE",
+      "description": "Titluri, descrieri, FAQ, intenții și dovezi pentru AI.",
+      "url": "https://firmsfinder.eu/on-page/",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/#termeni"
+      }
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://firmsfinder.eu/ai-seo/#6-pasi-practici-carduri",
+      "name": "6 pași practici",
+      "numberOfItems": 6,
+      "itemListOrder": "https://schema.org/ItemListOrderAscending",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Intenții",
+          "description": "Identifică întrebările reale și scopul vizitatorului."
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Conținut explicit",
+          "description": "Descrie precis serviciile, beneficiarii, condițiile și limitele."
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Structură",
+          "description": "Folosește titluri logice, tabele și răspunsuri clare."
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Entități",
+          "description": "Identifică firma, serviciile și sursele fără ambiguitate."
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "Date structurate",
+          "description": "Folosește Schema.org numai pentru informații reale, vizibile pe pagină."
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "name": "Verificare",
+          "description": "Testează accesibilitatea, indexarea și rezultatele observate înainte și după."
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://firmsfinder.eu/ai-seo/#faq",
+      "name": "Întrebări frecvente: AI-SEO",
+      "inLanguage": "ro-RO",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "AI-SEO este același lucru cu GEO?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Se suprapun. GEO se concentrează pe vizibilitatea în răspunsurile generative, iar AI-SEO este o etichetă mai largă pentru optimizarea căutării asistate de AI."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "AI-SEO garantează citări?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nu. Citarea depinde de sistem, recuperare, relevanță și alte criterii."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Trebuie să creez texte diferite pentru fiecare model?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nu neapărat. Începe cu un conținut canonic, precis și verificabil; apoi măsoară diferențele observate."
+          }
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",
@@ -100,6 +389,60 @@
           "item": "https://firmsfinder.eu/ai-seo/"
         }
       ]
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "@id": "https://firmsfinder.eu/ai-seo/#nav-1",
+      "name": "Acasă",
+      "url": "https://firmsfinder.eu/",
+      "isPartOf": {
+        "@id": "https://firmsfinder.eu/ai-seo/#webpage"
+      }
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "@id": "https://firmsfinder.eu/ai-seo/#nav-2",
+      "name": "GEO",
+      "url": "https://firmsfinder.eu/geo/",
+      "isPartOf": {
+        "@id": "https://firmsfinder.eu/ai-seo/#webpage"
+      }
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "@id": "https://firmsfinder.eu/ai-seo/#nav-3",
+      "name": "AEO",
+      "url": "https://firmsfinder.eu/aeo/",
+      "isPartOf": {
+        "@id": "https://firmsfinder.eu/ai-seo/#webpage"
+      }
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "@id": "https://firmsfinder.eu/ai-seo/#nav-4",
+      "name": "AIO",
+      "url": "https://firmsfinder.eu/aio/",
+      "isPartOf": {
+        "@id": "https://firmsfinder.eu/ai-seo/#webpage"
+      }
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "@id": "https://firmsfinder.eu/ai-seo/#nav-5",
+      "name": "ON-SITE",
+      "url": "https://firmsfinder.eu/on-site/",
+      "isPartOf": {
+        "@id": "https://firmsfinder.eu/ai-seo/#webpage"
+      }
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "@id": "https://firmsfinder.eu/ai-seo/#nav-6",
+      "name": "ON-PAGE",
+      "url": "https://firmsfinder.eu/on-page/",
+      "isPartOf": {
+        "@id": "https://firmsfinder.eu/ai-seo/#webpage"
+      }
     }
   ]
 }
