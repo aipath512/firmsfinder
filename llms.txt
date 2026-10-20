@@ -24,7 +24,7 @@ FirmsFinder propune trei moduri de lucru: CAUTĂ (firme după activitate, județ
 
 ## Date și limite
 
-- Datele provin din surse publice oficiale (ONRC, Ministerul Finanțelor, Monitorul Oficial); starea fiscală ANAF nu este integrată în demonstrația actuală; accesul la aceste surse este gratuit.
+- Datele provin din surse publice, actualizate lunar, cu data.gov.ro ca referință (ONRC și Ministerul Finanțelor); starea fiscală ANAF nu este integrată în demonstrația actuală; accesul la aceste surse este gratuit.
 - Indicatorii financiari sunt istorici, nu în timp real. Verificați întotdeauna informațiile importante la sursă.
 - Un cod CAEN, un scor sau o inferență nu dovedesc o relație comercială, o nevoie sau o intenție de cumpărare: compatibilitate ≠ nevoie, semnal ≠ intenție, candidat ≠ client.
 - Starea funcțiilor este declarată separat: catalogul de semnale marchează fiecare semnal ca NOT_DEPLOYED sau UNKNOWN până la verificare. Nu considerați o funcție operațională doar pentru că este descrisă.
