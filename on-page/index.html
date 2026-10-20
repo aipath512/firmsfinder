@@ -23,10 +23,111 @@
 <meta name="author" content="AiVenture S.R.L.">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 
-<script type="application/ld+json">
-{
+<script type="application/ld+json">{
   "@context": "https://schema.org",
   "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://aiventure.ro/#organization",
+      "name": "AiVenture S.R.L.",
+      "legalName": "AiVenture S.R.L.",
+      "alternateName": "AiVenture",
+      "url": "https://aiventure.ro/",
+      "logo": "https://aiventure.ro/icon.svg",
+      "image": "https://aiventure.ro/assets/brand/logo_512w.png",
+      "email": "contact@5thelement.ai",
+      "telephone": "+40 737 123 540",
+      "description": "AiVenture oferă servicii pentru Web-Om, Web-AI și Web-A2A și produse pentru analiză, implementare și infrastructură AI/A2A.",
+      "foundingDate": "2025-03-07",
+      "taxID": "51415878",
+      "vatID": "RO51415878",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "CUI",
+          "value": "51415878"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "Nr. Registrul Comerțului",
+          "value": "J2025016406000"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "EUID",
+          "value": "ROONRC.J2025016406000"
+        }
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Drumul Pădurea Pustnicul nr. 141C, Corp A, Etaj 2, Ap. 5",
+        "addressLocality": "București",
+        "addressRegion": "Sector 1",
+        "postalCode": "014044",
+        "addressCountry": "RO"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "informații comerciale",
+        "email": "contact@5thelement.ai",
+        "telephone": "+40 737 123 540",
+        "availableLanguage": [
+          "ro"
+        ]
+      },
+      "founder": {
+        "@type": "Person",
+        "name": "Dan Ionescu",
+        "sameAs": [
+          "https://orcid.org/0009-0002-5498-1046",
+          "https://ro.linkedin.com/in/dan-ionesco-a856082a0"
+        ]
+      },
+      "employee": {
+        "@type": "Person",
+        "name": "Gratiela Ionescu",
+        "jobTitle": "Administrator"
+      },
+      "brand": {
+        "@id": "https://firmsfinder.eu/#brand"
+      },
+      "sameAs": [
+        "https://www.reddit.com/user/AiVentureRO/",
+        "https://www.linkedin.com/company/107338970",
+        "https://www.linkedin.com/showcase/5thelement-ai/",
+        "https://www.crunchbase.com/organization/aiventure-s-r-l",
+        "https://www.facebook.com/people/Aiventure/61573220584246/",
+        "https://x.com/aipath512",
+        "https://www.youtube.com/@AIVenture-q8u",
+        "https://medium.com/@aipath512"
+      ]
+    },
+    {
+      "@type": "Brand",
+      "@id": "https://firmsfinder.eu/#brand",
+      "name": "FirmsFinder AI",
+      "url": "https://firmsfinder.eu/",
+      "slogan": "Economic Intelligence"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://firmsfinder.eu/#website",
+      "url": "https://firmsfinder.eu/",
+      "name": "FirmsFinder AI",
+      "inLanguage": "ro-RO",
+      "publisher": {
+        "@id": "https://aiventure.ro/#organization"
+      },
+      "publishingPrinciples": "https://firmsfinder.eu/legal/ai-transparency",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://firmsfinder.eu/cautare/?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    },
     {
       "@type": "WebPage",
       "@id": "https://firmsfinder.eu/on-page/#webpage",
@@ -39,7 +140,18 @@
       "inLanguage": "ro-RO",
       "primaryImageOfPage": {
         "@type": "ImageObject",
-        "url": "https://firmsfinder.eu/assets/og-image.webp"
+        "@id": "https://firmsfinder.eu/on-page/#primaryimage",
+        "url": "https://firmsfinder.eu/assets/og-image.webp",
+        "contentUrl": "https://firmsfinder.eu/assets/og-image.webp",
+        "caption": "FirmsFinder AI — date, relații economice și oportunități"
+      },
+      "about": [
+        {
+          "@id": "https://firmsfinder.eu/#termen-on-page"
+        }
+      ],
+      "mainEntity": {
+        "@id": "https://firmsfinder.eu/on-page/#article"
       },
       "dateModified": "2026-10-17",
       "datePublished": "2026-10-17",
@@ -61,27 +173,439 @@
       "breadcrumb": {
         "@id": "https://firmsfinder.eu/on-page/#breadcrumb"
       },
-      "about": {
-        "@type": "Thing",
-        "name": "ON-PAGE SEO & AI Readiness"
-      }
+      "significantLink": [
+        "https://firmsfinder.eu/",
+        "https://firmsfinder.eu/on-site/",
+        "https://firmsfinder.eu/geo/",
+        "https://firmsfinder.eu/aeo/",
+        "https://firmsfinder.eu/aio/",
+        "https://firmsfinder.eu/legal/terms"
+      ]
     },
     {
-      "@type": "WebSite",
-      "@id": "https://firmsfinder.eu/#website",
-      "url": "https://firmsfinder.eu/",
-      "name": "FirmsFinder AI",
+      "@type": "TechArticle",
+      "@id": "https://firmsfinder.eu/on-page/#article",
+      "headline": "ON-PAGE SEO & AI Readiness",
+      "abstract": "Ghid gratuit ON-PAGE: optimizarea fiecărei pagini pentru oameni, Google și sisteme AI. 12 elemente, 10 exemple, checklist și FAQ.",
+      "description": "Ghid gratuit ON-PAGE: optimizarea fiecărei pagini pentru oameni, Google și sisteme AI. 12 elemente, 10 exemple, checklist și FAQ.",
+      "inLanguage": "ro-RO",
+      "url": "https://firmsfinder.eu/on-page/",
+      "mainEntityOfPage": {
+        "@id": "https://firmsfinder.eu/on-page/#webpage"
+      },
+      "about": {
+        "@id": "https://firmsfinder.eu/#termen-on-page"
+      },
+      "author": {
+        "@id": "https://aiventure.ro/#organization"
+      },
       "publisher": {
         "@id": "https://aiventure.ro/#organization"
       },
-      "inLanguage": "ro-RO",
-      "publishingPrinciples": "https://firmsfinder.eu/legal/ai-transparency"
+      "dateModified": "2026-10-17",
+      "datePublished": "2026-10-17",
+      "image": "https://firmsfinder.eu/assets/og-image.webp",
+      "isAccessibleForFree": true,
+      "proficiencyLevel": "Beginner",
+      "usageInfo": "https://firmsfinder.eu/legal/terms",
+      "articleSection": [
+        "Ce este ON-PAGE?",
+        "12 elemente fundamentale",
+        "10 exemple: greșit vs. corect",
+        "De la SEO la GEO, AEO și AIO",
+        "Checklist ON-PAGE în 10 pași",
+        "Greșeli frecvente",
+        "Întrebări frecvente",
+        "Surse tehnice"
+      ],
+      "citation": [
+        {
+          "@id": "https://firmsfinder.eu/on-page/#src-1"
+        },
+        {
+          "@id": "https://firmsfinder.eu/on-page/#src-2"
+        },
+        {
+          "@id": "https://firmsfinder.eu/on-page/#src-3"
+        },
+        {
+          "@id": "https://firmsfinder.eu/on-page/#src-4"
+        }
+      ]
     },
     {
-      "@type": "Organization",
-      "@id": "https://aiventure.ro/#organization",
-      "name": "AiVenture S.R.L.",
-      "url": "https://aiventure.ro/"
+      "@type": "DefinedTermSet",
+      "@id": "https://firmsfinder.eu/#termeni",
+      "name": "SEO modern în era AI",
+      "hasDefinedTerm": [
+        {
+          "@id": "https://firmsfinder.eu/#termen-geo"
+        },
+        {
+          "@id": "https://firmsfinder.eu/#termen-aeo"
+        },
+        {
+          "@id": "https://firmsfinder.eu/#termen-ai-seo"
+        },
+        {
+          "@id": "https://firmsfinder.eu/#termen-on-site"
+        },
+        {
+          "@id": "https://firmsfinder.eu/#termen-on-page"
+        }
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/#termen-geo",
+      "termCode": "GEO",
+      "name": "Generative Engine Optimization",
+      "description": "Pregătire pentru citarea în răspunsurile AI.",
+      "url": "https://firmsfinder.eu/geo/",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/#termeni"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/#termen-aeo",
+      "termCode": "AEO",
+      "name": "Answer Engine Optimization",
+      "description": "Răspunsuri clare, structurate, ușor de extras.",
+      "url": "https://firmsfinder.eu/aeo/",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/#termeni"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/#termen-ai-seo",
+      "termCode": "AI-SEO",
+      "name": "AI-SEO",
+      "description": "Conținut optimizat pentru căutările AI și Google AI Overviews.",
+      "url": "https://firmsfinder.eu/ai-seo/",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/#termeni"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/#termen-on-site",
+      "termCode": "ON-SITE",
+      "name": "ON-SITE",
+      "description": "Structură, date structurate, performanță și accesibilitate.",
+      "url": "https://firmsfinder.eu/on-site/",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/#termeni"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/#termen-on-page",
+      "termCode": "ON-PAGE",
+      "name": "ON-PAGE",
+      "description": "Titluri, descrieri, FAQ, intenții și dovezi pentru AI.",
+      "url": "https://firmsfinder.eu/on-page/",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/#termeni"
+      }
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://firmsfinder.eu/on-page/#12-elemente-fundamentale-carduri",
+      "name": "12 elemente fundamentale",
+      "numberOfItems": 12,
+      "itemListOrder": "https://schema.org/ItemListOrderAscending",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Intenția paginii",
+          "description": "Ce întrebare rezolvă pagina? Ce acțiune vrea vizitatorul să facă?"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Title unic",
+          "description": "Un titlu descriptiv, fără supraîncărcare cu termeni."
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Meta description",
+          "description": "Rezumat convingător; nu este factor direct de ranking."
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "URL și canonical",
+          "description": "Adresă stabilă și canonical care indică versiunea preferată."
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "H1, H2, H3",
+          "description": "Ierarhie lizibilă; un H1 principal este o convenție practică."
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "name": "Conținut verificabil",
+          "description": "Servicii, condiții, prețuri reale, surse și actualizare."
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "name": "Entități și contexte",
+          "description": "Explică cine oferă ce, cui, unde și în ce condiții."
+        },
+        {
+          "@type": "ListItem",
+          "position": 8,
+          "name": "Imagini și alt",
+          "description": "Media optimizate, text alternativ pentru imagini informative."
+        },
+        {
+          "@type": "ListItem",
+          "position": 9,
+          "name": "Linkuri contextuale",
+          "description": "Ancore descriptive spre pagini relevante."
+        },
+        {
+          "@type": "ListItem",
+          "position": 10,
+          "name": "JSON-LD coerent",
+          "description": "Schema.org reflectă conținutul vizibil; nu inventează oferte."
+        },
+        {
+          "@type": "ListItem",
+          "position": 11,
+          "name": "Răspunsuri extrase",
+          "description": "Definiții, tabele și FAQ utile, nu text ascuns pentru boți."
+        },
+        {
+          "@type": "ListItem",
+          "position": 12,
+          "name": "Verificare înainte/după",
+          "description": "Compară HTML, indexabilitate, performanță și rezultate măsurabile."
+        }
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://firmsfinder.eu/on-page/#10-exemple-gresit-vs-corect-carduri",
+      "name": "10 exemple: greșit vs. corect",
+      "numberOfItems": 10,
+      "itemListOrder": "https://schema.org/ItemListOrderAscending",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Title",
+          "description": "Greșit: Acasă | Firma Mea Corect: Contabilitate pentru SRL în București | Exemplu Firmă"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "H1",
+          "description": "Greșit: Bine ați venit Corect: Servicii de contabilitate pentru SRL-uri"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Meta description",
+          "description": "Greșit: Oferim servicii de calitate Corect: Contabilitate pentru SRL-uri: evidență, declarații și raportare. Vezi serviciile și solicită ofertă."
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "URL",
+          "description": "Greșit: /page?id=72 Corect: /servicii/contabilitate-srl/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "H2",
+          "description": "Greșit: Alte informații Corect: Ce include serviciul de contabilitate"
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "name": "Conținut",
+          "description": "Greșit: Suntem lideri și cei mai buni Corect: Lista exactă a serviciilor, condiții și modalitate de ofertare"
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "name": "Imagine",
+          "description": "Greșit: IMG_2002.jpg Corect: consultant-contabil-documente.webp"
+        },
+        {
+          "@type": "ListItem",
+          "position": 8,
+          "name": "Alt text",
+          "description": "Greșit: Imagine Corect: Consultant analizând documente contabile la birou"
+        },
+        {
+          "@type": "ListItem",
+          "position": 9,
+          "name": "Link intern",
+          "description": "Greșit: Click aici Corect: Vezi serviciile de calcul al salariilor"
+        },
+        {
+          "@type": "ListItem",
+          "position": 10,
+          "name": "Schema.org",
+          "description": "Greșit: Preț inventat în JSON-LD Corect: Service cu provider și descriere conforme paginii"
+        }
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://firmsfinder.eu/on-page/#checklist-on-page-in-10-pasi-lista",
+      "name": "Checklist ON-PAGE în 10 pași",
+      "numberOfItems": 10,
+      "itemListOrder": "https://schema.org/ItemListOrderAscending",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Intenția paginii"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Title unic"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Meta description"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "URL și canonical"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "H1, H2, H3"
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "name": "Conținut verificabil"
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "name": "Entități și contexte"
+        },
+        {
+          "@type": "ListItem",
+          "position": 8,
+          "name": "Imagini și alt"
+        },
+        {
+          "@type": "ListItem",
+          "position": 9,
+          "name": "Linkuri contextuale"
+        },
+        {
+          "@type": "ListItem",
+          "position": 10,
+          "name": "JSON-LD coerent"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://firmsfinder.eu/on-page/#faq",
+      "name": "Întrebări frecvente: ON-PAGE SEO & AI Readiness",
+      "inLanguage": "ro-RO",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "ON-PAGE este același lucru cu ON-SITE?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nu. ON-PAGE se concentrează pe fiecare pagină; ON-SITE include arhitectura și infrastructura întregului website."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Un H1 este obligatoriu?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Este recomandat un H1 principal clar, dar existența exact a unui singur H1 nu este o regulă absolută de indexare."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Câte caractere trebuie să aibă meta description?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nu există o limită universală care să garanteze afișarea; descrierea trebuie să fie utilă și concisă."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Schema.org garantează afișarea în Google?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nu. Validitatea marcajului nu garantează rich results."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "ON-PAGE garantează citarea de către ChatGPT?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nu. Îmbunătățește interpretabilitatea, dar citarea depinde de acces, recuperare și selecția sistemului."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Trebuie să repet cuvântul cheie?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nu artificial. Folosește expresii naturale și sinonime relevante."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Cum verific rezultatele?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Compară înainte și după: HTML, Search Console, Core Web Vitals, indexare și trafic, fără a confunda corelația cu cauzalitatea."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "CreativeWork",
+      "@id": "https://firmsfinder.eu/on-page/#src-1",
+      "name": "Google SEO Starter Guide",
+      "url": "https://developers.google.com/search/docs/fundamentals/seo-starter-guide"
+    },
+    {
+      "@type": "CreativeWork",
+      "@id": "https://firmsfinder.eu/on-page/#src-2",
+      "name": "Google Structured Data",
+      "url": "https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data"
+    },
+    {
+      "@type": "CreativeWork",
+      "@id": "https://firmsfinder.eu/on-page/#src-3",
+      "name": "Schema.org",
+      "url": "https://schema.org/"
+    },
+    {
+      "@type": "CreativeWork",
+      "@id": "https://firmsfinder.eu/on-page/#src-4",
+      "name": "Core Web Vitals",
+      "url": "https://web.dev/vitals/"
     },
     {
       "@type": "BreadcrumbList",
@@ -96,13 +620,57 @@
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "On-Page",
+          "name": "ON-PAGE",
           "item": "https://firmsfinder.eu/on-page/"
         }
       ]
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "@id": "https://firmsfinder.eu/on-page/#nav-1",
+      "name": "Acasă",
+      "url": "https://firmsfinder.eu/",
+      "isPartOf": {
+        "@id": "https://firmsfinder.eu/on-page/#webpage"
+      }
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "@id": "https://firmsfinder.eu/on-page/#nav-2",
+      "name": "ON-SITE",
+      "url": "https://firmsfinder.eu/on-site/",
+      "isPartOf": {
+        "@id": "https://firmsfinder.eu/on-page/#webpage"
+      }
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "@id": "https://firmsfinder.eu/on-page/#nav-3",
+      "name": "GEO",
+      "url": "https://firmsfinder.eu/geo/",
+      "isPartOf": {
+        "@id": "https://firmsfinder.eu/on-page/#webpage"
+      }
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "@id": "https://firmsfinder.eu/on-page/#nav-4",
+      "name": "AEO",
+      "url": "https://firmsfinder.eu/aeo/",
+      "isPartOf": {
+        "@id": "https://firmsfinder.eu/on-page/#webpage"
+      }
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "@id": "https://firmsfinder.eu/on-page/#nav-5",
+      "name": "AIO",
+      "url": "https://firmsfinder.eu/aio/",
+      "isPartOf": {
+        "@id": "https://firmsfinder.eu/on-page/#webpage"
+      }
     }
   ]
-}
-</script>
+}</script>
 
 <style>:root{--bg:#031321;--panel:#092436;--cyan:#00c9f6;--gold:#ffd02f;--muted:#c2d4df}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:white;font:16px/1.65 system-ui,Arial,sans-serif}.wrap{max-width:1100px;margin:auto;padding:0 22px}a{color:var(--cyan)}header{background:#020c16;border-bottom:1px solid #23506a;padding:17px 0}.head{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}.brand{font-weight:850;font-size:25px;text-decoration:none;color:white}.brand b{color:var(--gold)}nav{display:flex;gap:16px;flex-wrap:wrap}nav a{color:white;text-decoration:none}.hero{padding:65px 0;background:radial-gradient(circle at 85% 25%,#124660,transparent 55%)}h1{font-size:clamp(38px,6vw,66px);line-height:1.1;margin:16px 0}h1 span{color:var(--cyan)}h2{font-size:clamp(27px,4vw,39px);line-height:1.2}h3{margin:8px 0}p{color:var(--muted)}.tag{color:var(--gold);font-weight:800;letter-spacing:1.5px}.lead{font-size:21px;max-width:850px}.btn{display:inline-block;background:var(--gold);color:#001522;text-decoration:none;font-weight:800;padding:12px 20px;border-radius:10px}section{padding:44px 0;border-top:1px solid #1c4157}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px}.card,details{background:var(--panel);border:1px solid #23506a;border-radius:12px;padding:18px}.number{color:var(--gold);font-weight:900}.bad{color:#ff9b9b}.good{color:#65e6b8}.check{display:block;background:var(--panel);padding:12px;border-bottom:1px solid #23506a}.check input{accent-color:var(--cyan);margin-right:10px}summary{cursor:pointer;font-weight:750}details{margin:10px 0}.notice{border-left:4px solid var(--gold);padding:15px;background:#102638}footer{padding:30px 0;border-top:1px solid #23506a}@media(max-width:600px){.hero{padding:40px 0}}</style></head><body><header><div class="wrap head"><a class="brand" href="/">FirmsFinder <b>AI</b></a><nav aria-label="Navigație"><a href="/">Acasă</a><a href="/on-site/">ON-SITE</a><a href="/geo/">GEO</a><a href="/aeo/">AEO</a><a href="/aio/">AIO</a></nav></div></header><main><div class="wrap"><p><a href="/">Acasă</a> › ON-PAGE</p></div><div class="hero"><div class="wrap"><div class="tag">GHID GRATUIT · SEO MODERN · AI READINESS</div><h1>ON-PAGE SEO & <span>AI Readiness</span></h1><p class="lead">Optimizează fiecare pagină pentru oameni, Google și sistemele AI: subiect clar, răspunsuri utile, structură semantică și informații verificabile.</p><a class="btn" href="#checklist">Verifică o pagină ↓</a></div></div><section><div class="wrap"><h2>Ce este ON-PAGE?</h2><p>ON-PAGE este optimizarea unei pagini individuale: intenția de căutare, titlul HTML, descrierea, headingurile, conținutul, imaginile, legăturile și datele structurate. ON-SITE include suplimentar arhitectura întregului website, navigația, performanța și indexabilitatea.</p><p><a href="/on-site/">Vezi ghidul ON-SITE →</a></p></div></section><section><div class="wrap"><h2>12 elemente fundamentale</h2><div class="grid"><article class="card"><div class="number">1</div><h3>Intenția paginii</h3><p>Ce întrebare rezolvă pagina? Ce acțiune vrea vizitatorul să facă?</p></article><article class="card"><div class="number">2</div><h3>Title unic</h3><p>Un titlu descriptiv, fără supraîncărcare cu termeni.</p></article><article class="card"><div class="number">3</div><h3>Meta description</h3><p>Rezumat convingător; nu este factor direct de ranking.</p></article><article class="card"><div class="number">4</div><h3>URL și canonical</h3><p>Adresă stabilă și canonical care indică versiunea preferată.</p></article><article class="card"><div class="number">5</div><h3>H1, H2, H3</h3><p>Ierarhie lizibilă; un H1 principal este o convenție practică.</p></article><article class="card"><div class="number">6</div><h3>Conținut verificabil</h3><p>Servicii, condiții, prețuri reale, surse și actualizare.</p></article><article class="card"><div class="number">7</div><h3>Entități și contexte</h3><p>Explică cine oferă ce, cui, unde și în ce condiții.</p></article><article class="card"><div class="number">8</div><h3>Imagini și alt</h3><p>Media optimizate, text alternativ pentru imagini informative.</p></article><article class="card"><div class="number">9</div><h3>Linkuri contextuale</h3><p>Ancore descriptive spre pagini relevante.</p></article><article class="card"><div class="number">10</div><h3>JSON-LD coerent</h3><p>Schema.org reflectă conținutul vizibil; nu inventează oferte.</p></article><article class="card"><div class="number">11</div><h3>Răspunsuri extrase</h3><p>Definiții, tabele și FAQ utile, nu text ascuns pentru boți.</p></article><article class="card"><div class="number">12</div><h3>Verificare înainte/după</h3><p>Compară HTML, indexabilitate, performanță și rezultate măsurabile.</p></article></div></div></section><section><div class="wrap"><h2>10 exemple: greșit vs. corect</h2><p>Exemple ilustrative, nu constatări despre o firmă reală.</p><div class="grid"><article class="card"><div class="number">1</div><h3>Title</h3><p><strong class="bad">Greșit:</strong> Acasă | Firma Mea</p><p><strong class="good">Corect:</strong> Contabilitate pentru SRL în București | Exemplu Firmă</p></article><article class="card"><div class="number">2</div><h3>H1</h3><p><strong class="bad">Greșit:</strong> Bine ați venit</p><p><strong class="good">Corect:</strong> Servicii de contabilitate pentru SRL-uri</p></article><article class="card"><div class="number">3</div><h3>Meta description</h3><p><strong class="bad">Greșit:</strong> Oferim servicii de calitate</p><p><strong class="good">Corect:</strong> Contabilitate pentru SRL-uri: evidență, declarații și raportare. Vezi serviciile și solicită ofertă.</p></article><article class="card"><div class="number">4</div><h3>URL</h3><p><strong class="bad">Greșit:</strong> /page?id=72</p><p><strong class="good">Corect:</strong> /servicii/contabilitate-srl/</p></article><article class="card"><div class="number">5</div><h3>H2</h3><p><strong class="bad">Greșit:</strong> Alte informații</p><p><strong class="good">Corect:</strong> Ce include serviciul de contabilitate</p></article><article class="card"><div class="number">6</div><h3>Conținut</h3><p><strong class="bad">Greșit:</strong> Suntem lideri și cei mai buni</p><p><strong class="good">Corect:</strong> Lista exactă a serviciilor, condiții și modalitate de ofertare</p></article><article class="card"><div class="number">7</div><h3>Imagine</h3><p><strong class="bad">Greșit:</strong> IMG_2002.jpg</p><p><strong class="good">Corect:</strong> consultant-contabil-documente.webp</p></article><article class="card"><div class="number">8</div><h3>Alt text</h3><p><strong class="bad">Greșit:</strong> Imagine</p><p><strong class="good">Corect:</strong> Consultant analizând documente contabile la birou</p></article><article class="card"><div class="number">9</div><h3>Link intern</h3><p><strong class="bad">Greșit:</strong> Click aici</p><p><strong class="good">Corect:</strong> Vezi serviciile de calcul al salariilor</p></article><article class="card"><div class="number">10</div><h3>Schema.org</h3><p><strong class="bad">Greșit:</strong> Preț inventat în JSON-LD</p><p><strong class="good">Corect:</strong> Service cu provider și descriere conforme paginii</p></article></div></div></section><section><div class="wrap"><h2>De la SEO la GEO, AEO și AIO</h2><p>O pagină bine structurată poate ajuta sistemele să identifice entități, servicii, condiții și răspunsuri. GEO urmărește vizibilitatea în răspunsuri generative, AEO claritatea răspunsurilor, iar AIO pregătirea informației pentru procesare AI. Aceste practici sunt complementare.</p><div class="notice"><strong>Claim ≠ Proof.</strong> HTML lizibil nu garantează indexare. Datele structurate valide nu garantează rich results. Indexarea nu garantează citare în ChatGPT, Claude, Gemini sau Perplexity.</div><p>Aplică un ciclu controlat: diagnostic → modificare → publicare → verificare → monitorizare. Nu publica date comerciale inventate în Schema.org.</p></div></section><section id="checklist"><div class="wrap"><h2>Checklist ON-PAGE în 10 pași</h2><p>Bifează verificările făcute. Bifele nu sunt salvate.</p><label class="check"><input type="checkbox"> 1. Intenția paginii</label><label class="check"><input type="checkbox"> 2. Title unic</label><label class="check"><input type="checkbox"> 3. Meta description</label><label class="check"><input type="checkbox"> 4. URL și canonical</label><label class="check"><input type="checkbox"> 5. H1, H2, H3</label><label class="check"><input type="checkbox"> 6. Conținut verificabil</label><label class="check"><input type="checkbox"> 7. Entități și contexte</label><label class="check"><input type="checkbox"> 8. Imagini și alt</label><label class="check"><input type="checkbox"> 9. Linkuri contextuale</label><label class="check"><input type="checkbox"> 10. JSON-LD coerent</label></div></section><section><div class="wrap"><h2>Greșeli frecvente</h2><p>Keyword stuffing, titluri generice, meta description duplicat, conținut vag, linkuri fără context, imagini fără descrieri utile, marcaj Schema.org nealiniat cu pagina și afirmații fără dovezi.</p></div></section><section><div class="wrap"><h2>Întrebări frecvente</h2><details><summary>ON-PAGE este același lucru cu ON-SITE?</summary><p>Nu. ON-PAGE se concentrează pe fiecare pagină; ON-SITE include arhitectura și infrastructura întregului website.</p></details><details><summary>Un H1 este obligatoriu?</summary><p>Este recomandat un H1 principal clar, dar existența exact a unui singur H1 nu este o regulă absolută de indexare.</p></details><details><summary>Câte caractere trebuie să aibă meta description?</summary><p>Nu există o limită universală care să garanteze afișarea; descrierea trebuie să fie utilă și concisă.</p></details><details><summary>Schema.org garantează afișarea în Google?</summary><p>Nu. Validitatea marcajului nu garantează rich results.</p></details><details><summary>ON-PAGE garantează citarea de către ChatGPT?</summary><p>Nu. Îmbunătățește interpretabilitatea, dar citarea depinde de acces, recuperare și selecția sistemului.</p></details><details><summary>Trebuie să repet cuvântul cheie?</summary><p>Nu artificial. Folosește expresii naturale și sinonime relevante.</p></details><details><summary>Cum verific rezultatele?</summary><p>Compară înainte și după: HTML, Search Console, Core Web Vitals, indexare și trafic, fără a confunda corelația cu cauzalitatea.</p></details></div></section><section><div class="wrap"><h2>Surse tehnice</h2><p><a href="https://developers.google.com/search/docs/fundamentals/seo-starter-guide">Google SEO Starter Guide</a> · <a href="https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data">Google Structured Data</a> · <a href="https://schema.org/">Schema.org</a> · <a href="https://web.dev/vitals/">Core Web Vitals</a></p></div></section></main><footer><div class="wrap">© FirmsFinder AI · <a href="/">Acasă</a> · <a href="/on-site/">ON-SITE</a></div></footer></body></html>

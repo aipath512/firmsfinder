@@ -26,10 +26,111 @@
 <meta name="author" content="AiVenture S.R.L.">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 
-<script type="application/ld+json">
-{
+<script type="application/ld+json">{
   "@context": "https://schema.org",
   "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://aiventure.ro/#organization",
+      "name": "AiVenture S.R.L.",
+      "legalName": "AiVenture S.R.L.",
+      "alternateName": "AiVenture",
+      "url": "https://aiventure.ro/",
+      "logo": "https://aiventure.ro/icon.svg",
+      "image": "https://aiventure.ro/assets/brand/logo_512w.png",
+      "email": "contact@5thelement.ai",
+      "telephone": "+40 737 123 540",
+      "description": "AiVenture oferă servicii pentru Web-Om, Web-AI și Web-A2A și produse pentru analiză, implementare și infrastructură AI/A2A.",
+      "foundingDate": "2025-03-07",
+      "taxID": "51415878",
+      "vatID": "RO51415878",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "CUI",
+          "value": "51415878"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "Nr. Registrul Comerțului",
+          "value": "J2025016406000"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "EUID",
+          "value": "ROONRC.J2025016406000"
+        }
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Drumul Pădurea Pustnicul nr. 141C, Corp A, Etaj 2, Ap. 5",
+        "addressLocality": "București",
+        "addressRegion": "Sector 1",
+        "postalCode": "014044",
+        "addressCountry": "RO"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "informații comerciale",
+        "email": "contact@5thelement.ai",
+        "telephone": "+40 737 123 540",
+        "availableLanguage": [
+          "ro"
+        ]
+      },
+      "founder": {
+        "@type": "Person",
+        "name": "Dan Ionescu",
+        "sameAs": [
+          "https://orcid.org/0009-0002-5498-1046",
+          "https://ro.linkedin.com/in/dan-ionesco-a856082a0"
+        ]
+      },
+      "employee": {
+        "@type": "Person",
+        "name": "Gratiela Ionescu",
+        "jobTitle": "Administrator"
+      },
+      "brand": {
+        "@id": "https://firmsfinder.eu/#brand"
+      },
+      "sameAs": [
+        "https://www.reddit.com/user/AiVentureRO/",
+        "https://www.linkedin.com/company/107338970",
+        "https://www.linkedin.com/showcase/5thelement-ai/",
+        "https://www.crunchbase.com/organization/aiventure-s-r-l",
+        "https://www.facebook.com/people/Aiventure/61573220584246/",
+        "https://x.com/aipath512",
+        "https://www.youtube.com/@AIVenture-q8u",
+        "https://medium.com/@aipath512"
+      ]
+    },
+    {
+      "@type": "Brand",
+      "@id": "https://firmsfinder.eu/#brand",
+      "name": "FirmsFinder AI",
+      "url": "https://firmsfinder.eu/",
+      "slogan": "Economic Intelligence"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://firmsfinder.eu/#website",
+      "url": "https://firmsfinder.eu/",
+      "name": "FirmsFinder AI",
+      "inLanguage": "ro-RO",
+      "publisher": {
+        "@id": "https://aiventure.ro/#organization"
+      },
+      "publishingPrinciples": "https://firmsfinder.eu/legal/ai-transparency",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://firmsfinder.eu/cautare/?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    },
     {
       "@type": "WebPage",
       "@id": "https://firmsfinder.eu/aeo/#webpage",
@@ -42,10 +143,21 @@
       "inLanguage": "ro-RO",
       "primaryImageOfPage": {
         "@type": "ImageObject",
-        "url": "https://firmsfinder.eu/assets/og-image.webp"
+        "@id": "https://firmsfinder.eu/aeo/#primaryimage",
+        "url": "https://firmsfinder.eu/assets/og-image.webp",
+        "contentUrl": "https://firmsfinder.eu/assets/og-image.webp",
+        "caption": "FirmsFinder AI — date, relații economice și oportunități"
+      },
+      "about": [
+        {
+          "@id": "https://firmsfinder.eu/#termen-aeo"
+        }
+      ],
+      "mainEntity": {
+        "@id": "https://firmsfinder.eu/aeo/#article"
       },
       "dateModified": "2026-10-14",
-      "datePublished": "2026-10-14T00:00:00+03:00",
+      "datePublished": "2026-10-14",
       "copyrightYear": 2026,
       "isAccessibleForFree": true,
       "publisher": {
@@ -64,27 +176,616 @@
       "breadcrumb": {
         "@id": "https://firmsfinder.eu/aeo/#breadcrumb"
       },
-      "about": {
-        "@type": "Thing",
-        "name": "AEO: informațiile firmei, regăsite ca răspunsuri în căutările AI."
-      }
+      "significantLink": [
+        "https://firmsfinder.eu/",
+        "https://firmsfinder.eu/cautare/",
+        "https://firmsfinder.eu/intelligence/",
+        "https://firmsfinder.eu/geo/",
+        "https://firmsfinder.eu/aio/",
+        "https://firmsfinder.eu/faq/",
+        "https://firmsfinder.eu/legal/terms",
+        "https://firmsfinder.eu/intents.json",
+        "https://firmsfinder.eu/geo/experiments.json"
+      ]
     },
     {
-      "@type": "WebSite",
-      "@id": "https://firmsfinder.eu/#website",
-      "url": "https://firmsfinder.eu/",
-      "name": "FirmsFinder AI",
+      "@type": "TechArticle",
+      "@id": "https://firmsfinder.eu/aeo/#article",
+      "headline": "AEO și AEO AI AGENT — pregătirea informațiilor firmei pentru răspunsuri AI",
+      "abstract": "Ce este Answer Engine Optimization, cele 10 etape ale procesului, AEO AI AGENT în versiunea automată gratuită, intents.json și verificarea efectului. Fără promisiuni de rezultat.",
+      "description": "Ce este Answer Engine Optimization, cele 10 etape ale procesului, AEO AI AGENT în versiunea automată gratuită, intents.json și verificarea efectului. Fără promisiuni de rezultat.",
+      "inLanguage": "ro-RO",
+      "url": "https://firmsfinder.eu/aeo/",
+      "mainEntityOfPage": {
+        "@id": "https://firmsfinder.eu/aeo/#webpage"
+      },
+      "about": {
+        "@id": "https://firmsfinder.eu/#termen-aeo"
+      },
+      "author": {
+        "@id": "https://aiventure.ro/#organization"
+      },
       "publisher": {
         "@id": "https://aiventure.ro/#organization"
       },
-      "inLanguage": "ro-RO",
-      "publishingPrinciples": "https://firmsfinder.eu/legal/ai-transparency"
+      "dateModified": "2026-10-14",
+      "datePublished": "2026-10-14",
+      "image": "https://firmsfinder.eu/assets/og-image.webp",
+      "isAccessibleForFree": true,
+      "proficiencyLevel": "Beginner",
+      "usageInfo": "https://firmsfinder.eu/legal/terms",
+      "articleSection": [
+        "Ce este AEO și ce este AEO AI AGENT",
+        "Cele 10 etape ale procesului AEO",
+        "AEO AI AGENT — GRATUIT VERSIUNEA AUTOMATĂ",
+        "AEO, GEO, AIO și SEO: patru lucruri diferite",
+        "Răspuns answer-first: fapta principală, prima",
+        "Trei etape: TOF, MOF, BOF",
+        "Formatul urmează tipul întrebării",
+        "Înainte și după, pentru un răspuns FirmsFinder",
+        "Unelte gratuite pentru verificarea externă",
+        "Listă de verificare AEO pentru o pagină",
+        "Cum verificăm efectul AEO",
+        "Ce nu promite această pagină",
+        "Întrebări frecvente"
+      ],
+      "mentions": [
+        {
+          "@id": "https://firmsfinder.eu/aeo/#aeo-ai-agent"
+        }
+      ]
     },
     {
-      "@type": "Organization",
-      "@id": "https://aiventure.ro/#organization",
-      "name": "AiVenture S.R.L.",
-      "url": "https://aiventure.ro/"
+      "@type": "Service",
+      "@id": "https://firmsfinder.eu/aeo/#aeo-ai-agent",
+      "name": "AEO AI AGENT — versiunea automată gratuită",
+      "serviceType": "Pregătire AEO",
+      "description": "Execută procesul AEO continuu: automat, continuu, verificabil. Rezultatul este un strat AEO explicit, publicat în intents.json, la rădăcina site-ului. Condițiile concrete de acces se confirmă prin contact@5thelement.ai.",
+      "provider": {
+        "@id": "https://aiventure.ro/#organization"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "România"
+      },
+      "termsOfService": "https://firmsfinder.eu/legal/terms",
+      "url": "https://firmsfinder.eu/aeo/",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "RON",
+        "description": "Versiunea automată gratuită; condițiile concrete de acces se confirmă prin contact@5thelement.ai"
+      }
+    },
+    {
+      "@type": "DefinedTermSet",
+      "@id": "https://firmsfinder.eu/#termeni",
+      "name": "SEO modern în era AI",
+      "hasDefinedTerm": [
+        {
+          "@id": "https://firmsfinder.eu/#termen-geo"
+        },
+        {
+          "@id": "https://firmsfinder.eu/#termen-aeo"
+        },
+        {
+          "@id": "https://firmsfinder.eu/#termen-ai-seo"
+        },
+        {
+          "@id": "https://firmsfinder.eu/#termen-on-site"
+        },
+        {
+          "@id": "https://firmsfinder.eu/#termen-on-page"
+        }
+      ]
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/#termen-geo",
+      "termCode": "GEO",
+      "name": "Generative Engine Optimization",
+      "description": "Pregătire pentru citarea în răspunsurile AI.",
+      "url": "https://firmsfinder.eu/geo/",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/#termeni"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/#termen-aeo",
+      "termCode": "AEO",
+      "name": "Answer Engine Optimization",
+      "description": "Răspunsuri clare, structurate, ușor de extras.",
+      "url": "https://firmsfinder.eu/aeo/",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/#termeni"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/#termen-ai-seo",
+      "termCode": "AI-SEO",
+      "name": "AI-SEO",
+      "description": "Conținut optimizat pentru căutările AI și Google AI Overviews.",
+      "url": "https://firmsfinder.eu/ai-seo/",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/#termeni"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/#termen-on-site",
+      "termCode": "ON-SITE",
+      "name": "ON-SITE",
+      "description": "Structură, date structurate, performanță și accesibilitate.",
+      "url": "https://firmsfinder.eu/on-site/",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/#termeni"
+      }
+    },
+    {
+      "@type": "DefinedTerm",
+      "@id": "https://firmsfinder.eu/#termen-on-page",
+      "termCode": "ON-PAGE",
+      "name": "ON-PAGE",
+      "description": "Titluri, descrieri, FAQ, intenții și dovezi pentru AI.",
+      "url": "https://firmsfinder.eu/on-page/",
+      "inDefinedTermSet": {
+        "@id": "https://firmsfinder.eu/#termeni"
+      }
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://firmsfinder.eu/aeo/#cele-10-etape-ale-procesului-aeo",
+      "name": "Cele 10 etape ale procesului AEO",
+      "inLanguage": "ro-RO",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Identifică produsele și serviciile.",
+          "text": "Analizează website-ul și notează ce vinde firma efectiv: caracteristici, prețuri publicate, localizare, condiții."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Identifică audiența.",
+          "text": "Pentru fiecare produs sau serviciu, stabilește cine poate fi interesat."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Caută intențiile audienței.",
+          "text": "Cercetează pe Internet ce întrebări pun oamenii, ce alternative compară și ce criterii folosesc."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Construiește intențiile.",
+          "text": "Transformă cercetarea în intenții, nu în simplă listă de cuvinte-cheie."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Construiește pâlnia.",
+          "text": "Organizează intențiile pe etapele TOF, MOF și BOF."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Transformă intențiile în întrebări.",
+          "text": "Formulează întrebările din produsul real, audiența reală, intenția și etapa din pâlnie."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "Construiește răspunsurile.",
+          "text": "Scrie răspunsuri exclusiv din oferta reală a firmei; nu inventa oferta."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 8,
+          "name": "Publică în intents.json.",
+          "text": "Publică perechile întrebare-răspuns în formă structurată, în rădăcina site-ului."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 9,
+          "name": "Verifică.",
+          "text": "Controlează că fișierul există, e public, valid, fără contradicții cu website-ul."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 10,
+          "name": "Monitorizează și actualizează.",
+          "text": "Repetă procesul când se schimbă oferta, piața sau modul de căutare."
+        }
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://firmsfinder.eu/aeo/#ce-este-aeo-si-ce-este-aeo-ai-agent-carduri",
+      "name": "Ce este AEO și ce este AEO AI AGENT",
+      "numberOfItems": 2,
+      "itemListOrder": "https://schema.org/ItemListOrderAscending",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "AEO — procesul",
+          "description": "Pregătirea informațiilor firmei pentru a fi regăsite ca răspunsuri în căutările AI."
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "AEO AI AGENT — execuția continuă",
+          "description": "Agentul AI care pornește de la ceea ce firma vinde, parcurge procesul, publică rezultatul în intents.json, verifică, actualizează și repetă."
+        }
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://firmsfinder.eu/aeo/#aeo-geo-aio-si-seo-patru-lucruri-diferit-tabel1",
+      "name": "AEO, GEO, AIO și SEO: patru lucruri diferite",
+      "numberOfItems": 5,
+      "itemListOrder": "https://schema.org/ItemListOrderAscending",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "SEO",
+          "description": "Întrebarea la care răspunde: Pe ce poziție apare pagina?; Ce se optimizează: Acces, structură, relevanță pentru căutarea clasică; Cum se măsoară: Poziție, clicuri, impresii"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "AEO",
+          "description": "Întrebarea la care răspunde: Primește întrebarea un răspuns direct și extractibil?; Ce se optimizează: Legătura dintre întrebările reale și oferta reală; răspunsuri answer-first publicate structurat; Cum se măsoară: Apariția răspunsului în sistemele de răspuns; fidelitatea lui"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "GEO",
+          "description": "Întrebarea la care răspunde: Este sursa folosită și citată într-un răspuns generat?; Ce se optimizează: Conținut și dovezi: statistici, citate, surse, claritate; Cum se măsoară: Rata de mențiune și de citare, share of voice"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "AI Signals",
+          "description": "Întrebarea la care răspunde: Poate un sistem AI verifica cine este firma și ce dovezi are?; Ce se optimizează: Semnale publice și machine-readable: identitate, ofertă, zonă, dovezi; Cum se măsoară: Prezența și validitatea semnalelor; consistența lor"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "AIO",
+          "description": "Întrebarea la care răspunde: Poate un sistem AI să acceseze și să înțeleagă pagina?; Ce se optimizează: Infrastructură: robots.txt, llms.txt, sitemap, Schema.org, HTTP 200; Cum se măsoară: Acces, validare, consistență între fișiere"
+        }
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://firmsfinder.eu/aeo/#trei-etape-tof-mof-bof-tabel1",
+      "name": "Trei etape: TOF, MOF, BOF",
+      "numberOfItems": 3,
+      "itemListOrder": "https://schema.org/ItemListOrderAscending",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "TOF",
+          "description": "Intenția clientului: Ce este / cum funcționează; Exemple de întrebări FirmsFinder: „Ce este FirmsFinder?”, „Cum găsesc firme după activitatea CAEN?”, „De unde vin datele firmelor din România?”"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "MOF",
+          "description": "Intenția clientului: Compar / caut alternative; Exemple de întrebări FirmsFinder: „FirmsFinder vs un registru comercial: ce diferă?”, „Cum aleg firme potrivite ca potențiali clienți B2B?”"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "BOF",
+          "description": "Intenția clientului: Decid / acționez; Exemple de întrebări FirmsFinder: „Este gratuit accesul la datele firmelor?”, „Cum contactez FirmsFinder?”, „Ce date conține fișa unei firme?”"
+        }
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://firmsfinder.eu/aeo/#formatul-urmeaza-tipul-intrebarii-tabel1",
+      "name": "Formatul urmează tipul întrebării",
+      "numberOfItems": 5,
+      "itemListOrder": "https://schema.org/ItemListOrderAscending",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Definiție",
+          "description": "Cum arată: Un paragraf scurt care începe cu «X este…»; Se potrivește pentru: Întrebări TOF: ce este, ce înseamnă"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Listă ordonată",
+          "description": "Cum arată: Pași numerotați, câte o acțiune pe pas; Se potrivește pentru: Întrebări «cum»: procedură, verificare"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Listă simplă",
+          "description": "Cum arată: Elemente paralele, fără ordine; Se potrivește pentru: Criterii, tipuri, variante"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Tabel",
+          "description": "Cum arată: Comparație pe rânduri și coloane cu antet; Se potrivește pentru: Întrebări MOF: comparații, alternative"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "Pereche Q&A",
+          "description": "Cum arată: Întrebare + răspuns autonom; Se potrivește pentru: Întrebări frecvente, long-tail"
+        }
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://firmsfinder.eu/aeo/#inainte-si-dupa-pentru-un-raspuns-firmsf-carduri",
+      "name": "Înainte și după, pentru un răspuns FirmsFinder",
+      "numberOfItems": 2,
+      "itemListOrder": "https://schema.org/ItemListOrderAscending",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Înainte — generic",
+          "description": "FirmsFinder vă ajută să descoperiți firmele potrivite folosind o tehnologie modernă de căutare."
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "După — answer-first",
+          "description": "FirmsFinder permite căutarea firmelor active din România după activitatea economică declarată (cod CAEN). Codul CAEN indică activitatea autorizată sau raportată, nu garantează că firma cumpără un produs anume."
+        }
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://firmsfinder.eu/aeo/#unelte-gratuite-pentru-verificarea-exter-tabel1",
+      "name": "Unelte gratuite pentru verificarea externă",
+      "numberOfItems": 6,
+      "itemListOrder": "https://schema.org/ItemListOrderAscending",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Google Search Console",
+          "description": "Ce verifici: Indexare, crawling, sitemap, interogări, pagini; Limită: Nu urmărește mențiuni în ChatGPT sau Perplexity"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Bing Webmaster Tools",
+          "description": "Ce verifici: Site Scan, crawl, IndexNow, backlinks; Limită: Relevanță mai mare pentru ecosistemul Microsoft"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Google Rich Results Test",
+          "description": "Ce verifici: Dacă Google citește schema și dacă pagina este eligibilă; Limită: Validează eligibilitatea, nu afișarea sau citarea"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Schema.org Validator",
+          "description": "Ce verifici: JSON-LD, Microdata, RDFa, vocabular; Limită: Nu testează cerințele comerciale Google"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "Screaming Frog SEO Spider",
+          "description": "Ce verifici: Titluri, heading-uri, canonicals, schema, linkuri interne; Limită: Gratuit până la 500 de URL-uri"
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "name": "Panou manual de prompturi",
+          "description": "Ce verifici: Cum răspund asistenții AI la intențiile comerciale; Limită: Consumă timp; trebuie repetabil și datat"
+        }
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://firmsfinder.eu/aeo/#lista-de-verificare-aeo-pentru-o-pagina-tabel1",
+      "name": "Listă de verificare AEO pentru o pagină",
+      "numberOfItems": 16,
+      "itemListOrder": "https://schema.org/ItemListOrderAscending",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Răspuns direct",
+          "description": "Cod: A1; Criteriu de trecere: Prima propoziție răspunde declarativ; fără «Depinde», fără reluarea întrebării; Nivel: Blocant"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Autonom",
+          "description": "Cod: A2; Criteriu de trecere: Primul bloc are sub 60 de cuvinte și numește brandul, nu «noi»; Nivel: Blocant"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Fapt verificabil",
+          "description": "Cod: A3; Criteriu de trecere: Cifră, termen, zonă sau sursă; ce lipsește este marcat ca nedeterminat; Nivel: Blocant"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Fără promisiuni",
+          "description": "Cod: A4; Criteriu de trecere: Fără «garantat», «cel mai bun», fără îndemn promoțional; Nivel: Blocant"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "Ordine",
+          "description": "Cod: A5; Criteriu de trecere: Răspunsul vine înaintea detaliilor și excepțiilor; Nivel: Recomandat"
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "name": "Format potrivit",
+          "description": "Cod: F1; Criteriu de trecere: Definiție, listă, tabel sau pași, după tipul întrebării; Nivel: Recomandat"
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "name": "Un titlu = o întrebare",
+          "description": "Cod: F2; Criteriu de trecere: Titlurile H2/H3 sunt formulate ca întrebările clienților; Nivel: Recomandat"
+        },
+        {
+          "@type": "ListItem",
+          "position": 8,
+          "name": "JSON-LD valid",
+          "description": "Cod: S1; Criteriu de trecere: Se parsează; un singur FAQPage pe pagină; Nivel: Blocant"
+        },
+        {
+          "@type": "ListItem",
+          "position": 9,
+          "name": "Identitate text",
+          "description": "Cod: S2; Criteriu de trecere: Question.name și Answer.text identice cu textul vizibil; Nivel: Blocant"
+        },
+        {
+          "@type": "ListItem",
+          "position": 10,
+          "name": "Vizibilitate",
+          "description": "Cod: S3; Criteriu de trecere: Toate perechile sunt vizibile; details închis este acceptat, display:none nu; Nivel: Blocant"
+        },
+        {
+          "@type": "ListItem",
+          "position": 11,
+          "name": "Identificatori",
+          "description": "Cod: S4; Criteriu de trecere: url = canonical; inLanguage ro-RO; @id unic; Nivel: Recomandat"
+        },
+        {
+          "@type": "ListItem",
+          "position": 12,
+          "name": "Consistență",
+          "description": "Cod: C1; Criteriu de trecere: Aceleași fapte pe toate paginile și în profilurile externe; Nivel: Blocant"
+        },
+        {
+          "@type": "ListItem",
+          "position": 13,
+          "name": "Actualitate",
+          "description": "Cod: C2; Criteriu de trecere: dateModified actualizat la orice schimbare de conținut; Nivel: Recomandat"
+        },
+        {
+          "@type": "ListItem",
+          "position": 14,
+          "name": "intents.json",
+          "description": "Cod: I1; Criteriu de trecere: Fișierul există, este public, accesibil și valid, cu intenții, întrebări și răspunsuri; Nivel: Blocant"
+        },
+        {
+          "@type": "ListItem",
+          "position": 15,
+          "name": "Fără contradicții",
+          "description": "Cod: I2; Criteriu de trecere: Răspunsurile corespund ofertei reale și nu contrazic website-ul; Nivel: Blocant"
+        },
+        {
+          "@type": "ListItem",
+          "position": 16,
+          "name": "Măsurare",
+          "description": "Cod: M1; Criteriu de trecere: Întrebările intră în setul BEFORE/AFTER; o singură modificare pe test; Nivel: Recomandat"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://firmsfinder.eu/aeo/#faq",
+      "name": "Întrebări frecvente: AEO și AEO AI AGENT",
+      "inLanguage": "ro-RO",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Ce este AEO (Answer Engine Optimization)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AEO este pregătirea informațiilor unei firme pentru a fi regăsite ca răspunsuri în căutările AI, precum ChatGPT, Gemini sau Claude. AEO leagă ce caută și întreabă oamenii de produsele și serviciile pe care firma le oferă în realitate."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Ce este AEO AI AGENT?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AEO AI AGENT este agentul AI care execută continuu procesul AEO: pornește de la ce vinde firma, identifică audiența și intențiile ei, construiește pâlnia TOF–MOF–BOF, generează întrebări și răspunsuri din oferta reală, le publică, verifică rezultatul și actualizează."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Ce este fișierul intents.json?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Fișierul intents.json este locul din rădăcina site-ului în care intențiile, întrebările și răspunsurile AEO se publică într-o formă structurată, citibilă de mașini. Pe FirmsFinder, fișierul este disponibil la firmsfinder.eu/intents.json."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Este gratuită versiunea automată AEO AI AGENT?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Da, FirmsFinder prezintă versiunea automată AEO AI AGENT ca fiind gratuită. Procesul rămâne același: observare, cercetare, intenții, pâlnie, întrebări, răspunsuri, publicare, verificare, actualizare. Condițiile concrete de acces se confirmă la contact@5thelement.ai."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Inventează agentul oferta firmei?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nu. Regula procesului este că agentul nu inventează oferta firmei: răspunsurile se construiesc exclusiv din produsele, serviciile, prețurile publicate și condițiile existente pe website. Ce lipsește se marchează ca nedeterminat, nu se completează din presupuneri."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Prin ce diferă AEO de GEO?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AEO conectează întrebările reale ale clienților cu oferta reală și publică răspunsurile structurat. GEO se ocupă de conținutul și dovezile care fac sursa folosită și citată de un motor generativ. Cele două se completează și se măsoară separat."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Ce înseamnă răspuns answer-first?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Un răspuns answer-first începe cu fapta principală, fără introducere. Primul bloc, de 1–2 propoziții și sub 60 de cuvinte, are sens singur și numește brandul explicit, ca fragmentul să poată fi citat în afara paginii. Pragul este un reper de industrie, nevalidat științific."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Marcajul FAQPage garantează apariția în răspunsurile AI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nu. Marcajul FAQPage este valid și ajută la înțelegerea tehnică, dar FirmsFinder nu are dovezi verificate că el crește citările în ChatGPT, Gemini, Claude sau Perplexity. Din 2023, Google afișează rich results FAQ doar pentru site-uri guvernamentale și de sănătate cunoscute."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Ce date folosește FirmsFinder în răspunsuri?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "FirmsFinder folosește date oficiale de la Ministerul Finanțelor și Monitorul Oficial, disponibile în format CSV pentru peste 1,7 milioane de firme, dintre care peste 1 milion sunt active. Accesul la datele oficiale utilizate este gratuit. Fiecare cifră publicată are sursă, perioadă și metodă."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Cum verifică FirmsFinder dacă AEO funcționează?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Prin protocolul planificat de 150 de întrebări, 4 modele și 5 repetări, înainte și după intervenție, cu pagini HOLDOUT de control. Un test preliminar cu 10 întrebări, făcut pe 14.10.2026 prin căutare web, nu prin ChatGPT, Perplexity sau Gemini, a găsit FirmsFinder în 0 din 10 răspunsuri; este valoarea de pornire, nu un rezultat al AEO."
+          }
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",
@@ -99,14 +800,94 @@
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "AEO și AEO AI AGENT — pregătirea informațiilor firmei pentru răspunsuri AI",
+          "name": "AEO",
           "item": "https://firmsfinder.eu/aeo/"
         }
       ]
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "@id": "https://firmsfinder.eu/aeo/#nav-1",
+      "name": "Acasă",
+      "url": "https://firmsfinder.eu/",
+      "isPartOf": {
+        "@id": "https://firmsfinder.eu/aeo/#webpage"
+      }
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "@id": "https://firmsfinder.eu/aeo/#nav-2",
+      "name": "Caută",
+      "url": "https://firmsfinder.eu/cautare/",
+      "isPartOf": {
+        "@id": "https://firmsfinder.eu/aeo/#webpage"
+      }
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "@id": "https://firmsfinder.eu/aeo/#nav-3",
+      "name": "Fii găsit",
+      "url": "https://firmsfinder.eu/#fii-gasit",
+      "isPartOf": {
+        "@id": "https://firmsfinder.eu/aeo/#webpage"
+      }
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "@id": "https://firmsfinder.eu/aeo/#nav-4",
+      "name": "Delegă AI-ului",
+      "url": "https://firmsfinder.eu/#deleaga",
+      "isPartOf": {
+        "@id": "https://firmsfinder.eu/aeo/#webpage"
+      }
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "@id": "https://firmsfinder.eu/aeo/#nav-5",
+      "name": "Intelligence",
+      "url": "https://firmsfinder.eu/intelligence/",
+      "isPartOf": {
+        "@id": "https://firmsfinder.eu/aeo/#webpage"
+      }
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "@id": "https://firmsfinder.eu/aeo/#nav-6",
+      "name": "GEO",
+      "url": "https://firmsfinder.eu/geo/",
+      "isPartOf": {
+        "@id": "https://firmsfinder.eu/aeo/#webpage"
+      }
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "@id": "https://firmsfinder.eu/aeo/#nav-7",
+      "name": "AEO",
+      "url": "https://firmsfinder.eu/aeo/",
+      "isPartOf": {
+        "@id": "https://firmsfinder.eu/aeo/#webpage"
+      }
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "@id": "https://firmsfinder.eu/aeo/#nav-8",
+      "name": "AIO",
+      "url": "https://firmsfinder.eu/aio/",
+      "isPartOf": {
+        "@id": "https://firmsfinder.eu/aeo/#webpage"
+      }
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "@id": "https://firmsfinder.eu/aeo/#nav-9",
+      "name": "FAQ",
+      "url": "https://firmsfinder.eu/faq/",
+      "isPartOf": {
+        "@id": "https://firmsfinder.eu/aeo/#webpage"
+      }
     }
   ]
-}
-</script>
+}</script>
 
 <style>
 :root{color-scheme:dark;--bg:#050505;--panel:#0d0d0d;--line:#f5c84238;--text:#eae7df;--muted:#b9b5ab;--accent:#f5c842}
