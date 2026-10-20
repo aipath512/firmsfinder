@@ -55,7 +55,7 @@
         }
       ],
       "target_pages": [
-        "https://firmsfinder.eu/cauta/"
+        "https://firmsfinder.eu/cautare/"
       ],
       "page_status": "REQUIRES_VERIFICATION",
       "evidence_refs": []
@@ -334,7 +334,7 @@
       ],
       "target_pages": [
         "https://firmsfinder.eu/",
-        "https://firmsfinder.eu/cauta/"
+        "https://firmsfinder.eu/cautare/"
       ],
       "page_status": "REQUIRES_VERIFICATION",
       "evidence_refs": []
