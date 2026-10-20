@@ -23,10 +23,110 @@
 <meta name="author" content="AiVenture S.R.L.">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 
-<script type="application/ld+json">
-{
+<script type="application/ld+json">{
   "@context": "https://schema.org",
   "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://aiventure.ro/#organization",
+      "name": "AiVenture S.R.L.",
+      "legalName": "AiVenture S.R.L.",
+      "alternateName": "AiVenture",
+      "url": "https://aiventure.ro/",
+      "logo": "https://aiventure.ro/icon.svg",
+      "email": "contact@5thelement.ai",
+      "telephone": "+40 737 123 540",
+      "description": "AiVenture oferă servicii pentru Web-Om, Web-AI și Web-A2A și produse pentru analiză, implementare și infrastructură AI/A2A.",
+      "foundingDate": "2025-03-07",
+      "taxID": "51415878",
+      "vatID": "RO51415878",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "CUI",
+          "value": "51415878"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "Nr. Registrul Comerțului",
+          "value": "J2025016406000"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "EUID",
+          "value": "ROONRC.J2025016406000"
+        }
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Drumul Pădurea Pustnicul nr. 141C, Corp A, Etaj 2, Ap. 5",
+        "addressLocality": "București",
+        "addressRegion": "Sector 1",
+        "postalCode": "014044",
+        "addressCountry": "RO"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "informații comerciale",
+        "email": "contact@5thelement.ai",
+        "telephone": "+40 737 123 540",
+        "availableLanguage": [
+          "ro"
+        ]
+      },
+      "founder": {
+        "@type": "Person",
+        "name": "Dan Ionescu",
+        "sameAs": [
+          "https://orcid.org/0009-0002-5498-1046",
+          "https://ro.linkedin.com/in/dan-ionesco-a856082a0"
+        ]
+      },
+      "employee": {
+        "@type": "Person",
+        "name": "Gratiela Ionescu",
+        "jobTitle": "Administrator"
+      },
+      "brand": {
+        "@id": "https://firmsfinder.eu/#brand"
+      },
+      "sameAs": [
+        "https://www.reddit.com/user/AiVentureRO/",
+        "https://www.linkedin.com/company/107338970",
+        "https://www.linkedin.com/showcase/5thelement-ai/",
+        "https://www.crunchbase.com/organization/aiventure-s-r-l",
+        "https://www.facebook.com/people/Aiventure/61573220584246/",
+        "https://x.com/aipath512",
+        "https://www.youtube.com/@AIVenture-q8u",
+        "https://medium.com/@aipath512"
+      ]
+    },
+    {
+      "@type": "Brand",
+      "@id": "https://firmsfinder.eu/#brand",
+      "name": "FirmsFinder AI",
+      "url": "https://firmsfinder.eu/",
+      "slogan": "Economic Intelligence"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://firmsfinder.eu/#website",
+      "url": "https://firmsfinder.eu/",
+      "name": "FirmsFinder AI",
+      "inLanguage": "ro-RO",
+      "publisher": {
+        "@id": "https://aiventure.ro/#organization"
+      },
+      "publishingPrinciples": "https://firmsfinder.eu/legal/ai-transparency",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://firmsfinder.eu/cautare/?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    },
     {
       "@type": "WebPage",
       "@id": "https://firmsfinder.eu/cautare/#webpage",
@@ -39,9 +139,26 @@
       "inLanguage": "ro-RO",
       "primaryImageOfPage": {
         "@type": "ImageObject",
-        "url": "https://firmsfinder.eu/assets/og-image.webp"
+        "@id": "https://firmsfinder.eu/cautare/#primaryimage",
+        "url": "https://firmsfinder.eu/assets/og-image.webp",
+        "contentUrl": "https://firmsfinder.eu/assets/og-image.webp",
+        "caption": "FirmsFinder AI — date, relații economice și oportunități"
       },
-      "dateModified": "2026-10-14",
+      "about": [
+        {
+          "@id": "https://firmsfinder.eu/cautare/#s-main"
+        },
+        {
+          "@id": "https://firmsfinder.eu/#dataset-onrc"
+        },
+        {
+          "@id": "https://firmsfinder.eu/#dataset-mf"
+        }
+      ],
+      "mainEntity": {
+        "@id": "https://firmsfinder.eu/cautare/#app"
+      },
+      "dateModified": "2026-10-20",
       "datePublished": "2026-10-14",
       "copyrightYear": 2026,
       "isAccessibleForFree": true,
@@ -58,12 +175,45 @@
         "@id": "https://aiventure.ro/#organization"
       },
       "usageInfo": "https://firmsfinder.eu/legal/terms",
+      "significantLink": [
+        "https://firmsfinder.eu/legal/terms",
+        "https://firmsfinder.eu/angajament/",
+        "https://firmsfinder.eu/surse/",
+        "https://firmsfinder.eu/date/",
+        "https://firmsfinder.eu/comparare/"
+      ],
       "breadcrumb": {
         "@id": "https://firmsfinder.eu/cautare/#breadcrumb"
       },
-      "mainEntity": {
-        "@id": "https://firmsfinder.eu/cautare/#app"
-      }
+      "hasPart": [
+        {
+          "@id": "https://firmsfinder.eu/cautare/#nav-1"
+        },
+        {
+          "@id": "https://firmsfinder.eu/cautare/#nav-2"
+        },
+        {
+          "@id": "https://firmsfinder.eu/cautare/#nav-3"
+        },
+        {
+          "@id": "https://firmsfinder.eu/cautare/#nav-4"
+        },
+        {
+          "@id": "https://firmsfinder.eu/cautare/#nav-5"
+        },
+        {
+          "@id": "https://firmsfinder.eu/cautare/#nav-6"
+        },
+        {
+          "@id": "https://firmsfinder.eu/cautare/#howto"
+        },
+        {
+          "@id": "https://firmsfinder.eu/cautare/#in-pregatire"
+        },
+        {
+          "@id": "https://firmsfinder.eu/cautare/#legenda"
+        }
+      ]
     },
     {
       "@type": "WebApplication",
@@ -71,29 +221,543 @@
       "name": "Caută firme",
       "description": "Căutare structurată de firme din România după nume, CAEN, județ și localitate. Rezultatele apar numai dacă baza de date este conectată.",
       "url": "https://firmsfinder.eu/cautare/",
+      "applicationCategory": "BusinessApplication",
       "operatingSystem": "Web",
+      "inLanguage": "ro-RO",
       "provider": {
         "@id": "https://aiventure.ro/#organization"
       },
-      "inLanguage": "ro-RO",
-      "isAccessibleForFree": true
+      "isAccessibleForFree": true,
+      "audience": {
+        "@id": "https://firmsfinder.eu/#public"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "RON",
+        "description": "Căutarea și filtrele avansate sunt gratuite, fără cont"
+      },
+      "featureList": [
+        "Căutare după nume, CAEN, județ și localitate",
+        "Filtre avansate gratuite",
+        "Sugestii de activitate CAEN și corectarea greșelilor",
+        "Export CSV",
+        "Căutări salvate în browser",
+        "Piața pe județe",
+        "Firme similare"
+      ]
     },
     {
-      "@type": "WebSite",
-      "@id": "https://firmsfinder.eu/#website",
-      "url": "https://firmsfinder.eu/",
-      "name": "FirmsFinder AI",
+      "@type": "BusinessAudience",
+      "@id": "https://firmsfinder.eu/#public",
+      "name": "Firme B2B",
+      "audienceType": "Firme B2B",
+      "geographicArea": {
+        "@type": "Country",
+        "name": "România"
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://firmsfinder.eu/cautare/#s-main",
+      "name": "Caută firme",
+      "serviceType": "Prospectare B2B",
+      "description": "Căutare structurată de firme din România, gratuită, fără cont, pe baza datelor oficiale ONRC și Ministerul Finanțelor, prin data.gov.ro.",
+      "provider": {
+        "@id": "https://aiventure.ro/#organization"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "România"
+      },
+      "audience": {
+        "@id": "https://firmsfinder.eu/#public"
+      },
+      "termsOfService": "https://firmsfinder.eu/legal/terms",
+      "url": "https://firmsfinder.eu/cautare/",
+      "hasOfferCatalog": {
+        "@id": "https://firmsfinder.eu/cautare/#catalog"
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://firmsfinder.eu/cautare/#s-cautare",
+      "name": "Căutare după nume, CAEN, județ și localitate",
+      "serviceType": "Căutare de firme",
+      "description": "Căutare gratuită în datele ONRC/MF după numele firmei (minimum 3 caractere), codul CAEN (2–4 cifre), județ și localitate; maximum 50 de rezultate per căutare.",
+      "provider": {
+        "@id": "https://aiventure.ro/#organization"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "România"
+      },
+      "audience": {
+        "@id": "https://firmsfinder.eu/#public"
+      },
+      "termsOfService": "https://firmsfinder.eu/legal/terms",
+      "url": "https://firmsfinder.eu/cautare/"
+    },
+    {
+      "@type": "Service",
+      "@id": "https://firmsfinder.eu/cautare/#s-filtre",
+      "name": "Filtre avansate",
+      "serviceType": "Filtrare financiară",
+      "description": "Excludere de județe, cifră de afaceri și salariați minim/maxim, evoluția cifrei de afaceri, doar firme cu profit sau fără firme cu pierdere, sortare.",
+      "provider": {
+        "@id": "https://aiventure.ro/#organization"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "România"
+      },
+      "audience": {
+        "@id": "https://firmsfinder.eu/#public"
+      },
+      "termsOfService": "https://firmsfinder.eu/legal/terms",
+      "url": "https://firmsfinder.eu/cautare/"
+    },
+    {
+      "@type": "Service",
+      "@id": "https://firmsfinder.eu/cautare/#s-sugestii",
+      "name": "Sugestii de activitate și corectarea greșelilor",
+      "serviceType": "Asistență la căutare",
+      "description": "Propune activitatea CAEN potrivită pentru termeni ca „contabil”, „IT” sau „restaurant” și corectează greșelile de scriere.",
+      "provider": {
+        "@id": "https://aiventure.ro/#organization"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "România"
+      },
+      "audience": {
+        "@id": "https://firmsfinder.eu/#public"
+      },
+      "termsOfService": "https://firmsfinder.eu/legal/terms",
+      "url": "https://firmsfinder.eu/cautare/"
+    },
+    {
+      "@type": "Service",
+      "@id": "https://firmsfinder.eu/cautare/#s-export",
+      "name": "Export CSV și căutări salvate",
+      "serviceType": "Export de date",
+      "description": "Export CSV al rezultatelor și căutări salvate în browser, fără cont; căutările salvate nu se trimit nicăieri.",
+      "provider": {
+        "@id": "https://aiventure.ro/#organization"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "România"
+      },
+      "audience": {
+        "@id": "https://firmsfinder.eu/#public"
+      },
+      "termsOfService": "https://firmsfinder.eu/legal/terms",
+      "url": "https://firmsfinder.eu/cautare/"
+    },
+    {
+      "@type": "Service",
+      "@id": "https://firmsfinder.eu/cautare/#s-piata",
+      "name": "Piața pe județe",
+      "serviceType": "Geomarketing de bază",
+      "description": "Pentru o activitate CAEN: unde sunt firmele din domeniu și cât de mari sunt; invers, activitățile dintr-un județ, cu comparare între două județe, pondere și urcare în ierarhia CAEN.",
+      "provider": {
+        "@id": "https://aiventure.ro/#organization"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "România"
+      },
+      "audience": {
+        "@id": "https://firmsfinder.eu/#public"
+      },
+      "termsOfService": "https://firmsfinder.eu/legal/terms",
+      "url": "https://firmsfinder.eu/cautare/"
+    },
+    {
+      "@type": "Service",
+      "@id": "https://firmsfinder.eu/cautare/#s-similare",
+      "name": "Firme similare",
+      "serviceType": "Comparare de firme",
+      "description": "Pe pagina firmei, 5 firme similare: același CAEN și cifră de afaceri apropiată.",
+      "provider": {
+        "@id": "https://aiventure.ro/#organization"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "România"
+      },
+      "audience": {
+        "@id": "https://firmsfinder.eu/#public"
+      },
+      "termsOfService": "https://firmsfinder.eu/legal/terms",
+      "url": "https://firmsfinder.eu/cautare/"
+    },
+    {
+      "@type": "OfferCatalog",
+      "@id": "https://firmsfinder.eu/cautare/#catalog",
+      "name": "Funcții disponibile acum în Caută firme",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@id": "https://firmsfinder.eu/cautare/#s-cautare"
+          },
+          "description": "Gratuit, cu limite de utilizare",
+          "price": "0",
+          "priceCurrency": "RON"
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@id": "https://firmsfinder.eu/cautare/#s-filtre"
+          },
+          "description": "Gratuit, cu limite de utilizare",
+          "price": "0",
+          "priceCurrency": "RON"
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@id": "https://firmsfinder.eu/cautare/#s-sugestii"
+          },
+          "description": "Gratuit, cu limite de utilizare",
+          "price": "0",
+          "priceCurrency": "RON"
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@id": "https://firmsfinder.eu/cautare/#s-export"
+          },
+          "description": "Gratuit, cu limite de utilizare",
+          "price": "0",
+          "priceCurrency": "RON"
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@id": "https://firmsfinder.eu/cautare/#s-piata"
+          },
+          "description": "Gratuit, cu limite de utilizare",
+          "price": "0",
+          "priceCurrency": "RON"
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@id": "https://firmsfinder.eu/cautare/#s-similare"
+          },
+          "description": "Gratuit, cu limite de utilizare",
+          "price": "0",
+          "priceCurrency": "RON"
+        }
+      ]
+    },
+    {
+      "@type": "Dataset",
+      "@id": "https://firmsfinder.eu/#dataset-onrc",
+      "name": "Registrul firmelor active din România (ONRC) în baza FirmsFinder",
+      "description": "Firme active din registrul ONRC, preluate din setul data.gov.ro din 02.09.2026 și încărcate în baza FirmsFinder la 5–6 octombrie 2026. PFA, II și IF sunt afișate mascate.",
+      "url": "https://firmsfinder.eu/surse/",
+      "inLanguage": "ro-RO",
+      "creator": {
+        "@id": "https://aiventure.ro/#organization"
+      },
       "publisher": {
         "@id": "https://aiventure.ro/#organization"
       },
-      "inLanguage": "ro-RO",
-      "publishingPrinciples": "https://firmsfinder.eu/legal/ai-transparency"
+      "spatialCoverage": {
+        "@type": "Place",
+        "name": "România"
+      },
+      "isAccessibleForFree": true,
+      "usageInfo": "https://firmsfinder.eu/legal/terms",
+      "dateModified": "2026-10-14",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "isBasedOn": [
+        "https://www.onrc.ro/",
+        "https://data.gov.ro/"
+      ],
+      "sourceOrganization": [
+        {
+          "@type": "GovernmentOrganization",
+          "name": "Oficiul Național al Registrului Comerțului",
+          "url": "https://www.onrc.ro/"
+        },
+        {
+          "@type": "Organization",
+          "name": "data.gov.ro",
+          "url": "https://data.gov.ro/"
+        }
+      ],
+      "measurementTechnique": "Numărare în baza de date FirmsFinder, calculată la fiecare încărcare a paginii /date/ (întârziere de cel mult o oră)",
+      "variableMeasured": [
+        {
+          "@type": "PropertyValue",
+          "name": "Firme active (ONRC)",
+          "value": 1784283,
+          "unitText": "firme"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Persoane juridice (SRL, SA etc.)",
+          "value": 1310407,
+          "unitText": "firme"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "PFA / II / IF",
+          "value": 473876,
+          "unitText": "firme"
+        }
+      ]
     },
     {
-      "@type": "Organization",
-      "@id": "https://aiventure.ro/#organization",
-      "name": "AiVenture S.R.L.",
-      "url": "https://aiventure.ro/"
+      "@type": "Dataset",
+      "@id": "https://firmsfinder.eu/#dataset-mf",
+      "name": "Bilanțuri ale Ministerului Finanțelor în baza FirmsFinder",
+      "description": "Bilanțuri publicate de Ministerul Finanțelor pe data.gov.ro; seria 2024 actualizată în iunie 2026. Bilanțurile 2022 nu sunt încă în bază.",
+      "url": "https://firmsfinder.eu/surse/",
+      "inLanguage": "ro-RO",
+      "creator": {
+        "@id": "https://aiventure.ro/#organization"
+      },
+      "publisher": {
+        "@id": "https://aiventure.ro/#organization"
+      },
+      "spatialCoverage": {
+        "@type": "Place",
+        "name": "România"
+      },
+      "isAccessibleForFree": true,
+      "usageInfo": "https://firmsfinder.eu/legal/terms",
+      "dateModified": "2026-10-14",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "isBasedOn": [
+        "https://mfinante.gov.ro/",
+        "https://data.gov.ro/"
+      ],
+      "sourceOrganization": [
+        {
+          "@type": "GovernmentOrganization",
+          "name": "Ministerul Finanțelor",
+          "url": "https://mfinante.gov.ro/"
+        },
+        {
+          "@type": "Organization",
+          "name": "data.gov.ro",
+          "url": "https://data.gov.ro/"
+        }
+      ],
+      "temporalCoverage": "2023/2025",
+      "measurementTechnique": "Numărare în baza de date FirmsFinder, calculată la fiecare încărcare a paginii /date/ (întârziere de cel mult o oră)",
+      "variableMeasured": [
+        {
+          "@type": "PropertyValue",
+          "name": "Bilanțuri 2023",
+          "value": 944655,
+          "unitText": "firme"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Bilanțuri 2024",
+          "value": 968704,
+          "unitText": "firme"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Bilanțuri 2025",
+          "value": 918334,
+          "unitText": "firme"
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://firmsfinder.eu/cautare/#howto",
+      "name": "Cum căutați firme în FirmsFinder AI",
+      "inLanguage": "ro-RO",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Introduceți criteriile",
+          "text": "Scrieți numele firmei (minimum 3 caractere) și/sau codul CAEN (2–4 cifre); puteți adăuga județ și localitate."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Adăugați filtre avansate",
+          "text": "Opțional, deschideți „Filtre avansate” pentru cifră de afaceri, salariați, evoluție, profit și sortare."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Apăsați Caută",
+          "text": "Se afișează maximum 50 de rezultate per căutare; filtrele active se șterg cu „×”."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Exportați sau salvați",
+          "text": "Exportați rezultatele în CSV sau salvați căutarea în browser, fără cont."
+        }
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://firmsfinder.eu/cautare/#in-pregatire",
+      "name": "Funcționalități în pregătire (încă indisponibile)",
+      "description": "Nu pot fi folosite acum; descrierile pot suferi modificări, iar limitele și prețurile nu sunt stabilite.",
+      "numberOfItems": 14,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Căutare semantică, în limbaj natural",
+          "description": "În pregătire, indisponibil; acces: gratuită, cu limite zilnice."
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Chip-uri pe obiectiv („Ce urmăriți?”)",
+          "description": "În pregătire, indisponibil; acces: gratuite, cu limite."
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Diagnostic de vizibilitate pentru motoare AI (GEO, AEO, AIO, A2A), de bază",
+          "description": "În pregătire, indisponibil; acces: parțial pe 3webobs.com."
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Site de prezentare standard",
+          "description": "În pregătire, indisponibil; acces: gratuit, cu limite."
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "Email de bază",
+          "description": "În pregătire, indisponibil; acces: gratuit, cu limite."
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "name": "Evaluare preliminară EU AI Act, DORA și NIS2 (nu atestă conformitatea)",
+          "description": "În pregătire, indisponibil; acces: gratuită, cu limite."
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "name": "Prospectare avansată",
+          "description": "În pregătire, indisponibil; acces: cu plată."
+        },
+        {
+          "@type": "ListItem",
+          "position": 8,
+          "name": "GraphRAG: relații între firme",
+          "description": "În pregătire, indisponibil; acces: cu plată."
+        },
+        {
+          "@type": "ListItem",
+          "position": 9,
+          "name": "Monitorizare și alerte pe criterii",
+          "description": "În pregătire, indisponibil; acces: cu plată."
+        },
+        {
+          "@type": "ListItem",
+          "position": 10,
+          "name": "Exporturi extinse",
+          "description": "În pregătire, indisponibil; acces: cu plată."
+        },
+        {
+          "@type": "ListItem",
+          "position": 11,
+          "name": "Automatizare",
+          "description": "În pregătire, indisponibil; acces: cu plată."
+        },
+        {
+          "@type": "ListItem",
+          "position": 12,
+          "name": "Agenți A2A, cu aprobarea dumneavoastră",
+          "description": "În pregătire, indisponibil; acces: cu plată."
+        },
+        {
+          "@type": "ListItem",
+          "position": 13,
+          "name": "Implementări gestionate",
+          "description": "În pregătire, indisponibil; acces: cu plată."
+        },
+        {
+          "@type": "ListItem",
+          "position": 14,
+          "name": "Verificare continuă RRVI™ (nu atestă conformitatea)",
+          "description": "În pregătire, indisponibil; acces: cu plată."
+        }
+      ]
+    },
+    {
+      "@type": "DefinedTermSet",
+      "@id": "https://firmsfinder.eu/cautare/#legenda",
+      "name": "Legenda paginii Caută firme",
+      "hasDefinedTerm": [
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://firmsfinder.eu/cautare/#t-1",
+          "name": "Diviziune CAEN",
+          "description": "2 cifre, de exemplu 69.",
+          "inDefinedTermSet": {
+            "@id": "https://firmsfinder.eu/cautare/#legenda"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://firmsfinder.eu/cautare/#t-2",
+          "name": "Grupă CAEN",
+          "description": "3 cifre, de exemplu 692.",
+          "inDefinedTermSet": {
+            "@id": "https://firmsfinder.eu/cautare/#legenda"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://firmsfinder.eu/cautare/#t-3",
+          "name": "Clasă CAEN",
+          "description": "4 cifre, de exemplu 6920.",
+          "inDefinedTermSet": {
+            "@id": "https://firmsfinder.eu/cautare/#legenda"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://firmsfinder.eu/cautare/#t-4",
+          "name": "Fațete pe județ",
+          "description": "După o căutare, lista „Județe în rezultate” arată câte firme din rezultate sunt în fiecare județ; un clic restrânge căutarea la acel județ.",
+          "inDefinedTermSet": {
+            "@id": "https://firmsfinder.eu/cautare/#legenda"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://firmsfinder.eu/cautare/#t-5",
+          "name": "Pondere",
+          "description": "Numărul de firme din activitate împărțit la toate firmele județului; la nivelurile superioare se însumează toate clasele aparținătoare.",
+          "inDefinedTermSet": {
+            "@id": "https://firmsfinder.eu/cautare/#legenda"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://firmsfinder.eu/cautare/#t-6",
+          "name": "Chip-uri pe obiectiv",
+          "description": "Butoane mici care exprimă un scop, de exemplu „caut clienți noi”; funcția este în pregătire și încă indisponibilă.",
+          "inDefinedTermSet": {
+            "@id": "https://firmsfinder.eu/cautare/#legenda"
+          }
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",
@@ -112,9 +776,44 @@
           "item": "https://firmsfinder.eu/cautare/"
         }
       ]
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "@id": "https://firmsfinder.eu/cautare/#nav-1",
+      "name": "Acasă",
+      "url": "https://firmsfinder.eu/"
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "@id": "https://firmsfinder.eu/cautare/#nav-2",
+      "name": "Căutare",
+      "url": "https://firmsfinder.eu/cautare/"
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "@id": "https://firmsfinder.eu/cautare/#nav-3",
+      "name": "Comparare",
+      "url": "https://firmsfinder.eu/comparare/"
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "@id": "https://firmsfinder.eu/cautare/#nav-4",
+      "name": "Semnale",
+      "url": "https://firmsfinder.eu/semnale/"
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "@id": "https://firmsfinder.eu/cautare/#nav-5",
+      "name": "Surse",
+      "url": "https://firmsfinder.eu/surse/"
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "@id": "https://firmsfinder.eu/cautare/#nav-6",
+      "name": "Contact",
+      "url": "https://firmsfinder.eu/contact/"
     }
   ]
-}
-</script>
+}</script>
 
 <link rel="stylesheet" href="/onsite.css"><style>.srch{display:flex;gap:32px;flex-wrap:wrap;align-items:flex-start}.srch-f{flex:1 1 360px;max-width:540px}.srch-i{flex:1 1 320px;position:sticky;top:16px;align-self:flex-start;max-height:calc(100vh - 32px);overflow-y:auto;font-size:.92rem;color:#f5c842}.srch-i h2,.srch-i strong{color:#f5c842}.srch-i h2{font-size:1.05rem;margin:0 0 8px}.srch-i ul{margin:0;padding-left:18px}.srch-i li{margin:0 0 6px}.piata,.sg{margin-top:40px}.piata form{max-width:none;display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end}.piata form label{margin:0;flex:1 1 200px}.piata-titlu{margin:16px 0 8px}.piata-lista{list-style:none;padding:0;margin:0}.piata-lista li{padding:10px 0;border-bottom:1px solid #f5c84238}.piata-cap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}.piata-judet{font-weight:650}.piata-bara{height:8px;background:#0d0d0d;border-radius:4px;margin:6px 0}.piata-bara i{display:block;height:100%;background:#f5c842;border-radius:4px}.piata-link{font-size:.9rem}.sg-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}.sg-card{border:1px solid #f5c84238;border-radius:10px;padding:16px;background:#0d0d0d}.sg-card h3{margin:0 0 6px;font-size:1.05rem}.sg-card p{margin:4px 0}.sg-card button{padding:6px 10px;font-size:.9rem}.valori{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:18px 0 28px}.valori div{border:1px solid #f5c84238;border-radius:10px;padding:12px 14px;background:#0d0d0d}.valori strong{display:block;color:#f5c842;margin-bottom:4px}.valori span{font-size:.92rem}.srch-i .plata{color:#fff;font-weight:700;margin:18px 0 6px}.srch-i .plata-d{color:#fff;margin:0}.jn{font-size:.85rem;color:#eae7df;margin:12px 0}.jn-b{font-size:.85rem;padding:4px 10px;background:none;color:#f5c842;border:1px solid #f5c84238;border-radius:6px;cursor:pointer}.piata-mod{border:0;padding:0;margin:12px 0;display:flex;gap:20px;flex-wrap:wrap}.piata-mod legend{padding:0;margin:0 0 6px;font-weight:650}.piata-mod label{margin:0;font-weight:400}.pt-wrap{overflow-x:auto;margin:8px 0}.pt{width:100%;border-collapse:collapse;font-size:.92rem}.pt th,.pt td{padding:8px;border-bottom:1px solid #f5c84238;text-align:right;vertical-align:top}.pt th:first-child,.pt td:first-child{text-align:left}.th-b{background:none;border:0;color:#f5c842;font:inherit;font-weight:650;cursor:pointer;padding:0}.pt .piata-link{background:none;border:0;color:#f5c842;cursor:pointer;padding:0;text-align:left;font:inherit}.ft th,.ft td{text-align:left}.ft caption{text-align:left;padding:0 0 6px;color:#b9b5ab}.piata-scara{margin:8px 0}.pt tr.evid{outline:2px solid #f5c842;background:#2a2a10}.piata-sus{margin-left:4px;font-weight:700}.legenda{margin:14px 0;padding:12px 14px;border:1px solid #f5c84238;border-radius:8px;font-size:.92rem}.legenda h3{margin:0 0 8px;font-size:1rem}.legenda dt{font-weight:650;margin-top:8px}.legenda dd{margin:2px 0 0}.piata-urmeaza{margin:14px 0;padding:12px 14px;border:1px solid #f5c84238;border-radius:8px}.piata-urmeaza h3{margin:0 0 8px;font-size:1rem}.piata-urm-lista{margin:0;padding-left:18px}.piata-urm-lista li{margin:0 0 6px}@media(max-width:800px){.srch-i{position:static;max-height:none}}</style><link rel="stylesheet" href="/assets/ledger-ff.css"></head><body><main><nav aria-label="Navigație"><a href="/">Acasă</a><a href="/cautare/">Căutare</a><a href="/comparare/">Comparare</a><a href="/semnale/">Semnale</a><a href="/surse/">Surse</a><a href="/contact/">Contact</a></nav><p aria-label="Breadcrumb"><a href="/">Acasă</a> / Caută firme</p><h1>Caută firme</h1><p>Căutare gratuită în datele ONRC/MF. Introduceți numele firmei (minimum 3 caractere) și/sau codul CAEN (4 cifre). Se afișează maximum 50 de rezultate per căutare, o limită impusă pentru a reduce costurile serviciului gratuit.</p><p><a href="#functionalitati">Vedeți mai jos funcționalitățile și beneficiile →</a></p><div class="valori"><div><strong>Găsiți clienți și parteneri</strong><span>Firme după activitate, județ, localitate, mărime și evoluția cifrei de afaceri, din 3 ani de bilanțuri.</span></div><div><strong>Vedeți piața din zona dumneavoastră</strong><span>Câte firme de același fel sunt în fiecare județ și cât de mari sunt: panoul „Piața pe județe”, mai jos.</span></div><div><strong>Fără cont, fără plată</strong><span>Căutarea și filtrele avansate sunt gratuite. Puteți exporta rezultatele în CSV.</span></div><div><strong>Date oficiale, cu sursă</strong><span>ONRC și Ministerul Finanțelor, prin data.gov.ro. Persoanele fizice apar mascate.</span></div></div><div class="srch"><div class="srch-f"><form id="search-form"><label>Nume firmă (începe cu…)<input name="q" maxlength="60" list="sugestii" autocomplete="off"><datalist id="sugestii"></datalist></label><div class="row"><label>CAEN (2–4 cifre; 69 = toată diviziunea)<input name="caen" inputmode="numeric" pattern="[0-9]{2,4}" maxlength="4" title="2 cifre = diviziune, 3 = grupă, 4 = clasă"></label><label>Județ (separate prin virgulă)<input name="judet" maxlength="120"></label></div><label>Localitate<input name="localitate" maxlength="60"></label><details><summary>Filtre avansate — GRATUIT</summary><label>Exclude județe (ex.: București, Ilfov)<input name="fara_judet" maxlength="120"></label><div class="row"><label>Cifră de afaceri minimă (lei)<input name="cmin" inputmode="numeric"></label><label>Cifră de afaceri maximă (lei)<input name="cmax" inputmode="numeric"></label></div><div class="row"><label>Salariați minim<input name="smin" inputmode="numeric"></label><label>Salariați maxim<input name="smax" inputmode="numeric"></label></div><div class="row"><label>Evoluție cifră de afaceri<select name="trend"><option value="">oricare</option><option value="up">în creștere</option><option value="down">în scădere</option></select></label><label>Sortare<select name="sort"><option value="">implicită</option><option value="ca">cifră de afaceri</option><option value="sal">salariați</option><option value="profit">profit</option><option value="crestere">creștere</option><option value="nou">cele mai noi</option><option value="nume">nume</option></select></label></div><label><input type="checkbox" name="profit_pozitiv" value="1" style="width:auto"> Doar firme cu profit</label><label><input type="checkbox" name="fara_pierdere" value="1" style="width:auto"> Fără firme cu pierdere</label></details><button>Caută</button> <button type="button" id="export" hidden>Export CSV</button> <button type="button" id="salveaza">Salvează căutarea</button></form><div class="jn" id="jurnal-nota" aria-label="Ce memorăm"><p><strong>Ce memorăm când căutați.</strong> Fără acordul dumneavoastră: doar numărători (activitatea, județul, câte rezultate s-au găsit, ce ați apăsat), fără text și fără cod, păstrate 24 de luni. Cu acordul dumneavoastră: și ce ați scris, filtrele și selecțiile, legate de un cod aleator din acest browser, cel mult 30 de zile. Nu stocăm în jurnal adresa IP, emailul sau numele dumneavoastră; nu scrieți date personale în căutare. Puteți retrage acordul oricând, iar datele legate de cod se șterg. <a href="/angajament/">Angajamentul complet și verificarea lui</a>. <em id="jurnal-inactiv">Jurnalul nu este încă activ pe site-ul public.</em></p><p><button type="button" id="jurnal-da" class="jn-b">Sunt de acord</button> <button type="button" id="jurnal-nu" class="jn-b">Nu, mulțumesc</button> <button type="button" id="jurnal-retrage" class="jn-b" hidden>Retrag acordul și șterge datele</button> <span id="jurnal-stare" role="status"></span></p></div><div id="chips" aria-label="Filtre active"></div><div id="salvate" aria-label="Căutări salvate"></div><div id="aux" aria-live="polite"></div><p id="message" role="status" aria-live="polite"></p><section id="results" aria-label="Rezultate"></section><button id="next" hidden>Pagina următoare</button></div><aside class="srch-i" aria-label="Facilități de căutare"><h2>Cum vă ajută, gratuit</h2><ul><li><strong>Nu știți codul CAEN?</strong> Scrieți „contabil”, „IT”, „restaurant” și vi se propune activitatea potrivită.</li><li><strong>Greșeli de scriere?</strong> „Ai vrut să spui…?” și căutarea tolerantă la greșeli le corectează.</li><li><strong>Căutați într-o zonă?</strong> Mai multe județe deodată, sau excludeți județe (ex.: fără București).</li><li><strong>Căutați firme de o anumită mărime?</strong> Intervale pentru cifra de afaceri și salariați; doar firme cu profit; în creștere sau în scădere.</li><li><strong>Vreți să comparați?</strong> Sortare după cifră de afaceri, salariați, profit, creștere sau cele mai noi firme; pe pagina firmei, 5 firme similare.</li><li><strong>Lucrați pe o listă?</strong> Export CSV și căutări salvate în browser (fără cont, nu se trimit nicăieri).</li><li><strong>Activitate pe 2, 3 sau 4 cifre:</strong> 69 = toată diviziunea, 692 = grupa, 6920 = clasa. Filtrele active se șterg cu „×”.</li></ul><h2 class="plata">Inteligență: gratuită cu limite și cu plată</h2><p class="plata-d">Gratuit, cu limite de utilizare: geomarketing de bază și firme similare (disponibile), căutare în limbaj natural (în pregătire). Cu plată, în pregătire și încă indisponibile: prospectare avansată, monitorizare, exporturi extinse, automatizare și execuție. Căutarea de mai sus rămâne gratuită, inclusiv filtrele avansate.</p></aside></div><section class="piata" id="piata" aria-label="Piața pe județe"><h2>Piața pe județe — gratuit</h2><p>Alegeți o activitate și vedeți unde sunt firmele din domeniu și cât de mari sunt. Utilă pentru a alege unde vindeți și unde aveți concurență: vedeți unde sunt mai multe și mai puține firme din domeniu.</p><fieldset class="piata-mod"><legend>Cum priviți piața?</legend><label><input type="radio" name="piata-mod" id="piata-mod-activitate" checked> După activitate (alegeți un CAEN)</label><label><input type="radio" name="piata-mod" id="piata-mod-judet"> După județ (ce activități sunt într-un județ; puteți compara două)</label></fieldset><form id="piata-form"><label>Activitate CAEN (2–4 cifre)<input id="piata-caen" inputmode="numeric" pattern="[0-9]{2,4}" maxlength="4" placeholder="ex.: 6920 sau 69" required></label><label>Ordonare după<select id="piata-sort"><option value="firme">număr de firme</option><option value="ca">cifră de afaceri totală</option><option value="salariati">salariați</option><option value="ca_mediu">cifră de afaceri medie pe firmă</option></select></label><button>Arată piața</button></form><form id="piata-judet-form" hidden><label>Județ<select id="piata-j1" required><option value="">se încarcă…</option></select></label><label>Comparați cu (opțional)<select id="piata-j2"><option value="">— fără comparare —</option></select></label><label>Nivel CAEN<select id="piata-nivel"><option value="4" selected>Clasă (4 cifre)</option><option value="3">Grupă (3 cifre)</option><option value="2">Diviziune (2 cifre)</option></select></label><button>Arată activitățile</button></form><p id="piata-msg" role="status" aria-live="polite"></p><div id="piata-rez"></div></section><section class="sg" aria-label="Căutări sugerate"><h2>Căutări sugerate</h2><div id="sugestii-cautari"></div></section><section class="piata" id="functionalitati" aria-label="Funcționalități și beneficii"><h2>Funcționalități și beneficii</h2><p>Patru trepte: date gratuite, inteligență gratuită (cu limite de utilizare), inteligență cu plată și execuție cu plată. „Disponibil” înseamnă că funcția poate fi folosită acum; celelalte sunt în pregătire și pot suferi modificări. Serviciile de adopție (site, email, evaluare de conformitate) se lansează treptat, cu limite de utilizare. Limitele și prețurile nu sunt încă stabilite.</p><div class="pt-wrap"><table class="pt ft"><caption>Funcționalități, treaptă, acces, stare și beneficii</caption><thead><tr><th scope="col">Funcționalitate</th><th scope="col">Treaptă</th><th scope="col">Acces</th><th scope="col">Stare</th><th scope="col">Beneficiu</th></tr></thead><tbody><tr><th scope="row">Acces gratuit la datele publice ale firmelor: căutare după nume, CAEN, județ, localitate și filtre financiare; fațete pe județ*, export CSV, sugestii de nume, sinonime</th><td>Date gratuite</td><td>Gratuit</td><td>Disponibil</td><td>Găsiți rapid clienți, furnizori și concurenți în datele oficiale ONRC/MF.</td></tr><tr><th scope="row">Firme similare (același CAEN și cifră de afaceri apropiată)</th><td>Inteligență gratuită</td><td>Gratuit, cu limite</td><td>Disponibil</td><td>Vedeți firmele apropiate de una pe care o cunoașteți deja.</td></tr><tr><th scope="row">Geomarketing de bază: piața pe activitate și pe județ, cu pondere, urcare în ierarhia CAEN*** și comparare între două județe</th><td>Inteligență gratuită</td><td>Gratuit, cu limite</td><td>Disponibil</td><td>Alegeți unde vindeți sau deschideți un punct de lucru; vedeți cât din firmele județului lucrează în fiecare domeniu.</td></tr><tr><th scope="row">Sugestii „mai departe”, în cel mult 3 pași</th><td>Inteligență gratuită</td><td>Gratuit, cu limite</td><td>Disponibil</td><td>Nu rămâneți fără idei de continuare.</td></tr><tr><th scope="row">Căutare semantică, în limbaj natural</th><td>Inteligență gratuită</td><td>Gratuit, cu limite zilnice</td><td>În pregătire</td><td>Scrieți ce căutați, în loc să completați filtre. Acoperă doar firmele cu descriere suficientă, nu toate firmele.</td></tr><tr><th scope="row">Chip-uri pe obiectiv** („Ce urmăriți?”)</th><td>Inteligență gratuită</td><td>Gratuit, cu limite</td><td>În pregătire</td><td>Începeți fără să cunoașteți codurile CAEN.</td></tr><tr><th scope="row">Diagnostic de vizibilitate pentru motoare AI: GEO, AEO, AIO și A2A (de bază)</th><td>Vizibilitate AI (activare)</td><td>Gratuit, cu limite</td><td>Parțial, pe 3webobs.com; condițiile gratuite nu sunt încă stabilite</td><td>Vedeți ce înțeleg motoarele AI despre firma dumneavoastră.</td></tr><tr><th scope="row">Site de prezentare standard</th><td>Adopție</td><td>Gratuit, cu limite</td><td>În pregătire</td><td>Prezență online de bază, lansată treptat.</td></tr><tr><th scope="row">Email de bază</th><td>Adopție</td><td>Gratuit, cu limite</td><td>În pregătire</td><td>Adresă de contact pe numele firmei, lansată treptat.</td></tr><tr><th scope="row">Evaluare preliminară EU AI Act, DORA și NIS2 (nu atestă conformitatea)</th><td>Adopție</td><td>Gratuit, cu limite</td><td>În pregătire</td><td>Vedeți de unde porniți, fără să plătiți pentru primul pas.</td></tr><tr><th scope="row">Prospectare avansată</th><td>Inteligență cu plată</td><td>Cu plată</td><td>În pregătire, indisponibil</td><td>Liste țintite de firme potrivite ofertei dumneavoastră.</td></tr><tr><th scope="row">GraphRAG: relații între firme</th><td>Inteligență cu plată</td><td>Cu plată</td><td>În pregătire, indisponibil</td><td>Imaginea relațiilor economice dintre firme.</td></tr><tr><th scope="row">Monitorizare și alerte pe criterii</th><td>Inteligență cu plată</td><td>Cu plată</td><td>În pregătire, indisponibil</td><td>Aflați din timp firmele noi care se potrivesc criteriilor dumneavoastră.</td></tr><tr><th scope="row">Exporturi extinse</th><td>Inteligență cu plată</td><td>Cu plată</td><td>În pregătire, indisponibil</td><td>Liste mari, gata de folosit în instrumentele dumneavoastră.</td></tr><tr><th scope="row">Automatizare</th><td>Inteligență cu plată</td><td>Cu plată</td><td>În pregătire, indisponibil</td><td>Mai puțin lucru manual repetitiv.</td></tr><tr><th scope="row">Agenți A2A, cu aprobarea dumneavoastră</th><td>Execuție cu plată</td><td>Cu plată</td><td>În pregătire, indisponibil</td><td>Mai puțin lucru manual, cu decizia finală la dumneavoastră.</td></tr><tr><th scope="row">Implementări gestionate</th><td>Execuție cu plată</td><td>Cu plată</td><td>În pregătire, indisponibil</td><td>Problemele găsite se rezolvă, nu rămân într-un raport.</td></tr><tr><th scope="row">Verificare continuă RRVI™</th><td>Execuție cu plată</td><td>Cu plată</td><td>În pregătire, indisponibil</td><td>Dovezi verificabile, păstrate în timp.</td></tr></tbody></table></div><div class="legenda" id="legenda"><h3>Legendă</h3><dl><dt>* Fațete pe județ</dt><dd>După o căutare de firme, lista „Județe în rezultate” arată câte firme din rezultate sunt în fiecare județ. Un clic pe un județ restrânge căutarea la acel județ.</dd><dt>** Chip-uri pe obiectiv</dt><dd>Butoane mici (etichete) care exprimă un scop, de exemplu „caut clienți noi” sau „vreau să văd concurența”. Un clic ar completa singur filtrele potrivite (activitate, județ, mărime), ca să nu fie nevoie să le cunoașteți. Funcția este în pregătire și încă indisponibilă.</dd><dt>*** Scara CAEN și pondere</dt><dd>Activitățile sunt codificate pe trei niveluri: diviziune (2 cifre), grupă (3 cifre) și clasă (4 cifre), de exemplu 69 › 692 › 6920. Săgeata „↑” de lângă o activitate urcă la nivelul superior, iar bara „Nivel CAEN” de deasupra tabelului permite alegerea oricărui nivel. Ponderea este numărul de firme din activitate împărțit la toate firmele județului; la nivelurile superioare se însumează toate clasele aparținătoare.</dd></dl></div><div class="legenda" id="functionalitati-avansate"><h3>Funcționalități avansate</h3><p>Toate sunt în pregătire și încă indisponibile; descrierile pot suferi modificări. Limitele și prețurile nu sunt stabilite.</p><dl><dt>Prospectare avansată <span class="muted">(Inteligență cu plată)</span></dt><dd>Liste țintite de firme care seamănă cu cei mai buni clienți ai dumneavoastră („mai multe ca asta”), alese după activitate, locație, mărime și evoluție. <em>Pentru cine:</em> Firme care vând B2B și caută clienți noi.</dd><dt>GraphRAG: relații între firme <span class="muted">(Inteligență cu plată)</span></dt><dd>Hartă a legăturilor economice dintre firme, construită din date publice, și întrebări puse în limbaj natural pe această hartă. <em>Pentru cine:</em> Cine vrea să înțeleagă lanțuri de furnizori, clienți și concurenți.</dd><dt>Monitorizare și alerte pe criterii <span class="muted">(Inteligență cu plată)</span></dt><dd>Vă anunță când apar sau se schimbă firme care corespund criteriilor dumneavoastră (domeniu, județ, mărime). <em>Pentru cine:</em> Cine nu vrea să reia căutarea manual.</dd><dt>Exporturi extinse <span class="muted">(Inteligență cu plată)</span></dt><dd>Exporturi mai mari decât limita gratuită, în formate gata de folosit în instrumentele dumneavoastră. <em>Pentru cine:</em> Echipe de vânzări și analiști.</dd><dt>Automatizare <span class="muted">(Inteligență cu plată)</span></dt><dd>Fluxuri repetate (căutare, filtrare, actualizare de liste) rulate fără intervenție manuală. <em>Pentru cine:</em> Cine face aceleași căutări periodic.</dd><dt>Agenți A2A <span class="muted">(Execuție cu plată)</span></dt><dd>Agenți software care acționează în numele firmei dumneavoastră, cu aprobarea dumneavoastră înainte de orice acțiune importantă. <em>Pentru cine:</em> Firme care vor mai puțin lucru manual.</dd><dt>Implementări gestionate <span class="muted">(Execuție cu plată)</span></dt><dd>AiVenture rezolvă problemele găsite de diagnostic (de exemplu vizibilitatea pentru motoare AI) și le păstrează rezolvate. <em>Pentru cine:</em> Firme fără echipă tehnică proprie.</dd><dt>Verificare continuă RRVI™ <span class="muted">(Execuție cu plată)</span></dt><dd>Documente și dovezi păstrate și verificabile în timp, pentru pregătirea controalelor de la distanță. Nu atestă conformitatea. <em>Pentru cine:</em> Firme care trebuie să-și documenteze conformitatea.</dd></dl></div></section><footer>FirmsFinder AI · AiVenture S.R.L. · <a href="/signals.json">Catalog JSON</a><!--angajament:1.0--><div class="angajament"><link rel="stylesheet" href="/angajament.css"><a class="angajament-badge" href="https://eu-ai-act-ready.eu/" rel="noopener"><img src="/assets/eu-ai-act-ready-2aug2026_256x256_v1.0_2026-10-16.webp" width="96" height="96" alt="EU AI Act Ready: kit cu 70 de documente, 10 module" loading="lazy"></a><p>Angajament de transparență v1.0 (16 octombrie 2026): memorăm doar ce declarăm. Fără acordul dumneavoastră, doar numărători, 24 de luni. Cu acord, text și selecții, cel mult 30 de zile. Nu stocăm în jurnal IP, email sau nume. <a href="/angajament/">Citiți și verificați amprenta</a> · <a href="/angajament.json">JSON</a><br><small>Insigna trimite la kitul EU AI Act Ready (70 de documente, 10 module). Nu este o certificare oficială și nu atestă conformitatea acestui site.</small></p></div><!--/angajament--></footer></main><script src="/onsite-ui.js" defer></script><script src="/cautare-piata.js" defer></script><script src="/cautare-jurnal.js" defer></script></body></html>
