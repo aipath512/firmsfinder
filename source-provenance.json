@@ -15,6 +15,12 @@
   },
   "sources": [
     {
+      "name": "data.gov.ro",
+      "url": "https://data.gov.ro/",
+      "role": "Portalul de date publice, referința pentru seturile ONRC și Ministerul Finanțelor",
+      "update_frequency": "monthly"
+    },
+    {
       "name": "ONRC",
       "url": "https://www.onrc.ro/",
       "role": "Company register public data"
