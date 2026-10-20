@@ -218,100 +218,29 @@
       ]
     },
     {
-      "@type": "DefinedTermSet",
-      "@id": "https://firmsfinder.eu/#termeni",
-      "name": "SEO modern în era AI",
-      "hasDefinedTerm": [
-        {
-          "@id": "https://firmsfinder.eu/#termen-geo"
-        },
-        {
-          "@id": "https://firmsfinder.eu/#termen-aeo"
-        },
-        {
-          "@id": "https://firmsfinder.eu/#termen-ai-seo"
-        },
-        {
-          "@id": "https://firmsfinder.eu/#termen-on-site"
-        },
-        {
-          "@id": "https://firmsfinder.eu/#termen-on-page"
-        }
-      ]
-    },
-    {
-      "@type": "DefinedTerm",
-      "@id": "https://firmsfinder.eu/#termen-geo",
-      "termCode": "GEO",
-      "name": "Generative Engine Optimization",
-      "description": "Pregătire pentru citarea în răspunsurile AI.",
-      "url": "https://firmsfinder.eu/geo/",
-      "inDefinedTermSet": {
-        "@id": "https://firmsfinder.eu/#termeni"
-      }
-    },
-    {
-      "@type": "DefinedTerm",
-      "@id": "https://firmsfinder.eu/#termen-aeo",
-      "termCode": "AEO",
-      "name": "Answer Engine Optimization",
-      "description": "Răspunsuri clare, structurate, ușor de extras.",
-      "url": "https://firmsfinder.eu/aeo/",
-      "inDefinedTermSet": {
-        "@id": "https://firmsfinder.eu/#termeni"
-      }
-    },
-    {
-      "@type": "DefinedTerm",
-      "@id": "https://firmsfinder.eu/#termen-ai-seo",
-      "termCode": "AI-SEO",
-      "name": "AI-SEO",
-      "description": "Conținut optimizat pentru căutările AI și Google AI Overviews.",
-      "url": "https://firmsfinder.eu/ai-seo/",
-      "inDefinedTermSet": {
-        "@id": "https://firmsfinder.eu/#termeni"
-      }
-    },
-    {
-      "@type": "DefinedTerm",
-      "@id": "https://firmsfinder.eu/#termen-on-site",
-      "termCode": "ON-SITE",
-      "name": "ON-SITE",
-      "description": "Structură, date structurate, performanță și accesibilitate.",
-      "url": "https://firmsfinder.eu/on-site/",
-      "inDefinedTermSet": {
-        "@id": "https://firmsfinder.eu/#termeni"
-      }
-    },
-    {
-      "@type": "DefinedTerm",
-      "@id": "https://firmsfinder.eu/#termen-on-page",
-      "termCode": "ON-PAGE",
-      "name": "ON-PAGE",
-      "description": "Titluri, descrieri, FAQ, intenții și dovezi pentru AI.",
-      "url": "https://firmsfinder.eu/on-page/",
-      "inDefinedTermSet": {
-        "@id": "https://firmsfinder.eu/#termeni"
-      }
-    },
-    {
       "@type": "ItemList",
       "@id": "https://firmsfinder.eu/angajament/#ce-memoram-pe-coloane-tabel1",
       "name": "Ce memorăm, pe coloane",
-      "numberOfItems": 2,
+      "numberOfItems": 3,
       "itemListOrder": "https://schema.org/ItemListOrderAscending",
       "itemListElement": [
         {
           "@type": "ListItem",
           "position": 1,
-          "name": "Numai cu acord",
-          "description": "event_type, caen, judet, result_count, result_count_scope, zero_result_context, target_kind, target_value, source_page, referrer_host, utm: session_id, query_raw, query_norm, intent_family, funnel_stage, objective, target_role, localitate, size_min, size_max, filters_json"
+          "name": "Fără acord (numărători)",
+          "description": "event_type, caen, judet, result_count, result_count_scope, zero_result_context, target_kind, target_value, source_page, referrer_host, utm"
         },
         {
           "@type": "ListItem",
           "position": 2,
+          "name": "Numai cu acord",
+          "description": "session_id, query_raw, query_norm, intent_family, funnel_stage, objective, target_role, localitate, size_min, size_max, filters_json"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
           "name": "Tehnice (identificator de rând, versiune, date, expirare)",
-          "description": "event_type, caen, judet, result_count, result_count_scope, zero_result_context, target_kind, target_value, source_page, referrer_host, utm: event_id, schema_version, occurred_at, site, sanitization_version, consent_state, retention_until"
+          "description": "event_id, schema_version, occurred_at, site, sanitization_version, consent_state, retention_until"
         }
       ]
     },

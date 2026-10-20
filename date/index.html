@@ -246,24 +246,29 @@
       ]
     },
     {
-      "@type": "DefinedTermSet",
-      "@id": "https://firmsfinder.eu/#termeni",
-      "name": "SEO modern în era AI",
-      "hasDefinedTerm": [
+      "@type": "ItemList",
+      "@id": "https://firmsfinder.eu/date/#baza-de-firme-tabel1",
+      "name": "Baza de firme",
+      "numberOfItems": 3,
+      "itemListOrder": "https://schema.org/ItemListOrderAscending",
+      "itemListElement": [
         {
-          "@id": "https://firmsfinder.eu/#termen-geo"
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Firme active (ONRC)",
+          "description": "1.784.283"
         },
         {
-          "@id": "https://firmsfinder.eu/#termen-aeo"
+          "@type": "ListItem",
+          "position": 2,
+          "name": "din care persoane juridice (SRL, SA etc.)",
+          "description": "1.310.407"
         },
         {
-          "@id": "https://firmsfinder.eu/#termen-ai-seo"
-        },
-        {
-          "@id": "https://firmsfinder.eu/#termen-on-site"
-        },
-        {
-          "@id": "https://firmsfinder.eu/#termen-on-page"
+          "@type": "ListItem",
+          "position": 3,
+          "name": "din care PFA / II / IF (afișate mascate)",
+          "description": "473.876"
         }
       ]
     },
@@ -550,99 +555,29 @@
       ]
     },
     {
-      "@type": "DefinedTerm",
-      "@id": "https://firmsfinder.eu/#termen-geo",
-      "termCode": "GEO",
-      "name": "Generative Engine Optimization",
-      "description": "Pregătire pentru citarea în răspunsurile AI.",
-      "url": "https://firmsfinder.eu/geo/",
-      "inDefinedTermSet": {
-        "@id": "https://firmsfinder.eu/#termeni"
-      }
-    },
-    {
-      "@type": "DefinedTerm",
-      "@id": "https://firmsfinder.eu/#termen-aeo",
-      "termCode": "AEO",
-      "name": "Answer Engine Optimization",
-      "description": "Răspunsuri clare, structurate, ușor de extras.",
-      "url": "https://firmsfinder.eu/aeo/",
-      "inDefinedTermSet": {
-        "@id": "https://firmsfinder.eu/#termeni"
-      }
-    },
-    {
-      "@type": "DefinedTerm",
-      "@id": "https://firmsfinder.eu/#termen-ai-seo",
-      "termCode": "AI-SEO",
-      "name": "AI-SEO",
-      "description": "Conținut optimizat pentru căutările AI și Google AI Overviews.",
-      "url": "https://firmsfinder.eu/ai-seo/",
-      "inDefinedTermSet": {
-        "@id": "https://firmsfinder.eu/#termeni"
-      }
-    },
-    {
-      "@type": "DefinedTerm",
-      "@id": "https://firmsfinder.eu/#termen-on-site",
-      "termCode": "ON-SITE",
-      "name": "ON-SITE",
-      "description": "Structură, date structurate, performanță și accesibilitate.",
-      "url": "https://firmsfinder.eu/on-site/",
-      "inDefinedTermSet": {
-        "@id": "https://firmsfinder.eu/#termeni"
-      }
-    },
-    {
-      "@type": "DefinedTerm",
-      "@id": "https://firmsfinder.eu/#termen-on-page",
-      "termCode": "ON-PAGE",
-      "name": "ON-PAGE",
-      "description": "Titluri, descrieri, FAQ, intenții și dovezi pentru AI.",
-      "url": "https://firmsfinder.eu/on-page/",
-      "inDefinedTermSet": {
-        "@id": "https://firmsfinder.eu/#termeni"
-      }
-    },
-    {
-      "@type": "ItemList",
-      "@id": "https://firmsfinder.eu/date/#baza-de-firme-tabel1",
-      "name": "Baza de firme",
-      "numberOfItems": 2,
-      "itemListOrder": "https://schema.org/ItemListOrderAscending",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "din care persoane juridice (SRL, SA etc.)",
-          "description": "1.784.283: 1.310.407"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "din care PFA / II / IF (afișate mascate)",
-          "description": "1.784.283: 473.876"
-        }
-      ]
-    },
-    {
       "@type": "ItemList",
       "@id": "https://firmsfinder.eu/date/#bilanturi-ale-ministerului-finantelor-tabel1",
       "name": "Bilanțuri ale Ministerului Finanțelor",
-      "numberOfItems": 2,
+      "numberOfItems": 3,
       "itemListOrder": "https://schema.org/ItemListOrderAscending",
       "itemListElement": [
         {
           "@type": "ListItem",
           "position": 1,
-          "name": "Bilanțuri 2024",
-          "description": "944.655: 968.704"
+          "name": "Bilanțuri 2023",
+          "description": "944.655"
         },
         {
           "@type": "ListItem",
           "position": 2,
+          "name": "Bilanțuri 2024",
+          "description": "968.704"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
           "name": "Bilanțuri 2025",
-          "description": "944.655: 918.334"
+          "description": "918.334"
         }
       ]
     },
@@ -650,32 +585,38 @@
       "@type": "ItemList",
       "@id": "https://firmsfinder.eu/date/#site-uri-email-telefon-firmsfinderbot-tabel1",
       "name": "Site-uri, email, telefon (FirmsFinderBot)",
-      "numberOfItems": 4,
+      "numberOfItems": 5,
       "itemListOrder": "https://schema.org/ItemListOrderAscending",
       "itemListElement": [
         {
           "@type": "ListItem",
           "position": 1,
-          "name": "cu domeniu găsit",
-          "description": "677.384: 57.078"
+          "name": "Firme procesate până acum",
+          "description": "677.384"
         },
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "cu site verificat",
-          "description": "677.384: 31.977"
+          "name": "cu domeniu găsit",
+          "description": "57.078"
         },
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "cu email găsit",
-          "description": "677.384: 39.953"
+          "name": "cu site verificat",
+          "description": "31.977"
         },
         {
           "@type": "ListItem",
           "position": 4,
+          "name": "cu email găsit",
+          "description": "39.953"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
           "name": "cu telefon găsit",
-          "description": "677.384: 28.586"
+          "description": "28.586"
         }
       ]
     },
@@ -728,27 +669,33 @@
       "@type": "ItemList",
       "@id": "https://firmsfinder.eu/date/#firme-in-uniunea-europeana-eurostat-2024-tabel2",
       "name": "Firme noi, 2024",
-      "numberOfItems": 2,
+      "numberOfItems": 3,
       "itemListOrder": "https://schema.org/ItemListOrderAscending",
       "itemListElement": [
         {
           "@type": "ListItem",
           "position": 1,
-          "name": "Rata de înființare, UE-27",
-          "description": "3.541.482: 10,4%"
+          "name": "Firme înființate în UE",
+          "description": "3.541.482"
         },
         {
           "@type": "ListItem",
           "position": 2,
+          "name": "Rata de înființare, UE-27",
+          "description": "10,4%"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
           "name": "Rata de încetare, UE-27 (preliminar)",
-          "description": "3.541.482: 9,2%"
+          "description": "9,2%"
         }
       ]
     },
     {
       "@type": "ItemList",
       "@id": "https://firmsfinder.eu/date/#firme-in-uniunea-europeana-eurostat-2024-tabel3",
-      "name": "Firme noi, 2024",
+      "name": "Firme noi, 2024 — Rata de înființare, 2024",
       "numberOfItems": 8,
       "itemListOrder": "https://schema.org/ItemListOrderAscending",
       "itemListElement": [
