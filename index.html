@@ -28,15 +28,105 @@
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "Organization",
+      "@id": "https://aiventure.ro/#organization",
+      "name": "AiVenture S.R.L.",
+      "legalName": "AiVenture S.R.L.",
+      "alternateName": "AiVenture",
+      "url": "https://aiventure.ro/",
+      "logo": "https://aiventure.ro/icon.svg",
+      "email": "contact@5thelement.ai",
+      "telephone": "+40 737 123 540",
+      "description": "AiVenture oferă servicii pentru Web-Om, Web-AI și Web-A2A și produse pentru analiză, implementare și infrastructură AI/A2A.",
+      "foundingDate": "2025-03-07",
+      "taxID": "51415878",
+      "vatID": "RO51415878",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "CUI",
+          "value": "51415878"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "Nr. Registrul Comerțului",
+          "value": "J2025016406000"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "EUID",
+          "value": "ROONRC.J2025016406000"
+        }
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Drumul Pădurea Pustnicul nr. 141C, Corp A, Etaj 2, Ap. 5",
+        "addressLocality": "București",
+        "addressRegion": "Sector 1",
+        "postalCode": "014044",
+        "addressCountry": "RO"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "informații comerciale",
+        "email": "contact@5thelement.ai",
+        "telephone": "+40 737 123 540",
+        "availableLanguage": [
+          "ro"
+        ]
+      },
+      "founder": {
+        "@type": "Person",
+        "name": "Dan Ionescu",
+        "sameAs": [
+          "https://orcid.org/0009-0002-5498-1046",
+          "https://ro.linkedin.com/in/dan-ionesco-a856082a0"
+        ]
+      },
+      "employee": {
+        "@type": "Person",
+        "name": "Gratiela Ionescu",
+        "jobTitle": "Administrator"
+      },
+      "brand": {
+        "@id": "https://firmsfinder.eu/#brand"
+      },
+      "sameAs": [
+        "https://www.reddit.com/user/AiVentureRO/",
+        "https://www.linkedin.com/company/107338970",
+        "https://www.linkedin.com/showcase/5thelement-ai/",
+        "https://www.crunchbase.com/organization/aiventure-s-r-l",
+        "https://www.facebook.com/people/Aiventure/61573220584246/",
+        "https://x.com/aipath512",
+        "https://www.youtube.com/@AIVenture-q8u",
+        "https://medium.com/@aipath512"
+      ]
+    },
+    {
+      "@type": "Brand",
+      "@id": "https://firmsfinder.eu/#brand",
+      "name": "FirmsFinder AI",
+      "url": "https://firmsfinder.eu/",
+      "slogan": "Economic Intelligence"
+    },
+    {
       "@type": "WebSite",
       "@id": "https://firmsfinder.eu/#website",
       "url": "https://firmsfinder.eu/",
       "name": "FirmsFinder AI",
+      "inLanguage": "ro-RO",
       "publisher": {
         "@id": "https://aiventure.ro/#organization"
       },
-      "inLanguage": "ro-RO",
-      "publishingPrinciples": "https://firmsfinder.eu/legal/ai-transparency"
+      "publishingPrinciples": "https://firmsfinder.eu/legal/ai-transparency",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://firmsfinder.eu/cautare/?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
     },
     {
       "@type": "WebPage",
@@ -44,13 +134,33 @@
       "url": "https://firmsfinder.eu/",
       "name": "FirmsFinder AI – Descoperă clienți noi",
       "description": "Descoperă clienți noi pentru firma ta. Fii găsit de oameni și sisteme AI. Crește cu AI cum ai crescut cu Google. Începe gratuit cu FirmsFinder.",
+      "inLanguage": "ro-RO",
       "isPartOf": {
         "@id": "https://firmsfinder.eu/#website"
       },
-      "inLanguage": "ro-RO",
+      "breadcrumb": {
+        "@id": "https://firmsfinder.eu/#breadcrumb"
+      },
       "primaryImageOfPage": {
         "@type": "ImageObject",
-        "url": "https://firmsfinder.eu/assets/og-image.webp"
+        "@id": "https://firmsfinder.eu/#primaryimage",
+        "url": "https://firmsfinder.eu/assets/og-image.webp",
+        "contentUrl": "https://firmsfinder.eu/assets/og-image.webp",
+        "caption": "FirmsFinder AI — date, relații economice și oportunități"
+      },
+      "about": [
+        {
+          "@id": "https://firmsfinder.eu/#app"
+        },
+        {
+          "@id": "https://firmsfinder.eu/#dataset-firme-ro"
+        },
+        {
+          "@id": "https://firmsfinder.eu/#termeni"
+        }
+      ],
+      "mainEntity": {
+        "@id": "https://firmsfinder.eu/#app"
       },
       "dateModified": "2026-10-15",
       "datePublished": "2026-10-15",
@@ -69,18 +179,582 @@
         "@id": "https://aiventure.ro/#organization"
       },
       "usageInfo": "https://firmsfinder.eu/legal/terms",
-      "breadcrumb": {
-        "@id": "https://firmsfinder.eu/#breadcrumb"
-      },
-      "about": {
+      "significantLink": [
+        "https://firmsfinder.eu/legal/privacy",
+        "https://firmsfinder.eu/legal/terms",
+        "https://firmsfinder.eu/legal/cookies",
+        "https://firmsfinder.eu/legal/disclaimer",
+        "https://firmsfinder.eu/legal/legal-notice",
+        "https://firmsfinder.eu/legal/gdpr-rights",
+        "https://firmsfinder.eu/legal/data-retention",
+        "https://firmsfinder.eu/legal/security",
+        "https://firmsfinder.eu/legal/acceptable-use",
+        "https://firmsfinder.eu/legal/ai-transparency",
+        "https://firmsfinder.eu/legal/eu-ai-act",
+        "https://firmsfinder.eu/legal/human-oversight",
+        "https://firmsfinder.eu/legal/accessibility",
+        "https://firmsfinder.eu/legal/legal-contact",
+        "https://firmsfinder.eu/surse/",
+        "https://firmsfinder.eu/date/",
+        "https://firmsfinder.eu/contact/"
+      ],
+      "hasPart": [
+        {
+          "@id": "https://firmsfinder.eu/#nav-1"
+        },
+        {
+          "@id": "https://firmsfinder.eu/#nav-2"
+        },
+        {
+          "@id": "https://firmsfinder.eu/#nav-3"
+        },
+        {
+          "@id": "https://firmsfinder.eu/#nav-4"
+        },
+        {
+          "@id": "https://firmsfinder.eu/#nav-5"
+        },
+        {
+          "@id": "https://firmsfinder.eu/#nav-6"
+        },
+        {
+          "@id": "https://firmsfinder.eu/#nav-7"
+        },
+        {
+          "@id": "https://firmsfinder.eu/#nav-8"
+        },
+        {
+          "@id": "https://firmsfinder.eu/#nav-9"
+        },
+        {
+          "@id": "https://firmsfinder.eu/#nav-10"
+        },
+        {
+          "@id": "https://firmsfinder.eu/#nav-11"
+        },
+        {
+          "@id": "https://firmsfinder.eu/#nav-12"
+        },
+        {
+          "@id": "https://firmsfinder.eu/#nav-13"
+        },
+        {
+          "@id": "https://firmsfinder.eu/#nav-14"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "@id": "https://firmsfinder.eu/#app",
+      "name": "FirmsFinder AI",
+      "url": "https://firmsfinder.eu/",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "ro-RO",
+      "description": "Platformă pentru descoperirea clienților B2B pe baza datelor oficiale publice despre firme și pentru vizibilitatea firmei în căutările oamenilor și ale sistemelor AI.",
+      "provider": {
         "@id": "https://aiventure.ro/#organization"
+      },
+      "brand": {
+        "@id": "https://firmsfinder.eu/#brand"
+      },
+      "isAccessibleForFree": true,
+      "audience": {
+        "@id": "https://firmsfinder.eu/#public"
+      },
+      "featureList": [
+        "Acces la datele oficiale publice ale firmelor",
+        "Căutare și filtre de bază",
+        "Diagnostic inițial de vizibilitate AI"
+      ],
+      "hasOfferCatalog": {
+        "@id": "https://firmsfinder.eu/#catalog"
+      },
+      "termsOfService": "https://firmsfinder.eu/legal/terms"
+    },
+    {
+      "@type": "BusinessAudience",
+      "@id": "https://firmsfinder.eu/#public",
+      "name": "Firme B2B",
+      "audienceType": "Firme B2B",
+      "geographicArea": {
+        "@type": "Country",
+        "name": "România"
       }
     },
     {
-      "@type": "Organization",
-      "@id": "https://aiventure.ro/#organization",
-      "name": "AiVenture S.R.L.",
-      "url": "https://aiventure.ro/"
+      "@type": "Service",
+      "@id": "https://firmsfinder.eu/#service-cautare",
+      "name": "Căutare firme și descoperire clienți B2B",
+      "serviceType": "Prospectare B2B și intelligence comercial",
+      "description": "Acces la datele oficiale publice ale firmelor, căutare și filtre de bază, în limitele serviciului disponibil.",
+      "provider": {
+        "@id": "https://aiventure.ro/#organization"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "România"
+      },
+      "audience": {
+        "@id": "https://firmsfinder.eu/#public"
+      },
+      "isAccessibleForFree": true,
+      "url": "https://firmsfinder.eu/cautare/"
+    },
+    {
+      "@type": "Service",
+      "@id": "https://firmsfinder.eu/#service-diagnostic",
+      "name": "Diagnostic inițial de vizibilitate AI",
+      "serviceType": "Diagnostic de vizibilitate în căutările AI",
+      "description": "Diagnostic inițial gratuit al vizibilității firmei pentru ChatGPT, Claude, Gemini, Perplexity și Google, în limitele serviciului disponibil.",
+      "provider": {
+        "@id": "https://aiventure.ro/#organization"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "România"
+      },
+      "audience": {
+        "@id": "https://firmsfinder.eu/#public"
+      },
+      "isAccessibleForFree": true,
+      "url": "https://firmsfinder.eu/geo/"
+    },
+    {
+      "@type": "Service",
+      "@id": "https://firmsfinder.eu/#service-intelligence",
+      "name": "Intelligence avansat",
+      "serviceType": "Intelligence comercial avansat",
+      "description": "Analize aprofundate, recomandări AI, monitorizare, exporturi extinse, agenți AI, automatizare și integrare A2A.",
+      "provider": {
+        "@id": "https://aiventure.ro/#organization"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "România"
+      },
+      "audience": {
+        "@id": "https://firmsfinder.eu/#public"
+      },
+      "isAccessibleForFree": false,
+      "url": "https://firmsfinder.eu/intelligence/"
+    },
+    {
+      "@type": "OfferCatalog",
+      "@id": "https://firmsfinder.eu/#catalog",
+      "name": "Servicii FirmsFinder AI",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@id": "https://firmsfinder.eu/#service-cautare"
+          },
+          "description": "Gratuit, în limitele serviciului disponibil"
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@id": "https://firmsfinder.eu/#service-diagnostic"
+          },
+          "description": "Gratuit, în limitele serviciului disponibil"
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@id": "https://firmsfinder.eu/#service-intelligence"
+          },
+          "description": "Nivel avansat; prețul nu este afișat pe pagină"
+        }
+      ]
+    },
+    {
+      "@type": "DataCatalog",
+      "@id": "https://firmsfinder.eu/#catalog-date",
+      "name": "Seturile de date FirmsFinder",
+      "url": "https://firmsfinder.eu/date/",
+      "publisher": {
+        "@id": "https://aiventure.ro/#organization"
+      },
+      "dataset": [
+        {
+          "@id": "https://firmsfinder.eu/#dataset-firme-ro"
+        },
+        {
+          "@id": "https://firmsfinder.eu/#dataset-onrc"
+        },
+        {
+          "@id": "https://firmsfinder.eu/#dataset-mf"
+        },
+        {
+          "@id": "https://firmsfinder.eu/#dataset-firmsfinderbot"
+        }
+      ]
+    },
+    {
+      "@type": "Dataset",
+      "@id": "https://firmsfinder.eu/#dataset-firme-ro",
+      "name": "Baza de date FirmsFinder: firme din România",
+      "url": "https://firmsfinder.eu/date/",
+      "inLanguage": "ro-RO",
+      "description": "Baza FirmsFinder reunește registrul firmelor active (ONRC) și bilanțurile Ministerului Finanțelor, din surse publice actualizate lunar, cu data.gov.ro ca referință, plus date derivate găsite de FirmsFinderBot. Cifrele sunt din 14 octombrie 2026. Statisticile pentru UE (Eurostat, 2024, aprox. 34,0 milioane de firme active) sunt afișate doar ca informare și nu fac parte din baza de date: extinderea la firme din UE este în curs.",
+      "creator": {
+        "@id": "https://aiventure.ro/#organization"
+      },
+      "publisher": {
+        "@id": "https://aiventure.ro/#organization"
+      },
+      "spatialCoverage": {
+        "@type": "Country",
+        "name": "România"
+      },
+      "isAccessibleForFree": true,
+      "usageInfo": "https://firmsfinder.eu/legal/terms",
+      "dateModified": "2026-10-14",
+      "isBasedOn": [
+        {
+          "@type": "GovernmentOrganization",
+          "name": "Oficiul Național al Registrului Comerțului",
+          "url": "https://www.onrc.ro/"
+        },
+        {
+          "@type": "GovernmentOrganization",
+          "name": "Ministerul Finanțelor",
+          "url": "https://mfinante.gov.ro/"
+        },
+        {
+          "@type": "Organization",
+          "name": "data.gov.ro",
+          "url": "https://data.gov.ro/"
+        }
+      ],
+      "hasPart": [
+        {
+          "@id": "https://firmsfinder.eu/#dataset-onrc"
+        },
+        {
+          "@id": "https://firmsfinder.eu/#dataset-mf"
+        },
+        {
+          "@id": "https://firmsfinder.eu/#dataset-firmsfinderbot"
+        }
+      ],
+      "includedInDataCatalog": {
+        "@id": "https://firmsfinder.eu/#catalog-date"
+      },
+      "measurementTechnique": "Numărare în baza de date FirmsFinder, calculată la fiecare încărcare a paginii /date/ (întârziere de cel mult o oră)",
+      "mainEntityOfPage": "https://firmsfinder.eu/surse/"
+    },
+    {
+      "@type": "Dataset",
+      "@id": "https://firmsfinder.eu/#dataset-onrc",
+      "name": "Registrul firmelor active din România (ONRC) în baza FirmsFinder",
+      "description": "Firme active din registrul ONRC, preluate din setul data.gov.ro din 02.09.2026 și încărcate în baza FirmsFinder la 5–6 octombrie 2026. PFA, II și IF sunt afișate mascate.",
+      "url": "https://firmsfinder.eu/date/",
+      "inLanguage": "ro-RO",
+      "creator": {
+        "@id": "https://aiventure.ro/#organization"
+      },
+      "publisher": {
+        "@id": "https://aiventure.ro/#organization"
+      },
+      "spatialCoverage": {
+        "@type": "Country",
+        "name": "România"
+      },
+      "isAccessibleForFree": true,
+      "usageInfo": "https://firmsfinder.eu/legal/terms",
+      "includedInDataCatalog": {
+        "@id": "https://firmsfinder.eu/#catalog-date"
+      },
+      "dateModified": "2026-10-14",
+      "isBasedOn": [
+        {
+          "@type": "GovernmentOrganization",
+          "name": "Oficiul Național al Registrului Comerțului",
+          "url": "https://www.onrc.ro/"
+        },
+        {
+          "@type": "Organization",
+          "name": "data.gov.ro",
+          "url": "https://data.gov.ro/"
+        }
+      ],
+      "measurementTechnique": "Numărare în baza de date FirmsFinder, calculată la fiecare încărcare a paginii /date/ (întârziere de cel mult o oră)",
+      "variableMeasured": [
+        {
+          "@type": "PropertyValue",
+          "name": "Firme active (ONRC)",
+          "value": 1784283,
+          "unitText": "firme"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Persoane juridice (SRL, SA etc.)",
+          "value": 1310407,
+          "unitText": "firme"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "PFA / II / IF",
+          "value": 473876,
+          "unitText": "firme"
+        }
+      ]
+    },
+    {
+      "@type": "Dataset",
+      "@id": "https://firmsfinder.eu/#dataset-mf",
+      "name": "Bilanțuri ale Ministerului Finanțelor în baza FirmsFinder",
+      "description": "Bilanțuri publicate de Ministerul Finanțelor pe data.gov.ro; seria 2024 actualizată în iunie 2026. Bilanțurile 2022 nu sunt încă în bază.",
+      "url": "https://firmsfinder.eu/date/",
+      "inLanguage": "ro-RO",
+      "creator": {
+        "@id": "https://aiventure.ro/#organization"
+      },
+      "publisher": {
+        "@id": "https://aiventure.ro/#organization"
+      },
+      "spatialCoverage": {
+        "@type": "Country",
+        "name": "România"
+      },
+      "isAccessibleForFree": true,
+      "usageInfo": "https://firmsfinder.eu/legal/terms",
+      "includedInDataCatalog": {
+        "@id": "https://firmsfinder.eu/#catalog-date"
+      },
+      "dateModified": "2026-10-14",
+      "isBasedOn": [
+        {
+          "@type": "GovernmentOrganization",
+          "name": "Ministerul Finanțelor",
+          "url": "https://mfinante.gov.ro/"
+        },
+        {
+          "@type": "Organization",
+          "name": "data.gov.ro",
+          "url": "https://data.gov.ro/"
+        }
+      ],
+      "temporalCoverage": "2023/2025",
+      "measurementTechnique": "Numărare în baza de date FirmsFinder, calculată la fiecare încărcare a paginii /date/ (întârziere de cel mult o oră)",
+      "variableMeasured": [
+        {
+          "@type": "PropertyValue",
+          "name": "Bilanțuri 2023",
+          "value": 944655,
+          "unitText": "firme"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Bilanțuri 2024",
+          "value": 968704,
+          "unitText": "firme"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Bilanțuri 2025",
+          "value": 918334,
+          "unitText": "firme"
+        }
+      ]
+    },
+    {
+      "@type": "Dataset",
+      "@id": "https://firmsfinder.eu/#dataset-firmsfinderbot",
+      "name": "Site-uri, e-mail și telefon găsite de FirmsFinderBot",
+      "description": "Date derivate, găsite automat de FirmsFinderBot pentru persoanele juridice cu bilanț 2024; PFA, II și IF nu au fost procesate. Procesarea continuă. „Fără domeniu” înseamnă „nu am găsit”, nu „firma nu are site”, deci cifrele sunt un minim.",
+      "url": "https://firmsfinder.eu/date/",
+      "inLanguage": "ro-RO",
+      "creator": {
+        "@id": "https://aiventure.ro/#organization"
+      },
+      "publisher": {
+        "@id": "https://aiventure.ro/#organization"
+      },
+      "spatialCoverage": {
+        "@type": "Country",
+        "name": "România"
+      },
+      "isAccessibleForFree": true,
+      "usageInfo": "https://firmsfinder.eu/legal/terms",
+      "includedInDataCatalog": {
+        "@id": "https://firmsfinder.eu/#catalog-date"
+      },
+      "dateModified": "2026-10-14",
+      "isBasedOn": [
+        {
+          "@type": "GovernmentOrganization",
+          "name": "Oficiul Național al Registrului Comerțului",
+          "url": "https://www.onrc.ro/"
+        },
+        {
+          "@type": "GovernmentOrganization",
+          "name": "Ministerul Finanțelor",
+          "url": "https://mfinante.gov.ro/"
+        }
+      ],
+      "measurementTechnique": "Căutare automată de către FirmsFinderBot; cifrele sunt calculate în momentul afișării pe /date/",
+      "variableMeasured": [
+        {
+          "@type": "PropertyValue",
+          "name": "Firme procesate",
+          "value": 677384,
+          "unitText": "firme"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Cu domeniu găsit",
+          "value": 57078,
+          "unitText": "firme"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Cu site verificat",
+          "value": 31977,
+          "unitText": "firme"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Cu e-mail găsit",
+          "value": 39953,
+          "unitText": "firme"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Cu telefon găsit",
+          "value": 28586,
+          "unitText": "firme"
+        }
+      ]
+    },
+    {
+      "@type": "DefinedTermSet",
+      "@id": "https://firmsfinder.eu/#termeni",
+      "name": "SEO modern în era AI",
+      "hasDefinedTerm": [
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://firmsfinder.eu/#termen-geo",
+          "termCode": "GEO",
+          "name": "Generative Engine Optimization",
+          "description": "Pregătire pentru citarea în răspunsurile AI.",
+          "url": "https://firmsfinder.eu/geo/",
+          "inDefinedTermSet": {
+            "@id": "https://firmsfinder.eu/#termeni"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://firmsfinder.eu/#termen-aeo",
+          "termCode": "AEO",
+          "name": "Answer Engine Optimization",
+          "description": "Răspunsuri clare, structurate, ușor de extras.",
+          "url": "https://firmsfinder.eu/aeo/",
+          "inDefinedTermSet": {
+            "@id": "https://firmsfinder.eu/#termeni"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://firmsfinder.eu/#termen-ai-seo",
+          "termCode": "AI-SEO",
+          "name": "AI-SEO",
+          "description": "Conținut optimizat pentru căutările AI și Google AI Overviews.",
+          "url": "https://firmsfinder.eu/ai-seo/",
+          "inDefinedTermSet": {
+            "@id": "https://firmsfinder.eu/#termeni"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://firmsfinder.eu/#termen-on-site",
+          "termCode": "ON-SITE",
+          "name": "ON-SITE",
+          "description": "Structură, date structurate, performanță și accesibilitate.",
+          "url": "https://firmsfinder.eu/on-site/",
+          "inDefinedTermSet": {
+            "@id": "https://firmsfinder.eu/#termeni"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://firmsfinder.eu/#termen-on-page",
+          "termCode": "ON-PAGE",
+          "name": "ON-PAGE",
+          "description": "Titluri, descrieri, FAQ, intenții și dovezi pentru AI.",
+          "url": "https://firmsfinder.eu/on-page/",
+          "inDefinedTermSet": {
+            "@id": "https://firmsfinder.eu/#termeni"
+          }
+        }
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://firmsfinder.eu/#proces",
+      "name": "De la afacerea ta la clienți reali",
+      "itemListOrder": "https://schema.org/ItemListOrderAscending",
+      "numberOfItems": 4,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Firma ta",
+          "description": "Spune-ne ce oferi, în ce industrie și în ce zone vrei să crești."
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Profil comercial",
+          "description": "AI analizează datele oficiale și profilul pieței pentru a înțelege oportunitățile."
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Firme potențial interesate",
+          "description": "Primești firme relevante cu scor de potrivire, argumente și context."
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Acțiune și creștere",
+          "description": "Contactează, prioritizează și monitorizează rezultatele cu ajutorul AI."
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://firmsfinder.eu/#howto",
+      "name": "Cum ajungi de la afacerea ta la clienți reali cu FirmsFinder AI",
+      "description": "Cei patru pași prezentați pe pagina de pornire.",
+      "inLanguage": "ro-RO",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Firma ta",
+          "text": "Spune-ne ce oferi, în ce industrie și în ce zone vrei să crești."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Profil comercial",
+          "text": "AI analizează datele oficiale și profilul pieței pentru a înțelege oportunitățile."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Firme potențial interesate",
+          "text": "Primești firme relevante cu scor de potrivire, argumente și context."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Acțiune și creștere",
+          "text": "Contactează, prioritizează și monitorizează rezultatele cu ajutorul AI."
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",
@@ -93,6 +767,90 @@
           "item": "https://firmsfinder.eu/"
         }
       ]
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "@id": "https://firmsfinder.eu/#nav-1",
+      "name": "Acasă",
+      "url": "https://firmsfinder.eu/"
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "@id": "https://firmsfinder.eu/#nav-2",
+      "name": "Caută",
+      "url": "https://firmsfinder.eu/cautare/"
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "@id": "https://firmsfinder.eu/#nav-3",
+      "name": "Fii găsit",
+      "url": "https://firmsfinder.eu/geo/"
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "@id": "https://firmsfinder.eu/#nav-4",
+      "name": "Delegă AI-ului",
+      "url": "https://firmsfinder.eu/web-a2a/"
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "@id": "https://firmsfinder.eu/#nav-5",
+      "name": "Intelligence",
+      "url": "https://firmsfinder.eu/intelligence/"
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "@id": "https://firmsfinder.eu/#nav-6",
+      "name": "GEO",
+      "url": "https://firmsfinder.eu/geo/"
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "@id": "https://firmsfinder.eu/#nav-7",
+      "name": "AEO",
+      "url": "https://firmsfinder.eu/aeo/"
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "@id": "https://firmsfinder.eu/#nav-8",
+      "name": "AIO",
+      "url": "https://firmsfinder.eu/aio/"
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "@id": "https://firmsfinder.eu/#nav-9",
+      "name": "ON-SITE",
+      "url": "https://firmsfinder.eu/on-site/"
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "@id": "https://firmsfinder.eu/#nav-10",
+      "name": "ON-PAGE",
+      "url": "https://firmsfinder.eu/on-page/"
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "@id": "https://firmsfinder.eu/#nav-11",
+      "name": "FAQ",
+      "url": "https://firmsfinder.eu/faq/"
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "@id": "https://firmsfinder.eu/#nav-12",
+      "name": "Surse",
+      "url": "https://firmsfinder.eu/surse/"
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "@id": "https://firmsfinder.eu/#nav-13",
+      "name": "Actualizare",
+      "url": "https://firmsfinder.eu/date/"
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "@id": "https://firmsfinder.eu/#nav-14",
+      "name": "Contact",
+      "url": "https://firmsfinder.eu/contact/"
     }
   ]
 }
