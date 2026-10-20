@@ -29,6 +29,108 @@
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "Organization",
+      "@id": "https://aiventure.ro/#organization",
+      "name": "AiVenture S.R.L.",
+      "legalName": "AiVenture S.R.L.",
+      "alternateName": "AiVenture",
+      "url": "https://aiventure.ro/",
+      "logo": "https://aiventure.ro/icon.svg",
+      "image": "https://aiventure.ro/assets/brand/logo_512w.png",
+      "email": "contact@5thelement.ai",
+      "telephone": "+40 737 123 540",
+      "description": "AiVenture oferă servicii pentru Web-Om, Web-AI și Web-A2A și produse pentru analiză, implementare și infrastructură AI/A2A.",
+      "foundingDate": "2025-03-07",
+      "taxID": "51415878",
+      "vatID": "RO51415878",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "CUI",
+          "value": "51415878"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "Nr. Registrul Comerțului",
+          "value": "J2025016406000"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "EUID",
+          "value": "ROONRC.J2025016406000"
+        }
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Drumul Pădurea Pustnicul nr. 141C, Corp A, Etaj 2, Ap. 5",
+        "addressLocality": "București",
+        "addressRegion": "Sector 1",
+        "postalCode": "014044",
+        "addressCountry": "RO"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "informații comerciale",
+        "email": "contact@5thelement.ai",
+        "telephone": "+40 737 123 540",
+        "availableLanguage": [
+          "ro"
+        ]
+      },
+      "founder": {
+        "@type": "Person",
+        "name": "Dan Ionescu",
+        "sameAs": [
+          "https://orcid.org/0009-0002-5498-1046",
+          "https://ro.linkedin.com/in/dan-ionesco-a856082a0"
+        ]
+      },
+      "employee": {
+        "@type": "Person",
+        "name": "Gratiela Ionescu",
+        "jobTitle": "Administrator"
+      },
+      "brand": {
+        "@id": "https://firmsfinder.eu/#brand"
+      },
+      "sameAs": [
+        "https://www.reddit.com/user/AiVentureRO/",
+        "https://www.linkedin.com/company/107338970",
+        "https://www.linkedin.com/showcase/5thelement-ai/",
+        "https://www.crunchbase.com/organization/aiventure-s-r-l",
+        "https://www.facebook.com/people/Aiventure/61573220584246/",
+        "https://x.com/aipath512",
+        "https://www.youtube.com/@AIVenture-q8u",
+        "https://medium.com/@aipath512"
+      ]
+    },
+    {
+      "@type": "Brand",
+      "@id": "https://firmsfinder.eu/#brand",
+      "name": "FirmsFinder AI",
+      "url": "https://firmsfinder.eu/",
+      "slogan": "Economic Intelligence"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://firmsfinder.eu/#website",
+      "url": "https://firmsfinder.eu/",
+      "name": "FirmsFinder AI",
+      "inLanguage": "ro-RO",
+      "publisher": {
+        "@id": "https://aiventure.ro/#organization"
+      },
+      "publishingPrinciples": "https://firmsfinder.eu/legal/ai-transparency",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://firmsfinder.eu/cautare/?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
       "@type": "CollectionPage",
       "@id": "https://firmsfinder.eu/resurse/audituri/#webpage",
       "url": "https://firmsfinder.eu/resurse/audituri/",
@@ -40,7 +142,13 @@
       "inLanguage": "ro-RO",
       "primaryImageOfPage": {
         "@type": "ImageObject",
-        "url": "https://firmsfinder.eu/assets/og-image.webp"
+        "@id": "https://firmsfinder.eu/resurse/audituri/#primaryimage",
+        "url": "https://firmsfinder.eu/assets/og-image.webp",
+        "contentUrl": "https://firmsfinder.eu/assets/og-image.webp",
+        "caption": "FirmsFinder AI — date, relații economice și oportunități"
+      },
+      "mainEntity": {
+        "@id": "https://firmsfinder.eu/resurse/audituri/#documente"
       },
       "dateModified": "2026-10-14",
       "datePublished": "2026-10-14",
@@ -61,24 +169,861 @@
       "usageInfo": "https://firmsfinder.eu/legal/terms",
       "breadcrumb": {
         "@id": "https://firmsfinder.eu/resurse/audituri/#breadcrumb"
+      },
+      "significantLink": [
+        "https://firmsfinder.eu/cautare/",
+        "https://firmsfinder.eu/intelligence/",
+        "https://firmsfinder.eu/geo/",
+        "https://firmsfinder.eu/aeo/",
+        "https://firmsfinder.eu/aio/",
+        "https://firmsfinder.eu/faq/",
+        "https://firmsfinder.eu/legal/terms"
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://firmsfinder.eu/resurse/audituri/#documente",
+      "name": "Documente",
+      "numberOfItems": 13,
+      "itemListOrder": "https://schema.org/ItemListOrderAscending",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@id": "https://firmsfinder.eu/resurse/audituri/#doc-1"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@id": "https://firmsfinder.eu/resurse/audituri/#doc-2"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@id": "https://firmsfinder.eu/resurse/audituri/#doc-3"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@id": "https://firmsfinder.eu/resurse/audituri/#doc-4"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "item": {
+            "@id": "https://firmsfinder.eu/resurse/audituri/#doc-5"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "item": {
+            "@id": "https://firmsfinder.eu/resurse/audituri/#doc-6"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "item": {
+            "@id": "https://firmsfinder.eu/resurse/audituri/#doc-7"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 8,
+          "item": {
+            "@id": "https://firmsfinder.eu/resurse/audituri/#doc-8"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 9,
+          "item": {
+            "@id": "https://firmsfinder.eu/resurse/audituri/#doc-9"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 10,
+          "item": {
+            "@id": "https://firmsfinder.eu/resurse/audituri/#doc-10"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 11,
+          "item": {
+            "@id": "https://firmsfinder.eu/resurse/audituri/#doc-11"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 12,
+          "item": {
+            "@id": "https://firmsfinder.eu/resurse/audituri/#doc-12"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 13,
+          "item": {
+            "@id": "https://firmsfinder.eu/resurse/audituri/#doc-13"
+          }
+        }
+      ]
+    },
+    {
+      "@type": "CreativeWork",
+      "@id": "https://firmsfinder.eu/resurse/audituri/#doc-1",
+      "name": "Raport T1-LIVE (AFTER) și DELTA",
+      "description": "Autor declarat: Evaluator automat v1.0.1, rulat de Claude (Anthropic) prin GitHub Actions. Stare de verificare: Rezultat măsurat, evaluare completă; același evaluator și aceleași ponderi ca T0.",
+      "inLanguage": "ro-RO",
+      "isPartOf": {
+        "@id": "https://firmsfinder.eu/resurse/audituri/#webpage"
+      },
+      "dateCreated": "2026-10-14T19:26:22+03:00",
+      "encoding": [
+        {
+          "@type": "MediaObject",
+          "name": "JSON",
+          "contentUrl": "https://firmsfinder.eu/resurse/audituri/evidence/T1-LIVE_geo-live_v1.0.1_2026-10-14.json",
+          "encodingFormat": "application/json"
+        },
+        {
+          "@type": "MediaObject",
+          "name": "delta.json",
+          "contentUrl": "https://firmsfinder.eu/resurse/audituri/evidence/DELTA_T0-T1_geo-live_v1.0.1_2026-10-14.json",
+          "encodingFormat": "application/json"
+        }
+      ]
+    },
+    {
+      "@type": "CreativeWork",
+      "@id": "https://firmsfinder.eu/resurse/audituri/#doc-2",
+      "name": "Raport T0-LIVE v1.0.1 (oficial), în română",
+      "description": "Autor declarat: Evaluator automat v1.0.1, rulat de Claude (Anthropic) prin GitHub Actions. Stare de verificare: Rezultat măsurat, evaluare completă; regulile sunt euristici declarate; ora nu este ștampilă independentă.",
+      "inLanguage": "ro-RO",
+      "isPartOf": {
+        "@id": "https://firmsfinder.eu/resurse/audituri/#webpage"
+      },
+      "dateCreated": "2026-10-14T13:11:03+03:00",
+      "encoding": [
+        {
+          "@type": "MediaObject",
+          "name": "JSON",
+          "contentUrl": "https://firmsfinder.eu/resurse/audituri/evidence/T0-LIVE_geo-live_v1.0.1_2026-10-14.json",
+          "encodingFormat": "application/json"
+        },
+        {
+          "@type": "MediaObject",
+          "name": "raport",
+          "contentUrl": "https://firmsfinder.eu/resurse/audituri/evidence/T0-LIVE_geo-live_v1.0.1_2026-10-14.md",
+          "encodingFormat": "text/markdown"
+        }
+      ]
+    },
+    {
+      "@type": "CreativeWork",
+      "@id": "https://firmsfinder.eu/resurse/audituri/#doc-3",
+      "name": "Raport T0-LIVE v1.0.0 (inițial, corectat prin erată)",
+      "description": "Autor declarat: Evaluator automat v1.0.0, rulat de Claude (Anthropic) prin GitHub Actions. Stare de verificare: Supraestimat: A3 nu detecta o formulare; înlocuit de v1.0.1; păstrat ca arhivă.",
+      "inLanguage": "ro-RO",
+      "isPartOf": {
+        "@id": "https://firmsfinder.eu/resurse/audituri/#webpage"
+      },
+      "dateCreated": "2026-10-14T09:35:11+03:00",
+      "encoding": [
+        {
+          "@type": "MediaObject",
+          "name": "JSON",
+          "contentUrl": "https://firmsfinder.eu/resurse/audituri/evidence/T0-LIVE_geo-live_v1.0_2026-10-14.json",
+          "encodingFormat": "application/json"
+        },
+        {
+          "@type": "MediaObject",
+          "name": "raport",
+          "contentUrl": "https://firmsfinder.eu/resurse/audituri/evidence/T0-LIVE_geo-live_v1.0_2026-10-14.md",
+          "encodingFormat": "text/markdown"
+        }
+      ]
+    },
+    {
+      "@type": "CreativeWork",
+      "@id": "https://firmsfinder.eu/resurse/audituri/#doc-4",
+      "name": "Metodologie GEO LIVE v1.0",
+      "description": "Autor declarat: Claude (Anthropic), la cererea titularului. Stare de verificare: Înghețată prin commit înaintea T0-LIVE; orice schimbare înseamnă versiune nouă.",
+      "inLanguage": "ro-RO",
+      "isPartOf": {
+        "@id": "https://firmsfinder.eu/resurse/audituri/#webpage"
+      },
+      "dateCreated": "2026-10-14T09:31:35+03:00",
+      "encoding": [
+        {
+          "@type": "MediaObject",
+          "name": "Markdown",
+          "contentUrl": "https://firmsfinder.eu/resurse/audituri/metodologie/GEO_LIVE_METHODOLOGY_v1.0_2026-10-14.md",
+          "encodingFormat": "text/markdown"
+        }
+      ]
+    },
+    {
+      "@type": "CreativeWork",
+      "@id": "https://firmsfinder.eu/resurse/audituri/#doc-5",
+      "name": "Verificări locale T0 (verify_geo.py și scorer din depozit)",
+      "description": "Data și ora: 14.10.2026, 09:20:34 (verify_geo) și 09:24:55 (scorer), UTC+03:00. Autor declarat: Scripturile din depozit, rulate de Claude. Stare de verificare: Înghețat; verifică fișierele din depozit, nu site-ul live; nu este scor GEO LIVE.",
+      "inLanguage": "ro-RO",
+      "isPartOf": {
+        "@id": "https://firmsfinder.eu/resurse/audituri/#webpage"
+      },
+      "encoding": [
+        {
+          "@type": "MediaObject",
+          "name": "JSON verify_geo",
+          "contentUrl": "https://firmsfinder.eu/resurse/audituri/evidence/T0_verify_geo_v1.0_2026-10-14.json",
+          "encodingFormat": "application/json"
+        },
+        {
+          "@type": "MediaObject",
+          "name": "JSON scorer",
+          "contentUrl": "https://firmsfinder.eu/resurse/audituri/evidence/T0_geo_score_v1.0_2026-10-14.json",
+          "encodingFormat": "application/json"
+        }
+      ]
+    },
+    {
+      "@type": "CreativeWork",
+      "@id": "https://firmsfinder.eu/resurse/audituri/#doc-6",
+      "name": "Audit GEO v1.1 (corectat), în engleză",
+      "description": "Autor declarat: Claude (Anthropic). Stare de verificare: Curent. Observat; neverificat independent; ora de la ceasul sesiunii.",
+      "inLanguage": "ro-RO",
+      "isPartOf": {
+        "@id": "https://firmsfinder.eu/resurse/audituri/#webpage"
+      },
+      "dateCreated": "2026-10-14T08:57:26+03:00",
+      "encoding": [
+        {
+          "@type": "MediaObject",
+          "name": "PDF",
+          "contentUrl": "https://firmsfinder.eu/resurse/audit/FirmsFinder_GEO_Audit_v1.1_2026-10-14.pdf",
+          "encodingFormat": "application/pdf"
+        },
+        {
+          "@type": "MediaObject",
+          "name": "text canonic",
+          "contentUrl": "https://firmsfinder.eu/resurse/audit/FirmsFinder_GEO_Audit_v1.1_2026-10-14.canonical.txt",
+          "encodingFormat": "text/plain"
+        }
+      ]
+    },
+    {
+      "@type": "CreativeWork",
+      "@id": "https://firmsfinder.eu/resurse/audituri/#doc-7",
+      "name": "Audit GEO v1.0, în engleză",
+      "description": "Autor declarat: Claude (Anthropic). Stare de verificare: Înlocuit de v1.1: realizat pe o versiune mai veche a site-ului, cu afirmații depășite.",
+      "inLanguage": "ro-RO",
+      "isPartOf": {
+        "@id": "https://firmsfinder.eu/resurse/audituri/#webpage"
+      },
+      "dateCreated": "2026-10-14T08:37:27+03:00",
+      "encoding": [
+        {
+          "@type": "MediaObject",
+          "name": "PDF",
+          "contentUrl": "https://firmsfinder.eu/resurse/audit/FirmsFinder_GEO_Audit_v1.0_2026-10-14.pdf",
+          "encodingFormat": "application/pdf"
+        },
+        {
+          "@type": "MediaObject",
+          "name": "text canonic",
+          "contentUrl": "https://firmsfinder.eu/resurse/audit/FirmsFinder_GEO_Audit_v1.0_2026-10-14.canonical.txt",
+          "encodingFormat": "text/plain"
+        }
+      ]
+    },
+    {
+      "@type": "CreativeWork",
+      "@id": "https://firmsfinder.eu/resurse/audituri/#doc-8",
+      "name": "Anexă audit GEO (Modern SEO), în engleză",
+      "description": "Autor declarat: ChatGPT (OpenAI), declarat. Stare de verificare: Parțial: 13 verificări (6 PASS, 1 FAIL, 6 UNKNOWN), fără scor; fără dovezi de execuție.",
+      "inLanguage": "ro-RO",
+      "isPartOf": {
+        "@id": "https://firmsfinder.eu/resurse/audituri/#webpage"
+      },
+      "dateCreated": "2026-10-14T08:28:55+03:00",
+      "encoding": [
+        {
+          "@type": "MediaObject",
+          "name": "PDF",
+          "contentUrl": "https://firmsfinder.eu/resurse/audit/Modern_SEO_GEO_Audit_Appendix_EN_v1.0_2026-10-14.pdf",
+          "encodingFormat": "application/pdf"
+        },
+        {
+          "@type": "MediaObject",
+          "name": ".sha256",
+          "contentUrl": "https://firmsfinder.eu/resurse/audit/Modern_SEO_GEO_Audit_Appendix_EN_v1.0_2026-10-14.pdf.sha256"
+        }
+      ]
+    },
+    {
+      "@type": "CreativeWork",
+      "@id": "https://firmsfinder.eu/resurse/audituri/#doc-9",
+      "name": "Audit GEO Perplexity, 1 pagină",
+      "description": "Autor declarat: Perplexity, declarat; neverificat. Stare de verificare: Incomplet: doar recomandări, fără constatări; unele diacritice apar ca pătrățele; hash intern fără bază.",
+      "inLanguage": "ro-RO",
+      "isPartOf": {
+        "@id": "https://firmsfinder.eu/resurse/audituri/#webpage"
+      },
+      "dateCreated": "2026-10-14T08:45:25+03:00",
+      "encoding": [
+        {
+          "@type": "MediaObject",
+          "name": "PDF",
+          "contentUrl": "https://firmsfinder.eu/resurse/audit/Audit_GEO_Perplexity_FirmsFinder_v1.0_2026-10-14.pdf",
+          "encodingFormat": "application/pdf"
+        }
+      ]
+    },
+    {
+      "@type": "CreativeWork",
+      "@id": "https://firmsfinder.eu/resurse/audituri/#doc-10",
+      "name": "Audit GEO Gemini, text",
+      "description": "Data și ora: 14.10.2026, 08:47 (EEST, din text). Autor declarat: Gemini, declarat; neverificat. Stare de verificare: Neverificat; blocul „certificat oficial” din text nu este reprodus (emitent și atestări nesusținute).",
+      "inLanguage": "ro-RO",
+      "isPartOf": {
+        "@id": "https://firmsfinder.eu/resurse/audituri/#webpage"
       }
     },
     {
-      "@type": "WebSite",
-      "@id": "https://firmsfinder.eu/#website",
-      "url": "https://firmsfinder.eu/",
-      "name": "FirmsFinder AI",
-      "publisher": {
-        "@id": "https://aiventure.ro/#organization"
-      },
+      "@type": "CreativeWork",
+      "@id": "https://firmsfinder.eu/resurse/audituri/#doc-11",
+      "name": "Audit GEO Gemini, raport PDF",
+      "description": "Data și ora: 14.10.2026, 08:36 (din document); fișier creat 09:01:59 cu Chromium. Autor declarat: Gemini, declarat; neverificat. Stare de verificare: Neverificat; fișier nepublicat: conține un „certificat” care nu poate fi validat.",
       "inLanguage": "ro-RO",
-      "publishingPrinciples": "https://firmsfinder.eu/legal/ai-transparency"
+      "isPartOf": {
+        "@id": "https://firmsfinder.eu/resurse/audituri/#webpage"
+      }
     },
     {
-      "@type": "Organization",
-      "@id": "https://aiventure.ro/#organization",
-      "name": "AiVenture S.R.L.",
-      "url": "https://aiventure.ro/"
+      "@type": "CreativeWork",
+      "@id": "https://firmsfinder.eu/resurse/audituri/#doc-12",
+      "name": "Șablon audit GEO, în engleză",
+      "description": "Data și ora: furnizat la 14.10.2026. Autor declarat: DeepSeek, declarat; neverificat. Stare de verificare: Șablon necompletat; fără constatări despre acest site.",
+      "inLanguage": "ro-RO",
+      "isPartOf": {
+        "@id": "https://firmsfinder.eu/resurse/audituri/#webpage"
+      },
+      "encoding": [
+        {
+          "@type": "MediaObject",
+          "name": "Markdown",
+          "contentUrl": "https://firmsfinder.eu/resurse/templates/GEO_Audit_Template_DeepSeek_v1.0_2026-10-14.md",
+          "encodingFormat": "text/markdown"
+        }
+      ]
+    },
+    {
+      "@type": "CreativeWork",
+      "@id": "https://firmsfinder.eu/resurse/audituri/#doc-13",
+      "name": "Redări PDF ale celor 23 de fișiere JSON din geo/",
+      "description": "Autor declarat: Claude (Anthropic). Stare de verificare: Redare la un commit dat, text neschimbat; nu dovedește că fișierele sunt valide sau funcționale.",
+      "inLanguage": "ro-RO",
+      "isPartOf": {
+        "@id": "https://firmsfinder.eu/resurse/audituri/#webpage"
+      },
+      "dateCreated": "2026-10-14T08:52:43+03:00",
+      "encoding": [
+        {
+          "@type": "MediaObject",
+          "name": "listă și hash-uri",
+          "contentUrl": "https://firmsfinder.eu/resurse/geo-pdf/SHA256SUMS.txt",
+          "encodingFormat": "text/plain"
+        }
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://firmsfinder.eu/resurse/audituri/#redari-pdf",
+      "name": "Redări PDF ale fișierelor GEO",
+      "numberOfItems": 23,
+      "itemListOrder": "https://schema.org/ItemListOrderAscending",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "geo/changelog.json",
+          "url": "https://firmsfinder.eu/resurse/geo-pdf/geo_changelog_v1.0_2026-10-14.pdf"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "geo/citable-chunks.json",
+          "url": "https://firmsfinder.eu/resurse/geo-pdf/geo_citable-chunks_v1.0_2026-10-14.pdf"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "geo/claims.json",
+          "url": "https://firmsfinder.eu/resurse/geo-pdf/geo_claims_v1.0_2026-10-14.pdf"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "geo/consistency-manifest.json",
+          "url": "https://firmsfinder.eu/resurse/geo-pdf/geo_consistency-manifest_v1.0_2026-10-14.pdf"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "geo/corrections.json",
+          "url": "https://firmsfinder.eu/resurse/geo-pdf/geo_corrections_v1.0_2026-10-14.pdf"
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "name": "geo/dataset.json",
+          "url": "https://firmsfinder.eu/resurse/geo-pdf/geo_dataset_v1.0_2026-10-14.pdf"
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "name": "geo/entities.json",
+          "url": "https://firmsfinder.eu/resurse/geo-pdf/geo_entities_v1.0_2026-10-14.pdf"
+        },
+        {
+          "@type": "ListItem",
+          "position": 8,
+          "name": "geo/ere-dictionary.json",
+          "url": "https://firmsfinder.eu/resurse/geo-pdf/geo_ere-dictionary_v1.0_2026-10-14.pdf"
+        },
+        {
+          "@type": "ListItem",
+          "position": 9,
+          "name": "geo/evidence.json",
+          "url": "https://firmsfinder.eu/resurse/geo-pdf/geo_evidence_v1.0_2026-10-14.pdf"
+        },
+        {
+          "@type": "ListItem",
+          "position": 10,
+          "name": "geo/experiments.json",
+          "url": "https://firmsfinder.eu/resurse/geo-pdf/geo_experiments_v1.0_2026-10-14.pdf"
+        },
+        {
+          "@type": "ListItem",
+          "position": 11,
+          "name": "geo/external-corroboration.json",
+          "url": "https://firmsfinder.eu/resurse/geo-pdf/geo_external-corroboration_v1.0_2026-10-14.pdf"
+        },
+        {
+          "@type": "ListItem",
+          "position": 12,
+          "name": "geo/glossary.json",
+          "url": "https://firmsfinder.eu/resurse/geo-pdf/geo_glossary_v1.0_2026-10-14.pdf"
+        },
+        {
+          "@type": "ListItem",
+          "position": 13,
+          "name": "geo/intents.json",
+          "url": "https://firmsfinder.eu/resurse/geo-pdf/geo_intents_v1.0_2026-10-14.pdf"
+        },
+        {
+          "@type": "ListItem",
+          "position": 14,
+          "name": "geo/knowledge-graph.json",
+          "url": "https://firmsfinder.eu/resurse/geo-pdf/geo_knowledge-graph_v1.0_2026-10-14.pdf"
+        },
+        {
+          "@type": "ListItem",
+          "position": 15,
+          "name": "geo/manifest.json",
+          "url": "https://firmsfinder.eu/resurse/geo-pdf/geo_manifest_v1.0_2026-10-14.pdf"
+        },
+        {
+          "@type": "ListItem",
+          "position": 16,
+          "name": "geo/observations.json",
+          "url": "https://firmsfinder.eu/resurse/geo-pdf/geo_observations_v1.0_2026-10-14.pdf"
+        },
+        {
+          "@type": "ListItem",
+          "position": 17,
+          "name": "geo/proprietary-data.json",
+          "url": "https://firmsfinder.eu/resurse/geo-pdf/geo_proprietary-data_v1.0_2026-10-14.pdf"
+        },
+        {
+          "@type": "ListItem",
+          "position": 18,
+          "name": "geo/rag-metadata.json",
+          "url": "https://firmsfinder.eu/resurse/geo-pdf/geo_rag-metadata_v1.0_2026-10-14.pdf"
+        },
+        {
+          "@type": "ListItem",
+          "position": 19,
+          "name": "geo/reference-set.json",
+          "url": "https://firmsfinder.eu/resurse/geo-pdf/geo_reference-set_v1.0_2026-10-14.pdf"
+        },
+        {
+          "@type": "ListItem",
+          "position": 20,
+          "name": "geo/scorecard.json",
+          "url": "https://firmsfinder.eu/resurse/geo-pdf/geo_scorecard_v1.0_2026-10-14.pdf"
+        },
+        {
+          "@type": "ListItem",
+          "position": 21,
+          "name": "geo/semantic-keywords.json",
+          "url": "https://firmsfinder.eu/resurse/geo-pdf/geo_semantic-keywords_v1.0_2026-10-14.pdf"
+        },
+        {
+          "@type": "ListItem",
+          "position": 22,
+          "name": "geo/topic-clusters.json",
+          "url": "https://firmsfinder.eu/resurse/geo-pdf/geo_topic-clusters_v1.0_2026-10-14.pdf"
+        },
+        {
+          "@type": "ListItem",
+          "position": 23,
+          "name": "geo/verification.json",
+          "url": "https://firmsfinder.eu/resurse/geo-pdf/geo_verification_v1.0_2026-10-14.pdf"
+        }
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://firmsfinder.eu/resurse/audituri/#protocol-before-after-delta-tabel1",
+      "name": "Protocol BEFORE → AFTER → DELTA",
+      "numberOfItems": 4,
+      "itemListOrder": "https://schema.org/ItemListOrderAscending",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "BEFORE",
+          "description": "Ce conține: T0-LIVE (scor măsurat, cu metodologie și dovezi) și auditurile din arhivă; punct de referință neschimbat; Stare: T0-LIVE publicat"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Îmbunătățiri",
+          "description": "Ce conține: Corecturile aplicate pe site, înregistrate în istoricul public al depozitului; Stare: PR #2 și PR #4 integrate; rămân deschise G2–G4, A3, D2"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "AFTER",
+          "description": "Ce conține: Același evaluator (v1.0.1) și aceleași ponderi, repetate după remedieri (T1-LIVE); Stare: Publicat: 95,0 / 100 (T2); T1: 81,0"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "DELTA",
+          "description": "Ce conține: Diferența verificare cu verificare; un scor se acceptă doar dacă fiecare punct are o verificare care îl susține; Stare: Calculat: +41,0 puncte (T0→T2); T0→T1: +27,0"
+        }
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://firmsfinder.eu/resurse/audituri/#t0-live-stare-before-masurata-pe-site-ul-tabel1",
+      "name": "T0-LIVE: stare BEFORE măsurată pe site-ul public",
+      "numberOfItems": 6,
+      "itemListOrder": "https://schema.org/ItemListOrderAscending",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "HTTP/JSON",
+          "description": "Obținut: 25; Disponibil: 25"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "JSON-LD",
+          "description": "Obținut: 5; Disponibil: 20"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "robots/llms/sitemap",
+          "description": "Obținut: 15; Disponibil: 15"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "/geo/ghid",
+          "description": "Obținut: 3; Disponibil: 15"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "coerenta ANAF",
+          "description": "Obținut: 0; Disponibil: 15"
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "name": "digital-dna.json",
+          "description": "Obținut: 6; Disponibil: 10"
+        }
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://firmsfinder.eu/resurse/audituri/#t0-live-stare-before-masurata-pe-site-ul-tabel2",
+      "name": "Controale care nu au trecut (punctele de remediat)",
+      "numberOfItems": 11,
+      "itemListOrder": "https://schema.org/ItemListOrderAscending",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "J1 — JSON-LD",
+          "description": "Pondere: 5; Constatare: 13/14 pagini conforme"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "J3 — JSON-LD",
+          "description": "Pondere: 5; Constatare: 11/14 pagini conforme"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "J4 — JSON-LD",
+          "description": "Pondere: 5; Constatare: 13/14 pagini conforme"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "G2 — /geo/ghid",
+          "description": "Pondere: 4; Constatare: FAQPage JSON-LD absent sau incomplet"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "G3 — /geo/ghid",
+          "description": "Pondere: 4; Constatare: 0/23 intrebari vizibile (H2) au pereche in FAQPage"
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "name": "G4 — /geo/ghid",
+          "description": "Pondere: 2; Constatare: FAQPage absent"
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "name": "G5 — /geo/ghid",
+          "description": "Pondere: 2; Constatare: BreadcrumbList absent"
+        },
+        {
+          "@type": "ListItem",
+          "position": 8,
+          "name": "A1 — coerenta ANAF",
+          "description": "Pondere: 5; Constatare: ANAF in sursele declarate: False; linii llms.txt care o prezinta ca sursa fara negatie: 1"
+        },
+        {
+          "@type": "ListItem",
+          "position": 9,
+          "name": "A2 — coerenta ANAF",
+          "description": "Pondere: 5; Constatare: fisiere entitati care mentioneaza ANAF fara sa fie in sursele declarate: 1"
+        },
+        {
+          "@type": "ListItem",
+          "position": 10,
+          "name": "A3 — coerenta ANAF",
+          "description": "Pondere: 5; Constatare: propoziția din subsolul injectat pe 14 pagini («FirmsFinder utilizează date oficiale de la … ANAF …») prezintă ANAF ca sursă"
+        },
+        {
+          "@type": "ListItem",
+          "position": 11,
+          "name": "D2 — digital-dna.json",
+          "description": "Pondere: 4; Constatare: status=SPECIFICATION_NOT_RUNTIME_VERIFIED; verification.result=NOT_TESTED (PASS cere result=PASS si status fara NOT_RUNTIME_VERIFIED)"
+        }
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://firmsfinder.eu/resurse/audituri/#t1-live-after-si-delta-tabel1",
+      "name": "Pe categorii",
+      "numberOfItems": 6,
+      "itemListOrder": "https://schema.org/ItemListOrderAscending",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "HTTP/JSON",
+          "description": "T0: 25; T1: 25; Disponibil: 25; DELTA: +0"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "JSON-LD",
+          "description": "T0: 5; T1: 20; Disponibil: 20; DELTA: +15"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "robots/llms/sitemap",
+          "description": "T0: 15; T1: 15; Disponibil: 15; DELTA: +0"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "/geo/ghid",
+          "description": "T0: 3; T1: 5; Disponibil: 15; DELTA: +2"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "coerenta ANAF",
+          "description": "T0: 0; T1: 10; Disponibil: 15; DELTA: +10"
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "name": "digital-dna.json",
+          "description": "T0: 6; T1: 6; Disponibil: 10; DELTA: +0"
+        }
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://firmsfinder.eu/resurse/audituri/#t1-live-after-si-delta-tabel2",
+      "name": "Controale schimbate (CHANGE → DELTA)",
+      "numberOfItems": 6,
+      "itemListOrder": "https://schema.org/ItemListOrderAscending",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "J1 — JSON-LD",
+          "description": "Pondere: 5; Stare: FAIL → PASS; Puncte: +5"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "J3 — JSON-LD",
+          "description": "Pondere: 5; Stare: FAIL → PASS; Puncte: +5"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "J4 — JSON-LD",
+          "description": "Pondere: 5; Stare: FAIL → PASS; Puncte: +5"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "G5 — /geo/ghid",
+          "description": "Pondere: 2; Stare: FAIL → PASS; Puncte: +2"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "A1 — coerenta ANAF",
+          "description": "Pondere: 5; Stare: FAIL → PASS; Puncte: +5"
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "name": "A2 — coerenta ANAF",
+          "description": "Pondere: 5; Stare: FAIL → PASS; Puncte: +5"
+        }
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://firmsfinder.eu/resurse/audituri/#t1-live-after-si-delta-tabel3",
+      "name": "Controale încă nereușite",
+      "numberOfItems": 5,
+      "itemListOrder": "https://schema.org/ItemListOrderAscending",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "G2 — /geo/ghid",
+          "description": "Pondere: 4; Constatare: FAQPage JSON-LD absent sau incomplet"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "G3 — /geo/ghid",
+          "description": "Pondere: 4; Constatare: 0/23 intrebari vizibile (H2) au pereche in FAQPage"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "G4 — /geo/ghid",
+          "description": "Pondere: 2; Constatare: FAQPage absent"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "A3 — coerenta ANAF",
+          "description": "Pondere: 5; Constatare: propozitii vizibile care prezinta ANAF ca sursa folosita, fara negatie: 18"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "D2 — digital-dna.json",
+          "description": "Pondere: 4; Constatare: status=SPECIFICATION_NOT_RUNTIME_VERIFIED; verification.result=NOT_TESTED (PASS cere result=PASS si status fara NOT_RUNTIME_VERIFIED)"
+        }
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://firmsfinder.eu/resurse/audituri/#t2-live-after-2-si-delta-tabel1",
+      "name": "Controale schimbate față de T1",
+      "numberOfItems": 4,
+      "itemListOrder": "https://schema.org/ItemListOrderAscending",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "G2 — /geo/ghid",
+          "description": "Pondere: 4; Stare: FAIL → PASS; Puncte: +4; Modificare: FAQPage JSON-LD cu 23 de perechi întrebare–răspuns"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "G3 — /geo/ghid",
+          "description": "Pondere: 4; Stare: FAIL → PASS; Puncte: +4; Modificare: întrebările vizibile (H2) au pereche identică în FAQPage"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "G4 — /geo/ghid",
+          "description": "Pondere: 2; Stare: FAIL → PASS; Puncte: +2; Modificare: cele 23 de răspunsuri rescrise sunt distincte (înainte, doar 9 distincte)"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "D2 — digital-dna.json",
+          "description": "Pondere: 4; Stare: FAIL → PASS; Puncte: +4; Modificare: verificare cu scop îngust, cu referință la dovada T1"
+        }
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://firmsfinder.eu/resurse/audituri/#t2-live-after-2-si-delta-tabel2",
+      "name": "Control încă nereușit",
+      "numberOfItems": 1,
+      "itemListOrder": "https://schema.org/ItemListOrderAscending",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "A3",
+          "description": "Pondere: 5; Constatare: propoziții vizibile care prezintă ANAF ca sursă folosită, fără negație: 17 (câte una pe fiecare pagină)"
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",
@@ -103,6 +1048,87 @@
           "item": "https://firmsfinder.eu/resurse/audituri/"
         }
       ]
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "@id": "https://firmsfinder.eu/resurse/audituri/#nav-1",
+      "name": "Acasă",
+      "url": "https://firmsfinder.eu/",
+      "isPartOf": {
+        "@id": "https://firmsfinder.eu/resurse/audituri/#webpage"
+      }
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "@id": "https://firmsfinder.eu/resurse/audituri/#nav-2",
+      "name": "Caută",
+      "url": "https://firmsfinder.eu/cautare/",
+      "isPartOf": {
+        "@id": "https://firmsfinder.eu/resurse/audituri/#webpage"
+      }
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "@id": "https://firmsfinder.eu/resurse/audituri/#nav-3",
+      "name": "Fii găsit",
+      "url": "https://firmsfinder.eu/#fii-gasit",
+      "isPartOf": {
+        "@id": "https://firmsfinder.eu/resurse/audituri/#webpage"
+      }
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "@id": "https://firmsfinder.eu/resurse/audituri/#nav-4",
+      "name": "Delegă AI-ului",
+      "url": "https://firmsfinder.eu/#deleaga",
+      "isPartOf": {
+        "@id": "https://firmsfinder.eu/resurse/audituri/#webpage"
+      }
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "@id": "https://firmsfinder.eu/resurse/audituri/#nav-5",
+      "name": "Intelligence",
+      "url": "https://firmsfinder.eu/intelligence/",
+      "isPartOf": {
+        "@id": "https://firmsfinder.eu/resurse/audituri/#webpage"
+      }
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "@id": "https://firmsfinder.eu/resurse/audituri/#nav-6",
+      "name": "GEO",
+      "url": "https://firmsfinder.eu/geo/",
+      "isPartOf": {
+        "@id": "https://firmsfinder.eu/resurse/audituri/#webpage"
+      }
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "@id": "https://firmsfinder.eu/resurse/audituri/#nav-7",
+      "name": "AEO",
+      "url": "https://firmsfinder.eu/aeo/",
+      "isPartOf": {
+        "@id": "https://firmsfinder.eu/resurse/audituri/#webpage"
+      }
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "@id": "https://firmsfinder.eu/resurse/audituri/#nav-8",
+      "name": "AIO",
+      "url": "https://firmsfinder.eu/aio/",
+      "isPartOf": {
+        "@id": "https://firmsfinder.eu/resurse/audituri/#webpage"
+      }
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "@id": "https://firmsfinder.eu/resurse/audituri/#nav-9",
+      "name": "FAQ",
+      "url": "https://firmsfinder.eu/faq/",
+      "isPartOf": {
+        "@id": "https://firmsfinder.eu/resurse/audituri/#webpage"
+      }
     }
   ]
 }
