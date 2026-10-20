@@ -33,5 +33,34 @@
   ],
   "excluded_unverified": [
     "ANAF usage without verified dataset"
-  ]
+  ],
+  "datasets": [
+    {
+      "id": "ONRC-FIRME-2026-09-02",
+      "name": "Firme înregistrate la Registrul Comerțului, set ONRC din 02.09.2026 (data.gov.ro)",
+      "url": "https://data.gov.ro/dataset/firme-02-09-2026",
+      "publisher": "ONRC",
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "license_source": "data.gov.ro CKAN API (package_search, câmpul license_id)",
+      "license_checked": "2026-10-20",
+      "used_in_firmsfinder": true,
+      "hash_sha256": null,
+      "ots_proof": null
+    },
+    {
+      "id": "MF-SITUATII-FINANCIARE-2024",
+      "name": "Situații financiare 2024, Ministerul Finanțelor (data.gov.ro)",
+      "url": "https://data.gov.ro/dataset/situatii_financiare_2024",
+      "publisher": "Ministerul Finanțelor",
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "license_source": "data.gov.ro CKAN API (package_search, câmpul license_id)",
+      "license_checked": "2026-10-20",
+      "used_in_firmsfinder": true,
+      "hash_sha256": null,
+      "ots_proof": null
+    }
+  ],
+  "licence_note": "Licența se referă la datele originale. Prelucrările FirmsFinder și accesul la serviciu sunt separate. SHA-256 și OTS: nepublicate (None) până la furnizarea valorilor reale."
 }

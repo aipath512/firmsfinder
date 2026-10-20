@@ -370,7 +370,9 @@
       "dateModified": "2026-10-14",
       "isBasedOn": [
         "https://mfinante.gov.ro/",
-        "https://data.gov.ro/"
+        {
+          "@id": "https://firmsfinder.eu/#src-mf-data-gov-ro"
+        }
       ],
       "sourceOrganization": [
         {
@@ -432,7 +434,9 @@
       "dateModified": "2026-10-14",
       "isBasedOn": [
         "https://www.onrc.ro/",
-        "https://data.gov.ro/"
+        {
+          "@id": "https://firmsfinder.eu/#src-onrc-data-gov-ro"
+        }
       ],
       "sourceOrganization": [
         {
@@ -491,7 +495,12 @@
       "isBasedOn": [
         "https://www.onrc.ro/",
         "https://mfinante.gov.ro/",
-        "https://data.gov.ro/"
+        {
+          "@id": "https://firmsfinder.eu/#src-onrc-data-gov-ro"
+        },
+        {
+          "@id": "https://firmsfinder.eu/#src-mf-data-gov-ro"
+        }
       ],
       "sourceOrganization": [
         {
@@ -825,6 +834,44 @@
       "isPartOf": {
         "@id": "https://firmsfinder.eu/date/#webpage"
       }
+    },
+    {
+      "@type": "Dataset",
+      "@id": "https://firmsfinder.eu/#src-onrc-data-gov-ro",
+      "name": "Firme înregistrate la Registrul Comerțului, set ONRC din 02.09.2026 (data.gov.ro)",
+      "url": "https://data.gov.ro/dataset/firme-02-09-2026",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "inLanguage": "ro-RO",
+      "creator": {
+        "@type": "GovernmentOrganization",
+        "name": "Oficiul Național al Registrului Comerțului",
+        "url": "https://www.onrc.ro/"
+      },
+      "includedInDataCatalog": {
+        "@type": "DataCatalog",
+        "name": "data.gov.ro",
+        "url": "https://data.gov.ro/"
+      },
+      "isAccessibleForFree": true
+    },
+    {
+      "@type": "Dataset",
+      "@id": "https://firmsfinder.eu/#src-mf-data-gov-ro",
+      "name": "Situații financiare 2024, Ministerul Finanțelor (data.gov.ro)",
+      "url": "https://data.gov.ro/dataset/situatii_financiare_2024",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "inLanguage": "ro-RO",
+      "creator": {
+        "@type": "GovernmentOrganization",
+        "name": "Ministerul Finanțelor",
+        "url": "https://mfinante.gov.ro/"
+      },
+      "includedInDataCatalog": {
+        "@type": "DataCatalog",
+        "name": "data.gov.ro",
+        "url": "https://data.gov.ro/"
+      },
+      "isAccessibleForFree": true
     }
   ]
 }
@@ -851,7 +898,7 @@
 <tr><th>cu telefon găsit</th><td class="n" data-k="cu_telefon">28.586</td></tr>
 </tbody></table><p>Procesarea continuă. „Fără domeniu” înseamnă „nu am găsit”, nu „firma nu are site”, deci cifrele de mai sus sunt un minim. Au fost procesate numai persoane juridice cu bilanț 2024; PFA/II/IF nu au fost procesate.</p></section>
 <section id="ue"><h2>Firme în Uniunea Europeană (Eurostat, 2024)</h2><p>Firme active în economia de afaceri (industrie, construcții și majoritatea serviciilor; fără agricultură, silvicultură, pescuit și administrație publică). Sunt afișate doar valorile confirmate din Eurostat.</p><table><thead><tr><th>Țara</th><th>Firme active, 2024</th></tr></thead><tbody><tr><th>Franța</th><td class="n">5,6 milioane</td></tr><tr><th>Italia</th><td class="n">4,6 milioane</td></tr><tr><th>Spania</th><td class="n">3,6 milioane</td></tr><tr><th>Germania</th><td class="n">3,2 milioane</td></tr><tr><th>Bulgaria</th><td class="n">415.087</td></tr><tr><th>UE-27, total</th><td class="n">aprox. 34,0 milioane</td></tr></tbody></table><h3>Firme noi, 2024</h3><table><tbody><tr><th>Firme înființate în UE</th><td class="n">3.541.482</td></tr><tr><th>Rata de înființare, UE-27</th><td class="n">10,4%</td></tr><tr><th>Rata de încetare, UE-27 (preliminar)</th><td class="n">9,2%</td></tr></tbody></table><table><thead><tr><th>Țara</th><th>Rata de înființare, 2024</th></tr></thead><tbody><tr><th>Lituania</th><td class="n">17,5%</td></tr><tr><th>Portugalia</th><td class="n">16,1%</td></tr><tr><th>Malta</th><td class="n">14,4%</td></tr><tr><th>Franța</th><td class="n">14,2%</td></tr><tr><th>Cipru</th><td class="n">9,7%</td></tr><tr><th>Germania</th><td class="n">7,8%</td></tr><tr><th>Danemarca</th><td class="n">7,2%</td></tr><tr><th>Austria</th><td class="n">6,3%</td></tr></tbody></table><p>Tabelul complet, pentru toate cele 27 de state membre, este în Eurostat: <a href="https://ec.europa.eu/eurostat/databrowser/product/view/bd_size" rel="noopener">Business demography by size class and NACE Rev. 2 activity (bd_size)</a>. Cifrele de mai sus nu sunt comparabile direct cu baza românească de mai sus, care include și PFA, II și IF.</p></section>
-<section id="surse-date"><h2>De unde vin datele</h2><ul><li>Registrul firmelor (ONRC): set data.gov.ro din 02.09.2026.</li><li>Bilanțuri (Ministerul Finanțelor): publicate pe data.gov.ro; seria 2024 actualizată iunie 2026.</li><li>Încărcat în baza FirmsFinder: 5–6 oct 2026.</li><li>Firme în UE: Eurostat, demografia firmelor (bd_size), anul 2024.</li><li>Site-uri, email, telefon: găsite de FirmsFinderBot, cifre calculate în momentul afișat mai sus.</li></ul><p>Mai multe în <a href="/surse/">Surse și metodologie</a>.</p></section>
+<section id="surse-date"><h2>De unde vin datele</h2><ul><li>Registrul firmelor (ONRC): <a href="https://data.gov.ro/dataset/firme-02-09-2026">set data.gov.ro din 02.09.2026</a>.</li><li>Bilanțuri (Ministerul Finanțelor): publicate pe data.gov.ro (<a href="https://data.gov.ro/dataset/situatii_financiare_2024">situații financiare 2024</a>); seria 2024 actualizată iunie 2026.</li><li>Încărcat în baza FirmsFinder: 5–6 oct 2026.</li><li>Firme în UE: Eurostat, demografia firmelor (bd_size), anul 2024.</li><li>Site-uri, email, telefon: găsite de FirmsFinderBot, cifre calculate în momentul afișat mai sus.</li></ul><p id="atribuire">Datele originale provin de la ONRC și de la Ministerul Finanțelor și sunt publicate pe <a href="https://data.gov.ro/">data.gov.ro</a> sub licența <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>, conform informațiilor de pe portal la 20 octombrie 2026: <a href="https://data.gov.ro/dataset/firme-02-09-2026">setul ONRC din 02.09.2026</a> și <a href="https://data.gov.ro/dataset/situatii_financiare_2024">situațiile financiare 2024</a>. FirmsFinder prelucrează aceste date (filtrare, mascarea PFA, II și IF, îmbogățire); prelucrările și serviciul FirmsFinder nu sunt oficiale și nu sunt avizate de ONRC sau de Ministerul Finanțelor.</p><p>Mai multe în <a href="/surse/">Surse și metodologie</a>.</p></section>
 <footer>FirmsFinder AI · AiVenture S.R.L.<!--angajament:1.0--><div class="angajament"><link rel="stylesheet" href="/angajament.css"><a class="angajament-badge" href="https://eu-ai-act-ready.eu/" rel="noopener"><img src="/assets/eu-ai-act-ready-2aug2026_256x256_v1.0_2026-10-16.webp" width="96" height="96" alt="EU AI Act Ready: kit cu 70 de documente, 10 module" loading="lazy"></a><p>Angajament de transparență v1.0 (16 octombrie 2026): memorăm doar ce declarăm. Fără acordul dumneavoastră, doar numărători, 24 de luni. Cu acord, text și selecții, cel mult 30 de zile. Nu stocăm în jurnal IP, email sau nume. <a href="/angajament/">Citiți și verificați amprenta</a> · <a href="/angajament.json">JSON</a><br><small>Insigna trimite la kitul EU AI Act Ready (70 de documente, 10 module). Nu este o certificare oficială și nu atestă conformitatea acestui site.</small></p></div><!--/angajament--></footer></main>
 <script>
 (function(){var f=new Intl.NumberFormat('ro-RO');
