@@ -1,0 +1,12 @@
+name = "firmsfinder-new-company-phone-a2a"
+main = "worker.js"
+compatibility_date = "2026-10-22"
+
+[vars]
+NEW_COMPANY_DAYS = "90"
+PUBLIC_BASE_URL = "https://firmsfinder.eu"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "b2b-romania-db"
+database_id = "0d6de488-285f-458b-b4b0-5f9ac913c5f1"
