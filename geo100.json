@@ -1,0 +1,91 @@
+{
+  "schema": "GEO100",
+  "version": "0.1-pilot",
+  "status": "PILOT_NOT_FROZEN",
+  "target": 100,
+  "composition": {
+    "SITE": 50,
+    "AI": 50
+  },
+  "providers": [
+    "ChatGPT",
+    "Gemini",
+    "Claude"
+  ],
+  "phases": [
+    "BEFORE",
+    "AFTER"
+  ],
+  "questions": [
+    {
+      "id": "Q001",
+      "question": "Cum pot găsi clienți noi pentru firma mea în România, folosind inteligența artificială?",
+      "origin": null,
+      "funnel": null,
+      "intent_ref": null
+    },
+    {
+      "id": "Q002",
+      "question": "Unde pot găsi gratuit o bază de date cu firme din România, pe care să le filtrez după județ și domeniu de activitate?",
+      "origin": null,
+      "funnel": null,
+      "intent_ref": null
+    },
+    {
+      "id": "Q003",
+      "question": "Cum pot face ca firma mea să fie descoperită și recomandată de ChatGPT și alte sisteme AI?",
+      "origin": null,
+      "funnel": null,
+      "intent_ref": null
+    },
+    {
+      "id": "Q004",
+      "question": "Cum pot găsi în România firme asemănătoare cu clienții mei actuali, folosind inteligența artificială?",
+      "origin": null,
+      "funnel": null,
+      "intent_ref": null
+    },
+    {
+      "id": "Q005",
+      "question": "Cum pot identifica firmele din România care ar putea avea nevoie de produsele sau serviciile pe care le ofer?",
+      "origin": null,
+      "funnel": null,
+      "intent_ref": null
+    },
+    {
+      "id": "Q006",
+      "question": "Cum pot monitoriza firmele din România pentru a descoperi noi oportunități de afaceri și potențiali clienți?",
+      "origin": null,
+      "funnel": null,
+      "intent_ref": null
+    },
+    {
+      "id": "Q007",
+      "question": "Unde pot găsi firmele nou-înființate din România, filtrate după județ și domeniu de activitate, pentru a le propune serviciile mele?",
+      "origin": null,
+      "funnel": null,
+      "intent_ref": null
+    },
+    {
+      "id": "Q008",
+      "question": "Cum pot analiza concurenții firmei mele din România și identifica oportunități de piață folosind inteligența artificială?",
+      "origin": null,
+      "funnel": null,
+      "intent_ref": null
+    },
+    {
+      "id": "Q009",
+      "question": "Există platforme în România prin care pot delega unui agent AI căutarea și analiza potențialilor clienți B2B?",
+      "origin": null,
+      "funnel": null,
+      "intent_ref": null
+    },
+    {
+      "id": "Q010",
+      "question": "Cum pot pregăti firma mea din România astfel încât agenții AI ai potențialilor clienți să îi descopere produsele sau serviciile și să poată solicita oferte?",
+      "origin": null,
+      "funnel": null,
+      "intent_ref": null
+    }
+  ]
+}
