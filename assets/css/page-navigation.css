@@ -1,0 +1,9 @@
+/* FirmsFinder shared page navigation — mobile-first, no header changes */
+.ff-page-navigation{position:fixed;right:max(14px,env(safe-area-inset-right));bottom:calc(18px + env(safe-area-inset-bottom));z-index:90;display:flex;gap:7px;padding:5px;background:#041d2cf2;border:1px solid #28617c;border-radius:999px;box-shadow:0 6px 24px #0008;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s,transform .2s,visibility .2s}
+.ff-page-navigation.is-visible{opacity:1;visibility:visible;transform:translateY(0)}
+.ff-page-navigation button{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;border:1px solid #28617c;background:#092b3e;color:#e5f4fa;cursor:pointer;font:700 22px/1 system-ui,sans-serif}
+.ff-page-navigation button:hover,.ff-page-navigation button:focus-visible{background:#10445b;border-color:#00c9f5;color:#fff}
+.ff-page-navigation button:focus-visible{outline:2px solid #ffd02f;outline-offset:2px}
+.ff-page-navigation button:disabled{opacity:.3;cursor:default}
+@media(max-width:700px){.ff-page-navigation{right:12px;bottom:calc(82px + env(safe-area-inset-bottom))}.ff-page-navigation button{width:40px;height:40px}}
+@media(prefers-reduced-motion:reduce){.ff-page-navigation{transition:none}}
