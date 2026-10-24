@@ -1,0 +1,115 @@
+name: D1 cost watch (read-only)
+on:
+  schedule:
+    - cron: '17 * * * *'
+  workflow_dispatch:
+permissions:
+  contents: read
+  issues: write
+concurrency:
+  group: d1-cost-watch
+  cancel-in-progress: false
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      CF_API_TOKEN: ${{ secrets.CF_D1_ANALYTICS_TOKEN }}
+      CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+      CF_D1_DATABASE_ID: ${{ secrets.CF_D1_DATABASE_ID }}
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+      ALERT_ROWS_PER_HOUR: '10000000'
+      ALERT_MULTIPLIER: '5'
+    steps:
+      - name: Read Cloudflare D1 metrics and alert on abnormal reads
+        shell: python
+        run: |
+          import os, json, urllib.request, datetime, subprocess, sys
+          for key in ('CF_API_TOKEN','CF_ACCOUNT_ID','CF_D1_DATABASE_ID'):
+              if not os.environ.get(key):
+                  sys.exit('CONFIGURATION REQUIRED: missing GitHub secret '+key)
+          now=datetime.datetime.now(datetime.timezone.utc)
+          # Delay by 10 minutes to allow Cloudflare analytics ingestion.
+          end=now-datetime.timedelta(minutes=10)
+          start=end-datetime.timedelta(hours=2)
+          query='''query D1Watch($account: string!, $database: string!, $start: Time!, $end: Time!) {
+            viewer { accounts(filter: {accountTag: $account}) {
+              d1AnalyticsAdaptiveGroups(limit: 2000,
+                filter: {databaseId: $database, datetime_geq: $start, datetime_lt: $end}) {
+                dimensions { datetimeHour }
+                sum { rowsRead rowsWritten readQueries writeQueries }
+              }
+            } }
+          }'''
+          payload=json.dumps({'query':query,'variables':{
+              'account':os.environ['CF_ACCOUNT_ID'],
+              'database':os.environ['CF_D1_DATABASE_ID'],
+              'start':start.isoformat(timespec='seconds').replace('+00:00','Z'),
+              'end':end.isoformat(timespec='seconds').replace('+00:00','Z')
+          }}).encode()
+          request=urllib.request.Request('https://api.cloudflare.com/client/v4/graphql',
+              data=payload,headers={'Authorization':'Bearer '+os.environ['CF_API_TOKEN'],
+              'Content-Type':'application/json'},method='POST')
+          try:
+              with urllib.request.urlopen(request,timeout=25) as response:
+                  result=json.load(response)
+          except Exception as exc:
+              sys.exit('Cloudflare analytics request failed: '+str(exc))
+          if result.get('errors'):
+              sys.exit('Cloudflare GraphQL errors: '+json.dumps(result['errors']))
+          accounts=(result.get('data') or {}).get('viewer',{}).get('accounts',[])
+          if len(accounts)!=1:
+              sys.exit('Expected exactly one Cloudflare account in analytics response')
+          rows=accounts[0].get('d1AnalyticsAdaptiveGroups') or []
+          # Compare the last two COMPLETE UTC clock hours. Never compare partial buckets.
+          current_hour=now.replace(minute=0,second=0,microsecond=0)
+          last_complete=current_hour-datetime.timedelta(hours=1)
+          previous=last_complete-datetime.timedelta(hours=1)
+          totals={}
+          for row in rows:
+              hour=(row.get('dimensions') or {}).get('datetimeHour','')[:13]
+              if not hour: continue
+              agg=totals.setdefault(hour,{'rowsRead':0,'rowsWritten':0,'readQueries':0,'writeQueries':0})
+              for key in agg: agg[key]+=int((row.get('sum') or {}).get(key) or 0)
+          key_last=last_complete.strftime('%Y-%m-%dT%H')
+          key_prev=previous.strftime('%Y-%m-%dT%H')
+          if key_last not in totals:
+              sys.exit('No completed-hour D1 analytics bucket yet; refusing to report zero')
+          latest=totals[key_last]
+          baseline=totals.get(key_prev)
+          print('UTC last completed hour:',key_last, 'metrics:',json.dumps(latest))
+          print('UTC previous hour:',key_prev, 'metrics:',json.dumps(baseline))
+          threshold=int(os.environ['ALERT_ROWS_PER_HOUR'])
+          multiplier=float(os.environ['ALERT_MULTIPLIER'])
+          reasons=[]
+          if latest['rowsRead']>=threshold:
+              reasons.append('Rows read >= {:,} per hour'.format(threshold))
+          if baseline and baseline['rowsRead']>0 and latest['rowsRead']>=1000000 and latest['rowsRead']>=multiplier*baseline['rowsRead']:
+              reasons.append('Rows read increased >= {}x from previous hour'.format(multiplier))
+          if not reasons:
+              print('OK: no threshold exceeded');sys.exit(0)
+          title='D1 COST WATCH: b2b-romania-db rows-read alert'
+          body=('Automated read-only Cloudflare D1 monitoring.\n\n'
+                'UTC hour: '+key_last+'\n'
+                'Rows read: {:,}\nRows written: {:,}\nRead queries: {:,}\nWrite queries: {:,}\n'
+                'Previous hour rows read: {}\n'
+                'Triggers: {}\n\n'
+                'Inspect D1 Overview and top Queries; this workflow does NOT modify or disable anything.\n'
+                'GraphQL metrics can arrive late and are subject to analytics sampling.').format(
+                latest['rowsRead'],latest['rowsWritten'],latest['readQueries'],latest['writeQueries'],
+                '{:,}'.format(baseline['rowsRead']) if baseline else 'not available',', '.join(reasons))
+          def gh(*args):
+              p=subprocess.run(['gh',*args],capture_output=True,text=True)
+              if p.returncode:sys.exit('GitHub issue notification failed: '+p.stderr)
+              return p.stdout.strip()
+          existing=gh('issue','list','--repo',os.environ['GH_REPO'],'--state','open',
+                      '--search',title+' in:title','--json','number,title')
+          issues=json.loads(existing)
+          match=next((i for i in issues if i['title']==title),None)
+          if match:
+              gh('issue','comment',str(match['number']),'--repo',os.environ['GH_REPO'],'--body',body)
+              print('Alert appended to existing issue #'+str(match['number']))
+          else:
+              url=gh('issue','create','--repo',os.environ['GH_REPO'],'--title',title,'--body',body)
+              print('Alert created:',url)
