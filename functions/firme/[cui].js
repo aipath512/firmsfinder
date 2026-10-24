@@ -125,7 +125,7 @@ export async function onRequestGet({params, env, request}) {
         const m = await env.VECTORIZE.query(g[0].values, {topK: 9, returnMetadata: 'all'});
         const ids = (m.matches || []).filter((x) => x.id !== String(r.cui)).slice(0, 8);
         if (ids.length) {
-          const ok = await env.DB.prepare(`SELECT f.cui FROM onrc_firme f INDEXED BY ix_onrc_firme_cui WHERE f.cui IN (${ids.map(() => '?').join(',')}) AND f.top = 1 AND f.persoana_fizica = 0
+          const ok = await env.DB.prepare(`SELECT f.cui FROM onrc_firme f INDEXED BY ix_onrc_cui_top WHERE f.cui IN (${ids.map(() => '?').join(',')}) AND f.top = 1 AND f.persoana_fizica = 0
             AND f.cui NOT IN (SELECT cui FROM onrc_excluderi WHERE cui IS NOT NULL)`).bind(...ids.map((x) => Number(x.id))).all();
           const bune = new Set((ok.results || []).map((x) => String(x.cui)));
           const rows = ids.filter((x) => bune.has(x.id));
