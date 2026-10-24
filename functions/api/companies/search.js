@@ -139,7 +139,7 @@ export async function onRequestGet({request, env}) {
       LEFT JOIN mf_bilant_2025 c ON c.cui = f.cui`;
   // Fațetele fără filtre de trend nu au nevoie de bilanțurile 2023/2025.
   // Pentru trend=up/down păstrăm JOIN-urile, fiind folosite în condițiile SQL.
-  const DEJA_FACETE = (trend === 'up' || trend === 'down')
+  const DEJA_FACETE = (trend === 'up' || trend === 'down' || sort === 'crestere')
     ? DEJA
     : caen
       ? `FROM mf_bilant_2024 b CROSS JOIN onrc_firme f ON f.cui = b.cui`
