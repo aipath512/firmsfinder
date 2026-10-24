@@ -107,7 +107,9 @@ export async function onRequestGet({params, env, request}) {
       `<h1>${esc(r.forma_juridica || 'PFA/II/IF')} · în așteptarea acordului GDPR</h1><p>Datele acestei persoane fizice nu sunt afișate public până la obținerea acordului GDPR.</p><p>Județ: ${esc(r.judet)}</p><p><a href="/cautare/">Înapoi la căutare</a></p>`, 'noindex');
   }
   let similare = '';
-  if (r.caen_mf && r.ca_2024 > 0) {
+  // Cost guard: disable expensive optional financial-similarity scan by default.
+  // Re-enable only after a measured indexed query is deployed.
+  if (env.ENABLE_FINANCIAL_SIMILARS === 'true' && r.caen_mf && r.ca_2024 > 0) {
     try {
       const sr = await env.DB.prepare(`SELECT f.cui, f.denumire, f.judet, b.cifra_afaceri AS ca FROM mf_bilant_2024 b JOIN onrc_firme f ON f.cui = b.cui
         WHERE b.caen_mf = ? AND b.cifra_afaceri BETWEEN ? AND ? AND f.cui <> ? AND f.top = 1 AND f.persoana_fizica = 0
