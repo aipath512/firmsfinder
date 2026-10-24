@@ -137,6 +137,13 @@ export async function onRequestGet({request, env}) {
       LEFT JOIN mf_bilant_2024 b ON b.cui = f.cui
       LEFT JOIN mf_bilant_2023 a ON a.cui = f.cui
       LEFT JOIN mf_bilant_2025 c ON c.cui = f.cui`;
+  // Fațetele fără filtre de trend nu au nevoie de bilanțurile 2023/2025.
+  // Pentru trend=up/down păstrăm JOIN-urile, fiind folosite în condițiile SQL.
+  const DEJA_FACETE = (trend === 'up' || trend === 'down')
+    ? DEJA
+    : caen
+      ? `FROM mf_bilant_2024 b CROSS JOIN onrc_firme f ON f.cui = b.cui`
+      : `FROM onrc_firme f LEFT JOIN mf_bilant_2024 b ON b.cui = f.cui`;
   // Fațete (număr de rezultate pe județ), calculate fără filtrul de județ, doar pentru căutări înguste (CAEN sau nume).
   const cuFacete = p.get('facete') && (caen || q.length >= 3);
   const condFacete = conditii.join(' AND '), valFacete = valori.slice();
@@ -159,7 +166,7 @@ export async function onRequestGet({request, env}) {
     const out = {page: 1, results, limita: MAX_REZULTATE, sort, has_more: false, sursa: 'ONRC / MF, data.gov.ro — FirmsFinder AI'};
     if (cuFacete) {
       try {
-        const fr = await env.DB.prepare(`SELECT f.judet AS v, COUNT(*) AS n ${DEJA} WHERE ${condFacete} AND f.judet IS NOT NULL GROUP BY f.judet ORDER BY n DESC LIMIT 12`).bind(...valFacete).all();
+        const fr = await env.DB.prepare(`SELECT f.judet AS v, COUNT(*) AS n ${DEJA_FACETE} WHERE ${condFacete} AND f.judet IS NOT NULL GROUP BY f.judet ORDER BY n DESC LIMIT 12`).bind(...valFacete).all();
         out.facete = {judet: (fr.results || []).map((x) => ({v: x.v, n: x.n}))};
       } catch (e) { /* fațetele sunt opționale */ }
     }
