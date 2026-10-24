@@ -32,7 +32,7 @@ jobs:
           now=datetime.datetime.now(datetime.timezone.utc)
           # Delay by 10 minutes to allow Cloudflare analytics ingestion.
           end=now-datetime.timedelta(minutes=10)
-          start=end-datetime.timedelta(hours=2)
+          start=now.replace(minute=0,second=0,microsecond=0)-datetime.timedelta(hours=2)
           query='''query D1Watch($account: string!, $database: string!, $start: Time!, $end: Time!) {
             viewer { accounts(filter: {accountTag: $account}) {
               d1AnalyticsAdaptiveGroups(limit: 2000,
