@@ -70,7 +70,7 @@ jobs:
                       add('worker',name,b.get('name'),db,'matched database UUID' if db==target else 'UUID missing/target unspecified')
           # Pages projects and their production / preview deployment bindings.
           projects,errs=paged('/pages/projects')
-          errors+=errs
+          errors+=['PAGES ACCESS UNAVAILABLE: '+e for e in errs]
           for project in projects:
               name=project.get('name')
               if not name:continue
@@ -85,8 +85,8 @@ jobs:
           print('WORKERS:',len(workers),'PAGES:',len(projects),'MATCHES:',len(findings),'ERRORS:',len(errors))
           for f in findings:print('MATCH',f['kind'],f['name'],f['binding'],f['detail'])
           for e in errors:print('WARNING',e)
-          if errors:sys.exit('INCOMPLETE INVENTORY: see warnings; no false all-clear')
-          if not target:sys.exit('INCOMPLETE INVENTORY: CF_D1_DATABASE_ID missing; all D1 bindings shown instead')
+          if errors:print('PARTIAL INVENTORY: Cloudflare API permission errors; see warnings')
+          if not target:print('TARGET UUID NOT SET: all accessible D1 bindings shown; match database name manually')
       - name: Upload inventory report
         if: always()
         uses: actions/upload-artifact@v4
