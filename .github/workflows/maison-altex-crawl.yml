@@ -1,0 +1,25 @@
+name: MAISON ALTEX crawl audit
+on:
+  push:
+    branches: [maison-contact-provenance-20261025]
+    paths:
+      - '.github/workflows/maison-altex-crawl.yml'
+      - 'tools/maison_altex_run.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  crawl:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - name: Crawl Altex public vendor profiles
+        run: python tools/maison_altex_run.py
+      - name: Upload audit and CSV
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: maison-altex-audit
+          path: altex-output/
+          if-no-files-found: warn
