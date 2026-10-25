@@ -1,0 +1,20 @@
+name: MAISON ANAF validation (manual)
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify candidate phones against ANAF
+        run: python3 tools/maison_verify_anaf.py
+      - name: Upload validation CSV
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: maison-anaf-validation
+          path: maison_anaf_validation.csv
+          if-no-files-found: ignore
