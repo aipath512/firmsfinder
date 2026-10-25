@@ -92,8 +92,6 @@ async function fuzzy(env, q, cuvinte) {
 }
 
 export async function onRequestGet({request, env}) {
-  // Emergency D1 cost brake: zero D1 queries until explicitly reverted.
-  return json({error: 'Căutarea firmelor este temporar suspendată pentru protejarea bazei de date.', code: 'D1_COST_BRAKE'}, 503);
   const p = new URL(request.url).searchParams;
   const caen = (p.get('caen') || '').trim();
   const q = normaliza(p.get('q')).slice(0, 60);
