@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS maison_contact_provenance (
   cui INTEGER NOT NULL,
   field_name TEXT NOT NULL CHECK(field_name IN ('phone','email','website','other')),
   field_value TEXT NOT NULL,
-  origin TEXT NOT NULL,             -- e.g. ANAF, ALTEX, COMPANY_WEBSITE
+  origin TEXT DEFAULT NULL,          -- NULL = ANAF (legacy/default); explicit values e.g. ALTEX, COMPANY_WEBSITE
   source_url TEXT,                  -- exact evidence URL where available
   source_recorded_at TEXT,          -- timestamp explicitly published by source, if known
   collected_at TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),
