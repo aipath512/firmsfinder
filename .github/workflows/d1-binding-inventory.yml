@@ -1,0 +1,97 @@
+name: D1 binding inventory (read-only)
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      CF_API_TOKEN: ${{ secrets.CF_WORKERS_READ_TOKEN }}
+      FALLBACK_TOKEN: ${{ secrets.CF_D1_ANALYTICS_TOKEN }}
+      CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+      CF_D1_DATABASE_ID: ${{ secrets.CF_D1_DATABASE_ID }}
+    steps:
+      - name: Enumerate Workers, Pages and D1 bindings
+        shell: python
+        run: |
+          import os,json,urllib.request,urllib.error,sys
+          token=os.getenv('CF_API_TOKEN') or os.getenv('FALLBACK_TOKEN')
+          account=os.getenv('CF_ACCOUNT_ID')
+          target=os.getenv('CF_D1_DATABASE_ID','').lower()
+          if not token or not account:
+              sys.exit('CONFIG REQUIRED: CF_ACCOUNT_ID and CF_WORKERS_READ_TOKEN (or CF_D1_ANALYTICS_TOKEN)')
+          base='https://api.cloudflare.com/client/v4/accounts/'+account
+          def api(path):
+              req=urllib.request.Request(base+path,headers={'Authorization':'Bearer '+token,'Accept':'application/json'})
+              try:
+                  with urllib.request.urlopen(req,timeout=25) as response: data=json.load(response)
+              except urllib.error.HTTPError as e:
+                  return None,'HTTP '+str(e.code)+' '+path
+              except Exception as e: return None,str(e)
+              if not data.get('success',False):
+                  return None,'Cloudflare API error on '+path+': '+str(data.get('errors',[]))
+              return data.get('result'),None
+          def paged(path):
+              items=[];errors=[]
+              for page in range(1,101):
+                  sep='&' if '?' in path else '?'
+                  result,error=api(path+sep+'page='+str(page)+'&per_page=100')
+                  if error:
+                      errors.append(error);break
+                  if isinstance(result,list):items.extend(result);count=len(result)
+                  elif isinstance(result,dict):
+                      chunk=result.get('items',result.get('scripts',[]))
+                      if not isinstance(chunk,list):errors.append('Unexpected pagination payload: '+path);break
+                      items.extend(chunk);count=len(chunk)
+                  else:errors.append('Unexpected API response: '+path);break
+                  if count<100:break
+              return items,errors
+          findings=[];errors=[];inspected=0
+          def add(kind,name,binding,source,extra=''):
+              findings.append({'kind':kind,'name':name,'binding':binding,'database_id':source,'detail':extra})
+          # Account-level Workers scripts and their bindings.
+          workers,errs=paged('/workers/scripts')
+          errors+=errs
+          for worker in workers:
+              name=worker.get('id') or worker.get('name')
+              if not name:continue
+              data,error=api('/workers/scripts/'+name+'/settings')
+              if error:
+                  errors.append('Worker '+name+': '+error);continue
+              inspected+=1
+              bindings=(data or {}).get('bindings',[])
+              for b in bindings:
+                  if b.get('type')!='d1':continue
+                  db=(b.get('id') or b.get('database_id') or '').lower()
+                  if not target or db==target:
+                      add('worker',name,b.get('name'),db,'matched database UUID' if db==target else 'UUID missing/target unspecified')
+          # Pages projects and their production / preview deployment bindings.
+          projects,errs=paged('/pages/projects')
+          errors+=errs
+          for project in projects:
+              name=project.get('name')
+              if not name:continue
+              inspected+=1
+              for env,settings in (project.get('deployment_configs') or {}).items():
+                  for bname,b in (settings.get('d1_databases') or {}).items():
+                      db=(b.get('id') or b.get('database_id') or '').lower()
+                      if not target or db==target:
+                          add('pages',name,bname,db,'environment='+env)
+          report={'account':account,'target_database_uuid':target or 'NOT SET','workers_listed':len(workers),'pages_projects_listed':len(projects),'resources_inspected':inspected,'matching_bindings':findings,'errors':errors}
+          with open('d1-binding-inventory.json','w') as f:json.dump(report,f,indent=2)
+          print('WORKERS:',len(workers),'PAGES:',len(projects),'MATCHES:',len(findings),'ERRORS:',len(errors))
+          for f in findings:print('MATCH',f['kind'],f['name'],f['binding'],f['detail'])
+          for e in errors:print('WARNING',e)
+          if errors:sys.exit('INCOMPLETE INVENTORY: see warnings; no false all-clear')
+          if not target:sys.exit('INCOMPLETE INVENTORY: CF_D1_DATABASE_ID missing; all D1 bindings shown instead')
+      - name: Upload inventory report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: d1-binding-inventory
+          path: d1-binding-inventory.json
+          if-no-files-found: ignore
+          retention-days: 7
