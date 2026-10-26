@@ -1,6 +1,6 @@
 {
   "scope": "LOCAL ONLY",
-  "passed": 470,
+  "passed": 475,
   "failed": 0,
   "checks": [
     {
@@ -70,6 +70,16 @@
     },
     {
       "control": "json:ai.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:angajament/versiuni/v1.0_2026-10-16.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:angajament.json",
       "result": "PASS",
       "detail": ""
     },
@@ -204,6 +214,11 @@
       "detail": ""
     },
     {
+      "control": "json:geo/dico_firmsfinder.eu_v1.0_2026-10-20.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
       "control": "json:geo/entities.json",
       "result": "PASS",
       "detail": ""
@@ -289,6 +304,11 @@
       "detail": ""
     },
     {
+      "control": "json:geo100.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
       "control": "json:human-approval-policy.json",
       "result": "PASS",
       "detail": ""
@@ -325,6 +345,11 @@
     },
     {
       "control": "json:performance-budget.json",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "control": "json:piata-sugestii.json",
       "result": "PASS",
       "detail": ""
     },
