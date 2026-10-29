@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-"""ingheata_sesiune.py — v1.0 (2026-10-29)
+"""ingheata_sesiune.py — v1.1 (2026-10-29)
+v1.1: la înghețare se iau în calcul doar fișierele dicționarului care nu au fost
+încă înghețate; astfel a doua versiune a dicționarului nu mai dă eroare.
 
 Locul în GitHub: scripts/ingheata_sesiune.py   (repo: aipath512/firmsfinder)
 
@@ -71,23 +73,32 @@ def salveaza_registru(reg):
     os.replace(tmp, REGISTRU)
 
 
-def fisiere_dictionar():
-    """Fișierele dicționarului care se înghiață: *.json (fără latest.json) și *.md."""
+def deja_inghetate(reg):
+    """Căile fișierelor deja înghețate în orice sesiune H."""
+    return {cale for r in reg["sesiuni"] if r.get("stare") == "H" for cale in (r.get("fisiere") or {})}
+
+
+def fisiere_dictionar(reg):
+    """Fișierele NOI ale dicționarului: *.json (fără latest.json) și *.md, neînghețate încă."""
     if not DICT.is_dir():
         eroare("lipsește folderul dictionar/")
+    inghetate = deja_inghetate(reg)
     gasite = [p for p in sorted(DICT.iterdir())
-              if p.is_file() and p.name != "latest.json" and p.suffix in (".json", ".md")]
+              if p.is_file() and p.name != "latest.json" and p.suffix in (".json", ".md")
+              and rel(p) not in inghetate]
     if not gasite:
-        eroare("în dictionar/ nu există fișiere .json / .md")
+        eroare("în dictionar/ nu există fișiere noi (.json / .md) de înghețat")
     return gasite
 
 
-def verifica_sha256sums():
-    """Dacă există dictionar/SHA256SUMS, fiecare fișier listat trebuie să corespundă."""
+def verifica_sha256sums(noi):
+    """Dacă există dictionar/SHA256SUMS: fiecare fișier listat trebuie să corespundă,
+    iar fiecare fișier nou trebuie să fie listat."""
     sums = DICT / "SHA256SUMS"
     if not sums.exists():
         print("AVERTISMENT: dictionar/SHA256SUMS lipsește; nu s-a făcut verificarea inițială.")
         return
+    listate = set()
     for linie in sums.read_text(encoding="utf-8").splitlines():
         linie = linie.strip()
         if not linie:
@@ -101,13 +112,17 @@ def verifica_sha256sums():
             eroare("SHA256SUMS listează un fișier care lipsește: " + nume)
         if sha256_fisier(cale) != asteptat:
             eroare("amprenta nu corespunde SHA256SUMS pentru " + nume)
+        listate.add(nume)
+    nelistate = [p.name for p in noi if p.name not in listate]
+    if nelistate:
+        eroare("fișiere noi care nu sunt în SHA256SUMS: " + ", ".join(nelistate))
     print("SHA256SUMS: toate amprentele corespund.")
 
 
 def versiune_dictionar(fisiere):
     jsoane = [p for p in fisiere if p.suffix == ".json"]
     if len(jsoane) != 1:
-        eroare("trebuie să existe exact un fișier .json de dicționar în dictionar/ (găsite: %d)" % len(jsoane))
+        eroare("trebuie să existe exact un fișier .json NOU de dicționar în dictionar/ (găsite: %d)" % len(jsoane))
     with open(jsoane[0], encoding="utf-8") as f:
         date = json.load(f)
     if isinstance(date, dict):
@@ -144,8 +159,8 @@ def cmd_ingheata(numar):
     reg = incarca_registru()
     if any(r.get("numar") == numar + "H" for r in reg["sesiuni"]):
         eroare("sesiunea %sH există deja în registru; o sesiune înghețată nu se îngheață a doua oară." % numar)
-    fisiere = fisiere_dictionar()
-    verifica_sha256sums()
+    fisiere = fisiere_dictionar(reg)
+    verifica_sha256sums(fisiere)
     versiune = versiune_dictionar(fisiere)
     amprente = {rel(p): sha256_fisier(p) for p in fisiere}
 
