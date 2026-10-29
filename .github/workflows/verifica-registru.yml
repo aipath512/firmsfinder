@@ -1,7 +1,9 @@
+# verifica-registru.yml — v1.0 (2026-10-29)
+# Locul în GitHub: .github/workflows/verifica-registru.yml
+# La fiecare push care atinge dicționarul, registrul sau scripturile, compară
+# fișierele înghețate cu amprentele din registru și latest.json cu registrul.
+# Dă eroare (X roșu în Actions) dacă ceva nu corespunde; nu blochează push-ul.
 name: verifica-registru
-
-# La fiecare push sau pull request care atinge dicționarul, registrul sau scripturile:
-# compară SHA-256 al fișierelor sesiunilor H cu registrul. Eșuează dacă un fișier înghețat s-a modificat.
 
 on:
   push:
@@ -9,11 +11,7 @@ on:
       - "dictionar/**"
       - "sesiuni/**"
       - "scripts/**"
-  pull_request:
-    paths:
-      - "dictionar/**"
-      - "sesiuni/**"
-      - "scripts/**"
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -22,8 +20,13 @@ jobs:
   verifica:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - name: Descarcă depozitul
+        uses: actions/checkout@v4
+
+      - name: Instalează Python
+        uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: python scripts/ingheata_sesiune.py --verifica
+
+      - name: Verifică registrul
+        run: python scripts/ingheata_sesiune.py verifica
