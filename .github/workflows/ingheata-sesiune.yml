@@ -1,23 +1,16 @@
+# ingheata-sesiune.yml — v1.0 (2026-10-29)
+# Locul în GitHub: .github/workflows/ingheata-sesiune.yml
+# Pornire: Actions -> ingheata-sesiune -> Run workflow (număr: 0007)
+#          sau publicarea unui release cu tag-ul 0007.
 name: ingheata-sesiune
-
-# Trece o sesiune din C (curentă) în H (înghețată): verifică SHA-256, ștampilează cu OpenTimestamps,
-# scrie rândul H în sesiuni/registru-sesiuni.json și face commit. Commit-ul pe main declanșează
-# publicarea în Cloudflare (integrarea existentă GitHub -> Cloudflare).
-#
-# Pornire:
-#  - manual: Actions -> ingheata-sesiune -> Run workflow -> numărul sesiunii (ex. 0007)
-#  - din Releases: creați un release cu tag-ul egal cu numărul sesiunii (ex. 0007)
 
 on:
   workflow_dispatch:
     inputs:
-      sesiune:
-        description: "Numărul sesiunii de înghețat, 4 cifre (ex. 0007)"
+      numar:
+        description: "Numărul sesiunii de înghețat (4 cifre, ex. 0007)"
         required: true
-      fara_ots:
-        description: "Îngheață fără OTS (doar dacă serverele OpenTimestamps nu răspund)"
-        type: boolean
-        default: false
+        default: "0007"
   release:
     types: [published]
 
@@ -25,39 +18,40 @@ permissions:
   contents: write
 
 concurrency:
-  group: sesiuni-registru
+  group: registru-sesiuni
   cancel-in-progress: false
 
 jobs:
   ingheata:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Descarcă depozitul (ramura principală)
+        uses: actions/checkout@v4
         with:
-          ref: main
-      - uses: actions/setup-python@v5
+          ref: ${{ github.event.repository.default_branch }}
+
+      - name: Instalează Python
+        uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+
       - name: Instalează clientul OpenTimestamps
         run: pip install opentimestamps-client
-      - name: Înghețare C -> H
+
+      - name: Îngheață sesiunea
         env:
-          SESIUNE: ${{ github.event.inputs.sesiune || github.event.release.tag_name }}
-          FARA_OTS: ${{ github.event.inputs.fara_ots }}
+          NUMAR_MANUAL: ${{ github.event.inputs.numar }}
+          NUMAR_RELEASE: ${{ github.event.release.tag_name }}
         run: |
-          if [ "$FARA_OTS" = "true" ]; then
-            python scripts/ingheata_sesiune.py --ingheata "$SESIUNE" --fara-ots
-          else
-            python scripts/ingheata_sesiune.py --ingheata "$SESIUNE"
-          fi
-      - name: Commit
-        env:
-          SESIUNE: ${{ github.event.inputs.sesiune || github.event.release.tag_name }}
+          NUMAR="${NUMAR_RELEASE:-$NUMAR_MANUAL}"
+          echo "NUMAR=$NUMAR" >> "$GITHUB_ENV"
+          python scripts/ingheata_sesiune.py ingheata "$NUMAR"
+
+      - name: Salvează rezultatul în depozit
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add sesiuni/registru-sesiuni.json
-          git add dictionar/latest.json
-          git add dictionar/*.ots || true
-          git commit -m "Sesiune ${SESIUNE}H înghețată (SHA-256 + OTS)"
-          git push origin HEAD:main
+          git add sesiuni dictionar/latest.json
+          git commit -m "Înghețare sesiune ${NUMAR}H"
+          git pull --rebase
+          git push
