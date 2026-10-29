@@ -1,0 +1,29 @@
+name: verifica-registru
+
+# La fiecare push sau pull request care atinge dicționarul, registrul sau scripturile:
+# compară SHA-256 al fișierelor sesiunilor H cu registrul. Eșuează dacă un fișier înghețat s-a modificat.
+
+on:
+  push:
+    paths:
+      - "dictionar/**"
+      - "sesiuni/**"
+      - "scripts/**"
+  pull_request:
+    paths:
+      - "dictionar/**"
+      - "sesiuni/**"
+      - "scripts/**"
+
+permissions:
+  contents: read
+
+jobs:
+  verifica:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python scripts/ingheata_sesiune.py --verifica

@@ -1,0 +1,3177 @@
+{
+  "dictionar": "Dicționar de date economice ale firmelor (FirmsFinder)",
+  "versiune": "1.0.1",
+  "data": "2026-10-29",
+  "timestamp_ro": "2026-10-29T13:29:21+02:00",
+  "sesiune": {
+    "numar": "0007",
+    "la_creare": "0007C",
+    "registru": "sesiuni/registru-sesiuni.json",
+    "nota": "Starea curentă (C, H sau T) și dovezile (SHA-256, OTS) se citesc din registru. Acest fișier nu se modifică la înghețare, altfel amprenta lui s-ar schimba."
+  },
+  "metamodel": "AiVenture Semantic Data Dictionary: ENTITY, PROPERTY, RELATIONSHIP, VALUE, SESSION; R2 = adevăr primar, D1 = index, Vectorize = index semantic",
+  "notatie_cardinalitate": {
+    "valori": [
+      "0..*",
+      "0..1",
+      "1",
+      "1..*"
+    ],
+    "citire": "card_direct = câte ținte are o sursă; card_invers = câte surse are o țintă"
+  },
+  "versionare": {
+    "schema": "MAJOR.MINOR.PATCH, ca la versiunile Python",
+    "major": "schimbare incompatibilă: proprietate redenumită sau ștearsă, cardinalitate modificată",
+    "minor": "adăugare compatibilă: proprietate, entitate, relație sau sursă nouă",
+    "patch": "corectură de definiție, fără schimbare de structură",
+    "imuabilitate": "O versiune publicată nu se modifică niciodată; orice schimbare este o versiune nouă, cu fișiere noi.",
+    "denumire_fisiere": "dictionar-economic-firme_v<versiune>_<data>.json / .md; sumele în SHA256SUMS_v<versiune>_<data>.txt",
+    "verificare": "sha256sum -c SHA256SUMS_v1.0.1_2026-10-29.txt (integritate); pentru timp, fișierul și <fișier>.ots se verifică pe opentimestamps.org sau cu `ots verify` (necesită un nod Bitcoin)",
+    "relatia_cu_sesiunea": "Versiunea (MAJOR.MINOR.PATCH) spune ce s-a schimbat în conținut; sesiunea (NNNNC/H/T) spune în ce stare și când a fost înghețat acel conținut. Registrul le leagă: sesiune <-> versiune <-> SHA-256 <-> OTS."
+  },
+  "ancorare_in_timp": {
+    "campuri_standard": [
+      "valid_from",
+      "valid_to",
+      "observat_la",
+      "sesiune",
+      "artefact_r2",
+      "sursa"
+    ],
+    "regula": "O valoare nouă este un rând nou; cea veche primește valid_to; nimic nu se șterge. Valorile lipsă sunt NULL, niciodată 0 sau „-”.",
+    "sesiuni": "NNNNC (curentă), NNNNH (înghețată, imuabilă), NNNNT (test); diferența dintre două sesiuni H produce ADDED / REMOVED / MODIFIED / UNCHANGED.",
+    "lant_proveniență": "VALOARE -> SURSA -> ARTEFACT_R2 (sha256) -> SESIUNE -> data și ora",
+    "integritate_si_timp": {
+      "sha256": "Arată doar că conținutul este același. Nu dovedește când a existat și nu este semnătură digitală.",
+      "opentimestamps": "Ancorează amprenta într-un bloc Bitcoin: dovedește că fișierul exista cel târziu la data blocului. Confirmarea durează de obicei câteva ore.",
+      "numar_de_sesiune": "Leagă cele două dovezi de o sesiune (NNNNC / NNNNH / NNNNT) printr-un rând în registrul de sesiuni.",
+      "registru": "sesiuni/registru-sesiuni.json (GitHub = SSOT)",
+      "ciclu_de_viata": "C = în lucru; H = înghețată automat la transferul din GitHub în Cloudflare (SHA-256 + OTS înregistrate); un rând H nu se mai modifică.",
+      "limite": "Aceste mecanisme păstrează dovezi tehnice de integritate și cronologie. Nu constituie, singure, dovadă juridică de originalitate sau proprietate."
+    }
+  },
+  "surse": [
+    {
+      "id": "SRC-0001",
+      "nume": "ONRC firme (registrul comerțului)",
+      "publicator": "ONRC",
+      "url": "https://data.gov.ro",
+      "metoda": "CSV pe data.gov.ro",
+      "frecventa": "lunar",
+      "licenta_acces": "open data",
+      "limite": "Adresa exactă a setului: în MASTER_CONTEXT_FISCAL_B2B",
+      "stare": "in_uz",
+      "verificat_in": "2026-10-29",
+      "nota": "Încărcat în D1 (set 02.09.2026)."
+    },
+    {
+      "id": "SRC-0002",
+      "nume": "MF situații financiare (bilanțuri)",
+      "publicator": "Ministerul Finanțelor",
+      "url": "https://data.gov.ro",
+      "metoda": "CSV pe data.gov.ro",
+      "frecventa": "anual",
+      "licenta_acces": "open data",
+      "limite": "Adresa exactă a setului: în MASTER_CONTEXT_FISCAL_B2B",
+      "stare": "in_uz",
+      "verificat_in": "2026-10-29",
+      "nota": "Ani 2023-2025 în D1; se dorește și 2022."
+    },
+    {
+      "id": "SRC-0003",
+      "nume": "ANAF plătitor TVA / inactiv / e-Factura (v9)",
+      "publicator": "ANAF",
+      "url": "https://webservicesp.anaf.ro/api/PlatitorTvaRest/v9/tva",
+      "metoda": "REST POST JSON, după CUI și dată",
+      "frecventa": "la cerere",
+      "licenta_acces": "gratuit, fără cheie",
+      "limite": "max. 100 CUI per cerere; max. 1 cerere pe secundă; documentația diferă ușor de comportamentul live",
+      "stare": "verificat",
+      "verificat_in": "2026-10-29",
+      "nota": "Documentație: https://static.anaf.ro/static/10/Anaf/Informatii_R/Servicii_web/doc_WS_V9.txt"
+    },
+    {
+      "id": "SRC-0004",
+      "nume": "ANAF registru RO e-Factura",
+      "publicator": "ANAF",
+      "url": "https://webservicesp.anaf.ro/api/registruroefactura/v1/interogare",
+      "metoda": "REST POST JSON",
+      "frecventa": "la cerere",
+      "licenta_acces": "gratuit, fără cheie",
+      "limite": "max. 100 CUI per cerere; max. 1 cerere pe secundă",
+      "stare": "verificat",
+      "verificat_in": "2026-10-29",
+      "nota": "Documentație: https://static.anaf.ro/static/10/Anaf/Informatii_R/Servicii_web/docV1.txt"
+    },
+    {
+      "id": "SRC-0005",
+      "nume": "ANAF bilanț (serviciu web)",
+      "publicator": "ANAF",
+      "url": null,
+      "metoda": "REST, după CUI și an",
+      "frecventa": "la cerere",
+      "licenta_acces": "gratuit, fără cheie",
+      "limite": "max. 1 cerere pe secundă",
+      "stare": "verificat",
+      "verificat_in": "2026-10-29",
+      "nota": "Documentația se numește doc_WS_Bilant_V1.txt; adresa exactă de confirmat. Folosit ca verificare, nu ca sursă principală."
+    },
+    {
+      "id": "SRC-0006",
+      "nume": "ANAF restanțe la buget",
+      "publicator": "ANAF",
+      "url": "https://data.gov.ro/dataset/datoriile-catre-bugetul-de-stat",
+      "metoda": "liste pe data.gov.ro",
+      "frecventa": "trimestrial",
+      "licenta_acces": "open data, reutilizabil",
+      "limite": "doar contribuabili peste un prag de datorie",
+      "stare": "verificat",
+      "verificat_in": "2026-10-29",
+      "nota": ""
+    },
+    {
+      "id": "SRC-0007",
+      "nume": "ANAF lista albă (fără restanțe)",
+      "publicator": "ANAF",
+      "url": "https://www.anaf.ro/restante/listaalba.xhtml",
+      "metoda": "pagină web",
+      "frecventa": "trimestrial",
+      "licenta_acces": "public",
+      "limite": "metodă de acces automat de verificat",
+      "stare": "verificat",
+      "verificat_in": "2026-10-29",
+      "nota": ""
+    },
+    {
+      "id": "SRC-0008",
+      "nume": "BPI - Buletinul Procedurilor de Insolvență",
+      "publicator": "ONRC",
+      "url": "https://www.bpi.ro",
+      "metoda": "căutare web (și portal.onrc.ro)",
+      "frecventa": "zilnic",
+      "licenta_acces": "serviciile „Sumar” și „Persoane publicate în BPI” sunt gratuite; BPI online complet este cu abonament",
+      "limite": "căutare după număr/an BPI, denumire, CUI, nr. Reg. Com., nr. dosar; acces automat de verificat",
+      "stare": "verificat",
+      "verificat_in": "2026-10-29",
+      "nota": ""
+    },
+    {
+      "id": "SRC-0009",
+      "nume": "portal.just.ro (dosare în instanțe)",
+      "publicator": "Ministerul Justiției",
+      "url": "https://portal.just.ro",
+      "metoda": "serviciu web SOAP (portalquery.just.ro)",
+      "frecventa": "replicare nocturnă din ECRIS",
+      "licenta_acces": "gratuit, cu menționarea sursei",
+      "limite": "căutare după nume (nu după CUI); max. 1.000 de rezultate per interogare",
+      "stare": "verificat",
+      "verificat_in": "2026-10-29",
+      "nota": ""
+    },
+    {
+      "id": "SRC-0010",
+      "nume": "SEAP / SICAP (achiziții publice)",
+      "publicator": "Autoritatea pentru Digitalizarea României",
+      "url": "https://e-licitatie.ro",
+      "metoda": "portal; fără export în masă confirmat",
+      "frecventa": "continuu",
+      "licenta_acces": "public",
+      "limite": "export oficial în masă neconfirmat",
+      "stare": "partial_verificat",
+      "verificat_in": "2026-10-29",
+      "nota": ""
+    },
+    {
+      "id": "SRC-0011",
+      "nume": "RegAS (registrul ajutoarelor de stat)",
+      "publicator": "Consiliul Concurenței",
+      "url": null,
+      "metoda": "de stabilit",
+      "frecventa": "de stabilit",
+      "licenta_acces": "acces public neconfirmat",
+      "limite": "RegAS 2 în dezvoltare (2025)",
+      "stare": "partial_verificat",
+      "verificat_in": "2026-10-29",
+      "nota": ""
+    },
+    {
+      "id": "SRC-0012",
+      "nume": "MySMIS / fonduri-ue.ro",
+      "publicator": "Ministerul Investițiilor și Proiectelor Europene",
+      "url": "https://www.fonduri-ue.ro/statistici",
+      "metoda": "date deschise la MFE; de verificat",
+      "frecventa": "lunar (conform MFE)",
+      "licenta_acces": "date deschise parțiale",
+      "limite": "lista beneficiarilor de verificat",
+      "stare": "partial_verificat",
+      "verificat_in": "2026-10-29",
+      "nota": ""
+    },
+    {
+      "id": "SRC-0013",
+      "nume": "OSIM (mărci și brevete)",
+      "publicator": "OSIM",
+      "url": "https://osim.ro",
+      "metoda": "BOPI în PDF; căutare online",
+      "frecventa": "periodic",
+      "licenta_acces": "public",
+      "limite": "date deschise neconfirmate",
+      "stare": "de_verificat",
+      "verificat_in": null,
+      "nota": ""
+    },
+    {
+      "id": "SRC-0014",
+      "nume": "VIES (validare TVA UE)",
+      "publicator": "Comisia Europeană",
+      "url": "https://ec.europa.eu/taxation_customs/vies/rest-api/check-vat-number",
+      "metoda": "REST",
+      "frecventa": "la cerere",
+      "licenta_acces": "gratuit, fără cheie",
+      "limite": "nume și adresă doar unde țara le oferă",
+      "stare": "verificat",
+      "verificat_in": "2026-10-29",
+      "nota": "Pentru extinderea europeană."
+    },
+    {
+      "id": "SRC-0015",
+      "nume": "GLEIF (LEI)",
+      "publicator": "GLEIF",
+      "url": "https://www.gleif.org/en/lei-data/gleif-api",
+      "metoda": "API public",
+      "frecventa": "zilnic",
+      "licenta_acces": "gratuit",
+      "limite": "doar entități cu LEI (în special mari și financiare)",
+      "stare": "verificat",
+      "verificat_in": "2026-10-29",
+      "nota": "Pentru extinderea europeană."
+    },
+    {
+      "id": "SRC-0016",
+      "nume": "Site-urile firmelor (Firecrawl)",
+      "publicator": "firmele însele",
+      "url": null,
+      "metoda": "crawl propriu cu respectarea robots.txt",
+      "frecventa": "la cerere",
+      "licenta_acces": "public",
+      "limite": "respectarea robots.txt și a termenilor fiecărui site",
+      "stare": "in_uz",
+      "verificat_in": "2026-10-29",
+      "nota": ""
+    },
+    {
+      "id": "SRC-0017",
+      "nume": "Termene API (acționariat / UBO)",
+      "publicator": "Termene.ro",
+      "url": "https://termene.ro/documentatie-api",
+      "metoda": "REST POST JSON, după CUI",
+      "frecventa": "la cerere",
+      "licenta_acces": "plătit: 100 € / 100 de interogări (UBO, lanțuri de deținere)",
+      "limite": "doar după CUI, nu în masă",
+      "stare": "verificat",
+      "verificat_in": "2026-10-29",
+      "nota": "Singura cale găsită pentru UBO; folosită doar pe cerere, per firmă."
+    },
+    {
+      "id": "SRC-0018",
+      "nume": "Nomenclatoare derivate din ONRC (CAEN, stări)",
+      "publicator": "ONRC",
+      "url": null,
+      "metoda": "tabele derivate (onrc_nom_caen, onrc_nom_stare)",
+      "frecventa": "odată cu ONRC",
+      "licenta_acces": "open data",
+      "limite": "versiunea CAEN (vechi/nou) de marcat explicit",
+      "stare": "in_uz",
+      "verificat_in": "2026-10-29",
+      "nota": ""
+    }
+  ],
+  "entitati": [
+    {
+      "id": "ENT-000001",
+      "nume": "FIRMA",
+      "tip": "obiect",
+      "descriere": "Entitate juridică sau persoană fizică autorizată, înregistrată la ONRC. Cheia este CUI. Excepție verificată în D1: sucursalele și filialele fără CUI propriu au cui NULL și se identifică prin cod_inmatriculare (decizie deschisă: cheia alternativă).",
+      "cheie": [
+        "cui"
+      ],
+      "stare": "in_uz"
+    },
+    {
+      "id": "ENT-000002",
+      "nume": "LOCALITATE",
+      "tip": "nomenclator",
+      "descriere": "Localitate (unitate teritorială) în care se află sediul.",
+      "cheie": [
+        "cod_localitate"
+      ],
+      "stare": "planificat"
+    },
+    {
+      "id": "ENT-000003",
+      "nume": "JUDET",
+      "tip": "nomenclator",
+      "descriere": "Județ (inclusiv municipiul București).",
+      "cheie": [
+        "cod_judet"
+      ],
+      "stare": "planificat"
+    },
+    {
+      "id": "ENT-000004",
+      "nume": "FORMA_JURIDICA",
+      "tip": "nomenclator",
+      "descriere": "Formă juridică de organizare (SRL, SA, PFA, II, IF etc.).",
+      "cheie": [
+        "cod_forma"
+      ],
+      "stare": "planificat"
+    },
+    {
+      "id": "ENT-000005",
+      "nume": "STARE_FIRMA",
+      "tip": "nomenclator",
+      "descriere": "Stare a firmei în registrul comerțului (activă, suspendată, radiată etc.).",
+      "cheie": [
+        "cod_stare"
+      ],
+      "stare": "in_uz"
+    },
+    {
+      "id": "ENT-000006",
+      "nume": "ACTIVITATE_CAEN",
+      "tip": "nomenclator",
+      "descriere": "Activitate din nomenclatorul CAEN, ierarhică: secțiune, diviziune, grupă, clasă.",
+      "cheie": [
+        "cod",
+        "versiune_caen"
+      ],
+      "stare": "in_uz"
+    },
+    {
+      "id": "ENT-000007",
+      "nume": "SITUATIE_FINANCIARA",
+      "tip": "obiect",
+      "descriere": "Situația financiară anuală (bilanț) a unei firme. În D1 există câte o tabelă pe an (mf_bilant_2023, _2024, _2025); structura de 24 de coloane este verificată pe mf_bilant_2025.",
+      "cheie": [
+        "cui",
+        "an"
+      ],
+      "stare": "in_uz"
+    },
+    {
+      "id": "ENT-000008",
+      "nume": "STARE_FISCALA",
+      "tip": "obiect",
+      "descriere": "Starea fiscală la o dată: TVA, inactiv, split TVA, e-Factura. Verificat la 2026-10-29: tabela anaf_status există în D1, dar are 0 rânduri (starea fiscală ANAF nu este încă încărcată).",
+      "cheie": [
+        "cui",
+        "valid_from"
+      ],
+      "stare": "planificat"
+    },
+    {
+      "id": "ENT-000009",
+      "nume": "RESTANTA_BUGET",
+      "tip": "obiect",
+      "descriere": "Restanță la bugetul de stat, conform listelor ANAF.",
+      "cheie": [
+        "cui",
+        "data_lista"
+      ],
+      "stare": "planificat"
+    },
+    {
+      "id": "ENT-000010",
+      "nume": "EVENIMENT_INSOLVENTA",
+      "tip": "obiect",
+      "descriere": "Act publicat în BPI cu privire la o firmă.",
+      "cheie": [
+        "numar_bpi",
+        "an_bpi",
+        "cui"
+      ],
+      "stare": "planificat"
+    },
+    {
+      "id": "ENT-000011",
+      "nume": "DOSAR_INSTANTA",
+      "tip": "obiect",
+      "descriere": "Dosar de instanță în care apare firma.",
+      "cheie": [
+        "numar_dosar",
+        "instanta"
+      ],
+      "stare": "planificat"
+    },
+    {
+      "id": "ENT-000012",
+      "nume": "CONTRACT_ACHIZITIE_PUBLICA",
+      "tip": "obiect",
+      "descriere": "Contract de achiziție publică atribuit unei firme.",
+      "cheie": [
+        "id_anunt"
+      ],
+      "stare": "planificat"
+    },
+    {
+      "id": "ENT-000013",
+      "nume": "AJUTOR_PUBLIC",
+      "tip": "obiect",
+      "descriere": "Ajutor de stat sau proiect finanțat din fonduri UE primit de o firmă.",
+      "cheie": [
+        "tip",
+        "id_sursa"
+      ],
+      "stare": "planificat"
+    },
+    {
+      "id": "ENT-000014",
+      "nume": "CONTACT_FIRMA",
+      "tip": "obiect",
+      "descriere": "Dată de contact a firmei (telefon, email, site, rețea socială).",
+      "cheie": [
+        "cui",
+        "tip",
+        "valoare"
+      ],
+      "stare": "in_uz"
+    },
+    {
+      "id": "ENT-000015",
+      "nume": "PERSOANA",
+      "tip": "obiect",
+      "descriere": "Persoană cu rol într-o firmă (administrator, asociat, beneficiar real).",
+      "cheie": [
+        "id_persoana"
+      ],
+      "stare": "planificat"
+    },
+    {
+      "id": "ENT-000016",
+      "nume": "SURSA",
+      "tip": "infrastructura",
+      "descriere": "Sursă de date înregistrată în registrul de surse.",
+      "cheie": [
+        "id"
+      ],
+      "stare": "in_uz"
+    },
+    {
+      "id": "ENT-000017",
+      "nume": "ARTEFACT_R2",
+      "tip": "infrastructura",
+      "descriere": "Fișier brut păstrat în R2, cu SHA-256; adevărul primar.",
+      "cheie": [
+        "cheie_r2"
+      ],
+      "stare": "in_uz"
+    },
+    {
+      "id": "ENT-000018",
+      "nume": "SESIUNE",
+      "tip": "infrastructura",
+      "descriere": "Sesiune de lucru (convenția NNNNC / NNNNH / NNNNT): C = curentă, H = înghețată la transferul GitHub -> Cloudflare, T = test (o H modificabilă). Starea și dovezile (SHA-256, OTS) se țin în registrul de sesiuni din GitHub.",
+      "cheie": [
+        "cod"
+      ],
+      "stare": "in_uz"
+    }
+  ],
+  "proprietati": [
+    {
+      "id": "PRP-000001",
+      "entitate": "FIRMA",
+      "nume": "cod_inmatriculare",
+      "tip": "TEXT",
+      "obligatoriu": true,
+      "descriere": "Număr de înmatriculare în registrul comerțului (format J).",
+      "surse": [
+        {
+          "sursa": "SRC-0001",
+          "camp": "cod_inmatriculare"
+        },
+        {
+          "sursa": "SRC-0003",
+          "camp": "nrRegCom"
+        }
+      ],
+      "normalizare": "păstrat textual, format J<jj>/<nr>/<an>",
+      "sensibilitate": "public",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000002",
+      "entitate": "FIRMA",
+      "nume": "cui",
+      "tip": "INTEGER",
+      "obligatoriu": false,
+      "descriere": "Cod unic de identificare fiscală; cheia firmei în tot sistemul. NULL pentru sucursale și filiale fără CUI propriu (ex. J40/2066/1991, SPRINT CRAIOVA SRL FILIALA BUCURESTI); acolo se folosește cod_inmatriculare și, unde e cazul, CUI-ul firmei-mamă.",
+      "surse": [
+        {
+          "sursa": "SRC-0001",
+          "camp": "cui"
+        },
+        {
+          "sursa": "SRC-0002",
+          "camp": "cui"
+        },
+        {
+          "sursa": "SRC-0003",
+          "camp": "cui (în cerere)"
+        }
+      ],
+      "normalizare": "întreg, fără prefix RO și fără zerouri inițiale; NULL = fără CUI propriu, nu eroare",
+      "sensibilitate": "public",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000003",
+      "entitate": "FIRMA",
+      "nume": "denumire",
+      "tip": "TEXT",
+      "obligatoriu": true,
+      "descriere": "Denumirea oficială a firmei.",
+      "surse": [
+        {
+          "sursa": "SRC-0001",
+          "camp": "denumire"
+        },
+        {
+          "sursa": "SRC-0003",
+          "camp": "denumire"
+        }
+      ],
+      "normalizare": "text original, neschimbat",
+      "sensibilitate": "personal_daca_persoana_fizica",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000004",
+      "entitate": "FIRMA",
+      "nume": "denumire_cautare",
+      "tip": "TEXT",
+      "obligatoriu": false,
+      "descriere": "Denumirea pregătită pentru căutare.",
+      "surse": [],
+      "normalizare": "majuscule, fără diacritice, spații normalizate",
+      "sensibilitate": "public",
+      "stare": "existent",
+      "derivat": true
+    },
+    {
+      "id": "PRP-000005",
+      "entitate": "FIRMA",
+      "nume": "data_inmatriculare",
+      "tip": "DATE",
+      "obligatoriu": false,
+      "descriere": "Data înmatriculării în registrul comerțului.",
+      "surse": [
+        {
+          "sursa": "SRC-0001",
+          "camp": "data_inmatriculare"
+        }
+      ],
+      "normalizare": "YYYY-MM-DD (normalizat ISO la 26 oct 2026; importurile viitoare scriu direct ISO)",
+      "sensibilitate": "public",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000006",
+      "entitate": "FIRMA",
+      "nume": "euid",
+      "tip": "TEXT",
+      "obligatoriu": false,
+      "descriere": "Identificator european unic al firmei (EUID).",
+      "surse": [
+        {
+          "sursa": "SRC-0001",
+          "camp": "euid"
+        }
+      ],
+      "normalizare": "păstrat textual, format ROONRC.J...",
+      "sensibilitate": "public",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000007",
+      "entitate": "FIRMA",
+      "nume": "forma_juridica",
+      "tip": "TEXT",
+      "obligatoriu": false,
+      "descriere": "Forma juridică, așa cum apare în sursă; se leagă de nomenclatorul FORMA_JURIDICA.",
+      "surse": [
+        {
+          "sursa": "SRC-0001",
+          "camp": "forma_juridica"
+        }
+      ],
+      "normalizare": "text sursă + cod din nomenclator",
+      "sensibilitate": "public",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000008",
+      "entitate": "FIRMA",
+      "nume": "persoana_fizica",
+      "tip": "INTEGER",
+      "obligatoriu": false,
+      "descriere": "1 pentru PFA, II, IF, PF, AF; 0 pentru persoane juridice.",
+      "surse": [
+        {
+          "sursa": "SRC-0001",
+          "camp": "persoana_fizica"
+        }
+      ],
+      "normalizare": "0 sau 1",
+      "sensibilitate": "public",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000009",
+      "entitate": "FIRMA",
+      "nume": "judet",
+      "tip": "TEXT",
+      "obligatoriu": false,
+      "descriere": "Județul sediului.",
+      "surse": [
+        {
+          "sursa": "SRC-0001",
+          "camp": "judet"
+        }
+      ],
+      "normalizare": "legat de nomenclatorul JUDET",
+      "sensibilitate": "public",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000010",
+      "entitate": "FIRMA",
+      "nume": "localitate",
+      "tip": "TEXT",
+      "obligatoriu": false,
+      "descriere": "Localitatea sediului.",
+      "surse": [
+        {
+          "sursa": "SRC-0001",
+          "camp": "localitate"
+        }
+      ],
+      "normalizare": "legat de nomenclatorul LOCALITATE",
+      "sensibilitate": "public",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000011",
+      "entitate": "FIRMA",
+      "nume": "strada",
+      "tip": "TEXT",
+      "obligatoriu": false,
+      "descriere": "Strada sediului.",
+      "surse": [
+        {
+          "sursa": "SRC-0001",
+          "camp": "strada"
+        }
+      ],
+      "normalizare": "text original; adresa brută rămâne în R2",
+      "sensibilitate": "personal_daca_persoana_fizica",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000012",
+      "entitate": "FIRMA",
+      "nume": "nr",
+      "tip": "TEXT",
+      "obligatoriu": false,
+      "descriere": "Numărul.",
+      "surse": [
+        {
+          "sursa": "SRC-0001",
+          "camp": "nr"
+        }
+      ],
+      "normalizare": "text original; adresa brută rămâne în R2",
+      "sensibilitate": "personal_daca_persoana_fizica",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000013",
+      "entitate": "FIRMA",
+      "nume": "bloc",
+      "tip": "TEXT",
+      "obligatoriu": false,
+      "descriere": "Blocul.",
+      "surse": [
+        {
+          "sursa": "SRC-0001",
+          "camp": "bloc"
+        }
+      ],
+      "normalizare": "text original; adresa brută rămâne în R2",
+      "sensibilitate": "personal_daca_persoana_fizica",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000014",
+      "entitate": "FIRMA",
+      "nume": "scara",
+      "tip": "TEXT",
+      "obligatoriu": false,
+      "descriere": "Scara.",
+      "surse": [
+        {
+          "sursa": "SRC-0001",
+          "camp": "scara"
+        }
+      ],
+      "normalizare": "text original; adresa brută rămâne în R2",
+      "sensibilitate": "personal_daca_persoana_fizica",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000015",
+      "entitate": "FIRMA",
+      "nume": "etaj",
+      "tip": "TEXT",
+      "obligatoriu": false,
+      "descriere": "Etajul.",
+      "surse": [
+        {
+          "sursa": "SRC-0001",
+          "camp": "etaj"
+        }
+      ],
+      "normalizare": "text original; adresa brută rămâne în R2",
+      "sensibilitate": "personal_daca_persoana_fizica",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000016",
+      "entitate": "FIRMA",
+      "nume": "apartament",
+      "tip": "TEXT",
+      "obligatoriu": false,
+      "descriere": "Apartamentul.",
+      "surse": [
+        {
+          "sursa": "SRC-0001",
+          "camp": "apartament"
+        }
+      ],
+      "normalizare": "text original; adresa brută rămâne în R2",
+      "sensibilitate": "personal_daca_persoana_fizica",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000017",
+      "entitate": "FIRMA",
+      "nume": "cod_postal",
+      "tip": "TEXT",
+      "obligatoriu": false,
+      "descriere": "Codul poștal.",
+      "surse": [
+        {
+          "sursa": "SRC-0001",
+          "camp": "cod_postal"
+        }
+      ],
+      "normalizare": "text original; adresa brută rămâne în R2",
+      "sensibilitate": "personal_daca_persoana_fizica",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000018",
+      "entitate": "FIRMA",
+      "nume": "adr_completare",
+      "tip": "TEXT",
+      "obligatoriu": false,
+      "descriere": "Completare de adresă.",
+      "surse": [
+        {
+          "sursa": "SRC-0001",
+          "camp": "adr_completare"
+        }
+      ],
+      "normalizare": "text original; adresa brută rămâne în R2",
+      "sensibilitate": "personal_daca_persoana_fizica",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000019",
+      "entitate": "FIRMA",
+      "nume": "sector",
+      "tip": "TEXT",
+      "obligatoriu": false,
+      "descriere": "Sectorul (pentru București).",
+      "surse": [
+        {
+          "sursa": "SRC-0001",
+          "camp": "sector"
+        }
+      ],
+      "normalizare": "text original",
+      "sensibilitate": "public",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000020",
+      "entitate": "FIRMA",
+      "nume": "web",
+      "tip": "TEXT",
+      "obligatoriu": false,
+      "descriere": "Adresa site-ului, când este cunoscută.",
+      "surse": [
+        {
+          "sursa": "SRC-0001",
+          "camp": "web"
+        },
+        {
+          "sursa": "SRC-0016",
+          "camp": "url descoperit"
+        }
+      ],
+      "normalizare": "URL complet cu schemă",
+      "sensibilitate": "public",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000021",
+      "entitate": "FIRMA",
+      "nume": "tara_firma_mama",
+      "tip": "TEXT",
+      "obligatoriu": false,
+      "descriere": "Țara firmei-mamă, când este declarată.",
+      "surse": [
+        {
+          "sursa": "SRC-0001",
+          "camp": "tara_firma_mama"
+        }
+      ],
+      "normalizare": "text sursă",
+      "sensibilitate": "public",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000022",
+      "entitate": "FIRMA",
+      "nume": "coduri_stare",
+      "tip": "TEXT",
+      "obligatoriu": false,
+      "descriere": "Lista codurilor de stare ONRC, într-un singur text separat prin virgulă (ex. „1048”, „1048,2069”, „2069,1048”); se leagă de nomenclatorul STARE_FIRMA. NU se filtrează cu egalitate: la 2026-10-29, printre firmele cu top=1, egalitatea cu „1048” găsește 1.147.602, iar „conține 1048” găsește 1.310.407 (diferență 162.805, 12,4%). Ordinea codurilor nu este constantă.",
+      "surse": [
+        {
+          "sursa": "SRC-0001",
+          "camp": "coduri_stare"
+        }
+      ],
+      "normalizare": "listă de coduri separate prin virgulă, ordine neconstantă; interogare corectă: (','||coduri_stare||',') LIKE '%,1048,%'",
+      "sensibilitate": "public",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000023",
+      "entitate": "FIRMA",
+      "nume": "sursa_data",
+      "tip": "TEXT",
+      "obligatoriu": false,
+      "descriere": "Proveniența rândului: setul ONRC și data lui.",
+      "surse": [
+        {
+          "sursa": "SRC-0001",
+          "camp": "sursa_data"
+        }
+      ],
+      "normalizare": "ex. set data.gov.ro + dată ISO",
+      "sensibilitate": "public",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000024",
+      "entitate": "FIRMA",
+      "nume": "top",
+      "tip": "INTEGER",
+      "obligatoriu": true,
+      "descriere": "1 pentru afișare publică; 0 pentru persoane fizice (nu se șterg, nu se afișează). NU indică activitate: la 2026-10-29, 184 de firme cu top=1 au și o stare critică (radiată, lichidare, dizolvare, faliment sau insolvență). Starea se citește din coduri_stare.",
+      "surse": [],
+      "normalizare": "implicit 1; persoana_fizica=1 implică top=0",
+      "sensibilitate": "public",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000025",
+      "entitate": "FIRMA",
+      "nume": "segment_vechime",
+      "tip": "TEXT",
+      "obligatoriu": false,
+      "descriere": "Vechimea în segmente (sub 1 an, 1-2, 2-3, peste 3 ani), calculată din data_inmatriculare.",
+      "surse": [],
+      "normalizare": "derivat; se recalculează la fiecare sesiune",
+      "sensibilitate": "public",
+      "stare": "planificat",
+      "derivat": true
+    },
+    {
+      "id": "PRP-000026",
+      "entitate": "JUDET",
+      "nume": "cod_judet",
+      "tip": "TEXT",
+      "obligatoriu": true,
+      "descriere": "Cod stabil al județului.",
+      "surse": [],
+      "normalizare": "de stabilit nomenclatorul oficial",
+      "sensibilitate": "public",
+      "stare": "planificat",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000027",
+      "entitate": "JUDET",
+      "nume": "denumire",
+      "tip": "TEXT",
+      "obligatoriu": true,
+      "descriere": "Denumirea județului.",
+      "surse": [],
+      "normalizare": "fără variante de scriere",
+      "sensibilitate": "public",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000028",
+      "entitate": "LOCALITATE",
+      "nume": "cod_localitate",
+      "tip": "TEXT",
+      "obligatoriu": true,
+      "descriere": "Cod stabil al localității.",
+      "surse": [],
+      "normalizare": "nomenclator teritorial oficial, sursă de verificat",
+      "sensibilitate": "public",
+      "stare": "planificat",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000029",
+      "entitate": "LOCALITATE",
+      "nume": "denumire",
+      "tip": "TEXT",
+      "obligatoriu": true,
+      "descriere": "Denumirea localității.",
+      "surse": [],
+      "normalizare": "fără variante de scriere",
+      "sensibilitate": "public",
+      "stare": "planificat",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000030",
+      "entitate": "LOCALITATE",
+      "nume": "cod_judet",
+      "tip": "TEXT",
+      "obligatoriu": true,
+      "descriere": "Județul localității.",
+      "surse": [],
+      "normalizare": "cheie către JUDET",
+      "sensibilitate": "public",
+      "stare": "planificat",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000031",
+      "entitate": "FORMA_JURIDICA",
+      "nume": "cod_forma",
+      "tip": "TEXT",
+      "obligatoriu": true,
+      "descriere": "Cod stabil al formei juridice.",
+      "surse": [],
+      "normalizare": "de stabilit",
+      "sensibilitate": "public",
+      "stare": "planificat",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000032",
+      "entitate": "FORMA_JURIDICA",
+      "nume": "denumire",
+      "tip": "TEXT",
+      "obligatoriu": true,
+      "descriere": "Denumirea formei juridice.",
+      "surse": [],
+      "normalizare": "",
+      "sensibilitate": "public",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000033",
+      "entitate": "FORMA_JURIDICA",
+      "nume": "este_persoana_fizica",
+      "tip": "INTEGER",
+      "obligatoriu": false,
+      "descriere": "1 dacă forma juridică este de persoană fizică (PFA, II, IF).",
+      "surse": [],
+      "normalizare": "0 sau 1",
+      "sensibilitate": "public",
+      "stare": "planificat",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000034",
+      "entitate": "STARE_FIRMA",
+      "nume": "cod_stare",
+      "tip": "TEXT",
+      "obligatoriu": true,
+      "descriere": "Codul stării în ONRC. Exemple verificate în onrc_nom_stare: 1048 funcțiune; 1084 radiată; 1052 lichidare; 1049 dizolvare; 1070 faliment; 1107 insolvență; 2065 mandat administratori expirat; 2069 sediu expirat; 2072 sechestru părți sociale/acțiuni.",
+      "surse": [
+        {
+          "sursa": "SRC-0018",
+          "camp": "onrc_nom_stare.cod"
+        }
+      ],
+      "normalizare": "text sursă",
+      "sensibilitate": "public",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000035",
+      "entitate": "STARE_FIRMA",
+      "nume": "denumire_stare",
+      "tip": "TEXT",
+      "obligatoriu": true,
+      "descriere": "Denumirea stării.",
+      "surse": [
+        {
+          "sursa": "SRC-0018",
+          "camp": "onrc_nom_stare.denumire"
+        }
+      ],
+      "normalizare": "",
+      "sensibilitate": "public",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000036",
+      "entitate": "STARE_FIRMA",
+      "nume": "este_activa",
+      "tip": "INTEGER",
+      "obligatoriu": false,
+      "descriere": "1 pentru „în funcțiune”. Propunere inițială, de aprobat: coduri_stare conține 1048 și nu conține niciun cod critic (1049, 1052, 1070, 1084, 1107). Codurile 2065 și 2069 (mandat sau sediu expirat) sunt avertismente, nu excluderi: la 2026-10-29, peste 127.000 de firme cu top=1 au cod 2069 în combinațiile „1048,2069” și „2069,1048”.",
+      "surse": [],
+      "normalizare": "derivat din lista aprobată; lista rămâne de aprobat de către proprietar",
+      "sensibilitate": "public",
+      "stare": "planificat",
+      "derivat": true
+    },
+    {
+      "id": "PRP-000037",
+      "entitate": "ACTIVITATE_CAEN",
+      "nume": "cod",
+      "tip": "TEXT",
+      "obligatoriu": true,
+      "descriere": "Codul CAEN (literă pentru secțiune; 2, 3 sau 4 cifre).",
+      "surse": [
+        {
+          "sursa": "SRC-0018",
+          "camp": "onrc_nom_caen.cod"
+        }
+      ],
+      "normalizare": "text, fără spații",
+      "sensibilitate": "public",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000038",
+      "entitate": "ACTIVITATE_CAEN",
+      "nume": "denumire",
+      "tip": "TEXT",
+      "obligatoriu": true,
+      "descriere": "Denumirea activității, luată din nomenclator, nu din sursa firmei.",
+      "surse": [
+        {
+          "sursa": "SRC-0018",
+          "camp": "onrc_nom_caen.denumire"
+        }
+      ],
+      "normalizare": "",
+      "sensibilitate": "public",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000039",
+      "entitate": "ACTIVITATE_CAEN",
+      "nume": "nivel",
+      "tip": "TEXT",
+      "obligatoriu": true,
+      "descriere": "sectiune, diviziune, grupa sau clasa.",
+      "surse": [],
+      "normalizare": "valori fixe",
+      "sensibilitate": "public",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000040",
+      "entitate": "ACTIVITATE_CAEN",
+      "nume": "cod_parinte",
+      "tip": "TEXT",
+      "obligatoriu": false,
+      "descriere": "Codul nivelului superior.",
+      "surse": [],
+      "normalizare": "gol pentru secțiuni",
+      "sensibilitate": "public",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000041",
+      "entitate": "ACTIVITATE_CAEN",
+      "nume": "versiune_caen",
+      "tip": "TEXT",
+      "obligatoriu": true,
+      "descriere": "Versiunea nomenclatorului (vechi sau nou); marcată explicit.",
+      "surse": [],
+      "normalizare": "valori fixe",
+      "sensibilitate": "public",
+      "stare": "planificat",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000042",
+      "entitate": "SITUATIE_FINANCIARA",
+      "nume": "cui",
+      "tip": "INTEGER",
+      "obligatoriu": true,
+      "descriere": "Firma căreia îi aparține bilanțul.",
+      "surse": [
+        {
+          "sursa": "SRC-0002",
+          "camp": "cui"
+        },
+        {
+          "sursa": "SRC-0005",
+          "camp": "cui (în cerere)"
+        }
+      ],
+      "normalizare": "ca la FIRMA",
+      "sensibilitate": "public",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000043",
+      "entitate": "SITUATIE_FINANCIARA",
+      "nume": "an",
+      "tip": "INTEGER",
+      "obligatoriu": true,
+      "descriere": "Anul bilanțului.",
+      "surse": [
+        {
+          "sursa": "SRC-0002",
+          "camp": "an"
+        },
+        {
+          "sursa": "SRC-0005",
+          "camp": "an (în cerere)"
+        }
+      ],
+      "normalizare": "întreg, 4 cifre",
+      "sensibilitate": "public",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000044",
+      "entitate": "SITUATIE_FINANCIARA",
+      "nume": "tip_bilant",
+      "tip": "TEXT",
+      "obligatoriu": false,
+      "descriere": "Tipul de bilanț: BL, UU sau IR. Nu există ca coloană în mf_bilant_2025 (verificat 2026-10-29).",
+      "surse": [
+        {
+          "sursa": "SRC-0002",
+          "camp": "tip"
+        }
+      ],
+      "normalizare": "valori fixe",
+      "sensibilitate": "public",
+      "stare": "planificat",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000045",
+      "entitate": "SITUATIE_FINANCIARA",
+      "nume": "sursa",
+      "tip": "TEXT",
+      "obligatoriu": false,
+      "descriere": "Proveniența rândului în tabela mf_bilant_*.",
+      "surse": [
+        {
+          "sursa": "SRC-0002",
+          "camp": "sursa"
+        }
+      ],
+      "normalizare": "text sursă",
+      "sensibilitate": "public",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000046",
+      "entitate": "SITUATIE_FINANCIARA",
+      "nume": "caen_mf",
+      "tip": "TEXT",
+      "obligatoriu": false,
+      "descriere": "CAEN principal din bilanț; folosit la filtrarea după activitatea reală.",
+      "surse": [
+        {
+          "sursa": "SRC-0002",
+          "camp": "caen_mf"
+        }
+      ],
+      "normalizare": "cod ca la ACTIVITATE_CAEN",
+      "sensibilitate": "public",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000047",
+      "entitate": "SITUATIE_FINANCIARA",
+      "nume": "active_imobilizate",
+      "tip": "INTEGER",
+      "obligatoriu": false,
+      "descriere": "Active imobilizate.",
+      "surse": [
+        {
+          "sursa": "SRC-0002",
+          "camp": "active_imobilizate"
+        }
+      ],
+      "normalizare": "întreg; NULL dacă lipsește",
+      "sensibilitate": "public",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000048",
+      "entitate": "SITUATIE_FINANCIARA",
+      "nume": "active_circulante",
+      "tip": "INTEGER",
+      "obligatoriu": false,
+      "descriere": "Active circulante.",
+      "surse": [
+        {
+          "sursa": "SRC-0002",
+          "camp": "active_circulante"
+        }
+      ],
+      "normalizare": "întreg; NULL dacă lipsește",
+      "sensibilitate": "public",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000049",
+      "entitate": "SITUATIE_FINANCIARA",
+      "nume": "stocuri",
+      "tip": "INTEGER",
+      "obligatoriu": false,
+      "descriere": "Stocuri.",
+      "surse": [
+        {
+          "sursa": "SRC-0002",
+          "camp": "stocuri"
+        }
+      ],
+      "normalizare": "întreg; NULL dacă lipsește",
+      "sensibilitate": "public",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000050",
+      "entitate": "SITUATIE_FINANCIARA",
+      "nume": "creante",
+      "tip": "INTEGER",
+      "obligatoriu": false,
+      "descriere": "Creanțe.",
+      "surse": [
+        {
+          "sursa": "SRC-0002",
+          "camp": "creante"
+        }
+      ],
+      "normalizare": "întreg; NULL dacă lipsește",
+      "sensibilitate": "public",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000051",
+      "entitate": "SITUATIE_FINANCIARA",
+      "nume": "casa_banci",
+      "tip": "INTEGER",
+      "obligatoriu": false,
+      "descriere": "Casa și conturi la bănci.",
+      "surse": [
+        {
+          "sursa": "SRC-0002",
+          "camp": "casa_banci"
+        }
+      ],
+      "normalizare": "întreg; NULL dacă lipsește",
+      "sensibilitate": "public",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000052",
+      "entitate": "SITUATIE_FINANCIARA",
+      "nume": "cheltuieli_avans",
+      "tip": "INTEGER",
+      "obligatoriu": false,
+      "descriere": "Cheltuieli în avans.",
+      "surse": [
+        {
+          "sursa": "SRC-0002",
+          "camp": "cheltuieli_avans"
+        }
+      ],
+      "normalizare": "întreg; NULL dacă lipsește",
+      "sensibilitate": "public",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000053",
+      "entitate": "SITUATIE_FINANCIARA",
+      "nume": "datorii",
+      "tip": "INTEGER",
+      "obligatoriu": false,
+      "descriere": "Datorii.",
+      "surse": [
+        {
+          "sursa": "SRC-0002",
+          "camp": "datorii"
+        }
+      ],
+      "normalizare": "întreg; NULL dacă lipsește",
+      "sensibilitate": "public",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000054",
+      "entitate": "SITUATIE_FINANCIARA",
+      "nume": "venituri_avans",
+      "tip": "INTEGER",
+      "obligatoriu": false,
+      "descriere": "Venituri în avans.",
+      "surse": [
+        {
+          "sursa": "SRC-0002",
+          "camp": "venituri_avans"
+        }
+      ],
+      "normalizare": "întreg; NULL dacă lipsește",
+      "sensibilitate": "public",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000055",
+      "entitate": "SITUATIE_FINANCIARA",
+      "nume": "provizioane",
+      "tip": "INTEGER",
+      "obligatoriu": false,
+      "descriere": "Provizioane.",
+      "surse": [
+        {
+          "sursa": "SRC-0002",
+          "camp": "provizioane"
+        }
+      ],
+      "normalizare": "întreg; NULL dacă lipsește",
+      "sensibilitate": "public",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000056",
+      "entitate": "SITUATIE_FINANCIARA",
+      "nume": "capitaluri",
+      "tip": "INTEGER",
+      "obligatoriu": false,
+      "descriere": "Capitaluri proprii.",
+      "surse": [
+        {
+          "sursa": "SRC-0002",
+          "camp": "capitaluri"
+        }
+      ],
+      "normalizare": "întreg; NULL dacă lipsește",
+      "sensibilitate": "public",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000057",
+      "entitate": "SITUATIE_FINANCIARA",
+      "nume": "capital_subscris",
+      "tip": "INTEGER",
+      "obligatoriu": false,
+      "descriere": "Capital subscris.",
+      "surse": [
+        {
+          "sursa": "SRC-0002",
+          "camp": "capital_subscris"
+        }
+      ],
+      "normalizare": "întreg; NULL dacă lipsește",
+      "sensibilitate": "public",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000058",
+      "entitate": "SITUATIE_FINANCIARA",
+      "nume": "patrimoniu_regie",
+      "tip": "INTEGER",
+      "obligatoriu": false,
+      "descriere": "Patrimoniul regiei.",
+      "surse": [
+        {
+          "sursa": "SRC-0002",
+          "camp": "patrimoniu_regie"
+        }
+      ],
+      "normalizare": "întreg; NULL dacă lipsește",
+      "sensibilitate": "public",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000059",
+      "entitate": "SITUATIE_FINANCIARA",
+      "nume": "cifra_afaceri",
+      "tip": "INTEGER",
+      "obligatoriu": false,
+      "descriere": "Cifra de afaceri netă.",
+      "surse": [
+        {
+          "sursa": "SRC-0002",
+          "camp": "cifra_afaceri"
+        }
+      ],
+      "normalizare": "întreg; unitatea de măsură (lei) și semnul valorilor de confirmat pe date; NULL dacă lipsește, niciodată 0 în loc de lipsă",
+      "sensibilitate": "public",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000060",
+      "entitate": "SITUATIE_FINANCIARA",
+      "nume": "venituri_totale",
+      "tip": "INTEGER",
+      "obligatoriu": false,
+      "descriere": "Venituri totale.",
+      "surse": [
+        {
+          "sursa": "SRC-0002",
+          "camp": "venituri_totale"
+        }
+      ],
+      "normalizare": "întreg; NULL dacă lipsește",
+      "sensibilitate": "public",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000061",
+      "entitate": "SITUATIE_FINANCIARA",
+      "nume": "cheltuieli_totale",
+      "tip": "INTEGER",
+      "obligatoriu": false,
+      "descriere": "Cheltuieli totale.",
+      "surse": [
+        {
+          "sursa": "SRC-0002",
+          "camp": "cheltuieli_totale"
+        }
+      ],
+      "normalizare": "întreg; NULL dacă lipsește",
+      "sensibilitate": "public",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000062",
+      "entitate": "SITUATIE_FINANCIARA",
+      "nume": "profit_brut",
+      "tip": "INTEGER",
+      "obligatoriu": false,
+      "descriere": "Profit brut; pierderea brută este în coloana separată pierdere_bruta.",
+      "surse": [
+        {
+          "sursa": "SRC-0002",
+          "camp": "profit_brut"
+        }
+      ],
+      "normalizare": "întreg; unitatea de măsură (lei) și semnul valorilor de confirmat pe date; NULL dacă lipsește, niciodată 0 în loc de lipsă",
+      "sensibilitate": "public",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000063",
+      "entitate": "SITUATIE_FINANCIARA",
+      "nume": "pierdere_bruta",
+      "tip": "INTEGER",
+      "obligatoriu": false,
+      "descriere": "Pierdere brută, coloană separată de profit_brut.",
+      "surse": [
+        {
+          "sursa": "SRC-0002",
+          "camp": "pierdere_bruta"
+        }
+      ],
+      "normalizare": "întreg; unitatea de măsură (lei) și semnul valorilor de confirmat pe date; NULL dacă lipsește, niciodată 0 în loc de lipsă",
+      "sensibilitate": "public",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000064",
+      "entitate": "SITUATIE_FINANCIARA",
+      "nume": "profit_net",
+      "tip": "INTEGER",
+      "obligatoriu": false,
+      "descriere": "Profit net; pierderea netă este în coloana separată pierdere_neta.",
+      "surse": [
+        {
+          "sursa": "SRC-0002",
+          "camp": "profit_net"
+        }
+      ],
+      "normalizare": "întreg; unitatea de măsură (lei) și semnul valorilor de confirmat pe date; NULL dacă lipsește, niciodată 0 în loc de lipsă",
+      "sensibilitate": "public",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000065",
+      "entitate": "SITUATIE_FINANCIARA",
+      "nume": "pierdere_neta",
+      "tip": "INTEGER",
+      "obligatoriu": false,
+      "descriere": "Pierdere netă, coloană separată de profit_net.",
+      "surse": [
+        {
+          "sursa": "SRC-0002",
+          "camp": "pierdere_neta"
+        }
+      ],
+      "normalizare": "întreg; unitatea de măsură (lei) și semnul valorilor de confirmat pe date; NULL dacă lipsește, niciodată 0 în loc de lipsă",
+      "sensibilitate": "public",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000066",
+      "entitate": "SITUATIE_FINANCIARA",
+      "nume": "salariati",
+      "tip": "INTEGER",
+      "obligatoriu": false,
+      "descriere": "Număr mediu de salariați.",
+      "surse": [
+        {
+          "sursa": "SRC-0002",
+          "camp": "salariati"
+        }
+      ],
+      "normalizare": "întreg; NULL dacă lipsește",
+      "sensibilitate": "public",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000067",
+      "entitate": "STARE_FISCALA",
+      "nume": "cui",
+      "tip": "INTEGER",
+      "obligatoriu": true,
+      "descriere": "Firma.",
+      "surse": [
+        {
+          "sursa": "SRC-0003",
+          "camp": "cui"
+        }
+      ],
+      "normalizare": "ca la FIRMA",
+      "sensibilitate": "public",
+      "stare": "planificat",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000068",
+      "entitate": "STARE_FISCALA",
+      "nume": "data_interogare",
+      "tip": "DATE",
+      "obligatoriu": true,
+      "descriere": "Data pentru care răspunde ANAF.",
+      "surse": [
+        {
+          "sursa": "SRC-0003",
+          "camp": "data (în cerere)"
+        }
+      ],
+      "normalizare": "YYYY-MM-DD",
+      "sensibilitate": "public",
+      "stare": "planificat",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000069",
+      "entitate": "STARE_FISCALA",
+      "nume": "stare_inregistrare",
+      "tip": "TEXT",
+      "obligatoriu": false,
+      "descriere": "Starea înregistrării fiscale.",
+      "surse": [
+        {
+          "sursa": "SRC-0003",
+          "camp": "stare_inregistrare"
+        }
+      ],
+      "normalizare": "text sursă",
+      "sensibilitate": "public",
+      "stare": "planificat",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000070",
+      "entitate": "STARE_FISCALA",
+      "nume": "data_inregistrare",
+      "tip": "DATE",
+      "obligatoriu": false,
+      "descriere": "Data înregistrării fiscale.",
+      "surse": [
+        {
+          "sursa": "SRC-0003",
+          "camp": "data_inregistrare"
+        }
+      ],
+      "normalizare": "YYYY-MM-DD",
+      "sensibilitate": "public",
+      "stare": "planificat",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000071",
+      "entitate": "STARE_FISCALA",
+      "nume": "cod_caen_anaf",
+      "tip": "TEXT",
+      "obligatoriu": false,
+      "descriere": "CAEN comunicat de ANAF.",
+      "surse": [
+        {
+          "sursa": "SRC-0003",
+          "camp": "cod_CAEN"
+        }
+      ],
+      "normalizare": "cod ca la ACTIVITATE_CAEN",
+      "sensibilitate": "public",
+      "stare": "planificat",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000072",
+      "entitate": "STARE_FISCALA",
+      "nume": "platitor_tva",
+      "tip": "INTEGER",
+      "obligatoriu": false,
+      "descriere": "1 dacă este înregistrată în scopuri de TVA.",
+      "surse": [
+        {
+          "sursa": "SRC-0003",
+          "camp": "câmp TVA din răspuns; nume exact de confirmat"
+        }
+      ],
+      "normalizare": "0 sau 1",
+      "sensibilitate": "public",
+      "stare": "planificat",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000073",
+      "entitate": "STARE_FISCALA",
+      "nume": "tva_la_incasare",
+      "tip": "INTEGER",
+      "obligatoriu": false,
+      "descriere": "1 dacă aplică TVA la încasare.",
+      "surse": [
+        {
+          "sursa": "SRC-0003",
+          "camp": "nume exact de confirmat"
+        }
+      ],
+      "normalizare": "0 sau 1",
+      "sensibilitate": "public",
+      "stare": "planificat",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000074",
+      "entitate": "STARE_FISCALA",
+      "nume": "split_tva",
+      "tip": "INTEGER",
+      "obligatoriu": false,
+      "descriere": "1 dacă aplică split TVA.",
+      "surse": [
+        {
+          "sursa": "SRC-0003",
+          "camp": "nume exact de confirmat"
+        }
+      ],
+      "normalizare": "0 sau 1",
+      "sensibilitate": "public",
+      "stare": "planificat",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000075",
+      "entitate": "STARE_FISCALA",
+      "nume": "inactiv",
+      "tip": "INTEGER",
+      "obligatoriu": false,
+      "descriere": "1 dacă este declarată inactivă de ANAF.",
+      "surse": [
+        {
+          "sursa": "SRC-0003",
+          "camp": "nume exact de confirmat"
+        }
+      ],
+      "normalizare": "0 sau 1",
+      "sensibilitate": "public",
+      "stare": "planificat",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000076",
+      "entitate": "STARE_FISCALA",
+      "nume": "data_inactivare",
+      "tip": "DATE",
+      "obligatoriu": false,
+      "descriere": "Data declarării ca inactivă.",
+      "surse": [
+        {
+          "sursa": "SRC-0003",
+          "camp": "nume exact de confirmat"
+        }
+      ],
+      "normalizare": "YYYY-MM-DD",
+      "sensibilitate": "public",
+      "stare": "planificat",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000077",
+      "entitate": "STARE_FISCALA",
+      "nume": "data_reactivare",
+      "tip": "DATE",
+      "obligatoriu": false,
+      "descriere": "Data reactivării.",
+      "surse": [
+        {
+          "sursa": "SRC-0003",
+          "camp": "nume exact de confirmat"
+        }
+      ],
+      "normalizare": "YYYY-MM-DD",
+      "sensibilitate": "public",
+      "stare": "planificat",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000078",
+      "entitate": "STARE_FISCALA",
+      "nume": "e_factura",
+      "tip": "INTEGER",
+      "obligatoriu": false,
+      "descriere": "1 dacă este în registrul RO e-Factura.",
+      "surse": [
+        {
+          "sursa": "SRC-0003",
+          "camp": "statusRO_e_Factura"
+        },
+        {
+          "sursa": "SRC-0004",
+          "camp": "stare"
+        }
+      ],
+      "normalizare": "0 sau 1",
+      "sensibilitate": "public",
+      "stare": "planificat",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000079",
+      "entitate": "STARE_FISCALA",
+      "nume": "data_inreg_e_factura",
+      "tip": "DATE",
+      "obligatoriu": false,
+      "descriere": "Data înscrierii în RO e-Factura.",
+      "surse": [
+        {
+          "sursa": "SRC-0003",
+          "camp": "data_inreg_Reg_RO_e_Factura"
+        },
+        {
+          "sursa": "SRC-0004",
+          "camp": "dataInscriere"
+        }
+      ],
+      "normalizare": "YYYY-MM-DD",
+      "sensibilitate": "public",
+      "stare": "planificat",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000080",
+      "entitate": "STARE_FISCALA",
+      "nume": "organ_fiscal_competent",
+      "tip": "TEXT",
+      "obligatoriu": false,
+      "descriere": "Organul fiscal competent.",
+      "surse": [
+        {
+          "sursa": "SRC-0003",
+          "camp": "organFiscalCompetent"
+        }
+      ],
+      "normalizare": "text sursă",
+      "sensibilitate": "public",
+      "stare": "planificat",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000081",
+      "entitate": "STARE_FISCALA",
+      "nume": "forma_proprietate",
+      "tip": "TEXT",
+      "obligatoriu": false,
+      "descriere": "Forma de proprietate.",
+      "surse": [
+        {
+          "sursa": "SRC-0003",
+          "camp": "forma_de_proprietate"
+        }
+      ],
+      "normalizare": "text sursă",
+      "sensibilitate": "public",
+      "stare": "planificat",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000082",
+      "entitate": "RESTANTA_BUGET",
+      "nume": "cui",
+      "tip": "INTEGER",
+      "obligatoriu": true,
+      "descriere": "Firma.",
+      "surse": [
+        {
+          "sursa": "SRC-0006",
+          "camp": "cod de identificare fiscală"
+        }
+      ],
+      "normalizare": "ca la FIRMA",
+      "sensibilitate": "public",
+      "stare": "planificat",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000083",
+      "entitate": "RESTANTA_BUGET",
+      "nume": "data_lista",
+      "tip": "DATE",
+      "obligatoriu": true,
+      "descriere": "Data de referință a listei.",
+      "surse": [
+        {
+          "sursa": "SRC-0006",
+          "camp": "data listei"
+        }
+      ],
+      "normalizare": "YYYY-MM-DD",
+      "sensibilitate": "public",
+      "stare": "planificat",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000084",
+      "entitate": "RESTANTA_BUGET",
+      "nume": "suma_restanta",
+      "tip": "INTEGER",
+      "obligatoriu": false,
+      "descriere": "Suma restantă, în lei.",
+      "surse": [
+        {
+          "sursa": "SRC-0006",
+          "camp": "coloana sumei; de confirmat"
+        }
+      ],
+      "normalizare": "lei întregi",
+      "sensibilitate": "public",
+      "stare": "planificat",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000085",
+      "entitate": "RESTANTA_BUGET",
+      "nume": "categorie_contribuabil",
+      "tip": "TEXT",
+      "obligatoriu": false,
+      "descriere": "mari, mijlocii sau mici, după lista de proveniență.",
+      "surse": [
+        {
+          "sursa": "SRC-0006",
+          "camp": "numele listei"
+        }
+      ],
+      "normalizare": "valori fixe",
+      "sensibilitate": "public",
+      "stare": "planificat",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000086",
+      "entitate": "RESTANTA_BUGET",
+      "nume": "este_pe_lista_alba",
+      "tip": "INTEGER",
+      "obligatoriu": false,
+      "descriere": "1 dacă apare pe lista albă (fără restanțe) la data listei.",
+      "surse": [
+        {
+          "sursa": "SRC-0007",
+          "camp": "prezență în listă"
+        }
+      ],
+      "normalizare": "0 sau 1",
+      "sensibilitate": "public",
+      "stare": "planificat",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000087",
+      "entitate": "EVENIMENT_INSOLVENTA",
+      "nume": "cui",
+      "tip": "INTEGER",
+      "obligatoriu": true,
+      "descriere": "Firma.",
+      "surse": [
+        {
+          "sursa": "SRC-0008",
+          "camp": "cod de identificare fiscală"
+        }
+      ],
+      "normalizare": "ca la FIRMA",
+      "sensibilitate": "public",
+      "stare": "planificat",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000088",
+      "entitate": "EVENIMENT_INSOLVENTA",
+      "nume": "numar_bpi",
+      "tip": "INTEGER",
+      "obligatoriu": true,
+      "descriere": "Numărul BPI.",
+      "surse": [
+        {
+          "sursa": "SRC-0008",
+          "camp": "număr publicare BPI"
+        }
+      ],
+      "normalizare": "întreg",
+      "sensibilitate": "public",
+      "stare": "planificat",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000089",
+      "entitate": "EVENIMENT_INSOLVENTA",
+      "nume": "an_bpi",
+      "tip": "INTEGER",
+      "obligatoriu": true,
+      "descriere": "Anul BPI.",
+      "surse": [
+        {
+          "sursa": "SRC-0008",
+          "camp": "an publicare BPI"
+        }
+      ],
+      "normalizare": "întreg",
+      "sensibilitate": "public",
+      "stare": "planificat",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000090",
+      "entitate": "EVENIMENT_INSOLVENTA",
+      "nume": "numar_dosar",
+      "tip": "TEXT",
+      "obligatoriu": false,
+      "descriere": "Numărul dosarului de insolvență.",
+      "surse": [
+        {
+          "sursa": "SRC-0008",
+          "camp": "număr dosar"
+        }
+      ],
+      "normalizare": "text sursă",
+      "sensibilitate": "public",
+      "stare": "planificat",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000091",
+      "entitate": "EVENIMENT_INSOLVENTA",
+      "nume": "tip_act",
+      "tip": "TEXT",
+      "obligatoriu": false,
+      "descriere": "Tipul actului publicat.",
+      "surse": [
+        {
+          "sursa": "SRC-0008",
+          "camp": "tip act"
+        }
+      ],
+      "normalizare": "text sursă",
+      "sensibilitate": "public",
+      "stare": "planificat",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000092",
+      "entitate": "EVENIMENT_INSOLVENTA",
+      "nume": "data_publicare",
+      "tip": "DATE",
+      "obligatoriu": false,
+      "descriere": "Data publicării.",
+      "surse": [
+        {
+          "sursa": "SRC-0008",
+          "camp": "data publicării"
+        }
+      ],
+      "normalizare": "YYYY-MM-DD",
+      "sensibilitate": "public",
+      "stare": "planificat",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000093",
+      "entitate": "DOSAR_INSTANTA",
+      "nume": "numar_dosar",
+      "tip": "TEXT",
+      "obligatoriu": true,
+      "descriere": "Numărul dosarului.",
+      "surse": [
+        {
+          "sursa": "SRC-0009",
+          "camp": "numar dosar"
+        }
+      ],
+      "normalizare": "text sursă",
+      "sensibilitate": "public",
+      "stare": "planificat",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000094",
+      "entitate": "DOSAR_INSTANTA",
+      "nume": "instanta",
+      "tip": "TEXT",
+      "obligatoriu": true,
+      "descriere": "Instanța.",
+      "surse": [
+        {
+          "sursa": "SRC-0009",
+          "camp": "instanță"
+        }
+      ],
+      "normalizare": "text sursă",
+      "sensibilitate": "public",
+      "stare": "planificat",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000095",
+      "entitate": "DOSAR_INSTANTA",
+      "nume": "materie",
+      "tip": "TEXT",
+      "obligatoriu": false,
+      "descriere": "Materia dosarului (categorie de caz).",
+      "surse": [
+        {
+          "sursa": "SRC-0009",
+          "camp": "categorieCaz"
+        }
+      ],
+      "normalizare": "text sursă",
+      "sensibilitate": "public",
+      "stare": "planificat",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000096",
+      "entitate": "DOSAR_INSTANTA",
+      "nume": "stadiu_procesual",
+      "tip": "TEXT",
+      "obligatoriu": false,
+      "descriere": "Stadiul procesual.",
+      "surse": [
+        {
+          "sursa": "SRC-0009",
+          "camp": "stadiu"
+        }
+      ],
+      "normalizare": "text sursă",
+      "sensibilitate": "public",
+      "stare": "planificat",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000097",
+      "entitate": "DOSAR_INSTANTA",
+      "nume": "rol_firma",
+      "tip": "TEXT",
+      "obligatoriu": false,
+      "descriere": "Rolul firmei în dosar (reclamant, pârât etc.).",
+      "surse": [
+        {
+          "sursa": "SRC-0009",
+          "camp": "calitate parte"
+        }
+      ],
+      "normalizare": "text sursă",
+      "sensibilitate": "public",
+      "stare": "planificat",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000098",
+      "entitate": "DOSAR_INSTANTA",
+      "nume": "incredere_potrivire",
+      "tip": "TEXT",
+      "obligatoriu": true,
+      "descriere": "exact, aproximativ sau neconfirmat: sursa caută după nume, nu după CUI.",
+      "surse": [],
+      "normalizare": "valori fixe; fără potrivire exactă nu se afișează ca fapt",
+      "sensibilitate": "public",
+      "stare": "planificat",
+      "derivat": true
+    },
+    {
+      "id": "PRP-000099",
+      "entitate": "CONTRACT_ACHIZITIE_PUBLICA",
+      "nume": "id_anunt",
+      "tip": "TEXT",
+      "obligatoriu": true,
+      "descriere": "Identificatorul anunțului în SEAP.",
+      "surse": [
+        {
+          "sursa": "SRC-0010",
+          "camp": "id anunț"
+        }
+      ],
+      "normalizare": "text sursă",
+      "sensibilitate": "public",
+      "stare": "planificat",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000100",
+      "entitate": "CONTRACT_ACHIZITIE_PUBLICA",
+      "nume": "cui_castigator",
+      "tip": "INTEGER",
+      "obligatoriu": true,
+      "descriere": "Firma câștigătoare.",
+      "surse": [
+        {
+          "sursa": "SRC-0010",
+          "camp": "câștigător"
+        }
+      ],
+      "normalizare": "ca la FIRMA",
+      "sensibilitate": "public",
+      "stare": "planificat",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000101",
+      "entitate": "CONTRACT_ACHIZITIE_PUBLICA",
+      "nume": "autoritate_contractanta_cui",
+      "tip": "INTEGER",
+      "obligatoriu": false,
+      "descriere": "Autoritatea contractantă.",
+      "surse": [
+        {
+          "sursa": "SRC-0010",
+          "camp": "autoritate contractantă"
+        }
+      ],
+      "normalizare": "ca la FIRMA",
+      "sensibilitate": "public",
+      "stare": "planificat",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000102",
+      "entitate": "CONTRACT_ACHIZITIE_PUBLICA",
+      "nume": "cpv",
+      "tip": "TEXT",
+      "obligatoriu": false,
+      "descriere": "Cod CPV.",
+      "surse": [
+        {
+          "sursa": "SRC-0010",
+          "camp": "CPV"
+        }
+      ],
+      "normalizare": "text sursă",
+      "sensibilitate": "public",
+      "stare": "planificat",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000103",
+      "entitate": "CONTRACT_ACHIZITIE_PUBLICA",
+      "nume": "valoare",
+      "tip": "INTEGER",
+      "obligatoriu": false,
+      "descriere": "Valoarea contractului, în lei.",
+      "surse": [
+        {
+          "sursa": "SRC-0010",
+          "camp": "valoare"
+        }
+      ],
+      "normalizare": "lei întregi",
+      "sensibilitate": "public",
+      "stare": "planificat",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000104",
+      "entitate": "CONTRACT_ACHIZITIE_PUBLICA",
+      "nume": "data_atribuire",
+      "tip": "DATE",
+      "obligatoriu": false,
+      "descriere": "Data atribuirii.",
+      "surse": [
+        {
+          "sursa": "SRC-0010",
+          "camp": "dată atribuire"
+        }
+      ],
+      "normalizare": "YYYY-MM-DD",
+      "sensibilitate": "public",
+      "stare": "planificat",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000105",
+      "entitate": "AJUTOR_PUBLIC",
+      "nume": "tip",
+      "tip": "TEXT",
+      "obligatoriu": true,
+      "descriere": "ajutor_de_stat sau fonduri_ue.",
+      "surse": [
+        {
+          "sursa": "SRC-0011",
+          "camp": "tip măsură"
+        },
+        {
+          "sursa": "SRC-0012",
+          "camp": "program"
+        }
+      ],
+      "normalizare": "valori fixe",
+      "sensibilitate": "public",
+      "stare": "planificat",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000106",
+      "entitate": "AJUTOR_PUBLIC",
+      "nume": "id_sursa",
+      "tip": "TEXT",
+      "obligatoriu": true,
+      "descriere": "Identificatorul în sursa de origine.",
+      "surse": [
+        {
+          "sursa": "SRC-0011",
+          "camp": "id"
+        },
+        {
+          "sursa": "SRC-0012",
+          "camp": "cod SMIS"
+        }
+      ],
+      "normalizare": "text sursă",
+      "sensibilitate": "public",
+      "stare": "planificat",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000107",
+      "entitate": "AJUTOR_PUBLIC",
+      "nume": "valoare",
+      "tip": "INTEGER",
+      "obligatoriu": false,
+      "descriere": "Valoarea, în lei.",
+      "surse": [
+        {
+          "sursa": "SRC-0011",
+          "camp": "valoare"
+        },
+        {
+          "sursa": "SRC-0012",
+          "camp": "valoare"
+        }
+      ],
+      "normalizare": "lei întregi",
+      "sensibilitate": "public",
+      "stare": "planificat",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000108",
+      "entitate": "AJUTOR_PUBLIC",
+      "nume": "data",
+      "tip": "DATE",
+      "obligatoriu": false,
+      "descriere": "Data acordării sau a contractului.",
+      "surse": [
+        {
+          "sursa": "SRC-0011",
+          "camp": "dată"
+        },
+        {
+          "sursa": "SRC-0012",
+          "camp": "dată"
+        }
+      ],
+      "normalizare": "YYYY-MM-DD",
+      "sensibilitate": "public",
+      "stare": "planificat",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000109",
+      "entitate": "AJUTOR_PUBLIC",
+      "nume": "furnizor",
+      "tip": "TEXT",
+      "obligatoriu": false,
+      "descriere": "Furnizorul ajutorului sau autoritatea de management.",
+      "surse": [
+        {
+          "sursa": "SRC-0011",
+          "camp": "furnizor"
+        },
+        {
+          "sursa": "SRC-0012",
+          "camp": "autoritate"
+        }
+      ],
+      "normalizare": "text sursă",
+      "sensibilitate": "public",
+      "stare": "planificat",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000110",
+      "entitate": "CONTACT_FIRMA",
+      "nume": "cui",
+      "tip": "INTEGER",
+      "obligatoriu": true,
+      "descriere": "Cheie externă către FIRMA.cui (fără prefix RO).",
+      "surse": [],
+      "normalizare": "număr întreg, fără RO",
+      "sensibilitate": "public",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000111",
+      "entitate": "CONTACT_FIRMA",
+      "nume": "tip",
+      "tip": "TEXT",
+      "obligatoriu": true,
+      "descriere": "telefon, email, site sau retea_sociala.",
+      "surse": [
+        {
+          "sursa": "SRC-0016",
+          "camp": "tip găsit"
+        },
+        {
+          "sursa": "SRC-0003",
+          "camp": "telefon"
+        }
+      ],
+      "normalizare": "valori fixe",
+      "sensibilitate": "public",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000112",
+      "entitate": "CONTACT_FIRMA",
+      "nume": "valoare",
+      "tip": "TEXT",
+      "obligatoriu": true,
+      "descriere": "Valoarea contactului.",
+      "surse": [
+        {
+          "sursa": "SRC-0016",
+          "camp": "valoare găsită"
+        },
+        {
+          "sursa": "SRC-0003",
+          "camp": "telefon"
+        }
+      ],
+      "normalizare": "telefon în format E.164; email cu litere mici",
+      "sensibilitate": "personal_daca_persoana_fizica",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000113",
+      "entitate": "CONTACT_FIRMA",
+      "nume": "data_observata",
+      "tip": "DATE",
+      "obligatoriu": true,
+      "descriere": "Data la care a fost văzut.",
+      "surse": [],
+      "normalizare": "YYYY-MM-DD",
+      "sensibilitate": "public",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000114",
+      "entitate": "CONTACT_FIRMA",
+      "nume": "confidentialitate",
+      "tip": "TEXT",
+      "obligatoriu": true,
+      "descriere": "public sau mascat (pentru persoane fizice).",
+      "surse": [],
+      "normalizare": "valori fixe",
+      "sensibilitate": "public",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000115",
+      "entitate": "PERSOANA",
+      "nume": "id_persoana",
+      "tip": "TEXT",
+      "obligatoriu": true,
+      "descriere": "Identificator intern al persoanei.",
+      "surse": [
+        {
+          "sursa": "SRC-0017",
+          "camp": "id"
+        }
+      ],
+      "normalizare": "intern, fără CNP",
+      "sensibilitate": "personal_daca_persoana_fizica",
+      "stare": "planificat",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000116",
+      "entitate": "PERSOANA",
+      "nume": "rol",
+      "tip": "TEXT",
+      "obligatoriu": true,
+      "descriere": "administrator, asociat sau beneficiar_real.",
+      "surse": [
+        {
+          "sursa": "SRC-0017",
+          "camp": "rol"
+        }
+      ],
+      "normalizare": "valori fixe",
+      "sensibilitate": "personal_daca_persoana_fizica",
+      "stare": "planificat",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000117",
+      "entitate": "SURSA",
+      "nume": "id",
+      "tip": "TEXT",
+      "obligatoriu": true,
+      "descriere": "Identificator SRC-nnnn.",
+      "surse": [],
+      "normalizare": "format fix",
+      "sensibilitate": "public",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000118",
+      "entitate": "SURSA",
+      "nume": "stare",
+      "tip": "TEXT",
+      "obligatoriu": true,
+      "descriere": "in_uz, verificat, partial_verificat, de_verificat sau exclus.",
+      "surse": [],
+      "normalizare": "valori fixe",
+      "sensibilitate": "public",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000119",
+      "entitate": "ARTEFACT_R2",
+      "nume": "cheie_r2",
+      "tip": "TEXT",
+      "obligatoriu": true,
+      "descriere": "Calea fișierului în R2.",
+      "surse": [],
+      "normalizare": "text",
+      "sensibilitate": "public",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000120",
+      "entitate": "ARTEFACT_R2",
+      "nume": "sha256",
+      "tip": "TEXT",
+      "obligatoriu": true,
+      "descriere": "Amprenta SHA-256 a fișierului.",
+      "surse": [],
+      "normalizare": "hex, 64 de caractere",
+      "sensibilitate": "public",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000121",
+      "entitate": "ARTEFACT_R2",
+      "nume": "data_aducerii",
+      "tip": "TIMESTAMP",
+      "obligatoriu": true,
+      "descriere": "Data și ora la care fișierul a fost adus.",
+      "surse": [],
+      "normalizare": "ISO 8601 cu fus orar",
+      "sensibilitate": "public",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000122",
+      "entitate": "SESIUNE",
+      "nume": "cod",
+      "tip": "TEXT",
+      "obligatoriu": true,
+      "descriere": "NNNNC, NNNNH sau NNNNT.",
+      "surse": [],
+      "normalizare": "4 cifre + literă",
+      "sensibilitate": "public",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000123",
+      "entitate": "SESIUNE",
+      "nume": "timestamp_ro",
+      "tip": "TIMESTAMP",
+      "obligatoriu": true,
+      "descriere": "Momentul creării sesiunii, ora României.",
+      "surse": [],
+      "normalizare": "ISO 8601",
+      "sensibilitate": "public",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000124",
+      "entitate": "SESIUNE",
+      "nume": "stare",
+      "tip": "TEXT",
+      "obligatoriu": true,
+      "descriere": "C (curentă), H (înghețată) sau T (test). Se citește din registrul de sesiuni, nu din fișierele sesiunii.",
+      "surse": [],
+      "normalizare": "valori fixe",
+      "sensibilitate": "public",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000125",
+      "entitate": "SESIUNE",
+      "nume": "inghetata_la",
+      "tip": "TIMESTAMP",
+      "obligatoriu": false,
+      "descriere": "Momentul trecerii C -> H, la transferul GitHub -> Cloudflare; gol cât timp sesiunea nu e înghețată.",
+      "surse": [],
+      "normalizare": "ISO 8601",
+      "sensibilitate": "public",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000126",
+      "entitate": "SESIUNE",
+      "nume": "sha256_fisiere",
+      "tip": "TEXT",
+      "obligatoriu": true,
+      "descriere": "Amprentele SHA-256 ale fișierelor sesiunii: arată că conținutul este același, nu când a existat.",
+      "surse": [],
+      "normalizare": "hex, 64 de caractere, câte una per fișier",
+      "sensibilitate": "public",
+      "stare": "existent",
+      "derivat": false
+    },
+    {
+      "id": "PRP-000127",
+      "entitate": "SESIUNE",
+      "nume": "ots",
+      "tip": "TEXT",
+      "obligatoriu": false,
+      "descriere": "Fișierul OpenTimestamps (.ots) per fișier: dovada că fișierul exista cel târziu la data confirmată în Bitcoin.",
+      "surse": [],
+      "normalizare": "nume de fișier .ots; stare: in_asteptare sau confirmat_bitcoin",
+      "sensibilitate": "public",
+      "stare": "existent",
+      "derivat": false
+    }
+  ],
+  "relatii": [
+    {
+      "id": "REL-000001",
+      "sursa": "FIRMA",
+      "nume": "ARE_SEDIU_IN",
+      "tinta": "LOCALITATE",
+      "inversa": "ARE_FIRME",
+      "card_direct": "1",
+      "card_invers": "0..*",
+      "descriere": "Firma are exact o localitate de sediu.",
+      "atribute": [],
+      "stare": "planificat",
+      "derivata": false
+    },
+    {
+      "id": "REL-000002",
+      "sursa": "LOCALITATE",
+      "nume": "IN_JUDET",
+      "tinta": "JUDET",
+      "inversa": "ARE_LOCALITATI",
+      "card_direct": "1",
+      "card_invers": "1..*",
+      "descriere": "Fiecare localitate aparține unui județ.",
+      "atribute": [],
+      "stare": "planificat",
+      "derivata": false
+    },
+    {
+      "id": "REL-000003",
+      "sursa": "FIRMA",
+      "nume": "ARE_FORMA_JURIDICA",
+      "tinta": "FORMA_JURIDICA",
+      "inversa": "FORMA_JURIDICA_A",
+      "card_direct": "1",
+      "card_invers": "0..*",
+      "descriere": "Firma are o formă juridică.",
+      "atribute": [],
+      "stare": "planificat",
+      "derivata": false
+    },
+    {
+      "id": "REL-000004",
+      "sursa": "FIRMA",
+      "nume": "ARE_STARE",
+      "tinta": "STARE_FIRMA",
+      "inversa": "STARE_A_FIRMELOR",
+      "card_direct": "1..*",
+      "card_invers": "0..*",
+      "descriere": "Firma are una sau mai multe stări ONRC, ancorate în timp.",
+      "atribute": [
+        "valid_from",
+        "valid_to"
+      ],
+      "stare": "existent",
+      "derivata": false
+    },
+    {
+      "id": "REL-000005",
+      "sursa": "FIRMA",
+      "nume": "ACTIVEAZA_IN",
+      "tinta": "ACTIVITATE_CAEN",
+      "inversa": "ACTIVITATE_A_FIRMELOR",
+      "card_direct": "1..*",
+      "card_invers": "0..*",
+      "descriere": "Activități CAEN ale firmei; exact una este principală.",
+      "atribute": [
+        "principal",
+        "tip (autorizat sau din bilanț)"
+      ],
+      "stare": "existent",
+      "derivata": false
+    },
+    {
+      "id": "REL-000006",
+      "sursa": "ACTIVITATE_CAEN",
+      "nume": "PARTE_DIN",
+      "tinta": "ACTIVITATE_CAEN",
+      "inversa": "CONTINE",
+      "card_direct": "0..1",
+      "card_invers": "0..*",
+      "descriere": "Ierarhia CAEN: secțiune, diviziune, grupă, clasă.",
+      "atribute": [],
+      "stare": "existent",
+      "derivata": false
+    },
+    {
+      "id": "REL-000007",
+      "sursa": "ACTIVITATE_CAEN",
+      "nume": "ECHIVALENT_CU",
+      "tinta": "ACTIVITATE_CAEN",
+      "inversa": "ECHIVALENT_CU",
+      "card_direct": "0..*",
+      "card_invers": "0..*",
+      "descriere": "Echivalența dintre versiunile vechi și noi ale CAEN (simetrică).",
+      "atribute": [
+        "versiune_sursa",
+        "versiune_tinta"
+      ],
+      "stare": "planificat",
+      "derivata": false
+    },
+    {
+      "id": "REL-000008",
+      "sursa": "FIRMA",
+      "nume": "ARE_SITUATIE_FINANCIARA",
+      "tinta": "SITUATIE_FINANCIARA",
+      "inversa": "SITUATIE_A",
+      "card_direct": "0..*",
+      "card_invers": "1",
+      "descriere": "Un bilanț pe an; unic pe (cui, an).",
+      "atribute": [
+        "an"
+      ],
+      "stare": "existent",
+      "derivata": false
+    },
+    {
+      "id": "REL-000009",
+      "sursa": "FIRMA",
+      "nume": "ARE_STARE_FISCALA",
+      "tinta": "STARE_FISCALA",
+      "inversa": "STARE_FISCALA_A",
+      "card_direct": "0..*",
+      "card_invers": "1",
+      "descriere": "Istoric de stări fiscale; cel curent are valid_to gol.",
+      "atribute": [
+        "valid_from",
+        "valid_to"
+      ],
+      "stare": "planificat",
+      "derivata": false
+    },
+    {
+      "id": "REL-000010",
+      "sursa": "FIRMA",
+      "nume": "ARE_RESTANTA",
+      "tinta": "RESTANTA_BUGET",
+      "inversa": "RESTANTA_A",
+      "card_direct": "0..*",
+      "card_invers": "1",
+      "descriere": "Restanțe la buget, câte una pe listă.",
+      "atribute": [],
+      "stare": "planificat",
+      "derivata": false
+    },
+    {
+      "id": "REL-000011",
+      "sursa": "FIRMA",
+      "nume": "ARE_EVENIMENT_INSOLVENTA",
+      "tinta": "EVENIMENT_INSOLVENTA",
+      "inversa": "EVENIMENT_AL",
+      "card_direct": "0..*",
+      "card_invers": "1",
+      "descriere": "Acte BPI privind firma.",
+      "atribute": [],
+      "stare": "planificat",
+      "derivata": false
+    },
+    {
+      "id": "REL-000012",
+      "sursa": "FIRMA",
+      "nume": "PARTE_IN",
+      "tinta": "DOSAR_INSTANTA",
+      "inversa": "ARE_PARTI",
+      "card_direct": "0..*",
+      "card_invers": "0..*",
+      "descriere": "Dosare în care apare firma; potrivirea după nume are nivel de încredere.",
+      "atribute": [
+        "rol",
+        "incredere_potrivire"
+      ],
+      "stare": "planificat",
+      "derivata": false
+    },
+    {
+      "id": "REL-000013",
+      "sursa": "FIRMA",
+      "nume": "CASTIGA",
+      "tinta": "CONTRACT_ACHIZITIE_PUBLICA",
+      "inversa": "CASTIGAT_DE",
+      "card_direct": "0..*",
+      "card_invers": "1..*",
+      "descriere": "Contracte publice câștigate (un contract poate avea mai mulți câștigători).",
+      "atribute": [],
+      "stare": "planificat",
+      "derivata": false
+    },
+    {
+      "id": "REL-000014",
+      "sursa": "FIRMA",
+      "nume": "PRIMESTE",
+      "tinta": "AJUTOR_PUBLIC",
+      "inversa": "PRIMIT_DE",
+      "card_direct": "0..*",
+      "card_invers": "1..*",
+      "descriere": "Ajutoare de stat și proiecte UE primite.",
+      "atribute": [],
+      "stare": "planificat",
+      "derivata": false
+    },
+    {
+      "id": "REL-000015",
+      "sursa": "FIRMA",
+      "nume": "ARE_CONTACT",
+      "tinta": "CONTACT_FIRMA",
+      "inversa": "CONTACT_AL",
+      "card_direct": "0..*",
+      "card_invers": "1",
+      "descriere": "Date de contact găsite.",
+      "atribute": [
+        "data_observata"
+      ],
+      "stare": "existent",
+      "derivata": false
+    },
+    {
+      "id": "REL-000016",
+      "sursa": "PERSOANA",
+      "nume": "ARE_ROL_IN",
+      "tinta": "FIRMA",
+      "inversa": "ARE_PERSOANE",
+      "card_direct": "0..*",
+      "card_invers": "0..*",
+      "descriere": "Administratori, asociați, beneficiari reali; nu există sursă deschisă în masă.",
+      "atribute": [
+        "rol",
+        "pondere"
+      ],
+      "stare": "planificat",
+      "derivata": false
+    },
+    {
+      "id": "REL-000017",
+      "sursa": "FIRMA",
+      "nume": "ASEMANATOARE_CU",
+      "tinta": "FIRMA",
+      "inversa": "ESTE_ASEMANATOARE_CU",
+      "card_direct": "0..*",
+      "card_invers": "0..*",
+      "descriere": "Similaritate economică, calculată cu Vectorize; relație derivată.",
+      "atribute": [
+        "scor",
+        "model",
+        "sesiune"
+      ],
+      "stare": "planificat",
+      "derivata": true
+    },
+    {
+      "id": "REL-000018",
+      "sursa": "SURSA",
+      "nume": "PRODUCE",
+      "tinta": "ARTEFACT_R2",
+      "inversa": "PROVINE_DIN_SURSA",
+      "card_direct": "0..*",
+      "card_invers": "1",
+      "descriere": "Fișierele brute aduse dintr-o sursă.",
+      "atribute": [],
+      "stare": "existent",
+      "derivata": false
+    },
+    {
+      "id": "REL-000019",
+      "sursa": "ARTEFACT_R2",
+      "nume": "INCARCAT_IN",
+      "tinta": "SESIUNE",
+      "inversa": "CONTINE_ARTEFACTE",
+      "card_direct": "1",
+      "card_invers": "0..*",
+      "descriere": "Sesiunea în care a fost adus fișierul.",
+      "atribute": [],
+      "stare": "existent",
+      "derivata": false
+    },
+    {
+      "id": "REL-000020",
+      "sursa": "*",
+      "nume": "PROVINE_DIN",
+      "tinta": "SURSA",
+      "inversa": "FURNIZEAZA_DATE",
+      "card_direct": "1..*",
+      "card_invers": "0..*",
+      "descriere": "Orice valoare își păstrează sursa, artefactul și sesiunea (lanțul de proveniență).",
+      "atribute": [
+        "observat_la",
+        "artefact_r2",
+        "sesiune"
+      ],
+      "stare": "existent",
+      "derivata": false
+    }
+  ],
+  "referinte_incrucisate": {
+    "identificatori": [
+      {
+        "identificator": "cui",
+        "format": "întreg, fără prefix RO",
+        "apare_in": [
+          {
+            "sursa": "SRC-0001",
+            "camp": "cui"
+          },
+          {
+            "sursa": "SRC-0002",
+            "camp": "cui"
+          },
+          {
+            "sursa": "SRC-0003",
+            "camp": "cui"
+          },
+          {
+            "sursa": "SRC-0004",
+            "camp": "cui"
+          },
+          {
+            "sursa": "SRC-0008",
+            "camp": "cod de identificare fiscală"
+          },
+          {
+            "sursa": "SRC-0014",
+            "camp": "număr TVA = RO + cui"
+          },
+          {
+            "sursa": "SRC-0010",
+            "camp": "cui câștigător"
+          },
+          {
+            "sursa": "SRC-0006",
+            "camp": "cod de identificare fiscală"
+          }
+        ]
+      },
+      {
+        "identificator": "cod_inmatriculare",
+        "format": "J<jj>/<nr>/<an>",
+        "apare_in": [
+          {
+            "sursa": "SRC-0001",
+            "camp": "cod_inmatriculare"
+          },
+          {
+            "sursa": "SRC-0003",
+            "camp": "nrRegCom"
+          },
+          {
+            "sursa": "SRC-0008",
+            "camp": "număr înregistrare Registrul Comerțului"
+          }
+        ]
+      },
+      {
+        "identificator": "euid",
+        "format": "ROONRC.J...",
+        "apare_in": [
+          {
+            "sursa": "SRC-0001",
+            "camp": "euid"
+          }
+        ]
+      },
+      {
+        "identificator": "lei (LEI)",
+        "format": "20 de caractere (ISO 17442)",
+        "apare_in": [
+          {
+            "sursa": "SRC-0015",
+            "camp": "LEI"
+          }
+        ],
+        "nota": "doar entități cu LEI; planificat"
+      },
+      {
+        "identificator": "denumire",
+        "format": "text",
+        "apare_in": [
+          {
+            "sursa": "SRC-0009",
+            "camp": "nume parte"
+          }
+        ],
+        "nota": "Singura legătură cu dosarele este numele: potrivire doar exactă pe denumire + județ, cu nivel de încredere marcat."
+      }
+    ],
+    "nomenclatoare": [
+      {
+        "intre": "FIRMA.judet (text ONRC)",
+        "si": "JUDET.cod_judet",
+        "regula": "potrivire pe denumire normalizată; cele nepotrivite se raportează"
+      },
+      {
+        "intre": "FIRMA.localitate (text ONRC)",
+        "si": "LOCALITATE.cod_localitate",
+        "regula": "potrivire pe denumire + județ"
+      },
+      {
+        "intre": "FIRMA.forma_juridica (text ONRC)",
+        "si": "FORMA_JURIDICA.cod_forma",
+        "regula": "potrivire pe denumire normalizată"
+      },
+      {
+        "intre": "FIRMA.coduri_stare",
+        "si": "STARE_FIRMA.cod_stare",
+        "regula": "listă de coduri, câte o relație ARE_STARE pe cod"
+      },
+      {
+        "intre": "CAEN versiune veche",
+        "si": "CAEN versiune nouă",
+        "regula": "relația ECHIVALENT_CU, N:M"
+      },
+      {
+        "intre": "SITUATIE_FINANCIARA.caen_mf",
+        "si": "ACTIVITATE_CAEN.cod",
+        "regula": "filtrul pe activitate reală folosește caen_mf, nu CAEN-ul autorizat"
+      }
+    ]
+  },
+  "reguli_conflict": [
+    {
+      "grup": "identitate juridică (denumire, sediu, formă juridică, data înmatriculării, stare ONRC)",
+      "castiga": "SRC-0001"
+    },
+    {
+      "grup": "stare fiscală (TVA, inactiv, split TVA, e-Factura)",
+      "castiga": "SRC-0003"
+    },
+    {
+      "grup": "indicatori financiari",
+      "castiga": "SRC-0002",
+      "nota": "ANAF bilanț (SRC-0005) servește doar la verificare"
+    },
+    {
+      "grup": "activitate",
+      "castiga": "SRC-0002",
+      "nota": "caen_mf pentru activitatea reală; CAEN-ul autorizat rămâne cel din ONRC"
+    },
+    {
+      "grup": "evenimente (insolvență, dosare, contracte, ajutoare)",
+      "castiga": null,
+      "nota": "adaugă înregistrări; nu modifică stări"
+    },
+    {
+      "grup": "contacte",
+      "castiga": "SRC-0016",
+      "nota": "ordine: site-ul firmei, apoi ANAF, apoi câmpul web din ONRC"
+    },
+    {
+      "regula": "Conflictul se păstrează ca două valori, fiecare cu sursa ei; câmpul afișat urmează precedența de mai sus."
+    }
+  ],
+  "politici": [
+    {
+      "nume": "persoane fizice",
+      "text": "PFA, II, IF, PF și AF rămân în bază cu top=0; nu se afișează public, iar numele se maschează după acordul GDPR."
+    },
+    {
+      "nume": "date excluse",
+      "text": "Datele bancare (IBAN) returnate de ANAF nu intră în dicționar."
+    },
+    {
+      "nume": "surse",
+      "text": "Doar date publice, cu respectarea licenței, a termenilor și a limitelor de cereri ale fiecărei surse."
+    },
+    {
+      "nume": "date personale",
+      "text": "Nu se păstrează CNP; PERSOANA se identifică printr-un identificator intern."
+    }
+  ],
+  "decizii_deschise": [
+    "Cheia alternativă a entității FIRMA pentru sucursale/filiale fără CUI (cod_inmatriculare).",
+    "Lista codurilor de stare considerate critice și a celor de avertisment (propunere în STARE_FIRMA.este_activa).",
+    "Unitatea de măsură și semnul valorilor din mf_bilant_* (lei? valori negative?) de verificat pe date; 2023 și 2024 de verificat separat de 2025.",
+    "Numele exacte ale indicatorilor ANAF TVA (doc_WS_V9.txt).",
+    "Adresele exacte ale seturilor de pe data.gov.ro.",
+    "Sursă pentru UBO/acționariat: nu există una deschisă în masă."
+  ],
+  "statistici": {
+    "surse": 18,
+    "entitati": 18,
+    "proprietati": 127,
+    "relatii": 20,
+    "proprietati_existente": 72
+  },
+  "istoric": [
+    {
+      "versiune": "1.0.0",
+      "data": "2026-10-29",
+      "text": "Prima versiune: structura entităților, relațiilor și surselor; 24 de coloane ale tabelei onrc_firme definite. Nu a fost înghețată în registru."
+    },
+    {
+      "versiune": "1.0.1",
+      "data": "2026-10-29",
+      "text": "Corecții verificate pe D1 (b2b-romania-db): coduri_stare conține mai multe coduri (filtrare cu „conține”, nu cu egalitate); top nu indică activitate; cui poate fi NULL la sucursale; nomenclatorul onrc_nom_stare documentat; anaf_status este gol; cele 24 de coloane din mf_bilant_2025 definite (profit și pierdere sunt coloane separate); tip_bilant nu există în D1. Adăugat: număr de sesiune, registru de sesiuni, distincția SHA-256 (integritate) / OpenTimestamps (timp)."
+    }
+  ]
+}
