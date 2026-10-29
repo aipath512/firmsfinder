@@ -27,19 +27,22 @@
           "cale": "dictionar/dictionar-economic-firme_v1.0.1_2026-10-29.json",
           "sha256": "240e66f2256542ce9ff9c19b0ac56d42c4180f7ec18588a61416613d2a4cbab2",
           "ots": "dictionar/dictionar-economic-firme_v1.0.1_2026-10-29.json.ots",
-          "ots_stare": "in_asteptare"
+          "ots_stare": "confirmat_bitcoin",
+          "ots_confirmat_la": "2026-10-29T19:57:20+02:00"
         },
         {
           "cale": "dictionar/dictionar-economic-firme_v1.0.1_2026-10-29.md",
           "sha256": "5e3af6f6bce868e3909ff535582b7858b6055514074237d765b86dfa6da8501f",
           "ots": "dictionar/dictionar-economic-firme_v1.0.1_2026-10-29.md.ots",
-          "ots_stare": "in_asteptare"
+          "ots_stare": "confirmat_bitcoin",
+          "ots_confirmat_la": "2026-10-29T19:57:21+02:00"
         },
         {
           "cale": "dictionar/SHA256SUMS_v1.0.1_2026-10-29.txt",
           "sha256": "faf687489512cc9c6513d03b27a0a02a6b5f1c7cedac14b8ea0b5feba7987a00",
           "ots": "dictionar/SHA256SUMS_v1.0.1_2026-10-29.txt.ots",
-          "ots_stare": "in_asteptare"
+          "ots_stare": "confirmat_bitcoin",
+          "ots_confirmat_la": "2026-10-29T19:57:22+02:00"
         }
       ],
       "observatie": "Dicționarul de date economice ale firmelor v1.0.1."
@@ -55,19 +58,22 @@
           "cale": "dictionar/dictionar-economic-firme_v1.0.2_2026-10-29.json",
           "sha256": "0fb8e5cac4a95065d18d86cf106ead4bf71b2878824827a2162260630466680e",
           "ots": "dictionar/dictionar-economic-firme_v1.0.2_2026-10-29.json.ots",
-          "ots_stare": "in_asteptare"
+          "ots_stare": "confirmat_bitcoin",
+          "ots_confirmat_la": "2026-10-29T19:57:23+02:00"
         },
         {
           "cale": "dictionar/dictionar-economic-firme_v1.0.2_2026-10-29.md",
           "sha256": "af8e66f209c8c6706417ceee69346ad5142ddae5b5c608d4e1d2220441d20a2c",
           "ots": "dictionar/dictionar-economic-firme_v1.0.2_2026-10-29.md.ots",
-          "ots_stare": "in_asteptare"
+          "ots_stare": "confirmat_bitcoin",
+          "ots_confirmat_la": "2026-10-29T19:57:24+02:00"
         },
         {
           "cale": "dictionar/SHA256SUMS_v1.0.2_2026-10-29.txt",
           "sha256": "9a55bdc97e04f31c4a147e4f6dfc40f7931bb3da906151fa2771d02bf7b95cd1",
           "ots": "dictionar/SHA256SUMS_v1.0.2_2026-10-29.txt.ots",
-          "ots_stare": "in_asteptare"
+          "ots_stare": "confirmat_bitcoin",
+          "ots_confirmat_la": "2026-10-29T19:57:25+02:00"
         }
       ],
       "observatie": "Dicționarul de date economice ale firmelor v1.0.2."
