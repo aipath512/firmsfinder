@@ -13,6 +13,7 @@
   "purpose": "Baza națională de firme din România (ONRC și Ministerul Finanțelor) și dicționarul ei de date, pentru oameni și agenți.",
   "machine_resources": {
     "data_dictionary": "https://firmsfinder.eu/dictionar/latest.json",
+    "data_dictionary_api": "https://firmsfinder-dictionar-agenti.aipath512.workers.dev",
     "session_registry": "https://firmsfinder.eu/sesiuni/registru-sesiuni.json",
     "llms": "https://firmsfinder.eu/llms.txt",
     "llms_full": "https://firmsfinder.eu/llms-full.txt",
