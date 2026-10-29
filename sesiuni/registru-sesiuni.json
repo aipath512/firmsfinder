@@ -45,29 +45,29 @@
       "observatie": "Dicționarul de date economice ale firmelor v1.0.1."
     },
     {
-      "sesiune": "0008C",
-      "stare": "C",
+      "sesiune": "0008H",
+      "stare": "H",
       "timestamp_ro": "2026-10-29T18:29:50+02:00",
       "versiune_dictionar": "1.0.2",
-      "inghetata_la": null,
+      "inghetata_la": "2026-10-29T18:32:59+02:00",
       "fisiere": [
         {
           "cale": "dictionar/dictionar-economic-firme_v1.0.2_2026-10-29.json",
           "sha256": "0fb8e5cac4a95065d18d86cf106ead4bf71b2878824827a2162260630466680e",
-          "ots": null,
-          "ots_stare": null
+          "ots": "dictionar/dictionar-economic-firme_v1.0.2_2026-10-29.json.ots",
+          "ots_stare": "in_asteptare"
         },
         {
           "cale": "dictionar/dictionar-economic-firme_v1.0.2_2026-10-29.md",
           "sha256": "af8e66f209c8c6706417ceee69346ad5142ddae5b5c608d4e1d2220441d20a2c",
-          "ots": null,
-          "ots_stare": null
+          "ots": "dictionar/dictionar-economic-firme_v1.0.2_2026-10-29.md.ots",
+          "ots_stare": "in_asteptare"
         },
         {
           "cale": "dictionar/SHA256SUMS_v1.0.2_2026-10-29.txt",
           "sha256": "9a55bdc97e04f31c4a147e4f6dfc40f7931bb3da906151fa2771d02bf7b95cd1",
-          "ots": null,
-          "ots_stare": null
+          "ots": "dictionar/SHA256SUMS_v1.0.2_2026-10-29.txt.ots",
+          "ots_stare": "in_asteptare"
         }
       ],
       "observatie": "Dicționarul de date economice ale firmelor v1.0.2."

@@ -1,23 +1,23 @@
 {
   "dictionar": "Dicționar de date economice ale firmelor (FirmsFinder)",
-  "versiune": "1.0.1",
-  "sesiune": "0007H",
-  "inghetata_la": "2026-10-29T18:06:38+02:00",
+  "versiune": "1.0.2",
+  "sesiune": "0008H",
+  "inghetata_la": "2026-10-29T18:32:59+02:00",
   "fisiere": [
     {
-      "url": "https://firmsfinder.eu/dictionar/dictionar-economic-firme_v1.0.1_2026-10-29.json",
-      "sha256": "240e66f2256542ce9ff9c19b0ac56d42c4180f7ec18588a61416613d2a4cbab2",
-      "ots": "https://firmsfinder.eu/dictionar/dictionar-economic-firme_v1.0.1_2026-10-29.json.ots"
+      "url": "https://firmsfinder.eu/dictionar/dictionar-economic-firme_v1.0.2_2026-10-29.json",
+      "sha256": "0fb8e5cac4a95065d18d86cf106ead4bf71b2878824827a2162260630466680e",
+      "ots": "https://firmsfinder.eu/dictionar/dictionar-economic-firme_v1.0.2_2026-10-29.json.ots"
     },
     {
-      "url": "https://firmsfinder.eu/dictionar/dictionar-economic-firme_v1.0.1_2026-10-29.md",
-      "sha256": "5e3af6f6bce868e3909ff535582b7858b6055514074237d765b86dfa6da8501f",
-      "ots": "https://firmsfinder.eu/dictionar/dictionar-economic-firme_v1.0.1_2026-10-29.md.ots"
+      "url": "https://firmsfinder.eu/dictionar/dictionar-economic-firme_v1.0.2_2026-10-29.md",
+      "sha256": "af8e66f209c8c6706417ceee69346ad5142ddae5b5c608d4e1d2220441d20a2c",
+      "ots": "https://firmsfinder.eu/dictionar/dictionar-economic-firme_v1.0.2_2026-10-29.md.ots"
     },
     {
-      "url": "https://firmsfinder.eu/dictionar/SHA256SUMS_v1.0.1_2026-10-29.txt",
-      "sha256": "faf687489512cc9c6513d03b27a0a02a6b5f1c7cedac14b8ea0b5feba7987a00",
-      "ots": "https://firmsfinder.eu/dictionar/SHA256SUMS_v1.0.1_2026-10-29.txt.ots"
+      "url": "https://firmsfinder.eu/dictionar/SHA256SUMS_v1.0.2_2026-10-29.txt",
+      "sha256": "9a55bdc97e04f31c4a147e4f6dfc40f7931bb3da906151fa2771d02bf7b95cd1",
+      "ots": "https://firmsfinder.eu/dictionar/SHA256SUMS_v1.0.2_2026-10-29.txt.ots"
     }
   ],
   "registru": "https://firmsfinder.eu/sesiuni/registru-sesiuni.json",
