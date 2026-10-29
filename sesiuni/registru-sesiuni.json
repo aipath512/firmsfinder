@@ -1,48 +1,17 @@
 {
-  "schema": "registru-sesiuni v1",
-  "descriere": "Tabelul care leagă numărul de sesiune de versiunea dicționarului, amprenta SHA-256 (integritate) și dovada OpenTimestamps (timp). GitHub este SSOT.",
-  "reguli": [
-    "Un rând cu stare H este înghețat: fișierele lui nu se modifică, iar scriptul de verificare compară amprentele la fiecare push.",
-    "Trecerea C -> H se face automat, prin acțiunea GitHub „ingheata-sesiune”, la transferul în Cloudflare: verifică amprentele, ștampilează cu OpenTimestamps, scrie rândul H.",
-    "SHA-256 arată că conținutul este același; OpenTimestamps arată cel târziu când a existat. Niciunul nu e, singur, dovadă juridică de originalitate.",
-    "T = sesiune de test (o H modificabilă); nu are dovezi de înghețare."
-  ],
+  "schema": "registru-sesiuni/1",
+  "versiune_registru": "1.0",
+  "nota": "Sursa unică de adevăr pentru sesiunile înghețate (H). Un rând H nu se modifică niciodată; verifica-registru semnalează orice modificare.",
   "sesiuni": [
     {
-      "sesiune": "0006H",
+      "numar": "0006H",
       "stare": "H",
-      "timestamp_ro": "2026-10-08T05:18:52+03:00",
+      "moment": null,
       "versiune_dictionar": null,
-      "fisiere": [],
-      "observatie": "Sesiunea comună a rețelei, creată înainte de acest registru; SHA-256 și OTS nu au fost înregistrate retroactiv."
-    },
-    {
-      "sesiune": "0007C",
-      "stare": "C",
-      "timestamp_ro": "2026-10-29T13:29:21+02:00",
-      "versiune_dictionar": "1.0.1",
-      "inghetata_la": null,
-      "fisiere": [
-        {
-          "cale": "dictionar/dictionar-economic-firme_v1.0.1_2026-10-29.json",
-          "sha256": "240e66f2256542ce9ff9c19b0ac56d42c4180f7ec18588a61416613d2a4cbab2",
-          "ots": null,
-          "ots_stare": null
-        },
-        {
-          "cale": "dictionar/dictionar-economic-firme_v1.0.1_2026-10-29.md",
-          "sha256": "5e3af6f6bce868e3909ff535582b7858b6055514074237d765b86dfa6da8501f",
-          "ots": null,
-          "ots_stare": null
-        },
-        {
-          "cale": "dictionar/SHA256SUMS_v1.0.1_2026-10-29.txt",
-          "sha256": "faf687489512cc9c6513d03b27a0a02a6b5f1c7cedac14b8ea0b5feba7987a00",
-          "ots": null,
-          "ots_stare": null
-        }
-      ],
-      "observatie": "Dicționarul de date economice ale firmelor v1.0.1."
+      "fisiere": {},
+      "ots": null,
+      "ots_stare": null,
+      "nota": "Sesiunea rețelei, creată înainte de existența registrului; fără amprente."
     }
   ]
 }
