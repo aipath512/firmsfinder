@@ -1,0 +1,41 @@
+name: ots-confirmare
+
+# Zilnic: pentru ștampilele OpenTimestamps „in_asteptare" încearcă ots upgrade.
+# Când ancorarea în Bitcoin e completă, marchează „confirmat_bitcoin" în registru și face commit.
+
+on:
+  schedule:
+    - cron: "17 6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sesiuni-registru
+  cancel-in-progress: false
+
+jobs:
+  confirma:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install opentimestamps-client
+      - run: python scripts/ingheata_sesiune.py --ots-upgrade
+      - name: Commit dacă s-a schimbat ceva
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add sesiuni/registru-sesiuni.json
+          git add dictionar/*.ots || true
+          if git diff --cached --quiet; then
+            echo "Nicio schimbare."
+          else
+            git commit -m "OTS confirmat în Bitcoin"
+            git push origin HEAD:main
+          fi
