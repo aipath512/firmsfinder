@@ -5,8 +5,8 @@
 Canonical site: https://firmsfinder.eu/
 Language: ro-RO
 Operator: AiVenture S.R.L. (5thelement.ai · aiventure.ro)
-Version: 1.2
-Document date: 2026-10-13
+Version: 1.3
+Document date: 2026-10-29
 
 ## Poziționare
 
@@ -90,6 +90,7 @@ Fiecare pagină are canonical propriu.
 - https://firmsfinder.eu/intents.json
 - https://firmsfinder.eu/digital-dna.json
 - https://firmsfinder.eu/signals.json
+- https://firmsfinder.eu/dictionar/latest.json (dicționarul de date economice ale firmelor: adresa fixă spre ultima versiune înghețată, cu amprente SHA-256 și ștampile OpenTimestamps)
 
 Fișierele JSON declară în câmpurile lor starea (specificație, declarație semantică, neimplementat). Existența unui fișier nu dovedește că funcția descrisă este operațională.
 
