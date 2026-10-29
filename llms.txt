@@ -38,6 +38,7 @@ FirmsFinder propune trei moduri de lucru: CAUTĂ (firme după activitate, județ
 - [entities.json](https://firmsfinder.eu/entities.json): entitățile publice ale site-ului
 - [signals.json](https://firmsfinder.eu/signals.json): catalogul celor 60 de semnale ON-SITE și starea lor declarată
 - [geo/manifest.json](https://firmsfinder.eu/geo/manifest.json): inventarul fișierelor GEO (JSON) și starea lor declarată
+- [dictionar/latest.json](https://firmsfinder.eu/dictionar/latest.json): dicționarul de date economice ale firmelor (ce înseamnă fiecare câmp și cum se interoghează corect); adresa fixă spre ultima versiune înghețată, cu amprente SHA-256 și ștampile OpenTimestamps
 
 ## Operator
 
