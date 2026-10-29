@@ -1,0 +1,22 @@
+{
+  "schema": "https://5thelement.ai/schemas/adn.v1.json",
+  "version": "1.0",
+  "domain": "https://firmsfinder.eu",
+  "node_role": "firm_data_node",
+  "status": "active",
+  "belongs_to_network": "AiVenture ADI Network",
+  "root_domain": "https://5thelement.ai",
+  "technology_partner": {
+    "name": "AiVenture S.R.L.",
+    "delivery_domain": "https://aiventure.ro"
+  },
+  "purpose": "Baza națională de firme din România (ONRC și Ministerul Finanțelor) și dicționarul ei de date, pentru oameni și agenți.",
+  "machine_resources": {
+    "data_dictionary": "https://firmsfinder.eu/dictionar/latest.json",
+    "session_registry": "https://firmsfinder.eu/sesiuni/registru-sesiuni.json",
+    "llms": "https://firmsfinder.eu/llms.txt",
+    "llms_full": "https://firmsfinder.eu/llms-full.txt",
+    "agent_card": "https://firmsfinder.eu/.well-known/agent.json"
+  },
+  "note": "Declarație de identitate a nodului. Valoarea node_role este provizorie până la publicarea schemei canonice (https://5thelement.ai/schemas/adn.v1.json răspundea 404 la 2026-10-29). Claim ≠ Proof."
+}
