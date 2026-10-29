@@ -2,7 +2,7 @@
   "schema": "FIRMSFINDER_ONSITE_MANIFEST",
   "version": "1.0",
   "generated_at": "2026-10-12",
-  "hashes_refreshed_at": "2026-10-22",
+  "hashes_refreshed_at": "2026-10-29",
   "site": "https://firmsfinder.eu/",
   "count": 60,
   "status": "GENERATED_NOT_DEPLOYED",
@@ -24,7 +24,7 @@
       "purpose": "XML URL discovery",
       "audience": "Search engines",
       "category": "Discovery",
-      "sha256": "5c0829c537940d53f1fa0076b6f3f4c74216ce68e6637130dbfc73de5e668883",
+      "sha256": "b105ea6dfdf676d722827b05122c2459274ca683653190fcae6fbd3c4698d6fe",
       "existing_in_uploaded_repo": true
     },
     {
@@ -34,7 +34,7 @@
       "purpose": "AI-readable site guide",
       "audience": "AI systems",
       "category": "Discovery",
-      "sha256": "4c890646c517edd813d82822233c5cf882e0e316f93032216396c1c4a03ef3c5",
+      "sha256": "ac9f2528ae8c393f0384a134b5d132a23e4b4231b1ee29d18045f8bf5ed4f4f3",
       "existing_in_uploaded_repo": true
     },
     {
@@ -44,7 +44,7 @@
       "purpose": "Extended AI content guide",
       "audience": "AI systems",
       "category": "Discovery",
-      "sha256": "6810d22d8909ff2bd8c02fb3d7b5634a929264a6f04b417e4fc1703c3d21daf5",
+      "sha256": "b87847df13150b9f4e9c804141c75cf18f54c5c96f65ecc731bb89cf32cd428a",
       "existing_in_uploaded_repo": true
     },
     {
