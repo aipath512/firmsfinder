@@ -81,6 +81,22 @@ ok('/cautare/ are butoane de acord, refuz și retragere', all(i in cautare for i
 ins_path = ROOT / d['ai_act']['insigna']['imagine'].lstrip('/')
 ok('imaginea insignei există', ins_path.is_file(), str(ins_path))
 
+# --- Piața ta (v1.1): schema SQL separată trebuie să corespundă declarației
+pt = d.get('piata_ta')
+ok('angajamentul declară blocul piata_ta', bool(pt))
+if pt:
+    sql2 = citeste(pt['schema_sql'])
+    for tab, cols in pt['coloane'].items():
+        m = re.search(r'CREATE TABLE IF NOT EXISTS ' + tab + r' \((.*?)\n\);', sql2, re.S)
+        cs = set(re.findall(r'^ ([a-z_]+) (?:TEXT|INTEGER)\b', m.group(1), re.M)) if m else set()
+        ok(f'tabela {tab}: coloane SQL = declarate', cs == set(cols), f'doar SQL: {cs-set(cols)}; doar JSON: {set(cols)-cs}')
+        ok(f'tabela {tab}: are retention_until', 'retention_until' in cs)
+    ok('clase valide în piata_ta', all(set(c.values()) <= {'tehnic', 'fara_acord', 'cu_acord'} for c in pt['coloane'].values()))
+    ok('pragul minim de agregare este cel puțin 5', pt['prag_minim_declaratii'] >= 5)
+    ok('retenție email declarată = 36 luni', d['retentie'].get('email_luni_de_la_ultima_activitate') == 36)
+    if not pt['activa_in_productie']:
+        ok('cât timp piata_ta e inactivă, nu există endpoint /api/piata-ta*', not list((ROOT / 'functions/api').glob('piata-ta*')) and not list((ROOT / 'functions/api').glob('piata_ta*')))
+
 pica = [r for r in rez if not r[1]]
 for nume, trecut, det in rez:
     if not trecut:

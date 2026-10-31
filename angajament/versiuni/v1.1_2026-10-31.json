@@ -1,0 +1,163 @@
+{
+  "schema": "FIRMSFINDER_ANGAJAMENT",
+  "versiune": "1.1",
+  "data": "2026-10-31",
+  "site": "https://firmsfinder.eu/",
+  "operator": "AiVenture S.R.L., CUI 51415878",
+  "stare_juridica": "NEVALIDAT_DE_JURIST",
+  "jurnal_activ_in_productie": false,
+  "principiu": "Spunem exact ce memorăm și memorăm doar ce spunem. Dacă ceva nu ne este favorabil, îl spunem la fel.",
+  "text_footer": "Angajament de transparență v1.1 (31 octombrie 2026): memorăm doar ce declarăm. Fără acordul dumneavoastră, doar numărători, 24 de luni. Cu acord, text și selecții, cel mult 30 de zile. Nu stocăm în jurnalul de căutare IP, email sau nume. Pagina Piața ta (încă inactivă): relații declarate doar cu bifă, email doar pentru lista completă, 36 de luni.",
+  "scop": "Să înțelegem ce informații economice caută vizitatorii și să adaptăm datele, funcțiile și serviciile AiVenture. Nu să identificăm persoane.",
+  "afirmatii": [
+    {
+      "id": "A1",
+      "text": "Căutarea și toate filtrele sunt gratuite și funcționează identic cu sau fără acord."
+    },
+    {
+      "id": "A2",
+      "text": "Fără acord, jurnalul păstrează doar: tipul acțiunii, activitatea (CAEN), județul, numărul de rezultate și ce element public ați apăsat. Fără text, fără cod de sesiune, fără localitate, fără filtre avansate."
+    },
+    {
+      "id": "A3",
+      "text": "Cu acord, jurnalul păstrează și textul scris (după ștergerea telefoanelor, emailurilor, IBAN și CNP), filtrele, selecțiile și un cod aleator din browserul dumneavoastră, cel mult 30 de zile."
+    },
+    {
+      "id": "A4",
+      "text": "Nu stocăm în jurnalul de căutare adresa IP, user-agent-ul, emailul sau numele dumneavoastră."
+    },
+    {
+      "id": "A5",
+      "text": "Retragerea acordului șterge datele legate de codul de sesiune al browserului dumneavoastră."
+    },
+    {
+      "id": "A6",
+      "text": "Dacă se schimbă ce memorăm, schimbăm întâi acest angajament: versiune nouă, amprentă nouă, iar versiunea veche rămâne publică."
+    },
+    {
+      "id": "A7",
+      "text": "Pe pagina Piața ta, o relație (concurent, client potențial, partener) se memorează numai dacă o bifați dumneavoastră, ca declarație proprie. Nu este verificată de noi și nu o prezentăm ca fapt."
+    },
+    {
+      "id": "A8",
+      "text": "Adresele de site introduse se memorează numai dacă bifați separat, nebifat implicit, acordul pentru aceasta. Fără bifă, pagina funcționează la fel, iar adresele nu se păstrează."
+    },
+    {
+      "id": "A9",
+      "text": "Emailul se cere numai pentru a vă trimite lista completă, se confirmă prin link, se păstrează separat de jurnalul de căutare și cel mult 36 de luni de la ultima activitate."
+    },
+    {
+      "id": "A10",
+      "text": "Ce declarați nu este arătat altor vizitatori. Declarațiile se folosesc numai pentru clasamente și agregate, și numai când există cel puțin 5 declarații independente."
+    },
+    {
+      "id": "A11",
+      "text": "Puteți cere ștergerea declarațiilor și a emailului la contact@5thelement.ai sau din linkul primit în email."
+    }
+  ],
+  "coloane": {
+    "event_id": "tehnic",
+    "schema_version": "tehnic",
+    "occurred_at": "tehnic",
+    "site": "tehnic",
+    "event_type": "fara_acord",
+    "session_id": "cu_acord",
+    "query_raw": "cu_acord",
+    "query_norm": "cu_acord",
+    "intent_family": "cu_acord",
+    "funnel_stage": "cu_acord",
+    "objective": "cu_acord",
+    "target_role": "cu_acord",
+    "caen": "fara_acord",
+    "judet": "fara_acord",
+    "localitate": "cu_acord",
+    "size_min": "cu_acord",
+    "size_max": "cu_acord",
+    "filters_json": "cu_acord",
+    "result_count": "fara_acord",
+    "result_count_scope": "fara_acord",
+    "zero_result_context": "fara_acord",
+    "target_kind": "fara_acord",
+    "target_value": "fara_acord",
+    "source_page": "fara_acord",
+    "referrer_host": "fara_acord",
+    "utm": "fara_acord",
+    "sanitization_version": "tehnic",
+    "consent_state": "tehnic",
+    "retention_until": "tehnic"
+  },
+  "retentie": {
+    "fara_acord_luni": 24,
+    "cu_acord_zile": 30,
+    "email_luni_de_la_ultima_activitate": 36
+  },
+  "nu_memoram": [
+    "adresa IP",
+    "user-agent",
+    "nume",
+    "conturi sau cookie-uri de urmărire de la terți",
+    "email în jurnalul de căutare (emailul apare numai în tabela separată de contacte confirmate, vezi A9)"
+  ],
+  "limite_recunoscute": [
+    "Textul liber poate conține nume proprii sau alte date pe care filtrul nu le poate detecta; de aceea vă rugăm să nu scrieți date personale în căutare.",
+    "Cloudflare, furnizorul nostru de găzduire, procesează tehnic adresa IP pentru a livra paginile, conform politicii sale; noi nu o scriem în jurnal.",
+    "Numărătorile fără acord nu conțin cod sau text, dar utilizarea lor fără acord așteaptă validarea unui jurist.",
+    "Acest angajament nu este un aviz juridic. Amprenta SHA-256 dovedește conținutul și data publicării, nu conformitatea cu legea.",
+    "Cât timp jurnalul și pagina Piața ta nu sunt active în producție (câmpurile jurnal_activ_in_productie și piata_ta.activa_in_productie), nu se memorează nimic pe site-ul public.",
+    "Relațiile declarate sunt opinii ale vizitatorilor, nu fapte verificate; pot fi greșite sau răuvoitoare, de aceea apar doar în agregate cu prag minim."
+  ],
+  "legislatie_relevanta": [
+    {
+      "act": "Regulamentul (UE) 2016/679 (GDPR)",
+      "articole": "5(1)(a), 6, 7, 12-13, 17"
+    },
+    {
+      "act": "Directiva 2002/58/CE (ePrivacy)",
+      "articole": "5(3); transpusă în România prin Legea 506/2004 (articolul exact de verificat de jurist)"
+    },
+    {
+      "act": "Regulamentul (UE) 2024/1689 (AI Act)",
+      "articole": "50, aplicabil din 2 august 2026"
+    }
+  ],
+  "ai_act": {
+    "art_50": "Art. 50(1) obligă furnizorii de sisteme care interacționează direct cu persoane (de exemplu asistenți conversaționali) să informeze clar că persoana interacționează cu un sistem AI. Căutarea din /cautare/ nu este un asistent conversațional; orice asistent adăugat se declară ca AI.",
+    "insigna": {
+      "imagine": "/assets/eu-ai-act-ready-2aug2026_256x256_v1.0_2026-10-16.webp",
+      "trimite_la": "https://eu-ai-act-ready.eu/",
+      "semnificatie": "Trimite la kitul EU AI Act Ready (70 de documente, 10 module a câte 7). Nu este o certificare oficială și nu atestă conformitatea acestui site cu AI Act."
+    }
+  },
+  "verificare": {
+    "algoritm": "SHA-256",
+    "metoda": "JSON canonic (chei sortate, fără spații, UTF-8) al acestui fișier, fără câmpul content_sha256",
+    "arhiva": "/angajament/versiuni/v1.1_2026-10-31.json"
+  },
+  "piata_ta": {
+    "activa_in_productie": false,
+    "prag_minim_declaratii": 5,
+    "schema_sql": "backend/piata_ta_v1.0_2026-10-31.sql",
+    "coloane": {
+      "piata_relatii_declarate": {
+        "relation_id": "tehnic",
+        "schema_version": "tehnic",
+        "declared_at": "tehnic",
+        "relation_type": "cu_acord",
+        "source_domain": "cu_acord",
+        "target_domain": "cu_acord",
+        "url_storage_consent": "tehnic",
+        "retention_until": "tehnic"
+      },
+      "piata_contacte_confirmate": {
+        "contact_id": "tehnic",
+        "schema_version": "tehnic",
+        "confirmed_at": "tehnic",
+        "email": "cu_acord",
+        "email_domain": "cu_acord",
+        "last_activity_at": "tehnic",
+        "retention_until": "tehnic"
+      }
+    }
+  },
+  "content_sha256": "cc67ad660adceda4e85021e317ce7c27ce447d6839dbb52fd923ad920d2b2b92"
+}

@@ -1,13 +1,13 @@
 {
   "schema": "FIRMSFINDER_ANGAJAMENT",
-  "versiune": "1.0",
-  "data": "2026-10-16",
+  "versiune": "1.1",
+  "data": "2026-10-31",
   "site": "https://firmsfinder.eu/",
   "operator": "AiVenture S.R.L., CUI 51415878",
   "stare_juridica": "NEVALIDAT_DE_JURIST",
   "jurnal_activ_in_productie": false,
   "principiu": "Spunem exact ce memorăm și memorăm doar ce spunem. Dacă ceva nu ne este favorabil, îl spunem la fel.",
-  "text_footer": "Angajament de transparență v1.0 (16 octombrie 2026): memorăm doar ce declarăm. Fără acordul dumneavoastră, doar numărători, 24 de luni. Cu acord, text și selecții, cel mult 30 de zile. Nu stocăm în jurnal IP, email sau nume.",
+  "text_footer": "Angajament de transparență v1.1 (31 octombrie 2026): memorăm doar ce declarăm. Fără acordul dumneavoastră, doar numărători, 24 de luni. Cu acord, text și selecții, cel mult 30 de zile. Nu stocăm în jurnalul de căutare IP, email sau nume. Pagina Piața ta (încă inactivă): relații declarate doar cu bifă, email doar pentru lista completă, 36 de luni.",
   "scop": "Să înțelegem ce informații economice caută vizitatorii și să adaptăm datele, funcțiile și serviciile AiVenture. Nu să identificăm persoane.",
   "afirmatii": [
     {
@@ -24,7 +24,7 @@
     },
     {
       "id": "A4",
-      "text": "Nu stocăm în jurnal adresa IP, user-agent-ul, emailul sau numele dumneavoastră."
+      "text": "Nu stocăm în jurnalul de căutare adresa IP, user-agent-ul, emailul sau numele dumneavoastră."
     },
     {
       "id": "A5",
@@ -33,6 +33,26 @@
     {
       "id": "A6",
       "text": "Dacă se schimbă ce memorăm, schimbăm întâi acest angajament: versiune nouă, amprentă nouă, iar versiunea veche rămâne publică."
+    },
+    {
+      "id": "A7",
+      "text": "Pe pagina Piața ta, o relație (concurent, client potențial, partener) se memorează numai dacă o bifați dumneavoastră, ca declarație proprie. Nu este verificată de noi și nu o prezentăm ca fapt."
+    },
+    {
+      "id": "A8",
+      "text": "Adresele de site introduse se memorează numai dacă bifați separat, nebifat implicit, acordul pentru aceasta. Fără bifă, pagina funcționează la fel, iar adresele nu se păstrează."
+    },
+    {
+      "id": "A9",
+      "text": "Emailul se cere numai pentru a vă trimite lista completă, se confirmă prin link, se păstrează separat de jurnalul de căutare și cel mult 36 de luni de la ultima activitate."
+    },
+    {
+      "id": "A10",
+      "text": "Ce declarați nu este arătat altor vizitatori. Declarațiile se folosesc numai pentru clasamente și agregate, și numai când există cel puțin 5 declarații independente."
+    },
+    {
+      "id": "A11",
+      "text": "Puteți cere ștergerea declarațiilor și a emailului la contact@5thelement.ai sau din linkul primit în email."
     }
   ],
   "coloane": {
@@ -68,21 +88,23 @@
   },
   "retentie": {
     "fara_acord_luni": 24,
-    "cu_acord_zile": 30
+    "cu_acord_zile": 30,
+    "email_luni_de_la_ultima_activitate": 36
   },
   "nu_memoram": [
     "adresa IP",
     "user-agent",
-    "email",
     "nume",
-    "conturi sau cookie-uri de urmărire de la terți"
+    "conturi sau cookie-uri de urmărire de la terți",
+    "email în jurnalul de căutare (emailul apare numai în tabela separată de contacte confirmate, vezi A9)"
   ],
   "limite_recunoscute": [
     "Textul liber poate conține nume proprii sau alte date pe care filtrul nu le poate detecta; de aceea vă rugăm să nu scrieți date personale în căutare.",
     "Cloudflare, furnizorul nostru de găzduire, procesează tehnic adresa IP pentru a livra paginile, conform politicii sale; noi nu o scriem în jurnal.",
     "Numărătorile fără acord nu conțin cod sau text, dar utilizarea lor fără acord așteaptă validarea unui jurist.",
     "Acest angajament nu este un aviz juridic. Amprenta SHA-256 dovedește conținutul și data publicării, nu conformitatea cu legea.",
-    "Cât timp jurnalul nu este activ în producție (câmpul jurnal_activ_in_productie), nu se memorează nimic pe site-ul public."
+    "Cât timp jurnalul și pagina Piața ta nu sunt active în producție (câmpurile jurnal_activ_in_productie și piata_ta.activa_in_productie), nu se memorează nimic pe site-ul public.",
+    "Relațiile declarate sunt opinii ale vizitatorilor, nu fapte verificate; pot fi greșite sau răuvoitoare, de aceea apar doar în agregate cu prag minim."
   ],
   "legislatie_relevanta": [
     {
@@ -109,7 +131,33 @@
   "verificare": {
     "algoritm": "SHA-256",
     "metoda": "JSON canonic (chei sortate, fără spații, UTF-8) al acestui fișier, fără câmpul content_sha256",
-    "arhiva": "/angajament/versiuni/v1.0_2026-10-16.json"
+    "arhiva": "/angajament/versiuni/v1.1_2026-10-31.json"
   },
-  "content_sha256": "0ab81772d3465137ca5783efa3cdcb6e53c1894ba882f523496922c8bb566298"
+  "piata_ta": {
+    "activa_in_productie": false,
+    "prag_minim_declaratii": 5,
+    "schema_sql": "backend/piata_ta_v1.0_2026-10-31.sql",
+    "coloane": {
+      "piata_relatii_declarate": {
+        "relation_id": "tehnic",
+        "schema_version": "tehnic",
+        "declared_at": "tehnic",
+        "relation_type": "cu_acord",
+        "source_domain": "cu_acord",
+        "target_domain": "cu_acord",
+        "url_storage_consent": "tehnic",
+        "retention_until": "tehnic"
+      },
+      "piata_contacte_confirmate": {
+        "contact_id": "tehnic",
+        "schema_version": "tehnic",
+        "confirmed_at": "tehnic",
+        "email": "cu_acord",
+        "email_domain": "cu_acord",
+        "last_activity_at": "tehnic",
+        "retention_until": "tehnic"
+      }
+    }
+  },
+  "content_sha256": "cc67ad660adceda4e85021e317ce7c27ce447d6839dbb52fd923ad920d2b2b92"
 }
