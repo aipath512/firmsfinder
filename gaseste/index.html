@@ -12,7 +12,7 @@
 <title>Găsește firme potențial interesate | FirmsFinder AI</title>
 <link rel="canonical" href="https://firmsfinder.eu/gaseste/">
 <meta name="description" content="Scrieți ce produse sau servicii oferiți și vedeți firme din România potențial relevante, după activitate (CAEN). Căutare gratuită; rezultatele sunt propuneri de verificat, nu dovezi de interes.">
-<meta name="robots" content="noindex,follow">
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Găsește firme potențial interesate | FirmsFinder AI">
 <meta property="og:description" content="Scrieți ce produse sau servicii oferiți și vedeți firme din România potențial relevante, după activitate (CAEN). Căutare gratuită; rezultatele sunt propuneri de verificat, nu dovezi de interes.">
@@ -37,21 +37,706 @@
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "WebPage",
-      "@id": "https://firmsfinder.eu/gaseste/#page",
-      "url": "https://firmsfinder.eu/gaseste/",
-      "name": "Găsește firme potențial interesate | FirmsFinder AI",
-      "description": "Scrieți ce produse sau servicii oferiți și vedeți firme din România potențial relevante, după activitate (CAEN). Căutare gratuită; rezultatele sunt propuneri de verificat, nu dovezi de interes.",
-      "inLanguage": "ro",
-      "isPartOf": {
-        "@type": "WebSite",
-        "name": "FirmsFinder AI",
-        "url": "https://firmsfinder.eu/"
+      "@type": "Organization",
+      "@id": "https://aiventure.ro/#organization",
+      "name": "AiVenture S.R.L.",
+      "legalName": "AiVenture S.R.L.",
+      "alternateName": "AiVenture",
+      "url": "https://aiventure.ro/",
+      "logo": "https://aiventure.ro/icon.svg",
+      "image": "https://aiventure.ro/assets/brand/logo_512w.png",
+      "email": "contact@5thelement.ai",
+      "telephone": "+40 737 123 540",
+      "description": "AiVenture oferă servicii pentru Web-Om, Web-AI și Web-A2A și produse pentru analiză, implementare și infrastructură AI/A2A.",
+      "foundingDate": "2025-03-07",
+      "taxID": "51415878",
+      "vatID": "RO51415878",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "CUI",
+          "value": "51415878"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "Nr. Registrul Comerțului",
+          "value": "J2025016406000"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "EUID",
+          "value": "ROONRC.J2025016406000"
+        }
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Drumul Pădurea Pustnicul nr. 141C, Corp A, Etaj 2, Ap. 5",
+        "addressLocality": "București",
+        "addressRegion": "Sector 1",
+        "postalCode": "014044",
+        "addressCountry": "RO"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "informații comerciale",
+        "email": "contact@5thelement.ai",
+        "telephone": "+40 737 123 540",
+        "availableLanguage": [
+          "ro"
+        ]
+      },
+      "founder": {
+        "@type": "Person",
+        "name": "Dan Ionescu",
+        "sameAs": [
+          "https://orcid.org/0009-0002-5498-1046",
+          "https://ro.linkedin.com/in/dan-ionesco-a856082a0"
+        ]
+      },
+      "employee": {
+        "@type": "Person",
+        "name": "Gratiela Ionescu",
+        "jobTitle": "Administrator"
+      },
+      "brand": {
+        "@id": "https://firmsfinder.eu/#brand"
+      },
+      "sameAs": [
+        "https://www.reddit.com/user/AiVentureRO/",
+        "https://www.linkedin.com/company/107338970",
+        "https://www.linkedin.com/showcase/5thelement-ai/",
+        "https://www.crunchbase.com/organization/aiventure-s-r-l",
+        "https://www.facebook.com/people/Aiventure/61573220584246/",
+        "https://x.com/aipath512",
+        "https://www.youtube.com/@AIVenture-q8u",
+        "https://medium.com/@aipath512"
+      ]
+    },
+    {
+      "@type": "Brand",
+      "@id": "https://firmsfinder.eu/#brand",
+      "name": "FirmsFinder AI",
+      "url": "https://firmsfinder.eu/",
+      "slogan": "Economic Intelligence"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://firmsfinder.eu/#website",
+      "url": "https://firmsfinder.eu/",
+      "name": "FirmsFinder AI",
+      "inLanguage": "ro-RO",
+      "publisher": {
+        "@id": "https://aiventure.ro/#organization"
+      },
+      "publishingPrinciples": "https://firmsfinder.eu/legal/#ai-transparency",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://firmsfinder.eu/cautare/?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "BusinessAudience",
+      "@id": "https://firmsfinder.eu/#public",
+      "name": "Firme B2B",
+      "audienceType": "Firme B2B",
+      "geographicArea": {
+        "@type": "Country",
+        "name": "România"
+      }
+    },
+    {
+      "@type": "Dataset",
+      "@id": "https://firmsfinder.eu/#dataset-onrc",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "name": "Registrul firmelor active din România (ONRC) în baza FirmsFinder",
+      "description": "Firme active din registrul ONRC, preluate din setul data.gov.ro din 02.09.2026 și încărcate în baza FirmsFinder la 5–6 octombrie 2026. PFA, II și IF sunt afișate mascate.",
+      "url": "https://firmsfinder.eu/surse/",
+      "inLanguage": "ro-RO",
+      "creator": {
+        "@id": "https://aiventure.ro/#organization"
       },
       "publisher": {
-        "@type": "Organization",
-        "name": "AiVenture S.R.L."
+        "@id": "https://aiventure.ro/#organization"
+      },
+      "spatialCoverage": {
+        "@type": "Place",
+        "name": "România"
+      },
+      "isAccessibleForFree": true,
+      "usageInfo": "https://firmsfinder.eu/legal/#terms",
+      "dateModified": "2026-10-14",
+      "isBasedOn": [
+        "https://www.onrc.ro/",
+        "https://data.gov.ro/"
+      ],
+      "sourceOrganization": [
+        {
+          "@type": "GovernmentOrganization",
+          "name": "Oficiul Național al Registrului Comerțului",
+          "url": "https://www.onrc.ro/"
+        },
+        {
+          "@type": "Organization",
+          "name": "data.gov.ro",
+          "url": "https://data.gov.ro/"
+        }
+      ],
+      "measurementTechnique": "Numărare în baza de date FirmsFinder; cifrele din schemă sunt un instantaneu din 14 octombrie 2026, iar pagina /date/ le recalculează la încărcare (întârziere de cel mult o oră)",
+      "variableMeasured": [
+        {
+          "@type": "PropertyValue",
+          "name": "Firme active (ONRC)",
+          "value": 1784283,
+          "unitText": "firme"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Persoane juridice (SRL, SA etc.)",
+          "value": 1310407,
+          "unitText": "firme"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "PFA / II / IF",
+          "value": 473876,
+          "unitText": "firme"
+        }
+      ]
+    },
+    {
+      "@type": "Dataset",
+      "@id": "https://firmsfinder.eu/#dataset-mf",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "name": "Bilanțuri ale Ministerului Finanțelor în baza FirmsFinder",
+      "description": "Bilanțuri publicate de Ministerul Finanțelor pe data.gov.ro; seria 2024 actualizată în iunie 2026. Bilanțurile 2022 nu sunt încă în bază.",
+      "url": "https://firmsfinder.eu/surse/",
+      "inLanguage": "ro-RO",
+      "creator": {
+        "@id": "https://aiventure.ro/#organization"
+      },
+      "publisher": {
+        "@id": "https://aiventure.ro/#organization"
+      },
+      "spatialCoverage": {
+        "@type": "Place",
+        "name": "România"
+      },
+      "isAccessibleForFree": true,
+      "usageInfo": "https://firmsfinder.eu/legal/#terms",
+      "dateModified": "2026-10-14",
+      "isBasedOn": [
+        "https://mfinante.gov.ro/",
+        "https://data.gov.ro/"
+      ],
+      "sourceOrganization": [
+        {
+          "@type": "GovernmentOrganization",
+          "name": "Ministerul Finanțelor",
+          "url": "https://mfinante.gov.ro/"
+        },
+        {
+          "@type": "Organization",
+          "name": "data.gov.ro",
+          "url": "https://data.gov.ro/"
+        }
+      ],
+      "temporalCoverage": "2023/2025",
+      "measurementTechnique": "Numărare în baza de date FirmsFinder; cifrele din schemă sunt un instantaneu din 14 octombrie 2026, iar pagina /date/ le recalculează la încărcare (întârziere de cel mult o oră)",
+      "variableMeasured": [
+        {
+          "@type": "PropertyValue",
+          "name": "Bilanțuri 2023",
+          "value": 944655,
+          "unitText": "firme"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Bilanțuri 2024",
+          "value": 968704,
+          "unitText": "firme"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Bilanțuri 2025",
+          "value": 918334,
+          "unitText": "firme"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://firmsfinder.eu/gaseste/#webpage",
+      "url": "https://firmsfinder.eu/gaseste/",
+      "name": "Găsește firme care ar putea cumpăra de la tine",
+      "description": "Scrieți ce produse sau servicii oferiți și vedeți firme din România potențial relevante, după activitate (CAEN). Căutare gratuită; rezultatele sunt propuneri de verificat, nu dovezi de interes.",
+      "isPartOf": {
+        "@id": "https://firmsfinder.eu/#website"
+      },
+      "inLanguage": "ro-RO",
+      "about": [
+        {
+          "@id": "https://firmsfinder.eu/gaseste/#s-vand"
+        },
+        {
+          "@id": "https://firmsfinder.eu/gaseste/#s-cumpar"
+        },
+        {
+          "@id": "https://firmsfinder.eu/#dataset-onrc"
+        },
+        {
+          "@id": "https://firmsfinder.eu/#dataset-mf"
+        }
+      ],
+      "mainEntity": {
+        "@id": "https://firmsfinder.eu/gaseste/#app"
+      },
+      "dateModified": "2026-10-31",
+      "datePublished": "2026-10-31",
+      "copyrightYear": 2026,
+      "isAccessibleForFree": true,
+      "publisher": {
+        "@id": "https://aiventure.ro/#organization"
+      },
+      "author": {
+        "@id": "https://aiventure.ro/#organization"
+      },
+      "creator": {
+        "@id": "https://aiventure.ro/#organization"
+      },
+      "copyrightHolder": {
+        "@id": "https://aiventure.ro/#organization"
+      },
+      "usageInfo": "https://firmsfinder.eu/legal/#terms",
+      "significantLink": [
+        "https://firmsfinder.eu/cautare/",
+        "https://firmsfinder.eu/fii-gasit/",
+        "https://firmsfinder.eu/descopera/",
+        "https://firmsfinder.eu/surse/",
+        "https://firmsfinder.eu/angajament/"
+      ],
+      "breadcrumb": {
+        "@id": "https://firmsfinder.eu/gaseste/#breadcrumb"
       }
+    },
+    {
+      "@type": "WebApplication",
+      "@id": "https://firmsfinder.eu/gaseste/#app",
+      "name": "Găsește firme",
+      "description": "Scrieți ce produse sau servicii oferiți sau ce doriți să cumpărați și vedeți firme din România potențial relevante, după activitate (CAEN).",
+      "url": "https://firmsfinder.eu/gaseste/",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "ro-RO",
+      "provider": {
+        "@id": "https://aiventure.ro/#organization"
+      },
+      "isAccessibleForFree": true,
+      "audience": {
+        "@id": "https://firmsfinder.eu/#public"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "RON",
+        "description": "Căutarea este gratuită, fără cont"
+      },
+      "featureList": [
+        "Intrare în text liber: ce produse sau servicii oferiți",
+        "Dicționar de pornire cu 15 categorii",
+        "Activități CAEN propuse, alese de vizitator (maximum 3)",
+        "Fila Vând către firme: firme potențial interesate",
+        "Fila Cumpăr pentru firmă: furnizori potențiali",
+        "Primele 8 firme pe activitate, după cifra de afaceri 2024",
+        "Textul scris rămâne în browser; se trimit doar codurile CAEN"
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://firmsfinder.eu/gaseste/#s-vand",
+      "name": "Vând către firme",
+      "serviceType": "Identificare de firme potențial interesate",
+      "description": "Pornind de la ce oferiți, pagina propune activități (CAEN) ale firmelor care ar putea cumpăra și arată primele 8 firme pe activitate. Rezultatele sunt firme potențial relevante, nu dovezi de interes.",
+      "provider": {
+        "@id": "https://aiventure.ro/#organization"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "România"
+      },
+      "audience": {
+        "@id": "https://firmsfinder.eu/#public"
+      },
+      "termsOfService": "https://firmsfinder.eu/legal/#terms",
+      "url": "https://firmsfinder.eu/gaseste/"
+    },
+    {
+      "@type": "Service",
+      "@id": "https://firmsfinder.eu/gaseste/#s-cumpar",
+      "name": "Cumpăr pentru firmă",
+      "serviceType": "Identificare de furnizori potențiali",
+      "description": "Pornind de la ce doriți să cumpărați, pagina arată firme care produc sau distribuie acel lucru, după activitatea principală. Cererea nu este înregistrată și nu este trimisă nimănui.",
+      "provider": {
+        "@id": "https://aiventure.ro/#organization"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "România"
+      },
+      "audience": {
+        "@id": "https://firmsfinder.eu/#public"
+      },
+      "termsOfService": "https://firmsfinder.eu/legal/#terms",
+      "url": "https://firmsfinder.eu/gaseste/"
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://firmsfinder.eu/gaseste/#howto",
+      "name": "Cum găsiți firme potențial interesate",
+      "inLanguage": "ro-RO",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Alegeți fila",
+          "text": "Alegeți „Vând către firme” dacă oferiți ceva sau „Cumpăr pentru firmă” dacă aveți de cumpărat."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Scrieți produsul sau serviciul",
+          "text": "Scrieți, de exemplu, „mobilier de birou” și apăsați butonul de căutare."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Alegeți activitățile",
+          "text": "Din activitățile propuse bifați cel mult trei."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Verificați firmele",
+          "text": "Apăsați „Arată firmele” și verificați fiecare firmă pe pagina ei înainte de orice contact."
+        }
+      ]
+    },
+    {
+      "@type": "DefinedTermSet",
+      "@id": "https://firmsfinder.eu/gaseste/#categorii",
+      "name": "Categoriile dicționarului de pornire",
+      "hasDefinedTerm": [
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://firmsfinder.eu/gaseste/#c-mobilier_birou",
+          "name": "mobilier de birou",
+          "inDefinedTermSet": {
+            "@id": "https://firmsfinder.eu/gaseste/#categorii"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://firmsfinder.eu/gaseste/#c-ambalaje_carton",
+          "name": "ambalaje și cutii de carton",
+          "inDefinedTermSet": {
+            "@id": "https://firmsfinder.eu/gaseste/#categorii"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://firmsfinder.eu/gaseste/#c-echipamente_it",
+          "name": "calculatoare și echipamente IT",
+          "inDefinedTermSet": {
+            "@id": "https://firmsfinder.eu/gaseste/#categorii"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://firmsfinder.eu/gaseste/#c-echipament_protectie",
+          "name": "îmbrăcăminte de lucru și echipament de protecție",
+          "inDefinedTermSet": {
+            "@id": "https://firmsfinder.eu/gaseste/#categorii"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://firmsfinder.eu/gaseste/#c-ingrediente_horeca",
+          "name": "alimente și ingrediente pentru restaurante și hoteluri",
+          "inDefinedTermSet": {
+            "@id": "https://firmsfinder.eu/gaseste/#categorii"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://firmsfinder.eu/gaseste/#c-piese_auto",
+          "name": "piese și accesorii auto",
+          "inDefinedTermSet": {
+            "@id": "https://firmsfinder.eu/gaseste/#categorii"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://firmsfinder.eu/gaseste/#c-materiale_constructii",
+          "name": "materiale de construcții",
+          "inDefinedTermSet": {
+            "@id": "https://firmsfinder.eu/gaseste/#categorii"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://firmsfinder.eu/gaseste/#c-echipamente_bucatarie",
+          "name": "echipamente profesionale de bucătărie",
+          "inDefinedTermSet": {
+            "@id": "https://firmsfinder.eu/gaseste/#categorii"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://firmsfinder.eu/gaseste/#c-ingrasaminte_seminte",
+          "name": "îngrășăminte, semințe și input-uri agricole",
+          "inDefinedTermSet": {
+            "@id": "https://firmsfinder.eu/gaseste/#categorii"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://firmsfinder.eu/gaseste/#c-utilaje_agricole",
+          "name": "utilaje și echipamente agricole",
+          "inDefinedTermSet": {
+            "@id": "https://firmsfinder.eu/gaseste/#categorii"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://firmsfinder.eu/gaseste/#c-transport_marfa",
+          "name": "transport rutier de marfă",
+          "inDefinedTermSet": {
+            "@id": "https://firmsfinder.eu/gaseste/#categorii"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://firmsfinder.eu/gaseste/#c-publicitate_marketing",
+          "name": "publicitate și marketing",
+          "inDefinedTermSet": {
+            "@id": "https://firmsfinder.eu/gaseste/#categorii"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://firmsfinder.eu/gaseste/#c-echipamente_medicale",
+          "name": "echipamente și consumabile medicale",
+          "inDefinedTermSet": {
+            "@id": "https://firmsfinder.eu/gaseste/#categorii"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://firmsfinder.eu/gaseste/#c-curatenie",
+          "name": "servicii de curățenie",
+          "inDefinedTermSet": {
+            "@id": "https://firmsfinder.eu/gaseste/#categorii"
+          }
+        },
+        {
+          "@type": "DefinedTerm",
+          "@id": "https://firmsfinder.eu/gaseste/#c-paza_securitate",
+          "name": "servicii de pază",
+          "inDefinedTermSet": {
+            "@id": "https://firmsfinder.eu/gaseste/#categorii"
+          }
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://firmsfinder.eu/gaseste/#faq",
+      "inLanguage": "ro-RO",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "@id": "https://firmsfinder.eu/gaseste/#q-1",
+          "name": "Ce face pagina Găsește?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Vă ajută să găsiți firme din România care ar putea cumpăra de la dumneavoastră. Scrieți ce produse sau servicii oferiți, alegeți activitățile propuse și vedeți firme cu acele activități, ordonate după cifra de afaceri."
+          }
+        },
+        {
+          "@type": "Question",
+          "@id": "https://firmsfinder.eu/gaseste/#q-2",
+          "name": "Cum caut firme care ar putea cumpăra de la mine?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pe fila „Vând către firme” scrieți ce oferiți, de exemplu „mobilier de birou”. Pagina propune până la șase activități (coduri CAEN) ale firmelor care ar putea cumpăra. Alegeți cel mult trei și apăsați „Arată firmele”."
+          }
+        },
+        {
+          "@type": "Question",
+          "@id": "https://firmsfinder.eu/gaseste/#q-3",
+          "name": "Ce înseamnă „Cumpăr pentru firmă”?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Este fila pentru cine are de cumpărat. Scrieți ce doriți să cumpărați, iar pagina arată firme care produc sau distribuie acel lucru, după activitatea lor principală. Sunt furnizori potențiali, nu oferte."
+          }
+        },
+        {
+          "@type": "Question",
+          "@id": "https://firmsfinder.eu/gaseste/#q-4",
+          "name": "Pot scrie orice produs sau serviciu?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Puteți scrie orice, dar propunerile apar doar pentru categoriile din dicționarul de pornire (15 categorii). Dacă nu găsim categoria, vă arătăm categoriile disponibile și un link către Căutarea completă."
+          }
+        },
+        {
+          "@type": "Question",
+          "@id": "https://firmsfinder.eu/gaseste/#q-5",
+          "name": "De ce trebuie să aleg activități (coduri CAEN)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Firmele din baza de date sunt clasificate după activitatea principală (cod CAEN). Căutarea se face pe aceste coduri, deci nu pe textul pe care îl scrieți. Puteți alege cel mult trei activități odată."
+          }
+        },
+        {
+          "@type": "Question",
+          "@id": "https://firmsfinder.eu/gaseste/#q-6",
+          "name": "Câte firme văd pentru fiecare activitate?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Primele opt firme pentru fiecare activitate aleasă, ordonate după cifra de afaceri din 2024. Pentru lista completă, filtre pe județ și export folosiți pagina Caută."
+          }
+        },
+        {
+          "@type": "Question",
+          "@id": "https://firmsfinder.eu/gaseste/#q-7",
+          "name": "Înseamnă rezultatele că firmele vor cumpăra de la mine?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nu. Sunt firme potențial relevante, alese după activitatea lor principală. Încadrarea într-un cod CAEN nu dovedește interes de cumpărare, iar decizia de a contacta o firmă rămâne a dumneavoastră."
+          }
+        },
+        {
+          "@type": "Question",
+          "@id": "https://firmsfinder.eu/gaseste/#q-8",
+          "name": "Ce înseamnă „potențial relevante”?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Înseamnă că activitatea principală a firmei este una în care, de regulă, se cumpără produsul sau serviciul respectiv. Este o ipoteză de pornire, nevalidată de piață, nu o evaluare a nevoii reale a firmei."
+          }
+        },
+        {
+          "@type": "Question",
+          "@id": "https://firmsfinder.eu/gaseste/#q-9",
+          "name": "Pe ce date se bazează rezultatele?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pe date publice ONRC și pe bilanțurile depuse la Ministerul Finanțelor, obținute prin data.gov.ro. Activitatea folosită este cea principală din bilanțul Ministerului Finanțelor, clasificată CAEN Rev. 2."
+          }
+        },
+        {
+          "@type": "Question",
+          "@id": "https://firmsfinder.eu/gaseste/#q-10",
+          "name": "De ce unele firme nu au link spre pagină?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Persoanele fizice autorizate, întreprinderile individuale și cele familiale (PFA, II, IF) apar mascate, fără link spre o pagină de firmă. Firmele cu cod unic de înregistrare numeric au link către pagina lor."
+          }
+        },
+        {
+          "@type": "Question",
+          "@id": "https://firmsfinder.eu/gaseste/#q-11",
+          "name": "De ce apare o firmă la o activitate la care nu mă așteptam?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Activitatea din bilanțul Ministerului Finanțelor poate fi diferită de activitatea reală sau de cea din registru. Verificați întotdeauna firma pe pagina ei înainte de a o contacta."
+          }
+        },
+        {
+          "@type": "Question",
+          "@id": "https://firmsfinder.eu/gaseste/#q-12",
+          "name": "Cum văd mai mult de opt firme sau le filtrez pe județ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Folosiți pagina Caută. Acolo puteți filtra după județ, localitate, cifră de afaceri, salariați și evoluție, puteți vedea până la 50 de rezultate per căutare și exporta lista."
+          }
+        },
+        {
+          "@type": "Question",
+          "@id": "https://firmsfinder.eu/gaseste/#q-13",
+          "name": "Se salvează ce scriu în casetă?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nu. Textul scris rămâne în browserul dumneavoastră. Spre căutare se trimit doar codurile de activitate (CAEN) pe care le alegeți. Nu scrieți date personale în casetă."
+          }
+        },
+        {
+          "@type": "Question",
+          "@id": "https://firmsfinder.eu/gaseste/#q-14",
+          "name": "Se înregistrează cererea mea de cumpărare sau de vânzare?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nu. Pagina nu înregistrează cereri, nu cere e-mail și nu trimite nimic niciunei firme. Pe fila „Cumpăr pentru firmă” se face doar o căutare de furnizori potențiali, afișată pe ecranul dumneavoastră."
+          }
+        },
+        {
+          "@type": "Question",
+          "@id": "https://firmsfinder.eu/gaseste/#q-15",
+          "name": "Mă contactează cineva după ce fac o căutare?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nu. Nu colectăm datele dumneavoastră de contact prin această pagină, deci nu avem cum să vă contactăm. Căutarea nu creează cont și nu înscrie firma dumneavoastră nicăieri."
+          }
+        },
+        {
+          "@type": "Question",
+          "@id": "https://firmsfinder.eu/gaseste/#q-16",
+          "name": "Cât costă această căutare?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Este gratuită și nu cere cont. Căutarea de bază și filtrele pe pagina Caută sunt, de asemenea, gratuite."
+          }
+        },
+        {
+          "@type": "Question",
+          "@id": "https://firmsfinder.eu/gaseste/#q-17",
+          "name": "Sunt aceste date oficiale?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nu. Datele provin din surse publice (ONRC, Ministerul Finanțelor), dar sunt prelucrate de FirmsFinder și nu sunt date oficiale. Pentru decizii importante verificați la sursă."
+          }
+        },
+        {
+          "@type": "Question",
+          "@id": "https://firmsfinder.eu/gaseste/#q-18",
+          "name": "Acoperă dicționarul toate domeniile?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nu. Este un dicționar de pornire, cu 15 categorii, mic și nevalidat de piață. Se va extinde. Până atunci, pentru domeniile lipsă folosiți pagina Caută."
+          }
+        },
+        {
+          "@type": "Question",
+          "@id": "https://firmsfinder.eu/gaseste/#q-19",
+          "name": "Cum mă fac găsit de alte firme?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pe pagina Fii găsit puteți vedea cum devine firma dumneavoastră mai ușor de descoperit de clienți, oameni sau sisteme AI."
+          }
+        },
+        {
+          "@type": "Question",
+          "@id": "https://firmsfinder.eu/gaseste/#q-20",
+          "name": "Unde descopăr firme apropiate ca profil de clienții mei?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pe pagina Descoperă. Acolo vedeți ce este disponibil acum, în special firmele cu profil apropiat de pe pagina unei firme, și ce este încă în pregătire."
+          }
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",
@@ -108,12 +793,46 @@
 .ff-verbs{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0 0;font-size:13px;letter-spacing:.9px;color:var(--muted)}
 .ff-verbs a{color:var(--muted);text-decoration:underline;text-decoration-color:#286079;text-underline-offset:3px}
 .ff-verbs a:hover{color:var(--gold)}
-@media(max-width:540px){.ff-find{padding:12px}.btn.ff-go{flex:1 1 100%}.ff-tabs button{flex:1 1 100%;font-size:15px}}</style></head>
+@media(max-width:540px){.ff-find{padding:12px}.btn.ff-go{flex:1 1 100%}.ff-tabs button{flex:1 1 100%;font-size:15px}}.faq-g h3{margin:26px 0 6px}.faq-q h4{margin:16px 0 4px;font-size:1.05rem}.faq-q p{margin:0}.dsc-s h3{margin:18px 0 4px;font-size:1.1rem}.dsc-s p{margin:4px 0}</style></head>
 <body><main><nav aria-label="Navigație"><a href="/">Acasă</a><a href="/cautare/">Căutare</a><a href="/descopera/">Descoperă</a><a href="/gaseste/">Găsește</a><a href="/comparare/">Comparare</a><a href="/semnale/">Semnale</a><a href="/date/">Date</a><a href="/surse/">Surse</a><a href="/dictionar/">Dicționar</a><a href="/glosar/">Glosar</a><a href="/contact/">Contact</a></nav><p aria-label="Breadcrumb"><a href="/">Acasă</a> / Găsește firme</p>
 <h1>Găsește firme care ar putea cumpăra de la tine.</h1>
 <p>Scrieți ce produse sau servicii oferiți (sau ce doriți să cumpărați), alegeți activitățile propuse și vedeți firme din România, ordonate după cifra de afaceri. Căutarea simplă, cu filtre, este pe pagina <a href="/cautare/">Caută</a>.</p>
-<section class="ff-find" id="ff-find" aria-label="Găsește firme potrivite pentru oferta ta"><div class="ff-tabs" role="tablist" aria-label="Ce vrei să faci?"><button type="button" role="tab" id="ff-tab-vand" aria-selected="true" aria-controls="ff-form" data-mode="vand">Vând către firme</button><button type="button" role="tab" id="ff-tab-cumpar" aria-selected="false" aria-controls="ff-form" data-mode="cumpar" tabindex="-1">Cumpăr pentru firmă</button></div><form id="ff-form" class="ff-form" role="tabpanel" aria-labelledby="ff-tab-vand" novalidate><label for="ff-q" id="ff-label">Ce produse sau servicii oferi?</label><div class="ff-row"><input id="ff-q" name="q" type="text" maxlength="80" autocomplete="off" placeholder="ex. mobilier de birou, ambalaje, transport de marfă"><button class="btn gold ff-go" type="submit" id="ff-go">Găsește firme potențial interesate</button></div><p class="ff-hint" id="ff-hint">Textul scris aici rămâne în browserul dumneavoastră; spre căutare se trimit doar codurile de activitate (CAEN) alese. Nu scrieți date personale.</p></form><div class="ff-suggest" id="ff-suggest" hidden></div><p class="ff-status" id="ff-status" role="status" aria-live="polite"></p><div class="ff-res" id="ff-res"></div></section>
+<section id="cauta-acum"><h2>Căutați acum</h2><section class="ff-find" id="ff-find" aria-label="Găsește firme potrivite pentru oferta ta"><div class="ff-tabs" role="tablist" aria-label="Ce vrei să faci?"><button type="button" role="tab" id="ff-tab-vand" aria-selected="true" aria-controls="ff-form" data-mode="vand">Vând către firme</button><button type="button" role="tab" id="ff-tab-cumpar" aria-selected="false" aria-controls="ff-form" data-mode="cumpar" tabindex="-1">Cumpăr pentru firmă</button></div><form id="ff-form" class="ff-form" role="tabpanel" aria-labelledby="ff-tab-vand" novalidate><label for="ff-q" id="ff-label">Ce produse sau servicii oferi?</label><div class="ff-row"><input id="ff-q" name="q" type="text" maxlength="80" autocomplete="off" placeholder="ex. mobilier de birou, ambalaje, transport de marfă"><button class="btn gold ff-go" type="submit" id="ff-go">Găsește firme potențial interesate</button></div><p class="ff-hint" id="ff-hint">Textul scris aici rămâne în browserul dumneavoastră; spre căutare se trimit doar codurile de activitate (CAEN) alese. Nu scrieți date personale.</p></form><div class="ff-suggest" id="ff-suggest" hidden></div><p class="ff-status" id="ff-status" role="status" aria-live="polite"></p><div class="ff-res" id="ff-res"></div></section></section>
+<section class="dsc-s" id="cum-functioneaza"><h2>Cum funcționează</h2><h3>1. Alegeți fila</h3><p>„Vând către firme” dacă oferiți ceva, „Cumpăr pentru firmă” dacă aveți de cumpărat.</p><h3>2. Scrieți produsul sau serviciul</h3><p>De exemplu „mobilier de birou”. Textul rămâne în browserul dumneavoastră.</p><h3>3. Alegeți activitățile</h3><p>Pagina propune activități (coduri <a href="/glosar/#c-cod-caen" class="gl">CAEN</a>); bifați cel mult trei.</p><h3>4. Verificați firmele</h3><p>Primele opt firme pe activitate, după cifra de afaceri 2024. Verificați fiecare firmă pe pagina ei înainte de orice contact.</p></section>
+
 <section class="dsc-s" id="limite"><h2>Ce trebuie să știți</h2><ul><li>Rezultatele sunt firme <strong>potențial relevante</strong>, alese după activitatea principală (cod <a href="/glosar/#c-cod-caen" class="gl">CAEN</a>). Încadrarea nu dovedește interes de cumpărare.</li><li>Lista de categorii este un dicționar de pornire, mic și nevalidat de piață; se extinde.</li><li>Pe „Cumpăr pentru firmă” se caută furnizori potențiali. Cererea dumneavoastră nu este înregistrată și nu este trimisă nimănui.</li><li>Datele de bază vin din <a href="/glosar/#c-onrc" class="gl">ONRC</a> și Ministerul Finanțelor, prin <a href="/glosar/#c-data-gov-ro" class="gl">data.gov.ro</a>. <a href="/surse/">Surse și metodologie</a>. Persoanele fizice (<a href="/glosar/#c-persoane-fizice" class="gl">PFA</a>, II, IF) apar mascate.</li></ul></section>
+<section class="dsc-s" id="intrebari"><h2>Întrebări frecvente</h2>
+<div class="faq-g"><h3>Despre căutare</h3>
+<div class="faq-q" id="q-1"><h4>Ce face pagina Găsește?</h4><p>Vă ajută să găsiți firme din România care ar putea cumpăra de la dumneavoastră. Scrieți ce produse sau servicii oferiți, alegeți activitățile propuse și vedeți firme cu acele activități, ordonate după cifra de afaceri.</p></div>
+<div class="faq-q" id="q-2"><h4>Cum caut firme care ar putea cumpăra de la mine?</h4><p>Pe fila „Vând către firme” scrieți ce oferiți, de exemplu „mobilier de birou”. Pagina propune până la șase activități (coduri CAEN) ale firmelor care ar putea cumpăra. Alegeți cel mult trei și apăsați „Arată firmele”.</p></div>
+<div class="faq-q" id="q-3"><h4>Ce înseamnă „Cumpăr pentru firmă”?</h4><p>Este fila pentru cine are de cumpărat. Scrieți ce doriți să cumpărați, iar pagina arată firme care produc sau distribuie acel lucru, după activitatea lor principală. Sunt furnizori potențiali, nu oferte.</p></div>
+<div class="faq-q" id="q-4"><h4>Pot scrie orice produs sau serviciu?</h4><p>Puteți scrie orice, dar propunerile apar doar pentru categoriile din dicționarul de pornire (15 categorii). Dacă nu găsim categoria, vă arătăm categoriile disponibile și un link către Căutarea completă.</p></div>
+<div class="faq-q" id="q-5"><h4>De ce trebuie să aleg activități (coduri CAEN)?</h4><p>Firmele din baza de date sunt clasificate după activitatea principală (cod CAEN). Căutarea se face pe aceste coduri, deci nu pe textul pe care îl scrieți. Puteți alege cel mult trei activități odată.</p></div>
+<div class="faq-q" id="q-6"><h4>Câte firme văd pentru fiecare activitate?</h4><p>Primele opt firme pentru fiecare activitate aleasă, ordonate după cifra de afaceri din 2024. Pentru lista completă, filtre pe județ și export folosiți pagina Caută.</p></div>
+</div>
+<div class="faq-g"><h3>Despre rezultate</h3>
+<div class="faq-q" id="q-7"><h4>Înseamnă rezultatele că firmele vor cumpăra de la mine?</h4><p>Nu. Sunt firme potențial relevante, alese după activitatea lor principală. Încadrarea într-un cod CAEN nu dovedește interes de cumpărare, iar decizia de a contacta o firmă rămâne a dumneavoastră.</p></div>
+<div class="faq-q" id="q-8"><h4>Ce înseamnă „potențial relevante”?</h4><p>Înseamnă că activitatea principală a firmei este una în care, de regulă, se cumpără produsul sau serviciul respectiv. Este o ipoteză de pornire, nevalidată de piață, nu o evaluare a nevoii reale a firmei.</p></div>
+<div class="faq-q" id="q-9"><h4>Pe ce date se bazează rezultatele?</h4><p>Pe date publice ONRC și pe bilanțurile depuse la Ministerul Finanțelor, obținute prin data.gov.ro. Activitatea folosită este cea principală din bilanțul Ministerului Finanțelor, clasificată CAEN Rev. 2.</p></div>
+<div class="faq-q" id="q-10"><h4>De ce unele firme nu au link spre pagină?</h4><p>Persoanele fizice autorizate, întreprinderile individuale și cele familiale (PFA, II, IF) apar mascate, fără link spre o pagină de firmă. Firmele cu cod unic de înregistrare numeric au link către pagina lor.</p></div>
+<div class="faq-q" id="q-11"><h4>De ce apare o firmă la o activitate la care nu mă așteptam?</h4><p>Activitatea din bilanțul Ministerului Finanțelor poate fi diferită de activitatea reală sau de cea din registru. Verificați întotdeauna firma pe pagina ei înainte de a o contacta.</p></div>
+<div class="faq-q" id="q-12"><h4>Cum văd mai mult de opt firme sau le filtrez pe județ?</h4><p>Folosiți pagina Caută. Acolo puteți filtra după județ, localitate, cifră de afaceri, salariați și evoluție, puteți vedea până la 50 de rezultate per căutare și exporta lista.</p></div>
+</div>
+<div class="faq-g"><h3>Date și confidențialitate</h3>
+<div class="faq-q" id="q-13"><h4>Se salvează ce scriu în casetă?</h4><p>Nu. Textul scris rămâne în browserul dumneavoastră. Spre căutare se trimit doar codurile de activitate (CAEN) pe care le alegeți. Nu scrieți date personale în casetă.</p></div>
+<div class="faq-q" id="q-14"><h4>Se înregistrează cererea mea de cumpărare sau de vânzare?</h4><p>Nu. Pagina nu înregistrează cereri, nu cere e-mail și nu trimite nimic niciunei firme. Pe fila „Cumpăr pentru firmă” se face doar o căutare de furnizori potențiali, afișată pe ecranul dumneavoastră.</p></div>
+<div class="faq-q" id="q-15"><h4>Mă contactează cineva după ce fac o căutare?</h4><p>Nu. Nu colectăm datele dumneavoastră de contact prin această pagină, deci nu avem cum să vă contactăm. Căutarea nu creează cont și nu înscrie firma dumneavoastră nicăieri.</p></div>
+<div class="faq-q" id="q-16"><h4>Cât costă această căutare?</h4><p>Este gratuită și nu cere cont. Căutarea de bază și filtrele pe pagina Caută sunt, de asemenea, gratuite.</p></div>
+<div class="faq-q" id="q-17"><h4>Sunt aceste date oficiale?</h4><p>Nu. Datele provin din surse publice (ONRC, Ministerul Finanțelor), dar sunt prelucrate de FirmsFinder și nu sunt date oficiale. Pentru decizii importante verificați la sursă.</p></div>
+</div>
+<div class="faq-g"><h3>Limite și pașii următori</h3>
+<div class="faq-q" id="q-18"><h4>Acoperă dicționarul toate domeniile?</h4><p>Nu. Este un dicționar de pornire, cu 15 categorii, mic și nevalidat de piață. Se va extinde. Până atunci, pentru domeniile lipsă folosiți pagina Caută.</p></div>
+<div class="faq-q" id="q-19"><h4>Cum mă fac găsit de alte firme?</h4><p>Pe pagina Fii găsit puteți vedea cum devine firma dumneavoastră mai ușor de descoperit de clienți, oameni sau sisteme AI.</p></div>
+<div class="faq-q" id="q-20"><h4>Unde descopăr firme apropiate ca profil de clienții mei?</h4><p>Pe pagina Descoperă. Acolo vedeți ce este disponibil acum, în special firmele cu profil apropiat de pe pagina unei firme, și ce este încă în pregătire.</p></div>
+</div>
+</section>
+<section class="dsc-s" id="vezi-si"><h2>Vezi și</h2><ul><li><a href="/cautare/">Caută</a>: căutare completă, cu filtre și export.</li><li><a href="/fii-gasit/">Fii găsit</a>: cum devine o firmă ușor de găsit de oameni și de sistemele AI.</li><li><a href="/descopera/">Descoperă</a>: firme apropiate ca profil de clienții dumneavoastră.</li><li><a href="/surse/">Surse</a> și <a href="/angajament/">Angajamentul de transparență</a>.</li></ul></section>
+
 <footer>FirmsFinder AI · AiVenture S.R.L. · <a href="/signals.json">Catalog JSON</a><!--angajament:1.0--><div class="angajament"><link rel="stylesheet" href="/angajament.css"><a class="angajament-badge" href="https://eu-ai-act-ready.eu/" rel="noopener"><img src="/assets/eu-ai-act-ready-2aug2026_256x256_v1.0_2026-10-16.webp" width="96" height="96" alt="EU AI Act Ready: kit cu 70 de documente, 10 module" loading="lazy"></a><p>Angajament de transparență v1.0 (16 octombrie 2026): memorăm doar ce declarăm. Fără acordul dumneavoastră, doar numărători, 24 de luni. Cu acord, text și selecții, cel mult 30 de zile. Nu stocăm în jurnal IP, email sau nume. <a href="/angajament/">Citiți și verificați amprenta</a> · <a href="/angajament.json">JSON</a><br><small>Insigna trimite la kitul EU AI Act Ready (70 de documente, 10 module). Nu este o certificare oficială și nu atestă conformitatea acestui site.</small></p></div><!--/angajament--></footer></main>
 <script id="ff-find-script">
 (function () {
