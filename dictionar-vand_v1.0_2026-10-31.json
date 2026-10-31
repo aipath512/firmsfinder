@@ -1,0 +1,230 @@
+{
+  "schema": "FIRMSFINDER_DICTIONAR_VAND",
+  "version": "1.0",
+  "date": "2026-10-31",
+  "stare": "SEED_NEVALIDAT_DE_PIATA",
+  "nomenclator": "CAEN Rev.2 (coloana caen_mf din bilanțurile Ministerului Finanțelor, D1 b2b-romania-db)",
+  "avertisment": "Fiecare intrare este o ipoteză de pornire: firmele cu activitatea indicată ar PUTEA cumpăra categoria respectivă. Încadrarea CAEN nu dovedește interes de cumpărare. Dicționarul nu a fost validat cu date de piață.",
+  "utilizare": "Vând: cuvinte -> cumparatori (CAEN ale firmelor care ar putea cumpăra). Cumpăr: cuvinte -> furnizori (CAEN ale firmelor care produc sau distribuie). Căutarea rulează doar pe coduri de 4 cifre, maximum 3 pe cerere.",
+  "sursa_denumiri": "Tabela caen_nume din b2b-romania-db, nomenclator 2, citită la 2026-10-31",
+  "denumiri_caen": {
+    "0111": "Cultivarea cerealelor (exclusiv orez), plantelor leguminoase și a plantelor producătoare de semințe oleaginoase",
+    "0113": "Cultivarea legumelor și a pepenilor, a rădăcinoaselor și tuberculilor",
+    "0150": "Activități în ferme mixte (cultura vegetală combinată cu creșterea animalelor)",
+    "0161": "Activități auxiliare pentru producția vegetală",
+    "1013": "Fabricarea produselor din carne (inclusiv din carne de pasăre)",
+    "1071": "Fabricarea pâinii; fabricarea prăjiturilor și a produselor proaspete de patiserie",
+    "1412": "Fabricarea de articole de îmbrăcăminte pentru lucru",
+    "1721": "Fabricarea hârtiei și cartonului ondulat și a ambalajelor din hârtie și carton",
+    "2015": "Fabricarea îngrășămintelor și produselor azotoase",
+    "2830": "Fabricarea mașinilor și utilajelor pentru agricultură și exploatări forestiere",
+    "2893": "Fabricarea utilajelor pentru prelucrarea produselor alimentare, băuturilor și tutunului",
+    "3101": "Fabricarea de mobilă pentru birouri și magazine",
+    "3250": "Fabricarea de dispozitive, aparate și instrumente medicale și stomatologice",
+    "4110": "Dezvoltare (promovare) imobiliară",
+    "4120": "Lucrări de construcții a clădirilor rezidențiale și nerezidențiale",
+    "4321": "Lucrări de instalații electrice",
+    "4322": "Lucrări de instalații sanitare, de încălzire și de aer condiționat",
+    "4339": "Alte lucrări de finisare",
+    "4511": "Comerț cu autoturisme și autovehicule ușoare (sub 3,5 tone)",
+    "4520": "Întreținerea și repararea autovehiculelor",
+    "4531": "Comerț cu ridicata de piese și accesorii pentru autovehicule",
+    "4639": "Comerț cu ridicata nespecializat de produse alimentare, băuturi și tutun",
+    "4651": "Comerț cu ridicata al calculatoarelor, echipamentelor periferice și software-ului",
+    "4661": "Comerț cu ridicata al mașinilor agricole, echipamentelor și furniturilor",
+    "4665": "Comerț cu ridicata al mobilei de birou",
+    "4673": "Comerț cu ridicata al materialului lemnos și al materialelor de construcții și echipamentelor sanitare",
+    "4675": "Comerț cu ridicata al produselor chimice",
+    "4711": "Comerț cu amănuntul în magazine nespecializate, cu vânzare predominantă de produse alimentare, băuturi și tutun",
+    "4791": "Comerț cu amănuntul prin intermediul caselor de comenzi sau prin Internet",
+    "4941": "Transporturi rutiere de mărfuri",
+    "5510": "Hoteluri și alte facilități de cazare similare",
+    "5610": "Restaurante",
+    "5621": "Activități de alimentație (catering) pentru evenimente",
+    "6820": "Închirierea și subînchirierea bunurilor imobiliare proprii sau închiriate",
+    "6910": "Activități juridice",
+    "6920": "Activități de contabilitate și audit financiar; consultanță în domeniul fiscal",
+    "7111": "Activități de arhitectură",
+    "7311": "Activități ale agențiilor de publicitate",
+    "8010": "Activități de protecție și gardă",
+    "8121": "Activități generale de curățenie a clădirilor",
+    "8122": "Activități specializate de curățenie",
+    "8610": "Activități de asistență spitalicească",
+    "8621": "Activități de asistență medicală generală",
+    "8622": "Activități de asistență medicală specializată",
+    "8623": "Activități de asistență stomatologică"
+  },
+  "categorii": [
+    {
+      "id": "mobilier_birou",
+      "eticheta": "mobilier de birou",
+      "cuvinte": ["mobilier de birou", "mobila de birou", "mobilier birou", "scaune de birou", "birouri si scaune", "mobilier office"],
+      "furnizori": ["3101", "4665"],
+      "cumparatori": [
+        {"caen": "4665", "motiv": "revânzători de mobilier de birou"},
+        {"caen": "6820", "motiv": "firme care închiriază spații de birouri ce trebuie echipate"},
+        {"caen": "7111", "motiv": "arhitecți implicați în amenajări de spații"},
+        {"caen": "4120", "motiv": "constructori care predau clădiri de birouri"}
+      ]
+    },
+    {
+      "id": "ambalaje_carton",
+      "eticheta": "ambalaje și cutii de carton",
+      "cuvinte": ["ambalaje", "ambalaj", "cutii de carton", "cutii carton", "carton ondulat"],
+      "furnizori": ["1721"],
+      "cumparatori": [
+        {"caen": "1071", "motiv": "brutării și patiserii care ambalează produse"},
+        {"caen": "1013", "motiv": "producători de produse din carne"},
+        {"caen": "4791", "motiv": "magazine online care expediază colete"}
+      ]
+    },
+    {
+      "id": "echipamente_it",
+      "eticheta": "calculatoare și echipamente IT",
+      "cuvinte": ["calculatoare", "computere", "laptop", "laptopuri", "imprimante", "echipamente it", "hardware"],
+      "furnizori": ["4651"],
+      "cumparatori": [
+        {"caen": "6910", "motiv": "birouri juridice cu posturi de lucru"},
+        {"caen": "6920", "motiv": "firme de contabilitate cu posturi de lucru"},
+        {"caen": "7311", "motiv": "agenții de publicitate cu stații grafice"}
+      ]
+    },
+    {
+      "id": "echipament_protectie",
+      "eticheta": "îmbrăcăminte de lucru și echipament de protecție",
+      "cuvinte": ["echipament de protectie", "echipamente de protectie", "haine de lucru", "imbracaminte de lucru", "uniforme", "salopete"],
+      "furnizori": ["1412"],
+      "cumparatori": [
+        {"caen": "4120", "motiv": "constructori ai căror angajați lucrează pe șantier"},
+        {"caen": "4321", "motiv": "firme de instalații electrice"},
+        {"caen": "4322", "motiv": "firme de instalații sanitare și termice"}
+      ]
+    },
+    {
+      "id": "ingrediente_horeca",
+      "eticheta": "alimente și ingrediente pentru restaurante și hoteluri",
+      "cuvinte": ["horeca", "produse horeca", "alimente horeca", "alimente pentru restaurante", "ingrediente pentru restaurante"],
+      "furnizori": ["4639"],
+      "cumparatori": [
+        {"caen": "5610", "motiv": "restaurante"},
+        {"caen": "5510", "motiv": "hoteluri cu restaurant propriu"},
+        {"caen": "5621", "motiv": "firme de catering pentru evenimente"}
+      ]
+    },
+    {
+      "id": "piese_auto",
+      "eticheta": "piese și accesorii auto",
+      "cuvinte": ["piese auto", "accesorii auto", "piese de schimb auto", "anvelope"],
+      "furnizori": ["4531"],
+      "cumparatori": [
+        {"caen": "4520", "motiv": "ateliere de reparații auto"},
+        {"caen": "4511", "motiv": "comercianți de autoturisme"},
+        {"caen": "4941", "motiv": "firme de transport cu flotă proprie"}
+      ]
+    },
+    {
+      "id": "materiale_constructii",
+      "eticheta": "materiale de construcții",
+      "cuvinte": ["materiale de constructii", "materiale constructii", "ciment", "caramizi", "gresie", "faianta", "adezivi", "termoizolatii"],
+      "furnizori": ["4673"],
+      "cumparatori": [
+        {"caen": "4120", "motiv": "constructori de clădiri"},
+        {"caen": "4110", "motiv": "dezvoltatori imobiliari"},
+        {"caen": "4339", "motiv": "firme de finisaje"},
+        {"caen": "4322", "motiv": "firme de instalații sanitare și termice"}
+      ]
+    },
+    {
+      "id": "echipamente_bucatarie",
+      "eticheta": "echipamente profesionale de bucătărie",
+      "cuvinte": ["echipamente de bucatarie", "utilaje de bucatarie", "cuptoare profesionale", "echipamente pentru restaurante", "echipamente horeca"],
+      "furnizori": ["2893"],
+      "cumparatori": [
+        {"caen": "5610", "motiv": "restaurante care își dotează bucătăria"},
+        {"caen": "5510", "motiv": "hoteluri cu bucătărie proprie"},
+        {"caen": "5621", "motiv": "firme de catering pentru evenimente"},
+        {"caen": "1071", "motiv": "brutării și patiserii"}
+      ]
+    },
+    {
+      "id": "ingrasaminte_seminte",
+      "eticheta": "îngrășăminte, semințe și input-uri agricole",
+      "cuvinte": ["ingrasaminte", "fertilizanti", "seminte", "samanta", "pesticide"],
+      "furnizori": ["2015", "4675"],
+      "cumparatori": [
+        {"caen": "0111", "motiv": "ferme de cereale și plante oleaginoase"},
+        {"caen": "0113", "motiv": "ferme de legume"},
+        {"caen": "0150", "motiv": "ferme mixte"}
+      ]
+    },
+    {
+      "id": "utilaje_agricole",
+      "eticheta": "utilaje și echipamente agricole",
+      "cuvinte": ["utilaje agricole", "masini agricole", "tractoare", "combine agricole", "utilaje pentru agricultura"],
+      "furnizori": ["2830", "4661"],
+      "cumparatori": [
+        {"caen": "0111", "motiv": "ferme de cereale și plante oleaginoase"},
+        {"caen": "0150", "motiv": "ferme mixte"},
+        {"caen": "0161", "motiv": "firme care prestează lucrări agricole"}
+      ]
+    },
+    {
+      "id": "transport_marfa",
+      "eticheta": "transport rutier de marfă",
+      "cuvinte": ["transport de marfa", "transport marfa", "transport rutier de marfuri", "transport rutier"],
+      "furnizori": ["4941"],
+      "cumparatori": [
+        {"caen": "4791", "motiv": "magazine online cu livrări"},
+        {"caen": "4673", "motiv": "distribuitori de materiale de construcții"},
+        {"caen": "4711", "motiv": "rețele de magazine alimentare"}
+      ]
+    },
+    {
+      "id": "publicitate_marketing",
+      "eticheta": "publicitate și marketing",
+      "cuvinte": ["publicitate", "marketing", "reclame", "campanii de marketing", "promovare online", "social media", "seo"],
+      "furnizori": ["7311"],
+      "cumparatori": [
+        {"caen": "4791", "motiv": "magazine online"},
+        {"caen": "5510", "motiv": "hoteluri"},
+        {"caen": "8623", "motiv": "cabinete stomatologice"},
+        {"caen": "4511", "motiv": "comercianți de autoturisme"}
+      ]
+    },
+    {
+      "id": "echipamente_medicale",
+      "eticheta": "echipamente și consumabile medicale",
+      "cuvinte": ["echipamente medicale", "aparatura medicala", "dispozitive medicale", "consumabile medicale", "instrumentar medical", "echipamente stomatologice"],
+      "furnizori": ["3250"],
+      "cumparatori": [
+        {"caen": "8621", "motiv": "cabinete de medicină generală"},
+        {"caen": "8622", "motiv": "cabinete și clinici de specialitate"},
+        {"caen": "8623", "motiv": "cabinete stomatologice"},
+        {"caen": "8610", "motiv": "spitale"}
+      ]
+    },
+    {
+      "id": "curatenie",
+      "eticheta": "servicii de curățenie",
+      "cuvinte": ["curatenie", "servicii de curatenie", "servicii curatenie", "intretinere cladiri"],
+      "furnizori": ["8121", "8122"],
+      "cumparatori": [
+        {"caen": "5510", "motiv": "hoteluri"},
+        {"caen": "6820", "motiv": "administratori de spații de birouri"},
+        {"caen": "8610", "motiv": "spitale"},
+        {"caen": "4711", "motiv": "rețele de magazine alimentare"}
+      ]
+    },
+    {
+      "id": "paza_securitate",
+      "eticheta": "servicii de pază",
+      "cuvinte": ["paza", "servicii de paza", "paza si protectie", "agent de paza"],
+      "furnizori": ["8010"],
+      "cumparatori": [
+        {"caen": "4711", "motiv": "rețele de magazine alimentare"},
+        {"caen": "6820", "motiv": "administratori de spații de birouri"},
+        {"caen": "4120", "motiv": "constructori cu șantiere de păzit"}
+      ]
+    }
+  ]
+}
