@@ -2,7 +2,7 @@
   "schema": "FIRMSFINDER_ONSITE_MANIFEST",
   "version": "1.0",
   "generated_at": "2026-10-12",
-  "hashes_refreshed_at": "2026-10-29",
+  "hashes_refreshed_at": "2026-10-31",
   "site": "https://firmsfinder.eu/",
   "count": 60,
   "status": "GENERATED_NOT_DEPLOYED",
@@ -24,7 +24,7 @@
       "purpose": "XML URL discovery",
       "audience": "Search engines",
       "category": "Discovery",
-      "sha256": "b105ea6dfdf676d722827b05122c2459274ca683653190fcae6fbd3c4698d6fe",
+      "sha256": "a2c7715e6b5909e3818aa6dfc5ca5af46ce86febf9858ba6f0dae0d6a226757f",
       "existing_in_uploaded_repo": true
     },
     {
