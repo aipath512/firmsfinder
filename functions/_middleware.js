@@ -58,6 +58,9 @@ function footerHtml(d) {
     `<a href="${esc(i.manifest_url)}" rel="noopener">manifest</a> SHA-256 <code title="${esc(i.manifest_sha256)}">${shortHash(i.manifest_sha256)}</code> · ` +
     `<a href="${esc(i.ots_url)}" rel="noopener">OpenTimestamps</a>, confirmat în blocul Bitcoin ${fmt(i.ots_bitcoin_bloc)} · ` +
     `cifre calculate la ${dataRo(d.generat_la)} · <a href="/surse/">Detalii despre date</a> · <a href="${FOOTER_JSON}">JSON</a></p>` +
+    (Array.isArray(d.stare) && d.stare.length
+      ? `<p><strong>Stadiu:</strong> ${d.stare.map((x) => esc(x)).join(" · ")}</p>`
+      : "") +
     `</div>`
   );
 }

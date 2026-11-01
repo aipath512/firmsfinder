@@ -4,6 +4,12 @@
   "generat_la": "2026-11-01T07:20:00Z",
   "sesiune": "0008C",
   "sursa": "AiVenture S.R.L. - interogare D1 b2b-romania-db, 1 noiembrie 2026",
+  "stare": [
+    "setul ONRC din 19 octombrie 2026 este publicat și urmează să fie încărcat; până atunci cifrele sunt din setul din 2 septembrie",
+    "bilanțurile MF 2024 și 2025 sunt în curs de arhivare cu amprentă; amprenta de mai sus acoperă doar setul ONRC",
+    "urmează registrul ANAF (telefon, TVA, firme inactive sau radiate), apoi căutarea semantică",
+    "verificarea automată zilnică a seturilor noi este în construcție; datele noi apar lunar, după publicarea ONRC"
+  ],
   "surse_publice": {
     "portal": "https://data.gov.ro/",
     "licenta": "CC-BY-4.0",
