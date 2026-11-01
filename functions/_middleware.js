@@ -7,6 +7,9 @@
 // v2.1 — 2026-11-01: 3. subsolul comun al rețelei (linkuri legale + rândul EU AI Act cu cele 10 module) pe toate paginile,
 //     citit de la Worker-ul legal (sursa unică), prin aiventure.ro/legal/strip.html?host=firmsfinder.eu, păstrat 5 minute.
 
+// v2.3 — 2026-11-01: linkul din meniu și pe paginile cu alt tip de meniu (ffh-nav, „Navigare”, „Navigare principală”).
+const NAV_SELECTORS = ['nav[aria-label="Navigație"]', 'nav#ffh-nav', 'nav[aria-label="Navigare"]', 'nav[aria-label="Navigare principală"]'];
+const NAV_MARKERS = ['aria-label="Navigație"', 'id="ffh-nav"', 'aria-label="Navigare"', 'aria-label="Navigare principală"'];
 const KV_KEY = "schema:0006H:homepage";
 const FOOTER_JSON = "/data-footer.json";
 const FOOTER_TTL_MS = 5 * 60 * 1000;
@@ -174,7 +177,7 @@ export async function onRequest(context) {
   const addFooter = footerData && !html.includes('data-ff-date="1"');
   const addStrip = strip && !html.includes('id="aiventure-legal-strip"');
 
-  const addNav = html.includes('aria-label="Navigație"') && !html.includes('>EU AI Act gratuit</a>');
+  const addNav = NAV_MARKERS.some((m) => html.includes(m)) && !html.includes('>EU AI Act gratuit</a>');
   if (!addSchema && !addFooter && !addStrip && !addNav) return response;
 
   const headers = new Headers(response.headers);
@@ -188,9 +191,9 @@ export async function onRequest(context) {
   if (tail) rewriter = rewriter.on("body", new FooterInjector(tail));
   // Meniul standard al paginilor interioare primește linkul spre dosarul EU AI Act (homepage-ul are alt meniu și nu se atinge).
   if (addNav) {
-    rewriter = rewriter.on('nav[aria-label="Navigație"]', {
-      element(el) { el.append('<a href="/legal/eu-ai-act/">EU AI Act gratuit</a>', { html: true }); }
-    });
+    let done = false;
+    const navLink = { element(el) { if (done) return; done = true; el.append('<a href="/legal/eu-ai-act/">EU AI Act gratuit</a>', { html: true }); } };
+    for (const sel of NAV_SELECTORS) rewriter = rewriter.on(sel, navLink);
   }
 
   return rewriter.transform(
