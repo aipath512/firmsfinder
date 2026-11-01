@@ -1,7 +1,11 @@
 // firmsfinder.eu /api/companies/search -> căutare directă în D1 (binding DB = b2b-romania-db).
 // Gratuit, maximum 50 de rezultate per căutare (limită pentru reducerea costurilor).
 // Persoanele fizice (PFA/II/IF) sunt mascate, în așteptarea acordului GDPR.
-// Filtre (toate SQL): q (începutul denumirii), caen, judet (listă cu virgulă = SAU), fara_judet (NU),
+// v2 — 2026-11-01: numele se caută cu indexul de text FTS5 (onrc_firme_fts): orice cuvânt din denumire, nu doar începutul.
+//   Fără CAEN: FTS (cel mult 500 de potriviri candidate, 5000 când există și alte filtre), apoi filtrele și ordonarea; potrivirile de la început apar primele.
+//   Cu CAEN: rămâne căutarea după începutul denumirii (indexată, completă în interiorul activității).
+//   Dacă indexul FTS lipsește sau dă eroare, căutarea revine automat la începutul denumirii.
+// Filtre (toate SQL): q (cuvinte din denumire), caen, judet (listă cu virgulă = SAU), fara_judet (NU),
 // localitate, cmin/cmax (cifra de afaceri 2024; rezultatele returnează 2023–2025), smin/smax (salariați 2024), profit_pozitiv, fara_pierdere,
 // trend (up|down 2023→2025), sort (ca|sal|profit|nou|crestere|nume).
 const MAX_REZULTATE = 50;
@@ -91,20 +95,36 @@ async function fuzzy(env, q, cuvinte) {
   } catch (e) { return null; }
 }
 
+// Expresia FTS5: fiecare cuvânt de minimum 3 caractere caută și continuarea lui („DANT” găsește „DANTE”); cuvintele de 2 caractere se caută exact.
+// Formele juridice (SRL, SA etc.) se ignoră: apar în sute de mii de denumiri și nu ajută căutarea.
+const FORME = new Set(['SRL', 'SA', 'SC', 'SNC', 'SCS', 'SCA', 'PFA', 'II', 'IF', 'RA', 'SRL-D']);
+const expresieFts = (q) => {
+  const cuv = q.split(/[^A-Z0-9]+/).filter((w) => w.length >= 2 && !FORME.has(w)).slice(0, 6);
+  return cuv.length ? cuv.map((w) => (w.length >= 3 ? `"${w}"*` : `"${w}"`)).join(' ') : null;
+};
+
 export async function onRequestGet({request, env}) {
   const p = new URL(request.url).searchParams;
   const caen = (p.get('caen') || '').trim();
   const q = normaliza(p.get('q')).slice(0, 60);
   if (caen && !/^\d{2,4}$/.test(caen)) return json({error: 'Codul CAEN trebuie să aibă 2–4 cifre (de exemplu 69, 692 sau 6920).'}, 400);
   if (!caen && q.length < 3) {
-    return json({error: 'Introduceți codul CAEN din 4 cifre (de exemplu 6920) sau cel puțin 3 litere din începutul denumirii firmei.'}, 400);
+    return json({error: 'Introduceți codul CAEN din 4 cifre (de exemplu 6920) sau cel puțin 3 litere din denumirea firmei.'}, 400);
   }
   if (!env.DB) return json({error: 'Baza de date nu este conectată momentan.'}, 503);
 
+  const fts = !caen && q ? expresieFts(q) : null;
+  try {
+    if (fts) return await cauta(env, p, caen, q, fts);
+  } catch (e) { /* indexul FTS indisponibil: se revine la începutul denumirii */ }
+  return cauta(env, p, caen, q, null);
+}
+
+async function cauta(env, p, caen, q, fts) {
   const conditii = ['f.top = 1', 'f.cui NOT IN (SELECT cui FROM onrc_excluderi WHERE cui IS NOT NULL)'];
   const valori = [];
   if (caen) { if (caen.length === 4) { conditii.push('b.caen_mf = ?'); valori.push(caen); } else { conditii.push('b.caen_mf >= ? AND b.caen_mf < ?'); valori.push(caen, caen + '\uffff'); } }
-  if (q) { conditii.push('f.denumire_cautare LIKE ?'); valori.push(q.replace(/[%_]/g, '') + '%'); }
+  if (q && !fts) { conditii.push('f.denumire_cautare LIKE ?'); valori.push(q.replace(/[%_]/g, '') + '%'); }
   const judete = lista(p.get('judet'));
   const faraJudete = lista(p.get('fara_judet'));
   const loc = (p.get('localitate') || '').trim().slice(0, 60);
@@ -126,6 +146,16 @@ export async function onRequestGet({request, env}) {
     crestere: '(COALESCE(c.cifra_afaceri, b.cifra_afaceri) * 1.0 / NULLIF(a.cifra_afaceri, 0)) DESC NULLS LAST'
   };
   const sort = ORDINI[p.get('sort')] ? p.get('sort') : (caen ? 'ca' : 'nume');
+  // Cu FTS și ordonare după nume: întâi denumirile care încep cu textul căutat, apoi restul, alfabetic.
+  const ordine = fts && sort === 'nume' ? '(f.denumire_cautare LIKE ?) DESC, f.denumire ASC' : ORDINI[sort];
+  const valOrdine = fts && sort === 'nume' ? [q.replace(/[%_]/g, '') + '%'] : [];
+  // Câte potriviri FTS se iau în calcul: 500 pentru o căutare doar după nume, 5000 când există și alte filtre.
+  const alteFiltre = ['judet', 'fara_judet', 'localitate', 'cmin', 'cmax', 'smin', 'smax', 'profit_pozitiv', 'fara_pierdere', 'trend'].some((k) => (p.get(k) || '').trim() !== '');
+  const plafon = alteFiltre ? 5000 : 500;
+  const SURSA = fts
+    ? `FROM (SELECT rowid AS rid FROM onrc_firme_fts WHERE onrc_firme_fts MATCH ? LIMIT ${plafon}) m CROSS JOIN onrc_firme f ON f.rowid = m.rid`
+    : 'FROM onrc_firme f';
+  const valSursa = fts ? [fts] : [];
   if (sort === 'crestere') { conditii.push('a.cifra_afaceri >= ?'); valori.push(1e5); }
 
   // Cu CAEN: se pornește din tabela de bilanț (indexată pe CAEN); fără CAEN: din firme (prefix pe denumire).
@@ -133,7 +163,7 @@ export async function onRequestGet({request, env}) {
     ? `FROM mf_bilant_2024 b CROSS JOIN onrc_firme f ON f.cui = b.cui
       LEFT JOIN mf_bilant_2023 a ON a.cui = f.cui
       LEFT JOIN mf_bilant_2025 c ON c.cui = f.cui`
-    : `FROM onrc_firme f
+    : `${SURSA}
       LEFT JOIN mf_bilant_2024 b ON b.cui = f.cui
       LEFT JOIN mf_bilant_2023 a ON a.cui = f.cui
       LEFT JOIN mf_bilant_2025 c ON c.cui = f.cui`;
@@ -143,7 +173,7 @@ export async function onRequestGet({request, env}) {
     ? DEJA
     : caen
       ? `FROM mf_bilant_2024 b CROSS JOIN onrc_firme f ON f.cui = b.cui`
-      : `FROM onrc_firme f LEFT JOIN mf_bilant_2024 b ON b.cui = f.cui`;
+      : `${SURSA} LEFT JOIN mf_bilant_2024 b ON b.cui = f.cui`;
   // Fațete (număr de rezultate pe județ), calculate fără filtrul de județ, doar pentru căutări înguste (CAEN sau nume).
   const cuFacete = p.get('facete') && (caen || q.length >= 3);
   const condFacete = conditii.join(' AND '), valFacete = valori.slice();
@@ -156,17 +186,17 @@ export async function onRequestGet({request, env}) {
         a.cifra_afaceri AS ca_2023, a.salariati AS sal_2023, c.cifra_afaceri AS ca_2025, c.salariati AS sal_2025
       ${DEJA}
       WHERE ${conditii.join(' AND ')}
-      ORDER BY ${ORDINI[sort]} LIMIT ${MAX_REZULTATE}`).bind(...valori).all();
+      ORDER BY ${ordine} LIMIT ${MAX_REZULTATE}`).bind(...valSursa, ...valori, ...valOrdine).all();
     const results = (r.results || []).map((x) => x.persoana_fizica
       ? {cui: 'P-' + ((x.cui ^ 5921370) >>> 0).toString(36).toUpperCase(), denumire: (x.forma_juridica || 'PFA/II/IF') + ' · în așteptarea acordului GDPR',
          forma_juridica: x.forma_juridica, judet: x.judet, caen_mf: x.caen_mf, mascat: 1}
       : {cui: x.cui, denumire: x.denumire, forma_juridica: x.forma_juridica, judet: x.judet, localitate: x.localitate, caen_mf: x.caen_mf,
          data_inmatriculare: x.data_inmatriculare, cifra_afaceri_2023: x.ca_2023, cifra_afaceri_2024: x.ca_2024, cifra_afaceri_2025: x.ca_2025,
          salariati_2023: x.sal_2023, salariati_2024: x.sal_2024, salariati_2025: x.sal_2025, profit_net_2024: x.profit_2024});
-    const out = {page: 1, results, limita: MAX_REZULTATE, sort, has_more: false, sursa: 'ONRC / MF, data.gov.ro — FirmsFinder AI'};
+    const out = {page: 1, results, limita: MAX_REZULTATE, sort, has_more: false, cautare_nume: fts ? 'oriunde în denumire' : (q ? 'începutul denumirii' : null), sursa: 'ONRC / MF, data.gov.ro — FirmsFinder AI'};
     if (cuFacete) {
       try {
-        const fr = await env.DB.prepare(`SELECT f.judet AS v, COUNT(*) AS n ${DEJA_FACETE} WHERE ${condFacete} AND f.judet IS NOT NULL GROUP BY f.judet ORDER BY n DESC LIMIT 12`).bind(...valFacete).all();
+        const fr = await env.DB.prepare(`SELECT f.judet AS v, COUNT(*) AS n ${DEJA_FACETE} WHERE ${condFacete} AND f.judet IS NOT NULL GROUP BY f.judet ORDER BY n DESC LIMIT 12`).bind(...valSursa, ...valFacete).all();
         out.facete = {judet: (fr.results || []).map((x) => ({v: x.v, n: x.n}))};
       } catch (e) { /* fațetele sunt opționale */ }
     }
@@ -179,6 +209,7 @@ export async function onRequestGet({request, env}) {
     }
     return json(out);
   } catch (e) {
+    if (fts) throw e;
     return json({error: 'Căutarea nu este disponibilă momentan.'}, 502);
   }
 }
