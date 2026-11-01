@@ -3,6 +3,7 @@
 //  1. Schema 0006H pe homepage (neschimbat față de v1): binding SCHEMA_KV, cheia schema:0006H:homepage
 //  2. Linia „Date și integritate” pe toate paginile HTML, citită din /data-footer.json
 //     (o singură sursă; se actualizează fișierul, nu paginile)
+// v2.2 — 2026-11-01: 4. linkul „EU AI Act gratuit” în meniul paginilor interioare.
 // v2.1 — 2026-11-01: 3. subsolul comun al rețelei (linkuri legale + rândul EU AI Act cu cele 10 module) pe toate paginile,
 //     citit de la Worker-ul legal (sursa unică), prin aiventure.ro/legal/strip.html?host=firmsfinder.eu, păstrat 5 minute.
 
@@ -173,7 +174,8 @@ export async function onRequest(context) {
   const addFooter = footerData && !html.includes('data-ff-date="1"');
   const addStrip = strip && !html.includes('id="aiventure-legal-strip"');
 
-  if (!addSchema && !addFooter && !addStrip) return response;
+  const addNav = html.includes('aria-label="Navigație"') && !html.includes('>EU AI Act gratuit</a>');
+  if (!addSchema && !addFooter && !addStrip && !addNav) return response;
 
   const headers = new Headers(response.headers);
   headers.delete("content-length");
@@ -184,6 +186,12 @@ export async function onRequest(context) {
   if (addSchema) rewriter = rewriter.on("head", new SchemaInjector(schema));
   const tail = (addFooter ? footerHtml(footerData) : "") + (addStrip ? strip : "");
   if (tail) rewriter = rewriter.on("body", new FooterInjector(tail));
+  // Meniul standard al paginilor interioare primește linkul spre dosarul EU AI Act (homepage-ul are alt meniu și nu se atinge).
+  if (addNav) {
+    rewriter = rewriter.on('nav[aria-label="Navigație"]', {
+      element(el) { el.append('<a href="/legal/eu-ai-act/">EU AI Act gratuit</a>', { html: true }); }
+    });
+  }
 
   return rewriter.transform(
     new Response(html, {
