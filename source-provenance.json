@@ -45,8 +45,10 @@
       "license_source": "data.gov.ro CKAN API (package_search, câmpul license_id)",
       "license_checked": "2026-10-20",
       "used_in_firmsfinder": true,
-      "hash_sha256": null,
-      "ots_proof": null
+      "hash_sha256": "bb2303511cddb29648038d884012ef38553b0f7ee95520fd1168ef7f8bb573f4",
+      "ots_proof": "https://github.com/aipath512/firmsfinder-vectorize/blob/main/manifest/manifest_20261031T125934Z.json.ots",
+      "hash_file": "raw/onrc/2026-09/od_firme.csv",
+      "ots_bitcoin_block": 973981
     },
     {
       "id": "MF-SITUATII-FINANCIARE-2024",

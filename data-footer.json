@@ -1,0 +1,41 @@
+{
+  "schema": "FIRMSFINDER_DATA_FOOTER",
+  "version": "1.0",
+  "generat_la": "2026-11-01T07:20:00Z",
+  "sesiune": "0008C",
+  "sursa": "AiVenture S.R.L. - interogare D1 b2b-romania-db, 1 noiembrie 2026",
+  "surse_publice": {
+    "portal": "https://data.gov.ro/",
+    "licenta": "CC-BY-4.0",
+    "licenta_url": "https://creativecommons.org/licenses/by/4.0/",
+    "onrc_set": "2026-09-02",
+    "onrc_set_url": "https://data.gov.ro/dataset/firme-02-09-2026",
+    "mf_ani_bilant": [2023, 2024, 2025]
+  },
+  "cifre": {
+    "inregistrari_functiune_total": 1784283,
+    "persoane_fizice_pfa_ii_if": 473876,
+    "firme_active_persoane_juridice": 1310407,
+    "firme_active_fara_mentiuni_de_risc": 1168620,
+    "firme_active_cu_cel_putin_un_bilant": 941567,
+    "firme_active_cu_trei_ani_de_bilant": 689572,
+    "firme_active_fara_bilant": 368840,
+    "firme_cu_site_in_onrc": 6560
+  },
+  "definitii": {
+    "firma_activa": "Persoană juridică cu starea ONRC 1048 („funcțiune”); persoanele fizice (PFA, II, IF) sunt numărate separat și apar mascate.",
+    "mentiuni_de_risc_excluse_din_cifra_prudenta": ["2069 sediu expirat", "2083 nu funcționează la sediul declarat", "1049 dizolvare", "1052 lichidare", "1107 insolvență", "1139 Legea 85/2014", "1070 faliment", "1074 întrerupere temporară"],
+    "judet": "Județul sediului social, nu locul unde firma lucrează efectiv."
+  },
+  "integritate": {
+    "fisier_onrc": "raw/onrc/2026-09/od_firme.csv",
+    "fisier_onrc_sha256": "bb2303511cddb29648038d884012ef38553b0f7ee95520fd1168ef7f8bb573f4",
+    "manifest": "manifest_20261031T125934Z.json",
+    "manifest_sha256": "01643bd50a2f6699e66a4ef94766c6fc8760bdbc74ff4b4df7e97913247ef993",
+    "manifest_url": "https://github.com/aipath512/firmsfinder-vectorize/blob/main/manifest/manifest_20261031T125934Z.json",
+    "ots_url": "https://github.com/aipath512/firmsfinder-vectorize/blob/main/manifest/manifest_20261031T125934Z.json.ots",
+    "ots_bitcoin_bloc": 973981,
+    "regula": "ENT-00000007",
+    "limita": "SHA-256 și OpenTimestamps dovedesc integritatea copiei arhivate și existența ei la acea dată, nu că sursa a publicat exact acest conținut și nici adevărul datelor."
+  }
+}
