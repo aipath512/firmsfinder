@@ -1,14 +1,34 @@
 // AiVenture — FirmsFinder.eu — Cloudflare Pages Functions middleware
 // v2.0 — 2026-11-01 — sesiunea 0008C
 //  1. Schema 0006H pe homepage (neschimbat față de v1): binding SCHEMA_KV, cheia schema:0006H:homepage
-//  2. NOU: linia „Date și integritate” pe toate paginile HTML, citită din /data-footer.json
+//  2. Linia „Date și integritate” pe toate paginile HTML, citită din /data-footer.json
 //     (o singură sursă; se actualizează fișierul, nu paginile)
+// v2.1 — 2026-11-01: 3. subsolul comun al rețelei (linkuri legale + rândul EU AI Act cu cele 10 module) pe toate paginile,
+//     citit de la Worker-ul legal (sursa unică), prin aiventure.ro/legal/strip.html?host=firmsfinder.eu, păstrat 5 minute.
 
 const KV_KEY = "schema:0006H:homepage";
 const FOOTER_JSON = "/data-footer.json";
 const FOOTER_TTL_MS = 5 * 60 * 1000;
+const STRIP_URL = "https://aiventure.ro/legal/strip.html?host=firmsfinder.eu";
 
 let footerCache = { at: 0, data: null };
+let stripCache = { at: 0, html: null };
+
+async function loadStrip() {
+  const now = Date.now();
+  if (stripCache.html && now - stripCache.at < FOOTER_TTL_MS) return stripCache.html;
+  try {
+    const res = await fetch(STRIP_URL, { cf: { cacheTtl: 300 } });
+    if (!res.ok) return stripCache.html;
+    const html = await res.text();
+    if (!html.includes('id="aiventure-legal-strip"')) return stripCache.html;
+    stripCache = { at: now, html };
+    return html;
+  } catch (error) {
+    console.error("FirmsFinder legal strip: cannot load", error?.message);
+    return stripCache.html;
+  }
+}
 
 const fmt = (n) => Number(n).toLocaleString("ro-RO");
 const esc = (s) =>
@@ -132,9 +152,10 @@ export async function onRequest(context) {
 
   const isHomepage = url.hostname === "firmsfinder.eu" && url.pathname === "/";
 
-  const [footerData, schema] = await Promise.all([
+  const [footerData, schema, strip] = await Promise.all([
     loadFooter(env, request.url),
-    isHomepage ? loadHomepageSchema(env) : Promise.resolve(null)
+    isHomepage ? loadHomepageSchema(env) : Promise.resolve(null),
+    loadStrip()
   ]);
 
   let html;
@@ -150,8 +171,9 @@ export async function onRequest(context) {
     !html.includes("https://firmsfinder.eu/#website") &&
     !html.includes("https://firmsfinder.eu/#webpage");
   const addFooter = footerData && !html.includes('data-ff-date="1"');
+  const addStrip = strip && !html.includes('id="aiventure-legal-strip"');
 
-  if (!addSchema && !addFooter) return response;
+  if (!addSchema && !addFooter && !addStrip) return response;
 
   const headers = new Headers(response.headers);
   headers.delete("content-length");
@@ -160,7 +182,8 @@ export async function onRequest(context) {
 
   let rewriter = new HTMLRewriter();
   if (addSchema) rewriter = rewriter.on("head", new SchemaInjector(schema));
-  if (addFooter) rewriter = rewriter.on("body", new FooterInjector(footerHtml(footerData)));
+  const tail = (addFooter ? footerHtml(footerData) : "") + (addStrip ? strip : "");
+  if (tail) rewriter = rewriter.on("body", new FooterInjector(tail));
 
   return rewriter.transform(
     new Response(html, {
