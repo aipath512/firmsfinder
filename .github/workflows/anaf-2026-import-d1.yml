@@ -1,0 +1,25 @@
+name: SCARA 2026 — secure ANAF phone import into D1
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'functions/api/scara/anaf-import.js'
+      - 'tools/import_anaf_2026_artifact.py'
+      - '.github/workflows/anaf-2026-import-d1.yml'
+permissions:
+  contents: read
+  actions: read
+  id-token: write
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download previously recovered 2026 ANAF phone data (private workflow artifact)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh run download 42703902122 --repo aipath512/firmsfinder --name anaf-2026-4322-phones --dir anaf-recovered
+      - name: Authenticate through signed GitHub OIDC and import into Cloudflare D1
+        run: python3 tools/import_anaf_2026_artifact.py
