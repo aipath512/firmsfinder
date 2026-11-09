@@ -10,7 +10,7 @@ function numereTelefon(v){
 function renderCompanies(d){
  const box=$('#results');box.replaceChildren();
  for(const c of d.results){const article=element('article','',box);article.className='result';const h=element('h2','',article);if(c.mascat)element('span',c.denumire,h);else{const a=element('a',c.denumire,h);a.href='/firme/'+encodeURIComponent(c.cui)+'/';}element('p','CUI '+c.cui+' · '+(c.judet??'Necunoscut')+' · '+(c.localitate??'Necunoscut'),article);element('p',d.firme_noi ? 'CAEN ONRC: '+(c.caen_mf??'Nespecificat') : 'CAEN Rev.2 · MF 2024: '+(c.caen_mf??'Necunoscut'),article);const ani=[2023,2024,2025],fy=(k,u)=>ani.map(y=>y+': '+(c[k+y]!=null?Number(c[k+y]).toLocaleString('ro-RO')+u:'—')).join(' · ');element('p','Cifră de afaceri · '+fy('cifra_afaceri_',' lei'),article);element('p','Salariați · '+fy('salariati_',''),article);if(c.telefoane){const tels=numereTelefon(c.telefoane);if(tels.length)element('p','Telefon: '+tels.join(' · '),article);}}
- message(d.results.length?d.results.length+' rezultate (maximum 50).':(d.firme_noi?'Nicio firmă găsită în lunile MM−1 până la MM−3 din datele disponibile. Acesta nu este rezultatul pe un an întreg.':'Nicio firmă găsită pentru filtrele selectate.'));
+ message(d.results.length?d.results.length+' rezultate (maximum 50).':(d.firme_noi?'Nicio firmă găsită în anul curent în datele disponibile. Verificați actualizarea ONRC.':'Nicio firmă găsită pentru filtrele selectate.'));
  $('#next').hidden=!d.has_more;
  if($('#export'))$('#export').hidden=!d.results.some(c=>!c.mascat);window.__rez=d.results;
  const aux=$('#aux');if(aux){aux.replaceChildren();
@@ -23,23 +23,20 @@ function renderCompanies(d){
 if($('#search-form')){
  let page=1;const form=$('#search-form');const initial=new URLSearchParams(location.search);
  for(const [key,v] of initial){{const f=form.elements.namedItem(key);if(f){if(f.type==='checkbox')f.checked=true;else f.value=v;}}}
- const LBL={q:'Nume',caen:'CAEN',judet:'Județ',fara_judet:'Fără județ',localitate:'Localitate',cmin:'CA ≥',cmax:'CA ≤',smin:'Salariați ≥',smax:'Salariați ≤',trend:'Evoluție',sort:'Sortare',profit_pozitiv:'Profit',fara_pierdere:'Fără pierdere',firme_noi:'Firme noi (MM−1 până la MM−3)',cu_telefon:'Cu telefon'};
+ const LBL={q:'Nume',caen:'CAEN',judet:'Județ',fara_judet:'Fără județ',localitate:'Localitate',cmin:'CA ≥',cmax:'CA ≤',smin:'Salariați ≥',smax:'Salariați ≤',trend:'Evoluție',sort:'Sortare',profit_pozitiv:'Profit',fara_pierdere:'Fără pierdere',firme_noi:'Firme noi (anul curent)',cu_telefon:'Cu telefon'};
  function chips(params){const box=$('#chips');if(!box)return;box.replaceChildren();for(const [k,v] of params){if(!LBL[k]||k==='page')continue;const b=element('button',LBL[k]+': '+(v==='1'?'da':v)+' ×',box);b.type='button';b.addEventListener('click',()=>{const f=form.elements.namedItem(k);if(f){if(f.type==='checkbox')f.checked=false;else f.value='';}page=1;run();});}}
  async function run(){try{message('Caut…');const params=new URLSearchParams();for(const [k,v] of new FormData(form))if(String(v).trim())params.set(k,String(v).trim());chips(params);params.set('page',page);params.set('facete','1');const d=await call((params.get('firme_noi')==='1'?'/api/companies/new?':'/api/companies/search?')+params);
  renderCompanies(d);
- if(d.firme_noi && d.results.length>0){
-  const period=d.perioada_firme_noi;
-  const endDate=new Date(period.to+'T00:00:00Z');
-  endDate.setUTCDate(endDate.getUTCDate()-1);
-  message(d.results.length+' firme noi, perioada '+d.luna_selectata+' ('+period.from+' – '+endDate.toISOString().slice(0,10)+').'+(d.fallback_activat?' Nu au fost găsite firme pentru filtrele selectate în lunile mai recente; s-a aplicat automat fallback.':''));
+ if(d.firme_noi && d.results.length>0) {
+  const y=d.an_selectat || new Date().getFullYear();
+  message(d.results.length+' firme înmatriculate în '+y+' (maximum 50 de rezultate afișate).');
  }
- if(d.firme_noi && d.results.length===0){
-  // The monthly fallback only covers 3 calendar months, never the full year.
-  try{
+ if(d.firme_noi && d.results.length===0) {
+  try {
    const info=await call('/api/date');
    const sursa=info?.surse?.onrc||'ediție ONRC neprecizată';
-   message((params.get('cu_telefon')==='1'?'Nicio firmă cu telefon disponibil pentru filtrele alese în MM−1, MM−2 sau MM−3. ':'Nu există înregistrări pentru filtrele selectate în MM−1, MM−2 sau MM−3 în datele ONRC încărcate în FirmsFinder. ')+'Sursa disponibilă: '+sursa+'. Datele nu reprezintă inventarul complet al firmelor noi sau al numerelor de telefon.');
-  }catch(e){message('Nu există înregistrări în MM−1, MM−2 sau MM−3 în baza disponibilă. Verificați actualizarea lunară ONRC înainte de a interpreta rezultatul.');}
+   message('Nicio firmă găsită în anul curent pentru filtrele selectate'+(params.get('cu_telefon')==='1'?' și cu telefon disponibil':'')+'. Sursa: '+sursa+'. Lista nu este completă dacă ONRC nu este actualizat.');
+  } catch(e) {message('Nicio firmă găsită în anul curent în datele disponibile. Verificați actualizarea ONRC.');}
  }}catch(e){message(e.message);$('#results').replaceChildren();$('#next').hidden=true;}}
  const firmeNoi=form.elements.namedItem('firme_noi');if(firmeNoi)firmeNoi.addEventListener('change',()=>{page=1;run();});
  const cuTelefon=form.elements.namedItem('cu_telefon');if(cuTelefon)cuTelefon.addEventListener('change',()=>{page=1;run();});
