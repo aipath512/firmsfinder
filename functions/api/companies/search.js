@@ -134,7 +134,7 @@ async function cauta(env, p, caen, q, fts) {
   if (doarNoi) { conditii.push('f.data_inmatriculare >= ? AND f.data_inmatriculare < ?'); valori.push(mm1.from,mm1.to); }
   if (caen && doarNoi) {
     // ONRC CAEN stores comma-delimited code:revision tokens, including companies without historical balance sheets.
-    conditii.push("EXISTS (SELECT 1 FROM onrc_firma_caen fc WHERE fc.cui=f.cui AND (',' || REPLACE(fc.caen,' ','') || ',') LIKE ?)");
+    conditii.push("EXISTS (SELECT 1 FROM onrc_firma_caen fc WHERE fc.cod_inmatriculare=f.cod_inmatriculare AND (',' || REPLACE(fc.caen,' ','') || ',') LIKE ?)");
     valori.push('%,' + caen + (caen.length === 4 ? ':' : '%:') + '%');
   } else if (caen) {
     if (caen.length === 4) { conditii.push('b.caen_mf = ?'); valori.push(caen); }
