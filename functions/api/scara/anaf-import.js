@@ -25,6 +25,7 @@ async function verifyGitHubOIDC(request){
  const key=await crypto.subtle.importKey("jwk",jwk,{name:"RSASSA-PKCS1-v1_5",hash:"SHA-256"},false,["verify"]);
  return crypto.subtle.verify("RSASSA-PKCS1-v1_5",key,B64(parts[2]),new TextEncoder().encode(parts[0]+"."+parts[1]));
 }
+export async function onRequestGet(){return json({service:"SCARA ANAF OIDC importer",version:"import-v2-deployment-gate",write_access:"OIDC-only"});}
 export async function onRequestPost({request,env}){
  if(!env.DB)return json({error:"D1 binding unavailable"},503);
  let trusted=false;
