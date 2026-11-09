@@ -42,10 +42,18 @@ export async function onRequestGet({request,env}) {
   try {
     // When filtering contacts, start with the contact table instead of asking D1
     // to evaluate a correlated EXISTS for every ONRC candidate.
+    // The ANAF backfill uses a separate table. Integrate it only once present,
+    // so a failed/missing import cannot break the existing Firme noi search.
+    const anafAvailable = cuTelefon && !!(await env.DB.prepare(
+      "SELECT 1 AS ok FROM sqlite_master WHERE type='table' AND name='scara_anaf_2026_phone'"
+    ).first());
+    const contacts = anafAvailable
+      ? "(SELECT cui, telefoane FROM firme_site UNION ALL SELECT cui, telefon_raw AS telefoane FROM scara_anaf_2026_phone)"
+      : "firme_site";
     const source = cuTelefon
       ? (caen
-          ? 'FROM firme_site fs JOIN onrc_firme f ON f.cui=fs.cui JOIN onrc_firma_caen fc ON fc.cod_inmatriculare=f.cod_inmatriculare'
-          : 'FROM firme_site fs JOIN onrc_firme f ON f.cui=fs.cui')
+          ? 'FROM ' + contacts + ' fs JOIN onrc_firme f ON f.cui=fs.cui JOIN onrc_firma_caen fc ON fc.cod_inmatriculare=f.cod_inmatriculare'
+          : 'FROM ' + contacts + ' fs JOIN onrc_firme f ON f.cui=fs.cui')
       : (caen
           ? 'FROM onrc_firma_caen fc JOIN onrc_firme f ON f.cod_inmatriculare=fc.cod_inmatriculare'
           : 'FROM onrc_firme f');
