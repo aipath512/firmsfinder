@@ -37,6 +37,20 @@ export async function onRequestGet({request,env}) {
     if(j.length){cond.push('f.judet IN ('+j.map(()=>'?').join(',')+')');args.push(...j);}
   }
   if(localitate){cond.push('f.localitate LIKE ?');args.push('%'+localitate.replace(/[%_]/g,'')+'%');}
+  if(p.get('diag')==='1') {
+    // Temporary read-only query planner diagnostics. No records, no user values.
+    const out={diagnostic:'mm3_sql_plan',checks:[]};
+    for(const [name,sql] of [
+      ['f_indexes','PRAGMA index_list(onrc_firme)'],
+      ['caen_indexes','PRAGMA index_list(onrc_firma_caen)'],
+      ['candidate_plan',"EXPLAIN QUERY PLAN SELECT f.cod_inmatriculare FROM onrc_firme f WHERE f.top=1 AND f.data_inmatriculare >= '2026-08-01' AND f.data_inmatriculare < '2026-11-01' ORDER BY f.data_inmatriculare DESC LIMIT 50"],
+      ['join_plan',"EXPLAIN QUERY PLAN SELECT f.cui FROM onrc_firma_caen fc JOIN onrc_firme f ON f.cod_inmatriculare=fc.cod_inmatriculare WHERE f.top=1 AND f.data_inmatriculare >= '2026-08-01' AND f.data_inmatriculare < '2026-11-01' AND fc.caen LIKE '%4322:%' ORDER BY f.data_inmatriculare DESC LIMIT 50"]
+    ]) {
+      try {const r=await env.DB.prepare(sql).all();out.checks.push({name,rows:(r.results||[]).slice(0,16)});}
+      catch(e){out.checks.push({name,error:String(e?.message||e).slice(0,240)});}
+    }
+    return reply(out);
+  }
   try {
     const source = caen
       ? 'FROM onrc_firma_caen fc JOIN onrc_firme f ON f.cod_inmatriculare=fc.cod_inmatriculare'
@@ -76,6 +90,6 @@ export async function onRequestGet({request,env}) {
       nota:'Rezultate limitate la 50; inventarul SCARA complet se procesează separat.'});
   } catch (err) {
     console.error('firme-noi-search', String(err?.message||err).slice(0,180));
-    return reply({error:'Căutarea firmelor noi este indisponibilă; verificați interogarea și indexul ONRC în D1.'},503);
+    return reply({error:'Căutarea firmelor noi este indisponibilă; verificați interogarea și indexul ONRC în D1.', diagnostic_code: String(err?.message||err).slice(0,180)},503);
   }
 }
