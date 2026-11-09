@@ -199,7 +199,7 @@ async function cauta(env, p, caen, q, fts) {
   if (faraJudete.length) { conditii.push(`f.judet NOT IN (${faraJudete.map(() => '?').join(',')})`); valori.push(...faraJudete); }
 
   try {
-    const r = await env.DB.prepare(`SELECT f.cui, f.denumire, f.forma_juridica, f.persoana_fizica, f.judet, f.localitate, f.data_inmatriculare,
+    const r = await env.DB.prepare(`SELECT f.cui, f.denumire, f.forma_juridica, f.persoana_fizica, f.judet, f.localitate, f.data_inmatriculare,\n         ${cuTelefon ? "(SELECT fs.telefoane FROM firme_site fs WHERE fs.cui=f.cui AND fs.telefoane IS NOT NULL AND TRIM(fs.telefoane) NOT IN ('','[]','null') LIMIT 1)" : "NULL"} AS telefoane,
         b.caen_mf, b.cifra_afaceri AS ca_2024, b.salariati AS sal_2024, b.profit_net AS profit_2024,
         a.cifra_afaceri AS ca_2023, a.salariati AS sal_2023, c.cifra_afaceri AS ca_2025, c.salariati AS sal_2025
       ${DEJA}
@@ -209,7 +209,7 @@ async function cauta(env, p, caen, q, fts) {
       ? {cui: 'P-' + ((x.cui ^ 5921370) >>> 0).toString(36).toUpperCase(), denumire: (x.forma_juridica || 'PFA/II/IF') + ' · în așteptarea acordului GDPR',
          forma_juridica: x.forma_juridica, judet: x.judet, caen_mf: x.caen_mf, mascat: 1}
       : {cui: x.cui, denumire: x.denumire, forma_juridica: x.forma_juridica, judet: x.judet, localitate: x.localitate, caen_mf: x.caen_mf,
-         data_inmatriculare: x.data_inmatriculare, cifra_afaceri_2023: x.ca_2023, cifra_afaceri_2024: x.ca_2024, cifra_afaceri_2025: x.ca_2025,
+         data_inmatriculare: x.data_inmatriculare, telefoane: x.telefoane || null, cifra_afaceri_2023: x.ca_2023, cifra_afaceri_2024: x.ca_2024, cifra_afaceri_2025: x.ca_2025,
          salariati_2023: x.sal_2023, salariati_2024: x.sal_2024, salariati_2025: x.sal_2025, profit_net_2024: x.profit_2024});
     const out = {page: 1, results, limita: MAX_REZULTATE, sort, has_more: false, firme_noi: doarNoi, cu_telefon: cuTelefon, perioada_firme_noi: mm1, cautare_nume: fts ? 'oriunde în denumire' : (q ? 'începutul denumirii' : null), sursa: 'ONRC / MF, data.gov.ro — FirmsFinder AI'};
     if (cuFacete) {
