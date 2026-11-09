@@ -19,8 +19,12 @@ export async function onRequestGet({request,env}) {
   const p = new URL(request.url).searchParams;
   const caen = (p.get('caen') || '').trim();
   const q = (p.get('q') || '').trim().slice(0,60);
-  const judet = (p.get('judet') || '').trim().slice(0,80);
-  const localitate = (p.get('localitate') || '').trim().slice(0,60);
+  // ONRC stores București with diacritics; accept user text with or without them.
+  const norm = x => String(x || '').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[șş]/gi,'s').replace(/[țţ]/gi,'t').trim().toLowerCase();
+  const judetRaw = (p.get('judet') || '').trim().slice(0,80);
+  const judet = judetRaw.split(',').map(x => norm(x)==='bucuresti' ? 'București' : x.trim()).join(',');
+  const localitateRaw = (p.get('localitate') || '').trim().slice(0,60);
+  const localitate = norm(localitateRaw)==='bucuresti' ? 'Bucure' : localitateRaw;
   const cuTelefon = p.get('cu_telefon') === '1';
   if(caen && !/^\d{2,4}$/.test(caen)) return reply({error:'CAEN trebuie să conțină 2–4 cifre.'},400);
   const mm1 = previousMonthRO(), mm3 = previousMonthRO(new Date(),3);
