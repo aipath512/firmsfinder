@@ -131,7 +131,7 @@ async function cauta(env, p, caen, q, fts) {
   const valori = [];
   const doarNoi = p.get('firme_noi') === '1';
   const cuTelefon = p.get('cu_telefon') === '1';
-  if (cuTelefon) conditii.push("EXISTS (SELECT 1 FROM firme_site fs WHERE fs.cui=f.cui AND fs.telefoane IS NOT NULL AND TRIM(fs.telefoane) NOT IN ('','[]','null'))");
+  if (cuTelefon) conditii.push("EXISTS (SELECT 1 FROM firme_site fs WHERE fs.cui=f.cui AND fs.telefoane IS NOT NULL AND TRIM(fs.telefoane) NOT IN ('','[]','null') AND fs.telefoane GLOB '*[0-9]*')");
   const mm1 = doarNoi ? previousMonthRO() : null;
   if (doarNoi) { conditii.push('f.data_inmatriculare >= ? AND f.data_inmatriculare < ?'); valori.push(mm1.from,mm1.to); }
   if (caen && doarNoi) {
@@ -200,7 +200,7 @@ async function cauta(env, p, caen, q, fts) {
 
   try {
     const r = await env.DB.prepare(`SELECT f.cui, f.denumire, f.forma_juridica, f.persoana_fizica, f.judet, f.localitate, f.data_inmatriculare,
-         ${cuTelefon ? "(SELECT fs.telefoane FROM firme_site fs WHERE fs.cui=f.cui AND fs.telefoane IS NOT NULL AND TRIM(fs.telefoane) NOT IN ('','[]','null') LIMIT 1)" : "NULL"} AS telefoane,
+         ${cuTelefon ? "(SELECT fs.telefoane FROM firme_site fs WHERE fs.cui=f.cui AND fs.telefoane IS NOT NULL AND TRIM(fs.telefoane) NOT IN ('','[]','null') AND fs.telefoane GLOB '*[0-9]*' LIMIT 1)" : "NULL"} AS telefoane,
         b.caen_mf, b.cifra_afaceri AS ca_2024, b.salariati AS sal_2024, b.profit_net AS profit_2024,
         a.cifra_afaceri AS ca_2023, a.salariati AS sal_2023, c.cifra_afaceri AS ca_2025, c.salariati AS sal_2025
       ${DEJA}
