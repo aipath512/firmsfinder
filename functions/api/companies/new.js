@@ -68,6 +68,7 @@ export async function onRequestGet({request,env}) {
       nota:'Rezultate limitate la 50; inventarul SCARA complet se procesează separat.'});
   } catch (err) {
     console.error('firme-noi-search', String(err?.message||err).slice(0,180));
+    if(p.get('diag')==='1') return reply({error:String(err?.message||err).slice(0,220)},503);
     return reply({error:'Căutarea firmelor noi este indisponibilă; verificați interogarea și indexul ONRC în D1.'},503);
   }
 }
