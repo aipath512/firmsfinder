@@ -1,18 +1,13 @@
-// Independent, low-cost ONRC MM-1 lookup with MM-2 / MM-3 fallback when earlier periods have no matches. Does NOT use MF balance statements.
+// ONRC current-calendar-year company search (Bucharest time zone). Does NOT require MF balances.
 // Kept separate from the legacy search endpoint to isolate its expensive query plan.
 const reply = (data, status = 200) => new Response(JSON.stringify(data), {
   status,
   headers: {'content-type':'application/json; charset=utf-8', 'cache-control':'public, max-age=120'}
 });
 const LIMIT = 50;
-function previousMonthRO(now = new Date(), monthsBack = 1) {
-  const parts = new Intl.DateTimeFormat('en-GB', {timeZone:'Europe/Bucharest',year:'numeric',month:'2-digit'}).formatToParts(now);
-  const year = Number(parts.find(x=>x.type==='year').value);
-  const month = Number(parts.find(x=>x.type==='month').value);
-  const date = new Date(Date.UTC(year, month-1-monthsBack, 1));
-  const next = new Date(Date.UTC(year, month-monthsBack, 1));
-  const iso = x => x.toISOString().slice(0,10);
-  return {from:iso(date), to:iso(next)};
+function currentYearRO(now = new Date()) {
+ const year = new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Bucharest',year:'numeric'}).format(now);
+ return {from:year+'-01-01',to:(Number(year)+1)+'-01-01',year:Number(year)};
 }
 export async function onRequestGet({request,env}) {
   if(!env.DB) return reply({error:'Baza de date D1 nu este conectată.'},503);
@@ -27,10 +22,10 @@ export async function onRequestGet({request,env}) {
   const localitate = norm(localitateRaw)==='bucuresti' ? 'Bucure' : localitateRaw;
   const cuTelefon = p.get('cu_telefon') === '1';
   if(caen && !/^\d{2,4}$/.test(caen)) return reply({error:'CAEN trebuie să conțină 2–4 cifre.'},400);
-  const mm1 = previousMonthRO(), mm3 = previousMonthRO(new Date(),3);
-  // Search in a single bounded scan, to avoid up to three costly correlated CAEN scans.
+  const period = currentYearRO();
+  // ONRC records created in the current calendar year; latest 50 first.
   const cond = ["f.top=1", "f.data_inmatriculare >= ?", "f.data_inmatriculare < ?"];
-  const args = [mm3.from,mm1.to];
+  const args = [period.from,period.to];
   if(caen) {
     // A code is stored as a comma-delimited code:revision token in ONRC.
     cond.push("(',' || REPLACE(fc.caen,' ','') || ',') LIKE ?");
@@ -52,26 +47,7 @@ export async function onRequestGet({request,env}) {
       ${source} WHERE ${cond.join(' AND ')}
       ORDER BY f.data_inmatriculare DESC LIMIT ${LIMIT}`;
     const rows = await env.DB.prepare(sql).bind(...args).all();
-    const sorted = rows.results || [];
-    let periodOffset=3, selectedPeriod=mm3, found=[];
-    const checkedPeriods=[];
-    if(sorted.length){
-      const firstDate=sorted[0].data_inmatriculare;
-      for(let monthsBack=1;monthsBack<=3;monthsBack++){
-        const period=previousMonthRO(new Date(),monthsBack);
-        checkedPeriods.push({luna:'MM-'+monthsBack,...period});
-        if(firstDate>=period.from && firstDate<period.to){
-          periodOffset=monthsBack;selectedPeriod=period;
-          found=sorted.filter(x=>x.data_inmatriculare>=period.from && x.data_inmatriculare<period.to);
-          break;
-        }
-      }
-    }else {
-      for(let monthsBack=1;monthsBack<=3;monthsBack++){
-        const period=previousMonthRO(new Date(),monthsBack);
-        checkedPeriods.push({luna:'MM-'+monthsBack,...period});
-      }
-    }
+    const found = rows.results || [];
     const results = found.map(x => x.persoana_fizica
       ? {cui:'P-'+((x.cui ^ 5921370)>>>0).toString(36).toUpperCase(),
          denumire:(x.forma_juridica||'PFA/II/IF')+' · în așteptarea acordului GDPR',
@@ -79,7 +55,7 @@ export async function onRequestGet({request,env}) {
       : {cui:x.cui,denumire:x.denumire,forma_juridica:x.forma_juridica,
          judet:x.judet,localitate:x.localitate,data_inmatriculare:x.data_inmatriculare,caen_mf:caen||null,telefoane:x.telefoane||null});
     return reply({page:1,results,limita:LIMIT,sort:'nou',has_more:false,
-      firme_noi:true,cu_telefon:cuTelefon,perioada_firme_noi:selectedPeriod,luna_selectata:'MM-'+periodOffset,fallback_activat:periodOffset>1,perioade_verificate:checkedPeriods,sursa:'ONRC — FirmsFinder AI',
+      firme_noi:true,cu_telefon:cuTelefon,perioada_firme_noi:period,an_selectat:period.year,sursa:'ONRC — FirmsFinder AI',
       nota:'Rezultate limitate la 50; inventarul SCARA complet se procesează separat.'});
   } catch (err) {
     console.error('firme-noi-search', String(err?.message||err).slice(0,180));
