@@ -199,7 +199,8 @@ async function cauta(env, p, caen, q, fts) {
   if (faraJudete.length) { conditii.push(`f.judet NOT IN (${faraJudete.map(() => '?').join(',')})`); valori.push(...faraJudete); }
 
   try {
-    const r = await env.DB.prepare(`SELECT f.cui, f.denumire, f.forma_juridica, f.persoana_fizica, f.judet, f.localitate, f.data_inmatriculare,\n         ${cuTelefon ? "(SELECT fs.telefoane FROM firme_site fs WHERE fs.cui=f.cui AND fs.telefoane IS NOT NULL AND TRIM(fs.telefoane) NOT IN ('','[]','null') LIMIT 1)" : "NULL"} AS telefoane,
+    const r = await env.DB.prepare(`SELECT f.cui, f.denumire, f.forma_juridica, f.persoana_fizica, f.judet, f.localitate, f.data_inmatriculare,
+         ${cuTelefon ? "(SELECT fs.telefoane FROM firme_site fs WHERE fs.cui=f.cui AND fs.telefoane IS NOT NULL AND TRIM(fs.telefoane) NOT IN ('','[]','null') LIMIT 1)" : "NULL"} AS telefoane,
         b.caen_mf, b.cifra_afaceri AS ca_2024, b.salariati AS sal_2024, b.profit_net AS profit_2024,
         a.cifra_afaceri AS ca_2023, a.salariati AS sal_2023, c.cifra_afaceri AS ca_2025, c.salariati AS sal_2025
       ${DEJA}
