@@ -114,7 +114,7 @@ export async function onRequestGet({request, env}) {
   const caen = (p.get('caen') || '').trim();
   const q = normaliza(p.get('q')).slice(0, 60);
   if (caen && !/^\d{2,4}$/.test(caen)) return json({error: 'Codul CAEN trebuie să aibă 2–4 cifre (de exemplu 69, 692 sau 6920).'}, 400);
-  if (!caen && q.length < 3 && p.get('firme_noi') !== '1') {
+  if (!caen && q.length < 3 && p.get('firme_noi') !== '1' && p.get('cu_telefon') !== '1') {
     return json({error: 'Introduceți codul CAEN din 4 cifre (de exemplu 6920) sau cel puțin 3 litere din denumirea firmei.'}, 400);
   }
   if (!env.DB) return json({error: 'Baza de date nu este conectată momentan.'}, 503);
@@ -130,6 +130,8 @@ async function cauta(env, p, caen, q, fts) {
   const conditii = ['f.top = 1', 'f.cui NOT IN (SELECT cui FROM onrc_excluderi WHERE cui IS NOT NULL)'];
   const valori = [];
   const doarNoi = p.get('firme_noi') === '1';
+  const cuTelefon = p.get('cu_telefon') === '1';
+  if (cuTelefon) conditii.push("EXISTS (SELECT 1 FROM firme_site fs WHERE fs.cui=f.cui AND fs.telefoane IS NOT NULL AND TRIM(fs.telefoane) NOT IN ('','[]','null'))");
   const mm1 = doarNoi ? previousMonthRO() : null;
   if (doarNoi) { conditii.push('f.data_inmatriculare >= ? AND f.data_inmatriculare < ?'); valori.push(mm1.from,mm1.to); }
   if (caen && doarNoi) {
@@ -209,7 +211,7 @@ async function cauta(env, p, caen, q, fts) {
       : {cui: x.cui, denumire: x.denumire, forma_juridica: x.forma_juridica, judet: x.judet, localitate: x.localitate, caen_mf: x.caen_mf,
          data_inmatriculare: x.data_inmatriculare, cifra_afaceri_2023: x.ca_2023, cifra_afaceri_2024: x.ca_2024, cifra_afaceri_2025: x.ca_2025,
          salariati_2023: x.sal_2023, salariati_2024: x.sal_2024, salariati_2025: x.sal_2025, profit_net_2024: x.profit_2024});
-    const out = {page: 1, results, limita: MAX_REZULTATE, sort, has_more: false, firme_noi: doarNoi, perioada_firme_noi: mm1, cautare_nume: fts ? 'oriunde în denumire' : (q ? 'începutul denumirii' : null), sursa: 'ONRC / MF, data.gov.ro — FirmsFinder AI'};
+    const out = {page: 1, results, limita: MAX_REZULTATE, sort, has_more: false, firme_noi: doarNoi, cu_telefon: cuTelefon, perioada_firme_noi: mm1, cautare_nume: fts ? 'oriunde în denumire' : (q ? 'începutul denumirii' : null), sursa: 'ONRC / MF, data.gov.ro — FirmsFinder AI'};
     if (cuFacete) {
       try {
         const fr = await env.DB.prepare(`SELECT f.judet AS v, COUNT(*) AS n ${DEJA_FACETE} WHERE ${condFacete} AND f.judet IS NOT NULL GROUP BY f.judet ORDER BY n DESC LIMIT 12`).bind(...valSursa, ...valFacete).all();
