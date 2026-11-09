@@ -20,6 +20,7 @@ export async function onRequestGet({request,env}) {
   const judet = judetRaw.split(',').map(x => norm(x)==='bucuresti' ? 'București' : x.trim()).join(',');
   const localitateRaw = (p.get('localitate') || '').trim().slice(0,60);
   const localitate = norm(localitateRaw)==='bucuresti' ? 'Bucure' : localitateRaw;
+  // No verified/unchecked distinction: any stored numeric phone candidate qualifies.
   const cuTelefon = p.get('cu_telefon') === '1';
   if(caen && !/^\d{2,4}$/.test(caen)) return reply({error:'CAEN trebuie să conțină 2–4 cifre.'},400);
   const period = currentYearRO();
@@ -37,7 +38,7 @@ export async function onRequestGet({request,env}) {
     if(j.length){cond.push('f.judet IN ('+j.map(()=>'?').join(',')+')');args.push(...j);}
   }
   if(localitate){cond.push('f.localitate LIKE ?');args.push('%'+localitate.replace(/[%_]/g,'')+'%');}
-  if(cuTelefon) cond.push("fs.telefoane IS NOT NULL AND TRIM(fs.telefoane) NOT IN ('','[]','null')");
+  if(cuTelefon) cond.push("fs.telefoane IS NOT NULL AND TRIM(fs.telefoane) NOT IN ('','[]','null') AND fs.telefoane GLOB '*[0-9]*'");
   try {
     // When filtering contacts, start with the contact table instead of asking D1
     // to evaluate a correlated EXISTS for every ONRC candidate.

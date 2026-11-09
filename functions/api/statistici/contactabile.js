@@ -12,7 +12,7 @@ export async function onRequestGet({env}) {
      FROM firme_site fs
      JOIN onrc_firme f ON f.cui=fs.cui
      WHERE fs.telefoane IS NOT NULL
-       AND TRIM(fs.telefoane) NOT IN ('','[]','null')
+       AND TRIM(fs.telefoane) NOT IN ('','[]','null') AND fs.telefoane GLOB '*[0-9]*'
        AND f.persoana_fizica=0 AND f.top=1
        AND f.data_inmatriculare >= '2024-01-01'
        AND f.data_inmatriculare < '2027-01-01'
@@ -24,7 +24,7 @@ export async function onRequestGet({env}) {
    });
    return reply({ani:years,total_3_ani:years.reduce((sum,r)=>sum+r.cu_telefon_stocat,0),
       definitie:'CUI distinct, persoane juridice înmatriculate 2024–2026, cu șir nenul de telefoane în firme_site',
-      sursa_telefoane:'firme_site.telefoane — telefon stocat, NU verificat ca activ/ANAF',
+      sursa_telefoane:'firme_site.telefoane — orice număr stocat, verificat sau neverificat; nu este necesar statut de verificare',
       acoperire:'Parțială: nu include telefoane care nu au fost încă descoperite sau importate',
       actualizat_la:new Date().toISOString()});
  }catch(e){
