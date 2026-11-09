@@ -21,6 +21,7 @@ export async function onRequestGet({request,env}) {
   const q = (p.get('q') || '').trim().slice(0,60);
   const judet = (p.get('judet') || '').trim().slice(0,80);
   const localitate = (p.get('localitate') || '').trim().slice(0,60);
+  const cuTelefon = p.get('cu_telefon') === '1';
   if(caen && !/^\d{2,4}$/.test(caen)) return reply({error:'CAEN trebuie să conțină 2–4 cifre.'},400);
   const mm1 = previousMonthRO(), mm3 = previousMonthRO(new Date(),3);
   // Search in a single bounded scan, to avoid up to three costly correlated CAEN scans.
@@ -37,6 +38,7 @@ export async function onRequestGet({request,env}) {
     if(j.length){cond.push('f.judet IN ('+j.map(()=>'?').join(',')+')');args.push(...j);}
   }
   if(localitate){cond.push('f.localitate LIKE ?');args.push('%'+localitate.replace(/[%_]/g,'')+'%');}
+  if(cuTelefon) cond.push("EXISTS (SELECT 1 FROM firme_site fs WHERE fs.cui=f.cui AND fs.telefoane IS NOT NULL AND TRIM(fs.telefoane) NOT IN ('','[]','null'))");
   try {
     const source = caen
       ? 'FROM onrc_firma_caen fc JOIN onrc_firme f ON f.cod_inmatriculare=fc.cod_inmatriculare'
@@ -72,7 +74,7 @@ export async function onRequestGet({request,env}) {
       : {cui:x.cui,denumire:x.denumire,forma_juridica:x.forma_juridica,
          judet:x.judet,localitate:x.localitate,data_inmatriculare:x.data_inmatriculare,caen_mf:caen||null});
     return reply({page:1,results,limita:LIMIT,sort:'nou',has_more:false,
-      firme_noi:true,perioada_firme_noi:selectedPeriod,luna_selectata:'MM-'+periodOffset,fallback_activat:periodOffset>1,perioade_verificate:checkedPeriods,sursa:'ONRC — FirmsFinder AI',
+      firme_noi:true,cu_telefon:cuTelefon,perioada_firme_noi:selectedPeriod,luna_selectata:'MM-'+periodOffset,fallback_activat:periodOffset>1,perioade_verificate:checkedPeriods,sursa:'ONRC — FirmsFinder AI',
       nota:'Rezultate limitate la 50; inventarul SCARA complet se procesează separat.'});
   } catch (err) {
     console.error('firme-noi-search', String(err?.message||err).slice(0,180));
