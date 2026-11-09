@@ -22,40 +22,48 @@ export async function onRequestGet({request,env}) {
   const judet = (p.get('judet') || '').trim().slice(0,80);
   const localitate = (p.get('localitate') || '').trim().slice(0,60);
   if(caen && !/^\d{2,4}$/.test(caen)) return reply({error:'CAEN trebuie să conțină 2–4 cifre.'},400);
-  const mm1 = previousMonthRO();
-  // Index on data_inmatriculare is recommended in staging, once D1 table is inspected.
+  const mm1 = previousMonthRO(), mm3 = previousMonthRO(new Date(),3);
+  // Search in a single bounded scan, to avoid up to three costly correlated CAEN scans.
   const cond = ["f.top=1", "f.data_inmatriculare >= ?", "f.data_inmatriculare < ?"];
-  const args = [mm1.from, mm1.to];
+  const args = [mm3.from,mm1.to];
   if(caen) {
-    cond.push("EXISTS (SELECT 1 FROM onrc_firma_caen fc WHERE fc.cod_inmatriculare=f.cod_inmatriculare AND (',' || REPLACE(fc.caen,' ','') || ',') LIKE ?)");
-    // Code:revision boundary: exact class, or prefix division/group.
+    // A code is stored as a comma-delimited code:revision token in ONRC.
+    cond.push("(',' || REPLACE(fc.caen,' ','') || ',') LIKE ?");
     args.push('%,' + caen + (caen.length===4 ? ':' : '%:') + '%');
   }
-  if(q) {cond.push("f.denumire LIKE ?");args.push('%'+q.replace(/[%_]/g,'')+'%');}
+  if(q) {cond.push('f.denumire LIKE ?');args.push('%'+q.replace(/[%_]/g,'')+'%');}
   if(judet) {
-    const j = judet.split(',').map(x=>x.trim()).filter(Boolean).slice(0,5);
-    if(j.length) {cond.push('f.judet IN ('+j.map(()=>'?').join(',')+')');args.push(...j);}
+    const j=judet.split(',').map(x=>x.trim()).filter(Boolean).slice(0,5);
+    if(j.length){cond.push('f.judet IN ('+j.map(()=>'?').join(',')+')');args.push(...j);}
   }
-  if(localitate) {cond.push('f.localitate LIKE ?');args.push('%'+localitate.replace(/[%_]/g,'')+'%');}
+  if(localitate){cond.push('f.localitate LIKE ?');args.push('%'+localitate.replace(/[%_]/g,'')+'%');}
   try {
-    // No full-portfolio MF joins or costly facet COUNTs. One query, 50 max.
-    const sql = `SELECT f.cui,f.denumire,f.forma_juridica,f.persoana_fizica,f.judet,f.localitate,f.data_inmatriculare
-       FROM onrc_firme f WHERE ${cond.join(' AND ')}
-       ORDER BY f.data_inmatriculare DESC LIMIT ${LIMIT}`;
-    // Search each complete calendar month separately; stop at first nonempty month.
-    let found = [], selectedPeriod = mm1, periodOffset = 1;
-    const checkedPeriods = [];
-    for (let monthsBack = 1; monthsBack <= 3; monthsBack++) {
-      const period = previousMonthRO(new Date(), monthsBack);
-      const periodArgs = args.slice();
-      periodArgs[0] = period.from;
-      periodArgs[1] = period.to;
-      const rows = await env.DB.prepare(sql).bind(...periodArgs).all();
-      found = rows.results || [];
-      checkedPeriods.push({luna:'MM-'+monthsBack, ...period, rezultate:found.length});
-      selectedPeriod = period;
-      periodOffset = monthsBack;
-      if (found.length > 0) break;
+    const source = caen
+      ? 'FROM onrc_firma_caen fc JOIN onrc_firme f ON f.cod_inmatriculare=fc.cod_inmatriculare'
+      : 'FROM onrc_firme f';
+    const sql = `SELECT DISTINCT f.cui,f.denumire,f.forma_juridica,f.persoana_fizica,f.judet,f.localitate,f.data_inmatriculare
+      ${source} WHERE ${cond.join(' AND ')}
+      ORDER BY f.data_inmatriculare DESC LIMIT ${LIMIT}`;
+    const rows = await env.DB.prepare(sql).bind(...args).all();
+    const sorted = rows.results || [];
+    let periodOffset=3, selectedPeriod=mm3, found=[];
+    const checkedPeriods=[];
+    if(sorted.length){
+      const firstDate=sorted[0].data_inmatriculare;
+      for(let monthsBack=1;monthsBack<=3;monthsBack++){
+        const period=previousMonthRO(new Date(),monthsBack);
+        checkedPeriods.push({luna:'MM-'+monthsBack,...period});
+        if(firstDate>=period.from && firstDate<period.to){
+          periodOffset=monthsBack;selectedPeriod=period;
+          found=sorted.filter(x=>x.data_inmatriculare>=period.from && x.data_inmatriculare<period.to);
+          break;
+        }
+      }
+    }else {
+      for(let monthsBack=1;monthsBack<=3;monthsBack++){
+        const period=previousMonthRO(new Date(),monthsBack);
+        checkedPeriods.push({luna:'MM-'+monthsBack,...period});
+      }
     }
     const results = found.map(x => x.persoana_fizica
       ? {cui:'P-'+((x.cui ^ 5921370)>>>0).toString(36).toUpperCase(),
@@ -68,7 +76,6 @@ export async function onRequestGet({request,env}) {
       nota:'Rezultate limitate la 50; inventarul SCARA complet se procesează separat.'});
   } catch (err) {
     console.error('firme-noi-search', String(err?.message||err).slice(0,180));
-    if(p.get('diag')==='1') return reply({error:String(err?.message||err).slice(0,220)},503);
     return reply({error:'Căutarea firmelor noi este indisponibilă; verificați interogarea și indexul ONRC în D1.'},503);
   }
 }
