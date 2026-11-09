@@ -28,6 +28,10 @@ export async function onRequestGet({request,env}) {
       ['company_caen', 'SELECT cui,caen FROM onrc_firma_caen LIMIT 1'],
       ['joined_caen', "SELECT f.cui FROM onrc_firme f WHERE f.data_inmatriculare >= '2026-10-01' AND f.data_inmatriculare < '2026-11-01' AND EXISTS (SELECT 1 FROM onrc_firma_caen fc WHERE fc.cui=f.cui AND fc.caen LIKE '%4322:%') LIMIT 1"]
     ];
+    try {
+      const schema = await env.DB.prepare("PRAGMA table_info(onrc_firma_caen)").all();
+      return reply({diagnostic:'schema',columns:(schema.results||[]).map(x=>({name:x.name,type:x.type}))});
+    } catch(e) {return reply({diagnostic:'schema',error:String(e?.message||e).slice(0,200)},503);}
     const outcomes=[];
     for(const [name,sql] of checks) {
       try {const row=await env.DB.prepare(sql).first();outcomes.push({name,ok:true,has_row:!!row});}
