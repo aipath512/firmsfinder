@@ -25,7 +25,7 @@ async function verifyGitHubOIDC(request){
  const key=await crypto.subtle.importKey("jwk",jwk,{name:"RSASSA-PKCS1-v1_5",hash:"SHA-256"},false,["verify"]);
  return crypto.subtle.verify("RSASSA-PKCS1-v1_5",key,B64(parts[2]),new TextEncoder().encode(parts[0]+"."+parts[1]));
 }
-export async function onRequestGet(){return json({service:"SCARA ANAF OIDC importer",version:"import-v2-deployment-gate",write_access:"OIDC-only"});}
+export async function onRequestGet(){return json({service:"SCARA ANAF OIDC importer",version:"import-v3-batched-d1",write_access:"OIDC-only"});}
 export async function onRequestPost({request,env}){
  if(!env.DB)return json({error:"D1 binding unavailable"},503);
  let trusted=false;
@@ -41,31 +41,32 @@ export async function onRequestPost({request,env}){
  }
  let stage="create-table";
  try{
-   await env.DB.exec(`CREATE TABLE IF NOT EXISTS scara_anaf_2026_phone (
+   // Schema DDL runs once; all row upserts execute in one bounded D1.batch transaction.
+   await env.DB.prepare(`CREATE TABLE IF NOT EXISTS scara_anaf_2026_phone (
      cui INTEGER PRIMARY KEY, telefon_raw TEXT NOT NULL,
      source TEXT NOT NULL DEFAULT 'ANAF_v9',
-     queried_at TEXT NOT NULL, verified INTEGER NOT NULL DEFAULT 0)`);
-   stage="prepare-upsert";
-   const yearStart="2026-01-01",yearEnd="2027-01-01";
+     queried_at TEXT NOT NULL, verified INTEGER NOT NULL DEFAULT 0)`).run();
+   stage="prepare-batch";
    const savedAt=new Date().toISOString();
-   // Confirm each CUI belongs to a 2026 ONRC legal entity before persisting.
    const stmt=env.DB.prepare(`INSERT INTO scara_anaf_2026_phone
       (cui,telefon_raw,source,queried_at,verified)
       SELECT f.cui,?,'ANAF_v9',?,0 FROM onrc_firme f
       WHERE f.cui=? AND f.top=1 AND COALESCE(f.persoana_fizica,0)=0
-      AND f.data_inmatriculare>=? AND f.data_inmatriculare<?
+      AND f.data_inmatriculare>='2026-01-01' AND f.data_inmatriculare<'2027-01-01'
       ON CONFLICT(cui) DO UPDATE SET telefon_raw=excluded.telefon_raw,
          queried_at=excluded.queried_at`);
-   stage="write-rows";
-   for(const r of rows)await stmt.bind(r.phone,savedAt,r.cui,yearStart,yearEnd).run();
+   stage="write-batch";
+   if(rows.length)await env.DB.batch(rows.map(r=>stmt.bind(r.phone,savedAt,r.cui)));
    stage="readback";
-   const ids=rows.map(r=>r.cui);
-   let persisted=0;
-   for(const id of ids){
-      const res=await env.DB.prepare("SELECT 1 AS ok FROM scara_anaf_2026_phone WHERE cui=?").bind(id).first();
-      if(res)persisted++;
-   }
-   return json({requested:rows.length,persisted,source:"ANAF_v9",year:2026,verified_required:false,complete:persisted===rows.length},persisted===rows.length?200:409);
+   const ids=[...new Set(rows.map(r=>r.cui))];
+   const placeholders=ids.map(()=>'?').join(',');
+   const check=ids.length
+     ? await env.DB.prepare(`SELECT COUNT(*) AS n FROM scara_anaf_2026_phone WHERE cui IN (${placeholders})`).bind(...ids).first()
+     : {n:0};
+   const persisted=Number(check?.n||0);
+   const complete=persisted===ids.length;
+   return json({requested:ids.length,persisted,source:"ANAF_v9",year:2026,
+      verified_required:false,complete,version:"import-v3-batched-d1"},complete?200:409);
  }catch(e){
    const detail=String(e?.message||e).slice(0,240);
    console.error("scara-anaf-import",stage,detail);
