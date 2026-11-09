@@ -22,12 +22,18 @@ if($('#search-form')){
  function chips(params){const box=$('#chips');if(!box)return;box.replaceChildren();for(const [k,v] of params){if(!LBL[k]||k==='page')continue;const b=element('button',LBL[k]+': '+(v==='1'?'da':v)+' ×',box);b.type='button';b.addEventListener('click',()=>{const f=form.elements.namedItem(k);if(f){if(f.type==='checkbox')f.checked=false;else f.value='';}page=1;run();});}}
  async function run(){try{message('Caut…');const params=new URLSearchParams();for(const [k,v] of new FormData(form))if(String(v).trim())params.set(k,String(v).trim());chips(params);params.set('page',page);params.set('facete','1');const d=await call((params.get('firme_noi')==='1'?'/api/companies/new?':'/api/companies/search?')+params);
  renderCompanies(d);
+ if(d.firme_noi && d.results.length>0){
+  const period=d.perioada_firme_noi;
+  const endDate=new Date(period.to+'T00:00:00Z');
+  endDate.setUTCDate(endDate.getUTCDate()-1);
+  message(d.results.length+' firme noi, perioada '+d.luna_selectata+' ('+period.from+' – '+endDate.toISOString().slice(0,10)+').'+(d.fallback_activat?' Nu au fost găsite firme pentru filtrele selectate în lunile mai recente; s-a aplicat automat fallback.':''));
+ }
  if(d.firme_noi && d.results.length===0){
   try{
    const info=await call('/api/date');
    const sursa=info?.surse?.onrc||'ediție ONRC neprecizată';
-   message('Nu există înregistrări MM−1 în datele ONRC încărcate în FirmsFinder. Sursa disponibilă: '+sursa+'. Acesta NU este numărul real de firme nou-înființate; este necesară actualizarea ONRC.');
-  }catch(e){message('Nu există înregistrări MM−1 în baza disponibilă. Verificați actualizarea lunară ONRC înainte de a interpreta rezultatul.');}
+   message('Nu există înregistrări pentru filtrele selectate în MM−1, MM−2 sau MM−3 în datele ONRC încărcate în FirmsFinder. Sursa disponibilă: '+sursa+'. Acesta NU este numărul real de firme nou-înființate; este necesară actualizarea ONRC.');
+  }catch(e){message('Nu există înregistrări în MM−1, MM−2 sau MM−3 în baza disponibilă. Verificați actualizarea lunară ONRC înainte de a interpreta rezultatul.');}
  }}catch(e){message(e.message);$('#results').replaceChildren();$('#next').hidden=true;}}
  const firmeNoi=form.elements.namedItem('firme_noi');if(firmeNoi)firmeNoi.addEventListener('change',()=>{page=1;run();});
  const sg=$('#sugestii'),qi=form.elements.namedItem('q');let tm;
