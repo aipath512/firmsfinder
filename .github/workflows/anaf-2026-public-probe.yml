@@ -1,0 +1,31 @@
+name: SCARA ANAF public 2026 phone probe
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/anaf_2026_public_probe.py'
+      - '.github/workflows/anaf-2026-public-probe.yml'
+permissions:
+  contents: read
+concurrency:
+  group: scara-anaf-public-probe
+  cancel-in-progress: false
+jobs:
+  phone-probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Look up 2026 CUI from FirmsFinder and query ANAF v9 in one batch
+        run: python3 tools/anaf_2026_public_probe.py
+      - name: Upload actual phone data for owner (no phone values in logs)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: anaf-2026-4322-phones
+          path: |
+            anaf-2026-4322-report.json
+            anaf-2026-4322-telefoane.csv
+          if-no-files-found: warn
+          retention-days: 7
