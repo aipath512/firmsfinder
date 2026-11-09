@@ -2,9 +2,14 @@ const $=s=>document.querySelector(s);
 const message=text=>{if($('#message'))$('#message').textContent=text;};
 function element(tag,text,parent){const x=document.createElement(tag);x.textContent=String(text??'Necunoscut');if(parent)parent.append(x);return x;}
 async function call(url,options){const r=await fetch(url,options),d=await r.json();if(!r.ok)throw new Error(d.error||d.notice||'Cerere eșuată ('+r.status+').');if(d.status==='BACKEND_REQUIRED')throw new Error('Backend-ul nu este încă activ. Fișierul public este doar manifestul.');return d;}
+function numereTelefon(v){
+ if(!v)return [];
+ try{const obj=JSON.parse(v);if(Array.isArray(obj))return obj.filter(x=>typeof x==='string' && /[0-9]{6}/.test(x)).slice(0,3);if(typeof obj==='string')v=obj;}catch(e){}
+ return String(v).split(/[,;]+/).map(x=>x.trim()).filter(x=>/[0-9]{6}/.test(x)).slice(0,3);
+}
 function renderCompanies(d){
  const box=$('#results');box.replaceChildren();
- for(const c of d.results){const article=element('article','',box);article.className='result';const h=element('h2','',article);if(c.mascat)element('span',c.denumire,h);else{const a=element('a',c.denumire,h);a.href='/firme/'+encodeURIComponent(c.cui)+'/';}element('p','CUI '+c.cui+' · '+(c.judet??'Necunoscut')+' · '+(c.localitate??'Necunoscut'),article);element('p',d.firme_noi ? 'CAEN ONRC: '+(c.caen_mf??'Nespecificat') : 'CAEN Rev.2 · MF 2024: '+(c.caen_mf??'Necunoscut'),article);const ani=[2023,2024,2025],fy=(k,u)=>ani.map(y=>y+': '+(c[k+y]!=null?Number(c[k+y]).toLocaleString('ro-RO')+u:'—')).join(' · ');element('p','Cifră de afaceri · '+fy('cifra_afaceri_',' lei'),article);element('p','Salariați · '+fy('salariati_',''),article);}
+ for(const c of d.results){const article=element('article','',box);article.className='result';const h=element('h2','',article);if(c.mascat)element('span',c.denumire,h);else{const a=element('a',c.denumire,h);a.href='/firme/'+encodeURIComponent(c.cui)+'/';}element('p','CUI '+c.cui+' · '+(c.judet??'Necunoscut')+' · '+(c.localitate??'Necunoscut'),article);element('p',d.firme_noi ? 'CAEN ONRC: '+(c.caen_mf??'Nespecificat') : 'CAEN Rev.2 · MF 2024: '+(c.caen_mf??'Necunoscut'),article);const ani=[2023,2024,2025],fy=(k,u)=>ani.map(y=>y+': '+(c[k+y]!=null?Number(c[k+y]).toLocaleString('ro-RO')+u:'—')).join(' · ');element('p','Cifră de afaceri · '+fy('cifra_afaceri_',' lei'),article);element('p','Salariați · '+fy('salariati_',''),article);if(c.telefoane){const tels=numereTelefon(c.telefoane);if(tels.length)element('p','Telefon: '+tels.join(' · '),article);}}
  message(d.results.length?d.results.length+' rezultate (maximum 50).':'Nicio firmă găsită. Încercați: eliminați un filtru, măriți intervalul cifrei de afaceri sau verificați ortografia.');
  $('#next').hidden=!d.has_more;
  if($('#export'))$('#export').hidden=!d.results.some(c=>!c.mascat);window.__rez=d.results;
