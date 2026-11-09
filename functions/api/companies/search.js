@@ -9,6 +9,12 @@
 // localitate, cmin/cmax (cifra de afaceri 2024; rezultatele returnează 2023–2025), smin/smax (salariați 2024), profit_pozitiv, fara_pierdere,
 // trend (up|down 2023→2025), sort (ca|sal|profit|nou|crestere|nume).
 const MAX_REZULTATE = 50;
+function previousMonthRO(now = new Date()) {
+  const parts = new Intl.DateTimeFormat('en-GB', {timeZone:'Europe/Bucharest', year:'numeric',month:'2-digit'}).formatToParts(now);
+  const year=Number(parts.find(x=>x.type==='year').value), month=Number(parts.find(x=>x.type==='month').value);
+  const y=month===1?year-1:year, m=month===1?12:month-1;
+  return {from:String(y)+'-'+String(m).padStart(2,'0')+'-01',to:String(year)+'-'+String(month).padStart(2,'0')+'-01'};
+}
 
 const json = (data, status = 200) => new Response(JSON.stringify(data), {
   status,
@@ -108,7 +114,7 @@ export async function onRequestGet({request, env}) {
   const caen = (p.get('caen') || '').trim();
   const q = normaliza(p.get('q')).slice(0, 60);
   if (caen && !/^\d{2,4}$/.test(caen)) return json({error: 'Codul CAEN trebuie să aibă 2–4 cifre (de exemplu 69, 692 sau 6920).'}, 400);
-  if (!caen && q.length < 3) {
+  if (!caen && q.length < 3 && p.get('firme_noi') !== '1') {
     return json({error: 'Introduceți codul CAEN din 4 cifre (de exemplu 6920) sau cel puțin 3 litere din denumirea firmei.'}, 400);
   }
   if (!env.DB) return json({error: 'Baza de date nu este conectată momentan.'}, 503);
@@ -123,7 +129,17 @@ export async function onRequestGet({request, env}) {
 async function cauta(env, p, caen, q, fts) {
   const conditii = ['f.top = 1', 'f.cui NOT IN (SELECT cui FROM onrc_excluderi WHERE cui IS NOT NULL)'];
   const valori = [];
-  if (caen) { if (caen.length === 4) { conditii.push('b.caen_mf = ?'); valori.push(caen); } else { conditii.push('b.caen_mf >= ? AND b.caen_mf < ?'); valori.push(caen, caen + '\uffff'); } }
+  const doarNoi = p.get('firme_noi') === '1';
+  const mm1 = doarNoi ? previousMonthRO() : null;
+  if (doarNoi) { conditii.push('f.data_inmatriculare >= ? AND f.data_inmatriculare < ?'); valori.push(mm1.from,mm1.to); }
+  if (caen && doarNoi) {
+    // ONRC CAEN stores comma-delimited code:revision tokens, including companies without historical balance sheets.
+    conditii.push("EXISTS (SELECT 1 FROM onrc_firma_caen fc WHERE fc.cui=f.cui AND (',' || REPLACE(fc.caen,' ','') || ',') LIKE ?)");
+    valori.push('%,' + caen + (caen.length === 4 ? ':' : '%:') + '%');
+  } else if (caen) {
+    if (caen.length === 4) { conditii.push('b.caen_mf = ?'); valori.push(caen); }
+    else { conditii.push('b.caen_mf >= ? AND b.caen_mf < ?'); valori.push(caen, caen + '\uffff'); }
+  }
   if (q && !fts) { conditii.push('f.denumire_cautare LIKE ?'); valori.push(q.replace(/[%_]/g, '') + '%'); }
   const judete = lista(p.get('judet'));
   const faraJudete = lista(p.get('fara_judet'));
@@ -145,7 +161,7 @@ async function cauta(env, p, caen, q, fts) {
     nou: 'f.data_inmatriculare DESC', nume: 'f.denumire ASC',
     crestere: '(COALESCE(c.cifra_afaceri, b.cifra_afaceri) * 1.0 / NULLIF(a.cifra_afaceri, 0)) DESC NULLS LAST'
   };
-  const sort = ORDINI[p.get('sort')] ? p.get('sort') : (caen ? 'ca' : 'nume');
+  const sort = ORDINI[p.get('sort')] ? p.get('sort') : (doarNoi ? 'nou' : (caen ? 'ca' : 'nume'));
   // Cu FTS și ordonare după nume: întâi denumirile care încep cu textul căutat, apoi restul, alfabetic.
   const ordine = fts && sort === 'nume' ? '(f.denumire_cautare LIKE ?) DESC, f.denumire ASC' : ORDINI[sort];
   const valOrdine = fts && sort === 'nume' ? [q.replace(/[%_]/g, '') + '%'] : [];
@@ -159,7 +175,7 @@ async function cauta(env, p, caen, q, fts) {
   if (sort === 'crestere') { conditii.push('a.cifra_afaceri >= ?'); valori.push(1e5); }
 
   // Cu CAEN: se pornește din tabela de bilanț (indexată pe CAEN); fără CAEN: din firme (prefix pe denumire).
-  const DEJA = caen
+  const DEJA = caen && !doarNoi
     ? `FROM mf_bilant_2024 b CROSS JOIN onrc_firme f ON f.cui = b.cui
       LEFT JOIN mf_bilant_2023 a ON a.cui = f.cui
       LEFT JOIN mf_bilant_2025 c ON c.cui = f.cui`
@@ -171,7 +187,7 @@ async function cauta(env, p, caen, q, fts) {
   // Pentru trend=up/down păstrăm JOIN-urile, fiind folosite în condițiile SQL.
   const DEJA_FACETE = (trend === 'up' || trend === 'down' || sort === 'crestere')
     ? DEJA
-    : caen
+    : caen && !doarNoi
       ? `FROM mf_bilant_2024 b CROSS JOIN onrc_firme f ON f.cui = b.cui`
       : `${SURSA} LEFT JOIN mf_bilant_2024 b ON b.cui = f.cui`;
   // Fațete (număr de rezultate pe județ), calculate fără filtrul de județ, doar pentru căutări înguste (CAEN sau nume).
@@ -193,7 +209,7 @@ async function cauta(env, p, caen, q, fts) {
       : {cui: x.cui, denumire: x.denumire, forma_juridica: x.forma_juridica, judet: x.judet, localitate: x.localitate, caen_mf: x.caen_mf,
          data_inmatriculare: x.data_inmatriculare, cifra_afaceri_2023: x.ca_2023, cifra_afaceri_2024: x.ca_2024, cifra_afaceri_2025: x.ca_2025,
          salariati_2023: x.sal_2023, salariati_2024: x.sal_2024, salariati_2025: x.sal_2025, profit_net_2024: x.profit_2024});
-    const out = {page: 1, results, limita: MAX_REZULTATE, sort, has_more: false, cautare_nume: fts ? 'oriunde în denumire' : (q ? 'începutul denumirii' : null), sursa: 'ONRC / MF, data.gov.ro — FirmsFinder AI'};
+    const out = {page: 1, results, limita: MAX_REZULTATE, sort, has_more: false, firme_noi: doarNoi, perioada_firme_noi: mm1, cautare_nume: fts ? 'oriunde în denumire' : (q ? 'începutul denumirii' : null), sursa: 'ONRC / MF, data.gov.ro — FirmsFinder AI'};
     if (cuFacete) {
       try {
         const fr = await env.DB.prepare(`SELECT f.judet AS v, COUNT(*) AS n ${DEJA_FACETE} WHERE ${condFacete} AND f.judet IS NOT NULL GROUP BY f.judet ORDER BY n DESC LIMIT 12`).bind(...valSursa, ...valFacete).all();
