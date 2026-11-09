@@ -1,17 +1,18 @@
-// Independent, low-cost ONRC MM-1 lookup. Does NOT use MF balance statements.
+// Independent, low-cost ONRC MM-1 lookup with MM-2 fallback when MM-1 has no matches. Does NOT use MF balance statements.
 // Kept separate from the legacy search endpoint to isolate its expensive query plan.
 const reply = (data, status = 200) => new Response(JSON.stringify(data), {
   status,
   headers: {'content-type':'application/json; charset=utf-8', 'cache-control':'public, max-age=120'}
 });
 const LIMIT = 50;
-function previousMonthRO(now = new Date()) {
+function previousMonthRO(now = new Date(), monthsBack = 1) {
   const parts = new Intl.DateTimeFormat('en-GB', {timeZone:'Europe/Bucharest',year:'numeric',month:'2-digit'}).formatToParts(now);
   const year = Number(parts.find(x=>x.type==='year').value);
   const month = Number(parts.find(x=>x.type==='month').value);
-  const prevY=month===1?year-1:year, prevM=month===1?12:month-1;
-  return {from:`${prevY}-${String(prevM).padStart(2,'0')}-01`,
-          to:`${year}-${String(month).padStart(2,'0')}-01`};
+  const date = new Date(Date.UTC(year, month-1-monthsBack, 1));
+  const next = new Date(Date.UTC(year, month-monthsBack, 1));
+  const iso = x => x.toISOString().slice(0,10);
+  return {from:iso(date), to:iso(next)};
 }
 export async function onRequestGet({request,env}) {
   if(!env.DB) return reply({error:'Baza de date D1 nu este conectată.'},503);
@@ -42,14 +43,27 @@ export async function onRequestGet({request,env}) {
        FROM onrc_firme f WHERE ${cond.join(' AND ')}
        ORDER BY f.data_inmatriculare DESC LIMIT ${LIMIT}`;
     const rows = await env.DB.prepare(sql).bind(...args).all();
-    const results = (rows.results||[]).map(x => x.persoana_fizica
+    let selectedPeriod = mm1, periodOffset = 1;
+    let found = rows.results || [];
+    if (found.length === 0) {
+      const mm2 = previousMonthRO(new Date(), 2);
+      // Same filters and query; only the two month boundaries are changed.
+      const fallbackArgs = args.slice();
+      fallbackArgs[0] = mm2.from;
+      fallbackArgs[1] = mm2.to;
+      const older = await env.DB.prepare(sql).bind(...fallbackArgs).all();
+      found = older.results || [];
+      selectedPeriod = mm2;
+      periodOffset = 2;
+    }
+    const results = found.map(x => x.persoana_fizica
       ? {cui:'P-'+((x.cui ^ 5921370)>>>0).toString(36).toUpperCase(),
          denumire:(x.forma_juridica||'PFA/II/IF')+' · în așteptarea acordului GDPR',
          judet:x.judet,forma_juridica:x.forma_juridica,mascat:1}
       : {cui:x.cui,denumire:x.denumire,forma_juridica:x.forma_juridica,
          judet:x.judet,localitate:x.localitate,data_inmatriculare:x.data_inmatriculare,caen_mf:caen||null});
     return reply({page:1,results,limita:LIMIT,sort:'nou',has_more:false,
-      firme_noi:true,perioada_firme_noi:mm1,sursa:'ONRC — FirmsFinder AI',
+      firme_noi:true,perioada_firme_noi:selectedPeriod,luna_selectata:periodOffset===1?'MM-1':'MM-2',fallback_mm2:periodOffset===2,sursa:'ONRC — FirmsFinder AI',
       nota:'Rezultate limitate la 50; inventarul SCARA complet se procesează separat.'});
   } catch (err) {
     console.error('firme-noi-search', String(err?.message||err).slice(0,180));
