@@ -29,7 +29,7 @@ for attempt in range(24):
             "User-Agent": client_ua,"Accept":"application/json"})
         with urllib.request.urlopen(check,timeout=15) as response:
             status=json.load(response)
-        if status.get("version") == "import-v2-deployment-gate":
+        if status.get("version") == "import-v3-batched-d1":
             ready=True
             break
     except Exception as e:
