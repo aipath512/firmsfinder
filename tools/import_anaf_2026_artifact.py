@@ -28,7 +28,8 @@ with urllib.request.urlopen(req, timeout=30) as response:
 req = urllib.request.Request("https://firmsfinder.eu/api/scara/anaf-import",
     data=json.dumps({"records": records}).encode("utf-8"),method="POST",
     headers={"Authorization":"Bearer "+identity,
-             "Content-Type":"application/json","Accept":"application/json"})
+             "Content-Type":"application/json","Accept":"application/json",
+             "User-Agent":"AiVenture-SCARA-ANAF-Importer/1.0 (+https://firmsfinder.eu)"})
 try:
     with urllib.request.urlopen(req, timeout=90) as response:
         result=json.load(response)
