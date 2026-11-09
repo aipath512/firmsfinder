@@ -3,6 +3,7 @@
 import csv
 import json
 import os
+import time
 import urllib.parse
 import urllib.request
 
@@ -17,6 +18,26 @@ if not records:
     raise SystemExit("No phone records in previously recovered ANAF artifact")
 if len(records)>100:
     raise SystemExit("Batch too large")
+# Pages deployment is asynchronous relative to GitHub push; wait for exact importer release.
+# This GET reveals only a version marker, never phone values or secrets.
+check_url = "https://firmsfinder.eu/api/scara/anaf-import"
+client_ua = "AiVenture-SCARA-ANAF-Importer/1.0 (+https://firmsfinder.eu)"
+ready = False
+for attempt in range(24):
+    try:
+        check = urllib.request.Request(check_url, headers={
+            "User-Agent": client_ua,"Accept":"application/json"})
+        with urllib.request.urlopen(check,timeout=15) as response:
+            status=json.load(response)
+        if status.get("version") == "import-v2-deployment-gate":
+            ready=True
+            break
+    except Exception as e:
+        if attempt == 23: print("DEPLOYMENT_CHECK:",type(e).__name__)
+    time.sleep(5)
+if not ready:
+    raise SystemExit("Import server new version not deployed; refusing outdated D1 endpoint")
+print("IMPORT_DEPLOYMENT_VERSION_OK")
 oidc_url = os.environ["ACTIONS_ID_TOKEN_REQUEST_URL"]
 separator = "&" if "?" in oidc_url else "?"
 oidc_url += separator + urllib.parse.urlencode({"audience": "firmsfinder-anaf-import"})
