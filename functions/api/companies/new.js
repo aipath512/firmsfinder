@@ -37,13 +37,19 @@ export async function onRequestGet({request,env}) {
     if(j.length){cond.push('f.judet IN ('+j.map(()=>'?').join(',')+')');args.push(...j);}
   }
   if(localitate){cond.push('f.localitate LIKE ?');args.push('%'+localitate.replace(/[%_]/g,'')+'%');}
-  if(cuTelefon) cond.push("EXISTS (SELECT 1 FROM firme_site fs WHERE fs.cui=f.cui AND fs.telefoane IS NOT NULL AND TRIM(fs.telefoane) NOT IN ('','[]','null'))");
+  if(cuTelefon) cond.push("fs.telefoane IS NOT NULL AND TRIM(fs.telefoane) NOT IN ('','[]','null')");
   try {
-    const source = caen
-      ? 'FROM onrc_firma_caen fc JOIN onrc_firme f ON f.cod_inmatriculare=fc.cod_inmatriculare'
-      : 'FROM onrc_firme f';
+    // When filtering contacts, start with the contact table instead of asking D1
+    // to evaluate a correlated EXISTS for every ONRC candidate.
+    const source = cuTelefon
+      ? (caen
+          ? 'FROM firme_site fs JOIN onrc_firme f ON f.cui=fs.cui JOIN onrc_firma_caen fc ON fc.cod_inmatriculare=f.cod_inmatriculare'
+          : 'FROM firme_site fs JOIN onrc_firme f ON f.cui=fs.cui')
+      : (caen
+          ? 'FROM onrc_firma_caen fc JOIN onrc_firme f ON f.cod_inmatriculare=fc.cod_inmatriculare'
+          : 'FROM onrc_firme f');
     const sql = `SELECT DISTINCT f.cui,f.denumire,f.forma_juridica,f.persoana_fizica,f.judet,f.localitate,f.data_inmatriculare,
-        ${cuTelefon ? "(SELECT fs.telefoane FROM firme_site fs WHERE fs.cui=f.cui AND fs.telefoane IS NOT NULL AND TRIM(fs.telefoane) NOT IN ('','[]','null') LIMIT 1) AS telefoane" : "NULL AS telefoane"}
+        ${cuTelefon ? "fs.telefoane AS telefoane" : "NULL AS telefoane"}
       ${source} WHERE ${cond.join(' AND ')}
       ORDER BY f.data_inmatriculare DESC LIMIT ${LIMIT}`;
     const rows = await env.DB.prepare(sql).bind(...args).all();
