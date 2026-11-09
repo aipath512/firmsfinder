@@ -1,4 +1,4 @@
-// Independent, low-cost ONRC MM-1 lookup with MM-2 fallback when MM-1 has no matches. Does NOT use MF balance statements.
+// Independent, low-cost ONRC MM-1 lookup with MM-2 / MM-3 fallback when earlier periods have no matches. Does NOT use MF balance statements.
 // Kept separate from the legacy search endpoint to isolate its expensive query plan.
 const reply = (data, status = 200) => new Response(JSON.stringify(data), {
   status,
@@ -42,19 +42,20 @@ export async function onRequestGet({request,env}) {
     const sql = `SELECT f.cui,f.denumire,f.forma_juridica,f.persoana_fizica,f.judet,f.localitate,f.data_inmatriculare
        FROM onrc_firme f WHERE ${cond.join(' AND ')}
        ORDER BY f.data_inmatriculare DESC LIMIT ${LIMIT}`;
-    const rows = await env.DB.prepare(sql).bind(...args).all();
-    let selectedPeriod = mm1, periodOffset = 1;
-    let found = rows.results || [];
-    if (found.length === 0) {
-      const mm2 = previousMonthRO(new Date(), 2);
-      // Same filters and query; only the two month boundaries are changed.
-      const fallbackArgs = args.slice();
-      fallbackArgs[0] = mm2.from;
-      fallbackArgs[1] = mm2.to;
-      const older = await env.DB.prepare(sql).bind(...fallbackArgs).all();
-      found = older.results || [];
-      selectedPeriod = mm2;
-      periodOffset = 2;
+    // Search each complete calendar month separately; stop at first nonempty month.
+    let found = [], selectedPeriod = mm1, periodOffset = 1;
+    const checkedPeriods = [];
+    for (let monthsBack = 1; monthsBack <= 3; monthsBack++) {
+      const period = previousMonthRO(new Date(), monthsBack);
+      const periodArgs = args.slice();
+      periodArgs[0] = period.from;
+      periodArgs[1] = period.to;
+      const rows = await env.DB.prepare(sql).bind(...periodArgs).all();
+      found = rows.results || [];
+      checkedPeriods.push({luna:'MM-'+monthsBack, ...period, rezultate:found.length});
+      selectedPeriod = period;
+      periodOffset = monthsBack;
+      if (found.length > 0) break;
     }
     const results = found.map(x => x.persoana_fizica
       ? {cui:'P-'+((x.cui ^ 5921370)>>>0).toString(36).toUpperCase(),
@@ -63,7 +64,7 @@ export async function onRequestGet({request,env}) {
       : {cui:x.cui,denumire:x.denumire,forma_juridica:x.forma_juridica,
          judet:x.judet,localitate:x.localitate,data_inmatriculare:x.data_inmatriculare,caen_mf:caen||null});
     return reply({page:1,results,limita:LIMIT,sort:'nou',has_more:false,
-      firme_noi:true,perioada_firme_noi:selectedPeriod,luna_selectata:periodOffset===1?'MM-1':'MM-2',fallback_mm2:periodOffset===2,sursa:'ONRC — FirmsFinder AI',
+      firme_noi:true,perioada_firme_noi:selectedPeriod,luna_selectata:'MM-'+periodOffset,fallback_activat:periodOffset>1,perioade_verificate:checkedPeriods,sursa:'ONRC — FirmsFinder AI',
       nota:'Rezultate limitate la 50; inventarul SCARA complet se procesează separat.'});
   } catch (err) {
     console.error('firme-noi-search', String(err?.message||err).slice(0,180));
