@@ -21,6 +21,20 @@ export async function onRequestGet({request,env}) {
   const judet = (p.get('judet') || '').trim().slice(0,80);
   const localitate = (p.get('localitate') || '').trim().slice(0,60);
   if(caen && !/^\d{2,4}$/.test(caen)) return reply({error:'CAEN trebuie să conțină 2–4 cifre.'},400);
+  // Temporary read-only diagnostic: returns only check labels and error codes, never company rows.
+  if(p.get('diag') === '1') {
+    const checks = [
+      ['company_date', "SELECT cui FROM onrc_firme WHERE data_inmatriculare >= '2026-10-01' AND data_inmatriculare < '2026-11-01' LIMIT 1"],
+      ['company_caen', 'SELECT cui,caen FROM onrc_firma_caen LIMIT 1'],
+      ['joined_caen', "SELECT f.cui FROM onrc_firme f WHERE f.data_inmatriculare >= '2026-10-01' AND f.data_inmatriculare < '2026-11-01' AND EXISTS (SELECT 1 FROM onrc_firma_caen fc WHERE fc.cui=f.cui AND fc.caen LIKE '%4322:%') LIMIT 1"]
+    ];
+    const outcomes=[];
+    for(const [name,sql] of checks) {
+      try {const row=await env.DB.prepare(sql).first();outcomes.push({name,ok:true,has_row:!!row});}
+      catch(e) {outcomes.push({name,ok:false,error:String(e?.message||e).slice(0,220)});}
+    }
+    return reply({diagnostic:'temporary',outcomes});
+  }
   const mm1 = previousMonthRO();
   // Index on data_inmatriculare is recommended in staging, once D1 table is inspected.
   const cond = ["f.top=1", "f.data_inmatriculare >= ?", "f.data_inmatriculare < ?"];
