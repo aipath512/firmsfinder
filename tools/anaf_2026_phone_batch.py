@@ -39,8 +39,25 @@ def report(status, **stats):
         json.dump(data, f, ensure_ascii=False, indent=2)
 
 def main():
-    if not (ACCOUNT and DATABASE and TOKEN):
-        raise RuntimeError("Missing CF_ACCOUNT_ID, CF_D1_DATABASE_ID or write-capable CF_D1_WRITE_TOKEN/CLOUDFLARE_API_TOKEN")
+    global DATABASE
+    if not (ACCOUNT and TOKEN):
+        raise RuntimeError("Missing CLOUDFLARE_ACCOUNT_ID or CLOUDFLARE_API_TOKEN")
+    if not DATABASE:
+        url = "https://api.cloudflare.com/client/v4/accounts/%s/d1/database?per_page=100" % ACCOUNT
+        req = urllib.request.Request(url, headers={
+            "authorization": "Bearer " + TOKEN, "accept": "application/json"
+        })
+        with urllib.request.urlopen(req, timeout=30) as response:
+            listing = json.load(response)
+        if listing.get("success") is not True:
+            raise RuntimeError("D1 inventory API unavailable: " + json.dumps(listing.get("errors", []))[:220])
+        matches = [x for x in (listing.get("result") or []) if x.get("name") == "b2b-romania-db"]
+        if len(matches) != 1:
+            raise RuntimeError("Expected exactly one D1 database named b2b-romania-db, got %s" % len(matches))
+        DATABASE = matches[0].get("uuid") or matches[0].get("id")
+        if not DATABASE:
+            raise RuntimeError("D1 database listing had no UUID")
+        print("D1 target name verified: b2b-romania-db")
     # State and phone tables are additive; no alteration of ONRC or existing contact records.
     d1("""CREATE TABLE IF NOT EXISTS scara_anaf_2026_phone (
         cui INTEGER PRIMARY KEY,
