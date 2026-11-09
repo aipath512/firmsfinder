@@ -38,11 +38,13 @@ export async function onRequestPost({request,env}){
    if(!Number.isSafeInteger(cui)||cui<100||cui>9999999999||phone.length<6||phone.length>90||!/[0-9]{6}/.test(phone.replace(/[^0-9]/g,"")))return json({error:"Invalid CUI or phone"},400);
    rows.push({cui,phone});
  }
+ let stage="create-table";
  try{
    await env.DB.exec(`CREATE TABLE IF NOT EXISTS scara_anaf_2026_phone (
      cui INTEGER PRIMARY KEY, telefon_raw TEXT NOT NULL,
      source TEXT NOT NULL DEFAULT 'ANAF_v9',
      queried_at TEXT NOT NULL, verified INTEGER NOT NULL DEFAULT 0)`);
+   stage="prepare-upsert";
    const yearStart="2026-01-01",yearEnd="2027-01-01";
    const savedAt=new Date().toISOString();
    // Confirm each CUI belongs to a 2026 ONRC legal entity before persisting.
@@ -53,7 +55,9 @@ export async function onRequestPost({request,env}){
       AND f.data_inmatriculare>=? AND f.data_inmatriculare<?
       ON CONFLICT(cui) DO UPDATE SET telefon_raw=excluded.telefon_raw,
          queried_at=excluded.queried_at`);
+   stage="write-rows";
    for(const r of rows)await stmt.bind(r.phone,savedAt,r.cui,yearStart,yearEnd).run();
+   stage="readback";
    const ids=rows.map(r=>r.cui);
    let persisted=0;
    for(const id of ids){
@@ -61,5 +65,10 @@ export async function onRequestPost({request,env}){
       if(res)persisted++;
    }
    return json({requested:rows.length,persisted,source:"ANAF_v9",year:2026,verified_required:false,complete:persisted===rows.length},persisted===rows.length?200:409);
- }catch(e){console.error("scara-anaf-import",String(e).slice(0,180));return json({error:"D1 import failed"},503);}
+ }catch(e){
+   const detail=String(e?.message||e).slice(0,240);
+   console.error("scara-anaf-import",stage,detail);
+   // Caller has already passed signed GitHub OIDC; safe to expose SQL diagnostic to CI only.
+   return json({error:"D1 import failed",stage,detail},503);
+ }
 }
