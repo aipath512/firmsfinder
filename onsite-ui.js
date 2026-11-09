@@ -18,7 +18,7 @@ function renderCompanies(d){
 if($('#search-form')){
  let page=1;const form=$('#search-form');const initial=new URLSearchParams(location.search);
  for(const [key,v] of initial){{const f=form.elements.namedItem(key);if(f){if(f.type==='checkbox')f.checked=true;else f.value=v;}}}
- const LBL={q:'Nume',caen:'CAEN',judet:'Județ',fara_judet:'Fără județ',localitate:'Localitate',cmin:'CA ≥',cmax:'CA ≤',smin:'Salariați ≥',smax:'Salariați ≤',trend:'Evoluție',sort:'Sortare',profit_pozitiv:'Profit',fara_pierdere:'Fără pierdere',firme_noi:'Firme noi (MM−1 până la MM−3)'};
+ const LBL={q:'Nume',caen:'CAEN',judet:'Județ',fara_judet:'Fără județ',localitate:'Localitate',cmin:'CA ≥',cmax:'CA ≤',smin:'Salariați ≥',smax:'Salariați ≤',trend:'Evoluție',sort:'Sortare',profit_pozitiv:'Profit',fara_pierdere:'Fără pierdere',firme_noi:'Firme noi (MM−1 până la MM−3)',cu_telefon:'Cu telefon'};
  function chips(params){const box=$('#chips');if(!box)return;box.replaceChildren();for(const [k,v] of params){if(!LBL[k]||k==='page')continue;const b=element('button',LBL[k]+': '+(v==='1'?'da':v)+' ×',box);b.type='button';b.addEventListener('click',()=>{const f=form.elements.namedItem(k);if(f){if(f.type==='checkbox')f.checked=false;else f.value='';}page=1;run();});}}
  async function run(){try{message('Caut…');const params=new URLSearchParams();for(const [k,v] of new FormData(form))if(String(v).trim())params.set(k,String(v).trim());chips(params);params.set('page',page);params.set('facete','1');const d=await call((params.get('firme_noi')==='1'?'/api/companies/new?':'/api/companies/search?')+params);
  renderCompanies(d);
@@ -32,10 +32,11 @@ if($('#search-form')){
   try{
    const info=await call('/api/date');
    const sursa=info?.surse?.onrc||'ediție ONRC neprecizată';
-   message('Nu există înregistrări pentru filtrele selectate în MM−1, MM−2 sau MM−3 în datele ONRC încărcate în FirmsFinder. Sursa disponibilă: '+sursa+'. Acesta NU este numărul real de firme nou-înființate; este necesară actualizarea ONRC.');
+   message((params.get('cu_telefon')==='1'?'Nicio firmă cu telefon disponibil pentru filtrele alese în MM−1, MM−2 sau MM−3. ':'Nu există înregistrări pentru filtrele selectate în MM−1, MM−2 sau MM−3 în datele ONRC încărcate în FirmsFinder. ')+'Sursa disponibilă: '+sursa+'. Datele nu reprezintă inventarul complet al firmelor noi sau al numerelor de telefon.');
   }catch(e){message('Nu există înregistrări în MM−1, MM−2 sau MM−3 în baza disponibilă. Verificați actualizarea lunară ONRC înainte de a interpreta rezultatul.');}
  }}catch(e){message(e.message);$('#results').replaceChildren();$('#next').hidden=true;}}
  const firmeNoi=form.elements.namedItem('firme_noi');if(firmeNoi)firmeNoi.addEventListener('change',()=>{page=1;run();});
+ const cuTelefon=form.elements.namedItem('cu_telefon');if(cuTelefon)cuTelefon.addEventListener('change',()=>{page=1;run();});
  const sg=$('#sugestii'),qi=form.elements.namedItem('q');let tm;
  if(sg&&qi)qi.addEventListener('input',()=>{clearTimeout(tm);const v=qi.value.trim();if(v.length<3){sg.replaceChildren();return;}tm=setTimeout(async()=>{try{const r=await fetch('/api/companies/suggest?q='+encodeURIComponent(v));const l=await r.json();sg.replaceChildren();for(const n of l){const o=document.createElement('option');o.value=n;sg.append(o);}}catch(e){}},250);});
  if($('#export'))$('#export').addEventListener('click',()=>{const rows=(window.__rez||[]).filter(c=>!c.mascat);const cols=['cui','denumire','forma_juridica','judet','localitate','caen_mf','data_inmatriculare','cifra_afaceri_2024','salariati_2024','profit_net_2024'];const esc=v=>'"'+String(v??'').replace(/"/g,'""')+'"';const csv='\ufeff'+cols.join(',')+'\n'+rows.map(c=>cols.map(k=>esc(c[k])).join(',')).join('\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));a.download='firmsfinder_rezultate.csv';a.click();});
