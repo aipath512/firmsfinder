@@ -58,24 +58,13 @@ export async function onRequestGet({request,env}){
    }
    // Privacy: individual businesses PFA/II/IF are excluded from open contact prospecting.
    cond.push("COALESCE(f.persoana_fizica,0)=0","f.cui IS NOT NULL");
-   // Cost-bounded query plans: drive telephone searches from the much smaller
-   // contact table (not from every ONRC company). For all firms use the ONRC
-   // or CAEN index route, never a per-row correlated telephone lookup.
-   const fromClause=cuTelefon
-      ? "FROM firme_site fs JOIN onrc_firme f ON f.cui=fs.cui"
-      : caen
-        ? "FROM onrc_firma_caen fc JOIN onrc_firme f ON f.cod_inmatriculare=fc.cod_inmatriculare"
-        : "FROM onrc_firme f";
-   if(cuTelefon){
-     cond.push("fs.telefoane IS NOT NULL AND TRIM(fs.telefoane) NOT IN ('','[]','null') AND fs.telefoane GLOB '*[0-9]*'");
-   }
-   // If CAEN already drives the query, reuse that row instead of EXISTS.
-   if(caen&&!cuTelefon){
-     const oldIndex=cond.findIndex(x=>x.startsWith("EXISTS (SELECT 1 FROM onrc_firma_caen"));
-     if(oldIndex>=0)cond[oldIndex]="(',' || REPLACE(fc.caen,' ','') || ',') LIKE ?";
-   }
+   // Bound the scan to the date index. Never sort every ONRC or contact row.
+   // Phone filtering is applied to the current page after its contact lookup;
+   // next_cursor continues across the entire 2026 ONRC result stream.
+   // Important: a zero-result phone page is not proof of no phones in 2026.
+   const fromClause="FROM onrc_firme f INDEXED BY ix_onrc_firme_data";
    stage="select";
-   const sql=`SELECT DISTINCT f.cui,f.denumire,f.forma_juridica,f.judet,f.localitate,
+   const sql=`SELECT f.cui,f.denumire,f.forma_juridica,f.judet,f.localitate,
        f.data_inmatriculare,f.cod_inmatriculare
      ${fromClause} WHERE ${cond.join(" AND ")}
      ORDER BY f.data_inmatriculare DESC,f.cui DESC LIMIT ${LIMIT+1}`;
@@ -122,11 +111,12 @@ export async function onRequestGet({request,env}){
        are_email:emailuri.length>0,are_site:domenii.length>0,
        site:domenii[0]||null};
    });
+   if(cuTelefon)results=results.filter(x=>x.are_telefon);
    const last=page[page.length-1];
    return reply({results,has_more:hasMore,next_cursor:hasMore?last.data_inmatriculare+"|"+encodeURIComponent(last.cod_inmatriculare||"")+"|"+last.cui:null,
-     limita:LIMIT,firme_noi:true,cu_telefon:cuTelefon,sort:"LIFO",an_selectat:year,
+     limita:LIMIT,firme_noi:true,cu_telefon:cuTelefon,filtrare_telefon:"lot_curent",sort:"LIFO",an_selectat:year,
      perioada_firme_noi:{from,to,year},sursa:"ONRC + contacte FirmsFinder / ANAF (dacă importate)",
-     nota:"Paginare a întregului an; telefoanele, emailurile și site-urile sunt doar cele descoperite în sursele disponibile."});
+     nota:"Paginare pe loturi ONRC. Cu telefon ON filtrează fiecare lot de 50, nu întreaga bază instantaneu. Pentru a găsi alte firme cu telefon continuați cu NEXT. Datele lipsă nu înseamnă că firma nu are contact."});
  }catch(e){
    console.error("2026-contact-list",stage,String(e?.message||e).slice(0,200));
    return reply({error:"Căutarea firmelor noi nu poate fi executată în D1.",stage,
