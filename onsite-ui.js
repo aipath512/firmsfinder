@@ -2,22 +2,49 @@ const $=s=>document.querySelector(s);
 const message=text=>{if($('#message'))$('#message').textContent=text;};
 function element(tag,text,parent){const x=document.createElement(tag);x.textContent=String(text??'Necunoscut');if(parent)parent.append(x);return x;}
 async function call(url,options){const r=await fetch(url,options),d=await r.json();if(!r.ok)throw new Error(d.error||d.notice||'Cerere eșuată ('+r.status+').');if(d.status==='BACKEND_REQUIRED')throw new Error('Backend-ul nu este încă activ. Fișierul public este doar manifestul.');return d;}
-function numereTelefon(v){
- if(!v)return [];
- try{const obj=JSON.parse(v);if(Array.isArray(obj))return obj.filter(x=>typeof x==='string' && /[0-9]{6}/.test(x)).slice(0,3);if(typeof obj==='string')v=obj;}catch(e){}
- return String(v).split(/[,;]+/).map(x=>x.trim()).filter(x=>/[0-9]{6}/.test(x)).slice(0,3);
+function valoriContact(v){
+ if(v==null||v==='')return [];
+ if(Array.isArray(v))return [...new Set(v.flatMap(valoriContact))];
+ try{const parsed=JSON.parse(v);if(Array.isArray(parsed))return valoriContact(parsed);if(typeof parsed==='string')v=parsed;}catch(e){}
+ return [...new Set(String(v).split(/[,;\n]+/).map(x=>x.trim()).filter(Boolean))];
 }
-function renderCompanies(d){
- const box=$('#results');box.replaceChildren();
- for(const c of d.results){const article=element('article','',box);article.className='result';const h=element('h2','',article);if(c.mascat)element('span',c.denumire,h);else{const a=element('a',c.denumire,h);a.href='/firme/'+encodeURIComponent(c.cui)+'/';}element('p','CUI '+c.cui+' · '+(c.judet??'Necunoscut')+' · '+(c.localitate??'Necunoscut'),article);element('p',d.firme_noi ? 'CAEN ONRC: '+(c.caen_mf??'Nespecificat') : 'CAEN Rev.2 · MF 2024: '+(c.caen_mf??'Necunoscut'),article);const ani=[2023,2024,2025],fy=(k,u)=>ani.map(y=>y+': '+(c[k+y]!=null?Number(c[k+y]).toLocaleString('ro-RO')+u:'—')).join(' · ');element('p','Cifră de afaceri · '+fy('cifra_afaceri_',' lei'),article);element('p','Salariați · '+fy('salariati_',''),article);if(c.telefoane){const tels=numereTelefon(c.telefoane);if(tels.length)element('p','Telefon: '+tels.join(' · '),article);}}
- message(d.results.length?d.results.length+' rezultate (maximum 50).':(d.firme_noi?'Nicio firmă găsită în anul curent în datele disponibile. Verificați actualizarea ONRC.':'Nicio firmă găsită pentru filtrele selectate.'));
+function numereTelefon(v){return valoriContact(v).filter(x=>(x.match(/\d/g)||[]).length>=6);}
+
+function renderCompanies(d,append=false){
+ const box=$('#results');if(!append)box.replaceChildren();
+ for(const c of d.results){
+  const article=element('article','',box);article.className='result';
+  const h=element('h2','',article);
+  if(c.mascat)element('span',c.denumire,h);
+  else{const a=element('a',c.denumire,h);a.href='/firme/'+encodeURIComponent(c.cui)+'/';}
+  element('p','CUI '+c.cui+' · Localitate: '+(c.localitate??'Nespecificată')+' · Județ: '+(c.judet??'Nespecificat'),article);
+  if(d.firme_noi){
+    element('p','Data înființării: '+(c.data_inmatriculare||'Nedisponibilă'),article);
+    if(c.caen_mf)element('p','CAEN: '+c.caen_mf,article);
+    const tels=numereTelefon(c.telefoane);
+    const line=element('p','',article);element('strong','Telefon: ',line);
+    if(tels.length){tels.forEach((phone,i)=>{if(i)line.append(' · ');const link=element('a',phone,line);link.href='tel:'+phone.replace(/[^+0-9]/g,'');});}
+    else line.append('Nu este identificat');
+    const emails=valoriContact(c.emailuri);
+    const emailLine=element('p','',article);element('strong','Email: '+(emails.length?'DA — ':'NU este identificat'),emailLine);
+    if(emails.length)emails.forEach((em,i)=>{if(i)emailLine.append(' · ');const a=element('a',em,emailLine);a.href='mailto:'+em;});
+    const siteLine=element('p','',article);element('strong','Website: '+(c.are_site?'DA — ':'NU este identificat'),siteLine);
+    if(c.are_site&&c.site){const site=String(c.site);const href=/^https?:\/\//i.test(site)?site:'https://'+site;try{const u=new URL(href);if(['http:','https:'].includes(u.protocol)){const a=element('a',site,siteLine);a.href=u.href;a.target='_blank';a.rel='noopener noreferrer';}}catch(e){}}
+  }else{
+    element('p','CAEN Rev.2 · MF 2024: '+(c.caen_mf??'Necunoscut'),article);
+    const ani=[2023,2024,2025],fy=(k,u)=>ani.map(y=>y+': '+(c[k+y]!=null?Number(c[k+y]).toLocaleString('ro-RO')+u:'—')).join(' · ');
+    element('p','Cifră de afaceri · '+fy('cifra_afaceri_',' lei'),article);
+    element('p','Salariați · '+fy('salariati_',''),article);
+    const tels=numereTelefon(c.telefoane);if(tels.length)element('p','Telefon: '+tels.join(' · '),article);
+  }
+ }
  $('#next').hidden=!d.has_more;
- if($('#export'))$('#export').hidden=!d.results.some(c=>!c.mascat);window.__rez=d.results;
- const aux=$('#aux');if(aux){aux.replaceChildren();
+ if($('#export'))$('#export').hidden=!d.results.some(c=>!c.mascat);
+ const aux=$('#aux');if(aux&&!append){aux.replaceChildren();
   const go=(name,val)=>{const f=$('#search-form').elements.namedItem(name);if(f){f.value=val;$('#search-form').requestSubmit();}};
   if(d.sugestie){const p=element('p','Ai vrut să spui: ',aux);const b=element('button',d.sugestie+'?',p);b.type='button';b.addEventListener('click',()=>go('q',d.sugestie));}
   if(d.sinonime&&d.sinonime.length){const p=element('p','Căutați după activitate: ',aux);for(const x of d.sinonime){const b=element('button',x.eticheta+' (CAEN '+x.caen+')',p);b.type='button';b.addEventListener('click',()=>{const f=$('#search-form');f.elements.namedItem('q').value='';go('caen',x.caen);});p.append(' ');}}
-  if(d.facete&&d.facete.judet&&d.facete.judet.length){const p=element('p','Județe în rezultate: ',aux);for(const x of d.facete.judet){const b=element('button',x.v+' ('+Number(x.n).toLocaleString('ro-RO')+')',p);b.type='button';b.addEventListener('click',()=>go('judet',x.v));p.append(' ');}}
+  if(d.facete&&d.facete.judet&&d.facete.judet.length){const p=element('p','Județe în rezultate: ',aux);for(const x of d.facete.judet){const b=element('button',x.v+' ('+Number(x.n).toLocaleString('ro-RO')+')',p);b.type='button';b.addEventListener('click',()=>go('judet',x.v));}}
  }
 }
 if($('#search-form')){
