@@ -8,6 +8,7 @@ on:
   workflow_dispatch:
 permissions:
   contents: read
+  statuses: write
 jobs:
   inspect:
     runs-on: ubuntu-latest
@@ -28,4 +29,27 @@ jobs:
                   print("HTTP",e.code,e.read().decode("utf8")[:1000],flush=True)
               except Exception as e:print("ERROR",type(e).__name__,str(e)[:100],flush=True)
               if i<5:time.sleep(10)
+          PY
+
+      - name: Link inspector run to GitHub commit status
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          GH_SHA: ${{ github.sha }}
+          GH_RUN_ID: ${{ github.run_id }}
+          GH_JOB_STATUS: ${{ job.status }}
+        run: |
+          python3 - <<'PY'
+          import json,os,urllib.request
+          body={"context":"firmsfinder/2026-d1-index-plan",
+                "state":"success" if os.environ["GH_JOB_STATUS"]=="success" else "failure",
+                "description":"D1 query plan inspection run",
+                "target_url":"https://github.com/"+os.environ["GH_REPO"]+"/actions/runs/"+os.environ["GH_RUN_ID"]}
+          url="https://api.github.com/repos/"+os.environ["GH_REPO"]+"/statuses/"+os.environ["GH_SHA"]
+          req=urllib.request.Request(url,method="POST",data=json.dumps(body).encode(),headers={
+            "Authorization":"Bearer "+os.environ["GH_TOKEN"],
+            "Accept":"application/vnd.github+json","Content-Type":"application/json",
+            "User-Agent":"AiVenture-D1-Inspector"})
+          with urllib.request.urlopen(req,timeout=20) as r:print("STATUS",r.status)
           PY
