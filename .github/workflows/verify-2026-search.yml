@@ -1,0 +1,60 @@
+name: Verify 2026 search on production
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'functions/api/companies/new.js'
+      - '.github/workflows/verify-2026-search.yml'
+permissions:
+  contents: read
+  statuses: write
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Smoke-test both 2026 API modes after Pages deployment and report commit status
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          GH_SHA: ${{ github.sha }}
+          GH_RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          python3 - <<'PY'
+          import json,os,time,urllib.parse,urllib.request,urllib.error
+          cases=[
+            ("all",{"caen":"4322","judet":"Bucuresti","localitate":"Bucuresti","firme_noi":"1"}),
+            ("phone",{"caen":"4322","judet":"Bucuresti","localitate":"Bucuresti","firme_noi":"1","cu_telefon":"1"})]
+          outcome={}
+          for attempt in range(6):
+              outcome={}
+              for name,params in cases:
+                  url="https://firmsfinder.eu/api/companies/new?"+urllib.parse.urlencode(params)
+                  req=urllib.request.Request(url,headers={"User-Agent":"AiVenture-FirmsFinder-Production-SmokeTest/1.0","Accept":"application/json","Cache-Control":"no-cache"})
+                  try:
+                      with urllib.request.urlopen(req,timeout=28) as r:
+                          payload=json.load(r)
+                          outcome[name]={"http":r.status,"results":len(payload.get("results",[])),"stage":payload.get("stage"),"error":payload.get("error"),"has_more":payload.get("has_more")}
+                  except urllib.error.HTTPError as e:
+                      try: data=json.load(e)
+                      except Exception: data={}
+                      outcome[name]={"http":e.code,"stage":data.get("stage"),"error":data.get("error")}
+                  except Exception as e:
+                      outcome[name]={"failure":type(e).__name__}
+              print("TEST_ATTEMPT",attempt+1,json.dumps(outcome,ensure_ascii=False),flush=True)
+              if all(outcome.get(k,{}).get("http")==200 for k in ("all","phone")):break
+              if attempt<5:time.sleep(20)
+          success=all(outcome.get(k,{}).get("http")==200 for k in ("all","phone"))
+          state="success" if success else "failure"
+          summary="API 2026 all/phone: "+"/".join(str(outcome.get(k,{}).get("http",outcome.get(k,{}).get("failure","?"))) for k in ("all","phone"))
+          data={"state":state,"context":"firmsfinder/2026-search-production",
+                "description":summary[:140],"target_url":os.environ["GH_RUN_URL"]}
+          status_url="https://api.github.com/repos/"+os.environ["GH_REPO"]+"/statuses/"+os.environ["GH_SHA"]
+          request=urllib.request.Request(status_url,data=json.dumps(data).encode(),method="POST",headers={
+              "Authorization":"Bearer "+os.environ["GH_TOKEN"],
+              "Accept":"application/vnd.github+json","Content-Type":"application/json",
+              "User-Agent":"AiVenture-2026-Smoketest"})
+          with urllib.request.urlopen(request,timeout=25) as result:
+              print("GITHUB_COMMIT_STATUS",result.status,state)
+          if not success:raise SystemExit(1)
+          PY
