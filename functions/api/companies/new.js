@@ -26,12 +26,17 @@ export async function onRequestGet({request,env}){
  const loc=(p.get("localitate")||"").trim().slice(0,60);
  const localitate=norm(loc)==="bucuresti"?"Bucure":loc;
  const cuTelefon=p.get("cu_telefon")==="1";
+ const nrInmatriculare=(p.get("nr_inmatriculare")||"").trim().slice(0,70);
+ if(nrInmatriculare && !/^[\p{L}\p{N}\/., -]+$/u.test(nrInmatriculare))return reply({error:"Număr de înmatriculare invalid"},400);
  const rawCursor=p.get("cursor")||"";
  let cursor=null;
  if(rawCursor){
-   const m=/^(\d{4}-\d{2}-\d{2})\|(\d{1,12})$/.exec(rawCursor);
+   const m=/^(\d{4}-\d{2}-\d{2})\|([^|]{1,160})\|(\d{1,12})$/.exec(rawCursor);
    if(!m||m[1]<from||m[1]>=to)return reply({error:"Cursor invalid; reluați căutarea."},400);
-   cursor={date:m[1],cui:Number(m[2])};
+   let registration;
+   try{registration=decodeURIComponent(m[2]);}catch{return reply({error:"Cursor invalid"},400);}
+   if(registration.length>90)return reply({error:"Cursor invalid"},400);
+   cursor={date:m[1],registration,cui:Number(m[3])};
  }
  try{
    // Restrict the ONRC query to one 50-row page BEFORE contact enrichment.
@@ -42,9 +47,13 @@ export async function onRequestGet({request,env}){
      args.push('%,'+caen+(caen.length===4?':':'%:')+'%');
    }
    if(q){cond.push("f.denumire LIKE ?");args.push("%"+q.replace(/[%_]/g,"")+"%");}
+   if(nrInmatriculare){cond.push("UPPER(TRIM(f.cod_inmatriculare))=UPPER(?)");args.push(nrInmatriculare);}
    if(judet.length){cond.push("f.judet IN ("+judet.map(()=>"?").join(",")+")");args.push(...judet);}
    if(localitate){cond.push("f.localitate LIKE ?");args.push("%"+localitate.replace(/[%_]/g,"")+"%");}
-   if(cursor){cond.push("(f.data_inmatriculare<? OR (f.data_inmatriculare=? AND f.cui<?))");args.push(cursor.date,cursor.date,cursor.cui);}
+   if(cursor){
+     cond.push("(f.data_inmatriculare<? OR (f.data_inmatriculare=? AND (COALESCE(f.cod_inmatriculare,'')<? OR (COALESCE(f.cod_inmatriculare,'')=? AND f.cui<?))))");
+     args.push(cursor.date,cursor.date,cursor.registration,cursor.registration,cursor.cui);
+   }
    // Privacy: individual businesses PFA/II/IF are excluded from open contact prospecting.
    cond.push("COALESCE(f.persoana_fizica,0)=0","f.cui IS NOT NULL");
    const anafTable=await env.DB.prepare("SELECT 1 AS ok FROM sqlite_master WHERE type='table' AND name='scara_anaf_2026_phone'").first();
@@ -58,9 +67,9 @@ export async function onRequestGet({request,env}){
    const source=caen
      ? (cuTelefon?contactPrefix+" JOIN onrc_firma_caen fc ON fc.cod_inmatriculare=f.cod_inmatriculare":"FROM onrc_firma_caen fc JOIN onrc_firme f ON f.cod_inmatriculare=fc.cod_inmatriculare")
      : contactPrefix;
-   const sql=`SELECT DISTINCT f.cui,f.denumire,f.forma_juridica,f.judet,f.localitate,f.data_inmatriculare
+   const sql=`SELECT DISTINCT f.cui,f.denumire,f.forma_juridica,f.judet,f.localitate,f.data_inmatriculare,f.cod_inmatriculare
      ${source} WHERE ${cond.join(" AND ")}
-     ORDER BY f.data_inmatriculare DESC,f.cui DESC LIMIT ${LIMIT+1}`;
+     ORDER BY f.data_inmatriculare DESC,COALESCE(f.cod_inmatriculare,'') DESC,f.cui DESC LIMIT ${LIMIT+1}`;
    const response=await env.DB.prepare(sql).bind(...args).all();
    const found=response.results||[];
    const hasMore=found.length>LIMIT;
@@ -92,15 +101,15 @@ export async function onRequestGet({request,env}){
    let results=page.map(x=>{
      const c=contacts.get(Number(x.cui))||{telefoane:[],emailuri:[],domenii:[]};
      const telefoane=unique(c.telefoane),emailuri=unique(c.emailuri),domenii=unique(c.domenii);
-     return {cui:x.cui,denumire:x.denumire,forma_juridica:x.forma_juridica,
+     return {cui:x.cui,nr_inmatriculare:x.cod_inmatriculare||null,denumire:x.denumire,forma_juridica:x.forma_juridica,
        judet:x.judet,localitate:x.localitate,data_inmatriculare:x.data_inmatriculare,
        caen_mf:caen||null,telefoane,emailuri,are_telefon:telefoane.length>0,
        are_email:emailuri.length>0,are_site:domenii.length>0,
        site:domenii[0]||null};
    });
    const last=page[page.length-1];
-   return reply({results,has_more:hasMore,next_cursor:hasMore?last.data_inmatriculare+"|"+last.cui:null,
-     limita:LIMIT,firme_noi:true,cu_telefon:cuTelefon,an_selectat:year,
+   return reply({results,has_more:hasMore,next_cursor:hasMore?last.data_inmatriculare+"|"+encodeURIComponent(last.cod_inmatriculare||"")+"|"+last.cui:null,
+     limita:LIMIT,firme_noi:true,cu_telefon:cuTelefon,sort:"LIFO",an_selectat:year,
      perioada_firme_noi:{from,to,year},sursa:"ONRC + contacte FirmsFinder / ANAF (dacă importate)",
      nota:"Paginare a întregului an; telefoanele, emailurile și site-urile sunt doar cele descoperite în sursele disponibile."});
  }catch(e){
