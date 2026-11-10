@@ -78,7 +78,14 @@ export async function onRequestGet({request,env}){
    const ids=unique(page.map(x=>Number(x.cui)));
    const placeholders=ids.map(()=>"?").join(",");
    stage="contact-enrichment";
-   const sites=await env.DB.prepare(`SELECT cui,telefoane,emailuri,domeniu FROM firme_site WHERE cui IN (${placeholders})`).bind(...ids).all();
+   let contactLookupOk=true;
+   let sites={results:[]};
+   try{
+      sites=await env.DB.prepare(`SELECT cui,telefoane,emailuri,domeniu FROM firme_site INDEXED BY ix_firme_site_cui WHERE cui IN (${placeholders})`).bind(...ids).all();
+   }catch(e){
+      contactLookupOk=false;
+      console.warn("2026-contact-lookup-unavailable",String(e?.message||e).slice(0,130));
+   }
    const contacts=new Map();
    for(const item of sites.results||[]){
       const key=Number(item.cui),c=contacts.get(key)||{telefoane:[],emailuri:[],domenii:[]};
@@ -111,12 +118,12 @@ export async function onRequestGet({request,env}){
        are_email:emailuri.length>0,are_site:domenii.length>0,
        site:domenii[0]||null};
    });
-   if(cuTelefon)results=results.filter(x=>x.are_telefon);
+   if(cuTelefon&&contactLookupOk)results=results.filter(x=>x.are_telefon);
    const last=page[page.length-1];
    return reply({results,has_more:hasMore,next_cursor:hasMore?last.data_inmatriculare+"|"+encodeURIComponent(last.cod_inmatriculare||"")+"|"+last.cui:null,
-     limita:LIMIT,firme_noi:true,cu_telefon:cuTelefon,filtrare_telefon:"lot_curent",sort:"LIFO",an_selectat:year,
+     limita:LIMIT,firme_noi:true,cu_telefon:cuTelefon,filtrare_telefon:cuTelefon?(contactLookupOk?"lot_curent":"indisponibila"):"off",contacte_disponibile:contactLookupOk,sort:"LIFO",an_selectat:year,
      perioada_firme_noi:{from,to,year},sursa:"ONRC + contacte FirmsFinder / ANAF (dacă importate)",
-     nota:"Paginare pe loturi ONRC. Cu telefon ON filtrează fiecare lot de 50, nu întreaga bază instantaneu. Pentru a găsi alte firme cu telefon continuați cu NEXT. Datele lipsă nu înseamnă că firma nu are contact."});
+     nota:contactLookupOk?"Paginare pe loturi ONRC. Cu telefon ON filtrează fiecare lot de 50; continuați cu NEXT. Datele lipsă nu dovedesc absența contactului.":"Contactele D1 nu au putut fi încărcate pentru acest lot; rezultatele ONRC sunt disponibile, dar filtrul telefon nu este aplicat."});
  }catch(e){
    console.error("2026-contact-list",stage,String(e?.message||e).slice(0,200));
    return reply({error:"Căutarea firmelor noi nu poate fi executată în D1.",stage,
