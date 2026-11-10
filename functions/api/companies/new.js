@@ -38,6 +38,7 @@ export async function onRequestGet({request,env}){
    if(registration.length>90)return reply({error:"Cursor invalid"},400);
    cursor={date:m[1],registration,cui:Number(m[3])};
  }
+ let stage="select";
  try{
    // Restrict the ONRC query to one 50-row page BEFORE contact enrichment.
    const cond=["f.top=1","f.data_inmatriculare>=?","f.data_inmatriculare<?"];
@@ -79,6 +80,7 @@ export async function onRequestGet({request,env}){
      perioada_firme_noi:{from,to,year},note:"Date ONRC și contacte descoperite; lipsa contactului nu dovedește inexistența lui."});
    const ids=unique(page.map(x=>Number(x.cui)));
    const placeholders=ids.map(()=>"?").join(",");
+   stage="contact-enrichment";
    const sites=await env.DB.prepare(`SELECT cui,telefoane,emailuri,domeniu FROM firme_site WHERE cui IN (${placeholders})`).bind(...ids).all();
    const contacts=new Map();
    for(const item of sites.results||[]){
@@ -91,6 +93,7 @@ export async function onRequestGet({request,env}){
    // Migration-independent fallback: ANAF table can be absent until the batch is imported.
 
    if(anafPresent){
+     stage="anaf-enrichment";
      const extra=await env.DB.prepare(`SELECT cui,telefon_raw FROM scara_anaf_2026_phone WHERE cui IN (${placeholders})`).bind(...ids).all();
      for(const item of extra.results||[]){
        const key=Number(item.cui),c=contacts.get(key)||{telefoane:[],emailuri:[],domenii:[]};
@@ -113,7 +116,7 @@ export async function onRequestGet({request,env}){
      perioada_firme_noi:{from,to,year},sursa:"ONRC + contacte FirmsFinder / ANAF (dacă importate)",
      nota:"Paginare a întregului an; telefoanele, emailurile și site-urile sunt doar cele descoperite în sursele disponibile."});
  }catch(e){
-   console.error("2026-contact-list",String(e?.message||e).slice(0,200));
-   return reply({error:"Interogarea D1 pentru firme noi este indisponibilă; verificați indexul și planul SQL."},503);
+   console.error("2026-contact-list",stage,String(e?.message||e).slice(0,200));
+   return reply({error:"Căutarea firmelor noi nu poate fi executată în D1.",stage},503);
  }
 }
