@@ -1,79 +1,110 @@
-// ONRC current-calendar-year company search (Bucharest time zone). Does NOT require MF balances.
-// Kept separate from the legacy search endpoint to isolate its expensive query plan.
-const reply = (data, status = 200) => new Response(JSON.stringify(data), {
-  status,
-  headers: {'content-type':'application/json; charset=utf-8', 'cache-control':'public, max-age=120'}
-});
-const LIMIT = 50;
-function currentYearRO(now = new Date()) {
- const year = new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Bucharest',year:'numeric'}).format(now);
- return {from:year+'-01-01',to:(Number(year)+1)+'-01-01',year:Number(year)};
+// FirmsFinder 2026: list legal entities irrespective of detected site, email or phone.
+// Cursor pagination avoids a 50-company total ceiling. Contact completeness is source-dependent.
+const LIMIT=50;
+const reply=(x,status=200)=>new Response(JSON.stringify(x),{status,headers:{"content-type":"application/json; charset=utf-8","cache-control":"public, max-age=90"}});
+const yearRO=()=>Number(new Intl.DateTimeFormat("en-GB",{timeZone:"Europe/Bucharest",year:"numeric"}).format(new Date()));
+const norm=s=>String(s||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[șş]/gi,"s").replace(/[țţ]/gi,"t").trim().toLowerCase();
+function parseValues(raw){
+ if(raw==null)return [];
+ if(Array.isArray(raw))return raw.flatMap(parseValues);
+ let input=String(raw).trim();
+ if(!input||input==="null"||input==="[]")return [];
+ try{const obj=JSON.parse(input);if(Array.isArray(obj))return parseValues(obj);if(typeof obj==="string")input=obj;}catch{}
+ return input.split(/[,;\n]+/).map(s=>s.trim()).filter(Boolean);
 }
-export async function onRequestGet({request,env}) {
-  if(!env.DB) return reply({error:'Baza de date D1 nu este conectată.'},503);
-  const p = new URL(request.url).searchParams;
-  const caen = (p.get('caen') || '').trim();
-  const q = (p.get('q') || '').trim().slice(0,60);
-  // ONRC stores București with diacritics; accept user text with or without them.
-  const norm = x => String(x || '').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[șş]/gi,'s').replace(/[țţ]/gi,'t').trim().toLowerCase();
-  const judetRaw = (p.get('judet') || '').trim().slice(0,80);
-  const judet = judetRaw.split(',').map(x => norm(x)==='bucuresti' ? 'București' : x.trim()).join(',');
-  const localitateRaw = (p.get('localitate') || '').trim().slice(0,60);
-  const localitate = norm(localitateRaw)==='bucuresti' ? 'Bucure' : localitateRaw;
-  // No verified/unchecked distinction: any stored numeric phone candidate qualifies.
-  const cuTelefon = p.get('cu_telefon') === '1';
-  if(caen && !/^\d{2,4}$/.test(caen)) return reply({error:'CAEN trebuie să conțină 2–4 cifre.'},400);
-  const period = currentYearRO();
-  // ONRC records created in the current calendar year; latest 50 first.
-  const cond = ["f.top=1", "f.data_inmatriculare >= ?", "f.data_inmatriculare < ?"];
-  const args = [period.from,period.to];
-  if(caen) {
-    // A code is stored as a comma-delimited code:revision token in ONRC.
-    cond.push("(',' || REPLACE(fc.caen,' ','') || ',') LIKE ?");
-    args.push('%,' + caen + (caen.length===4 ? ':' : '%:') + '%');
-  }
-  if(q) {cond.push('f.denumire LIKE ?');args.push('%'+q.replace(/[%_]/g,'')+'%');}
-  if(judet) {
-    const j=judet.split(',').map(x=>x.trim()).filter(Boolean).slice(0,5);
-    if(j.length){cond.push('f.judet IN ('+j.map(()=>'?').join(',')+')');args.push(...j);}
-  }
-  if(localitate){cond.push('f.localitate LIKE ?');args.push('%'+localitate.replace(/[%_]/g,'')+'%');}
-  if(cuTelefon) cond.push("fs.telefoane IS NOT NULL AND TRIM(fs.telefoane) NOT IN ('','[]','null') AND fs.telefoane GLOB '*[0-9]*'");
-  try {
-    // When filtering contacts, start with the contact table instead of asking D1
-    // to evaluate a correlated EXISTS for every ONRC candidate.
-    // The ANAF backfill uses a separate table. Integrate it only once present,
-    // so a failed/missing import cannot break the existing Firme noi search.
-    const anafAvailable = cuTelefon && !!(await env.DB.prepare(
-      "SELECT 1 AS ok FROM sqlite_master WHERE type='table' AND name='scara_anaf_2026_phone'"
-    ).first());
-    const contacts = anafAvailable
-      ? "(SELECT cui, telefoane FROM firme_site UNION ALL SELECT cui, telefon_raw AS telefoane FROM scara_anaf_2026_phone)"
-      : "firme_site";
-    const source = cuTelefon
-      ? (caen
-          ? 'FROM ' + contacts + ' fs JOIN onrc_firme f ON f.cui=fs.cui JOIN onrc_firma_caen fc ON fc.cod_inmatriculare=f.cod_inmatriculare'
-          : 'FROM ' + contacts + ' fs JOIN onrc_firme f ON f.cui=fs.cui')
-      : (caen
-          ? 'FROM onrc_firma_caen fc JOIN onrc_firme f ON f.cod_inmatriculare=fc.cod_inmatriculare'
-          : 'FROM onrc_firme f');
-    const sql = `SELECT DISTINCT f.cui,f.denumire,f.forma_juridica,f.persoana_fizica,f.judet,f.localitate,f.data_inmatriculare,
-        ${cuTelefon ? "fs.telefoane AS telefoane" : "NULL AS telefoane"}
-      ${source} WHERE ${cond.join(' AND ')}
-      ORDER BY f.data_inmatriculare DESC LIMIT ${LIMIT}`;
-    const rows = await env.DB.prepare(sql).bind(...args).all();
-    const found = rows.results || [];
-    const results = found.map(x => x.persoana_fizica
-      ? {cui:'P-'+((x.cui ^ 5921370)>>>0).toString(36).toUpperCase(),
-         denumire:(x.forma_juridica||'PFA/II/IF')+' · în așteptarea acordului GDPR',
-         judet:x.judet,forma_juridica:x.forma_juridica,mascat:1}
-      : {cui:x.cui,denumire:x.denumire,forma_juridica:x.forma_juridica,
-         judet:x.judet,localitate:x.localitate,data_inmatriculare:x.data_inmatriculare,caen_mf:caen||null,telefoane:x.telefoane||null});
-    return reply({page:1,results,limita:LIMIT,sort:'nou',has_more:false,
-      firme_noi:true,cu_telefon:cuTelefon,perioada_firme_noi:period,an_selectat:period.year,sursa:'ONRC — FirmsFinder AI',
-      nota:'Rezultate limitate la 50; inventarul SCARA complet se procesează separat.'});
-  } catch (err) {
-    console.error('firme-noi-search', String(err?.message||err).slice(0,180));
-    return reply({error:'Căutarea firmelor noi este indisponibilă; verificați interogarea și indexul ONRC în D1.'},503);
-  }
+const onlyPhones=raw=>parseValues(raw).filter(v=>(v.match(/\d/g)||[]).length>=6);
+const onlyEmails=raw=>parseValues(raw).filter(v=>/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v));
+const unique=values=>[...new Set(values)];
+export async function onRequestGet({request,env}){
+ if(!env.DB)return reply({error:"D1 indisponibil"},503);
+ const p=new URL(request.url).searchParams;
+ const year=yearRO(),from=year+"-01-01",to=(year+1)+"-01-01";
+ const caen=(p.get("caen")||"").trim(),q=(p.get("q")||"").trim().slice(0,60);
+ if(caen&&!/^\d{2,4}$/.test(caen))return reply({error:"CAEN invalid"},400);
+ const rawJudet=(p.get("judet")||"").trim().slice(0,80);
+ const judet=rawJudet.split(",").map(j=>norm(j)==="bucuresti"?"București":j.trim()).filter(Boolean).slice(0,5);
+ const loc=(p.get("localitate")||"").trim().slice(0,60);
+ const localitate=norm(loc)==="bucuresti"?"Bucure":loc;
+ const cuTelefon=p.get("cu_telefon")==="1";
+ const rawCursor=p.get("cursor")||"";
+ let cursor=null;
+ if(rawCursor){
+   const m=/^(\d{4}-\d{2}-\d{2})\|(\d{1,12})$/.exec(rawCursor);
+   if(!m||m[1]<from||m[1]>=to)return reply({error:"Cursor invalid; reluați căutarea."},400);
+   cursor={date:m[1],cui:Number(m[2])};
+ }
+ try{
+   // Restrict the ONRC query to one 50-row page BEFORE contact enrichment.
+   const cond=["f.top=1","f.data_inmatriculare>=?","f.data_inmatriculare<?"];
+   const args=[from,to];
+   if(caen){
+     cond.push("(',' || REPLACE(fc.caen,' ','') || ',') LIKE ?");
+     args.push('%,'+caen+(caen.length===4?':':'%:')+'%');
+   }
+   if(q){cond.push("f.denumire LIKE ?");args.push("%"+q.replace(/[%_]/g,"")+"%");}
+   if(judet.length){cond.push("f.judet IN ("+judet.map(()=>"?").join(",")+")");args.push(...judet);}
+   if(localitate){cond.push("f.localitate LIKE ?");args.push("%"+localitate.replace(/[%_]/g,"")+"%");}
+   if(cursor){cond.push("(f.data_inmatriculare<? OR (f.data_inmatriculare=? AND f.cui<?))");args.push(cursor.date,cursor.date,cursor.cui);}
+   // Privacy: individual businesses PFA/II/IF are excluded from open contact prospecting.
+   cond.push("COALESCE(f.persoana_fizica,0)=0","f.cui IS NOT NULL");
+   const anafTable=await env.DB.prepare("SELECT 1 AS ok FROM sqlite_master WHERE type='table' AND name='scara_anaf_2026_phone'").first();
+   const anafPresent=!!anafTable;
+   // The optional phone filter must filter BEFORE pagination, not within a page.
+   // Drive the selection from known contact CUIs to avoid a correlated full ONRC scan.
+   const eligiblePhones=anafPresent
+     ? "(SELECT cui FROM firme_site WHERE telefoane GLOB '*[0-9]*' UNION SELECT cui FROM scara_anaf_2026_phone WHERE telefon_raw GLOB '*[0-9]*')"
+     : "(SELECT cui FROM firme_site WHERE telefoane GLOB '*[0-9]*')";
+   const contactPrefix=cuTelefon?"FROM "+eligiblePhones+" ready JOIN onrc_firme f ON f.cui=ready.cui":"FROM onrc_firme f";
+   const source=caen
+     ? (cuTelefon?contactPrefix+" JOIN onrc_firma_caen fc ON fc.cod_inmatriculare=f.cod_inmatriculare":"FROM onrc_firma_caen fc JOIN onrc_firme f ON f.cod_inmatriculare=fc.cod_inmatriculare")
+     : contactPrefix;
+   const sql=`SELECT DISTINCT f.cui,f.denumire,f.forma_juridica,f.judet,f.localitate,f.data_inmatriculare
+     ${source} WHERE ${cond.join(" AND ")}
+     ORDER BY f.data_inmatriculare DESC,f.cui DESC LIMIT ${LIMIT+1}`;
+   const response=await env.DB.prepare(sql).bind(...args).all();
+   const found=response.results||[];
+   const hasMore=found.length>LIMIT;
+   const page=found.slice(0,LIMIT);
+   if(!page.length)return reply({results:[],has_more:false,next_cursor:null,limita:LIMIT,
+     firme_noi:true,cu_telefon:cuTelefon,an_selectat:year,
+     perioada_firme_noi:{from,to,year},note:"Date ONRC și contacte descoperite; lipsa contactului nu dovedește inexistența lui."});
+   const ids=unique(page.map(x=>Number(x.cui)));
+   const placeholders=ids.map(()=>"?").join(",");
+   const sites=await env.DB.prepare(`SELECT cui,telefoane,emailuri,domeniu FROM firme_site WHERE cui IN (${placeholders})`).bind(...ids).all();
+   const contacts=new Map();
+   for(const item of sites.results||[]){
+      const key=Number(item.cui),c=contacts.get(key)||{telefoane:[],emailuri:[],domenii:[]};
+      c.telefoane.push(...onlyPhones(item.telefoane));
+      c.emailuri.push(...onlyEmails(item.emailuri));
+      if(item.domeniu&&String(item.domeniu).trim())c.domenii.push(String(item.domeniu).trim());
+      contacts.set(key,c);
+   }
+   // Migration-independent fallback: ANAF table can be absent until the batch is imported.
+
+   if(anafPresent){
+     const extra=await env.DB.prepare(`SELECT cui,telefon_raw FROM scara_anaf_2026_phone WHERE cui IN (${placeholders})`).bind(...ids).all();
+     for(const item of extra.results||[]){
+       const key=Number(item.cui),c=contacts.get(key)||{telefoane:[],emailuri:[],domenii:[]};
+       c.telefoane.push(...onlyPhones(item.telefon_raw));
+       contacts.set(key,c);
+     }
+   }
+   let results=page.map(x=>{
+     const c=contacts.get(Number(x.cui))||{telefoane:[],emailuri:[],domenii:[]};
+     const telefoane=unique(c.telefoane),emailuri=unique(c.emailuri),domenii=unique(c.domenii);
+     return {cui:x.cui,denumire:x.denumire,forma_juridica:x.forma_juridica,
+       judet:x.judet,localitate:x.localitate,data_inmatriculare:x.data_inmatriculare,
+       caen_mf:caen||null,telefoane,emailuri,are_telefon:telefoane.length>0,
+       are_email:emailuri.length>0,are_site:domenii.length>0,
+       site:domenii[0]||null};
+   });
+   const last=page[page.length-1];
+   return reply({results,has_more:hasMore,next_cursor:hasMore?last.data_inmatriculare+"|"+last.cui:null,
+     limita:LIMIT,firme_noi:true,cu_telefon:cuTelefon,an_selectat:year,
+     perioada_firme_noi:{from,to,year},sursa:"ONRC + contacte FirmsFinder / ANAF (dacă importate)",
+     nota:"Paginare a întregului an; telefoanele, emailurile și site-urile sunt doar cele descoperite în sursele disponibile."});
+ }catch(e){
+   console.error("2026-contact-list",String(e?.message||e).slice(0,200));
+   return reply({error:"Interogarea D1 pentru firme noi este indisponibilă; verificați indexul și planul SQL."},503);
+ }
 }
