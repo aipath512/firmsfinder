@@ -58,24 +58,13 @@ export async function onRequestGet({request,env}){
    }
    // Privacy: individual businesses PFA/II/IF are excluded from open contact prospecting.
    cond.push("COALESCE(f.persoana_fizica,0)=0","f.cui IS NOT NULL");
-   // Cost-bounded query plans: drive telephone searches from the much smaller
-   // contact table (not from every ONRC company). For all firms use the ONRC
-   // or CAEN index route, never a per-row correlated telephone lookup.
-   const fromClause=cuTelefon
-      ? "FROM firme_site fs JOIN onrc_firme f ON f.cui=fs.cui"
-      : caen
-        ? "FROM onrc_firma_caen fc JOIN onrc_firme f ON f.cod_inmatriculare=fc.cod_inmatriculare"
-        : "FROM onrc_firme f";
-   if(cuTelefon){
-     cond.push("fs.telefoane IS NOT NULL AND TRIM(fs.telefoane) NOT IN ('','[]','null') AND fs.telefoane GLOB '*[0-9]*'");
-   }
-   // If CAEN already drives the query, reuse that row instead of EXISTS.
-   if(caen&&!cuTelefon){
-     const oldIndex=cond.findIndex(x=>x.startsWith("EXISTS (SELECT 1 FROM onrc_firma_caen"));
-     if(oldIndex>=0)cond[oldIndex]="(',' || REPLACE(fc.caen,' ','') || ',') LIKE ?";
-   }
+   // Bound the scan to the date index. Never sort every ONRC or contact row.
+   // Phone filtering is applied to the current page after its contact lookup;
+   // next_cursor continues across the entire 2026 ONRC result stream.
+   // Important: a zero-result phone page is not proof of no phones in 2026.
+   const fromClause="FROM onrc_firme f INDEXED BY ix_onrc_firme_data";
    stage="select";
-   const sql=`SELECT DISTINCT f.cui,f.denumire,f.forma_juridica,f.judet,f.localitate,
+   const sql=`SELECT f.cui,f.denumire,f.forma_juridica,f.judet,f.localitate,
        f.data_inmatriculare,f.cod_inmatriculare
      ${fromClause} WHERE ${cond.join(" AND ")}
      ORDER BY f.data_inmatriculare DESC,f.cui DESC LIMIT ${LIMIT+1}`;
@@ -89,7 +78,14 @@ export async function onRequestGet({request,env}){
    const ids=unique(page.map(x=>Number(x.cui)));
    const placeholders=ids.map(()=>"?").join(",");
    stage="contact-enrichment";
-   const sites=await env.DB.prepare(`SELECT cui,telefoane,emailuri,domeniu FROM firme_site WHERE cui IN (${placeholders})`).bind(...ids).all();
+   let contactLookupOk=true;
+   let sites={results:[]};
+   try{
+      sites=await env.DB.prepare(`SELECT cui,telefoane,emailuri,domeniu FROM firme_site INDEXED BY ix_firme_site_cui WHERE cui IN (${placeholders})`).bind(...ids).all();
+   }catch(e){
+      contactLookupOk=false;
+      console.warn("2026-contact-lookup-unavailable",String(e?.message||e).slice(0,130));
+   }
    const contacts=new Map();
    for(const item of sites.results||[]){
       const key=Number(item.cui),c=contacts.get(key)||{telefoane:[],emailuri:[],domenii:[]};
@@ -122,11 +118,12 @@ export async function onRequestGet({request,env}){
        are_email:emailuri.length>0,are_site:domenii.length>0,
        site:domenii[0]||null};
    });
+   if(cuTelefon&&contactLookupOk)results=results.filter(x=>x.are_telefon);
    const last=page[page.length-1];
    return reply({results,has_more:hasMore,next_cursor:hasMore?last.data_inmatriculare+"|"+encodeURIComponent(last.cod_inmatriculare||"")+"|"+last.cui:null,
-     limita:LIMIT,firme_noi:true,cu_telefon:cuTelefon,sort:"LIFO",an_selectat:year,
+     limita:LIMIT,firme_noi:true,cu_telefon:cuTelefon,filtrare_telefon:cuTelefon?(contactLookupOk?"lot_curent":"indisponibila"):"off",contacte_disponibile:contactLookupOk,sort:"LIFO",an_selectat:year,
      perioada_firme_noi:{from,to,year},sursa:"ONRC + contacte FirmsFinder / ANAF (dacă importate)",
-     nota:"Paginare a întregului an; telefoanele, emailurile și site-urile sunt doar cele descoperite în sursele disponibile."});
+     nota:contactLookupOk?"Paginare pe loturi ONRC. Cu telefon ON filtrează fiecare lot de 50; continuați cu NEXT. Datele lipsă nu dovedesc absența contactului.":"Contactele D1 nu au putut fi încărcate pentru acest lot; rezultatele ONRC sunt disponibile, dar filtrul telefon nu este aplicat."});
  }catch(e){
    console.error("2026-contact-list",stage,String(e?.message||e).slice(0,200));
    return reply({error:"Căutarea firmelor noi nu poate fi executată în D1.",stage,
