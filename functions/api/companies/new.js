@@ -129,6 +129,7 @@ export async function onRequestGet({request,env}){
      nota:"Paginare a întregului an; telefoanele, emailurile și site-urile sunt doar cele descoperite în sursele disponibile."});
  }catch(e){
    console.error("2026-contact-list",stage,String(e?.message||e).slice(0,200));
-   return reply({error:"Căutarea firmelor noi nu poate fi executată în D1.",stage},503);
+   return reply({error:"Căutarea firmelor noi nu poate fi executată în D1.",stage,
+     diagnostic:String(e?.message||e).replace(/[^a-zA-Z0-9_.: -]/g," ").slice(0,170)},503);
  }
 }
