@@ -26,11 +26,11 @@ function renderCompanies(d,append=false){
     const tels=numereTelefon(c.telefoane);
     const line=element('p','',article);element('strong','Telefon: ',line);
     if(tels.length){tels.forEach((phone,i)=>{if(i)line.append(' · ');const link=element('a',phone,line);link.href='tel:'+phone.replace(/[^+0-9]/g,'');});}
-    else line.append('Nu este identificat');
+    else line.append(d.contacte_disponibile===false?'Temporar indisponibil':'Nu este identificat');
     const emails=valoriContact(c.emailuri);
-    const emailLine=element('p','',article);element('strong','Email: '+(emails.length?'DA — ':'NU este identificat'),emailLine);
+    const emailLine=element('p','',article);element('strong','Email: '+(emails.length?'DA — ':(d.contacte_disponibile===false?'TEMPORAR INDISPONIBIL':'NU este identificat')),emailLine);
     if(emails.length)emails.forEach((em,i)=>{if(i)emailLine.append(' · ');const a=element('a',em,emailLine);a.href='mailto:'+em;});
-    const siteLine=element('p','',article);element('strong','Website: '+(c.are_site?'DA — ':'NU este identificat'),siteLine);
+    const siteLine=element('p','',article);element('strong','Website: '+(c.are_site?'DA — ':(d.contacte_disponibile===false?'TEMPORAR INDISPONIBIL':'NU este identificat')),siteLine);
     if(c.are_site&&c.site){const site=String(c.site);const href=/^https?:\/\//i.test(site)?site:'https://'+site;try{const u=new URL(href);if(['http:','https:'].includes(u.protocol)){const a=element('a',site,siteLine);a.href=u.href;a.target='_blank';a.rel='noopener noreferrer';}}catch(e){}}
   }else{
     element('p','CAEN Rev.2 · MF 2024: '+(c.caen_mf??'Necunoscut'),article);
@@ -78,7 +78,8 @@ if($('#search-form')){
    if(isNew){
      const count=loaded.length,year=d.an_selectat||new Date().getFullYear();
      const next=$('#next');if(next)next.textContent=d.has_more?'NEXT — următoarele 50 ('+(count+1)+'–'+(count+50)+')':'SFÂRȘITUL LISTEI';
-     message(count+' firme din '+year+' afișate, ordine LIFO (cele mai noi primele)'+(d.has_more?' — NEXT la finalul listei pentru următoarele 50.':'.')+
+     message((d.contacte_disponibile===false?'ATENȚIE: Contactele D1 sunt temporar indisponibile și filtrul „Cu telefon” nu a fost aplicat. ':'')+
+       count+' firme din '+year+' afișate, ordine LIFO (cele mai noi primele)'+(d.has_more?' — NEXT la finalul listei pentru următoarele 50.':'.')+
        ' Telefon, email și site: „nu este identificat” înseamnă că datele nu există în sursele încărcate.');
      if(!count&&!d.has_more)message('Nicio firmă înregistrată pentru filtrele selectate în setul ONRC disponibil. Verifică actualizarea sursei.');
    }else message(d.results.length+' rezultate pe pagina '+page+'.');
