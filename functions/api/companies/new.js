@@ -47,7 +47,17 @@ export async function onRequestGet({request,env}){
    if(cursor){cond.push("(f.data_inmatriculare<? OR (f.data_inmatriculare=? AND f.cui<?))");args.push(cursor.date,cursor.date,cursor.cui);}
    // Privacy: individual businesses PFA/II/IF are excluded from open contact prospecting.
    cond.push("COALESCE(f.persoana_fizica,0)=0","f.cui IS NOT NULL");
-   const source=caen?"FROM onrc_firma_caen fc JOIN onrc_firme f ON f.cod_inmatriculare=fc.cod_inmatriculare":"FROM onrc_firme f";
+   const anafTable=await env.DB.prepare("SELECT 1 AS ok FROM sqlite_master WHERE type='table' AND name='scara_anaf_2026_phone'").first();
+   const anafPresent=!!anafTable;
+   // The optional phone filter must filter BEFORE pagination, not within a page.
+   // Drive the selection from known contact CUIs to avoid a correlated full ONRC scan.
+   const eligiblePhones=anafPresent
+     ? "(SELECT cui FROM firme_site WHERE telefoane GLOB '*[0-9]*' UNION SELECT cui FROM scara_anaf_2026_phone WHERE telefon_raw GLOB '*[0-9]*')"
+     : "(SELECT cui FROM firme_site WHERE telefoane GLOB '*[0-9]*')";
+   const contactPrefix=cuTelefon?"FROM "+eligiblePhones+" ready JOIN onrc_firme f ON f.cui=ready.cui":"FROM onrc_firme f";
+   const source=caen
+     ? (cuTelefon?contactPrefix+" JOIN onrc_firma_caen fc ON fc.cod_inmatriculare=f.cod_inmatriculare":"FROM onrc_firma_caen fc JOIN onrc_firme f ON f.cod_inmatriculare=fc.cod_inmatriculare")
+     : contactPrefix;
    const sql=`SELECT DISTINCT f.cui,f.denumire,f.forma_juridica,f.judet,f.localitate,f.data_inmatriculare
      ${source} WHERE ${cond.join(" AND ")}
      ORDER BY f.data_inmatriculare DESC,f.cui DESC LIMIT ${LIMIT+1}`;
@@ -70,11 +80,7 @@ export async function onRequestGet({request,env}){
       contacts.set(key,c);
    }
    // Migration-independent fallback: ANAF table can be absent until the batch is imported.
-   let anafPresent=false;
-   try{
-     const table=await env.DB.prepare("SELECT 1 AS ok FROM sqlite_master WHERE type='table' AND name='scara_anaf_2026_phone'").first();
-     anafPresent=!!table;
-   }catch(e){console.error("anaf-table-check",String(e).slice(0,120));}
+
    if(anafPresent){
      const extra=await env.DB.prepare(`SELECT cui,telefon_raw FROM scara_anaf_2026_phone WHERE cui IN (${placeholders})`).bind(...ids).all();
      for(const item of extra.results||[]){
@@ -92,8 +98,6 @@ export async function onRequestGet({request,env}){
        are_email:emailuri.length>0,are_site:domenii.length>0,
        site:domenii[0]||null};
    });
-   // The optional phone filter narrows only the current page. This must not claim exhaustive filtered pagination.
-   if(cuTelefon)results=results.filter(x=>x.are_telefon);
    const last=page[page.length-1];
    return reply({results,has_more:hasMore,next_cursor:hasMore?last.data_inmatriculare+"|"+last.cui:null,
      limita:LIMIT,firme_noi:true,cu_telefon:cuTelefon,an_selectat:year,
