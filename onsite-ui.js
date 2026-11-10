@@ -59,6 +59,11 @@ if($('#search-form')){
    message('Caut…');
    const params=new URLSearchParams();
    for(const [k,v] of new FormData(form))if(String(v).trim())params.set(k,String(v).trim());
+   // The ONRC registration-number field belongs to the new-company database.
+   if(params.get('nr_inmatriculare')&&params.get('firme_noi')!=='1'){
+     form.elements.namedItem('firme_noi').checked=true;
+     params.set('firme_noi','1');
+   }
    const isNew=params.get('firme_noi')==='1';
    if(!append){cursor=null;loaded=[];}
    if(!append)chips(params);
