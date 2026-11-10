@@ -12,14 +12,16 @@ function numereTelefon(v){return valoriContact(v).filter(x=>(x.match(/\d/g)||[])
 
 function renderCompanies(d,append=false){
  const box=$('#results');if(!append)box.replaceChildren();
- for(const c of d.results){
+ const initialIndex=append?box.querySelectorAll('article.result').length:0;
+ for(const [index,c] of d.results.entries()){
   const article=element('article','',box);article.className='result';
+  if(d.firme_noi)element('p','#'+(initialIndex+index+1)+' · LIFO — '+(c.nr_inmatriculare||'Număr ONRC nedisponibil'),article);
   const h=element('h2','',article);
   if(c.mascat)element('span',c.denumire,h);
   else{const a=element('a',c.denumire,h);a.href='/firme/'+encodeURIComponent(c.cui)+'/';}
   element('p','CUI '+c.cui+' · Localitate: '+(c.localitate??'Nespecificată')+' · Județ: '+(c.judet??'Nespecificat'),article);
   if(d.firme_noi){
-    element('p','Data înființării: '+(c.data_inmatriculare||'Nedisponibilă'),article);
+    element('p','Nr. înmatriculare ONRC: '+(c.nr_inmatriculare||'Nedisponibil')+' · Data înființării: '+(c.data_inmatriculare||'Nedisponibilă'),article);
     if(c.caen_mf)element('p','CAEN: '+c.caen_mf,article);
     const tels=numereTelefon(c.telefoane);
     const line=element('p','',article);element('strong','Telefon: ',line);
@@ -50,7 +52,7 @@ function renderCompanies(d,append=false){
 if($('#search-form')){
  let page=1, cursor=null, loaded=[];const form=$('#search-form');const initial=new URLSearchParams(location.search);
  for(const [key,v] of initial){{const f=form.elements.namedItem(key);if(f){if(f.type==='checkbox')f.checked=true;else f.value=v;}}}
- const LBL={q:'Nume',caen:'CAEN',judet:'Județ',fara_judet:'Fără județ',localitate:'Localitate',cmin:'CA ≥',cmax:'CA ≤',smin:'Salariați ≥',smax:'Salariați ≤',trend:'Evoluție',sort:'Sortare',profit_pozitiv:'Profit',fara_pierdere:'Fără pierdere',firme_noi:'Firme noi (anul curent)',cu_telefon:'Cu telefon'};
+ const LBL={nr_inmatriculare:'Nr. înmatriculare ONRC',q:'Nume',caen:'CAEN',judet:'Județ',fara_judet:'Fără județ',localitate:'Localitate',cmin:'CA ≥',cmax:'CA ≤',smin:'Salariați ≥',smax:'Salariați ≤',trend:'Evoluție',sort:'Sortare',profit_pozitiv:'Profit',fara_pierdere:'Fără pierdere',firme_noi:'Firme noi (anul curent)',cu_telefon:'Cu telefon'};
  function chips(params){const box=$('#chips');if(!box)return;box.replaceChildren();for(const [k,v] of params){if(!LBL[k]||k==='page')continue;const b=element('button',LBL[k]+': '+(v==='1'?'da':v)+' ×',box);b.type='button';b.addEventListener('click',()=>{const f=form.elements.namedItem(k);if(f){if(f.type==='checkbox')f.checked=false;else f.value='';}page=1;run();});}}
  async function run(append=false){
   try{
@@ -70,7 +72,8 @@ if($('#search-form')){
    window.__rez=loaded;
    if(isNew){
      const count=loaded.length,year=d.an_selectat||new Date().getFullYear();
-     message(count+' firme din '+year+' afișate'+(d.has_more?' — apasă „Mai multe rezultate” pentru continuare.':'.')+
+     const next=$('#next');if(next)next.textContent=d.has_more?'NEXT — următoarele 50 ('+(count+1)+'–'+(count+50)+')':'SFÂRȘITUL LISTEI';
+     message(count+' firme din '+year+' afișate, ordine LIFO (cele mai noi primele)'+(d.has_more?' — NEXT la finalul listei pentru următoarele 50.':'.')+
        ' Telefon, email și site: „nu este identificat” înseamnă că datele nu există în sursele încărcate.');
      if(!count&&!d.has_more)message('Nicio firmă înregistrată pentru filtrele selectate în setul ONRC disponibil. Verifică actualizarea sursei.');
    }else message(d.results.length+' rezultate pe pagina '+page+'.');
@@ -84,7 +87,7 @@ if($('#search-form')){
  const cuTelefon=form.elements.namedItem('cu_telefon');if(cuTelefon)cuTelefon.addEventListener('change',()=>{page=1;run();});
  const sg=$('#sugestii'),qi=form.elements.namedItem('q');let tm;
  if(sg&&qi)qi.addEventListener('input',()=>{clearTimeout(tm);const v=qi.value.trim();if(v.length<3){sg.replaceChildren();return;}tm=setTimeout(async()=>{try{const r=await fetch('/api/companies/suggest?q='+encodeURIComponent(v));const l=await r.json();sg.replaceChildren();for(const n of l){const o=document.createElement('option');o.value=n;sg.append(o);}}catch(e){}},250);});
- if($('#export'))$('#export').addEventListener('click',()=>{const rows=(window.__rez||[]).filter(c=>!c.mascat);const cols=['cui','denumire','forma_juridica','judet','localitate','data_inmatriculare','caen_mf','telefoane','are_telefon','emailuri','are_email','site','are_site','cifra_afaceri_2024','salariati_2024','profit_net_2024'];const esc=v=>'"'+String(Array.isArray(v)?v.join(' | '):(v??'')).replace(/"/g,'""')+'"';const csv='\ufeff'+cols.join(',')+'\n'+rows.map(c=>cols.map(k=>esc(c[k])).join(',')).join('\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));a.download='firmsfinder_rezultate.csv';a.click();});
+ if($('#export'))$('#export').addEventListener('click',()=>{const rows=(window.__rez||[]).filter(c=>!c.mascat);const cols=['cui','denumire','forma_juridica','judet','localitate','data_inmatriculare','nr_inmatriculare','caen_mf','telefoane','are_telefon','emailuri','are_email','site','are_site','cifra_afaceri_2024','salariati_2024','profit_net_2024'];const esc=v=>'"'+String(Array.isArray(v)?v.join(' | '):(v??'')).replace(/"/g,'""')+'"';const csv='\ufeff'+cols.join(',')+'\n'+rows.map(c=>cols.map(k=>esc(c[k])).join(',')).join('\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));a.download='firmsfinder_rezultate.csv';a.click();});
  const KEY='ff_cautari_salvate';const citeste=()=>{try{return JSON.parse(localStorage.getItem(KEY)||'[]');}catch(e){return [];}};
  const scrie=l=>{try{localStorage.setItem(KEY,JSON.stringify(l.slice(0,10)));}catch(e){message('Browserul nu permite salvarea.');}};
  function arataSalvate(){const box=$('#salvate');if(!box)return;box.replaceChildren();const l=citeste();if(!l.length)return;element('p','Căutări salvate (doar în acest browser):',box);
