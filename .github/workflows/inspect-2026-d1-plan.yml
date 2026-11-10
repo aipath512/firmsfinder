@@ -1,0 +1,31 @@
+name: Inspect 2026 D1 query plans
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'functions/api/companies/d1-plan.js'
+      - '.github/workflows/inspect-2026-d1-plan.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - name: Read production query planner and indexes
+        run: |
+          python3 - <<'PY'
+          import urllib.request,urllib.error,json,time
+          url="https://firmsfinder.eu/api/companies/d1-plan"
+          for i in range(6):
+              try:
+                  req=urllib.request.Request(url,headers={"Accept":"application/json","User-Agent":"AiVenture-QueryPlan-Inspector/1.0","Cache-Control":"no-cache"})
+                  with urllib.request.urlopen(req,timeout=25) as r:
+                      data=json.load(r);print("D1_PLAN",json.dumps(data,ensure_ascii=False),flush=True)
+                      if data.get("ok"):break
+              except urllib.error.HTTPError as e:
+                  print("HTTP",e.code,e.read().decode("utf8")[:1000],flush=True)
+              except Exception as e:print("ERROR",type(e).__name__,str(e)[:100],flush=True)
+              if i<5:time.sleep(10)
+          PY
