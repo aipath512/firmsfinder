@@ -1,7 +1,23 @@
 const $=s=>document.querySelector(s);
 const message=text=>{if($('#message'))$('#message').textContent=text;};
 function element(tag,text,parent){const x=document.createElement(tag);x.textContent=String(text??'Necunoscut');if(parent)parent.append(x);return x;}
-async function call(url,options){const r=await fetch(url,options),d=await r.json();if(!r.ok)throw new Error(d.error||d.notice||'Cerere eșuată ('+r.status+').');if(d.status==='BACKEND_REQUIRED')throw new Error('Backend-ul nu este încă activ. Fișierul public este doar manifestul.');return d;}
+async function call(url,options){
+ const retry2026=String(url).startsWith('/api/companies/new?');
+ for(let attempt=0;attempt<(retry2026?4:1);attempt++){
+  let r;
+  try{r=await fetch(url,options);}catch(e){throw e;}
+  let d;
+  try{d=await r.json();}catch(e){throw new Error('Răspunsul serverului nu este JSON valid ('+r.status+').');}
+  if(r.status===503&&retry2026&&attempt<3){
+    message('D1 este ocupat; reîncerc automat căutarea firmelor noi ('+(attempt+2)+'/4)…');
+    await new Promise(resolve=>setTimeout(resolve,[1500,3000,6000][attempt]));
+    continue;
+  }
+  if(!r.ok)throw new Error(d.error||d.notice||'Cerere eșuată ('+r.status+').');
+  if(d.status==='BACKEND_REQUIRED')throw new Error('Backend-ul nu este încă activ. Fișierul public este doar manifestul.');
+  return d;
+ }
+}
 function valoriContact(v){
  if(v==null||v==='')return [];
  if(Array.isArray(v))return [...new Set(v.flatMap(valoriContact))];
