@@ -26,7 +26,7 @@ jobs:
             ("all",{"caen":"4322","judet":"Bucuresti","localitate":"Bucuresti","firme_noi":"1"}),
             ("phone",{"caen":"4322","judet":"Bucuresti","localitate":"Bucuresti","firme_noi":"1","cu_telefon":"1"})]
           outcome={}
-          for attempt in range(6):
+          for attempt in range(2):
               outcome={}
               for name,params in cases:
                   url="https://firmsfinder.eu/api/companies/new?"+urllib.parse.urlencode(params)
@@ -38,12 +38,12 @@ jobs:
                   except urllib.error.HTTPError as e:
                       try: data=json.load(e)
                       except Exception: data={}
-                      outcome[name]={"http":e.code,"stage":data.get("stage"),"error":data.get("error")}
+                      outcome[name]={"http":e.code,"stage":data.get("stage"),"error":data.get("error"),"diagnostic":data.get("diagnostic")}
                   except Exception as e:
                       outcome[name]={"failure":type(e).__name__}
               print("TEST_ATTEMPT",attempt+1,json.dumps(outcome,ensure_ascii=False),flush=True)
               if all(outcome.get(k,{}).get("http")==200 for k in ("all","phone")):break
-              if attempt<5:time.sleep(20)
+              if attempt<1:time.sleep(7)
           success=all(outcome.get(k,{}).get("http")==200 for k in ("all","phone"))
           state="success" if success else "failure"
           summary="API 2026 all/phone: "+"/".join(str(outcome.get(k,{}).get("http",outcome.get(k,{}).get("failure","?"))) for k in ("all","phone"))
