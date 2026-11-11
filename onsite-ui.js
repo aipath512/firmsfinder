@@ -38,7 +38,9 @@ function renderCompanies(d,append=false){
   element('p','CUI '+c.cui+' · Localitate: '+(c.localitate??'Nespecificată')+' · Județ: '+(c.judet??'Nespecificat'),article);
   if(d.firme_noi){
     element('p','Nr. înmatriculare ONRC: '+(c.nr_inmatriculare||'Nedisponibil')+' · Data înființării: '+(c.data_inmatriculare||'Nedisponibilă'),article);
-    if(c.caen_mf)element('p','CAEN: '+c.caen_mf,article);
+    if(c.caen_mf)element('p','CAEN căutat: '+c.caen_mf+(c.caen_principal_anaf?' · CAEN principal (ANAF): '+c.caen_principal_anaf:''),article);
+    else if(c.caen_principal_anaf)element('p','CAEN principal (ANAF): '+c.caen_principal_anaf,article);
+    if(c.adresa)element('p','Adresă: '+c.adresa,article);
     const tels=numereTelefon(c.telefoane);
     const line=element('p','',article);element('strong','Telefon: ',line);
     if(tels.length){tels.forEach((phone,i)=>{if(i)line.append(' · ');const link=element('a',phone,line);link.href='tel:'+phone.replace(/[^+0-9]/g,'');});}
@@ -68,7 +70,7 @@ function renderCompanies(d,append=false){
 if($('#search-form')){
  let page=1, cursor=null, loaded=[];const form=$('#search-form');const initial=new URLSearchParams(location.search);
  for(const [key,v] of initial){{const f=form.elements.namedItem(key);if(f){if(f.type==='checkbox')f.checked=true;else f.value=v;}}}
- const LBL={nr_inmatriculare:'Nr. înmatriculare ONRC',q:'Nume',caen:'CAEN',judet:'Județ',fara_judet:'Fără județ',localitate:'Localitate',cmin:'CA ≥',cmax:'CA ≤',smin:'Salariați ≥',smax:'Salariați ≤',trend:'Evoluție',sort:'Sortare',profit_pozitiv:'Profit',fara_pierdere:'Fără pierdere',firme_noi:'Firme noi (anul curent)',cu_telefon:'Cu telefon'};
+ const LBL={nr_inmatriculare:'Nr. înmatriculare ONRC',q:'Nume',caen:'CAEN',judet:'Județ',fara_judet:'Fără județ',localitate:'Localitate',cmin:'CA ≥',cmax:'CA ≤',smin:'Salariați ≥',smax:'Salariați ≤',trend:'Evoluție',sort:'Sortare',profit_pozitiv:'Profit',fara_pierdere:'Fără pierdere',firme_noi:'Firme noi (ultimele 12 luni)',cu_telefon:'Cu telefon',fara_site:'Fără site'};
  function chips(params){const box=$('#chips');if(!box)return;box.replaceChildren();for(const [k,v] of params){if(!LBL[k]||k==='page')continue;const b=element('button',LBL[k]+': '+(v==='1'?'da':v)+' ×',box);b.type='button';b.addEventListener('click',()=>{const f=form.elements.namedItem(k);if(f){if(f.type==='checkbox')f.checked=false;else f.value='';}page=1;run();});}}
  async function run(append=false){
   try{
@@ -95,7 +97,7 @@ if($('#search-form')){
      const count=loaded.length,year=d.an_selectat||new Date().getFullYear();
      const next=$('#next');if(next)next.textContent=d.has_more?'NEXT — următoarele 50 ('+(count+1)+'–'+(count+50)+')':'SFÂRȘITUL LISTEI';
      message((d.contacte_disponibile===false?'ATENȚIE: Contactele D1 sunt temporar indisponibile și filtrul „Cu telefon” nu a fost aplicat. ':'')+
-       count+' firme din '+year+' afișate, ordine LIFO (cele mai noi primele)'+(d.has_more?' — NEXT la finalul listei pentru următoarele 50.':'.')+
+       count+' firme din ultimele 12 luni afișate, ordine LIFO (cele mai noi primele)'+(d.has_more?' — NEXT la finalul listei pentru următoarele 50.':'.')+
        ' Telefon, email și site: „nu este identificat” înseamnă că datele nu există în sursele încărcate.');
      if(!count&&!d.has_more)message('Nicio firmă înregistrată pentru filtrele selectate în setul ONRC disponibil. Verifică actualizarea sursei.');
    }else message(d.results.length+' rezultate pe pagina '+page+'.');
@@ -107,9 +109,10 @@ if($('#search-form')){
  }
  const firmeNoi=form.elements.namedItem('firme_noi');if(firmeNoi)firmeNoi.addEventListener('change',()=>{page=1;run();});
  const cuTelefon=form.elements.namedItem('cu_telefon');if(cuTelefon)cuTelefon.addEventListener('change',()=>{page=1;run();});
+ const faraSite=form.elements.namedItem('fara_site');if(faraSite)faraSite.addEventListener('change',()=>{page=1;run();});
  const sg=$('#sugestii'),qi=form.elements.namedItem('q');let tm;
  if(sg&&qi)qi.addEventListener('input',()=>{clearTimeout(tm);const v=qi.value.trim();if(v.length<3){sg.replaceChildren();return;}tm=setTimeout(async()=>{try{const r=await fetch('/api/companies/suggest?q='+encodeURIComponent(v));const l=await r.json();sg.replaceChildren();for(const n of l){const o=document.createElement('option');o.value=n;sg.append(o);}}catch(e){}},250);});
- if($('#export'))$('#export').addEventListener('click',()=>{const rows=(window.__rez||[]).filter(c=>!c.mascat);const cols=['cui','denumire','forma_juridica','judet','localitate','data_inmatriculare','nr_inmatriculare','caen_mf','telefoane','are_telefon','emailuri','are_email','site','are_site','cifra_afaceri_2024','salariati_2024','profit_net_2024'];const esc=v=>'"'+String(Array.isArray(v)?v.join(' | '):(v??'')).replace(/"/g,'""')+'"';const csv='\ufeff'+cols.join(',')+'\n'+rows.map(c=>cols.map(k=>esc(c[k])).join(',')).join('\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));a.download='firmsfinder_rezultate.csv';a.click();});
+ if($('#export'))$('#export').addEventListener('click',()=>{const rows=(window.__rez||[]).filter(c=>!c.mascat);const cols=['cui','denumire','forma_juridica','judet','localitate','adresa','data_inmatriculare','nr_inmatriculare','caen_mf','caen_principal_anaf','telefoane','are_telefon','emailuri','are_email','site','are_site','cifra_afaceri_2024','salariati_2024','profit_net_2024'];const esc=v=>'"'+String(Array.isArray(v)?v.join(' | '):(v??'')).replace(/"/g,'""')+'"';const csv='\ufeff'+cols.join(',')+'\n'+rows.map(c=>cols.map(k=>esc(c[k])).join(',')).join('\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));a.download='firmsfinder_rezultate.csv';a.click();});
  const KEY='ff_cautari_salvate';const citeste=()=>{try{return JSON.parse(localStorage.getItem(KEY)||'[]');}catch(e){return [];}};
  const scrie=l=>{try{localStorage.setItem(KEY,JSON.stringify(l.slice(0,10)));}catch(e){message('Browserul nu permite salvarea.');}};
  function arataSalvate(){const box=$('#salvate');if(!box)return;box.replaceChildren();const l=citeste();if(!l.length)return;element('p','Căutări salvate (doar în acest browser):',box);

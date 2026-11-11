@@ -1,8 +1,13 @@
-// FirmsFinder 2026: list legal entities irrespective of detected site, email or phone.
+// FirmsFinder — firme noi v2.0 (2026-11-11): fereastră glisantă de 12 luni față de luna curentă.
+// Cu telefon ON = filtru real în SQL (nu pe lotul de 50). Fără site ON = exclude firmele cu domeniu cunoscut.
 // Cursor pagination avoids a 50-company total ceiling. Contact completeness is source-dependent.
 const LIMIT=50;
 const reply=(x,status=200)=>new Response(JSON.stringify(x),{status,headers:{"content-type":"application/json; charset=utf-8","cache-control":"public, max-age=90"}});
 const yearRO=()=>Number(new Intl.DateTimeFormat("en-GB",{timeZone:"Europe/Bucharest",year:"numeric"}).format(new Date()));
+const monthRO=()=>Number(new Intl.DateTimeFormat("en-GB",{timeZone:"Europe/Bucharest",month:"numeric"}).format(new Date()));
+const pad=n=>String(n).padStart(2,"0");
+// Ex. noiembrie 2026 → de la 2025-11-01 până la 2026-12-01 (exclusiv).
+function window12(){const y=yearRO(),m=monthRO();const ny=m===12?y+1:y,nm=m===12?1:m+1;return {from:(y-1)+"-"+pad(m)+"-01",to:ny+"-"+pad(nm)+"-01",year:y};}
 const norm=s=>String(s||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[șş]/gi,"s").replace(/[țţ]/gi,"t").trim().toLowerCase();
 function parseValues(raw){
  if(raw==null)return [];
@@ -18,7 +23,7 @@ const unique=values=>[...new Set(values)];
 export async function onRequestGet({request,env}){
  if(!env.DB)return reply({error:"D1 indisponibil"},503);
  const p=new URL(request.url).searchParams;
- const year=yearRO(),from=year+"-01-01",to=(year+1)+"-01-01";
+ const {from,to,year}=window12();
  const caen=(p.get("caen")||"").trim(),q=(p.get("q")||"").trim().slice(0,60);
  if(caen&&!/^\d{2,4}$/.test(caen))return reply({error:"CAEN invalid"},400);
  const rawJudet=(p.get("judet")||"").trim().slice(0,80);
@@ -26,6 +31,7 @@ export async function onRequestGet({request,env}){
  const loc=(p.get("localitate")||"").trim().slice(0,60);
  const localitate=norm(loc)==="bucuresti"?"Bucure":loc;
  const cuTelefon=p.get("cu_telefon")==="1";
+ const faraSite=p.get("fara_site")==="1";
  const nrInmatriculare=(p.get("nr_inmatriculare")||"").trim().slice(0,70);
  if(nrInmatriculare && !/^[\p{L}\p{N}\/., -]+$/u.test(nrInmatriculare))return reply({error:"Număr de înmatriculare invalid"},400);
  const rawCursor=p.get("cursor")||"";
@@ -56,6 +62,12 @@ export async function onRequestGet({request,env}){
      cond.push("(f.data_inmatriculare<? OR (f.data_inmatriculare=? AND f.cui<?))");
      args.push(cursor.date,cursor.date,cursor.cui);
    }
+   if(cuTelefon){
+     cond.push("(EXISTS (SELECT 1 FROM scara_anaf_2026_phone ap WHERE ap.cui=f.cui AND ap.telefon_raw GLOB '*[0-9]*') OR EXISTS (SELECT 1 FROM firme_site s INDEXED BY ix_firme_site_cui WHERE s.cui=f.cui AND s.telefoane IS NOT NULL AND s.telefoane NOT IN ('','[]')))");
+   }
+   if(faraSite){
+     cond.push("NOT EXISTS (SELECT 1 FROM firme_site s2 INDEXED BY ix_firme_site_cui WHERE s2.cui=f.cui AND s2.domeniu IS NOT NULL AND TRIM(s2.domeniu)<>'')");
+   }
    // Privacy: individual businesses PFA/II/IF are excluded from open contact prospecting.
    cond.push("COALESCE(f.persoana_fizica,0)=0","f.cui IS NOT NULL");
    // Bound the scan to the date index. Never sort every ONRC or contact row.
@@ -73,7 +85,7 @@ export async function onRequestGet({request,env}){
    const hasMore=found.length>LIMIT;
    const page=found.slice(0,LIMIT);
    if(!page.length)return reply({results:[],has_more:false,next_cursor:null,limita:LIMIT,
-     firme_noi:true,cu_telefon:cuTelefon,an_selectat:year,
+     firme_noi:true,cu_telefon:cuTelefon,fara_site:faraSite,an_selectat:year,fereastra:"12 luni",
      perioada_firme_noi:{from,to,year},note:"Date ONRC și contacte descoperite; lipsa contactului nu dovedește inexistența lui."});
    const ids=unique(page.map(x=>Number(x.cui)));
    const placeholders=ids.map(()=>"?").join(",");
@@ -109,21 +121,28 @@ export async function onRequestGet({request,env}){
      // must not make every 2026 search return HTTP 503.
      console.warn("2026-anaf-enrichment-unavailable",String(e?.message||e).slice(0,100));
    }
+   const profil=new Map();
+   try{
+     stage="anaf-profil";
+     const pr=await env.DB.prepare(`SELECT cui,adresa,caen_anaf FROM scara_anaf_2026_profil WHERE cui IN (${placeholders})`).bind(...ids).all();
+     for(const item of pr.results||[])profil.set(Number(item.cui),item);
+   }catch(e){console.warn("anaf-profil-unavailable",String(e?.message||e).slice(0,100));}
    let results=page.map(x=>{
+     const pf=profil.get(Number(x.cui))||{};
      const c=contacts.get(Number(x.cui))||{telefoane:[],emailuri:[],domenii:[]};
      const telefoane=unique(c.telefoane),emailuri=unique(c.emailuri),domenii=unique(c.domenii);
      return {cui:x.cui,nr_inmatriculare:x.cod_inmatriculare||null,denumire:x.denumire,forma_juridica:x.forma_juridica,
        judet:x.judet,localitate:x.localitate,data_inmatriculare:x.data_inmatriculare,
-       caen_mf:caen||null,telefoane,emailuri,are_telefon:telefoane.length>0,
+       caen_mf:caen||null,adresa:pf.adresa||null,caen_principal_anaf:pf.caen_anaf||null,telefoane,emailuri,are_telefon:telefoane.length>0,
        are_email:emailuri.length>0,are_site:domenii.length>0,
        site:domenii[0]||null};
    });
-   if(cuTelefon&&contactLookupOk)results=results.filter(x=>x.are_telefon);
+   // Filtrele telefon/site sunt aplicate deja în SQL, pe toată fereastra de 12 luni.
    const last=page[page.length-1];
    return reply({results,has_more:hasMore,next_cursor:hasMore?last.data_inmatriculare+"|"+encodeURIComponent(last.cod_inmatriculare||"")+"|"+last.cui:null,
-     limita:LIMIT,firme_noi:true,cu_telefon:cuTelefon,filtrare_telefon:cuTelefon?(contactLookupOk?"lot_curent":"indisponibila"):"off",contacte_disponibile:contactLookupOk,sort:"LIFO",an_selectat:year,
+     limita:LIMIT,firme_noi:true,cu_telefon:cuTelefon,filtrare_telefon:cuTelefon?"sql":"off",fara_site:faraSite,fereastra:"12 luni",contacte_disponibile:contactLookupOk,sort:"LIFO",an_selectat:year,
      perioada_firme_noi:{from,to,year},sursa:"ONRC + contacte FirmsFinder / ANAF (dacă importate)",
-     nota:contactLookupOk?"Paginare pe loturi ONRC. Cu telefon ON filtrează fiecare lot de 50; continuați cu NEXT. Datele lipsă nu dovedesc absența contactului.":"Contactele D1 nu au putut fi încărcate pentru acest lot; rezultatele ONRC sunt disponibile, dar filtrul telefon nu este aplicat."});
+     nota:contactLookupOk?"Firme înființate în ultimele 12 luni. Cu telefon ON afișează doar firmele cu telefon cunoscut. Datele lipsă nu dovedesc absența contactului.":"Contactele D1 nu au putut fi încărcate pentru acest lot; rezultatele ONRC sunt disponibile, dar filtrul telefon nu este aplicat."});
  }catch(e){
    console.error("2026-contact-list",stage,String(e?.message||e).slice(0,200));
    return reply({error:"Căutarea firmelor noi nu poate fi executată în D1.",stage,

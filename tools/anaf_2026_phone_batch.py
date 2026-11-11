@@ -7,6 +7,10 @@ What changed from v1 (100 CUI per manual run, phones only):
   * Also stores the ANAF address and principal CAEN in a new additive table
     scara_anaf_2026_profil (no change to ONRC tables or to existing contact rows).
   * Multi-row inserts (fewer D1 API calls). Idempotent: UPSERT by CUI.
+  * Window = firms registered in the last 12 months versus the current month
+    (Nov 2026 -> 2025-11-01 .. 2026-12-01), walked on the date index with a
+    (date, CUI) cursor, so no full-table scan.
+  * Table names keep the historical '2026' suffix; they hold the rolling window.
 
 Source: ANAF public VAT registry v9 (no authentication). No scraping.
 """
@@ -23,6 +27,13 @@ ANAF_BATCH = 500                                   # ANAF documented maximum per
 MAX_REQUESTS = int(os.environ.get("MAX_REQUESTS", "20"))   # 20 x 500 = 10.000 CUI per run
 PRIORITY_CAEN = os.environ.get("PRIORITY_CAEN", "4322").strip()
 PRIORITY_JUDET = os.environ.get("PRIORITY_JUDET", "București").strip()
+def window12():
+    now = dt.datetime.now(dt.timezone(dt.timedelta(hours=2)))
+    y, m = now.year, now.month
+    ny, nm = (y + 1, 1) if m == 12 else (y, m + 1)
+    return "%d-%02d-01" % (y - 1, m), "%d-%02d-01" % (ny, nm)
+
+
 SOURCE_URL = "https://webservicesp.anaf.ro/api/PlatitorTvaRest/v9/tva"
 ACCOUNT = os.environ.get("CF_ACCOUNT_ID") or os.environ.get("CLOUDFLARE_ACCOUNT_ID")
 DATABASE = os.environ.get("CF_D1_DATABASE_ID")
@@ -99,8 +110,9 @@ def ensure_tables():
         queried_at TEXT NOT NULL,
         verified INTEGER NOT NULL DEFAULT 0
     )""")
-    d1("""CREATE TABLE IF NOT EXISTS scara_anaf_2026_progress (
-        year INTEGER PRIMARY KEY,
+    d1("""CREATE TABLE IF NOT EXISTS scara_anaf_progress_12m (
+        id TEXT PRIMARY KEY,
+        last_date TEXT NOT NULL,
         last_cui INTEGER NOT NULL DEFAULT 0,
         last_run_at TEXT NOT NULL
     )""")
@@ -165,18 +177,20 @@ def priority_candidates(limit):
                       AND (',' || REPLACE(fc.caen,' ','') || ',') LIKE ?)
           AND NOT EXISTS (SELECT 1 FROM scara_anaf_2026_profil p WHERE p.cui=f.cui)
         LIMIT ?""",
-        ("%s-01-01" % YEAR, "%s-01-01" % (YEAR + 1), PRIORITY_JUDET,
+        (*window12(), PRIORITY_JUDET,
          "%," + PRIORITY_CAEN + ":%", limit))
     return sorted({int(r["cui"]) for r in rows if r.get("cui")})
 
 
-def national_candidates(last, limit):
-    rows = d1("""SELECT DISTINCT cui FROM onrc_firme
-        WHERE top=1 AND persoana_fizica=0 AND cui IS NOT NULL
+def national_candidates(last_date, last_cui, limit):
+    start, end = window12()
+    rows = d1("""SELECT cui, data_inmatriculare FROM onrc_firme INDEXED BY ix_onrc_firme_data
+        WHERE top=1 AND COALESCE(persoana_fizica,0)=0 AND cui IS NOT NULL
           AND data_inmatriculare>=? AND data_inmatriculare<?
-          AND cui>? ORDER BY cui LIMIT ?""",
-        ("%s-01-01" % YEAR, "%s-01-01" % (YEAR + 1), last, limit))
-    return [int(r["cui"]) for r in rows if r.get("cui")]
+          AND (data_inmatriculare>? OR (data_inmatriculare=? AND cui>?))
+        ORDER BY data_inmatriculare, cui LIMIT ?""",
+        (start, end, last_date, last_date, last_cui, limit))
+    return [(int(r["cui"]), r["data_inmatriculare"]) for r in rows if r.get("cui")]
 
 
 def main():
@@ -200,26 +214,30 @@ def main():
         time.sleep(1.2)
 
     # Pass 2 — national 2026 cursor with the remaining request budget.
-    last_rows = d1("SELECT last_cui FROM scara_anaf_2026_progress WHERE year=?", (YEAR,))
-    last = int(last_rows[0]["last_cui"]) if last_rows else 0
+    start, _ = window12()
+    rows = d1("SELECT last_date, last_cui FROM scara_anaf_progress_12m WHERE id='national'")
+    last_date, last = (rows[0]["last_date"], int(rows[0]["last_cui"])) if rows else ("0000-00-00", 0)
+    if last_date < start:
+        last_date, last = "0000-00-00", 0
     while stats["requests"] < MAX_REQUESTS:
-        chunk = national_candidates(last, ANAF_BATCH)
-        if not chunk:
+        batch = national_candidates(last_date, last, ANAF_BATCH)
+        if not batch:
             break
+        chunk = [c for c, _ in batch]
         found = query_anaf(chunk)
         stats["requests"] += 1
         stats["national_processed"] += len(chunk)
         stats["national_with_phone"] += store(chunk, found)
-        last = max(chunk)
+        last, last_date = batch[-1][0], batch[-1][1]
         # Cursor moves only after the rows are written (write first, move last).
-        d1("""INSERT INTO scara_anaf_2026_progress(year,last_cui,last_run_at)
-              VALUES(?,?,?) ON CONFLICT(year) DO UPDATE SET
+        d1("""INSERT INTO scara_anaf_progress_12m(id,last_date,last_cui,last_run_at)
+              VALUES('national',?,?,?) ON CONFLICT(id) DO UPDATE SET last_date=excluded.last_date,
               last_cui=excluded.last_cui,last_run_at=excluded.last_run_at""",
-           (YEAR, last, dt.datetime.now(dt.timezone.utc).isoformat()))
+           (last_date, last, dt.datetime.now(dt.timezone.utc).isoformat()))
         time.sleep(1.2)
 
     status = "batch_completed" if stats["requests"] else "complete"
-    report(status, last_cui=last, source="ANAF_v9", verified_required=False,
+    report(status, last_cui=last, last_date=last_date, window=window12(), source="ANAF_v9", verified_required=False,
            priority={"caen": PRIORITY_CAEN, "judet": PRIORITY_JUDET}, **stats)
 
 
