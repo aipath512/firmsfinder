@@ -13,6 +13,7 @@ What changed from v1 (100 CUI per manual run, phones only):
   * Table names keep the historical '2026' suffix; they hold the rolling window.
 
 Source: ANAF public VAT registry v9 (no authentication). No scraping.
+D1 write key: GitHub secret CF_D1_WRITE_TOKEN (D1 Edit only), created 2026-11-11.
 """
 import datetime as dt
 import json
