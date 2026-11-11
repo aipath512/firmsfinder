@@ -78,6 +78,9 @@ def d1_upsert(table, columns, rows, conflict_update):
 def report(status, **stats):
     data = {"status": status, "year": YEAR, "version": "2.0", **stats}
     print("ANAF_2026_BATCH=" + json.dumps(data, ensure_ascii=False))
+    # Visible in the public run annotations (no secrets, no CUI or phone numbers).
+    level = "error" if status == "failed" else "notice"
+    print("::%s title=ANAF robot %s::%s" % (level, status, json.dumps(data, ensure_ascii=False)[:900]))
     with open("anaf-2026-batch-report.json", "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
 
