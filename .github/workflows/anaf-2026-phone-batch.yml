@@ -1,5 +1,7 @@
-name: SCARA ANAF 2026 — retrieve phone numbers (one batch)
+name: SCARA ANAF 2026 — phones + address + CAEN (v2.0, priority 4322 București)
 on:
+  schedule:
+    - cron: '17 5 * * *'   # 07:17 ora României (iarnă)
   workflow_dispatch:
   push:
     branches: [main]
@@ -14,7 +16,7 @@ concurrency:
 jobs:
   retrieve:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 25
     env:
       CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
       CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
@@ -23,7 +25,7 @@ jobs:
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
     steps:
       - uses: actions/checkout@v4
-      - name: Retrieve next 100 ONRC 2026 CUIs from ANAF and store phone candidates
+      - name: Retrieve up to 10.000 ONRC 2026 CUIs from ANAF (priority set first)
         run: python3 tools/anaf_2026_phone_batch.py
       - name: Upload batch report (aggregate counts only)
         if: always()
