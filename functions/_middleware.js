@@ -126,7 +126,7 @@ async function loadHomepageSchema(env) {
     if (schema?.["@context"] !== "https://schema.org" || !Array.isArray(nodes) || nodes.length !== 3) return null;
     const ids = nodes.map((node) => node?.["@id"]);
     const required = [
-      "https://aiventure.ro/#organization",
+      "https://5thelement.ai/#organization",
       "https://firmsfinder.eu/#website",
       "https://firmsfinder.eu/#webpage"
     ];

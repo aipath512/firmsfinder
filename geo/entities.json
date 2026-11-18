@@ -4,7 +4,7 @@
   "artifact": "entities",
   "site": "https://firmsfinder.eu/",
   "publisher": {
-    "id": "https://aiventure.ro/#organization",
+    "id": "https://5thelement.ai/#organization",
     "name": "AiVenture S.R.L.",
     "type": "Organization",
     "status": "SELF_DECLARED"
@@ -20,7 +20,7 @@
   },
   "entities": [
     {
-      "id": "https://aiventure.ro/#organization",
+      "id": "https://5thelement.ai/#organization",
       "type": "Organization",
       "name": "AiVenture S.R.L.",
       "description": "Organizatia care dezvolta platforma FirmsFinder.",
@@ -47,7 +47,7 @@
       "name": "FirmsFinder",
       "description": "Website dedicat descoperirii firmelor si oportunitatilor economice.",
       "url": "https://firmsfinder.eu/",
-      "publisher_ref": "https://aiventure.ro/#organization",
+      "publisher_ref": "https://5thelement.ai/#organization",
       "language": "ro-RO",
       "status": "SELF_DECLARED",
       "evidence_refs": []
@@ -58,7 +58,7 @@
       "name": "FirmsFinder AI",
       "description": "Platforma de cautare si analiza a firmelor, orientata catre identificarea oportunitatilor economice.",
       "url": "https://firmsfinder.eu/",
-      "provider_ref": "https://aiventure.ro/#organization",
+      "provider_ref": "https://5thelement.ai/#organization",
       "status": "SELF_DECLARED",
       "evidence_refs": [],
       "brand_ref": "https://firmsfinder.eu/#brand"
@@ -69,7 +69,7 @@
       "name": "FREE DATA",
       "description": "Acces gratuit la date oficiale publice despre firme, in limitele surselor si functionalitatilor disponibile.",
       "url": "https://firmsfinder.eu/cautare/",
-      "provider_ref": "https://aiventure.ro/#organization",
+      "provider_ref": "https://5thelement.ai/#organization",
       "pricing_model": "FREE",
       "price_eur": 0,
       "availability_status": "REQUIRES_VERIFICATION",
@@ -81,7 +81,7 @@
       "name": "GEO Diagnostic",
       "description": "Diagnostic initial pentru evaluarea pregatirii unei pagini web pentru descoperirea si utilizarea de catre sisteme AI.",
       "url": "https://firmsfinder.eu/geo/",
-      "provider_ref": "https://aiventure.ro/#organization",
+      "provider_ref": "https://5thelement.ai/#organization",
       "pricing_model": "FREE_PROPOSED",
       "price_eur": 0,
       "availability_status": "NOT_IMPLEMENTED",
@@ -93,7 +93,7 @@
       "name": "GEO File Generator",
       "description": "Generarea unui set de 21 de artefacte JSON GEO si a unei arhive ZIP pentru un URL analizat.",
       "url": "https://firmsfinder.eu/geo/",
-      "provider_ref": "https://aiventure.ro/#organization",
+      "provider_ref": "https://5thelement.ai/#organization",
       "pricing_model": "ONE_TIME_PROPOSED",
       "price_eur": 49,
       "availability_status": "MVP_NOT_DEPLOYED",
@@ -105,7 +105,7 @@
       "name": "GEO Weekly Monitor",
       "description": "Monitorizare periodica GEO, rapoarte comparative si planuri de remediere.",
       "url": "https://firmsfinder.eu/geo/",
-      "provider_ref": "https://aiventure.ro/#organization",
+      "provider_ref": "https://5thelement.ai/#organization",
       "pricing_model": "SUBSCRIPTION_PROPOSED",
       "price_eur": 29,
       "billing_period": "P1M",
@@ -118,7 +118,7 @@
       "name": "AEO Diagnostic",
       "description": "Evaluare initiala a structurii continutului pentru raspunsuri directe si sisteme de cautare.",
       "url": "https://firmsfinder.eu/aeo/",
-      "provider_ref": "https://aiventure.ro/#organization",
+      "provider_ref": "https://5thelement.ai/#organization",
       "pricing_model": "FREE_PROPOSED",
       "availability_status": "REQUIRES_VERIFICATION",
       "evidence_refs": []
@@ -129,7 +129,7 @@
       "name": "AIO Diagnostic",
       "description": "Evaluare initiala a semnalelor tehnice si semantice pentru utilizarea continutului de catre sisteme AI.",
       "url": "https://firmsfinder.eu/aio/",
-      "provider_ref": "https://aiventure.ro/#organization",
+      "provider_ref": "https://5thelement.ai/#organization",
       "pricing_model": "FREE_PROPOSED",
       "availability_status": "REQUIRES_VERIFICATION",
       "evidence_refs": []
@@ -162,13 +162,13 @@
   ],
   "relations": [
     {
-      "subject": "https://aiventure.ro/#organization",
+      "subject": "https://5thelement.ai/#organization",
       "predicate": "develops",
       "object": "https://firmsfinder.eu/#software",
       "status": "SELF_DECLARED"
     },
     {
-      "subject": "https://aiventure.ro/#organization",
+      "subject": "https://5thelement.ai/#organization",
       "predicate": "publishes",
       "object": "https://firmsfinder.eu/#website",
       "status": "SELF_DECLARED"
@@ -192,25 +192,25 @@
       "status": "DESIGN_INTENT"
     },
     {
-      "subject": "https://aiventure.ro/#organization",
+      "subject": "https://5thelement.ai/#organization",
       "predicate": "proposesService",
       "object": "https://firmsfinder.eu/#geo-diagnostic",
       "status": "DESIGN_INTENT"
     },
     {
-      "subject": "https://aiventure.ro/#organization",
+      "subject": "https://5thelement.ai/#organization",
       "predicate": "proposesService",
       "object": "https://firmsfinder.eu/#geo-generator",
       "status": "DESIGN_INTENT"
     },
     {
-      "subject": "https://aiventure.ro/#organization",
+      "subject": "https://5thelement.ai/#organization",
       "predicate": "proposesService",
       "object": "https://firmsfinder.eu/#geo-monitor",
       "status": "DESIGN_INTENT"
     },
     {
-      "subject": "https://aiventure.ro/#organization",
+      "subject": "https://5thelement.ai/#organization",
       "predicate": "ownsBrand",
       "object": "https://firmsfinder.eu/#brand",
       "status": "SELF_DECLARED"

@@ -12,7 +12,7 @@
       "name": "FirmsFinder",
       "url": "https://firmsfinder.eu/",
       "inLanguage": "ro-RO",
-      "publisher_ref": "https://aiventure.ro/#organization",
+      "publisher_ref": "https://5thelement.ai/#organization",
       "areaServed": [
         {
           "type": "Country",
@@ -27,7 +27,7 @@
       ]
     },
     {
-      "id": "https://aiventure.ro/#organization",
+      "id": "https://5thelement.ai/#organization",
       "type": "Organization",
       "name": "AiVenture S.R.L.",
       "alternateName": "5thelement.ai",
@@ -75,7 +75,7 @@
       "type": "SoftwareApplication",
       "name": "FirmsFinder AI",
       "description": "Platformă de Economic Intelligence B2B pentru descoperirea firmelor, clienților, furnizorilor și partenerilor. Acoperire curentă: România; următoarea etapă: Uniunea Europeană.",
-      "provider_ref": "https://aiventure.ro/#organization",
+      "provider_ref": "https://5thelement.ai/#organization",
       "brand_ref": "https://firmsfinder.eu/#brand",
       "search_endpoint_host": "https://firmsfinder.eu/",
       "areaServed": [
@@ -96,7 +96,7 @@
       "type": "Service",
       "name": "CAUTĂ",
       "description": "Căutare de firme după activitate (CAEN), județ și localitate, cu criterii și surse afișate.",
-      "provider_ref": "https://aiventure.ro/#organization",
+      "provider_ref": "https://5thelement.ai/#organization",
       "url": "https://firmsfinder.eu/cautare/"
     },
     {
@@ -104,7 +104,7 @@
       "type": "Service",
       "name": "FII GĂSIT",
       "description": "Prezentarea structurată a ofertei unei firme, pentru a fi înțeleasă de oameni și sisteme AI.",
-      "provider_ref": "https://aiventure.ro/#organization",
+      "provider_ref": "https://5thelement.ai/#organization",
       "url": "https://firmsfinder.eu/intelligence/"
     },
     {
@@ -112,7 +112,7 @@
       "type": "Service",
       "name": "DELEAGĂ AI-ULUI",
       "description": "Cercetare delegată pe baza unor criterii aprobate; calificarea și decizia comercială rămân la om.",
-      "provider_ref": "https://aiventure.ro/#organization",
+      "provider_ref": "https://5thelement.ai/#organization",
       "url": "https://firmsfinder.eu/intelligence/"
     },
     {

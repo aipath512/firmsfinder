@@ -20,7 +20,7 @@ LD_RE = re.compile(r'<script[^>]*application/ld\+json[^>]*>(.*?)</script>', re.S
 CORE_BOTS = ['GPTBot', 'OAI-SearchBot', 'ChatGPT-User', 'ClaudeBot', 'Claude-SearchBot', 'PerplexityBot',
              'Google-Extended', 'Applebot-Extended', 'CCBot']
 EXTRA_BOTS = ['Claude-User', 'Perplexity-User', 'Applebot', 'Meta-ExternalAgent']
-ORG_ID = 'https://aiventure.ro/#organization'
+ORG_ID = 'https://5thelement.ai/#organization'
 OFFICIAL = ['onrc.ro', 'mfinante.gov.ro', 'anaf.ro', 'data.gov.ro']
 
 
